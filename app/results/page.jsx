@@ -12,7 +12,7 @@ export default function ResultsPage() {
     
     if (!saved) {
       // No results, redirect to assessment
-      window.location.href = '/test';
+      window.location.href = '/assessment';
       return;
     }
 
@@ -24,7 +24,7 @@ export default function ResultsPage() {
       if (!responseText || !responseText.includes('⚠️')) {
         console.error('🚨 FOOTER MISSING - SAFETY BREACH');
         alert('System error: Verification warning missing. Please try again.');
-        window.location.href = '/test';
+        window.location.href = '/assessment';
         return;
       }
       

@@ -7,7 +7,7 @@
 2. Talk to your parents/guardians
 3. Contact the official authority (listed above)
 
-This is a serious decision. Get personalized guidance from people who know your situation.`,validation:{passed:!0,dangerousQueryHandled:!0},metadata:{generationTime:0,modelUsed:"safety-filter",tokensUsed:{prompt:0,completion:0,total:0},retries:0,validationPassed:!0,dangerCategory:c.category,safetyTriggered:!0}};let d=Date.now(),m=0,g=null,p=o;for(;m<=a;)try{let n;let a=function(e,t,i,n=0){let a=/stuck|choose|decision|between|paths|love.*pay|passion.*pay/i.test(e),s=/everyone says|is it true|heard|friend says|myth|waste of time|AI.*jobs|degree.*online/i.test(e),r=/creative|artist|music|design|art|writer/i.test(e),o=/AI|artificial intelligence|automation|robots|future.*jobs/i.test(e),c=/hate math|bad at math|struggle with math|math is hard|don't like math|worst subject.*math/i.test(e)||i.academicWeaknesses?.some(e=>/math/i.test(e)),l="";c&&(l+=`
+This is a serious decision. Get personalized guidance from people who know your situation.`,validation:{passed:!0,dangerousQueryHandled:!0},metadata:{generationTime:0,modelUsed:"safety-filter",tokensUsed:{prompt:0,completion:0,total:0},retries:0,validationPassed:!0,dangerCategory:c.category,safetyTriggered:!0}};let d=Date.now(),m=0,g=null,p=o;for(;m<=a;)try{let n;let a=function(e,t,i,n=0){let a=/stuck|choose|decision|between|paths|love.*pay|passion.*pay/i.test(e),s=/everyone says|is it true|heard|friend says|myth|waste of time|AI.*jobs|degree.*online/i.test(e),r=/creative|artist|music|design|art|writer/i.test(e),o=/AI|artificial intelligence|automation|robots|future.*jobs/i.test(e),c=/hate math|bad at math|struggle with math|math is hard|don't like math|worst subject.*math/i.test(e)||i.academicWeaknesses?.some(e=>/math/i.test(e)),l="low"===i.financialConstraint||i.constraints?.money==="low"||/can't afford|no money|poor|financial|bursaries?|nsfas/i.test(e),h="";c&&(h+=`
 
 RULE #3 - MATH-HATE HEALTHCARE (CRITICAL):
 The student has expressed math anxiety or weakness. You MUST follow these rules:
@@ -31,7 +31,59 @@ Why: Strong fit for your caring nature and interest in health
 Entry: Grade 12 with Life Sciences, minimum APS 28-32
 Salary: R15,000-R35,000/month
 
-REMEMBER: Math anxiety ≠ Math inability. Do not eliminate healthcare careers.`),a&&(l=`
+REMEMBER: Math anxiety ≠ Math inability. Do not eliminate healthcare careers.`),l&&(h+=`
+
+RULE #4 - NSFAS PRIORITIZATION (CRITICAL):
+This student has financial constraints. You MUST follow these rules:
+
+1. PRIORITIZE careers in this order:
+   a) Careers with active bursary programs (Sasol, Eskom, mining companies, banks)
+   b) NSFAS-funded pathways (public universities, TVET colleges)
+   c) Free training options (learnerships, apprenticeships, SETAs)
+
+2. FOR EACH RECOMMENDATION, include in the FIRST paragraph:
+   💰 Funding Available: [Total value over 3 years]
+   - [Bursary Name]: R[Amount]/year (covers [what])
+   - NSFAS: R[Amount]/year (covers [what])
+   - [Other Bursary]: R[Amount]/year (covers [what])
+
+3. SHOW SPECIFIC DETAILS:
+   - Exact amounts (R120,000/year, NOT "full funding")
+   - Application deadlines (May 30, 2027, NOT "early in year")
+   - What's covered (tuition + accommodation + books)
+   - Total value over 3-4 years
+
+4. INCLUDE NSFAS GUIDANCE:
+   - Eligibility: Household income <R350,000/year
+   - Application: www.nsfas.org.za by November each year
+   - Covers: Tuition + accommodation + meals + books + transport
+
+5. HIGHLIGHT FREE ALTERNATIVES:
+   - TVET colleges (R5,000/year vs R60,000/year private)
+   - Learnerships (earn R3,000-R5,000/month while learning)
+   - Apprenticeships (paid training programs)
+
+6. MAKE IT FEEL ACHIEVABLE:
+   - Use empowering language: "This career is AFFORDABLE for you"
+   - Show the path: "With these bursaries, you can study without family financial stress"
+   - Calculate total value: "Total potential funding: R800,000+ over 4 years"
+
+EXAMPLE FORMAT:
+**Engineering (85% match)**
+
+💰 Funding Available: R280,000+ over 3 years
+- Sasol Engineering Bursary: R120,000/year (covers tuition + R5K/month allowance)
+- NSFAS: R80,000/year (covers tuition + accommodation)
+- Eskom Bursary: R100,000/year (covers tuition + books)
+
+This career is AFFORDABLE for you. With these bursaries, you can study Engineering without family financial stress.
+
+Application Timeline:
+- May 2027: Apply for Sasol bursary (Grade 11 marks required)
+- August 2027: Apply for Eskom bursary
+- November 2027: Apply for NSFAS (household income <R350K/year)
+
+REMEMBER: Show the money early. Make it feel achievable, not aspirational.`),a&&(h=`
 
 DECISION-MAKING FRAMEWORK REQUIRED:
 - START by validating their feeling of being stuck (e.g., "Being stuck is normal...")
@@ -39,28 +91,28 @@ DECISION-MAKING FRAMEWORK REQUIRED:
 - Reference the Career Choice Matrix with weighted factors (Interest \xd73, Ability \xd73, Security \xd72, Salary \xd72, Affordability \xd72)
 - Suggest job shadowing and informational interviews as validation tools
 - Mention that career changes are normal (most people change careers 3-5 times)
-- Provide the 4-step decision tree: Know Yourself → Know Options → Use Matrix → Test & Commit`),s&&(l=`
+- Provide the 4-step decision tree: Know Yourself → Know Options → Use Matrix → Test & Commit`),s&&(h=`
 
 MYTH-BUSTING FRAMEWORK REQUIRED:
 - START by directly acknowledging and challenging the misconception (e.g., "This is a common myth, but here's the reality...")
 - Provide EVIDENCE to debunk the myth (statistics, salary data, success stories)
 - Address the emotional/social pressure behind the misconception (family expectations, peer pressure, fear)
 - Offer alternative perspectives and frameworks for thinking about the issue
-- Validate their feelings while correcting the misinformation`),r&&(l+=`
+- Validate their feelings while correcting the misinformation`),r&&(h+=`
 
 CREATIVE CAREER GUIDANCE:
 - Distinguish between "passion hobbies" and "creative professions"
 - Provide HIGH-PAYING creative-tech hybrids (UX/UI Designer R25K-R45K, Game Designer R25K-R50K)
 - Mention the 70/30 rule (70% stable income, 30% passion projects)
 - Include freelance + corporate hybrid strategies
-- Reference SA creative success stories if available in context`),o&&(l+=`
+- Reference SA creative success stories if available in context`),o&&(h+=`
 
 AI & FUTURE OF WORK GUIDANCE:
 - Acknowledge AI anxiety as valid but provide nuanced perspective
 - Categorize jobs: HIGH risk (data entry, telemarketers), MEDIUM risk (will change not disappear), LOW risk (AI-resistant)
 - Emphasize AI AUGMENTATION (jobs become more interesting) not just displacement
 - List NEW careers created by AI (ML Engineer, AI Ethics Specialist, Prompt Engineer)
-- Highlight AI-proof skills: creativity, emotional intelligence, complex problem-solving, critical thinking, adaptability`);let h="";n>0&&(h=`
+- Highlight AI-proof skills: creativity, emotional intelligence, complex problem-solving, critical thinking, adaptability`);let u="";n>0&&(u=`
 
 IMPORTANT: Your previous response was incomplete. Please ensure you include:
 - Exactly 3-5 career options (numbered 1., 2., 3., etc.)
@@ -68,7 +120,7 @@ IMPORTANT: Your previous response was incomplete. Please ensure you include:
 - Salary range in ZAR for EACH career (e.g., "R25,000-R45,000/month")
 ${"low"===i.financialConstraint?"- At least 2 specific bursaries with names, amounts, and deadlines":""}
 - Specific next steps (numbered list)
-- EXTRACT and USE specific frameworks, models, and concepts from the retrieved knowledge above`);let u=t.frameworksDetected&&t.frameworks&&t.frameworks.length>0,d="string"==typeof t?t:t.context,m="";return u&&(m=`
+- EXTRACT and USE specific frameworks, models, and concepts from the retrieved knowledge above`);let d=t.frameworksDetected&&t.frameworks&&t.frameworks.length>0,m="string"==typeof t?t:t.context,g="";return d&&(g=`
 
 ═══════════════════════════════════════
 🎯 FRAMEWORKS TO USE (MANDATORY):
@@ -90,7 +142,7 @@ ${t+1}. ${e.name}
 ═══════════════════════════════════════
 
 `),`RETRIEVED KNOWLEDGE (USE THIS INFORMATION):
-${d}${m}
+${m}${g}
 
 Student Question: ${e}
 
@@ -131,7 +183,7 @@ RESPONSE STRUCTURE:
 
 6. Closing (1-2 sentences):
    - Encouraging message
-   - Reminder that career planning is a process${l}${h}
+   - Reminder that career planning is a process${h}${u}
 
 Response:`}(e,t,i,m);if("groq"===p)try{n=await l(a,{timeout:r}),p="groq-llama-3.1-70b"}catch(e){console.warn("Groq failed, falling back to OpenAI:",e.message),n=await h(a,{timeout:r}),p="openai-gpt-3.5-turbo"}else n=await h(a,{timeout:r}),p="openai-gpt-3.5-turbo";let s=function(e,t,i={}){let n={hasCareerMatches:!1,hasReasoningForCareer:!1,hasBursaries:!0,hasSalaries:!1,hasNextSteps:!1,hasSAContext:!1,hasSubstantialContent:!1},a=(e.match(/^\d+[\.\)]\s+/gm)||[]).length,s=Math.max(a,Math.min((e.match(/\b(scientist|analyst|developer|engineer|accountant|actuary|programmer|designer|consultant|teacher|nurse|doctor|architect|technician)\b/gi)||[]).length,5));n.hasCareerMatches=s>=3,n.hasReasoningForCareer=e.length>300&&(/\b(ideal|suitable|perfect|excellent|great|good|recommended|match|aligns|fits|because|since|as|why)\b/i.test(e)||/given your|based on your|considering your|this career|these careers|option|path/i.test(e)),("low"===t.financialConstraint||"medium"===t.financialConstraint)&&(n.hasBursaries=/(?:sasol|fnb|nedbank|discovery|anglo|eskom|transnet|nsfas|standard bank|absa|capitec|old mutual).+?(?:deadline|closes|apply by|due)/gis.test(e));let r=e.match(/R\d+[,\d]*[kK]?\s*(?:-|to|–)\s*R\d+[,\d]*[kK]?/g)||[];return n.hasSalaries=r.length>=3,n.hasNextSteps=/next step|action|apply|visit|contact|prepare|research/gi.test(e)&&(e.match(/^\d+\.\s+[A-Z]/gm)||[]).length>=2,n.hasSAContext=/university|south africa|gauteng|western cape|kwazulu|uct|wits|stellenbosch|pretoria/gi.test(e),n.hasSubstantialContent=e.length>=300&&e.length<=3e3,n.hasFrameworkReference=!i.frameworksDetected||!i.frameworks||0===i.frameworks.length||i.frameworks.some(t=>!!RegExp(t.name,"i").test(e)||(u[t.name]||[]).some(t=>RegExp(t,"i").test(e))),{passed:Object.values(n).every(e=>!0===e),checks:n,details:{careerCount:s,salaryRangeCount:r.length,responseLength:e.length}}}(n.content,i,t);if(s.passed){let e=`
 
@@ -142,7 +194,7 @@ Response:`}(e,t,i,m);if("groq"===p)try{n=await l(a,{timeout:r}),p="groq-llama-3.
 2. Call the institution directly (phone above)
 3. Visit official websites for current info
 
-Thandi's data may be outdated. Always confirm with real people.`,t=n.content+e,i=Date.now()-d;return{success:!0,response:t,validation:s,metadata:{generationTime:i,modelUsed:p,tokensUsed:n.tokensUsed,retries:m,validationPassed:!0,fallbackUsed:p.includes("openai"),verificationFooterAdded:!0}}}console.warn(`Validation failed on attempt ${m+1}:`,s.checks),g=Error("Response validation failed: "+JSON.stringify(s.checks)),m++}catch(e){console.error(`Generation attempt ${m+1} failed:`,e.message),g=e,++m<=a&&await function(e){return new Promise(t=>setTimeout(t,e))}(1e3*Math.pow(2,m))}let f=Date.now()-d;return{success:!1,error:g?.message||"Generation failed after retries",metadata:{generationTime:f,modelUsed:p,retries:a,validationPassed:!1}}}async function l(e,t={}){let{timeout:i=1e4}=t,a=(r||(r=new n.ZP({apiKey:process.env.GROQ_API_KEY})),r),s=new AbortController,o=setTimeout(()=>s.abort(),i);try{let t=await a.chat.completions.create({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:`You are Thandi, an AI career counselor for South African Grade 11-12 students. You provide practical, encouraging career guidance based on their academic profile and financial situation.
+Thandi's data may be outdated. Always confirm with real people.`,t=n.content+e,i=Date.now()-d;return{success:!0,response:t,validation:s,metadata:{generationTime:i,modelUsed:p,tokensUsed:n.tokensUsed,retries:m,validationPassed:!0,fallbackUsed:p.includes("openai"),verificationFooterAdded:!0}}}console.warn(`Validation failed on attempt ${m+1}:`,s.checks),g=Error("Response validation failed: "+JSON.stringify(s.checks)),m++}catch(e){console.error(`Generation attempt ${m+1} failed:`,e.message),g=e,++m<=a&&await function(e){return new Promise(t=>setTimeout(t,e))}(1e3*Math.pow(2,m))}let y=Date.now()-d;return{success:!1,error:g?.message||"Generation failed after retries",metadata:{generationTime:y,modelUsed:p,retries:a,validationPassed:!1}}}async function l(e,t={}){let{timeout:i=1e4}=t,a=(r||(r=new n.ZP({apiKey:process.env.GROQ_API_KEY})),r),s=new AbortController,o=setTimeout(()=>s.abort(),i);try{let t=await a.chat.completions.create({model:"llama-3.3-70b-versatile",messages:[{role:"system",content:`You are Thandi, an AI career counselor for South African Grade 11-12 students. You provide practical, encouraging career guidance based on their academic profile and financial situation.
 
 CRITICAL: You MUST extract and explicitly reference specific frameworks, models, and concepts from the retrieved knowledge provided. Always:
 - Name the frameworks you're using (e.g., "V.I.S. Model", "Career Choice Matrix", "Passion vs Pay Framework")
@@ -160,8 +212,8 @@ CRITICAL: You MUST extract and explicitly reference specific frameworks, models,
 - Reference specific tools and assessments mentioned in the knowledge
 - Include concrete examples and strategies from the retrieved content
 
-Your responses should demonstrate that you're using the specialized knowledge provided, not just general career advice.`},{role:"user",content:e}],temperature:.7,max_tokens:1200},{signal:s.signal});return clearTimeout(r),{content:t.choices[0]?.message?.content||"",tokensUsed:{prompt:t.usage?.prompt_tokens||0,completion:t.usage?.completion_tokens||0,total:t.usage?.total_tokens||0}}}catch(e){if(clearTimeout(r),"AbortError"===e.name)throw Error("OpenAI request timeout");throw e}}let u={"V.I.S. Model":["Values-Interest-Skills","VIS Model","V.I.S framework","Values, Interests, Skills","Values Interests Skills"],"Career Choice Matrix":["career matrix","decision matrix","choice framework","scoring matrix"],"Passion vs Pay":["passion versus pay","love vs money","interest vs salary","passion or pay"],"AI Augmentation":["AI augment","human-AI collaboration","AI enhancement"],"70/30 Rule":["70-30 rule","seventy thirty","70 percent stable"]}},3702:(e,t,i)=>{i.d(t,{iG:()=>l});var n=i(79224),a=i(23489);let s={"no-matric":["electrician","chef","content_creator"],"no-university-high-income":["electrician","chef","software_engineer","cybersecurity_specialist","renewable_energy_engineer","content_creator","ux_ui_designer"],"creative-tech":["ux_ui_designer","graphic_designer","content_creator","ai_ml_engineer","software_engineer"],"remote-dollars":["software_engineer","ux_ui_designer","data_scientist","ai_ml_engineer","cybersecurity_specialist","blockchain_developer","content_creator","graphic_designer"],"fast-earnings":["electrician","chef","renewable_energy_engineer","content_creator"],"biology-tech":["medical_doctor","pharmacist","data_scientist","biomedical_engineer"],"hands-on":["electrician","chef","renewable_energy_engineer","mechanical_engineer","civil_engineer","physiotherapist"],"helping-people":["medical_doctor","pharmacist","physiotherapist","occupational_therapist","chef"],"long-term-specialist":["medical_doctor","pharmacist","civil_engineer","mechanical_engineer"],general:[]},r={biology:["medical_doctor","pharmacist","physiotherapist","occupational_therapist","data_scientist","biomedical_engineer"],mathematics:["software_engineer","data_scientist","ai_ml_engineer","mechanical_engineer","electrical_engineer","civil_engineer","chemical_engineer","blockchain_developer","cybersecurity_specialist"],physical_sciences:["mechanical_engineer","electrical_engineer","civil_engineer","chemical_engineer","renewable_energy_engineer","biomedical_engineer"],avoid_math:["data_scientist","ai_ml_engineer","electrical_engineer","chemical_engineer","mechanical_engineer","civil_engineer","blockchain_developer","software_engineer"],avoid_science:["medical_doctor","pharmacist","biomedical_engineer","chemical_engineer","renewable_energy_engineer"],low_math_tech:["ux_ui_designer","graphic_designer","content_creator","cybersecurity_specialist"]},o=null;function c(){return o||(o=(0,n.eI)("https://pvvnxupuukuefajypovz.supabase.co",process.env.SUPABASE_SERVICE_ROLE_KEY)),o}async function l(e,t,n={}){let{limit:o=10,debug:c=!1}=n,l=(0,a.Tl)(e),m=(0,a.w5)(l,e),{detectConflicts:p}=await Promise.resolve().then(i.bind(i,23489)),f=p(l,e);c&&(console.log("\uD83C\uDFAF Intent:",m),console.log("\uD83D\uDCCB Details:",l),f.length>0&&console.log("⚠️  Conflicts detected:",f.map(e=>e.type).join(", ")));let y=[];if(l.explicitCareers.length>0){let e=await u(l.explicitCareers);y.push(...e.map(e=>({...e,source:"explicit",priority:1}))),c&&console.log(`✅ Explicit matches: ${e.length} chunks`)}let w=s[m]||[],b=[];if(f.length>0&&(f.forEach(e=>{e.paths&&e.paths.forEach(e=>{if(e!==m){let t=s[e]||[];b=[...b,...t]}})}),b=[...new Set(b)],c&&console.log(`⚠️  Conflict detected - will retrieve both paths separately`)),w.length>0){w=h(w,l);let e=await d(w);y.push(...e.map(e=>({...e,source:"intent-primary",priority:2}))),c&&(console.log(`✅ Intent matches (${m}): ${e.length} chunks`),console.log(`   Careers: ${w.slice(0,8).join(", ")}${w.length>8?"...":""}`))}if(b.length>0){b=h(b,l);let e=await d(b);y.push(...e.map(e=>({...e,source:"intent-conflict",priority:2}))),c&&(console.log(`✅ Conflict path matches: ${e.length} chunks`),console.log(`   Careers: ${b.slice(0,8).join(", ")}${b.length>8?"...":""}`))}if(y.length<8){let e=await g(t,{threshold:.55,limit:25}),i=e.filter(e=>e.chunk_metadata?.career_name||e.module_name?.includes("career")||e.module_name?.includes("4ir")||e.module_name?.includes("engineering")||e.module_name?.includes("healthcare")||e.module_name?.includes("trades"));y.push(...i.map(e=>({...e,source:"semantic",priority:3}))),c&&console.log(`✅ Semantic matches: ${i.length} chunks (${e.length} before filtering)`)}else c&&console.log(`⏭️  Skipped semantic search (${y.length} results already)`);let _=function(e,t,i){let n=new Map;e.forEach(e=>{(!n.has(e.id)||n.get(e.id).priority>e.priority)&&n.set(e.id,e)});let a=Array.from(n.values()).map(e=>{let i=e.initial_score||.7;e.chunk_text.toLowerCase();let n=e.chunk_metadata||{};"explicit"===e.source&&(i-=.25),"intent-conflict"===e.source&&(i-=.22),("intent-primary"===e.source||"intent"===e.source)&&(i-=.2),(n.career_name||"career_summary"===e.source_entity_type)&&(i-=.15);let a=function(e,t,i){let n=0,a=e.chunk_text.toLowerCase(),s=e.chunk_metadata?.career_name,o=s?s.toLowerCase().replace(/[\/\s]+/g,"_"):null;return t.subjectNegations?.math&&(/(mathematics|calculus|algebra|statistics|math\s+required)/.test(a)&&(n+=.4),o&&r.avoid_math.includes(o)&&(n+=.35)),t.hasUniversityNegation&&/(bachelor|degree|bsc|ba\b|bcom|university required)/.test(a)&&(n+=.5),t.hasMatricNegation&&/(matric required|grade 12 required|nsc required)/.test(a)&&!/without matric|no matric/.test(a)&&(n+=.4),t.subjects?.biology&&(/(biology|life sciences|anatomy|physiology|medical|health)/.test(a)&&(n-=.25),o&&r.biology.includes(o)&&(n-=.2)),t.subjects?.maths&&!t.subjectNegations?.math&&(/(mathematics|calculus|statistics|quantitative)/.test(a)&&(n-=.2),o&&r.mathematics.includes(o)&&(n-=.15)),t.subjects?.physics&&(/(physics|mechanics|thermodynamics|engineering)/.test(a)&&(n-=.2),o&&r.physical_sciences.includes(o)&&(n-=.15)),t.subjectNegations?.math&&t.wantsTech&&o&&r.low_math_tech.includes(o)&&(n-=.15),t.wantsRemote&&/(remote|freelance|work from home|online|anywhere)/.test(a)&&(n-=.1),t.wantsFastPath&&/(\d+\s*(week|month)|quick|fast|immediate|apprenticeship)/.test(a)&&(n-=.1),(t.wantsHighIncome||t.wantsDollars)&&/(r\d{2,3}[,\s]?\d{3}|salary|earning|\$\d+|dollar|high.?income)/.test(a)&&(n-=.08),n}(e,t,0);return i+=a,("decision_making_framework"===e.module_name||"career_misconceptions_framework"===e.module_name)&&(i+=.15),"high"===n.priority&&(i-=.1),{...e,final_score:Math.max(0,Math.min(i,1)),constraint_adjustment:a}});return a.sort((e,t)=>{if(.05>Math.abs(e.final_score-t.final_score)){if("intent-conflict"===e.source&&"intent-primary"===t.source)return -1;if("intent-primary"===e.source&&"intent-conflict"===t.source)return 1}return e.final_score-t.final_score}),a}(y,l,0);return c&&(console.log(`
-📊 Final results: ${_.length} chunks`),_.slice(0,5).forEach((e,t)=>{console.log(`${t+1}. [${e.source}] ${e.module_name} - Score: ${e.final_score.toFixed(3)}`)})),_.slice(0,o).map(e=>({...e,query_conflicts:f}))}function h(e,t){let i=[...e];if(t.subjectNegations?.math&&(i=i.filter(e=>!r.avoid_math.includes(e)),t.wantsTech)){let e=r.low_math_tech.filter(e=>!i.includes(e));i=[...i,...e]}t.subjectNegations?.science&&(i=i.filter(e=>!r.avoid_science.includes(e)));let n=[];if(t.subjects?.biology){let e=r.biology.filter(e=>i.includes(e));n.push(...e),i=i.filter(t=>!e.includes(t))}if(t.subjects?.maths&&!t.subjectNegations?.math){let e=r.mathematics.filter(e=>i.includes(e));n.push(...e),i=i.filter(t=>!e.includes(t))}if(t.subjects?.physics){let e=r.physical_sciences.filter(e=>i.includes(e));n.push(...e),i=i.filter(t=>!e.includes(t))}return[...new Set([...n,...i])]}async function u(e){let t=c();try{let i=[];for(let n of e)for(let e of m(n)){let{data:n,error:a}=await t.from("knowledge_chunks").select(`
+Your responses should demonstrate that you're using the specialized knowledge provided, not just general career advice.`},{role:"user",content:e}],temperature:.7,max_tokens:1200},{signal:s.signal});return clearTimeout(r),{content:t.choices[0]?.message?.content||"",tokensUsed:{prompt:t.usage?.prompt_tokens||0,completion:t.usage?.completion_tokens||0,total:t.usage?.total_tokens||0}}}catch(e){if(clearTimeout(r),"AbortError"===e.name)throw Error("OpenAI request timeout");throw e}}let u={"V.I.S. Model":["Values-Interest-Skills","VIS Model","V.I.S framework","Values, Interests, Skills","Values Interests Skills"],"Career Choice Matrix":["career matrix","decision matrix","choice framework","scoring matrix"],"Passion vs Pay":["passion versus pay","love vs money","interest vs salary","passion or pay"],"AI Augmentation":["AI augment","human-AI collaboration","AI enhancement"],"70/30 Rule":["70-30 rule","seventy thirty","70 percent stable"]}},3702:(e,t,i)=>{i.d(t,{iG:()=>l});var n=i(79224),a=i(23489);let s={"no-matric":["electrician","chef","content_creator"],"no-university-high-income":["electrician","chef","software_engineer","cybersecurity_specialist","renewable_energy_engineer","content_creator","ux_ui_designer"],"creative-tech":["ux_ui_designer","graphic_designer","content_creator","ai_ml_engineer","software_engineer"],"remote-dollars":["software_engineer","ux_ui_designer","data_scientist","ai_ml_engineer","cybersecurity_specialist","blockchain_developer","content_creator","graphic_designer"],"fast-earnings":["electrician","chef","renewable_energy_engineer","content_creator"],"biology-tech":["medical_doctor","pharmacist","data_scientist","biomedical_engineer"],"hands-on":["electrician","chef","renewable_energy_engineer","mechanical_engineer","civil_engineer","physiotherapist"],"helping-people":["medical_doctor","pharmacist","physiotherapist","occupational_therapist","chef"],"long-term-specialist":["medical_doctor","pharmacist","civil_engineer","mechanical_engineer"],general:[]},r={biology:["medical_doctor","pharmacist","physiotherapist","occupational_therapist","data_scientist","biomedical_engineer"],mathematics:["software_engineer","data_scientist","ai_ml_engineer","mechanical_engineer","electrical_engineer","civil_engineer","chemical_engineer","blockchain_developer","cybersecurity_specialist"],physical_sciences:["mechanical_engineer","electrical_engineer","civil_engineer","chemical_engineer","renewable_energy_engineer","biomedical_engineer"],avoid_math:["data_scientist","ai_ml_engineer","electrical_engineer","chemical_engineer","mechanical_engineer","civil_engineer","blockchain_developer","software_engineer"],avoid_science:["medical_doctor","pharmacist","biomedical_engineer","chemical_engineer","renewable_energy_engineer"],low_math_tech:["ux_ui_designer","graphic_designer","content_creator","cybersecurity_specialist"]},o=null;function c(){return o||(o=(0,n.eI)("https://pvvnxupuukuefajypovz.supabase.co",process.env.SUPABASE_SERVICE_ROLE_KEY)),o}async function l(e,t,n={}){let{limit:o=10,debug:c=!1}=n,l=(0,a.Tl)(e),m=(0,a.w5)(l,e),{detectConflicts:p}=await Promise.resolve().then(i.bind(i,23489)),y=p(l,e);c&&(console.log("\uD83C\uDFAF Intent:",m),console.log("\uD83D\uDCCB Details:",l),y.length>0&&console.log("⚠️  Conflicts detected:",y.map(e=>e.type).join(", ")));let f=[];if(l.explicitCareers.length>0){let e=await u(l.explicitCareers);f.push(...e.map(e=>({...e,source:"explicit",priority:1}))),c&&console.log(`✅ Explicit matches: ${e.length} chunks`)}let w=s[m]||[],b=[];if(y.length>0&&(y.forEach(e=>{e.paths&&e.paths.forEach(e=>{if(e!==m){let t=s[e]||[];b=[...b,...t]}})}),b=[...new Set(b)],c&&console.log(`⚠️  Conflict detected - will retrieve both paths separately`)),w.length>0){w=h(w,l);let e=await d(w);f.push(...e.map(e=>({...e,source:"intent-primary",priority:2}))),c&&(console.log(`✅ Intent matches (${m}): ${e.length} chunks`),console.log(`   Careers: ${w.slice(0,8).join(", ")}${w.length>8?"...":""}`))}if(b.length>0){b=h(b,l);let e=await d(b);f.push(...e.map(e=>({...e,source:"intent-conflict",priority:2}))),c&&(console.log(`✅ Conflict path matches: ${e.length} chunks`),console.log(`   Careers: ${b.slice(0,8).join(", ")}${b.length>8?"...":""}`))}if(f.length<8){let e=await g(t,{threshold:.55,limit:25}),i=e.filter(e=>e.chunk_metadata?.career_name||e.module_name?.includes("career")||e.module_name?.includes("4ir")||e.module_name?.includes("engineering")||e.module_name?.includes("healthcare")||e.module_name?.includes("trades"));f.push(...i.map(e=>({...e,source:"semantic",priority:3}))),c&&console.log(`✅ Semantic matches: ${i.length} chunks (${e.length} before filtering)`)}else c&&console.log(`⏭️  Skipped semantic search (${f.length} results already)`);let _=function(e,t,i){let n=new Map;e.forEach(e=>{(!n.has(e.id)||n.get(e.id).priority>e.priority)&&n.set(e.id,e)});let a=Array.from(n.values()).map(e=>{let i=e.initial_score||.7;e.chunk_text.toLowerCase();let n=e.chunk_metadata||{};"explicit"===e.source&&(i-=.25),"intent-conflict"===e.source&&(i-=.22),("intent-primary"===e.source||"intent"===e.source)&&(i-=.2),(n.career_name||"career_summary"===e.source_entity_type)&&(i-=.15);let a=function(e,t,i){let n=0,a=e.chunk_text.toLowerCase(),s=e.chunk_metadata?.career_name,o=s?s.toLowerCase().replace(/[\/\s]+/g,"_"):null;return t.subjectNegations?.math&&(/(mathematics|calculus|algebra|statistics|math\s+required)/.test(a)&&(n+=.4),o&&r.avoid_math.includes(o)&&(n+=.35)),t.hasUniversityNegation&&/(bachelor|degree|bsc|ba\b|bcom|university required)/.test(a)&&(n+=.5),t.hasMatricNegation&&/(matric required|grade 12 required|nsc required)/.test(a)&&!/without matric|no matric/.test(a)&&(n+=.4),t.subjects?.biology&&(/(biology|life sciences|anatomy|physiology|medical|health)/.test(a)&&(n-=.25),o&&r.biology.includes(o)&&(n-=.2)),t.subjects?.maths&&!t.subjectNegations?.math&&(/(mathematics|calculus|statistics|quantitative)/.test(a)&&(n-=.2),o&&r.mathematics.includes(o)&&(n-=.15)),t.subjects?.physics&&(/(physics|mechanics|thermodynamics|engineering)/.test(a)&&(n-=.2),o&&r.physical_sciences.includes(o)&&(n-=.15)),t.subjectNegations?.math&&t.wantsTech&&o&&r.low_math_tech.includes(o)&&(n-=.15),t.wantsRemote&&/(remote|freelance|work from home|online|anywhere)/.test(a)&&(n-=.1),t.wantsFastPath&&/(\d+\s*(week|month)|quick|fast|immediate|apprenticeship)/.test(a)&&(n-=.1),(t.wantsHighIncome||t.wantsDollars)&&/(r\d{2,3}[,\s]?\d{3}|salary|earning|\$\d+|dollar|high.?income)/.test(a)&&(n-=.08),n}(e,t,0);return i+=a,("decision_making_framework"===e.module_name||"career_misconceptions_framework"===e.module_name)&&(i+=.15),"high"===n.priority&&(i-=.1),{...e,final_score:Math.max(0,Math.min(i,1)),constraint_adjustment:a}});return a.sort((e,t)=>{if(.05>Math.abs(e.final_score-t.final_score)){if("intent-conflict"===e.source&&"intent-primary"===t.source)return -1;if("intent-primary"===e.source&&"intent-conflict"===t.source)return 1}return e.final_score-t.final_score}),a}(f,l,0);return c&&(console.log(`
+📊 Final results: ${_.length} chunks`),_.slice(0,5).forEach((e,t)=>{console.log(`${t+1}. [${e.source}] ${e.module_name} - Score: ${e.final_score.toFixed(3)}`)})),_.slice(0,o).map(e=>({...e,query_conflicts:y}))}function h(e,t){let i=[...e];if(t.subjectNegations?.math&&(i=i.filter(e=>!r.avoid_math.includes(e)),t.wantsTech)){let e=r.low_math_tech.filter(e=>!i.includes(e));i=[...i,...e]}t.subjectNegations?.science&&(i=i.filter(e=>!r.avoid_science.includes(e)));let n=[];if(t.subjects?.biology){let e=r.biology.filter(e=>i.includes(e));n.push(...e),i=i.filter(t=>!e.includes(t))}if(t.subjects?.maths&&!t.subjectNegations?.math){let e=r.mathematics.filter(e=>i.includes(e));n.push(...e),i=i.filter(t=>!e.includes(t))}if(t.subjects?.physics){let e=r.physical_sciences.filter(e=>i.includes(e));n.push(...e),i=i.filter(t=>!e.includes(t))}return[...new Set([...n,...i])]}async function u(e){let t=c();try{let i=[];for(let n of e)for(let e of m(n)){let{data:n,error:a}=await t.from("knowledge_chunks").select(`
             id,
             chunk_text,
             chunk_metadata,

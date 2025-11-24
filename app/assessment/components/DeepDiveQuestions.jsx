@@ -97,11 +97,44 @@ export default function DeepDiveQuestions({ onComplete, grade }) {
       </div>
       
       <button 
-        onClick={handleComplete}
-        className="w-full py-3 px-6 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors duration-200 text-lg"
+        onClick={(e) => {
+          e.preventDefault();
+          handleComplete();
+        }}
+        onTouchEnd={(e) => {
+          e.preventDefault();
+          handleComplete();
+        }}
+        className="submit-button"
       >
         Get My 3-Year Plan →
       </button>
+
+      <style jsx>{`
+        .submit-button {
+          width: 100%;
+          padding: 14px 24px;
+          background: #10b981;
+          color: white;
+          font-size: 18px;
+          font-weight: 600;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.2s;
+          -webkit-tap-highlight-color: transparent;
+          touch-action: manipulation;
+        }
+
+        .submit-button:hover {
+          background: #059669;
+        }
+
+        .submit-button:active {
+          transform: scale(0.98);
+          background: #047857;
+        }
+      `}</style>
     </div>
   );
 }

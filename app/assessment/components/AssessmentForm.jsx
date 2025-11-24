@@ -55,28 +55,35 @@ export default function AssessmentForm() {
     assessmentDepth: 'quick'
   });
 
-  // Load saved data on mount
+  // Load saved data on mount - but don't override grade selection
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        setFormData(parsed.formData || formData);
-        setCurrentStep(parsed.currentStep || 1);
+        // Only restore if we're past grade selection
+        if (parsed.currentStep > 0 && parsed.formData?.grade) {
+          setFormData(parsed.formData);
+          setGrade(parsed.formData.grade);
+          setCurrentStep(parsed.currentStep);
+        }
       } catch (e) {
         console.error('Failed to load saved assessment:', e);
       }
     }
   }, []);
 
-  // Save data on every change
+  // Save data on every change (but not on initial mount)
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      formData,
-      currentStep,
-      savedAt: new Date().toISOString()
-    }));
-  }, [formData, currentStep]);
+    if (currentStep > 0 || grade) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        formData,
+        currentStep,
+        grade,
+        savedAt: new Date().toISOString()
+      }));
+    }
+  }, [formData, currentStep, grade]);
 
   const updateFormData = (field, value) => {
     setFormData(prev => ({

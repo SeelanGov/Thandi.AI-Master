@@ -1,1 +1,1 @@
-{"status":"ok","timestamp":"2025-11-22T14:25:54.261Z","environment":{"hasGroqKey":true,"hasOpenAIKey":true,"hasSupabaseUrl":true,"hasSupabaseAnonKey":true,"hasSupabaseServiceKey":true,"nodeEnv":"production"},"allKeysPresent":true}
+{"status":"ok","timestamp":"2025-11-24T10:17:26.181Z","environment":{"hasGroqKey":true,"hasOpenAIKey":true,"hasSupabaseUrl":true,"hasSupabaseAnonKey":true,"hasSupabaseServiceKey":true,"nodeEnv":"production"},"allKeysPresent":true}
