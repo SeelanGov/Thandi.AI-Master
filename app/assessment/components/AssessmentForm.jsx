@@ -143,22 +143,53 @@ export default function AssessmentForm() {
   const handleSubmit = async () => {
     console.log('📤 Submitting assessment:', formData);
     
-    // Use mock API in development (localhost or local network), real API in production
-    const isDevelopment = typeof window !== 'undefined' && 
-      (window.location.hostname === 'localhost' || 
-       window.location.hostname === '127.0.0.1' ||
-       window.location.hostname.startsWith('192.168.') ||
-       window.location.hostname.startsWith('10.') ||
-       window.location.hostname.startsWith('172.'));
+    const API_URL = '/api/rag/query';
     
-    const API_URL = '/api/rag/query';  // Use real RAG API
+    // Build base query
+    let query = `I am a Grade ${formData.grade || 10} student in South Africa seeking career guidance.
+
+SUBJECTS I ENJOY: ${formData.enjoyedSubjects.join(', ')}
+INTERESTS: ${formData.interests.join(', ')}
+CONSTRAINTS: Time available: ${formData.constraints.time}, Budget: ${formData.constraints.money}, Location: ${formData.constraints.location}
+MOTIVATION: ${formData.openQuestions.motivation}
+CONCERNS: ${formData.openQuestions.concerns}`;
+
+    // Add deep dive data if available
+    if (formData.assessmentDepth === 'comprehensive' && formData.subjectMarks) {
+      query += `\n\n📊 CURRENT ACADEMIC PERFORMANCE:`;
+      formData.subjectMarks.forEach(({subject, markRange}) => {
+        query += `\n- ${subject}: ${markRange}`;
+      });
+      
+      if (formData.supportSystem && formData.supportSystem.length > 0) {
+        query += `\n\n💪 AVAILABLE SUPPORT FOR IMPROVEMENT:`;
+        formData.supportSystem.forEach(support => {
+          query += `\n- ${support}`;
+        });
+      }
+      
+      query += `\n\n🎯 PERSONALIZED REQUEST:
+Based on my current marks, please provide:
+1. Specific mark improvement targets for each subject (what I need to achieve by Grade 12)
+2. Realistic bursary opportunities I can qualify for with my current/improved marks
+3. A year-by-year action plan (Grade ${formData.grade} → Grade 12) showing:
+   - Which subjects to prioritize each year
+   - Specific mark targets per term
+   - Bursary application deadlines
+   - Backup career options if marks don't improve as planned
+4. How to use my available support systems effectively
+
+IMPORTANT: Make this plan specific to MY marks, not generic advice. Show me the exact path from where I am NOW to where I need to be.`;
+    } else {
+      query += `\n\nPlease recommend suitable career paths with specific education pathways. Focus on careers that match the subjects I ENJOY, not just subjects I'm forced to take.`;
+    }
     
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          query: `I need career guidance. The subjects I ENJOY (not just take) are: ${formData.enjoyedSubjects.join(', ')}. My interests include: ${formData.interests.join(', ')}. My constraints: time available is ${formData.constraints.time}, budget is ${formData.constraints.money}, location preference is ${formData.constraints.location}. My motivation: ${formData.openQuestions.motivation}. My concerns: ${formData.openQuestions.concerns}. IMPORTANT: Focus recommendations on subjects I enjoy, not subjects I'm forced to take. Please recommend suitable career paths with specific education pathways.`,
+          query,
           options: {
             includeDebug: false
           }

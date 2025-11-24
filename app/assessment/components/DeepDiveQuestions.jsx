@@ -37,80 +37,221 @@ export default function DeepDiveQuestions({ onComplete, grade }) {
   };
   
   return (
-    <div className="deep-dive-questions max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <div className="mb-6">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium text-gray-600">Question 5 of 6</span>
-          <span className="text-sm text-gray-500">83% complete</span>
-        </div>
-        <div className="w-full bg-gray-200 rounded-full h-2">
-          <div className="bg-blue-500 h-2 rounded-full" style={{width: '83%'}}></div>
-        </div>
-      </div>
-      
-      <h2 className="text-xl font-bold text-gray-800 mb-6">
-        What are your current marks for each subject?
-      </h2>
-      
-      <div className="space-y-4 mb-8">
-        {subjects.map(subject => (
-          <div key={subject} className="flex items-center justify-between">
-            <label className="text-gray-700 font-medium w-1/2">
-              {subject}:
-            </label>
-            <select 
-              value={currentMarks[subject] || ''}
-              onChange={(e) => setCurrentMarks(prev => ({...prev, [subject]: e.target.value}))}
-              className="w-1/2 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              <option value="">Select range</option>
-              {markRanges.map(range => (
-                <option key={range} value={range}>{range}</option>
-              ))}
-            </select>
+    <div className="deep-dive-container">
+      <div className="deep-dive-card">
+        <div className="progress-section">
+          <div className="progress-header">
+            <span className="progress-label">Question 5 of 6</span>
+            <span className="progress-percent">83% complete</span>
           </div>
-        ))}
+          <div className="progress-bar-bg">
+            <div className="progress-bar-fill" style={{width: '83%'}}></div>
+          </div>
+        </div>
+        
+        <h2 className="question-title">
+          What are your current marks for each subject?
+        </h2>
+        
+        <div className="subjects-section">
+          {subjects.map(subject => (
+            <div key={subject} className="subject-row">
+              <label className="subject-label">
+                {subject}:
+              </label>
+              <select 
+                value={currentMarks[subject] || ''}
+                onChange={(e) => setCurrentMarks(prev => ({...prev, [subject]: e.target.value}))}
+                className="subject-select"
+              >
+                <option value="">Select range</option>
+                {markRanges.map(range => (
+                  <option key={range} value={range}>{range}</option>
+                ))}
+              </select>
+            </div>
+          ))}
+        </div>
+        
+        <h3 className="support-title">
+          What support do you have for improving your marks?
+        </h3>
+        
+        <div className="support-section">
+          {supportOptions.map(option => (
+            <label key={option} className="support-option">
+              <input 
+                type="checkbox"
+                checked={supportSystem.includes(option)}
+                onChange={() => handleSupportChange(option)}
+                className="support-checkbox"
+              />
+              <span className="support-label">{option}</span>
+            </label>
+          ))}
+        </div>
+        
+        <div className="info-box">
+          <p className="info-text">
+            💡 We'll use this to show you how to improve your marks and find the right bursaries
+          </p>
+        </div>
+        
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            handleComplete();
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            handleComplete();
+          }}
+          className="submit-button"
+        >
+          Get My 3-Year Plan →
+        </button>
       </div>
-      
-      <h3 className="text-lg font-semibold text-gray-800 mb-4">
-        What support do you have for improving your marks?
-      </h3>
-      
-      <div className="space-y-3 mb-8">
-        {supportOptions.map(option => (
-          <label key={option} className="flex items-center">
-            <input 
-              type="checkbox"
-              checked={supportSystem.includes(option)}
-              onChange={() => handleSupportChange(option)}
-              className="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-            />
-            <span className="text-gray-700">{option}</span>
-          </label>
-        ))}
-      </div>
-      
-      <div className="bg-blue-50 p-4 rounded-lg mb-6">
-        <p className="text-sm text-blue-700">
-          💡 We'll use this to show you how to improve your marks and find the right bursaries
-        </p>
-      </div>
-      
-      <button 
-        onClick={(e) => {
-          e.preventDefault();
-          handleComplete();
-        }}
-        onTouchEnd={(e) => {
-          e.preventDefault();
-          handleComplete();
-        }}
-        className="submit-button"
-      >
-        Get My 3-Year Plan →
-      </button>
 
       <style jsx>{`
+        .deep-dive-container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+
+        .deep-dive-card {
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 32px 24px;
+        }
+
+        .progress-section {
+          margin-bottom: 24px;
+        }
+
+        .progress-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+        }
+
+        .progress-label {
+          font-size: 14px;
+          font-weight: 500;
+          color: #6b7280;
+        }
+
+        .progress-percent {
+          font-size: 14px;
+          color: #9ca3af;
+        }
+
+        .progress-bar-bg {
+          width: 100%;
+          height: 8px;
+          background: #e5e7eb;
+          border-radius: 4px;
+          overflow: hidden;
+        }
+
+        .progress-bar-fill {
+          height: 100%;
+          background: #3b82f6;
+          border-radius: 4px;
+          transition: width 0.3s;
+        }
+
+        .question-title {
+          font-size: 20px;
+          font-weight: bold;
+          color: #1a1a1a;
+          margin-bottom: 24px;
+        }
+
+        .subjects-section {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-bottom: 32px;
+        }
+
+        .subject-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+        }
+
+        .subject-label {
+          font-size: 16px;
+          font-weight: 500;
+          color: #374151;
+          width: 45%;
+        }
+
+        .subject-select {
+          width: 55%;
+          padding: 10px 12px;
+          border: 1px solid #d1d5db;
+          border-radius: 8px;
+          font-size: 15px;
+          background: white;
+          cursor: pointer;
+        }
+
+        .subject-select:focus {
+          outline: none;
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .support-title {
+          font-size: 18px;
+          font-weight: 600;
+          color: #1a1a1a;
+          margin-bottom: 16px;
+        }
+
+        .support-section {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 24px;
+        }
+
+        .support-option {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .support-checkbox {
+          width: 18px;
+          height: 18px;
+          margin-right: 12px;
+          cursor: pointer;
+        }
+
+        .support-label {
+          font-size: 15px;
+          color: #374151;
+        }
+
+        .info-box {
+          background: #eff6ff;
+          padding: 16px;
+          border-radius: 8px;
+          margin-bottom: 24px;
+        }
+
+        .info-text {
+          font-size: 14px;
+          color: #1e40af;
+          margin: 0;
+        }
+
         .submit-button {
           width: 100%;
           padding: 14px 24px;
@@ -133,6 +274,34 @@ export default function DeepDiveQuestions({ onComplete, grade }) {
         .submit-button:active {
           transform: scale(0.98);
           background: #047857;
+        }
+
+        @media (max-width: 768px) {
+          .deep-dive-container {
+            padding: 15px;
+          }
+
+          .deep-dive-card {
+            padding: 24px 20px;
+          }
+
+          .question-title {
+            font-size: 18px;
+          }
+
+          .subject-row {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          .subject-label {
+            width: 100%;
+            margin-bottom: 8px;
+          }
+
+          .subject-select {
+            width: 100%;
+          }
         }
       `}</style>
     </div>
