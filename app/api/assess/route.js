@@ -13,7 +13,16 @@ import { generateResponse } from '@/lib/rag/generation';
  * 
  * Expected input from Orchids:
  * {
- *   answers: [string, string, string, string]  // 4 assessment answers
+ *   answers: [string, string, string, string],  // 4 assessment answers (backward compatible)
+ *   // NEW: Deep dive fields (optional)
+ *   grade: number,  // 10, 11, or 12 (REQUIRED for new assessments)
+ *   assessmentDepth: string,  // 'quick' or 'comprehensive'
+ *   subjectMarks: [{subject: string, markRange: string}],  // Q5: Current marks
+ *   supportSystem: string[],  // Q6: Available support
+ *   careerAwareness: string,  // Q7: 'exactly-know', 'some-ideas', 'completely-unsure'
+ *   familyExpectations: string,  // Q8: 'aligned', 'somewhat-different', 'very-different', 'none'
+ *   locationFlexibility: string,  // Q9: 'anywhere', 'nearby-cities', 'must-stay-province', 'must-stay-home'
+ *   decisionStyle: string  // Q10: 'have-backup-plans', 'open-to-alternatives', 'only-first-choice', 'not-sure'
  * }
  * 
  * Returns:
@@ -28,8 +37,27 @@ export async function POST(request) {
     const body = await request.json();
     console.log('📥 Received from Orchids:', body);
 
-    // Extract answers from Orchids format
-    const { answers } = body;
+    // Extract answers from Orchids format (backward compatible)
+    const { 
+      answers,
+      // NEW: Deep dive fields
+      grade,
+      assessmentDepth = 'quick',
+      subjectMarks = [],
+      supportSystem = [],
+      careerAwareness,
+      familyExpectations,
+      locationFlexibility,
+      decisionStyle
+    } = body;
+    
+    // Validation: grade is required for new assessments
+    if (grade && (grade < 10 || grade > 12)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid grade: must be 10, 11, or 12' }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
     
     if (!answers || !Array.isArray(answers) || answers.length !== 4) {
       return new Response(
@@ -39,12 +67,49 @@ export async function POST(request) {
     }
 
     // Convert answers to natural language query
-    const query = `Career assessment: ${answers.join('. ')}. Please recommend suitable career paths.`;
+    let query = `Career assessment: ${answers.join('. ')}. Please recommend suitable career paths.`;
+    
+    // Enhance query with deep dive data if available
+    if (assessmentDepth === 'comprehensive' && subjectMarks.length > 0) {
+      query += ` Current marks: ${subjectMarks.map(m => `${m.subject} ${m.markRange}`).join(', ')}.`;
+      
+      if (supportSystem.length > 0) {
+        query += ` Available support: ${supportSystem.join(', ')}.`;
+      }
+      
+      if (careerAwareness) {
+        query += ` Career awareness: ${careerAwareness}.`;
+      }
+      
+      if (familyExpectations) {
+        query += ` Family expectations: ${familyExpectations}.`;
+      }
+      
+      if (locationFlexibility) {
+        query += ` Location flexibility: ${locationFlexibility}.`;
+      }
+      
+      if (decisionStyle) {
+        query += ` Decision style: ${decisionStyle}.`;
+      }
+    }
     
     console.log('🔄 Converted to query:', query);
+    console.log('📊 Assessment depth:', assessmentDepth);
+    console.log('🎓 Grade:', grade || 'not specified');
 
     // Run through RAG pipeline
     const studentProfile = extractStudentProfile(query);
+    
+    // Add deep dive data to student profile
+    if (grade) studentProfile.grade = grade;
+    if (assessmentDepth) studentProfile.assessmentDepth = assessmentDepth;
+    if (subjectMarks.length > 0) studentProfile.subjectMarks = subjectMarks;
+    if (supportSystem.length > 0) studentProfile.supportSystem = supportSystem;
+    if (careerAwareness) studentProfile.careerAwareness = careerAwareness;
+    if (familyExpectations) studentProfile.familyExpectations = familyExpectations;
+    if (locationFlexibility) studentProfile.locationFlexibility = locationFlexibility;
+    if (decisionStyle) studentProfile.decisionStyle = decisionStyle;
     const queryEmbedding = await generateQueryEmbedding(query);
     const searchResults = await hybridSearch(query, queryEmbedding, { limit: 10 });
 
