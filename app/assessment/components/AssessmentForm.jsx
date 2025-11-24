@@ -6,11 +6,39 @@ import InterestAreas from './InterestAreas';
 import Constraints from './Constraints';
 import OpenQuestions from './OpenQuestions';
 import ProgressBar from './ProgressBar';
+import GradeSelector from './GradeSelector';
+import PreliminaryReport from './PreliminaryReport';
+import DeepDiveQuestions from './DeepDiveQuestions';
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
+// Mock data for preliminary report
+const mockCareers = [
+  {
+    title: "Software Engineer",
+    match: 85,
+    reason: "You love problem-solving and tech. Math 55% → need 70% by Grade 12.",
+    bursaries: ["Sasol: R120k/year (deadline: May)", "NSFAS: R80k/year"]
+  },
+  {
+    title: "Data Scientist", 
+    match: 80,
+    reason: "Strong in Math even at 55% - shows potential. Needs improvement.",
+    bursaries: ["Eskom: R100k/year"]
+  },
+  {
+    title: "UX Designer",
+    match: 75,
+    reason: "Creative + analytical mix. Good fallback if Math doesn't improve.",
+    bursaries: ["Private college loans (backup option)"]
+  }
+];
+
 export default function AssessmentForm() {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0); // Start with grade selection
+  const [grade, setGrade] = useState(null);
+  const [showPreliminaryReport, setShowPreliminaryReport] = useState(false);
+  const [showDeepDive, setShowDeepDive] = useState(false);
   const [formData, setFormData] = useState({
     enjoyedSubjects: [],  // CHANGED: Now tracks subjects student ENJOYS
     interests: [],
@@ -22,7 +50,9 @@ export default function AssessmentForm() {
     openQuestions: {
       motivation: '',
       concerns: ''
-    }
+    },
+    grade: null,
+    assessmentDepth: 'quick'
   });
 
   // Load saved data on mount
@@ -55,9 +85,45 @@ export default function AssessmentForm() {
     }));
   };
 
+  const handleGradeSelect = (selectedGrade) => {
+    setGrade(selectedGrade);
+    setFormData(prev => ({ ...prev, grade: selectedGrade }));
+    setCurrentStep(1);
+  };
+
+  const handleCoreQuestionsComplete = () => {
+    if (grade === 10) {
+      // Grade 10: Show preliminary report with opt-in
+      setShowPreliminaryReport(true);
+    } else {
+      // Grade 11-12: Auto-advance to deep dive (for now, just submit)
+      handleSubmit();
+    }
+  };
+
+  const handleDeepDiveOptIn = () => {
+    setShowPreliminaryReport(false);
+    setShowDeepDive(true);
+  };
+
+  const handleSkipDeepDive = () => {
+    // Submit with quick assessment
+    handleSubmit();
+  };
+
+  const handleDeepDiveComplete = (deepDiveData) => {
+    // Submit with comprehensive assessment
+    setFormData(prev => ({ ...prev, ...deepDiveData }));
+    // Trigger submit after state update
+    setTimeout(() => handleSubmit(), 100);
+  };
+
   const nextStep = () => {
     if (currentStep < 4) {
       setCurrentStep(prev => prev + 1);
+    } else {
+      // Core questions complete
+      handleCoreQuestionsComplete();
     }
   };
 
@@ -123,13 +189,42 @@ export default function AssessmentForm() {
     }
   };
 
+  // Grade selection screen
+  if (currentStep === 0) {
+    return <GradeSelector onSelect={handleGradeSelect} />;
+  }
+
+  // Preliminary report screen (Grade 10 only)
+  if (showPreliminaryReport) {
+    return (
+      <PreliminaryReport 
+        careers={mockCareers}
+        onDeepDive={handleDeepDiveOptIn}
+        onSkip={handleSkipDeepDive}
+      />
+    );
+  }
+
+  // Deep dive questions screen
+  if (showDeepDive) {
+    return (
+      <DeepDiveQuestions 
+        onComplete={handleDeepDiveComplete}
+        grade={grade}
+      />
+    );
+  }
+
   return (
     <div className="assessment-container">
       <div className="assessment-header">
         <h1>Career Assessment</h1>
-        <button onClick={startOver} className="btn-secondary">
-          Start Over
-        </button>
+        <div className="header-info">
+          {grade && <span className="grade-badge">Grade {grade}</span>}
+          <button onClick={startOver} className="btn-secondary">
+            Start Over
+          </button>
+        </div>
       </div>
 
       <ProgressBar currentStep={currentStep} totalSteps={4} />
@@ -171,15 +266,9 @@ export default function AssessmentForm() {
           </button>
         )}
 
-        {currentStep < 4 ? (
-          <button onClick={nextStep} className="btn-primary">
-            Next →
-          </button>
-        ) : (
-          <button onClick={handleSubmit} className="btn-primary">
-            Get My Results
-          </button>
-        )}
+        <button onClick={nextStep} className="btn-primary">
+          {currentStep === 4 ? 'Continue →' : 'Next →'}
+        </button>
       </div>
 
       <style jsx>{`
@@ -200,6 +289,21 @@ export default function AssessmentForm() {
           font-size: 28px;
           color: #1a1a1a;
           margin: 0;
+        }
+
+        .header-info {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .grade-badge {
+          background: #dbeafe;
+          color: #1e40af;
+          padding: 6px 12px;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 500;
         }
 
         .assessment-content {
