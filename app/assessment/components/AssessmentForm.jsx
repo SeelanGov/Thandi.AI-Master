@@ -145,43 +145,21 @@ export default function AssessmentForm() {
     
     const API_URL = '/api/rag/query';
     
-    // Build base query
-    let query = `I am a Grade ${formData.grade || 10} student in South Africa seeking career guidance.
-
-SUBJECTS I ENJOY: ${formData.enjoyedSubjects.join(', ')}
-INTERESTS: ${formData.interests.join(', ')}
-CONSTRAINTS: Time available: ${formData.constraints.time}, Budget: ${formData.constraints.money}, Location: ${formData.constraints.location}
-MOTIVATION: ${formData.openQuestions.motivation}
-CONCERNS: ${formData.openQuestions.concerns}`;
+    // Build concise query (max 1000 chars)
+    let query = `Grade ${formData.grade || 10} SA student. Subjects I enjoy: ${formData.enjoyedSubjects.join(', ')}. Interests: ${formData.interests.join(', ')}.`;
 
     // Add deep dive data if available
     if (formData.assessmentDepth === 'comprehensive' && formData.subjectMarks) {
-      query += `\n\n📊 CURRENT ACADEMIC PERFORMANCE:`;
+      query += ` Current marks: `;
       formData.subjectMarks.forEach(({subject, markRange}) => {
-        query += `\n- ${subject}: ${markRange}`;
+        query += `${subject} ${markRange}, `;
       });
       
-      if (formData.supportSystem && formData.supportSystem.length > 0) {
-        query += `\n\n💪 AVAILABLE SUPPORT FOR IMPROVEMENT:`;
-        formData.supportSystem.forEach(support => {
-          query += `\n- ${support}`;
-        });
-      }
+      query += `Support: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
       
-      query += `\n\n🎯 PERSONALIZED REQUEST:
-Based on my current marks, please provide:
-1. Specific mark improvement targets for each subject (what I need to achieve by Grade 12)
-2. Realistic bursary opportunities I can qualify for with my current/improved marks
-3. A year-by-year action plan (Grade ${formData.grade} → Grade 12) showing:
-   - Which subjects to prioritize each year
-   - Specific mark targets per term
-   - Bursary application deadlines
-   - Backup career options if marks don't improve as planned
-4. How to use my available support systems effectively
-
-IMPORTANT: Make this plan specific to MY marks, not generic advice. Show me the exact path from where I am NOW to where I need to be.`;
+      query += `Need: 1) Mark targets for Grade 12, 2) Bursaries I qualify for, 3) Year-by-year plan (Grade ${formData.grade}→12), 4) Backup options. Make it specific to MY marks.`;
     } else {
-      query += `\n\nPlease recommend suitable career paths with specific education pathways. Focus on careers that match the subjects I ENJOY, not just subjects I'm forced to take.`;
+      query += ` Constraints: ${formData.constraints.time}, ${formData.constraints.money}, ${formData.constraints.location}. Recommend careers matching subjects I ENJOY with education pathways.`;
     }
     
     try {
