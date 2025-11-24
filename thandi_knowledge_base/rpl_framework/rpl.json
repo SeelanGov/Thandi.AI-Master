@@ -1,0 +1,137 @@
+{
+  "id": "edu_rpl",
+  "title": "Recognition of Prior Learning (RPL)",
+  "language": "en",
+  "version": 2,
+  "last_updated": "2025-11",
+  "summary": "Discover Recognition of Prior Learning (RPL) with EduEasy. Validate your work experience or informal learning to earn formal qualifications, guided by Thandi.",
+  "tags": [
+    "RPL",
+    "Prior Learning",
+    "Qualifications",
+    "Experience",
+    "SAQA",
+    "SETA",
+    "EduEasy",
+    "NQF",
+    "Assessment",
+    "Adult Learning"
+  ],
+  "source_links": [
+    "https://www.saqa.org.za/recognition-prior-learning-rpl",
+    "https://www.dhet.gov.za/SitePages/RPL.aspx",
+    "https://www.serviceseta.org.za/rpl",
+    "https://www.ceta.org.za/rpl"
+  ],
+  "source_details": [
+    {
+      "url": "https://www.saqa.org.za/recognition-prior-learning-rpl",
+      "title": "SAQA Recognition of Prior Learning",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.dhet.gov.za/SitePages/RPL.aspx",
+      "title": "DHET RPL Overview",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.serviceseta.org.za/rpl",
+      "title": "Services SETA RPL",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.ceta.org.za/rpl",
+      "title": "CETA RPL",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    }
+  ],
+  "localized_terms": {
+    "RPL": {
+      "Zulu": "Ukuqashelwa Kwemfundo Yangaphambili",
+      "Xhosa": "Ukwamkelwa Kwemfundo Yangaphambili"
+    },
+    "Experience": {
+      "Zulu": "Isipiliyoni",
+      "Xhosa": "Amava"
+    },
+    "Qualification": {
+      "Zulu": "Iziqu",
+      "Xhosa": "Iziqinisekiso"
+    },
+    "Application": {
+      "Zulu": "Isicelo",
+      "Xhosa": "Isicelo"
+    },
+    "Assessment": {
+      "Zulu": "Ukuhlola",
+      "Xhosa": "Uvavanyo"
+    }
+  },
+  "file_name": "rpl.html",
+  "content_type": "html",
+  "word_count_estimate": 480,
+  "feedback_config": {
+    "method": "chatbot_prompt",
+    "prompt": "Was this helpful? Reply 'Yes' or 'No' or share feedback.",
+    "collection_point": "Thandi Chatbot"
+  },
+  "chatbot_priorities": {
+    "keywords": [
+      "RPL",
+      "prior learning",
+      "recognition of prior learning",
+      "experience",
+      "qualifications",
+      "EduEasy",
+      "SAQA",
+      "SETA",
+      "RPL application",
+      "RPL assessment",
+      "NQF level"
+    ],
+    "priority_response": "EduEasy helps you earn qualifications through RPL. Explore your options with Thandi at https://edueasy.co.za."
+  },
+  "rag_metadata": {
+    "chunk_strategy": "semantic_sections",
+    "expected_chunks": 7,
+    "sections": [
+      "What Is RPL",
+      "RPL Examples",
+      "Eligibility",
+      "How to Apply",
+      "Funding Your RPL",
+      "Next Steps"
+    ],
+    "key_entities": {
+      "institutions": ["SAQA", "DHET", "Services SETA", "CETA"],
+      "processes": ["RPL assessment", "RPL application", "Evidence gathering", "SETA funding"],
+      "examples": {
+        "construction": "NQF 4 (CETA)",
+        "customer_service": "NQF 4 (Services SETA)",
+        "management": "NQF 5 (SAQA)"
+      },
+      "eligibility": {
+        "experience": "3–5 years",
+        "documents": ["Work records", "References", "Portfolios"]
+      }
+    },
+    "answers_questions": [31, 32, 33],
+    "supports_questions": [34]
+  },
+  "content_quality": {
+    "completeness": 8,
+    "accuracy": 9,
+    "sa_specific": 10,
+    "actionability": 9,
+    "last_reviewed": "2025-11-02",
+    "needs_update": false
+  }
+}

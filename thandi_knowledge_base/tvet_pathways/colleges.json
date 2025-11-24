@@ -1,0 +1,1420 @@
+{
+  "metadata": {
+    "version": "v2.1 detailed",
+    "date": "2025-01-19",
+    "description": "All 50 public TVET colleges in South Africa with detailed entry requirements and career outcomes",
+    "total_colleges": 50,
+    "total_programmes": 0,
+    "content_type": "tvet_pathways"
+  },
+  "colleges": [
+    {
+      "college_code": "BOLAND",
+      "college_name": "Boland TVET College",
+      "province": "Western Cape",
+      "municipality": "Cape Winelands",
+      "town": "Stellenbosch",
+      "location": {
+        "latitude": -33.933,
+        "longitude": 18.860
+      },
+      "postal_code": "7600",
+      "contact": {
+        "email": "info@bolandcollege.com",
+        "phone": "+27 21 886 7111"
+      },
+      "website": "https://www.bolandcollege.com",
+      "application_link": "https://www.bolandcollege.com/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering & Building Construction", "Electrical Infrastructure Construction", "Hospitality", "Tourism", "Office Administration"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Mathematics recommended for technical programmes"],
+          "career_outcomes": ["Electrician", "Plumber", "Chef", "Tourism Officer", "Admin Clerk"]
+        },
+        {
+          "programme_type": "Report 191 N4–N6",
+          "programme_examples": ["Business Management", "Financial Management", "Hospitality & Catering", "Tourism"],
+          "nqf_level": "5-6",
+          "min_points": "Grade 12 or N3",
+          "required_subjects": ["English + relevant N3 or Grade 12 subjects"],
+          "career_outcomes": ["Business Manager", "Financial Clerk", "Hotel Supervisor", "Travel Agent"]
+        }
+      ]
+    },
+    {
+      "college_code": "BUFFALO",
+      "college_name": "Buffalo City TVET College",
+      "province": "Eastern Cape",
+      "municipality": "Buffalo City",
+      "town": "East London",
+      "location": {
+        "latitude": -32.99622,
+        "longitude": 27.89925
+      },
+      "postal_code": "5200",
+      "contact": {
+        "email": "info@bccollege.co.za",
+        "phone": "+27 43 704 9201"
+      },
+      "website": "https://www.bccollege.co.za",
+      "application_link": "https://www.bccollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Mechatronics", "Information Technology & Computer Science", "Finance, Economics & Accounting", "Safety in Society"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Mathematics recommended for IT/Mechatronics"],
+          "career_outcomes": ["Mechatronics Technician", "IT Support", "Bookkeeper", "Security Officer"]
+        }
+      ]
+    },
+    {
+      "college_code": "COASTAL",
+      "college_name": "Coastal TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "eThekwini",
+      "town": "Durban",
+      "location": {
+        "latitude": -29.512409,
+        "longitude": 30.013321
+      },
+      "postal_code": "3810",
+      "contact": {
+        "email": "info@coastalcollege.co.za",
+        "phone": "+27 31 905 7000"
+      },
+      "website": "https://www.coastalcollege.co.za",
+      "application_link": "https://www.coastalcollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Hospitality", "Tourism", "Primary Agriculture", "Electrical Infrastructure", "Civil Engineering"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Chef", "Tour Guide", "Farm Assistant", "Electrician", "Bricklayer"]
+        }
+      ]
+    },
+    {
+      "college_code": "CCT",
+      "college_name": "College of Cape Town TVET College",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.9269,
+        "longitude": 18.4241
+      },
+      "postal_code": "8000",
+      "contact": {
+        "email": "info@cct.edu.za",
+        "phone": "+27 21 404 6700"
+      },
+      "website": "https://www.cct.edu.za",
+      "application_link": "https://www.cct.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Art & Design", "Education & Development", "Hospitality", "Electrical Infrastructure"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Graphic Designer", "ECD Practitioner", "Chef", "Electrician"]
+        }
+      ]
+    },
+    {
+      "college_code": "EASTCAPE",
+      "college_name": "Eastcape Midlands TVET College",
+      "province": "Eastern Cape",
+      "municipality": "Nelson Mandela Bay",
+      "town": "Uitenhage",
+      "location": {
+        "latitude": -33.7898,
+        "longitude": 25.41401
+      },
+      "postal_code": "6230",
+      "contact": {
+        "email": "info@emcol.co.za",
+        "phone": "+27 41 995 2000"
+      },
+      "website": "https://www.emcol.co.za",
+      "application_link": "https://www.emcol.co.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Primary Agriculture", "Marketing", "Office Administration", "Electrical Infrastructure"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Farm Supervisor", "Marketing Assistant", "Admin Clerk", "Electrician"]
+        }
+      ]
+    },
+    {
+      "college_code": "FALSEBAY",
+      "college_name": "False Bay TVET College",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Muizenberg",
+      "location": {
+        "latitude": -34.108,
+        "longitude": 18.466
+      },
+      "postal_code": "7950",
+      "contact": {
+        "email": "info@falsebaycollege.co.za",
+        "phone": "+27 21 787 0800"
+      },
+      "website": "https://www.falsebaycollege.co.za",
+      "application_link": "https://www.falsebaycollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Yacht & Boat Building", "Electrical Infrastructure", "Hospitality", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Mathematics recommended for technical"],
+          "career_outcomes": ["Boat Builder", "Electrician", "Chef", "Business Administrator"]
+        }
+      ]
+    },
+    {
+      "college_code": "FLAVIUS",
+      "college_name": "Flavius Mareka TVET College",
+      "province": "Free State",
+      "municipality": "Fezile Dabi",
+      "town": "Sasolburg",
+      "location": {
+        "latitude": -26.82456,
+        "longitude": 27.84178
+      },
+      "postal_code": "1947",
+      "contact": {
+        "email": "info@flaviusmareka.net",
+        "phone": "+27 16 976 0815"
+      },
+      "website": "https://www.flaviusmareka.net",
+      "application_link": "https://www.flaviusmareka.net/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Engineering & Related Design", "Process Plant Operations", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["Mathematics & Science recommended"],
+          "career_outcomes": ["Fitter & Turner", "Boilermaker", "Chemical Plant Operator"]
+        }
+      ]
+    },
+    {
+      "college_code": "GOLDFIELDS",
+      "college_name": "Goldfields TVET College",
+      "province": "Free State",
+      "municipality": "Fezile Dabi",
+      "town": "Welkom",
+      "location": {
+        "latitude": -27.983566,
+        "longitude": 26.775073
+      },
+      "postal_code": "9459",
+      "contact": {
+        "email": "info@goldfieldstvet.edu.za",
+        "phone": "+27 57 910 1600"
+      },
+      "website": "https://www.goldfieldstvet.edu.za",
+      "application_link": "https://www.goldfieldstvet.edu.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Mining-related skills", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Maths/Science for technical"],
+          "career_outcomes": ["Electrician", "Mine Technician", "Business Administrator"]
+        }
+      ]
+    },
+    {
+      "college_code": "IKHALA",
+      "college_name": "Ikhala TVET College",
+      "province": "Eastern Cape",
+      "municipality": "Chris Hani",
+      "town": "Queenstown",
+      "location": {
+        "latitude": -31.909785,
+        "longitude": 26.967009
+      },
+      "postal_code": "5320",
+      "contact": {
+        "email": "info@ikhala.edu.za",
+        "phone": "+27 47 873 8800"
+      },
+      "website": "https://www.ikhala.edu.za",
+      "application_link": "https://www.ikhala.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Primary Agriculture", "Hospitality", "Office Administration", "Electrical Infrastructure"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Farm Supervisor", "Chef", "Admin Assistant", "Electrician"]
+        }
+      ]
+    },
+    {
+      "college_code": "INGWE",
+      "college_name": "Ingwe TVET College",
+      "province": "Eastern Cape",
+      "municipality": "Alfred Nzo",
+      "town": "Mount Frere",
+      "location": {
+        "latitude": -30.899758,
+        "longitude": 28.993766
+      },
+      "postal_code": "5090",
+      "contact": {
+        "email": "info@ingwecollege.edu.za",
+        "phone": "+27 39 255 0346"
+      },
+      "website": "https://www.ingwecollege.edu.za",
+      "application_link": "https://www.ingwecollege.edu.za/register",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Primary Agriculture", "Finance, Economics & Accounting", "Office Administration"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Farm Assistant", "Bookkeeper", "Receptionist"]
+        }
+      ]
+    },
+    {
+      "college_code": "KINGHINTSA",
+      "college_name": "King Hintsa TVET College",
+      "province": "Eastern Cape",
+      "municipality": "Amathole",
+      "town": "Butterworth",
+      "location": {
+        "latitude": -32.327206,
+        "longitude": 28.173981
+      },
+      "postal_code": "4960",
+      "contact": {
+        "email": "info@kinghintsacollege.edu.za",
+        "phone": "+27 47 401 6400"
+      },
+      "website": "https://www.kinghintsacollege.edu.za",
+      "application_link": "https://www.kinghintsacollege.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Hospitality", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Chef", "Business Clerk"]
+        }
+      ]
+    },
+    {
+      "college_code": "KSD",
+      "college_name": "King Sabata Dalindyebo TVET College",
+      "province": "Eastern Cape",
+      "municipality": "OR Tambo",
+      "town": "Mthatha",
+      "location": {
+        "latitude": -31.59508,
+        "longitude": 28.79726
+      },
+      "postal_code": "5099",
+      "contact": {
+        "email": "info@ksdcollege.edu.za",
+        "phone": "+27 47 505 1000"
+      },
+      "website": "https://www.ksdcollege.edu.za",
+      "application_link": "https://www.ksdcollege.edu.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Finance", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Plumber", "Bookkeeper", "Hospitality Worker"]
+        }
+      ]
+    },
+    {
+      "college_code": "LOVEDALE",
+      "college_name": "Lovedale TVET College",
+      "province": "Eastern Cape",
+      "municipality": "Amathole",
+      "town": "Alice",
+      "location": {
+        "latitude": -32.872,
+        "longitude": 27.388953
+      },
+      "postal_code": "5700",
+      "contact": {
+        "email": "info@lovedalecollege.co.za",
+        "phone": "+27 40 653 1171"
+      },
+      "website": "https://www.lovedalecollege.co.za",
+      "application_link": "https://www.lovedalecollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Primary Agriculture", "Business Studies", "Office Administration"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Farm Supervisor", "Business Clerk", "Admin Assistant"]
+        }
+      ]
+    },
+    {
+      "college_code": "NORTHLINK",
+      "college_name": "Northlink TVET College",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Bellville",
+      "location": {
+        "latitude": -33.873,
+        "longitude": 18.629
+      },
+      "postal_code": "7530",
+      "contact": {
+        "email": "info@northlink.co.za",
+        "phone": "+27 21 970 9000"
+      },
+      "website": "https://www.northlink.co.za",
+      "application_link": "https://www.northlink.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Engineering & Related Design", "Electrical Infrastructure", "Hospitality", "Finance"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Mathematics recommended"],
+          "career_outcomes": ["Fitter", "Electrician", "Chef", "Financial Clerk"]
+        }
+      ]
+    },
+    {
+      "college_code": "PE",
+      "college_name": "Port Elizabeth TVET College",
+      "province": "Eastern Cape",
+      "municipality": "Nelson Mandela Bay",
+      "town": "Gqeberha",
+      "location": {
+        "latitude": -33.96098,
+        "longitude": 25.61098
+      },
+      "postal_code": "6000",
+      "contact": {
+        "email": "info@pecollege.edu.za",
+        "phone": "+27 41 585 7771"
+      },
+      "website": "https://www.pecollege.edu.za",
+      "application_link": "https://www.pecollege.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Business Studies", "IT"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "IT Technician", "Business Clerk"]
+        }
+      ]
+    },
+    {
+      "college_code": "SOUTHCAPE",
+      "college_name": "South Cape TVET College",
+      "province": "Western Cape",
+      "municipality": "Garden Route",
+      "town": "George",
+      "location": {
+        "latitude": -33.988,
+        "longitude": 22.457
+      },
+      "postal_code": "6530",
+      "contact": {
+        "email": "info@sccollege.co.za",
+        "phone": "+27 44 884 0359"
+      },
+      "website": "https://www.sccollege.co.za",
+      "application_link": "https://www.sccollege.co.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Engineering & Related Design", "Hospitality", "Business Studies", "Tourism"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Welder", "Chef", "Business Administrator", "Tour Guide"]
+        }
+      ]
+    },
+    {
+      "college_code": "WESTCOAST",
+      "college_name": "West Coast TVET College",
+      "province": "Western Cape",
+      "municipality": "West Coast",
+      "town": "Malmesbury",
+      "location": {
+        "latitude": -33.467,
+        "longitude": 18.734
+      },
+      "postal_code": "7300",
+      "contact": {
+        "email": "info@westcoastcollege.co.za",
+        "phone": "+27 22 482 1143"
+      },
+      "website": "https://www.westcoastcollege.co.za",
+      "application_link": "https://www.westcoastcollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Engineering & Related Design", "Primary Agriculture", "Hospitality", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Fitter", "Farm Supervisor", "Chef", "Business Clerk"]
+        }
+      ]
+    },
+    {
+      "college_code": "CAPRICORN",
+      "college_name": "Capricorn TVET College",
+      "province": "Limpopo",
+      "municipality": "Capricorn",
+      "town": "Polokwane",
+      "location": {
+        "latitude": -23.533024,
+        "longitude": 29.272943
+      },
+      "postal_code": "0700",
+      "contact": {
+        "email": "info@capricorncollege.co.za",
+        "phone": "+27 15 230 1800"
+      },
+      "website": "https://www.capricorncollege.co.za",
+      "application_link": "https://www.capricorncollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering & Building Construction", "Electrical Infrastructure", "Finance, Economics & Accounting", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Bookkeeper", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "CJC",
+      "college_name": "Central Johannesburg TVET College",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.1749,
+        "longitude": 28.04902
+      },
+      "postal_code": "2000",
+      "contact": {
+        "email": "info@cjc.edu.za",
+        "phone": "+27 11 351 6000"
+      },
+      "website": "https://www.cjc.edu.za",
+      "application_link": "https://www.cjc.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Information Technology & Computer Science", "Electrical Infrastructure", "Finance, Economics & Accounting"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Mathematics recommended for IT"],
+          "career_outcomes": ["IT Technician", "Electrician", "Bookkeeper"]
+        }
+      ]
+    },
+    {
+      "college_code": "EEC",
+      "college_name": "Ekurhuleni East TVET College",
+      "province": "Gauteng",
+      "municipality": "Ekurhuleni",
+      "town": "Springs",
+      "location": {
+        "latitude": -26.28894,
+        "longitude": 28.40908
+      },
+      "postal_code": "1559",
+      "contact": {
+        "email": "info@eec.edu.za",
+        "phone": "+27 11 730 6600"
+      },
+      "website": "https://www.eec.edu.za",
+      "application_link": "https://www.eec.edu.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Engineering & Related Design", "Process Plant Operations", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["Mathematics & Science recommended"],
+          "career_outcomes": ["Fitter & Turner", "Boilermaker", "Plant Operator"]
+        }
+      ]
+    },
+    {
+      "college_code": "EWC",
+      "college_name": "Ekurhuleni West TVET College",
+      "province": "Gauteng",
+      "municipality": "Ekurhuleni",
+      "town": "Germiston",
+      "location": {
+        "latitude": -26.28864,
+        "longitude": 28.40557
+      },
+      "postal_code": "1401",
+      "contact": {
+        "email": "info@ewc.edu.za",
+        "phone": "+27 11 876 6900"
+      },
+      "website": "https://www.ewc.edu.za",
+      "application_link": "https://www.ewc.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Information Technology & Computer Science", "Electrical Infrastructure", "Hospitality", "Marketing"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Mathematics for IT"],
+          "career_outcomes": ["IT Technician", "Electrician", "Chef", "Marketing Assistant"]
+        }
+      ]
+    },
+    {
+      "college_code": "ELANGENI",
+      "college_name": "Elangeni TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "eThekwini",
+      "town": "Pinetown",
+      "location": {
+        "latitude": -29.823295,
+        "longitude": 30.869651
+      },
+      "postal_code": "3610",
+      "contact": {
+        "email": "info@elangeni.edu.za",
+        "phone": "+27 31 716 6700"
+      },
+      "website": "https://www.elangeni.edu.za",
+      "application_link": "https://www.elangeni.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Finance, Economics & Accounting", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Bookkeeper", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "ESAYIDI",
+      "college_name": "Esayidi TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "Ugu",
+      "town": "Port Shepstone",
+      "location": {
+        "latitude": -30.271051,
+        "longitude": 30.441208
+      },
+      "postal_code": "4240",
+      "contact": {
+        "email": "info@esayidi.co.za",
+        "phone": "+27 39 684 0110"
+      },
+      "website": "https://www.esayidi.co.za",
+      "application_link": "https://www.esayidi.co.za/register",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Business Studies", "Hospitality", "Primary Agriculture", "Electrical Infrastructure"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Business Clerk", "Chef", "Farm Assistant", "Electrician"]
+        }
+      ]
+    },
+    {
+      "college_code": "GERTSIBANDE",
+      "college_name": "Gert Sibande TVET College",
+      "province": "Mpumalanga",
+      "municipality": "Gert Sibande",
+      "town": "Standerton",
+      "location": {
+        "latitude": -26.565954,
+        "longitude": 29.143304
+      },
+      "postal_code": "2430",
+      "contact": {
+        "email": "info@gscollege.co.za",
+        "phone": "+27 17 712 9040"
+      },
+      "website": "https://www.gscollege.co.za",
+      "application_link": "https://www.gscollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Mechanical Engineering", "Marketing"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["Mathematics & Science recommended"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Fitter", "Marketing Assistant"]
+        }
+      ]
+    },
+    {
+      "college_code": "LEPHALALE",
+      "college_name": "Lephalale TVET College",
+      "province": "Limpopo",
+      "municipality": "Waterberg",
+      "town": "Lephalale",
+      "location": {
+        "latitude": -23.68407,
+        "longitude": 27.692889
+      },
+      "postal_code": "0555",
+      "contact": {
+        "email": "info@lephalale.edu.za",
+        "phone": "+27 14 763 2252"
+      },
+      "website": "https://www.lephalale.edu.za",
+      "application_link": "https://www.lephalale.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Engineering & Related Design", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Maths/Science for technical"],
+          "career_outcomes": ["Electrician", "Fitter & Turner", "Business Clerk"]
+        }
+      ]
+    },
+    {
+      "college_code": "LETABA",
+      "college_name": "Letaba TVET College",
+      "province": "Limpopo",
+      "municipality": "Mopani",
+      "town": "Tzaneen",
+      "location": {
+        "latitude": -23.835698,
+        "longitude": 30.162697
+      },
+      "postal_code": "0850",
+      "contact": {
+        "email": "info@letaba.co.za",
+        "phone": "+27 15 307 5440"
+      },
+      "website": "https://www.letaba.co.za",
+      "application_link": "https://www.letaba.co.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Finance, Economics & Accounting", "Office Administration", "Tourism", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bookkeeper", "Admin Clerk", "Tour Guide", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "MAJUBA",
+      "college_name": "Majuba TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "Amajuba",
+      "town": "Newcastle",
+      "location": {
+        "latitude": -29.56385,
+        "longitude": 27.45537
+      },
+      "postal_code": "2940",
+      "contact": {
+        "email": "info@majuba.edu.za",
+        "phone": "+27 34 326 4888"
+      },
+      "website": "https://www.majuba.edu.za",
+      "application_link": "https://www.majuba.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Mechanical Engineering", "Primary Agriculture"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["Mathematics & Science recommended"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Fitter", "Farm Supervisor"]
+        }
+      ]
+    },
+    {
+      "college_code": "MALUTI",
+      "college_name": "Maluti TVET College",
+      "province": "Free State",
+      "municipality": "Thabo Mofutsanyane",
+      "town": "Phuthaditjhaba",
+      "location": {
+        "latitude": -28.52702,
+        "longitude": 28.800244
+      },
+      "postal_code": "9866",
+      "contact": {
+        "email": "info@malutitvet.co.za",
+        "phone": "+27 58 713 6100"
+      },
+      "website": "https://www.malutitvet.co.za",
+      "application_link": "https://www.malutitvet.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Marketing", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Marketing Assistant", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "MNAMBITHI",
+      "college_name": "Mnambithi TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "uThukela",
+      "town": "Ladysmith",
+      "location": {
+        "latitude": -29.46408,
+        "longitude": 28.33459
+      },
+      "postal_code": "3370",
+      "contact": {
+        "email": "info@mnambithi.edu.za",
+        "phone": "+27 36 638 1700"
+      },
+      "website": "https://www.mnambithi.edu.za",
+      "application_link": "https://www.mnambithi.edu.za/register",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Hospitality", "Tourism", "Business Studies", "Office Administration"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Chef", "Tour Guide", "Business Clerk", "Receptionist"]
+        }
+      ]
+    },
+    {
+      "college_code": "MOPANI",
+      "college_name": "Mopani South East TVET College",
+      "province": "Limpopo",
+      "municipality": "Mopani",
+      "town": "Phalaborwa",
+      "location": {
+        "latitude": -23.946732,
+        "longitude": 31.138969
+      },
+      "postal_code": "1390",
+      "contact": {
+        "email": "info@mopani.edu.za",
+        "phone": "+27 15 781 5721"
+      },
+      "website": "https://www.mopani.edu.za",
+      "application_link": "https://www.mopani.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Finance", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Bookkeeper", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "MOTHEO",
+      "college_name": "Motheo TVET College",
+      "province": "Free State",
+      "municipality": "Mangaung",
+      "town": "Bloemfontein",
+      "location": {
+        "latitude": -29.123384,
+        "longitude": 26.221243
+      },
+      "postal_code": "9300",
+      "contact": {
+        "email": "info@motheotvet.co.za",
+        "phone": "+27 51 406 9300"
+      },
+      "website": "https://www.motheotvet.co.za",
+      "application_link": "https://www.motheotvet.co.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Hospitality", "Marketing"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Chef", "Marketing Assistant"]
+        }
+      ]
+    },
+    {
+      "college_code": "MTHASHANA",
+      "college_name": "Mthashana TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "Zululand",
+      "town": "Vryheid",
+      "location": {
+        "latitude": -30.48376,
+        "longitude": 27.46265
+      },
+      "postal_code": "3100",
+      "contact": {
+        "email": "info@mthashana.edu.za",
+        "phone": "+27 34 980 1010"
+      },
+      "website": "https://www.mthashana.edu.za",
+      "application_link": "https://www.mthashana.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Primary Agriculture", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Farm Assistant", "Business Clerk"]
+        }
+      ]
+    },
+    {
+      "college_code": "NKANGALA",
+      "college_name": "Nkangala TVET College",
+      "province": "Mpumalanga",
+      "municipality": "Nkangala",
+      "town": "eMalahleni",
+      "location": {
+        "latitude": -25.877663,
+        "longitude": 29.216164
+      },
+      "postal_code": "1035",
+      "contact": {
+        "email": "info@nkangalacollege.co.za",
+        "phone": "+27 13 690 3824"
+      },
+      "website": "https://www.nkangalacollege.co.za",
+      "application_link": "https://www.nkangalacollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Mechanical Engineering", "IT & Computer Science"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["Mathematics & Science recommended"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Fitter", "IT Technician"]
+        }
+      ]
+    },
+    {
+      "college_code": "NC-RURAL",
+      "college_name": "Northern Cape Rural TVET College",
+      "province": "Northern Cape",
+      "municipality": "Namakwa",
+      "town": "Upington",
+      "location": {
+        "latitude": -28.43616,
+        "longitude": 21.21337
+      },
+      "postal_code": "8800",
+      "contact": {
+        "email": "info@ncr.edu.za",
+        "phone": "+27 54 331 3836"
+      },
+      "website": "https://www.ncr.edu.za",
+      "application_link": "https://www.ncr.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Hospitality", "Primary Agriculture"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Chef", "Farm Assistant"]
+        }
+      ]
+    },
+    {
+      "college_code": "NC-URBAN",
+      "college_name": "Northern Cape Urban TVET College",
+      "province": "Northern Cape",
+      "municipality": "Frances Baard",
+      "town": "Kimberley",
+      "location": {
+        "latitude": -28.74503,
+        "longitude": 24.76622
+      },
+      "postal_code": "8301",
+      "contact": {
+        "email": "info@ncu.edu.za",
+        "phone": "+27 53 839 2000"
+      },
+      "website": "https://www.ncu.edu.za",
+      "application_link": "https://www.ncu.edu.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Hospitality", "Tourism", "Office Administration", "Electrical Infrastructure"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Chef", "Tourism Officer", "Admin Clerk", "Electrician"]
+        }
+      ]
+    },
+    {
+      "college_code": "ORBIT",
+      "college_name": "Orbit TVET College",
+      "province": "North West",
+      "municipality": "Bojanala",
+      "town": "Rustenburg",
+      "location": {
+        "latitude": -25.63787,
+        "longitude": 27.77632
+      },
+      "postal_code": "0300",
+      "contact": {
+        "email": "info@orbitcollege.co.za",
+        "phone": "+27 14 592 7014"
+      },
+      "website": "https://www.orbitcollege.co.za",
+      "application_link": "https://www.orbitcollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Mechanical Engineering", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Fitter", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "SEDIBENG",
+      "college_name": "Sedibeng TVET College",
+      "province": "Gauteng",
+      "municipality": "Sedibeng",
+      "town": "Vereeniging",
+      "location": {
+        "latitude": -26.186935,
+        "longitude": 27.67743
+      },
+      "postal_code": "1930",
+      "contact": {
+        "email": "info@sedcol.co.za",
+        "phone": "+27 16 422 6645"
+      },
+      "website": "https://www.sedcol.co.za",
+      "application_link": "https://www.sedcol.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Finance", "Marketing"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Bookkeeper", "Marketing Assistant"]
+        }
+      ]
+    },
+    {
+      "college_code": "SEKHUKHUNE",
+      "college_name": "Sekhukhune TVET College",
+      "province": "Limpopo",
+      "municipality": "Sekhukhune",
+      "town": "Groblersdal",
+      "location": {
+        "latitude": -25.094191,
+        "longitude": 29.24244
+      },
+      "postal_code": "0470",
+      "contact": {
+        "email": "info@sekhukhune.edu.za",
+        "phone": "+27 13 269 0278"
+      },
+      "website": "https://www.sekhukhune.edu.za",
+      "application_link": "https://www.sekhukhune.edu.za/register",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Civil Engineering", "Electrical Infrastructure", "Business Studies", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bricklayer", "Electrician", "Business Clerk", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "SWGC",
+      "college_name": "South West Gauteng TVET College",
+      "province": "Gauteng",
+      "municipality": "West Rand",
+      "town": "Roodepoort",
+      "location": {
+        "latitude": -26.67825,
+        "longitude": 27.93093
+      },
+      "postal_code": "1724",
+      "contact": {
+        "email": "info@swgc.co.za",
+        "phone": "+27 11 984 1260"
+      },
+      "website": "https://www.swgc.co.za",
+      "application_link": "https://www.swgc.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Finance, Economics & Accounting", "Marketing", "Hospitality", "Electrical Infrastructure"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bookkeeper", "Marketing Assistant", "Chef", "Electrician"]
+        }
+      ]
+    },
+    {
+      "college_code": "TALETSO",
+      "college_name": "Taletso TVET College",
+      "province": "North West",
+      "municipality": "Ngaka Modiri Molema",
+      "town": "Mahikeng",
+      "location": {
+        "latitude": -25.828351,
+        "longitude": 25.615548
+      },
+      "postal_code": "2745",
+      "contact": {
+        "email": "info@taletso.edu.za",
+        "phone": "+27 18 384 2346"
+      },
+      "website": "https://www.taletso.edu.za",
+      "application_link": "https://www.taletso.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Primary Agriculture", "Hospitality", "Business Studies", "Electrical Infrastructure"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Farm Assistant", "Chef", "Business Clerk", "Electrician"]
+        }
+      ]
+    },
+    {
+      "college_code": "THEKWINI",
+      "college_name": "Thekwini TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "eThekwini",
+      "town": "Durban",
+      "location": {
+        "latitude": -29.59116,
+        "longitude": 31.49326
+      },
+      "postal_code": "4001",
+      "contact": {
+        "email": "info@thekwini.edu.za",
+        "phone": "+27 31 250 8400"
+      },
+      "website": "https://www.thekwinicollege.co.za",
+      "application_link": "https://www.thekwinicollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Hospitality", "Tourism", "Finance, Economics & Accounting", "Electrical Infrastructure"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Chef", "Tour Guide", "Bookkeeper", "Electrician"]
+        }
+      ]
+    },
+    {
+      "college_code": "TNC",
+      "college_name": "Tshwane North TVET College",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.21411,
+        "longitude": 27.87456
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@tnc.edu.za",
+        "phone": "+27 12 401 1950"
+      },
+      "website": "https://www.tnc.edu.za",
+      "application_link": "https://www.tnc.edu.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "IT & Computer Science", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "IT Technician", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "TSC",
+      "college_name": "Tshwane South TVET College",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.75031,
+        "longitude": 28.18226
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@tsc.edu.za",
+        "phone": "+27 12 401 5000"
+      },
+      "website": "https://www.tsc.edu.za",
+      "application_link": "https://www.tsc.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Finance, Economics & Accounting", "Marketing", "Office Administration", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bookkeeper", "Marketing Assistant", "Receptionist", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "UMFOLOZI",
+      "college_name": "Umfolozi TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "King Cetshwayo",
+      "town": "Richards Bay",
+      "location": {
+        "latitude": -32.076087,
+        "longitude": 28.764461
+      },
+      "postal_code": "3880",
+      "contact": {
+        "email": "info@umfolozi.edu.za",
+        "phone": "+27 35 902 9501"
+      },
+      "website": "https://www.umfolozi.edu.za",
+      "application_link": "https://www.umfolozi.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Hospitality", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Chef", "Business Clerk"]
+        }
+      ]
+    },
+    {
+      "college_code": "UMGUNGUNDLOVU",
+      "college_name": "Umgungundlovu TVET College",
+      "province": "KwaZulu-Natal",
+      "municipality": "uMgungundlovu",
+      "town": "Pietermaritzburg",
+      "location": {
+        "latitude": -30.22546,
+        "longitude": 29.36765
+      },
+      "postal_code": "3201",
+      "contact": {
+        "email": "info@ufet.co.za",
+        "phone": "+27 33 341 2100"
+      },
+      "website": "https://www.upfet.co.za",
+      "application_link": "https://www.upfet.co.za/applications",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Hospitality", "Tourism"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Chef", "Tour Guide"]
+        }
+      ]
+    },
+    {
+      "college_code": "VHEMBE",
+      "college_name": "Vhembe TVET College",
+      "province": "Limpopo",
+      "municipality": "Vhembe",
+      "town": "Thohoyandou",
+      "location": {
+        "latitude": -23.03779,
+        "longitude": 29.91086
+      },
+      "postal_code": "0950",
+      "contact": {
+        "email": "info@vhembecollege.edu.za",
+        "phone": "+27 15 963 3156"
+      },
+      "website": "https://www.vhembecollege.edu.za",
+      "application_link": "https://www.vhembecollege.edu.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Finance, Economics & Accounting", "Office Administration", "Hospitality", "Primary Agriculture"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bookkeeper", "Admin Clerk", "Chef", "Farm Assistant"]
+        }
+      ]
+    },
+    {
+      "college_code": "VUSELELA",
+      "college_name": "Vuselela TVET College",
+      "province": "North West",
+      "municipality": "Dr Kenneth Kaunda",
+      "town": "Klerksdorp",
+      "location": {
+        "latitude": -26.86347,
+        "longitude": 26.665427
+      },
+      "postal_code": "2570",
+      "contact": {
+        "email": "info@vuselelacollege.co.za",
+        "phone": "+27 18 406 7800"
+      },
+      "website": "https://www.vuselelacollege.co.za",
+      "application_link": "https://www.vuselelacollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Mechanical Engineering", "Business Studies"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Fitter", "Business Clerk"]
+        }
+      ]
+    },
+    {
+      "college_code": "WATERBERG",
+      "college_name": "Waterberg TVET College",
+      "province": "Limpopo",
+      "municipality": "Waterberg",
+      "town": "Mokopane",
+      "location": {
+        "latitude": -24.179973,
+        "longitude": 29.016409
+      },
+      "postal_code": "0600",
+      "contact": {
+        "email": "info@waterbergcollege.co.za",
+        "phone": "+27 15 491 8600"
+      },
+      "website": "https://www.waterbergcollege.co.za",
+      "application_link": "https://www.waterbergcollege.co.za/register",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Finance", "Hospitality"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Bookkeeper", "Chef"]
+        }
+      ]
+    },
+    {
+      "college_code": "WESTCOL",
+      "college_name": "Western TVET College (WestCol)",
+      "province": "Gauteng",
+      "municipality": "West Rand",
+      "town": "Randfontein",
+      "location": {
+        "latitude": -27.423622,
+        "longitude": 26.101455
+      },
+      "postal_code": "1759",
+      "contact": {
+        "email": "info@westcol.co.za",
+        "phone": "+27 11 692 4004"
+      },
+      "website": "https://www.westcol.co.za",
+      "application_link": "https://www.westcol.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Electrical Infrastructure", "Civil Engineering", "Finance", "Marketing"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Electrician", "Bricklayer", "Bookkeeper", "Marketing Assistant"]
+        }
+      ]
+    },
+    {
+      "college_code": "EHLANZENI",
+      "college_name": "Ehlanzeni TVET College",
+      "province": "Mpumalanga",
+      "municipality": "Ehlanzeni",
+      "town": "Mbombela",
+      "location": {
+        "latitude": -25.47313,
+        "longitude": 30.97926
+      },
+      "postal_code": "1200",
+      "contact": {
+        "email": "info@ehlanzenicollege.co.za",
+        "phone": "+27 13 752 7105"
+      },
+      "website": "https://www.ehlanzenicollege.co.za",
+      "application_link": "https://www.ehlanzenicollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NC(V) Level 2-4",
+          "programme_examples": ["Hospitality", "Tourism", "Electrical Infrastructure", "Civil Engineering"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Chef", "Tour Guide", "Electrician", "Bricklayer"]
+        }
+      ]
+    }
+  ]
+}

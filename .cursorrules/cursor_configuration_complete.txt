@@ -1,0 +1,751 @@
+# Cursor AI Configuration for Thandi MVP
+# Complete setup to prevent hallucination and ensure quality code
+
+## FILE 1: .cursorrules (Root of your project)
+# This file controls Cursor's behavior globally
+
+```markdown
+# Thandi Development Rules - Strict Mode
+
+## MISSION
+Build a B2B career guidance platform for South African schools.
+Every decision prioritizes: School pilot success > Technical perfection.
+
+## CRITICAL: ANTI-HALLUCINATION RULES
+
+### Rule 1: Never Assume External APIs Exist
+- DO NOT suggest integrating with "DHET API" or "NSFAS API" - they don't exist
+- DO NOT assume government databases have public APIs
+- ALWAYS ask: "Does this API actually exist, or should we use manual data?"
+- If uncertain about API availability, say: "I'm not sure if this API exists. Let me outline both scenarios: (1) if it exists, (2) if we need to build manually."
+
+### Rule 2: Never Invent Libraries or Packages
+- ONLY use libraries from this approved list:
+  * React 18.2+
+  * Next.js 14+
+  * Supabase JS client
+  * TailwindCSS (core classes only)
+  * Ollama (local LLM)
+  * LangChain or LlamaIndex (RAG)
+  * Chroma or FAISS (vector DB)
+- If I ask for a library not on this list, respond: "That library isn't in our approved stack. Here's how to achieve the same result with [approved alternative]."
+- DO NOT suggest: localStorage, sessionStorage, or any browser storage APIs (not supported in artifacts)
+
+### Rule 3: Never Fake Data or Examples
+- DO NOT generate fake South African university names
+- DO NOT invent bursary programs
+- DO NOT create fictional salary ranges
+- If you don't have real data, say: "I don't have current data on [X]. Here's how you would research it: [steps]."
+- ALWAYS cite sources if using real data: "According to [source], [fact]."
+
+### Rule 4: Never Suggest Features We Haven't Validated
+- DO NOT propose "AI-powered video interviews" or other complex features
+- DO NOT suggest integrations with services we haven't confirmed (e.g., WhatsApp Business API requires approval)
+- Stick to the PRD. If suggesting something new, preface with: "This isn't in the PRD, but here's an idea for Phase 2: [idea]."
+
+### Rule 5: Always Declare Uncertainty
+- If unsure about South African regulations (POPIA, labor law, tax), say: "I'm not certain about SA law. Consult a lawyer on [specific issue]."
+- If unsure about technical feasibility, say: "I haven't tested this specific combination. Here's the theory, but we should prototype first."
+- Never present guesses as facts.
+
+## CODE QUALITY STANDARDS
+
+### Naming Conventions
+- **Variables**: camelCase (e.g., `studentAssessment`, `careerMatches`)
+- **Functions**: camelCase verbs (e.g., `getCareerRecommendations()`, `calculateMatchScore()`)
+- **Components**: PascalCase (e.g., `StudentDashboard`, `AssessmentForm`)
+- **Files**: kebab-case (e.g., `student-dashboard.tsx`, `career-matching.ts`)
+- **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_RECOMMENDATIONS`, `API_TIMEOUT`)
+
+### File Structure Requirements
+```
+src/
+├── app/                    # Next.js 14 app directory
+│   ├── (student)/         # Student-facing routes
+│   ├── (admin)/           # Admin dashboard routes
+│   └── api/               # API routes
+├── components/
+│   ├── ui/                # Reusable UI components
+│   ├── student/           # Student-specific components
+│   └── admin/             # Admin-specific components
+├── lib/
+│   ├── supabase/          # Database functions
+│   ├── rag/               # RAG system logic
+│   ├── matching/          # Career matching algorithms
+│   └── utils/             # Utility functions
+├── types/                 # TypeScript types
+└── config/                # Configuration files
+```
+
+### Comment Standards
+```typescript
+// ❌ BAD: Commenting "what" without "why"
+// Loop through students
+students.forEach(student => {
+  // Process student
+});
+
+// ✅ GOOD: Explaining "why" and business logic
+// We filter out students who haven't completed the assessment because
+// partial data leads to inaccurate recommendations (per PRD requirement)
+const completedStudents = students.filter(s => s.assessmentComplete);
+```
+
+### Function Documentation (Required for Core Logic)
+```typescript
+/**
+ * Matches student assessment to career profiles using cosine similarity
+ * 
+ * Algorithm: Compares student interest vector (18 dimensions) with career 
+ * requirement vectors stored in Supabase. Returns top 5 matches above 70% threshold.
+ * 
+ * @param studentId - Supabase student UUID
+ * @param assessmentData - Array of 18 question responses (1-5 scale)
+ * @returns Promise<CareerMatch[]> - Sorted array of career matches with scores
+ * 
+ * @throws {Error} If assessment data is incomplete (< 18 responses)
+ * @throws {SupabaseError} If database query fails
+ * 
+ * @example
+ * const matches = await matchStudentToCareers('uuid-123', [4, 5, 3, ...]);
+ * // Returns: [{ careerName: "Data Scientist", matchScore: 0.92 }, ...]
+ */
+async function matchStudentToCareers(
+  studentId: string, 
+  assessmentData: number[]
+): Promise<CareerMatch[]> {
+  // Implementation
+}
+```
+
+### Error Handling (MANDATORY)
+```typescript
+// ❌ BAD: No error handling
+async function getCareerData() {
+  const data = await supabase.from('careers').select();
+  return data;
+}
+
+// ✅ GOOD: Explicit error handling with user-friendly messages
+async function getCareerData() {
+  try {
+    const { data, error } = await supabase
+      .from('careers')
+      .select();
+    
+    if (error) {
+      console.error('Supabase error:', error);
+      throw new Error('Failed to fetch career data. Please try again.');
+    }
+    
+    if (!data || data.length === 0) {
+      console.warn('No career data found in database');
+      return [];
+    }
+    
+    return data;
+  } catch (err) {
+    // Log for debugging, throw user-friendly message
+    console.error('Unexpected error in getCareerData:', err);
+    throw new Error('Something went wrong. Please contact support.');
+  }
+}
+```
+
+### TypeScript Strictness (ALWAYS)
+```typescript
+// ❌ BAD: Using 'any' type
+function processStudent(student: any) {
+  return student.name;
+}
+
+// ✅ GOOD: Explicit types
+interface Student {
+  id: string;
+  name: string;
+  email: string;
+  assessmentComplete: boolean;
+  recommendations?: CareerMatch[];
+}
+
+function processStudent(student: Student): string {
+  return student.name;
+}
+```
+
+## SECURITY REQUIREMENTS
+
+### Environment Variables (NEVER commit these)
+```bash
+# .env.local (this file should be in .gitignore)
+
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key  # Server-side only
+
+# Ollama (if remote)
+OLLAMA_API_URL=http://localhost:11434
+
+# Email (for notifications)
+SMTP_HOST=smtp.example.com
+SMTP_USER=your_email
+SMTP_PASS=your_password  # Use app-specific password
+
+# DO NOT commit API keys
+# DO NOT use these in client-side code (except NEXT_PUBLIC_* vars)
+```
+
+### Supabase Row Level Security (RLS)
+```sql
+-- Always enable RLS on tables with student data
+ALTER TABLE students ENABLE ROW LEVEL SECURITY;
+
+-- Students can only see their own data
+CREATE POLICY "Students can view own data"
+  ON students
+  FOR SELECT
+  USING (auth.uid() = id);
+
+-- Admins can see all students in their school
+CREATE POLICY "Admins can view school students"
+  ON students
+  FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM school_admins
+      WHERE school_admins.user_id = auth.uid()
+      AND school_admins.school_id = students.school_id
+    )
+  );
+```
+
+### Input Validation (ALWAYS)
+```typescript
+// ❌ BAD: No validation
+function submitAssessment(answers: number[]) {
+  await supabase.from('assessments').insert({ answers });
+}
+
+// ✅ GOOD: Validate before database operations
+function submitAssessment(answers: number[]) {
+  // Validation
+  if (!Array.isArray(answers)) {
+    throw new Error('Answers must be an array');
+  }
+  
+  if (answers.length !== 18) {
+    throw new Error('Assessment must have exactly 18 answers');
+  }
+  
+  if (answers.some(a => a < 1 || a > 5)) {
+    throw new Error('All answers must be between 1 and 5');
+  }
+  
+  // Sanitize (prevent SQL injection, XSS)
+  const sanitizedAnswers = answers.map(a => Math.floor(a));
+  
+  await supabase.from('assessments').insert({ 
+    answers: sanitizedAnswers 
+  });
+}
+```
+
+## PERFORMANCE REQUIREMENTS
+
+### Database Queries (Optimize for Slow Networks)
+```typescript
+// ❌ BAD: Multiple queries (slow on 3G)
+const student = await supabase.from('students').select().eq('id', id).single();
+const school = await supabase.from('schools').select().eq('id', student.school_id).single();
+const assessments = await supabase.from('assessments').select().eq('student_id', id);
+
+// ✅ GOOD: Single query with joins
+const { data } = await supabase
+  .from('students')
+  .select(`
+    *,
+    school:schools(*),
+    assessments(*)
+  `)
+  .eq('id', id)
+  .single();
+```
+
+### Image Optimization (Mobile-First)
+```typescript
+// ❌ BAD: Large unoptimized images
+<img src="/logo.png" alt="Thandi Logo" />
+
+// ✅ GOOD: Next.js Image with optimization
+import Image from 'next/image';
+
+<Image 
+  src="/logo.png" 
+  alt="Thandi Logo"
+  width={200}
+  height={50}
+  priority // For above-fold images
+  quality={75} // Reduce for faster load
+/>
+```
+
+### Code Splitting (Reduce Initial Bundle)
+```typescript
+// ❌ BAD: Import everything upfront
+import PDFGenerator from '@/lib/pdf-generator';
+
+// ✅ GOOD: Dynamic import (only load when needed)
+const PDFGenerator = dynamic(() => import('@/lib/pdf-generator'), {
+  loading: () => <p>Loading PDF generator...</p>,
+  ssr: false // Don't load on server
+});
+```
+
+## TESTING REQUIREMENTS
+
+### Test Every Core Function
+```typescript
+// career-matching.test.ts
+import { matchStudentToCareers } from '@/lib/matching/career-matching';
+
+describe('Career Matching Algorithm', () => {
+  it('should return 5 recommendations for valid input', async () => {
+    const testData = [4, 5, 3, 4, 5, 2, 1, 3, 4, 5, 3, 2, 4, 5, 3, 4, 2, 1];
+    const result = await matchStudentToCareers('test-id', testData);
+    
+    expect(result).toHaveLength(5);
+    expect(result[0].matchScore).toBeGreaterThan(0.7);
+  });
+  
+  it('should throw error for incomplete assessment', async () => {
+    const incompleteData = [4, 5, 3]; // Only 3 of 18
+    
+    await expect(
+      matchStudentToCareers('test-id', incompleteData)
+    ).rejects.toThrow('Assessment must have exactly 18 answers');
+  });
+});
+```
+
+### Run 20-Question Test Suite Before Every Commit
+```bash
+# In package.json scripts
+"test:rag": "node scripts/test-20-questions.js",
+"precommit": "npm run test:rag && npm run lint"
+```
+
+## GIT COMMIT STANDARDS
+
+### Commit Message Format (Required)
+```
+[CATEGORY] Brief description (max 50 chars)
+
+Detailed explanation of what changed and why (optional, max 72 chars/line)
+
+Refs: #issue-number (if applicable)
+```
+
+### Categories
+- `[RAG]` - Changes to RAG retrieval/matching logic
+- `[ADMIN]` - Admin dashboard features
+- `[STUDENT]` - Student-facing features
+- `[PDF]` - PDF report generation
+- `[AUTH]` - Authentication/security
+- `[DB]` - Database schema changes
+- `[TEST]` - Test suite updates
+- `[FIX]` - Bug fixes
+- `[DOCS]` - Documentation updates
+
+### Examples
+```
+✅ GOOD:
+[RAG] Improve career matching accuracy for business careers
+
+Updated cosine similarity threshold from 0.65 to 0.70 after analyzing
+false positive recommendations in pilot data. Now matches PRD requirement
+of 80% student satisfaction.
+
+Refs: #PRD-Section-3
+
+❌ BAD:
+fixed stuff
+```
+
+## ACCESSIBILITY REQUIREMENTS
+
+### Color Contrast (WCAG AA)
+```typescript
+// ❌ BAD: Insufficient contrast (fails WCAG)
+<button className="bg-gray-200 text-gray-400">Submit</button>
+
+// ✅ GOOD: 4.5:1 contrast ratio minimum
+<button className="bg-blue-600 text-white hover:bg-blue-700">
+  Submit
+</button>
+```
+
+### Semantic HTML
+```typescript
+// ❌ BAD: Divs for everything
+<div onClick={handleClick}>Click me</div>
+
+// ✅ GOOD: Proper semantic elements
+<button onClick={handleClick} type="button">
+  Click me
+</button>
+```
+
+### Mobile-Friendly (4-inch screens minimum)
+```css
+/* ❌ BAD: Fixed widths */
+.dashboard {
+  width: 1200px;
+}
+
+/* ✅ GOOD: Responsive with mobile-first */
+.dashboard {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem; /* Touch-friendly spacing */
+}
+
+@media (max-width: 640px) {
+  .dashboard {
+    padding: 0.5rem;
+  }
+}
+```
+
+## BEFORE SUGGESTING CODE
+
+Ask yourself these questions (Cursor, answer honestly):
+
+1. **Does this feature exist in the PRD?**
+   - If no: "This isn't in the PRD. Should we add it to Phase 2 backlog?"
+
+2. **Have I verified this API/library exists?**
+   - If uncertain: "I haven't verified [X] exists. Let me propose an alternative that I'm certain works: [Y]."
+
+3. **Will this work on 1 Mbps internet?**
+   - If no: "This might be slow on 3G. Here's how to optimize: [steps]."
+
+4. **Is this the simplest solution?**
+   - If no: "Here's a simpler approach that achieves the same goal: [approach]."
+
+5. **Can I explain this code to a non-technical founder?**
+   - If no: "This is complex. Let me add comments explaining why we need this."
+
+## QUALITY CHECKLIST (Run Before Marking Task "Done")
+
+- [ ] All functions have TypeScript types (no `any`)
+- [ ] All database queries have error handling
+- [ ] All user inputs are validated
+- [ ] All API keys are in .env.local (not hardcoded)
+- [ ] Code passes `npm run lint` (no warnings)
+- [ ] Changes tested on mobile (Chrome DevTools device emulation)
+- [ ] Commit message follows [CATEGORY] format
+- [ ] No console.log() in production code (use proper logging)
+- [ ] Added comments explaining "why" for complex logic
+- [ ] Updated documentation if API changed
+
+## RESPONSE FORMAT FOR CODE SUGGESTIONS
+
+When I ask you to build a feature, respond in this format:
+
+```
+### Proposed Solution: [Feature Name]
+
+**What I'm Building:**
+[1-2 sentence summary]
+
+**Why This Approach:**
+[Explain trade-offs, alternatives considered]
+
+**Files to Create/Modify:**
+- src/app/api/example/route.ts (new)
+- src/components/ExampleComponent.tsx (modify)
+
+**Dependencies Needed:**
+- None (using existing stack)
+OR
+- [package-name] - Reason: [why we need it]
+
+**Potential Issues:**
+- Performance: [any concerns]
+- Security: [any concerns]
+- Mobile: [any concerns]
+
+**Testing Plan:**
+[How to test this works]
+
+**Code:**
+[Actual code with extensive comments]
+
+**Next Steps After This:**
+[What should be built next]
+```
+
+## WHEN TO STOP AND ASK
+
+Don't implement if:
+- ⚠️ Requires external API you haven't verified exists
+- ⚠️ Adds >1 new dependency to package.json
+- ⚠️ Changes database schema (ask me first)
+- ⚠️ Affects security (authentication, data access)
+- ⚠️ Deviates from PRD without discussion
+
+Instead, respond:
+"⚠️ This requires [decision]. Before I proceed, here are the options: [A, B, C]. Which would you prefer?"
+
+## REMEMBER
+
+- **Honest uncertainty > Confident hallucination**
+- **Simple working code > Complex elegant code**
+- **School pilot success > Technical perfection**
+- **Real data from user > Assumed ideal behavior**
+- **One feature done well > Five features half-done**
+
+---
+
+You are building a tool that will impact real students' futures. 
+Code quality matters. Accuracy matters. 
+If you're unsure, say so.
+
+Never hallucinate. Never guess.
+```
+
+---
+
+## FILE 2: .eslintrc.json (Code Quality Rules)
+
+```json
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "prefer-const": "error",
+    "no-var": "error"
+  }
+}
+```
+
+---
+
+## FILE 3: .gitignore (Security)
+
+```
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+dist/
+
+# Debug
+npm-debug.log*
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Testing
+coverage/
+
+# Don't commit sensitive data
+*.pem
+*.key
+secrets.json
+```
+
+---
+
+## FILE 4: package.json (Approved Dependencies)
+
+```json
+{
+  "name": "thandi-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:rag": "node scripts/test-20-questions.js"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.0",
+    "@supabase/supabase-js": "^2.38.0",
+    "langchain": "^0.0.200",
+    "chromadb": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "typescript": "^5",
+    "eslint": "^8",
+    "eslint-config-next": "^14.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0"
+  }
+}
+```
+
+---
+
+## HOW TO USE THESE FILES
+
+### Step 1: Create Files in Your Project Root
+
+```bash
+# In your project folder
+touch .cursorrules
+touch .eslintrc.json
+touch .gitignore
+
+# Copy the contents from above into each file
+```
+
+### Step 2: Tell Cursor to Use These Rules
+
+Open Cursor and say:
+
+```
+Cursor, I've added a .cursorrules file to the project root. 
+Please read it and follow ALL rules strictly. 
+
+Confirm you understand these key points:
+1. Never assume external APIs exist (especially DHET/NSFAS APIs)
+2. Only use approved libraries (React, Next.js, Supabase, LangChain, Chroma)
+3. Always declare uncertainty instead of guessing
+4. All code must have TypeScript types (no 'any')
+5. All database queries must have error handling
+
+Before you write any code, reference .cursorrules and confirm 
+your approach follows these standards.
+```
+
+### Step 3: Verify Cursor Loaded the Rules
+
+Ask Cursor:
+
+```
+What are the 5 critical anti-hallucination rules from .cursorrules?
+```
+
+If Cursor can recite them, it loaded the file correctly.
+
+---
+
+## TESTING CURSOR'S COMPLIANCE
+
+### Test 1: Hallucination Check
+**Ask Cursor:** "Integrate with the DHET API to get real-time bursary data"
+
+**Expected Response:**
+```
+⚠️ According to .cursorrules, DHET does not have a public API. 
+Instead, here's how we should approach this:
+
+Option A: Manual data entry (update bursary database monthly)
+Option B: Web scraping (legal gray area, not recommended)
+Option C: Partnership with DHET for data sharing agreement
+
+Which would you prefer?
+```
+
+**If Cursor suggests using a non-existent DHET API → Rules not loaded properly**
+
+---
+
+### Test 2: Library Check
+**Ask Cursor:** "Use localStorage to save student assessment progress"
+
+**Expected Response:**
+```
+⚠️ localStorage is not supported in Claude.ai artifacts (per .cursorrules).
+Instead, we should use React state (useState) for in-memory storage 
+during the session.
+
+For persistent storage across sessions, we can use Supabase database
+or the window.storage API provided in artifacts.
+
+Which approach fits your use case better?
+```
+
+**If Cursor suggests localStorage without warning → Rules not loaded properly**
+
+---
+
+### Test 3: Code Quality Check
+**Ask Cursor:** "Create a function to match students to careers"
+
+**Expected Response Should Include:**
+- TypeScript types (no `any`)
+- Error handling (try-catch)
+- Detailed comments explaining algorithm
+- Input validation
+- Function documentation with @params and @returns
+
+**If Cursor provides code without these → Remind it of .cursorrules**
+
+---
+
+## CURSOR SETTINGS IN IDE
+
+### Enable These Settings:
+
+1. **Settings → Cursor Settings → Rules**
+   - ✅ Enable "Use rules from .cursorrules file"
+   - ✅ Enable "Strict mode"
+
+2. **Settings → Cursor Settings → Privacy**
+   - ✅ Enable "Don't train on my code"
+   - ✅ Enable "Privacy mode for sensitive projects"
+
+3. **Settings → Cursor Settings → Features**
+   - ✅ Enable "Composer" (for multi-file edits)
+   - ✅ Enable "Indexing" (for codebase context)
+   - ❌ Disable "Autocomplete" during initial build (reduces noise)
+
+---
+
+## FINAL VERIFICATION CHECKLIST
+
+Before starting your MVP build with Cursor, verify:
+
+- [ ] .cursorrules file created in project root
+- [ ] .eslintrc.json file created
+- [ ] .gitignore file created with .env.local included
+- [ ] Cursor loaded rules (test with hallucination check)
+- [ ] Cursor understands approved library list
+- [ ] You've told Cursor about the PRD (paste it in first conversation)
+
+---
+
+**Once these are set up, Cursor will be constrained to:**
+- ✅ Never hallucinate APIs or libraries
+- ✅ Always use TypeScript with strict types
+- ✅ Always handle errors gracefully
+- ✅ Always validate inputs
+- ✅ Always ask before deviating from PRD
+- ✅ Always declare uncertainty instead of guessing
+
+**This setup ensures quality code with minimal bugs and no hallucinations.**
+
+**Now you're ready to build with Cursor safely.**

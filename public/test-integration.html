@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orchids Integration Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 80px;
+            transition: border-color 0.3s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+        
+        .career-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .career-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .career-match {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .career-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .error {
+            background: #fee;
+            border: 2px solid #fcc;
+            color: #c33;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .success {
+            background: #efe;
+            border: 2px solid #cfc;
+            color: #3c3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .info {
+            background: #e3f2fd;
+            border: 2px solid #90caf9;
+            color: #1976d2;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Orchids Integration Test</h1>
+        <p class="subtitle">Test the connection between Orchids frontend and Thandi backend</p>
+        
+        <div class="info">
+            <strong>Backend URL:</strong> https://thandiai.vercel.app<br>
+            <strong>Status:</strong> <span id="status">Checking...</span>
+        </div>
+        
+        <form id="assessmentForm">
+            <div class="form-group">
+                <label for="answer1">Question 1: What are your academic strengths?</label>
+                <textarea id="answer1" placeholder="e.g., I am good at Math and Science" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="answer2">Question 2: What do you enjoy doing?</label>
+                <textarea id="answer2" placeholder="e.g., I enjoy technology and problem-solving" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="answer3">Question 3: What are your financial constraints?</label>
+                <textarea id="answer3" placeholder="e.g., I have limited budget but willing to work hard" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="answer4">Question 4: What are your career goals?</label>
+                <textarea id="answer4" placeholder="e.g., I want a career with good job prospects" required></textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn">Get Career Recommendations</button>
+        </form>
+        
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing your responses...</p>
+        </div>
+        
+        <div id="results"></div>
+    </div>
+    
+    <script>
+        const BACKEND_URL = 'https://thandiai.vercel.app';
+        
+        // Check backend status on load
+        async function checkBackendStatus() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/assess`);
+                const data = await response.json();
+                
+                if (data.status === 'ok') {
+                    document.getElementById('status').innerHTML = '<span style="color: #4caf50;">✅ Online</span>';
+                } else {
+                    document.getElementById('status').innerHTML = '<span style="color: #f44336;">❌ Error</span>';
+                }
+            } catch (error) {
+                document.getElementById('status').innerHTML = '<span style="color: #f44336;">❌ Offline</span>';
+            }
+        }
+        
+        // Handle form submission
+        document.getElementById('assessmentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const answers = [
+                document.getElementById('answer1').value,
+                document.getElementById('answer2').value,
+                document.getElementById('answer3').value,
+                document.getElementById('answer4').value
+            ];
+            
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('submitBtn').disabled = true;
+            
+            try {
+                // Send to backend
+                const response = await fetch(`${BACKEND_URL}/api/assess`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ answers })
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                // Display results
+                displayResults(data);
+                
+            } catch (error) {
+                // Display error
+                document.getElementById('results').innerHTML = `
+                    <div class="error">
+                        <strong>❌ Error:</strong> ${error.message}<br>
+                        <small>Check console for details</small>
+                    </div>
+                `;
+                console.error('Error:', error);
+            } finally {
+                // Hide loading
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('submitBtn').disabled = false;
+            }
+        });
+        
+        // Display results
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+            
+            if (!data.careers || data.careers.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ No careers found</strong><br>
+                        Please try different answers.
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = `
+                <div class="success">
+                    <strong>✅ Success!</strong> Found ${data.careers.length} career recommendation(s)<br>
+                    <small>Session ID: ${data.sessionId}</small>
+                </div>
+                <div class="results">
+                    <h3 style="margin-bottom: 20px;">Career Recommendations:</h3>
+            `;
+            
+            data.careers.forEach((career, index) => {
+                html += `
+                    <div class="career-card">
+                        <div class="career-name">${index + 1}. ${career.name}</div>
+                        <div class="career-match">${career.match}% Match</div>
+                        <div class="career-description">${career.description}</div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            resultsDiv.innerHTML = html;
+        }
+        
+        // Check status on load
+        checkBackendStatus();
+    </script>
+</body>
+</html>

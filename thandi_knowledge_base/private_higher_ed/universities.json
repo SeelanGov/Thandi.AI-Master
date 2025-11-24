@@ -1,0 +1,1187 @@
+{
+  "metadata": {
+    "version": "1.1",
+    "last_updated": "2025-01-19",
+    "total_universities": 31,
+    "total_programmes": 0,
+    "content_type": "private_higher_education",
+    "description": "DHET-registered private higher education institutions offering degrees and diplomas in South Africa"
+  },
+  "universities": [
+    {
+      "university_code": "IIEVC",
+      "university_name": "IIE Varsity College",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Sandton",
+      "location": {
+        "latitude": -26.107,
+        "longitude": 28.056,
+        "campuses": ["Sandton", "Pretoria", "Durban", "Cape Town"]
+      },
+      "postal_code": "2196",
+      "contact": {
+        "email": "info@varsitycollege.co.za",
+        "phone": "0861 333 397"
+      },
+      "website": "https://www.varsitycollege.co.za",
+      "application_link": "https://www.varsitycollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BCom Strategic Management",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 30+)",
+          "min_aps": 30,
+          "required_subjects": ["English Home Language 50%+ or First Additional 60%+"],
+          "estimated_annual_cost": "R75,000 - R85,000",
+          "career_outcomes": ["Business Manager", "Strategic Planner", "Entrepreneur"],
+          "bursaries_available": true
+        },
+        {
+          "programme_name": "BA Psychology & Human Resource Management",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 30+)",
+          "min_aps": 30,
+          "required_subjects": ["English Home Language 50%+ or First Additional 60%+"],
+          "estimated_annual_cost": "R75,000 - R85,000",
+          "career_outcomes": ["HR Practitioner", "Recruitment Specialist", "Organizational Psychologist"],
+          "bursaries_available": true
+        },
+        {
+          "programme_name": "BEd Foundation Phase",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BEd",
+          "nqf_level": 7,
+          "duration_years": 4,
+          "min_requirements": "NSC with Bachelor pass (APS 30+)",
+          "min_aps": 30,
+          "required_subjects": ["English Home Language 50%+ or First Additional 60%+"],
+          "estimated_annual_cost": "R75,000 - R85,000",
+          "career_outcomes": ["Foundation Phase Teacher", "Early Childhood Educator"],
+          "bursaries_available": true
+        },
+        {
+          "programme_name": "Bachelor of Computer & Information Sciences",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "Bachelor",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 30+)",
+          "min_aps": 30,
+          "required_subjects": ["English Home Language 50%+ or First Additional 60%+", "Mathematics recommended"],
+          "estimated_annual_cost": "R75,000 - R85,000",
+          "career_outcomes": ["IT Project Manager", "Software Developer", "Systems Analyst"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "ROSEBANK",
+      "university_name": "IIE Rosebank College",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Braamfontein",
+      "location": {
+        "latitude": -26.193,
+        "longitude": 28.041,
+        "campuses": ["Johannesburg", "Pretoria", "Durban", "Cape Town"]
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@rosebankcollege.co.za",
+        "phone": "+27 11 403 3100"
+      },
+      "website": "https://www.rosebankcollege.co.za",
+      "application_link": "https://www.rosebankcollege.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Higher Certificate in Business Management",
+          "programme_type": "Higher Certificate",
+          "qualification_type": "Higher Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "min_requirements": "NSC with Diploma pass (APS 20+)",
+          "min_aps": 20,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R45,000 - R55,000",
+          "career_outcomes": ["Business Administrator", "Office Manager"],
+          "bursaries_available": true
+        },
+        {
+          "programme_name": "BCom Accounting",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 25+)",
+          "min_aps": 25,
+          "required_subjects": ["English 40%+", "Mathematics 50%+"],
+          "estimated_annual_cost": "R60,000 - R70,000",
+          "career_outcomes": ["Junior Accountant", "Financial Analyst", "Bookkeeper"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "STADIO",
+      "university_name": "STADIO Higher Education",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria (HQ)",
+      "location": {
+        "latitude": -25.746,
+        "longitude": 28.188,
+        "campuses": ["Pretoria", "Cape Town", "Durban"]
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@stadio.ac.za",
+        "phone": "087 288 3222"
+      },
+      "website": "https://stadio.ac.za",
+      "application_link": "https://stadio.ac.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Bachelor of Education Foundation/Intermediate",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BEd",
+          "nqf_level": 7,
+          "duration_years": 4,
+          "min_requirements": "NSC with Bachelor pass (APS 26+)",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R50,000 - R60,000",
+          "career_outcomes": ["Teacher", "Education Specialist"],
+          "bursaries_available": true
+        },
+        {
+          "programme_name": "BCom Management",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 26+)",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R50,000 - R60,000",
+          "career_outcomes": ["Business Manager", "Operations Manager"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "IIEMSA",
+      "university_name": "Monash South Africa (IIE MSA)",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Ruimsig",
+      "location": {
+        "latitude": -26.084,
+        "longitude": 27.874
+      },
+      "postal_code": "1735",
+      "contact": {
+        "email": "info@msa.ac.za",
+        "phone": "+27 11 950 4000"
+      },
+      "website": "https://www.msa.ac.za",
+      "application_link": "https://www.msa.ac.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Bachelor of Public Health",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "Bachelor",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 30+)",
+          "min_aps": 30,
+          "required_subjects": ["English 50%+", "Mathematics recommended"],
+          "estimated_annual_cost": "R80,000 - R90,000",
+          "career_outcomes": ["Public Health Officer", "Health Program Manager"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "VEGA",
+      "university_name": "Vega School (IIE)",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Sandton",
+      "location": {
+        "latitude": -26.107,
+        "longitude": 28.056,
+        "campuses": ["Johannesburg", "Pretoria", "Durban", "Cape Town"]
+      },
+      "postal_code": "2196",
+      "contact": {
+        "email": "info@vegaschool.com",
+        "phone": "0861 833 422"
+      },
+      "website": "https://www.vegaschool.com",
+      "application_link": "https://www.vegaschool.com/apply",
+      "programmes": [
+        {
+          "programme_name": "BA Strategic Brand Communication",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 28+)",
+          "min_aps": 28,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R85,000 - R95,000",
+          "career_outcomes": ["Brand Manager", "Creative Director", "Digital Marketer"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "AFDA",
+      "university_name": "AFDA Film School",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "National (HQ Western Cape)",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424,
+        "campuses": ["Cape Town", "Johannesburg", "Durban", "Port Elizabeth"]
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@afda.co.za",
+        "phone": "+27 21 448 7600"
+      },
+      "website": "https://www.afda.co.za",
+      "application_link": "https://www.afda.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BA Motion Picture Medium",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 28+)",
+          "min_aps": 28,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R90,000 - R100,000",
+          "career_outcomes": ["Film Director", "Producer", "Cinematographer"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "REGENT",
+      "university_name": "Regent Business School",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "KwaZulu-Natal",
+      "municipality": "eThekwini",
+      "town": "Durban",
+      "location": {
+        "latitude": -29.858,
+        "longitude": 31.021
+      },
+      "postal_code": "4001",
+      "contact": {
+        "email": "info@regent.ac.za",
+        "phone": "+27 31 302 7218"
+      },
+      "website": "https://regent.ac.za",
+      "application_link": "https://regent.ac.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BCom Supply Chain Management (distance)",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 25+)",
+          "min_aps": 25,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R35,000 - R45,000",
+          "career_outcomes": ["Supply Chain Manager", "Logistics Coordinator"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "MANCOSA",
+      "university_name": "MANCOSA",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "KwaZulu-Natal",
+      "municipality": "eThekwini",
+      "town": "Durban",
+      "location": {
+        "latitude": -29.858,
+        "longitude": 31.021
+      },
+      "postal_code": "4001",
+      "contact": {
+        "email": "info@mancosa.co.za",
+        "phone": "0861 626 267"
+      },
+      "website": "https://www.mancosa.co.za",
+      "application_link": "https://www.mancosa.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BCom Project Management (distance)",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 25+)",
+          "min_aps": 25,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R35,000 - R45,000",
+          "career_outcomes": ["Project Manager", "Programme Coordinator"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "BOSTONHE",
+      "university_name": "Boston City Campus (Higher Ed)",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.145,
+        "longitude": 28.034,
+        "campuses": ["Multiple nationwide"]
+      },
+      "postal_code": "2000",
+      "contact": {
+        "email": "info@boston.co.za",
+        "phone": "+27 11 551 2000"
+      },
+      "website": "https://www.boston.co.za",
+      "application_link": "https://www.boston.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Bachelor of Commerce in Management Marketing",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 20+)",
+          "min_aps": 20,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R45,000 - R55,000",
+          "career_outcomes": ["Marketing Coordinator", "Brand Manager"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "DAMELINHE",
+      "university_name": "Damelin (Higher Ed programmes)",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "location": {
+        "latitude": -26.093,
+        "longitude": 27.981,
+        "campuses": ["Multiple nationwide"]
+      },
+      "postal_code": "2194",
+      "contact": {
+        "email": "info@damelin.co.za",
+        "phone": "0860 332 233"
+      },
+      "website": "https://www.damelin.co.za",
+      "application_link": "https://www.damelin.co.za",
+      "programmes": [
+        {
+          "programme_name": "Bachelor of Commerce in Marketing & Business Management",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 20+)",
+          "min_aps": 20,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R45,000 - R55,000",
+          "career_outcomes": ["Marketing Manager", "Business Administrator"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "CTI",
+      "university_name": "Pearson Institute (CTI/MGI)",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Tshwane",
+      "town": "Midrand",
+      "location": {
+        "latitude": -25.996,
+        "longitude": 28.126,
+        "campuses": ["Midrand", "Cape Town", "Durban"]
+      },
+      "postal_code": "1685",
+      "contact": {
+        "email": "info@cti.ac.za",
+        "phone": "+27 11 467 9600"
+      },
+      "website": "https://www.cti.ac.za",
+      "application_link": "https://www.cti.ac.za",
+      "programmes": [
+        {
+          "programme_name": "BCom Law",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 28+)",
+          "min_aps": 28,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R65,000 - R75,000",
+          "career_outcomes": ["Paralegal", "Legal Advisor", "Compliance Officer"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "SACAP",
+      "university_name": "SACAP (South African College of Applied Psychology)",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424,
+        "campuses": ["Cape Town", "Johannesburg"]
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@sacap.edu.za",
+        "phone": "+27 21 671 7692"
+      },
+      "website": "https://www.sacap.edu.za",
+      "application_link": "https://www.sacap.edu.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Bachelor of Applied Social Science",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "Bachelor",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 30+)",
+          "min_aps": 30,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R70,000 - R80,000",
+          "career_outcomes": ["Counselling Psychologist", "HR Specialist", "Coach"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "SAE",
+      "university_name": "SAE Institute South Africa",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424,
+        "campuses": ["Cape Town", "Johannesburg"]
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@sae.edu.za",
+        "phone": "+27 21 286 6300"
+      },
+      "website": "https://southafrica.sae.edu",
+      "application_link": "https://southafrica.sae.edu",
+      "programmes": [
+        {
+          "programme_name": "Bachelor of Film Production",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "Bachelor",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 26+)",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R85,000 - R95,000",
+          "career_outcomes": ["Film Producer", "Director", "Editor"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "INSCAPE",
+      "university_name": "Inscape Education Group",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Sandton",
+      "location": {
+        "latitude": -26.107,
+        "longitude": 28.056,
+        "campuses": ["Johannesburg", "Pretoria", "Durban", "Cape Town"]
+      },
+      "postal_code": "2196",
+      "contact": {
+        "email": "info@inscape.ac.za",
+        "phone": "+27 10 300 9400"
+      },
+      "website": "https://inscape.ac",
+      "application_link": "https://inscape.ac",
+      "programmes": [
+        {
+          "programme_name": "Bachelor of Design (Interior/Graphic/Ideation)",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "Bachelor",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 26+)",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R75,000 - R85,000",
+          "career_outcomes": ["Interior Designer", "Graphic Designer", "UX/UI Designer"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "IMM",
+      "university_name": "IMM Graduate School",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@immgsm.ac.za",
+        "phone": "+27 11 628 2000"
+      },
+      "website": "https://imm.ac.za",
+      "application_link": "https://imm.ac.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BBA Marketing Management",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BBA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 28+)",
+          "min_aps": 28,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R60,000 - R70,000",
+          "career_outcomes": ["Marketing Manager", "Brand Manager", "Digital Marketer"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "EDUVOS",
+      "university_name": "Eduvos",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Tshwane",
+      "town": "Midrand",
+      "location": {
+        "latitude": -25.996,
+        "longitude": 28.126,
+        "campuses": ["Midrand", "Pretoria", "Cape Town", "Durban"]
+      },
+      "postal_code": "1685",
+      "contact": {
+        "email": "info@eduvos.co.za",
+        "phone": "+27 87 151 4000"
+      },
+      "website": "https://www.eduvos.co.za",
+      "application_link": "https://www.eduvos.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BSc Information Technology",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BSc",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 28+)",
+          "min_aps": 28,
+          "required_subjects": ["English 50%+", "Mathematics recommended for IT"],
+          "estimated_annual_cost": "R65,000 - R75,000",
+          "career_outcomes": ["Software Developer", "IT Specialist", "Systems Analyst"],
+          "bursaries_available": true
+        },
+        {
+          "programme_name": "BCom Business Management",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 28+)",
+          "min_aps": 28,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R65,000 - R75,000",
+          "career_outcomes": ["Business Manager", "Operations Manager"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "SACOB",
+      "university_name": "South African College of Business (SACOB)",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town (distance)",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@sacob.com",
+        "phone": "+27 21 671 7000"
+      },
+      "website": "https://www.sacob.com",
+      "application_link": "https://www.sacob.com/apply",
+      "programmes": [
+        {
+          "programme_name": "Higher Certificate in Accounting",
+          "programme_type": "Higher Certificate",
+          "qualification_type": "Higher Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "min_requirements": "NSC with Diploma pass (APS 20+)",
+          "min_aps": 20,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R30,000 - R40,000",
+          "career_outcomes": ["Bookkeeper", "Junior Accountant", "Payroll Administrator"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "CORNERSTONE",
+      "university_name": "Cornerstone Institute",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@cornerstone.ac.za",
+        "phone": "+27 21 448 0050"
+      },
+      "website": "https://cornerstone.ac.za",
+      "application_link": "https://cornerstone.ac.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BA Psychology",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 26+)",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R50,000 - R60,000",
+          "career_outcomes": ["Counsellor", "HR Specialist", "Social Worker"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "SANTS",
+      "university_name": "SANTS Private Higher Education Institution",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria (distance)",
+      "location": {
+        "latitude": -25.746,
+        "longitude": 28.188
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@sants.co.za",
+        "phone": "+27 87 353 2500"
+      },
+      "website": "https://www.sants.co.za",
+      "application_link": "https://www.sants.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BEd Foundation Phase",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BEd",
+          "nqf_level": 7,
+          "duration_years": 4,
+          "min_requirements": "NSC with Bachelor pass (APS 26+)",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R40,000 - R50,000",
+          "career_outcomes": ["Foundation Phase Teacher", "Grade R Teacher"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "AUGUSTINE",
+      "university_name": "St Augustine College of South Africa",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@staugustine.ac.za",
+        "phone": "+27 11 380 9000"
+      },
+      "website": "https://staugustine.ac.za",
+      "application_link": "https://staugustine.ac.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BA Philosophy & Theology",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 28+)",
+          "min_aps": 28,
+          "required_subjects": ["English 50%+"],
+          "estimated_annual_cost": "R55,000 - R65,000",
+          "career_outcomes": ["Theologian", "Ethics Consultant", "NGO Leader"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "HELENICON",
+      "university_name": "Healthnicon",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.746,
+        "longitude": 28.188
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@healthnicon.co.za",
+        "phone": "+27 12 942 9900"
+      },
+      "website": "https://healthnicon.co.za",
+      "application_link": "https://healthnicon.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Diploma in Nursing",
+          "programme_type": "Diploma",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "min_requirements": "NSC with Diploma pass (APS 24+)",
+          "min_aps": 24,
+          "required_subjects": ["Life Sciences 40%+"],
+          "estimated_annual_cost": "R50,000 - R60,000",
+          "career_outcomes": ["Enrolled Nurse", "Auxiliary Nurse"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "OPENWINDOW",
+      "university_name": "Open Window",
+      "registration_status": "Registered with DHET",
+      "accreditation": "CHE Accredited",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Centurion",
+      "location": {
+        "latitude": -25.874,
+        "longitude": 28.178
+      },
+      "postal_code": "0157",
+      "contact": {
+        "email": "info@openwindow.co.za",
+        "phone": "+27 12 648 9200"
+      },
+      "website": "https://www.openwindow.co.za",
+      "application_link": "https://www.openwindow.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BA Visual Communication Design",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 28+), Portfolio required",
+          "min_aps": 28,
+          "required_subjects": ["English 50%+", "Portfolio required"],
+          "estimated_annual_cost": "R80,000 - R90,000",
+          "career_outcomes": ["Graphic Designer", "UI/UX Designer", "Art Director"],
+          "bursaries_available": true
+        }
+      ]
+    },
+    {
+      "university_code": "GREENSIDE",
+      "university_name": "Greenside Design Center",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "location": {
+        "latitude": -26.093,
+        "longitude": 27.981
+      },
+      "postal_code": "2194",
+      "contact": {
+        "email": "info@designcenter.co.za",
+        "phone": "+27 11 646 1984"
+      },
+      "website": "https://www.designcenter.co.za",
+      "application_link": "https://www.designcenter.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BA Interior Design",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 26+), Portfolio",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+", "Portfolio"],
+          "estimated_annual_cost": "R70,000 - R80,000",
+          "career_outcomes": ["Interior Designer", "Space Planner", "Design Consultant"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "LISOF",
+      "university_name": "LISOF",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "location": {
+        "latitude": -26.093,
+        "longitude": 27.981
+      },
+      "postal_code": "2194",
+      "contact": {
+        "email": "info@lisof.co.za",
+        "phone": "+27 11 326 1696"
+      },
+      "website": "https://www.lisof.co.za",
+      "application_link": "https://www.lisof.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Bachelor of Fashion Design",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "Bachelor",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 26+), Portfolio required",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+", "Portfolio required"],
+          "estimated_annual_cost": "R75,000 - R85,000",
+          "career_outcomes": ["Fashion Designer", "Fashion Buyer", "Merchandiser"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "FEDISA",
+      "university_name": "FEDISA",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@fedisa.co.za",
+        "phone": "+27 21 424 0970"
+      },
+      "website": "https://fedisa.co.za",
+      "application_link": "https://fedisa.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BA Fashion",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 26+), Portfolio",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+", "Portfolio"],
+          "estimated_annual_cost": "R75,000 - R85,000",
+          "career_outcomes": ["Fashion Designer", "Stylist", "Fashion Buyer"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "CAMELOT",
+      "university_name": "Camelot International",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@camelotint.co.za",
+        "phone": "+27 11 880 2123"
+      },
+      "website": "https://camelotint.co.za",
+      "application_link": "https://camelotint.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Diploma in Health & Skincare",
+          "programme_type": "Diploma",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "min_requirements": "NSC with Diploma pass (APS 20+)",
+          "min_aps": 20,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R55,000 - R65,000",
+          "career_outcomes": ["Beauty Therapist", "Spa Manager", "Somatologist"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "DERMATECH",
+      "university_name": "Dermatech",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Sandton",
+      "location": {
+        "latitude": -26.107,
+        "longitude": 28.056
+      },
+      "postal_code": "2196",
+      "contact": {
+        "email": "info@dermatech.co.za",
+        "phone": "+27 11 883 8888"
+      },
+      "website": "https://www.dermatech.co.za",
+      "application_link": "https://www.dermatech.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Diploma in Somatology",
+          "programme_type": "Diploma",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "min_requirements": "NSC with Diploma pass (APS 22+)",
+          "min_aps": 22,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R60,000 - R70,000",
+          "career_outcomes": ["Somatologist", "Beauty Therapist", "Spa Therapist"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "ICB",
+      "university_name": "Institute of Certified Bookkeepers (ICB)",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "National (distance)",
+      "municipality": "Western Cape",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@icb.org.za",
+        "phone": "+27 21 659 1300"
+      },
+      "website": "https://www.icb.org.za",
+      "application_link": "https://www.icb.org.za/apply",
+      "programmes": [
+        {
+          "programme_name": "National Certificate Bookkeeping",
+          "programme_type": "National Certificate",
+          "qualification_type": "National Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "min_requirements": "NSC with Diploma pass (APS 18+)",
+          "min_aps": 18,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R15,000 - R25,000",
+          "career_outcomes": ["Bookkeeper", "Junior Accountant", "Payroll Administrator"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "MOONSTONE",
+      "university_name": "Moonstone Business School of Excellence",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Stellenbosch",
+      "location": {
+        "latitude": -33.938,
+        "longitude": 18.862
+      },
+      "postal_code": "7600",
+      "contact": {
+        "email": "info@moonstonebusiness.co.za",
+        "phone": "+27 21 883 8000"
+      },
+      "website": "https://moonstonebusiness.co.za",
+      "application_link": "https://moonstonebusiness.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Diploma in Business Management",
+          "programme_type": "Diploma",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "min_requirements": "NSC with Diploma pass (APS 20+)",
+          "min_aps": 20,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R40,000 - R50,000",
+          "career_outcomes": ["Business Administrator", "Office Manager"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "POTCHACADEMY",
+      "university_name": "Potchefstroom Academy",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "North West",
+      "municipality": "JB Marks",
+      "town": "Potchefstroom",
+      "location": {
+        "latitude": -26.687,
+        "longitude": 27.097
+      },
+      "postal_code": "2520",
+      "contact": {
+        "email": "info@potchacademy.co.za",
+        "phone": "+27 18 294 5500"
+      },
+      "website": "https://www.potchacademy.co.za",
+      "application_link": "https://www.potchacademy.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "BA Interior Design",
+          "programme_type": "Bachelor Degree",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "min_requirements": "NSC with Bachelor pass (APS 26+), Portfolio for design",
+          "min_aps": 26,
+          "required_subjects": ["English 50%+", "Portfolio for design"],
+          "estimated_annual_cost": "R60,000 - R70,000",
+          "career_outcomes": ["Interior Designer", "Space Planner"],
+          "bursaries_available": false
+        }
+      ]
+    },
+    {
+      "university_code": "SWISS",
+      "university_name": "Swiss Hotel School",
+      "registration_status": "Registered with DHET",
+      "accreditation": "Registered programmes",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "location": {
+        "latitude": -26.093,
+        "longitude": 27.981
+      },
+      "postal_code": "2194",
+      "contact": {
+        "email": "info@swisshotelschool.co.za",
+        "phone": "+27 11 789 9935"
+      },
+      "website": "https://www.swisshotelschool.co.za",
+      "application_link": "https://www.swisshotelschool.co.za/apply",
+      "programmes": [
+        {
+          "programme_name": "Diploma in Hospitality Management",
+          "programme_type": "Diploma",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "min_requirements": "NSC with Diploma pass (APS 24+)",
+          "min_aps": 24,
+          "required_subjects": ["English 40%+"],
+          "estimated_annual_cost": "R70,000 - R80,000",
+          "career_outcomes": ["Hotel Manager", "Restaurant Manager", "Event Coordinator"],
+          "bursaries_available": false
+        }
+      ]
+    }
+  ]
+}
