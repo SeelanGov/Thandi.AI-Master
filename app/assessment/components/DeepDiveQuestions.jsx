@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export default function DeepDiveQuestions({ onComplete, grade }) {
+export default function DeepDiveQuestions({ onComplete, grade, isLoading = false }) {
   const [currentMarks, setCurrentMarks] = useState({});
   const [supportSystem, setSupportSystem] = useState([]);
   
@@ -100,15 +100,16 @@ export default function DeepDiveQuestions({ onComplete, grade }) {
         <button 
           onClick={(e) => {
             e.preventDefault();
-            handleComplete();
+            if (!isLoading) handleComplete();
           }}
           onTouchEnd={(e) => {
             e.preventDefault();
-            handleComplete();
+            if (!isLoading) handleComplete();
           }}
-          className="submit-button"
+          disabled={isLoading}
+          className={`submit-button ${isLoading ? 'loading' : ''}`}
         >
-          Get My 3-Year Plan →
+          {isLoading ? 'Analyzing YOUR data...' : 'Get My 3-Year Plan →'}
         </button>
       </div>
 
@@ -274,6 +275,22 @@ export default function DeepDiveQuestions({ onComplete, grade }) {
         .submit-button:active {
           transform: scale(0.98);
           background: #047857;
+        }
+        
+        .submit-button:disabled,
+        .submit-button.loading {
+          background: #9ca3af;
+          cursor: not-allowed;
+          opacity: 0.7;
+        }
+        
+        .submit-button.loading {
+          animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { opacity: 0.7; }
+          50% { opacity: 1; }
         }
 
         @media (max-width: 768px) {

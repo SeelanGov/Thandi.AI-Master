@@ -39,6 +39,7 @@ export default function AssessmentForm() {
   const [grade, setGrade] = useState(null);
   const [showPreliminaryReport, setShowPreliminaryReport] = useState(false);
   const [showDeepDive, setShowDeepDive] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     enjoyedSubjects: [],  // CHANGED: Now tracks subjects student ENJOYS
     interests: [],
@@ -143,6 +144,8 @@ export default function AssessmentForm() {
   const handleSubmit = async () => {
     console.log('📤 Submitting assessment:', formData);
     
+    setIsLoading(true);
+    
     const API_URL = '/api/rag/query';
     
     // Build concise query (max 1000 chars)
@@ -184,10 +187,12 @@ export default function AssessmentForm() {
         // Navigate to results
         window.location.href = '/results';
       } else {
+        setIsLoading(false);
         alert('Error: ' + (data.error || 'Failed to get recommendations'));
       }
     } catch (error) {
       console.error('❌ Submission error:', error);
+      setIsLoading(false);
       alert('Network error. Please check your connection and try again.');
     }
   };
@@ -227,7 +232,80 @@ export default function AssessmentForm() {
       <DeepDiveQuestions 
         onComplete={handleDeepDiveComplete}
         grade={grade}
+        isLoading={isLoading}
       />
+    );
+  }
+  
+  // Loading overlay (shown during submission)
+  if (isLoading) {
+    return (
+      <div className="loading-overlay">
+        <div className="loading-card">
+          <div className="loading-spinner"></div>
+          <h2 className="loading-title">Thandi is thinking...</h2>
+          <p className="loading-text">
+            Analyzing YOUR marks and finding the best careers for YOU
+          </p>
+          <p className="loading-subtext">This takes 10-15 seconds</p>
+        </div>
+        
+        <style jsx>{`
+          .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+          }
+          
+          .loading-card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px 32px;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+          }
+          
+          .loading-spinner {
+            width: 64px;
+            height: 64px;
+            border: 4px solid #e5e7eb;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 24px;
+          }
+          
+          @keyframes spin {
+            to { transform: rotate(360deg); }
+          }
+          
+          .loading-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+          }
+          
+          .loading-text {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 8px;
+          }
+          
+          .loading-subtext {
+            font-size: 14px;
+            color: #9ca3af;
+          }
+        `}</style>
+      </div>
     );
   }
 

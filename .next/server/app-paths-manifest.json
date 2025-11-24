@@ -1,10 +1,10 @@
 {
   "/_not-found": "app/_not-found.js",
+  "/assessment/page": "app/assessment/page.js",
+  "/api/pdf/[sessionId]/route": "app/api/pdf/[sessionId]/route.js",
   "/api/health/route": "app/api/health/route.js",
   "/api/assess/route": "app/api/assess/route.js",
-  "/api/pdf/[sessionId]/route": "app/api/pdf/[sessionId]/route.js",
   "/api/rag/query/route": "app/api/rag/query/route.js",
-  "/assessment/page": "app/assessment/page.js",
-  "/results/page": "app/results/page.js",
-  "/test/page": "app/test/page.js"
+  "/test/page": "app/test/page.js",
+  "/results/page": "app/results/page.js"
 }
