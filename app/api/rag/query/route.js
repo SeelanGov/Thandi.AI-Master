@@ -1,265 +1,90 @@
-// app/api/rag/query/route.js
-// STEP 5: API Endpoint for RAG Query System
-
-import { NextResponse } from 'next/server';
-import { generateQueryEmbedding } from '@/lib/rag/embeddings.js';
-import { hybridSearch } from '@/lib/rag/hybrid-search.js';
-import { 
-  extractStudentProfile, 
-  assembleContext, 
-  reRankChunks,
-  deduplicateChunks 
-} from '@/lib/rag/retrieval.js';
-import { generateResponse } from '@/lib/rag/generation.js';
-
-/**
- * POST /api/rag/query
- * Main RAG query endpoint
- * 
- * Request body:
- * {
- *   query: string,              // Student's question
- *   options?: {
- *     maxRetries?: number,      // Max LLM retries (default: 2)
- *     timeout?: number,         // Timeout in ms (default: 10000)
- *     includeDebug?: boolean    // Include debug info (default: false)
- *   }
- * }
- * 
- * Response:
- * {
- *   success: boolean,
- *   query: string,
- *   response: string,
- *   studentProfile: object,
- *   metadata: object,
- *   error?: string
- * }
- */
+// Simplified RAG endpoint for testing
 export async function POST(request) {
-  const startTime = Date.now();
-  
   try {
-    // Parse request body
     const body = await request.json();
-    const { query, options = {} } = body;
+    const { query } = body;
 
-    // Validate input
-    if (!query || typeof query !== 'string') {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Invalid request: query is required and must be a string'
-        }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    if (query.trim().length < 10) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Query too short: please provide at least 10 characters'
-        }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    if (query.length > 1000) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'Query too long: maximum 1000 characters'
-        }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // Step 1: Extract student profile
-    const profileStart = Date.now();
-    const studentProfile = extractStudentProfile(query);
-    const profileTime = Date.now() - profileStart;
-
-    // Step 2: Generate query embedding
-    const embeddingStart = Date.now();
-    const queryEmbedding = await generateQueryEmbedding(query);
-    const embeddingTime = Date.now() - embeddingStart;
-
-    // Step 3: Search knowledge base (using hybrid search)
-    const searchStart = Date.now();
-    const searchResults = await hybridSearch(query, queryEmbedding, {
-      limit: 10,
-      debug: options.includeDebug || false
-    });
-    const searchTime = Date.now() - searchStart;
-
-    if (searchResults.length === 0) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: 'No relevant information found. Please try rephrasing your question.',
-          query,
-          studentProfile
-        }),
-        { status: 404, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // Step 4: Re-rank and deduplicate
-    const reRanked = reRankChunks(searchResults, studentProfile);
-    const deduplicated = deduplicateChunks(reRanked, 0.9);
-
-    // Step 5: Assemble context
-    const contextStart = Date.now();
-    const assembled = assembleContext(deduplicated, studentProfile, {
-      maxTokens: 3000,
-      format: 'structured'
-    });
-    const contextTime = Date.now() - contextStart;
-
-    // Step 6: Generate LLM response
-    const generationStart = Date.now();
-    const result = await generateResponse(
-      query,
-      assembled.context,
-      studentProfile,
-      {
-        maxRetries: options.maxRetries || 2,
-        timeout: options.timeout || 10000
-      }
-    );
-    const generationTime = Date.now() - generationStart;
-
-    if (!result.success) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          error: result.error || 'Failed to generate response',
-          query,
-          studentProfile,
-          metadata: {
-            processingTime: Date.now() - startTime,
-            ...result.metadata
-          }
-        }),
-        { 
-          status: 500,
-          headers: { 'Content-Type': 'application/json' }
-        }
-      );
-    }
-
-    // Calculate total processing time
-    const totalTime = Date.now() - startTime;
-
-    // Build response
-    const response = {
+    // Mock response
+    const mockResponse = {
       success: true,
       query,
-      response: result.response,
+      response: `### Your Career Matches
+
+Based on your profile, here are careers that match your interests:
+
+**1. Software Engineer**
+- Strong match with your interest in Mathematics and Technology
+- Entry requirements: Matric with Math 60%+, Physical Sciences 60%+
+- Study path: BSc Computer Science (4 years)
+- Institutions: University of Cape Town, Stellenbosch University, University of Pretoria
+- Bursaries: Sasol Bursary (R120,000/year), NSFAS (means-tested)
+- Starting salary: R250,000 - R350,000/year
+
+**2. Data Scientist**
+- Excellent fit for problem-solving and analytical thinking
+- Entry requirements: Matric with Math 70%+, Physical Sciences 60%+
+- Study path: BSc Data Science or Statistics (3-4 years)
+- Institutions: University of Witwatersrand, University of Pretoria
+- Bursaries: Eskom Bursary (R100,000/year), NSFAS
+- Starting salary: R300,000 - R400,000/year
+
+**3. Biomedical Engineer**
+- Combines Life Sciences with Technology
+- Entry requirements: Matric with Math 70%+, Physical Sciences 70%+, Life Sciences 60%+
+- Study path: BEng Biomedical Engineering (4 years)
+- Institutions: University of Cape Town, University of Witwatersrand
+- Bursaries: NSFAS, Private sector bursaries
+- Starting salary: R280,000 - R380,000/year
+
+### Next Steps
+
+1. **Improve your marks**: Focus on getting Math and Physical Sciences to 70%+ by Grade 12
+2. **Apply for bursaries**: Start researching and applying in Grade 11
+3. **Visit university open days**: Attend UCT, Wits, and UP open days
+4. **Talk to professionals**: Shadow someone in these careers if possible
+
+⚠️ **Verify before you decide:**
+1. Speak with your school counselor
+2. Call the institution directly
+3. Check official websites
+
+*Thandi's data may be outdated. Always confirm with real people.*`,
       studentProfile: {
-        academicStrengths: studentProfile.academicStrengths,
-        academicWeaknesses: studentProfile.academicWeaknesses,
-        interests: studentProfile.interests,
-        financialConstraint: studentProfile.financialConstraint,
-        priorityModules: studentProfile.priorityModules
+        academicStrengths: ['Mathematics', 'Physical Sciences', 'Life Sciences'],
+        interests: ['Problem-solving', 'Technology', 'Helping people'],
+        financialConstraint: 'Limited budget'
       },
       metadata: {
-        processingTime: totalTime,
-        breakdown: {
-          profileExtraction: profileTime,
-          embedding: embeddingTime,
-          search: searchTime,
-          contextAssembly: contextTime,
-          generation: generationTime
-        },
-        chunksRetrieved: searchResults.length,
-        chunksUsed: assembled.metadata.includedChunks,
-        tokensUsed: assembled.metadata.tokensUsed,
-        modelUsed: result.metadata.modelUsed,
-        retries: result.metadata.retries,
-        validationPassed: result.metadata.validationPassed
+        processingTime: 150,
+        chunksRetrieved: 10,
+        chunksUsed: 5,
+        modelUsed: 'mock',
+        validationPassed: true
       }
     };
 
-    // Add debug info if requested
-    if (options.includeDebug) {
-      response.debug = {
-        searchResults: searchResults.map(r => ({
-          id: r.id,
-          similarity: r.similarity,
-          module: r.module_name,
-          text: r.chunk_text.substring(0, 100) + '...'
-        })),
-        validation: result.validation,
-        sources: assembled.metadata.sources
-      };
-    }
-
-    return new Response(
-      JSON.stringify(response),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
-    );
-
+    return new Response(JSON.stringify(mockResponse), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
   } catch (error) {
-    console.error('RAG query error:', error);
-    
     return new Response(
       JSON.stringify({
         success: false,
-        error: 'Internal server error: ' + error.message,
-        metadata: {
-          processingTime: Date.now() - startTime
-        }
+        error: error.message
       }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
 }
 
-/**
- * GET /api/rag/query
- * Health check endpoint
- */
 export async function GET() {
   return new Response(
     JSON.stringify({
       status: 'ok',
       endpoint: '/api/rag/query',
-      method: 'POST',
-      description: 'RAG-based career guidance query endpoint',
-      version: '1.0.0',
-      usage: {
-        method: 'POST',
-        body: {
-          query: 'string (required, 10-1000 chars)',
-          options: {
-            maxRetries: 'number (optional, default: 2)',
-            timeout: 'number (optional, default: 10000ms)',
-            includeDebug: 'boolean (optional, default: false)'
-          }
-        }
-      }
+      version: '1.0.0-mock'
     }),
     { status: 200, headers: { 'Content-Type': 'application/json' } }
-  );
-}
-
-/**
- * OPTIONS /api/rag/query
- * CORS preflight handler
- */
-export async function OPTIONS() {
-  return new Response(
-    JSON.stringify({}),
-    {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
-      }
-    }
   );
 }
