@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    esmExternals: 'loose',
+  },
+  webpack: (config) => {
+    config.resolve.extensionAlias = {
+      '.js': ['.js', '.ts', '.tsx'],
+    };
+    return config;
+  },
   async headers() {
     return [
       {

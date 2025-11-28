@@ -1,13 +1,26 @@
 // Simplified RAG endpoint for testing
+import { getRelevantGate } from '@/lib/curriculum/query-gates-simple';
+
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { query } = body;
+    const { query, curriculumProfile } = body;
+
+    // Get curriculum gate if profile provided
+    let gate = null;
+    if (curriculumProfile && curriculumProfile.currentSubjects) {
+      gate = await getRelevantGate(
+        curriculumProfile.grade || 10,
+        curriculumProfile.currentSubjects || [],
+        query
+      );
+    }
 
     // Mock response
     const mockResponse = {
       success: true,
       query,
+      gate: gate,
       response: `### Your Career Matches
 
 Based on your profile, here are careers that match your interests:

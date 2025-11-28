@@ -1,0 +1,85 @@
+[
+  {
+    "qualification_name": "BSc Computer Science",
+    "saqa_id": "94721",
+    "institutions_covered": [
+      "University of the Witwatersrand",
+      "University of Johannesburg",
+      "University of Pretoria",
+      "University of Cape Town",
+      "UNISA",
+      "North-West University",
+      "University of KwaZulu-Natal"
+    ],
+    "total_query_volume": 1247,
+    "avg_learner_grade": 11.2,
+    "tvet_alternative": "DUT Diploma in Information Technology (APS 24)",
+    "online_alternative": "UNISA Bachelor of Science in Computing (part-time)"
+  },
+  {
+    "qualification_name": "BCom Accounting",
+    "saqa_id": "48101",
+    "institutions_covered": [
+      "University of Johannesburg",
+      "University of Pretoria",
+      "University of the Witwatersrand",
+      "University of Cape Town",
+      "UNISA",
+      "North-West University",
+      "University of KwaZulu-Natal"
+    ],
+    "total_query_volume": 892,
+    "avg_learner_grade": 11.5,
+    "tvet_alternative": "TUT National Diploma: Financial Management (APS 20)",
+    "online_alternative": "UNISA Bachelor of Accounting Sciences"
+  },
+  {
+    "qualification_name": "LLB (Bachelor of Laws)",
+    "saqa_id": "101980",
+    "institutions_covered": [
+      "University of Johannesburg",
+      "University of the Witwatersrand",
+      "University of Pretoria",
+      "University of Cape Town",
+      "UNISA",
+      "North-West University",
+      "University of KwaZulu-Natal"
+    ],
+    "total_query_volume": 765,
+    "avg_learner_grade": 11.4,
+    "tvet_alternative": "CPUT Diploma in Legal Assistance (APS 22)",
+    "online_alternative": "UNISA Bachelor of Laws (distance)"
+  },
+  {
+    "qualification_name": "MBChB Medicine",
+    "saqa_id": "101600",
+    "institutions_covered": [
+      "University of Cape Town",
+      "University of the Witwatersrand",
+      "University of Pretoria",
+      "University of KwaZulu-Natal",
+      "North-West University"
+    ],
+    "total_query_volume": 1103,
+    "avg_learner_grade": 11.8,
+    "tvet_alternative": "Not applicable (degree-only; TVET aux in Health Sci)",
+    "online_alternative": "Not available (requires campus labs)"
+  },
+  {
+    "qualification_name": "BSc Engineering (Electrical)",
+    "saqa_id": "101433",
+    "institutions_covered": [
+      "University of Cape Town",
+      "University of Johannesburg",
+      "University of Pretoria",
+      "University of the Witwatersrand",
+      "University of KwaZulu-Natal",
+      "North-West University",
+      "UNISA"
+    ],
+    "total_query_volume": 956,
+    "avg_learner_grade": 11.3,
+    "tvet_alternative": "VUT Diploma in Electrical Engineering (APS 24)",
+    "online_alternative": "UNISA Bachelor of Engineering Tech (part-time)"
+  }
+]

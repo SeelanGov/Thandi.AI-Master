@@ -29,7 +29,7 @@ async function testLiveDeployment() {
       'Page loads': response.status === 200,
       'Has HTML content': html.length > 1000,
       'Contains assessment': html.toLowerCase().includes('assessment') || html.toLowerCase().includes('thandi'),
-      'Not error page': !html.includes('404') && !html.includes('500')
+      'Not error page': !html.includes('<title>404') && !html.includes('<title>500') && !html.includes('Page Not Found')
     };
     
     const passed = Object.values(checks).every(Boolean);

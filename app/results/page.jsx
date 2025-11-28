@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import jsPDF from 'jspdf';
+import ThandiChat from './components/ThandiChat';
 
 export default function ResultsPage() {
   const [results, setResults] = useState(null);
@@ -31,6 +32,7 @@ export default function ResultsPage() {
       setResults(parsed);
       console.log('📊 Results loaded:', parsed);
       console.log('✅ Footer verified:', responseText.includes('⚠️ **Verify before you decide'));
+      console.log('🚪 Gate data:', parsed.gate);
     } catch (error) {
       console.error('Error loading results:', error);
       window.location.href = '/test';
@@ -291,6 +293,27 @@ export default function ResultsPage() {
           </p>
         </div>
 
+        {/* Gate Warning Section */}
+        {results.gate && results.gate.metadata && (
+          <div className={`gate-warning ${results.gate.metadata.urgency}`}>
+            <div className="gate-icon">
+              {results.gate.metadata.urgency === 'critical' && '⛔'}
+              {results.gate.metadata.urgency === 'high' && '⚠️'}
+              {results.gate.metadata.urgency === 'medium' && '📊'}
+              {results.gate.metadata.urgency === 'low' && 'ℹ️'}
+            </div>
+            <div className="gate-content">
+              <h2>
+                {results.gate.metadata.urgency === 'critical' && 'CRITICAL DECISION'}
+                {results.gate.metadata.urgency === 'high' && 'IMPORTANT NOTICE'}
+                {results.gate.metadata.urgency === 'medium' && 'PERFORMANCE ALERT'}
+                {results.gate.metadata.urgency === 'low' && 'INFORMATION'}
+              </h2>
+              <div className="gate-text" dangerouslySetInnerHTML={{ __html: results.gate.text.replace(/\n/g, '<br/>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+            </div>
+          </div>
+        )}
+
         <div className="results-content">
           {/* Render response with markdown-style formatting */}
           <div 
@@ -319,6 +342,17 @@ export default function ResultsPage() {
             ℹ️ This is a mock response for testing. Real responses will include personalized career recommendations based on your actual profile.
           </div>
         )}
+
+        {/* Chat Component */}
+        <ThandiChat 
+          assessmentData={{
+            grade: results.metadata?.grade,
+            enjoyedSubjects: results.metadata?.enjoyedSubjects,
+            interests: results.metadata?.interests,
+            curriculumProfile: results.metadata?.curriculumProfile,
+            topCareer: results.metadata?.topCareer || 'See recommendations above'
+          }}
+        />
       </div>
 
       <style jsx>{`
@@ -456,6 +490,76 @@ export default function ResultsPage() {
           border-radius: 8px;
           color: #1e40af;
           font-size: 14px;
+        }
+
+        .gate-warning {
+          margin: 24px 0;
+          padding: 24px;
+          border-radius: 12px;
+          border: 3px solid;
+          display: flex;
+          gap: 16px;
+          align-items: start;
+        }
+
+        .gate-warning.critical {
+          background: #fef2f2;
+          border-color: #dc2626;
+        }
+
+        .gate-warning.high {
+          background: #fffbeb;
+          border-color: #f59e0b;
+        }
+
+        .gate-warning.medium {
+          background: #eff6ff;
+          border-color: #3b82f6;
+        }
+
+        .gate-warning.low {
+          background: #f0fdf4;
+          border-color: #10b981;
+        }
+
+        .gate-icon {
+          font-size: 32px;
+          flex-shrink: 0;
+        }
+
+        .gate-content {
+          flex: 1;
+        }
+
+        .gate-content h2 {
+          margin: 0 0 12px 0;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .gate-warning.critical h2 {
+          color: #dc2626;
+        }
+
+        .gate-warning.high h2 {
+          color: #f59e0b;
+        }
+
+        .gate-warning.medium h2 {
+          color: #3b82f6;
+        }
+
+        .gate-warning.low h2 {
+          color: #10b981;
+        }
+
+        .gate-text {
+          line-height: 1.6;
+          color: #374151;
+        }
+
+        .gate-text strong {
+          font-weight: 600;
         }
 
         @media (max-width: 768px) {

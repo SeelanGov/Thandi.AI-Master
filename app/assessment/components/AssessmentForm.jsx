@@ -9,6 +9,7 @@ import ProgressBar from './ProgressBar';
 import GradeSelector from './GradeSelector';
 import PreliminaryReport from './PreliminaryReport';
 import DeepDiveQuestions from './DeepDiveQuestions';
+import CurriculumProfile from './CurriculumProfile';
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
@@ -53,7 +54,11 @@ export default function AssessmentForm() {
       concerns: ''
     },
     grade: null,
-    assessmentDepth: 'quick'
+    assessmentDepth: 'quick',
+    curriculumProfile: {
+      framework: 'CAPS',
+      currentSubjects: []
+    }
   });
 
   // Load saved data on mount - but don't override grade selection
@@ -104,8 +109,8 @@ export default function AssessmentForm() {
       // Grade 10: Show preliminary report with opt-in
       setShowPreliminaryReport(true);
     } else {
-      // Grade 11-12: Auto-advance to deep dive (for now, just submit)
-      handleSubmit();
+      // Grade 11-12: Go straight to deep dive (no preliminary report)
+      setShowDeepDive(true);
     }
   };
 
@@ -127,7 +132,7 @@ export default function AssessmentForm() {
   };
 
   const nextStep = () => {
-    if (currentStep < 4) {
+    if (currentStep < 5) {
       setCurrentStep(prev => prev + 1);
     } else {
       // Core questions complete
@@ -148,19 +153,47 @@ export default function AssessmentForm() {
     
     const API_URL = '/api/rag/query';
     
-    // Build concise query (max 1000 chars)
-    let query = `Grade ${formData.grade || 10} SA student. Subjects I enjoy: ${formData.enjoyedSubjects.join(', ')}. Interests: ${formData.interests.join(', ')}.`;
+    // Get current date context
+    const currentDate = new Date();
+    const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+    const currentYear = currentDate.getFullYear();
+    
+    // Build context-rich query
+    let query = `I am a Grade ${formData.grade || 10} student in South Africa. Today is ${currentMonth} ${currentYear}. `;
+    
+    // Add grade-specific context
+    if (formData.grade === 12) {
+      query += `I am writing my final exams in about 1 month (late November/early December ${currentYear}). `;
+    } else if (formData.grade === 11) {
+      query += `I have 1 full year left before Grade 12 finals. `;
+    } else if (formData.grade === 10) {
+      query += `I have 2 years left before Grade 12 finals. `;
+    }
+    
+    query += `Subjects I enjoy: ${formData.enjoyedSubjects.join(', ')}. Interests: ${formData.interests.join(', ')}.`;
 
     // Add deep dive data if available
-    if (formData.assessmentDepth === 'comprehensive' && formData.subjectMarks) {
-      query += ` Current marks: `;
-      formData.subjectMarks.forEach(({subject, markRange}) => {
-        query += `${subject} ${markRange}, `;
-      });
-      
-      query += `Support: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
-      
-      query += `Need: 1) Mark targets for Grade 12, 2) Bursaries I qualify for, 3) Year-by-year plan (Grade ${formData.grade}→12), 4) Backup options. Make it specific to MY marks.`;
+    if (formData.assessmentDepth === 'comprehensive') {
+      if (formData.marksUnknown) {
+        query += ` I don't know my exact marks yet. `;
+        query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
+        query += `Give me general guidance on career paths and what marks I should aim for.`;
+      } else if (formData.subjectMarks && formData.subjectMarks.length > 0) {
+        query += ` My current marks (as of ${currentMonth} ${currentYear}): `;
+        formData.subjectMarks.forEach(({subject, exactMark}) => {
+          query += `${subject}: ${exactMark}%, `;
+        });
+        
+        query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
+        
+        if (formData.grade === 12) {
+          query += `I need: 1) What marks I need in my FINAL EXAMS (writing in ~1 month), 2) Bursaries with deadlines in the next 3-6 months, 3) Application deadlines I must meet NOW, 4) Realistic backup options if my marks don't improve. Be specific about MY current marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}) and what's achievable in the next month.`;
+        } else if (formData.grade === 11) {
+          query += `I need: 1) What marks to target by end of Grade 12, 2) Bursaries to apply for in ${currentYear + 1}, 3) Year-by-year improvement plan (Grade 11→12), 4) Subject choices to reconsider. Be specific about MY current marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}).`;
+        } else {
+          query += `I need: 1) Mark targets for Grade 12, 2) Bursaries I can qualify for, 3) Year-by-year plan (Grade ${formData.grade}→12), 4) Backup options. Be specific about MY marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}).`;
+        }
+      }
     } else {
       query += ` Constraints: ${formData.constraints.time}, ${formData.constraints.money}, ${formData.constraints.location}. Recommend careers matching subjects I ENJOY with education pathways.`;
     }
@@ -171,6 +204,10 @@ export default function AssessmentForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           query,
+          curriculumProfile: {
+            ...formData.curriculumProfile,
+            grade: formData.grade
+          },
           options: {
             includeDebug: false
           }
@@ -182,8 +219,18 @@ export default function AssessmentForm() {
       console.log('✅ Footer intact:', data.response?.includes('⚠️ **Verify before you decide:'));
       
       if (data.success) {
-        // Save results to localStorage
-        localStorage.setItem('thandi_results', JSON.stringify(data));
+        // Save results with metadata to localStorage
+        const resultsWithMetadata = {
+          ...data,
+          metadata: {
+            ...data.metadata,
+            grade: formData.grade,
+            enjoyedSubjects: formData.enjoyedSubjects,
+            interests: formData.interests,
+            curriculumProfile: formData.curriculumProfile
+          }
+        };
+        localStorage.setItem('thandi_results', JSON.stringify(resultsWithMetadata));
         // Navigate to results
         window.location.href = '/results';
       } else {
@@ -321,31 +368,38 @@ export default function AssessmentForm() {
         </div>
       </div>
 
-      <ProgressBar currentStep={currentStep} totalSteps={4} />
+      <ProgressBar currentStep={currentStep} totalSteps={5} />
 
       <div className="assessment-content">
         {currentStep === 1 && (
+          <CurriculumProfile
+            grade={grade}
+            onChange={(curriculumProfile) => updateFormData('curriculumProfile', curriculumProfile)}
+          />
+        )}
+
+        {currentStep === 2 && (
           <SubjectSelection
             selected={formData.enjoyedSubjects}
             onChange={(enjoyedSubjects) => updateFormData('enjoyedSubjects', enjoyedSubjects)}
           />
         )}
 
-        {currentStep === 2 && (
+        {currentStep === 3 && (
           <InterestAreas
             selected={formData.interests}
             onChange={(interests) => updateFormData('interests', interests)}
           />
         )}
 
-        {currentStep === 3 && (
+        {currentStep === 4 && (
           <Constraints
             values={formData.constraints}
             onChange={(constraints) => updateFormData('constraints', constraints)}
           />
         )}
 
-        {currentStep === 4 && (
+        {currentStep === 5 && (
           <OpenQuestions
             values={formData.openQuestions}
             onChange={(openQuestions) => updateFormData('openQuestions', openQuestions)}
@@ -361,7 +415,7 @@ export default function AssessmentForm() {
         )}
 
         <button onClick={nextStep} className="btn-primary">
-          {currentStep === 4 ? 'Continue →' : 'Next →'}
+          {currentStep === 5 ? 'Continue →' : 'Next →'}
         </button>
       </div>
 

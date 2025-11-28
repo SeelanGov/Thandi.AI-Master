@@ -1,0 +1,387 @@
+[
+  {
+    "qualification_name": "BPharm Pharmacy",
+    "saqa_id": "84706",
+    "institutions_covered": [
+      "University of the Western Cape",
+      "Rhodes University",
+      "University of Pretoria",
+      "University of KwaZulu-Natal",
+      "North-West University",
+      "UNISA"
+    ],
+    "total_query_volume": 623,
+    "avg_learner_grade": 11.6,
+    "tvet_alternative": [
+      {
+        "institution": "Tshwane University of Technology",
+        "qualification": "National Diploma in Pharmacy Assistance",
+        "aps_required": 20,
+        "duration": "3 years",
+        "articulation": "Can upgrade to B-degree after completion"
+      }
+    ],
+    "online_alternative": [
+      {
+        "institution": "UNISA",
+        "qualification": "Bachelor of Pharmacy (distance)",
+        "duration": "4 years"
+      }
+    ]
+  },
+  {
+    "qualification_name": "BEd Teaching",
+    "saqa_id": "10218",
+    "institutions_covered": [
+      "UNISA",
+      "North-West University",
+      "University of KwaZulu-Natal",
+      "University of Johannesburg",
+      "University of Pretoria",
+      "University of Cape Town"
+    ],
+    "total_query_volume": 541,
+    "avg_learner_grade": 11.1,
+    "tvet_alternative": [
+      {
+        "institution": "CPUT",
+        "qualification": "Diploma in Education",
+        "aps_required": 20,
+        "duration": "3 years",
+        "articulation": "Can upgrade to B-degree after completion"
+      }
+    ],
+    "online_alternative": [
+      {
+        "institution": "UNISA",
+        "qualification": "BEd (part-time)",
+        "duration": "4 years"
+      }
+    ]
+  },
+  {
+    "qualification_name": "BSc Nursing",
+    "saqa_id": "94738",
+    "institutions_covered": [
+      "Durban University of Technology",
+      "University of Johannesburg",
+      "UNISA",
+      "University of Pretoria",
+      "North-West University",
+      "University of KwaZulu-Natal"
+    ],
+    "total_query_volume": 712,
+    "avg_learner_grade": 11.7,
+    "tvet_alternative": [
+      {
+        "institution": "Tshwane University of Technology",
+        "qualification": "National Diploma in Nursing",
+        "aps_required": 22,
+        "duration": "3 years",
+        "articulation": "Can upgrade to B-degree after completion"
+      }
+    ],
+    "online_alternative": [
+      {
+        "institution": "UNISA",
+        "qualification": "BSc Nursing (distance)",
+        "duration": "4 years"
+      }
+    ]
+  },
+  {
+    "qualification_name": "BArch Architecture",
+    "saqa_id": "99615",
+    "institutions_covered": [
+      "University of Cape Town",
+      "University of the Witwatersrand",
+      "University of Pretoria",
+      "University of Johannesburg",
+      "University of KwaZulu-Natal",
+      "Nelson Mandela University"
+    ],
+    "total_query_volume": 478,
+    "avg_learner_grade": 11.0,
+    "tvet_alternative": [
+      {
+        "institution": "Tshwane University of Technology",
+        "qualification": "National Diploma in Architectural Technology",
+        "aps_required": 24,
+        "duration": "3 years",
+        "articulation": "Can upgrade to B-degree after completion"
+      }
+    ],
+    "online_alternative": []
+  },
+  {
+    "qualification_name": "BCom Economics",
+    "saqa_id": "89275",
+    "institutions_covered": [
+      "University of Johannesburg",
+      "University of Pretoria",
+      "University of the Witwatersrand",
+      "University of Cape Town",
+      "UNISA",
+      "North-West University"
+    ],
+    "total_query_volume": 589,
+    "avg_learner_grade": 11.3,
+    "tvet_alternative": [
+      {
+        "institution": "Various TVET Colleges",
+        "qualification": "National Diploma in Management",
+        "aps_required": 18,
+        "duration": "3 years",
+        "articulation": "Can upgrade to BCom after completion"
+      }
+    ],
+    "online_alternative": [
+      {
+        "institution": "UNISA",
+        "qualification": "BCom Economics (distance)",
+        "duration": "3-4 years"
+      }
+    ]
+  },
+  {
+    "qualification_name": "BSc Agriculture",
+    "saqa_id": "101957",
+    "institutions_covered": [
+      "University of Pretoria",
+      "University of Johannesburg",
+      "UNISA",
+      "North-West University",
+      "University of KwaZulu-Natal"
+    ],
+    "total_query_volume": 412,
+    "avg_learner_grade": 10.9,
+    "tvet_alternative": [
+      {
+        "institution": "Various Agricultural Colleges",
+        "qualification": "National Diploma in Agriculture",
+        "aps_required": 20,
+        "duration": "3 years",
+        "articulation": "Can upgrade to BSc after completion"
+      }
+    ],
+    "online_alternative": [
+      {
+        "institution": "UNISA",
+        "qualification": "BSc Agriculture (distance)",
+        "duration": "4 years"
+      }
+    ]
+  },
+  {
+    "qualification_name": "BSW Social Work",
+    "saqa_id": "90844",
+    "institutions_covered": [
+      "University of Johannesburg",
+      "SACAP",
+      "University of Pretoria",
+      "University of Cape Town",
+      "UNISA"
+    ],
+    "total_query_volume": 498,
+    "avg_learner_grade": 11.2,
+    "tvet_alternative": [
+      {
+        "institution": "Various TVET Colleges",
+        "qualification": "National Diploma in Social Auxiliary Work",
+        "aps_required": 20,
+        "duration": "2 years",
+        "articulation": "Can upgrade to BSW after completion"
+      }
+    ],
+    "online_alternative": [
+      {
+        "institution": "UNISA",
+        "qualification": "BSW (distance)",
+        "duration": "4 years"
+      }
+    ]
+  },
+  {
+    "qualification_name": "BSc Psychology",
+    "saqa_id": "101738",
+    "institutions_covered": [
+      "SACAP",
+      "University of Cape Town",
+      "University of the Witwatersrand",
+      "University of Pretoria",
+      "UNISA"
+    ],
+    "total_query_volume": 634,
+    "avg_learner_grade": 11.4,
+    "tvet_alternative": [],
+    "online_alternative": [
+      {
+        "institution": "UNISA",
+        "qualification": "BSc Psychology (distance)",
+        "duration": "3-4 years"
+      },
+      {
+        "institution": "SACAP",
+        "qualification": "BSc Applied Psychology (part-time)",
+        "duration": "4 years"
+      }
+    ]
+  },
+  {
+    "qualification_name": "BA Journalism",
+    "saqa_id": "23375",
+    "institutions_covered": [
+      "Rhodes University",
+      "University of Johannesburg",
+      "University of Cape Town",
+      "University of Pretoria",
+      "UNISA"
+    ],
+    "total_query_volume": 387,
+    "avg_learner_grade": 10.8,
+    "tvet_alternative": [
+      {
+        "institution": "Various TVET Colleges",
+        "qualification": "National Diploma in Journalism",
+        "aps_required": 22,
+        "duration": "3 years",
+        "articulation": "Can upgrade to BA after completion"
+      }
+    ],
+    "online_alternative": [
+      {
+        "institution": "UNISA",
+        "qualification": "BA Communication (distance)",
+        "duration": "3 years"
+      }
+    ]
+  },
+  {
+    "qualification_name": "BVSc Veterinary Science",
+    "saqa_id": "89378",
+    "institutions_covered": [
+      "University of Pretoria",
+      "University of the Witwatersrand",
+      "University of Cape Town"
+    ],
+    "total_query_volume": 289,
+    "avg_learner_grade": 11.8,
+    "tvet_alternative": [
+      {
+        "institution": "Various Agricultural Colleges",
+        "qualification": "National Diploma in Veterinary Technology",
+        "aps_required": 24,
+        "duration": "3 years",
+        "articulation": "Cannot upgrade to BVSc (separate career path)"
+      }
+    ],
+    "online_alternative": []
+  },
+  {
+    "qualification_name": "BDS Dental Surgery",
+    "saqa_id": "101601",
+    "institutions_covered": [
+      "University of Pretoria",
+      "University of the Witwatersrand",
+      "University of the Western Cape",
+      "Sefako Makgatho Health Sciences University"
+    ],
+    "total_query_volume": 356,
+    "avg_learner_grade": 11.9,
+    "tvet_alternative": [
+      {
+        "institution": "Various TVET Colleges",
+        "qualification": "National Diploma in Dental Assisting",
+        "aps_required": 22,
+        "duration": "2 years",
+        "articulation": "Cannot upgrade to BDS (separate career path)"
+      }
+    ],
+    "online_alternative": []
+  },
+  {
+    "qualification_name": "BPhysio Physiotherapy",
+    "saqa_id": "101615",
+    "institutions_covered": [
+      "University of Pretoria",
+      "University of the Witwatersrand",
+      "University of Cape Town",
+      "University of Johannesburg"
+    ],
+    "total_query_volume": 423,
+    "avg_learner_grade": 11.7,
+    "tvet_alternative": [
+      {
+        "institution": "Various TVET Colleges",
+        "qualification": "National Diploma in Biokinetics",
+        "aps_required": 24,
+        "duration": "3 years",
+        "articulation": "Related field, cannot upgrade to BPhysio"
+      }
+    ],
+    "online_alternative": []
+  },
+  {
+    "qualification_name": "BRad Radiography",
+    "saqa_id": "101602",
+    "institutions_covered": [
+      "University of Johannesburg",
+      "University of Pretoria",
+      "Durban University of Technology",
+      "Cape Peninsula University of Technology"
+    ],
+    "total_query_volume": 312,
+    "avg_learner_grade": 11.5,
+    "tvet_alternative": [
+      {
+        "institution": "Various TVET Colleges",
+        "qualification": "National Diploma in Radiography",
+        "aps_required": 22,
+        "duration": "3 years",
+        "articulation": "Can upgrade to BRad after completion"
+      }
+    ],
+    "online_alternative": []
+  },
+  {
+    "qualification_name": "BComp Med Complementary Medicine",
+    "saqa_id": "101603",
+    "institutions_covered": [
+      "University of Johannesburg",
+      "University of the Western Cape"
+    ],
+    "total_query_volume": 198,
+    "avg_learner_grade": 11.2,
+    "tvet_alternative": [
+      {
+        "institution": "Various Private Colleges",
+        "qualification": "Diploma in Complementary Medicine",
+        "aps_required": 20,
+        "duration": "2-3 years",
+        "articulation": "Can upgrade to BComp Med after completion"
+      }
+    ],
+    "online_alternative": []
+  },
+  {
+    "qualification_name": "BEMC Emergency Medical Care",
+    "saqa_id": "101690",
+    "institutions_covered": [
+      "Cape Peninsula University of Technology",
+      "Tshwane University of Technology",
+      "University of Mpumalanga"
+    ],
+    "total_query_volume": 267,
+    "avg_learner_grade": 11.3,
+    "tvet_alternative": [
+      {
+        "institution": "Various TVET Colleges",
+        "qualification": "National Diploma in Emergency Medical Care",
+        "aps_required": 20,
+        "duration": "3 years",
+        "articulation": "Can upgrade to BEMC after completion"
+      }
+    ],
+    "online_alternative": []
+  }
+]
