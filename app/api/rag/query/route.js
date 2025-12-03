@@ -78,16 +78,14 @@ export async function POST(request) {
     // BLOCKER 4: Get LLM provider via adapter
     const provider = LLMAdapter.getDefaultProvider();
 
-    // BLOCKER 3: Use guarded client for external API call
+    // BLOCKER 3: Use guarded client for external API call (via provider)
     const enhancementPrompt = buildEnhancementPrompt(sanitisedProfile, draftReport, gate);
     
-    const result = await guardedClient.execute(
-      async () => provider.generateText(enhancementPrompt),
-      { 
-        maxTokens: 3000,
-        fallback: draftReport
-      }
-    );
+    // provider.generateText() already uses guardedClient internally
+    const result = await provider.generateText(enhancementPrompt, {
+      maxTokens: 3000,
+      fallback: draftReport
+    });
 
     if (!result.success) {
       console.log('[GUARDED] Enhancement failed, returning draft:', result.error);
