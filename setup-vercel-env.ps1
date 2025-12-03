@@ -2,7 +2,7 @@
 # Run this script to add all environment variables to Vercel
 
 Write-Host "`n🔐 Setting up Vercel Environment Variables..." -ForegroundColor Cyan
-Write-Host "=" * 60
+Write-Host "============================================================"
 Write-Host ""
 
 # Read .env.local file
@@ -24,9 +24,11 @@ Write-Host ""
 $varsToAdd = @(
     'GROQ_API_KEY',
     'OPENAI_API_KEY',
+    'ANTHROPIC_API_KEY',
     'NEXT_PUBLIC_SUPABASE_URL',
     'NEXT_PUBLIC_SUPABASE_ANON_KEY',
-    'SUPABASE_SERVICE_ROLE_KEY'
+    'SUPABASE_SERVICE_ROLE_KEY',
+    'LLM_PROVIDER'
 )
 
 foreach ($varName in $varsToAdd) {

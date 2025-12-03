@@ -68,6 +68,25 @@ export default function Constraints({ values, onChange }) {
         </select>
       </div>
 
+      <div className="constraint-group">
+        <label htmlFor="familyBackground">
+          Is anyone in your family a university graduate?
+        </label>
+        <select
+          id="familyBackground"
+          value={values.familyBackground || ''}
+          onChange={(e) => updateConstraint('familyBackground', e.target.value)}
+          className="select-input"
+        >
+          <option value="">Select...</option>
+          <option value="yes_parents">Yes - my parents</option>
+          <option value="yes_siblings">Yes - my siblings</option>
+          <option value="yes_extended">Yes - extended family</option>
+          <option value="no">No - I'd be the first</option>
+          <option value="unsure">Not sure / Prefer not to say</option>
+        </select>
+      </div>
+
       <style jsx>{`
         .constraints h2 {
           font-size: 24px;

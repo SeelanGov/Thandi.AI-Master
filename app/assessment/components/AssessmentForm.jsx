@@ -10,6 +10,7 @@ import GradeSelector from './GradeSelector';
 import PreliminaryReport from './PreliminaryReport';
 import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
+import ConsentCheckbox from './ConsentCheckbox';
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
@@ -41,17 +42,23 @@ export default function AssessmentForm() {
   const [showPreliminaryReport, setShowPreliminaryReport] = useState(false);
   const [showDeepDive, setShowDeepDive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [consent, setConsent] = useState({
+    given: false,
+    timestamp: null
+  });
   const [formData, setFormData] = useState({
     enjoyedSubjects: [],  // CHANGED: Now tracks subjects student ENJOYS
     interests: [],
     constraints: {
       time: '',
       money: '',
-      location: ''
+      location: '',
+      familyBackground: ''
     },
     openQuestions: {
       motivation: '',
-      concerns: ''
+      concerns: '',
+      careerInterests: ''
     },
     grade: null,
     assessmentDepth: 'quick',
@@ -96,6 +103,14 @@ export default function AssessmentForm() {
       ...prev,
       [field]: value
     }));
+  };
+
+  const handleConsentChange = (given) => {
+    setConsent({
+      given,
+      timestamp: given ? new Date().toISOString() : null
+    });
+    console.log('[CONSENT] User consent:', given ? 'GIVEN' : 'NOT GIVEN');
   };
 
   const handleGradeSelect = (selectedGrade) => {
@@ -172,11 +187,30 @@ export default function AssessmentForm() {
     
     query += `Subjects I enjoy: ${formData.enjoyedSubjects.join(', ')}. Interests: ${formData.interests.join(', ')}.`;
 
+    // Add career interests for cross-referencing - EMPHASIZE IT
+    if (formData.openQuestions?.careerInterests && formData.openQuestions.careerInterests.trim()) {
+      query += `\n\nIMPORTANT: Student explicitly stated career interest: "${formData.openQuestions.careerInterests}". `;
+      query += `Prioritize this career if their subjects and marks make it feasible. `;
+      query += `If not feasible, explain why clearly and suggest closest alternatives.`;
+    }
+
+    // Add family background context
+    if (formData.constraints?.familyBackground) {
+      if (formData.constraints.familyBackground === 'no') {
+        query += ` I would be the first in my family to go to university (first-generation student).`;
+      } else if (formData.constraints.familyBackground.startsWith('yes')) {
+        query += ` I have family members who went to university.`;
+      }
+    }
+
     // Add deep dive data if available
     if (formData.assessmentDepth === 'comprehensive') {
       if (formData.marksUnknown) {
         query += ` I don't know my exact marks yet. `;
         query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
+        if (formData.strugglingSubjects && formData.strugglingSubjects.length > 0) {
+          query += `Subjects I'm struggling with: ${formData.strugglingSubjects.join(', ')}. `;
+        }
         query += `Give me general guidance on career paths and what marks I should aim for.`;
       } else if (formData.subjectMarks && formData.subjectMarks.length > 0) {
         query += ` My current marks (as of ${currentMonth} ${currentYear}): `;
@@ -185,6 +219,10 @@ export default function AssessmentForm() {
         });
         
         query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
+        
+        if (formData.strugglingSubjects && formData.strugglingSubjects.length > 0) {
+          query += `Subjects I'm struggling with: ${formData.strugglingSubjects.join(', ')}. `;
+        }
         
         if (formData.grade === 12) {
           query += `I need: 1) What marks I need in my FINAL EXAMS (writing in ~1 month), 2) Bursaries with deadlines in the next 3-6 months, 3) Application deadlines I must meet NOW, 4) Realistic backup options if my marks don't improve. Be specific about MY current marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}) and what's achievable in the next month.`;
@@ -208,6 +246,10 @@ export default function AssessmentForm() {
             ...formData.curriculumProfile,
             grade: formData.grade
           },
+          session: {
+            externalProcessingConsent: consent.given,
+            consentTimestamp: consent.timestamp
+          },
           options: {
             includeDebug: false
           }
@@ -227,7 +269,9 @@ export default function AssessmentForm() {
             grade: formData.grade,
             enjoyedSubjects: formData.enjoyedSubjects,
             interests: formData.interests,
-            curriculumProfile: formData.curriculumProfile
+            curriculumProfile: formData.curriculumProfile,
+            consentGiven: consent.given,
+            enhanced: data.source === 'enhanced'
           }
         };
         localStorage.setItem('thandi_results', JSON.stringify(resultsWithMetadata));
@@ -406,6 +450,21 @@ export default function AssessmentForm() {
           />
         )}
       </div>
+
+      {/* Consent checkbox - shown on final step */}
+      {currentStep === 5 && (
+        <div className="mb-6">
+          <ConsentCheckbox 
+            onConsentChange={handleConsentChange}
+            required={false}
+          />
+          {!consent.given && (
+            <p className="text-sm text-gray-600 mt-2">
+              ℹ️ Without consent, you'll receive a standard report (no personalized AI guidance)
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="assessment-navigation">
         {currentStep > 1 && (

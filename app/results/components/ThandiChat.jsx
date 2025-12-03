@@ -18,6 +18,7 @@ export default function ThandiChat({ assessmentData }) {
   const [isLoading, setIsLoading] = useState(false);
   const [questionCount, setQuestionCount] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [conversationHistory, setConversationHistory] = useState([]);
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -38,16 +39,26 @@ export default function ThandiChat({ assessmentData }) {
     setQuestionCount(prev => prev + 1);
 
     try {
-      // Build context-aware query
-      const contextQuery = `Follow-up question about my career assessment results: ${question}
-
-My assessment context:
-- Grade: ${assessmentData.grade || 'Not specified'}
-- Subjects I enjoy: ${assessmentData.enjoyedSubjects?.join(', ') || 'Not specified'}
-- Interests: ${assessmentData.interests?.join(', ') || 'Not specified'}
-- Previous recommendations: ${assessmentData.topCareer || 'See above'}
-
-Please answer this specific question with practical, actionable advice.`;
+      // Build context-aware query with conversation history
+      let contextQuery = '';
+      
+      // Add conversation history if exists
+      if (conversationHistory.length > 0) {
+        contextQuery += 'Previous conversation:\n';
+        conversationHistory.slice(-4).forEach(msg => {
+          contextQuery += `${msg.role}: ${msg.content.substring(0, 150)}...\n`;
+        });
+        contextQuery += '\n';
+      }
+      
+      contextQuery += `Current question: ${question}\n\n`;
+      contextQuery += `Student's assessment results:\n`;
+      contextQuery += `- Grade: ${assessmentData.grade || 'Not specified'}\n`;
+      contextQuery += `- Subjects I enjoy: ${assessmentData.enjoyedSubjects?.join(', ') || 'Not specified'}\n`;
+      contextQuery += `- Interests: ${assessmentData.interests?.join(', ') || 'Not specified'}\n`;
+      contextQuery += `- Top career recommendation: ${assessmentData.topCareer || 'See above'}\n\n`;
+      contextQuery += `Answer the current question based on the conversation history and assessment results.\n`;
+      contextQuery += `If you already answered this, reference your previous answer briefly and add new insights.`;
 
       const response = await fetch('/api/rag/query', {
         method: 'POST',
@@ -70,6 +81,13 @@ Please answer this specific question with practical, actionable advice.`;
           content: data.response || data.fullResponse
         };
         setMessages(prev => [...prev, assistantMessage]);
+        
+        // Update conversation history for next question
+        setConversationHistory(prev => [
+          ...prev,
+          { role: 'user', content: question },
+          { role: 'assistant', content: data.response || data.fullResponse }
+        ]);
       } else {
         const errorMessage = {
           role: 'assistant',

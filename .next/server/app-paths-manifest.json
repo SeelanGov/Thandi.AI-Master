@@ -1,5 +1,3 @@
 {
-  "/assessment/page": "app/assessment/page.js",
-  "/api/rag/query/route": "app/api/rag/query/route.js",
-  "/results/page": "app/results/page.js"
+  "/api/rag/query/route": "app/api/rag/query/route.js"
 }

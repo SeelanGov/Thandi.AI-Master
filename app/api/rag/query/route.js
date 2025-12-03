@@ -7,12 +7,19 @@ import { guardedClient } from '@/lib/llm/guarded-client';
 import { generatePersonalizedReport } from '@/lib/rag/report-generator';
 
 // CAG Layer Integration
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const { CAGLayer } = require('../../../../lib/cag/index.cjs');
+import CAGLayer from '@/lib/cag/cag-layer.js';
+import { LLMAdapter as CAGLLMAdapter } from '@/lib/llm/llm-adapter';
 
-// Initialize CAG with monitoring
-const cag = new CAGLayer();
+// Initialize CAG with monitoring and LLM adapter
+const cagConfig = {
+  llmAdapter: CAGLLMAdapter.getDefaultProvider(),
+  performanceTargets: {
+    ruleChecks: 200,
+    llmVerification: 1500,
+    totalProcessing: 2000
+  }
+};
+const cag = new CAGLayer(cagConfig);
 
 export async function POST(request) {
   try {

@@ -15,10 +15,11 @@ export default function ProgressBar({ currentStep, totalSteps }) {
           >
             <div className="step-number">{step}</div>
             <div className="step-label">
-              {step === 1 && 'Subjects'}
-              {step === 2 && 'Interests'}
-              {step === 3 && 'Constraints'}
-              {step === 4 && 'Questions'}
+              {step === 1 && 'Profile'}
+              {step === 2 && 'Subjects'}
+              {step === 3 && 'Interests'}
+              {step === 4 && 'Constraints'}
+              {step === 5 && 'Questions'}
             </div>
           </div>
         ))}

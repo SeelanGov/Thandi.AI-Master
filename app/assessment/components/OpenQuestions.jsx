@@ -50,6 +50,25 @@ export default function OpenQuestions({ values, onChange }) {
         </div>
       </div>
 
+      <div className="question-group">
+        <label htmlFor="careerInterests">
+          What careers are you considering? (Helps us give better advice)
+          <span className="optional">(Optional)</span>
+        </label>
+        <textarea
+          id="careerInterests"
+          value={values.careerInterests || ''}
+          onChange={(e) => updateQuestion('careerInterests', e.target.value)}
+          placeholder="E.g., doctor, engineer, teacher, not sure yet..."
+          className="textarea-input"
+          rows={2}
+          maxLength={200}
+        />
+        <div className="char-count">
+          {(values.careerInterests || '').length} / 200 characters
+        </div>
+      </div>
+
       <div className="info-box">
         <div className="info-icon">ℹ️</div>
         <div className="info-text">

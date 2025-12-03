@@ -5,6 +5,7 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
   const [currentMarks, setCurrentMarks] = useState({});
   const [marksUnknown, setMarksUnknown] = useState(false);
   const [supportSystem, setSupportSystem] = useState([]);
+  const [strugglingSubjects, setStrugglingSubjects] = useState([]);
   
   const subjects = ['Mathematics', 'Physical Science', 'Life Sciences', 'English', 'Afrikaans'];
   const supportOptions = [
@@ -14,6 +15,14 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
     'Online resources (Khan Academy, etc.)',
     'Family help with homework',
     'None of the above'
+  ];
+  const strugglingOptions = [
+    'Mathematics',
+    'Physical Sciences',
+    'Life Sciences',
+    'Accounting',
+    'English',
+    'None - doing well in all'
   ];
   
   const handleMarkChange = (subject, value) => {
@@ -35,6 +44,14 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
         : [...prev, option]
     );
   };
+
+  const handleStrugglingChange = (option) => {
+    setStrugglingSubjects(prev => 
+      prev.includes(option) 
+        ? prev.filter(item => item !== option)
+        : [...prev, option]
+    );
+  };
   
   const handleComplete = () => {
     const deepDiveData = {
@@ -48,6 +65,7 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
             })),
       marksUnknown,
       supportSystem,
+      strugglingSubjects,
       assessmentDepth: 'comprehensive'
     };
     onComplete(deepDiveData);
@@ -159,6 +177,24 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
           </div>
         )}
         
+        <h3 className="support-title">
+          Which subjects are you finding most difficult? (Optional)
+        </h3>
+        
+        <div className="support-section">
+          {strugglingOptions.map(option => (
+            <label key={option} className="support-option">
+              <input 
+                type="checkbox"
+                checked={strugglingSubjects.includes(option)}
+                onChange={() => handleStrugglingChange(option)}
+                className="support-checkbox"
+              />
+              <span className="support-label">{option}</span>
+            </label>
+          ))}
+        </div>
+
         <h3 className="support-title">
           What support do you have for improving your marks?
         </h3>
