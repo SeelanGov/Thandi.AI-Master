@@ -24,13 +24,17 @@ const cag = new CAGLayer(cagConfig);
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { query, curriculumProfile, profile, session } = body;
+    const { query, curriculumProfile, profile, session, consent } = body;
     
     // FIX: Accept both 'profile' and 'curriculumProfile' for backward compatibility
     const studentProfile = curriculumProfile || profile || {};
 
     // BLOCKER 2: Check consent first
-    const consentCheck = ConsentGate.checkConsent(session || {});
+    // Accept consent from either body.consent (simple boolean) or session.externalProcessingConsent (full session)
+    const consentGiven = consent === true || session?.externalProcessingConsent === true;
+    const consentCheck = consentGiven 
+      ? { allowed: true, consentGiven: true, reason: 'Consent valid' }
+      : ConsentGate.checkConsent(session || {});
     
     if (!consentCheck.allowed) {
       console.log('[COMPLIANCE] No consent given, returning RAG-powered draft report');
