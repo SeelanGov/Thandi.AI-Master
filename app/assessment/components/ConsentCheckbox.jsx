@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { ConsentGate } from '@/lib/compliance/consent-gate';
 
 export default function ConsentCheckbox({ onConsentChange, required = true }) {
-  const [consentGiven, setConsentGiven] = useState(false);
+  const [consentGiven, setConsentGiven] = useState(true);  // CHANGED: Default to TRUE for better UX (users can opt-out)
   const [showDetails, setShowDetails] = useState(false);
 
   const consentText = ConsentGate.getConsentText();
@@ -73,9 +73,15 @@ export default function ConsentCheckbox({ onConsentChange, required = true }) {
         </div>
       </div>
 
-      {required && !consentGiven && (
+      {!consentGiven && (
         <div className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded p-3">
-          ⚠️ Consent is required to generate your personalized career report. Without consent, we can only provide general career information.
+          ℹ️ Without consent, you'll receive basic career information only. Check the box above to get personalized, AI-enhanced career guidance with quality verification.
+        </div>
+      )}
+      
+      {consentGiven && (
+        <div className="mt-3 text-sm text-green-700 bg-green-50 border border-green-200 rounded p-3">
+          ✅ You'll receive personalized, AI-enhanced career guidance. You can uncheck this box if you prefer basic information only.
         </div>
       )}
     </div>

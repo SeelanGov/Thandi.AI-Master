@@ -39,26 +39,24 @@ export default function ThandiChat({ assessmentData }) {
     setQuestionCount(prev => prev + 1);
 
     try {
-      // Build context-aware query with conversation history
-      let contextQuery = '';
+      // Build a focused query that answers the specific question
+      let contextQuery = `I'm a Grade ${assessmentData.grade || '11'} student`;
       
-      // Add conversation history if exists
-      if (conversationHistory.length > 0) {
-        contextQuery += 'Previous conversation:\n';
-        conversationHistory.slice(-4).forEach(msg => {
-          contextQuery += `${msg.role}: ${msg.content.substring(0, 150)}...\n`;
-        });
-        contextQuery += '\n';
+      if (assessmentData.enjoyedSubjects && assessmentData.enjoyedSubjects.length > 0) {
+        contextQuery += ` studying ${assessmentData.enjoyedSubjects.slice(0, 3).join(', ')}`;
       }
       
-      contextQuery += `Current question: ${question}\n\n`;
-      contextQuery += `Student's assessment results:\n`;
-      contextQuery += `- Grade: ${assessmentData.grade || 'Not specified'}\n`;
-      contextQuery += `- Subjects I enjoy: ${assessmentData.enjoyedSubjects?.join(', ') || 'Not specified'}\n`;
-      contextQuery += `- Interests: ${assessmentData.interests?.join(', ') || 'Not specified'}\n`;
-      contextQuery += `- Top career recommendation: ${assessmentData.topCareer || 'See above'}\n\n`;
-      contextQuery += `Answer the current question based on the conversation history and assessment results.\n`;
-      contextQuery += `If you already answered this, reference your previous answer briefly and add new insights.`;
+      if (assessmentData.interests && assessmentData.interests.length > 0) {
+        contextQuery += ` interested in ${assessmentData.interests.slice(0, 2).join(' and ')}`;
+      }
+      
+      contextQuery += `. ${question}`;
+      
+      // Add brief conversation context if exists (last 2 exchanges only)
+      if (conversationHistory.length > 0) {
+        const recentHistory = conversationHistory.slice(-4); // Last 2 Q&A pairs
+        contextQuery += `\n\nRecent context: ${recentHistory.map(m => `${m.role === 'user' ? 'Q' : 'A'}: ${m.content.substring(0, 100)}`).join('; ')}`;
+      }
 
       const response = await fetch('/api/rag/query', {
         method: 'POST',
@@ -66,6 +64,7 @@ export default function ThandiChat({ assessmentData }) {
         body: JSON.stringify({
           query: contextQuery,
           curriculumProfile: assessmentData.curriculumProfile,
+          consent: true,  // Enable LLM enhancement for chat
           options: {
             includeDebug: false,
             chatMode: true
