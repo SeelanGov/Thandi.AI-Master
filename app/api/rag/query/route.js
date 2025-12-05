@@ -1,10 +1,13 @@
-// Production RAG endpoint with CAG Quality Layer
+// Production RAG endpoint with CAG Quality Layer + Phase 2 Cache
 import { getRelevantGate } from '@/lib/curriculum/query-gates-simple';
 import { ConsentGate } from '@/lib/compliance/consent-gate';
 import { POPIASanitiser } from '@/lib/compliance/popia-sanitiser';
 import { LLMAdapter } from '@/lib/llm/llm-adapter';
 import { guardedClient } from '@/lib/llm/guarded-client';
 import { generatePersonalizedReport } from '@/lib/rag/report-generator';
+
+// Phase 2: Redis Cache Integration
+import { getCachedResponse, setCachedResponse } from '@/lib/cache/rag-cache.js';
 
 // CAG Layer Integration
 import CAGLayer from '@/lib/cag/cag-layer.js';
@@ -22,12 +25,34 @@ const cagConfig = {
 const cag = new CAGLayer(cagConfig);
 
 export async function POST(request) {
+  const requestStartTime = Date.now();
+  
   try {
     const body = await request.json();
     const { query, curriculumProfile, profile, session, consent } = body;
     
     // FIX: Accept both 'profile' and 'curriculumProfile' for backward compatibility
     const studentProfile = curriculumProfile || profile || {};
+
+    // PHASE 2: Check cache FIRST (before consent check for speed)
+    // Cache key includes profile, so no PII leak risk
+    const cachedResult = await getCachedResponse(studentProfile, query || '');
+    if (cachedResult) {
+      const totalTime = Date.now() - requestStartTime;
+      console.log(`[CACHE HIT] Total response time: ${totalTime}ms`);
+      
+      return new Response(JSON.stringify({
+        ...cachedResult,
+        performance: {
+          ...cachedResult.performance,
+          totalTime,
+          source: 'cache'
+        }
+      }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
 
     // BLOCKER 2: Check consent first
     // Accept consent from either body.consent (simple boolean) or session.externalProcessingConsent (full session)
@@ -156,8 +181,9 @@ export async function POST(request) {
       finalSource = 'draft_rejected';
     }
 
-    // Return CAG-verified response
-    return new Response(JSON.stringify({
+    // Prepare final response
+    const totalTime = Date.now() - requestStartTime;
+    const finalResponse = {
       success: true,
       query: sanitisedQuery,
       gate: gate,
@@ -179,8 +205,22 @@ export async function POST(request) {
         requiresHuman: cagResult.metadata.requiresHuman,
         stagesCompleted: cagResult.metadata.stagesCompleted
       },
-      metadata: result.metadata
-    }), {
+      metadata: result.metadata,
+      performance: {
+        totalTime,
+        source: 'live'
+      }
+    };
+
+    // PHASE 2: Cache the response (background, non-blocking)
+    setCachedResponse(studentProfile, query || '', finalResponse).catch(err => {
+      console.error('[CACHE] Background cache set failed:', err.message);
+    });
+
+    console.log(`[CACHE MISS] Total response time: ${totalTime}ms`);
+
+    // Return CAG-verified response
+    return new Response(JSON.stringify(finalResponse), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
@@ -199,12 +239,25 @@ export async function GET() {
   // Include CAG stats in health check
   const stats = cag.getStats();
   
+  // PHASE 2: Include cache stats
+  const { pingCache, getCacheStats } = await import('@/lib/cache/rag-cache.js');
+  const cacheHealth = await pingCache();
+  const cacheStats = await getCacheStats();
+  
   return new Response(
     JSON.stringify({
       status: 'ok',
       endpoint: '/api/rag/query',
-      version: '3.0.0-cag',
+      version: '3.1.0-phase2',
       blockers: ['consent', 'sanitiser', 'guarded-client', 'adapter', 'cag-layer'],
+      phase2: {
+        cache: {
+          enabled: true,
+          status: cacheHealth.status,
+          latency: cacheHealth.latency,
+          keys: cacheStats.keys
+        }
+      },
       cag: {
         enabled: true,
         stats: {
