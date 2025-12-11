@@ -9,6 +9,11 @@ out/
 build/
 dist/
 
+# Next.js specific large files
+.next/cache/
+.next/static/chunks/
+.next/server/
+
 # Environment variables (CRITICAL - NEVER COMMIT)
 .env
 .env.local
@@ -49,8 +54,13 @@ Thumbs.db
 *.node
 *.wasm
 *.pack.gz
+*.pack
 *.map
 
 # Temporary files
 *.tmp
 *.temp
+
+# Specific large files that exceed GitHub limits
+node_modules/@next/swc-win32-x64-msvc/
+.next/cache/webpack/
