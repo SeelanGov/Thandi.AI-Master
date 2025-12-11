@@ -185,8 +185,7 @@ const addToOfflineQueue = async (studentId: string, operation: Omit<OfflineOpera
       });
   } catch (error) {
     console.error('Failed to save offline queue to Supabase:', error);
-    // Fallback to localStorage if Supabase fails
-    localStorage.setItem(`assessment_offline_queue_${studentId}`, JSON.stringify(queue));
+    throw new Error('Please connect to internet to save your progress');
   }
 };
 
@@ -207,13 +206,7 @@ const getOfflineQueue = async (studentId: string): Promise<OfflineOperation[]> =
     return data?.draft_data || [];
   } catch (error) {
     console.error('Failed to get offline queue from Supabase:', error);
-    // Fallback to localStorage
-    try {
-      const stored = localStorage.getItem(`assessment_offline_queue_${studentId}`);
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
+    return [];
   }
 };
 
@@ -227,8 +220,7 @@ const clearOfflineQueue = async (studentId: string) => {
       .eq('student_id', studentId);
   } catch (error) {
     console.error('Failed to clear offline queue from Supabase:', error);
-    // Fallback to localStorage cleanup
-    localStorage.removeItem(`assessment_offline_queue_${studentId}`);
+    // Silent fail for cleanup operations
   }
 };
 
