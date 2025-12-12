@@ -279,11 +279,11 @@ function convertReportDataToChunks(reportData) {
   reportData.careers?.forEach((career, index) => {
     chunks.push({
       id: `career_${index}`,
-      chunk_text: `${career.title}: ${career.description}. Requirements: ${career.requirements}. Pathways: ${career.pathways.join(', ')}. Salary: ${career.salaryRange}.`,
+      chunk_text: `${career.title || 'Career Option'}: ${career.description || 'Career description'}. Requirements: ${career.requirements || 'Requirements vary'}. Pathways: ${Array.isArray(career.pathways) ? career.pathways.join(', ') : 'Multiple pathways available'}. Salary: ${career.salaryRange || 'Salary varies'}.`,
       chunk_metadata: {
-        source: `career_${career.title.toLowerCase().replace(/\s+/g, '_')}`,
+        source: `career_${(career.title || 'career_option').toLowerCase().replace(/\s+/g, '_')}`,
         category: 'career',
-        career: career.title
+        career: career.title || 'Career Option'
       },
       similarity: career.match === 'excellent' ? 0.95 : career.match === 'good' ? 0.85 : 0.75
     });
