@@ -96,36 +96,48 @@
   - Test confidence level calculations
   - _Requirements: 3.2, 3.3, 3.4, 3.5_
 
-- [ ] 3. Subject-Category Matching Enhancement
+- [x] 3. Subject-Category Matching Enhancement
+
+
+
   - Implement subject-category mapping system
   - Add category-based career prioritization
   - Create interdisciplinary career matching for mixed subjects
   - Add category diversity validation
   - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
 
-- [ ] 3.1 Create subject-category mapping configuration
+- [x] 3.1 Create subject-category mapping configuration
+
+
   - Define comprehensive subject to career category mappings
   - Create `lib/rag/subject-category-map.js` configuration
   - Add support for interdisciplinary subject combinations
   - Implement category priority scoring system
   - _Requirements: 4.1, 4.2, 4.3, 4.4_
 
-- [ ] 3.2 Write property test for subject-category alignment
+- [x] 3.2 Write property test for subject-category alignment
+
+
   - **Property 3: Subject-Category Alignment**
   - **Validates: Requirements 4.1, 4.2, 4.3, 4.4**
 
-- [ ] 3.3 Implement category-based career prioritization
+
+- [x] 3.3 Implement category-based career prioritization
+
   - Update career matching to use subject-category scores
   - Add category diversity validation in results
   - Implement interdisciplinary career matching logic
   - Add category distribution analysis and logging
   - _Requirements: 4.4, 4.5_
 
-- [ ] 3.4 Write property test for career diversity
+- [x] 3.4 Write property test for career diversity
+
+
   - **Property 5: Career Diversity Preservation**
   - **Validates: Requirements 1.3, 3.4**
 
-- [ ] 3.5 Write property test for unusual subjects
+- [x] 3.5 Write property test for unusual subjects
+
   - **Property 9: Unusual Subject Accommodation**
   - **Validates: Requirements 4.5**
 
