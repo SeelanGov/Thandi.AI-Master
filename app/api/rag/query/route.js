@@ -1,10 +1,11 @@
-// Production RAG endpoint with CAG Quality Layer + Phase 2 Cache
+// Production RAG endpoint with CAG Quality Layer + Phase 2 Cache + Performance Monitoring
 import { getRelevantGate } from '@/lib/curriculum/query-gates-simple';
 import { ConsentGate } from '@/lib/compliance/consent-gate';
 import { POPIASanitiser } from '@/lib/compliance/popia-sanitiser';
 import { LLMAdapter } from '@/lib/llm/llm-adapter';
 import { guardedClient } from '@/lib/llm/guarded-client';
 import { generatePersonalizedReport } from '@/lib/rag/report-generator';
+import { performanceMonitor } from '@/lib/rag/performance-monitor';
 
 // Phase 2: Upstash Redis Cache Integration (Fixed)
 import { getCachedResponse, setCachedResponse } from '@/lib/cache/rag-cache.js';
@@ -40,6 +41,15 @@ export async function POST(request) {
     if (cachedResult) {
       const totalTime = Date.now() - requestStartTime;
       console.log(`[CACHE HIT] Total response time: ${totalTime}ms`);
+      
+      // Record cache hit performance
+      performanceMonitor.recordSample({
+        operation: 'full_request',
+        duration: totalTime,
+        success: true,
+        careerCount: cachedResult.careers?.length || 0,
+        cacheHit: true
+      });
       
       return new Response(JSON.stringify({
         ...cachedResult,
@@ -100,9 +110,19 @@ export async function POST(request) {
 
     // Generate RAG-powered personalized report
     console.log('[RAG] Generating personalized career report...');
+    const ragStartTime = Date.now();
     const reportData = await generatePersonalizedReport(sanitisedProfile);
+    const ragDuration = Date.now() - ragStartTime;
     const draftReport = formatReportAsText(reportData, gate);
     console.log(`[RAG] Report generated: ${reportData.matchingMethod}, ${reportData.careers?.length || 0} careers`);
+    
+    // Record RAG performance
+    performanceMonitor.recordSample({
+      operation: 'rag_generation',
+      duration: ragDuration,
+      success: true,
+      careerCount: reportData.careers?.length || 0
+    });
 
     // BLOCKER 4: Get LLM provider via adapter
     const provider = LLMAdapter.getDefaultProvider();
@@ -183,6 +203,16 @@ export async function POST(request) {
 
     // Prepare final response
     const totalTime = Date.now() - requestStartTime;
+    
+    // Record overall performance
+    performanceMonitor.recordSample({
+      operation: 'full_request',
+      duration: totalTime,
+      success: true,
+      careerCount: reportData.careers?.length || 0,
+      cacheHit: false
+    });
+    
     const finalResponse = {
       success: true,
       query: sanitisedQuery,
@@ -208,7 +238,9 @@ export async function POST(request) {
       metadata: result.metadata,
       performance: {
         totalTime,
-        source: 'live'
+        source: 'live',
+        ragDuration: ragDuration,
+        cagDuration: cagProcessingTime
       }
     };
 
@@ -225,6 +257,15 @@ export async function POST(request) {
       headers: { 'Content-Type': 'application/json' }
     });
   } catch (error) {
+    // Record error performance
+    const totalTime = Date.now() - requestStartTime;
+    performanceMonitor.recordSample({
+      operation: 'full_request',
+      duration: totalTime,
+      success: false,
+      error: error.message
+    });
+    
     return new Response(
       JSON.stringify({
         success: false,
@@ -244,11 +285,15 @@ export async function GET() {
   const cacheHealth = await pingCache();
   const cacheStats = await getCacheStats();
   
+  // Include performance monitoring stats
+  const performanceMetrics = performanceMonitor.getMetrics();
+  const performanceAlerts = performanceMonitor.getAlerts();
+  
   return new Response(
     JSON.stringify({
       status: 'ok',
       endpoint: '/api/rag/query',
-      version: '3.1.0-phase2',
+      version: '3.2.0-performance',
       blockers: ['consent', 'sanitiser', 'guarded-client', 'adapter', 'cag-layer'],
       phase2: {
         cache: {
@@ -265,6 +310,18 @@ export async function GET() {
           avgProcessingTime: Math.round(stats.avgProcessingTime) + 'ms',
           decisionDistribution: stats.decisionPercentages
         }
+      },
+      performance: {
+        enabled: true,
+        metrics: {
+          avgResponseTime: performanceMetrics.avgResponseTime + 'ms',
+          errorRate: performanceMetrics.errorRate + '%',
+          cacheHitRate: performanceMetrics.cacheHitRate + '%',
+          throughput: performanceMetrics.throughput + ' req/min',
+          uptime: Math.round(performanceMetrics.uptime / 1000) + 's'
+        },
+        alerts: performanceAlerts.length,
+        activeAlerts: performanceAlerts.filter(a => a.severity === 'error').length
       }
     }),
     { status: 200, headers: { 'Content-Type': 'application/json' } }
