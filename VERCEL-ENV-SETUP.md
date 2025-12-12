@@ -21,10 +21,10 @@ Currently getting 500 errors because environment variables are missing.
 
    | Variable Name | Value (from .env.local) |
    |---------------|-------------------------|
-   | `GROQ_API_KEY` | `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` |
-   | `OPENAI_API_KEY` | `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` |
-   | `NEXT_PUBLIC_SUPABASE_URL` | `https://pvvnxupuukuefajypovz.supabase.co` |
-   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2dm54dXB1dWt1ZWZhanlwb3Z6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI0ODIxNTYsImV4cCI6MjA3ODA1ODE1Nn0.i5mnj2CWeIk9pvwuQA1GK9Y0Klfdyhep2-98A-UUo10` |
+   | `GROQ_API_KEY` | `your_groq_api_key_here` |
+   | `OPENAI_API_KEY` | `your_openai_api_key_here` |
+   | `NEXT_PUBLIC_SUPABASE_URL` | `your_supabase_url_here` |
+   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | `your_supabase_anon_key_here` |
    | `SUPABASE_SERVICE_ROLE_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2dm54dXB1dWt1ZWZhanlwb3Z6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjQ4MjE1NiwiZXhwIjoyMDc4MDU4MTU2fQ.2XM3YzobuP_Fbkj_PqfjhUVOsq2t7HYcWRBLFW-b0rs` |
 
 5. **For each variable:**
