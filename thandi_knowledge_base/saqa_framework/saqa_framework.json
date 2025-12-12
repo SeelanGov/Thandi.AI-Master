@@ -1,0 +1,129 @@
+{
+  "id": "edu_saqa_framework",
+  "title": "SAQA National Qualifications Framework (NQF)",
+  "language": "en",
+  "version": 2,
+  "last_updated": "2025-11",
+  "summary": "The National Qualifications Framework (NQF) organizes South African qualifications into 10 levels, from high school to university degrees, helping you plan your education and career.",
+  "tags": [
+    "SAQA",
+    "NQF",
+    "Qualifications",
+    "Education",
+    "Career Planning",
+    "Matric",
+    "TVET",
+    "University",
+    "RPL",
+    "NQF Levels",
+    "CAPS",
+    "Umalusi"
+  ],
+  "source_links": [
+    "https://www.saqa.org.za/national-qualifications-framework",
+    "https://www.dhet.gov.za/SitePages/NQF.aspx",
+    "https://www.umalusi.org.za"
+  ],
+  "source_details": [
+    {
+      "url": "https://www.saqa.org.za/national-qualifications-framework",
+      "title": "SAQA NQF Overview",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.dhet.gov.za/SitePages/NQF.aspx",
+      "title": "DHET NQF Information",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.umalusi.org.za",
+      "title": "Umalusi Matric Certification",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    }
+  ],
+  "localized_terms": {
+    "Qualification": {
+      "Zulu": "Iziqu",
+      "Xhosa": "Iziqinisekiso"
+    },
+    "Education": {
+      "Zulu": "Imfundo",
+      "Xhosa": "Imfundo"
+    },
+    "NQF Level": {
+      "Zulu": "Izinga le-NQF",
+      "Xhosa": "Inqanaba le-NQF"
+    },
+    "Matric": {
+      "Zulu": "Umatriki",
+      "Xhosa": "Imatriki"
+    },
+    "TVET": {
+      "Zulu": "i-TVET",
+      "Xhosa": "i-TVET"
+    }
+  },
+  "file_name": "saqa_framework.html",
+  "content_type": "html",
+  "word_count_estimate": 480,
+  "feedback_config": {
+    "method": "chatbot_prompt",
+    "prompt": "Was this helpful? Reply 'Yes' or 'No' or share feedback.",
+    "collection_point": "Thandi Chatbot"
+  },
+  "chatbot_priorities": {
+    "keywords": [
+      "NQF",
+      "qualification",
+      "level",
+      "SAQA",
+      "education",
+      "matric",
+      "TVET",
+      "university",
+      "NQF levels",
+      "RPL",
+      "CAPS curriculum",
+      "NQF 4",
+      "NQF 7"
+    ],
+    "priority_response": "The NQF organizes qualifications into 10 levels. For example, Matric is NQF Level 4, qualifying you for TVET or some university programs. Learn more at https://www.saqa.org.za."
+  },
+  "rag_metadata": {
+    "chunk_strategy": "semantic_sections",
+    "expected_chunks": 6,
+    "sections": [
+      "What Is the NQF",
+      "NQF Levels",
+      "Why Does the NQF Matter",
+      "Examples for You",
+      "Next Steps"
+    ],
+    "key_entities": {
+      "institutions": ["SAQA", "DHET", "Umalusi"],
+      "processes": ["NQF level progression", "Qualification recognition", "RPL for NQF credits"],
+      "levels": {
+        "1-4": "High school (e.g., Matric NQF 4)",
+        "5-6": "TVET certificates/diplomas (e.g., NCV)",
+        "7-8": "University degrees (Bachelor’s NQF 7, Honours NQF 8)",
+        "9-10": "Advanced degrees (Master’s NQF 9, PhD NQF 10)"
+      }
+    },
+    "answers_questions": [35, 36, 37],
+    "supports_questions": [38]
+  },
+  "content_quality": {
+    "completeness": 9,
+    "accuracy": 9,
+    "sa_specific": 10,
+    "actionability": 8,
+    "last_reviewed": "2025-11-02",
+    "needs_update": false
+  }
+}

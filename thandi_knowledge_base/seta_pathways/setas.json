@@ -1,0 +1,497 @@
+{
+  "metadata": {
+    "version": "v1.1 detailed",
+    "date": "2025-11-19",
+    "description": "All 21 Sector Education and Training Authorities (SETAs) – detailed qualifications, entry, careers – structured for Thandi RAG system",
+    "total_setas": 21,
+    "coverage": "National - all provinces"
+  },
+  "setas": [
+    {
+      "seta_short": "AGRI",
+      "seta_full": "AgriSETA (Agricultural Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "geo": "-25.746, 28.188",
+      "postal_code": "0002",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Plant Production; Animal Production; Agricultural Equipment Technician; Farm Manager",
+          "nqf_level": "1-8",
+          "min_points": "Grade 9+ depending on qualification",
+          "required_subjects": "English recommended",
+          "career_outcomes": ["Farm Manager", "Agricultural Technician", "Irrigation Specialist", "Agri-Business Owner"],
+          "application_link": "https://www.agriseta.co.za/learners"
+        }
+      ],
+      "contact": "info@agriseta.co.za; +27 12 301 5600",
+      "website": "https://www.agriseta.co.za",
+      "unique_id": "ZAF-SETA-AGRI"
+    },
+    {
+      "seta_short": "BANK",
+      "seta_full": "BANKSETA (Banking Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "geo": "-26.093, 27.981",
+      "postal_code": "2125",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Banking Service Advice; Wealth Management; Credit Management; Microfinance Practitioner",
+          "nqf_level": "3-7",
+          "min_points": "Grade 12 recommended",
+          "required_subjects": "English & Mathematics",
+          "career_outcomes": ["Bank Teller", "Financial Advisor", "Credit Analyst", "Branch Manager"],
+          "application_link": "https://www.bankseta.org.za/learners"
+        }
+      ],
+      "contact": "info@bankseta.org.za; +27 11 805 9660",
+      "website": "https://www.bankseta.org.za",
+      "unique_id": "ZAF-SETA-BANK"
+    },
+    {
+      "seta_short": "CATHS",
+      "seta_full": "CATHSSETA (Culture, Arts, Tourism, Hospitality and Sport SETA)",
+      "province": "Western Cape",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town",
+      "geo": "-33.925, 18.424",
+      "postal_code": "8001",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Professional Cookery; Tourism Guiding; Sports Coaching; Event Support",
+          "nqf_level": "2-6",
+          "min_points": "Grade 10+",
+          "required_subjects": "English",
+          "career_outcomes": ["Executive Chef", "Tour Guide", "Sports Coach", "Event Coordinator"],
+          "application_link": "https://www.cathsseta.org.za/learners"
+        }
+      ],
+      "contact": "info@cathsseta.org.za; +27 11 217 0600",
+      "website": "https://www.cathsseta.org.za",
+      "unique_id": "ZAF-SETA-CATHS"
+    },
+    {
+      "seta_short": "CHIETA",
+      "seta_full": "CHIETA (Chemical Industries Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "geo": "-26.204, 28.047",
+      "postal_code": "2000",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Chemical Operations; Process Plant Operator; Laboratory Analyst",
+          "nqf_level": "2-6",
+          "min_points": "Grade 11+",
+          "required_subjects": "Mathematics & Physical Science",
+          "career_outcomes": ["Process Controller", "Chemical Plant Operator", "Quality Controller"],
+          "application_link": "https://www.chieta.org.za/learners"
+        }
+      ],
+      "contact": "info@chieta.org.za; +27 11 726 4026",
+      "website": "https://www.chieta.org.za",
+      "unique_id": "ZAF-SETA-CHIETA"
+    },
+    {
+      "seta_short": "CETA",
+      "seta_full": "CETA (Construction Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Ekurhuleni",
+      "town": "Kempton Park",
+      "geo": "-26.099, 28.228",
+      "postal_code": "1685",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Apprenticeships",
+          "examples": "Bricklaying; Plumbing; Carpentry; Construction Plant Operator",
+          "nqf_level": "2-5",
+          "min_points": "Grade 9+",
+          "required_subjects": "Mathematics & Science recommended",
+          "career_outcomes": ["Qualified Artisan", "Construction Supervisor", "Site Manager"],
+          "application_link": "https://www.ceta.org.za/learners"
+        }
+      ],
+      "contact": "info@ceta.org.za; +27 11 265 5900",
+      "website": "https://www.ceta.org.za",
+      "unique_id": "ZAF-SETA-CETA"
+    }
+  ]
+}
+    ,
+    {
+      "seta_short": "ETDP",
+      "seta_full": "ETDP SETA (Education, Training and Development Practices SETA)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "geo": "-26.204, 28.047",
+      "postal_code": "2001",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Occupational Trainer; Assessor; Moderator; Skills Development Facilitator",
+          "nqf_level": "4-6",
+          "min_points": "Grade 12+",
+          "required_subjects": "English",
+          "career_outcomes": ["Corporate Trainer", "Training Manager", "HRD Practitioner"],
+          "application_link": "https://www.etdpseta.org.za/learners"
+        }
+      ],
+      "contact": "info@etdpseta.org.za; +27 11 628 5000",
+      "website": "https://www.etdpseta.org.za",
+      "unique_id": "ZAF-SETA-ETDP"
+    },
+    {
+      "seta_short": "EWSETA",
+      "seta_full": "EWSETA (Energy and Water Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "geo": "-26.204, 28.047",
+      "postal_code": "2000",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Electrician; Plumber; Water Process Controller; Renewable Energy Technician",
+          "nqf_level": "2-6",
+          "min_points": "Grade 11+",
+          "required_subjects": "Mathematics & Physical Science",
+          "career_outcomes": ["Electrician", "Water Treatment Operator", "Solar Installer"],
+          "application_link": "https://www.eseta.org.za/learners"
+        }
+      ],
+      "contact": "info@eseta.org.za; +27 11 274 4700",
+      "website": "https://www.eseta.org.za",
+      "unique_id": "ZAF-SETA-EW"
+    },
+    {
+      "seta_short": "FASSET",
+      "seta_full": "FASSET (Finance and Accounting Services SETA)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "geo": "-26.204, 28.047",
+      "postal_code": "2196",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Bookkeeper; Payroll Administrator; Tax Technician; Debt Collector",
+          "nqf_level": "3-6",
+          "min_points": "Grade 11+",
+          "required_subjects": "English & Mathematics",
+          "career_outcomes": ["Financial Accountant", "Payroll Manager", "Tax Practitioner"],
+          "application_link": "https://www.fasset.org.za/learners"
+        }
+      ],
+      "contact": "info@fasset.org.za; +27 11 476 8570",
+      "website": "https://www.fasset.org.za",
+      "unique_id": "ZAF-SETA-FASSET"
+    },
+    {
+      "seta_short": "FPM",
+      "seta_full": "FP&M SETA (Fibre Processing and Manufacturing SETA)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "geo": "-26.204, 28.047",
+      "postal_code": "2000",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Clothing Production; Textile Wet Processes; Footwear Closing; Printing",
+          "nqf_level": "2-5",
+          "min_points": "Grade 9+",
+          "required_subjects": "English",
+          "career_outcomes": ["Fashion Designer", "Textile Technician", "Printer", "Shoe Maker"],
+          "application_link": "https://www.fpmseta.org.za/learners"
+        }
+      ],
+      "contact": "info@fpmseta.org.za; +27 11 403 1700",
+      "website": "https://www.fpmseta.org.za",
+      "unique_id": "ZAF-SETA-FPM"
+    },
+    {
+      "seta_short": "FOODBEV",
+      "seta_full": "FOODBEV SETA (Food and Beverages Manufacturing SETA)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "geo": "-26.093, 27.981",
+      "postal_code": "2125",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Baker; Food & Beverage Manufacturing Technician; Quality Controller",
+          "nqf_level": "2-5",
+          "min_points": "Grade 10+",
+          "required_subjects": "English & Mathematics",
+          "career_outcomes": ["Production Supervisor", "Quality Assurance Manager", "Food Safety Officer"],
+          "application_link": "https://www.foodbev.co.za/learners"
+        }
+      ],
+      "contact": "info@foodbev.co.za; +27 11 253 7300",
+      "website": "https://www.foodbev.co.za",
+      "unique_id": "ZAF-SETA-FOODBEV"
+    },
+    {
+      "seta_short": "HW",
+      "seta_full": "HWSETA (Health and Welfare Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "geo": "-26.204, 28.047",
+      "postal_code": "2000",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Social Auxiliary Worker; Child & Youth Care Worker; Community Health Worker",
+          "nqf_level": "3-5",
+          "min_points": "Grade 11+",
+          "required_subjects": "English",
+          "career_outcomes": ["Social Worker Assistant", "Child Care Worker", "Community Health Coordinator"],
+          "application_link": "https://www.hwseta.org.za/learners"
+        }
+      ],
+      "contact": "info@hwseta.org.za; +27 11 607 6900",
+      "website": "https://www.hwseta.org.za",
+      "unique_id": "ZAF-SETA-HW"
+    },
+    {
+      "seta_short": "IN",
+      "seta_full": "INSETA (Insurance Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Parktown",
+      "geo": "-26.193, 28.041",
+      "postal_code": "2193",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Insurance Administrator; Short-Term Insurance; Wealth Management",
+          "nqf_level": "4-6",
+          "min_points": "Grade 12",
+          "required_subjects": "English & Mathematics",
+          "career_outcomes": ["Insurance Broker", "Claims Assessor", "Financial Advisor"],
+          "application_link": "https://www.inseta.org.za/learners"
+        }
+      ],
+      "contact": "info@inseta.org.za; +27 11 381 8900",
+      "website": "https://www.inseta.org.za",
+      "unique_id": "ZAF-SETA-IN"
+    },
+    {
+      "seta_short": "LG",
+      "seta_full": "LGSETA (Local Government Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "geo": "-26.204, 28.047",
+      "postal_code": "2001",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Ward Committee Governance; Municipal Finance Management; Local Economic Development",
+          "nqf_level": "3-6",
+          "min_points": "Grade 12",
+          "required_subjects": "English",
+          "career_outcomes": ["Municipal Manager", "Ward Councillor Support", "Finance Officer"],
+          "application_link": "https://www.lgseta.org.za/learners"
+        }
+      ],
+      "contact": "info@lgseta.org.za; +27 11 456 8577",
+      "website": "https://www.lgseta.org.za",
+      "unique_id": "ZAF-SETA-LG"
+    },
+    {
+      "seta_short": "MER",
+      "seta_full": "MERSETA (Manufacturing, Engineering and Related Services SETA)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "geo": "-26.093, 27.981",
+      "postal_code": "2125",
+      "programmes": [
+        {
+          "programme_type": "Apprenticeships & Occupational Qualifications",
+          "examples": "Fitter & Turner; Welder; Diesel Mechanic; Automotive Electrician",
+          "nqf_level": "2-6",
+          "min_points": "Grade 9+",
+          "required_subjects": "Mathematics & Physical Science",
+          "career_outcomes": ["Qualified Artisan", "Maintenance Technician", "Production Supervisor"],
+          "application_link": "https://www.merseta.org.za/learners"
+        }
+      ],
+      "contact": "info@merseta.org.za; +27 10 219 3000",
+      "website": "https://www.merseta.org.za",
+      "unique_id": "ZAF-SETA-MER"
+    },
+    {
+      "seta_short": "MICT",
+      "seta_full": "MICT SETA (Media, Information and Communication Technologies SETA)",
+      "province": "Gauteng",
+      "municipality": "City of Ekurhuleni",
+      "town": "Midrand",
+      "geo": "-25.996, 28.126",
+      "postal_code": "1685",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Systems Support; End User Computing; Contact Centre Support; Advertising",
+          "nqf_level": "3-6",
+          "min_points": "Grade 11+",
+          "required_subjects": "English & Mathematics",
+          "career_outcomes": ["IT Technician", "Web Developer", "Digital Marketer", "Call Centre Manager"],
+          "application_link": "https://www.mict.org.za/learner-portal/"
+        }
+      ],
+      "contact": "info@mict.org.za; +27 11 207 2600",
+      "website": "https://www.mict.org.za",
+      "unique_id": "ZAF-SETA-MICT"
+    },
+    {
+      "seta_short": "MQA",
+      "seta_full": "MQA (Mining Qualifications Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Parktown",
+      "geo": "-26.193, 28.041",
+      "postal_code": "2193",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Rockbreaker; Diamond Processing; Mine Surveying Assistant",
+          "nqf_level": "2-5",
+          "min_points": "Grade 10+",
+          "required_subjects": "Mathematics & Science recommended",
+          "career_outcomes": ["Mining Team Leader", "Blasting Assistant", "Jewellery Designer"],
+          "application_link": "https://www.mqa.org.za/learners"
+        }
+      ],
+      "contact": "info@mqa.org.za; +27 11 547 2600",
+      "website": "https://www.mqa.org.za",
+      "unique_id": "ZAF-SETA-MQA"
+    },
+    {
+      "seta_short": "PSETA",
+      "seta_full": "PSETA (Public Service Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "geo": "-25.746, 28.188",
+      "postal_code": "0001",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Public Administration; Public Management; Records Management",
+          "nqf_level": "4-6",
+          "min_points": "Grade 12",
+          "required_subjects": "English",
+          "career_outcomes": ["Public Manager", "HR Officer", "Registry Clerk"],
+          "application_link": "https://www.pseta.org.za/learners"
+        }
+      ],
+      "contact": "info@pseta.org.za; +27 12 423 9600",
+      "website": "https://www.pseta.org.za",
+      "unique_id": "ZAF-SETA-PSETA"
+    },
+    {
+      "seta_short": "SAS",
+      "seta_full": "SASSETA (Safety and Security Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Ekurhuleni",
+      "town": "Kempton Park",
+      "geo": "-26.099, 28.228",
+      "postal_code": "1619",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Security Officer; Policing; Correctional Services; Traffic Officer",
+          "nqf_level": "3-5",
+          "min_points": "Grade 11+",
+          "required_subjects": "English",
+          "career_outcomes": ["Security Manager", "Traffic Officer", "Correctional Officer"],
+          "application_link": "https://www.sasseta.org.za/learners"
+        }
+      ],
+      "contact": "info@sasseta.org.za; +27 11 347 0200",
+      "website": "https://www.sasseta.org.za",
+      "unique_id": "ZAF-SETA-SAS"
+    },
+    {
+      "seta_short": "SERVICES",
+      "seta_full": "Services SETA",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Rivonia",
+      "geo": "-26.082, 28.058",
+      "postal_code": "2191",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Hairdressing; Beauty Technology; Contact Centre Operations; Real Estate",
+          "nqf_level": "2-5",
+          "min_points": "Grade 10+",
+          "required_subjects": "English",
+          "career_outcomes": ["Salon Manager", "Beauty Therapist", "Call Centre Supervisor", "Property Practitioner"],
+          "application_link": "https://www.serviceseta.org.za/learners"
+        }
+      ],
+      "contact": "info@serviceseta.org.za; +27 11 276 9600",
+      "website": "https://www.serviceseta.org.za",
+      "unique_id": "ZAF-SETA-SERVICES"
+    },
+    {
+      "seta_short": "TETA",
+      "seta_full": "TETA (Transport Education Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "geo": "-26.093, 27.981",
+      "postal_code": "2125",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Professional Driving; Freight Handling; Supply Chain Practitioner",
+          "nqf_level": "2-6",
+          "min_points": "Grade 10+",
+          "required_subjects": "English",
+          "career_outcomes": ["Truck Driver", "Fleet Controller", "Logistics Coordinator"],
+          "application_link": "https://www.teta.org.za/learners"
+        }
+      ],
+      "contact": "info@teta.org.za; +27 11 577 7000",
+      "website": "https://www.teta.org.za",
+      "unique_id": "ZAF-SETA-TETA"
+    },
+    {
+      "seta_short": "WR",
+      "seta_full": "W&RSETA (Wholesale and Retail Sector Education and Training Authority)",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Centurion",
+      "geo": "-25.874, 28.178",
+      "postal_code": "0157",
+      "programmes": [
+        {
+          "programme_type": "Occupational Qualifications & Learnerships",
+          "examples": "Wholesale & Retail Operations; Retail Manager; Buyer",
+          "nqf_level": "2-5",
+          "min_points": "Grade 10+",
+          "required_subjects": "English",
+          "career_outcomes": ["Store Manager", "Buyer", "Merchandiser", "Supply Chain Coordinator"],
+          "application_link": "https://www.wrseta.org.za/learners"
+        }
+      ],
+      "contact": "info@wrseta.org.za; +27 12 622 9500",
+      "website": "https://www.wrseta.org.za",
+      "unique_id": "ZAF-SETA-WR"
+    }
+  ]
+}

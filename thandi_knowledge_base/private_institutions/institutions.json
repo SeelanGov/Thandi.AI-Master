@@ -1,0 +1,882 @@
+{
+  "metadata": {
+    "version": "1.1",
+    "last_updated": "2025-01-19",
+    "total_institutions": 30,
+    "total_programmes": 0,
+    "content_type": "private_institutions",
+    "description": "Private TVET colleges and training institutions in South Africa"
+  },
+  "institutions": [
+    {
+      "institution_code": "ABATTOIR",
+      "institution_name": "Abattoir Skills Training (Pty) Ltd",
+      "institution_type": "private_training",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.746,
+        "longitude": 28.188
+      },
+      "postal_code": "0001",
+      "contact": {
+        "email": "info@ultsa.co.za",
+        "phone": "+27 12 349 1237"
+      },
+      "website": "https://www.ultsa.co.za",
+      "application_link": "https://www.ultsa.co.za",
+      "programmes": [
+        {
+          "programme_type": "Occupational Certificate",
+          "programme_examples": ["Abattoir Butcher", "Meat Examiner", "Abattoir Supervisor"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 10",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Butcher", "Abattoir Supervisor", "Meat Inspector", "Hygiene Officer"]
+        }
+      ]
+    },
+    {
+      "institution_code": "BOSTON",
+      "institution_name": "Boston City Campus",
+      "institution_type": "private_college",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.145,
+        "longitude": 28.034
+      },
+      "postal_code": "2000",
+      "contact": {
+        "email": "info@boston.co.za",
+        "phone": "+27 11 551 2000"
+      },
+      "website": "https://www.boston.co.za",
+      "application_link": "https://www.boston.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "Higher Certificate & Diploma",
+          "programme_examples": ["Higher Certificate in Business Management", "Diploma in Network Systems", "Higher Certificate in Hospitality Management"],
+          "nqf_level": "5-6",
+          "min_points": "NSC with Diploma entry",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Business Administrator", "Network Technician", "Hotel Supervisor", "Marketing Coordinator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "DAMELIN",
+      "institution_name": "Damelin",
+      "institution_type": "private_college",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Randburg",
+      "location": {
+        "latitude": -26.093,
+        "longitude": 27.981
+      },
+      "postal_code": "2194",
+      "contact": {
+        "email": "info@damelin.co.za",
+        "phone": "+27 86 033 3526"
+      },
+      "website": "https://www.damelin.co.za",
+      "application_link": "https://www.damelin.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "NATED N4-N6 / National Diploma",
+          "programme_examples": ["NATED Engineering Studies N4-N6", "NATED Business Management N4-N6", "Diploma in Information Technology"],
+          "nqf_level": "5-6",
+          "min_points": "NSC with Diploma entry or N3",
+          "required_subjects": ["English + Mathematics/Math Lit for business/IT"],
+          "career_outcomes": ["Engineering Technician", "Financial Manager", "IT Support Specialist", "HR Practitioner"]
+        }
+      ]
+    },
+    {
+      "institution_code": "RICHFIELD",
+      "institution_name": "Richfield",
+      "institution_type": "private_college",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.746,
+        "longitude": 28.188
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@richfield.ac.za",
+        "phone": "+27 12 323 5550"
+      },
+      "website": "https://www.richfield.ac.za",
+      "application_link": "https://www.richfield.ac.za/apply",
+      "programmes": [
+        {
+          "programme_type": "Higher Certificate & Diploma",
+          "programme_examples": ["Higher Certificate in Information Technology", "Diploma in Business Administration", "Higher Certificate in Public Management"],
+          "nqf_level": "5-6",
+          "min_points": "NSC with Diploma entry",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Systems Support Technician", "Office Manager", "Public Sector Administrator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "JEPPE",
+      "institution_name": "Jeppe College",
+      "institution_type": "private_college",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@jeppecollege.co.za",
+        "phone": "+27 11 482 6150"
+      },
+      "website": "https://www.jeppecollege.co.za",
+      "application_link": "https://www.jeppecollege.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED N1-N6 Engineering & Business",
+          "programme_examples": ["N1-N6 Electrical Engineering", "N4-N6 Financial Management", "N4-N6 Human Resource Management"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Science for engineering streams"],
+          "career_outcomes": ["Electrician", "Bookkeeper", "HR Officer", "Financial Clerk"]
+        }
+      ]
+    },
+    {
+      "institution_code": "OXBRIDGE",
+      "institution_name": "Oxbridge Academy",
+      "institution_type": "private_distance",
+      "province": "Western Cape",
+      "municipality": "Stellenbosch",
+      "town": "Stellenbosch",
+      "location": {
+        "latitude": -33.938,
+        "longitude": 18.862
+      },
+      "postal_code": "7600",
+      "contact": {
+        "email": "info@oxbridgeacademy.edu.za",
+        "phone": "+27 21 883 2456"
+      },
+      "website": "https://www.oxbridgeacademy.edu.za",
+      "application_link": "https://www.oxbridgeacademy.edu.za/register",
+      "programmes": [
+        {
+          "programme_type": "National Certificate & Diploma (distance)",
+          "programme_examples": ["N4-N6 Educare", "N4-N6 Tourism", "N4-N6 Business Management"],
+          "nqf_level": "5-6",
+          "min_points": "Grade 12 or N3",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Childcare Centre Manager", "Tourism Officer", "Business Administrator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "CENTURION",
+      "institution_name": "Centurion Academy",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Centurion",
+      "location": {
+        "latitude": -25.874,
+        "longitude": 28.178
+      },
+      "postal_code": "0157",
+      "contact": {
+        "email": "info@ca.co.za",
+        "phone": "+27 12 653 0876"
+      },
+      "website": "https://ca.co.za",
+      "application_link": "https://ca.co.za",
+      "programmes": [
+        {
+          "programme_type": "National Diploma & Higher Certificate",
+          "programme_examples": ["Diploma in Beauty Technology", "Diploma in Hospitality Management", "NATED Engineering Studies"],
+          "nqf_level": "5-6",
+          "min_points": "NSC with Diploma entry",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Beauty Therapist", "Spa Manager", "Hotel Supervisor", "Engineering Technician"]
+        }
+      ]
+    },
+    {
+      "institution_code": "BELGIUM",
+      "institution_name": "Belgium Campus iTversity",
+      "institution_type": "private_higher_ed",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.733,
+        "longitude": 28.198
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@belgiumcampus.co.za",
+        "phone": "+27 12 542 3900"
+      },
+      "website": "https://www.belgiumcampus.co.za",
+      "application_link": "https://www.belgiumcampus.co.za/apply",
+      "programmes": [
+        {
+          "programme_type": "Diploma & Bachelor in IT",
+          "programme_examples": ["Diploma in Information Technology", "Bachelor of Computing"],
+          "nqf_level": "6-7",
+          "min_points": "NSC with Bachelor entry",
+          "required_subjects": ["Mathematics 60%+"],
+          "career_outcomes": ["Software Developer", "IT Manager", "Cyber Security Specialist", "Data Analyst"]
+        }
+      ]
+    },
+    {
+      "institution_code": "WHITESTONE",
+      "institution_name": "Whitestone College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "Ekurhuleni",
+      "town": "Kempton Park",
+      "location": {
+        "latitude": -26.099,
+        "longitude": 28.228
+      },
+      "postal_code": "1619",
+      "contact": {
+        "email": "info@whitestonecol.co.za",
+        "phone": "+27 11 394 1383"
+      },
+      "website": "https://whitestonecol.co.za",
+      "application_link": "https://whitestonecol.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED N1-N6",
+          "programme_examples": ["N1-N6 Electrical Engineering", "N4-N6 Business Management"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Science for engineering"],
+          "career_outcomes": ["Electrician", "Engineering Technician", "Business Administrator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "BROOKLYN",
+      "institution_name": "Brooklyn City College",
+      "institution_type": "private_college",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.746,
+        "longitude": 28.188
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@brooklyncollege.co.za",
+        "phone": "+27 12 323 4470"
+      },
+      "website": "https://brooklyncollege.co.za",
+      "application_link": "https://brooklyncollege.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED Engineering & Business",
+          "programme_examples": ["N1-N6 Electrical", "N4-N6 Management Assistant", "N4-N6 Financial Management"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["English + Mathematics"],
+          "career_outcomes": ["Electrician", "Office Administrator", "Bookkeeper"]
+        }
+      ]
+    },
+    {
+      "institution_code": "ROSTEC",
+      "institution_name": "Rostec Technical College",
+      "institution_type": "private_college",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@rostec.edu.za",
+        "phone": "+27 11 331 0405"
+      },
+      "website": "https://rostec.edu.za",
+      "application_link": "https://rostec.edu.za",
+      "programmes": [
+        {
+          "programme_type": "NATED N1-N6 Engineering",
+          "programme_examples": ["N1-N3 Electrical", "N4-N6 Mechanical Engineering", "N4-N6 Civil Engineering"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Physical Science"],
+          "career_outcomes": ["Electrician", "Fitter & Turner", "Boilermaker", "Civil Technician"]
+        }
+      ]
+    },
+    {
+      "institution_code": "QUALITAS",
+      "institution_name": "Qualitas Career Academy",
+      "institution_type": "private_college",
+      "province": "National (HQ Free State)",
+      "municipality": "Mangaung",
+      "town": "Bloemfontein",
+      "location": {
+        "latitude": -29.123,
+        "longitude": 26.221
+      },
+      "postal_code": "9301",
+      "contact": {
+        "email": "info@qualitasworld.co.za",
+        "phone": "+27 51 447 5412"
+      },
+      "website": "https://www.qualitasworld.co.za",
+      "application_link": "https://www.qualitasworld.co.za",
+      "programmes": [
+        {
+          "programme_type": "Higher Certificate & Diploma",
+          "programme_examples": ["Diploma Hairdressing", "Diploma Beauty Technology", "Higher Certificate Business Management", "Diploma Sound Engineering"],
+          "nqf_level": "5-6",
+          "min_points": "NSC with Diploma entry",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Hairdresser", "Beauty Therapist", "Salon Owner", "Sound Technician"]
+        }
+      ]
+    },
+    {
+      "institution_code": "STADIO",
+      "institution_name": "Stadio (various campuses)",
+      "institution_type": "private_higher_ed",
+      "province": "National (HQ Western Cape)",
+      "municipality": "City of Cape Town",
+      "town": "Bellville",
+      "location": {
+        "latitude": -33.873,
+        "longitude": 18.629
+      },
+      "postal_code": "7530",
+      "contact": {
+        "email": "info@stadio.ac.za",
+        "phone": "+27 86 158 2346"
+      },
+      "website": "https://stadio.ac.za",
+      "application_link": "https://stadio.ac.za",
+      "programmes": [
+        {
+          "programme_type": "Diploma & Higher Certificate",
+          "programme_examples": ["Diploma in Management", "Higher Certificate in Business Management", "Diploma in Information Technology"],
+          "nqf_level": "5-6",
+          "min_points": "NSC with Diploma entry",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Business Manager", "Project Coordinator", "IT Support Specialist"]
+        }
+      ]
+    },
+    {
+      "institution_code": "CTC",
+      "institution_name": "Central Technical College (CTC)",
+      "institution_type": "private_college",
+      "province": "National (HQ Western Cape)",
+      "municipality": "City of Cape Town",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@ctc.edu.za",
+        "phone": "+27 21 422 3805"
+      },
+      "website": "https://ctc.edu.za",
+      "application_link": "https://ctc.edu.za",
+      "programmes": [
+        {
+          "programme_type": "NATED N4-N6",
+          "programme_examples": ["N4-N6 Civil Engineering", "N4-N6 Electrical Engineering", "N4-N6 Business Management"],
+          "nqf_level": "5-6",
+          "min_points": "Grade 12 or N3",
+          "required_subjects": ["Mathematics & Science for engineering"],
+          "career_outcomes": ["Civil Technician", "Electrical Technician", "Business Administrator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "LYCEUM",
+      "institution_name": "Lyceum College",
+      "institution_type": "private_distance",
+      "province": "National (HQ Gauteng)",
+      "municipality": "City of Johannesburg",
+      "town": "Braamfontein",
+      "location": {
+        "latitude": -26.193,
+        "longitude": 28.041
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@lyceum.co.za",
+        "phone": "+27 11 712 2000"
+      },
+      "website": "https://www.lyceum.co.za",
+      "application_link": "https://www.lyceum.co.za",
+      "programmes": [
+        {
+          "programme_type": "Higher Certificate & Diploma (distance)",
+          "programme_examples": ["Higher Certificate in Criminal Justice", "Diploma in Fleet Management", "Diploma in Public Administration"],
+          "nqf_level": "5-6",
+          "min_points": "NSC with Diploma entry",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Fleet Manager", "Public Sector Administrator", "Paralegal"]
+        }
+      ]
+    },
+    {
+      "institution_code": "YORK",
+      "institution_name": "Academy of York",
+      "institution_type": "private_distance",
+      "province": "National (distance)",
+      "municipality": "Gauteng (admin)",
+      "town": "Randburg",
+      "location": {
+        "latitude": -26.093,
+        "longitude": 27.981
+      },
+      "postal_code": "2194",
+      "contact": {
+        "email": "info@aoy.co.za",
+        "phone": "+27 11 887 6201"
+      },
+      "website": "https://www.aoy.co.za",
+      "application_link": "https://www.aoy.co.za",
+      "programmes": [
+        {
+          "programme_type": "National Certificate (distance)",
+          "programme_examples": ["National Certificate Bookkeeping", "National Certificate Project Management", "National Certificate HR Management"],
+          "nqf_level": "5",
+          "min_points": "Grade 12",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bookkeeper", "Project Coordinator", "HR Assistant"]
+        }
+      ]
+    },
+    {
+      "institution_code": "BMT",
+      "institution_name": "BMT College",
+      "institution_type": "private_distance",
+      "province": "National (distance)",
+      "municipality": "Gauteng",
+      "town": "Randburg",
+      "location": {
+        "latitude": -26.093,
+        "longitude": 27.981
+      },
+      "postal_code": "2194",
+      "contact": {
+        "email": "info@bmtcollege.co.za",
+        "phone": "+27 11 482 6622"
+      },
+      "website": "https://bmtcollege.co.za",
+      "application_link": "https://bmtcollege.co.za",
+      "programmes": [
+        {
+          "programme_type": "Diploma (distance)",
+          "programme_examples": ["Diploma Human Resource Management", "Diploma Business Management", "Diploma Project Management"],
+          "nqf_level": "6",
+          "min_points": "NSC with Diploma entry",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["HR Manager", "Business Owner", "Project Manager"]
+        }
+      ]
+    },
+    {
+      "institution_code": "DCC",
+      "institution_name": "Damelin Correspondence College (DCC)",
+      "institution_type": "private_distance",
+      "province": "National (distance)",
+      "municipality": "Gauteng",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@dcc.edu.za",
+        "phone": "+27 86 061 6600"
+      },
+      "website": "https://dcc.edu.za",
+      "application_link": "https://dcc.edu.za",
+      "programmes": [
+        {
+          "programme_type": "NATED & Skills Programmes (distance)",
+          "programme_examples": ["N4-N6 Business Management", "N4-N6 Marketing Management", "Skills Programmes in Bookkeeping"],
+          "nqf_level": "5-6",
+          "min_points": "Grade 12",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Marketing Coordinator", "Business Administrator", "Bookkeeper"]
+        }
+      ]
+    },
+    {
+      "institution_code": "SKILLS",
+      "institution_name": "Skills Academy",
+      "institution_type": "private_distance",
+      "province": "National (distance)",
+      "municipality": "Western Cape",
+      "town": "Stellenbosch",
+      "location": {
+        "latitude": -33.938,
+        "longitude": 18.862
+      },
+      "postal_code": "7600",
+      "contact": {
+        "email": "info@skillsacademy.co.za",
+        "phone": "+27 21 838 8288"
+      },
+      "website": "https://www.skillsacademy.co.za",
+      "application_link": "https://www.skillsacademy.co.za",
+      "programmes": [
+        {
+          "programme_type": "National Certificate (distance)",
+          "programme_examples": ["National Certificate Beauty Therapy", "Bookkeeping", "Child Day Care", "Event Management"],
+          "nqf_level": "4-5",
+          "min_points": "Grade 11",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Beauty Therapist", "Bookkeeper", "Daycare Manager", "Event Coordinator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "INTEC",
+      "institution_name": "Intec College",
+      "institution_type": "private_distance",
+      "province": "National (distance)",
+      "municipality": "Western Cape",
+      "town": "Cape Town",
+      "location": {
+        "latitude": -33.925,
+        "longitude": 18.424
+      },
+      "postal_code": "8001",
+      "contact": {
+        "email": "info@intec.edu.za",
+        "phone": "+27 21 417 6700"
+      },
+      "website": "https://www.intec.edu.za",
+      "application_link": "https://www.intec.edu.za",
+      "programmes": [
+        {
+          "programme_type": "National Certificate & Diploma (distance)",
+          "programme_examples": ["National Certificate Bookkeeping", "Diploma in Business Management", "Certificate in Computer Studies"],
+          "nqf_level": "4-6",
+          "min_points": "Grade 10",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Bookkeeper", "Office Manager", "IT Support Assistant"]
+        }
+      ]
+    },
+    {
+      "institution_code": "ALLENBY",
+      "institution_name": "Allenby Campus",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@allenbycampus.co.za",
+        "phone": "+27 11 331 1730"
+      },
+      "website": "https://allenbycampus.co.za",
+      "application_link": "https://allenbycampus.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED Engineering & Business",
+          "programme_examples": ["N1-N6 Electrical Engineering", "N4-N6 Business Management"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Science for engineering"],
+          "career_outcomes": ["Electrician", "Business Administrator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "CHURCHILL",
+      "institution_name": "Churchill Technical College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.746,
+        "longitude": 28.188
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@churchilltech.co.za",
+        "phone": "+27 12 767 8870"
+      },
+      "website": "https://churchilltech.co.za",
+      "application_link": "https://churchilltech.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED N1-N6 Engineering",
+          "programme_examples": ["N1-N6 Electrical Engineering", "N1-N6 Mechanical Engineering"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Physical Science"],
+          "career_outcomes": ["Electrician", "Fitter & Turner", "Millwright"]
+        }
+      ]
+    },
+    {
+      "institution_code": "DENVER",
+      "institution_name": "Denver Technical College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@denvercollege.co.za",
+        "phone": "+27 11 615 9045"
+      },
+      "website": "https://denvercollege.co.za",
+      "application_link": "https://denvercollege.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED N1-N6",
+          "programme_examples": ["N1-N6 Electrical Engineering", "N4-N6 Management Assistant"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Science for engineering"],
+          "career_outcomes": ["Electrician", "Office Administrator", "Bookkeeper"]
+        }
+      ]
+    },
+    {
+      "institution_code": "DELCOM",
+      "institution_name": "Delcom Training Institute",
+      "institution_type": "private_training",
+      "province": "Gauteng",
+      "municipality": "Ekurhuleni",
+      "town": "Germiston",
+      "location": {
+        "latitude": -26.288,
+        "longitude": 28.406
+      },
+      "postal_code": "1401",
+      "contact": {
+        "email": "info@delcom.co.za",
+        "phone": "+27 11 902 2046"
+      },
+      "website": "https://delcom.co.za",
+      "application_link": "https://delcom.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED & Skills Programmes",
+          "programme_examples": ["N4-N6 Business Management", "NATED Engineering Studies"],
+          "nqf_level": "5-6",
+          "min_points": "Grade 12",
+          "required_subjects": ["English 40%+"],
+          "career_outcomes": ["Business Manager", "Engineering Technician"]
+        }
+      ]
+    },
+    {
+      "institution_code": "ECC",
+      "institution_name": "Ekurhuleni Computer College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "Ekurhuleni",
+      "town": "Brakpan",
+      "location": {
+        "latitude": -26.236,
+        "longitude": 28.368
+      },
+      "postal_code": "1540",
+      "contact": {
+        "email": "info@eccollege.co.za",
+        "phone": "+27 11 740 9015"
+      },
+      "website": "https://eccollege.co.za",
+      "application_link": "https://eccollege.co.za",
+      "programmes": [
+        {
+          "programme_type": "NC(V) & Occupational",
+          "programme_examples": ["Information Technology & Computer Science Level 2-4", "End User Computing"],
+          "nqf_level": "2-4",
+          "min_points": "Grade 9 pass",
+          "required_subjects": ["English 40%+", "Mathematics recommended"],
+          "career_outcomes": ["IT Technician", "Helpdesk Support", "Computer Operator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "GREENVIEW",
+      "institution_name": "Greenview College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@greenviewcollege.co.za",
+        "phone": "+27 11 333 1010"
+      },
+      "website": "https://greenviewcollege.co.za",
+      "application_link": "https://greenviewcollege.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED Engineering & Business",
+          "programme_examples": ["N1-N6 Electrical", "N4-N6 Human Resource Management"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Science for engineering"],
+          "career_outcomes": ["Electrician", "HR Practitioner", "Bookkeeper"]
+        }
+      ]
+    },
+    {
+      "institution_code": "JTC",
+      "institution_name": "Johannesburg Technical College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@johannesburgtech.co.za",
+        "phone": "+27 11 336 1060"
+      },
+      "website": "https://johannesburgtech.co.za",
+      "application_link": "https://johannesburgtech.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED N1-N6",
+          "programme_examples": ["N1-N6 Electrical Engineering", "N4-N6 Business Management"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Science for engineering"],
+          "career_outcomes": ["Electrician", "Business Administrator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "KEMPTON",
+      "institution_name": "Kempton Park Technical College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "Ekurhuleni",
+      "town": "Kempton Park",
+      "location": {
+        "latitude": -26.099,
+        "longitude": 28.228
+      },
+      "postal_code": "1619",
+      "contact": {
+        "email": "info@kemptontech.co.za",
+        "phone": "+27 11 394 5630"
+      },
+      "website": "https://kemptontech.co.za",
+      "application_link": "https://kemptontech.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED Engineering",
+          "programme_examples": ["N1-N6 Electrical", "N1-N6 Mechanical"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Physical Science"],
+          "career_outcomes": ["Electrician", "Fitter & Turner"]
+        }
+      ]
+    },
+    {
+      "institution_code": "PRETORIATECH",
+      "institution_name": "Pretoria Technical College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "City of Tshwane",
+      "town": "Pretoria",
+      "location": {
+        "latitude": -25.746,
+        "longitude": 28.188
+      },
+      "postal_code": "0002",
+      "contact": {
+        "email": "info@pretoriatech.co.za",
+        "phone": "+27 12 320 5060"
+      },
+      "website": "https://pretoriatech.co.za",
+      "application_link": "https://pretoriatech.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED Engineering & Business",
+          "programme_examples": ["N1-N6 Electrical", "N4-N6 Marketing Management"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Science for engineering"],
+          "career_outcomes": ["Electrician", "Marketing Coordinator"]
+        }
+      ]
+    },
+    {
+      "institution_code": "RAND",
+      "institution_name": "Rand Training College",
+      "institution_type": "private_college",
+      "province": "Gauteng",
+      "municipality": "City of Johannesburg",
+      "town": "Johannesburg",
+      "location": {
+        "latitude": -26.204,
+        "longitude": 28.047
+      },
+      "postal_code": "2001",
+      "contact": {
+        "email": "info@randtraining.co.za",
+        "phone": "+27 11 042 6200"
+      },
+      "website": "https://randtraining.co.za",
+      "application_link": "https://randtraining.co.za",
+      "programmes": [
+        {
+          "programme_type": "NATED N1-N6 Engineering",
+          "programme_examples": ["N1-N6 Electrical Engineering", "N1-N6 Mechanical Engineering"],
+          "nqf_level": "3-6",
+          "min_points": "Grade 10 for N1; Grade 12 for N4",
+          "required_subjects": ["Mathematics & Physical Science"],
+          "career_outcomes": ["Electrician", "Millwright", "Fitter"]
+        }
+      ]
+    }
+  ]
+}

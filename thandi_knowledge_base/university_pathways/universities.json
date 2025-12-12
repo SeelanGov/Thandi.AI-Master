@@ -1,0 +1,1422 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2025-01-19",
+    "total_universities": 24,
+    "total_programs": 80,
+    "content_type": "university_pathways",
+    "description": "South African university undergraduate programs and pathways"
+  },
+  "universities": [
+    {
+      "university_code": "CPUT",
+      "university_name": "Cape Peninsula University of Technology",
+      "university_type": "technology",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "application_link": "https://www.cput.ac.za/study/apply",
+      "faculties": [
+        {
+          "faculty_name": "Engineering & the Built Environment",
+          "programs": [
+            {
+              "degree_name": "BEngTech Civil Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 4", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Site Engineer", "Structural Engineer", "Water Engineer"]
+            },
+            {
+              "degree_name": "BEngTech Electrical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Control Systems Engineer", "Power Systems Engineer"]
+            },
+            {
+              "degree_name": "BEngTech Mechanical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Project Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Informatics & Design",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Information Technology",
+              "degree_type": "Bachelor",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4 or Mathematical Literacy 6"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Software Developer", "Systems Analyst", "Network Administrator"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health & Wellness Sciences",
+          "programs": [
+            {
+              "degree_name": "BSc Nursing",
+              "degree_type": "BSc",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Life Sciences 4", "Mathematics 4 or Math Lit 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Registered Nurse", "Clinical Nurse Practitioner", "Nurse Educator"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "CUT",
+      "university_name": "Central University of Technology",
+      "university_type": "technology",
+      "location": {
+        "province": "Free State",
+        "city": "Bloemfontein"
+      },
+      "application_link": "https://www.cut.ac.za/application_process",
+      "faculties": [
+        {
+          "faculty_name": "Engineering, Built Environment & Information Technology",
+          "programs": [
+            {
+              "degree_name": "BEngTech Civil Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Construction Manager", "Structural Engineer"]
+            },
+            {
+              "degree_name": "BEngTech Electrical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Automation Engineer", "Renewable Energy Specialist"]
+            },
+            {
+              "degree_name": "BEngTech Mechanical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Mechanical Engineer", "Maintenance Engineer", "Manufacturing Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health & Environmental Sciences",
+          "programs": [
+            {
+              "degree_name": "BHSc Clinical Technology",
+              "degree_type": "BHSc",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Life Sciences 4", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Clinical Technologist", "Cardiology Technologist", "Renal Dialysis Technologist"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "DUT",
+      "university_name": "Durban University of Technology",
+      "university_type": "technology",
+      "location": {
+        "province": "KwaZulu-Natal",
+        "city": "Durban"
+      },
+      "application_link": "https://www.dut.ac.za/student_portal/applications/",
+      "faculties": [
+        {
+          "faculty_name": "Engineering & the Built Environment",
+          "programs": [
+            {
+              "degree_name": "BEngTech Civil Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Project Engineer", "Transportation Engineer"]
+            },
+            {
+              "degree_name": "BEngTech Electrical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Power Systems Engineer", "Control Engineer", "Telecommunications Engineer"]
+            },
+            {
+              "degree_name": "BEngTech Mechanical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Automotive Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Health Sciences in Nursing",
+              "degree_type": "Bachelor",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Life Sciences 4", "Mathematics 4 or Math Lit 6"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Professional Nurse", "Midwife", "Community Health Nurse"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "MUT",
+      "university_name": "Mangosuthu University of Technology",
+      "university_type": "technology",
+      "location": {
+        "province": "KwaZulu-Natal",
+        "city": "Durban"
+      },
+      "application_link": "https://www.mut.ac.za/apply-to-mut/",
+      "faculties": [
+        {
+          "faculty_name": "Engineering",
+          "programs": [
+            {
+              "degree_name": "BEngTech Chemical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chemical Engineer", "Process Engineer", "Plant Manager"]
+            },
+            {
+              "degree_name": "BEngTech Civil Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Construction Manager", "Geotechnical Engineer"]
+            },
+            {
+              "degree_name": "BEngTech Electrical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Power Distribution Engineer", "Instrumentation Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Natural Sciences",
+          "programs": [
+            {
+              "degree_name": "Bachelor Environmental Health",
+              "degree_type": "Bachelor",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Life Sciences 4", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Environmental Health Practitioner", "Occupational Health & Safety Officer"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "NMU",
+      "university_name": "Nelson Mandela University",
+      "university_type": "comprehensive",
+      "location": {
+        "province": "Eastern Cape",
+        "city": "Port Elizabeth"
+      },
+      "application_link": "https://applyonline.mandela.ac.za/",
+      "faculties": [
+        {
+          "faculty_name": "Engineering the Built Environment & IT",
+          "programs": [
+            {
+              "degree_name": "BEng Mechatronics",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 38,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Mechatronics Engineer", "Automation Engineer", "Robotics Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Pharmacy",
+              "degree_type": "Bachelor",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 38,
+              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Pharmacist", "Clinical Pharmacist", "Industrial Pharmacist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Business & Economic Sciences",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting for Chartered Accountants",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 38,
+              "required_subjects": ["Mathematics 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chartered Accountant", "Auditor", "Tax Specialist"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "NWU",
+      "university_name": "North-West University",
+      "university_type": "traditional",
+      "location": {
+        "province": "North West",
+        "city": "Potchefstroom"
+      },
+      "application_link": "https://studies.nwu.ac.za/studies/apply",
+      "faculties": [
+        {
+          "faculty_name": "Engineering",
+          "programs": [
+            {
+              "degree_name": "BEng Chemical Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 34,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chemical Engineer", "Process Engineer", "Mining Engineer (Chem)"]
+            },
+            {
+              "degree_name": "BEng Electrical & Electronic Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 34,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Electronics Engineer", "Control Systems Engineer"]
+            },
+            {
+              "degree_name": "BEng Mechanical Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 34,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Energy Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "BPharm",
+              "degree_type": "BPharm",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Pharmacist", "Community Pharmacist", "Hospital Pharmacist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Economic & Management Sciences",
+          "programs": [
+            {
+              "degree_name": "BCom Chartered Accountancy",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 34,
+              "required_subjects": ["Mathematics 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chartered Accountant", "Auditor", "Financial Director"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "RU",
+      "university_name": "Rhodes University",
+      "university_type": "traditional",
+      "location": {
+        "province": "Eastern Cape",
+        "city": "Grahamstown"
+      },
+      "application_link": "https://www.ru.ac.za/admissiongateway/",
+      "faculties": [
+        {
+          "faculty_name": "Commerce",
+          "programs": [
+            {
+              "degree_name": "BCom",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 38,
+              "required_subjects": ["Mathematics 50%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Financial Manager", "Marketer", "Investment Analyst"]
+            },
+            {
+              "degree_name": "BBusiness Science",
+              "degree_type": "BBusiness Science",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 42,
+              "required_subjects": ["Mathematics 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Management Consultant", "Data Analyst", "Entrepreneur"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Humanities",
+          "programs": [
+            {
+              "degree_name": "BA",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 35,
+              "required_subjects": [],
+              "recommended_subjects": [],
+              "career_outcomes": ["Journalist", "Teacher", "NGO Manager", "HR Specialist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Science",
+          "programs": [
+            {
+              "degree_name": "BSc (Computer Science majors)",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 40,
+              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Data Scientist", "Environmental Consultant", "Research Scientist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Pharmacy",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Pharmacy",
+              "degree_type": "Bachelor",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 40,
+              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Community Pharmacist", "Hospital Pharmacist", "Industrial Pharmacist"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "SMU",
+      "university_name": "Sefako Makgatho Health Sciences University",
+      "university_type": "traditional",
+      "location": {
+        "province": "Gauteng",
+        "city": "Pretoria"
+      },
+      "application_link": "https://www.smu.ac.za/students/apply/",
+      "faculties": [
+        {
+          "faculty_name": "Medicine",
+          "programs": [
+            {
+              "degree_name": "MBChB",
+              "degree_type": "MBChB",
+              "nqf_level": 8,
+              "duration_years": 6,
+              "min_aps": 32,
+              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Medical Doctor", "General Practitioner", "Specialist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Care Sciences",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Nursing Science",
+              "degree_type": "Bachelor",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Life Sciences 50%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Professional Nurse", "Nurse Educator", "Clinical Nurse Specialist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Pharmacy",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Pharmacy",
+              "degree_type": "Bachelor",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Pharmacist", "Clinical Pharmacist", "Pharmaceutical Researcher"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "SPU",
+      "university_name": "Sol Plaatje University",
+      "university_type": "traditional",
+      "location": {
+        "province": "Northern Cape",
+        "city": "Kimberley"
+      },
+      "application_link": "https://www.spu.ac.za/index.php/study/apply/",
+      "faculties": [
+        {
+          "faculty_name": "Education",
+          "programs": [
+            {
+              "degree_name": "BEd Senior & FET Phase",
+              "degree_type": "BEd",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": ["Depends on teaching subjects"],
+              "recommended_subjects": [],
+              "career_outcomes": ["High School Teacher", "Subject Specialist", "Education Administrator"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Natural & Applied Sciences",
+          "programs": [
+            {
+              "degree_name": "BSc Data Science",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Data Scientist", "Business Intelligence Analyst", "Machine Learning Engineer"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "SU",
+      "university_name": "Stellenbosch University",
+      "university_type": "traditional",
+      "location": {
+        "province": "Western Cape",
+        "city": "Stellenbosch"
+      },
+      "application_link": "https://www.sun.ac.za/english/maties/apply",
+      "faculties": [
+        {
+          "faculty_name": "Engineering",
+          "programs": [
+            {
+              "degree_name": "BEng Civil",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 38,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Structural Engineer", "Water Resource Engineer"]
+            },
+            {
+              "degree_name": "BEng Electrical & Electronic",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 38,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Electronics Engineer", "Renewable Energy Specialist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Medicine & Health Sciences",
+          "programs": [
+            {
+              "degree_name": "MBChB",
+              "degree_type": "MBChB",
+              "nqf_level": 8,
+              "duration_years": 6,
+              "min_aps": 45,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 70%", "Life Sciences 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Medical Doctor", "Surgeon", "Research Physician"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Economic & Management Sciences",
+          "programs": [
+            {
+              "degree_name": "BCom Management Sciences",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 36,
+              "required_subjects": ["Mathematics 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Business Manager", "Entrepreneur", "Operations Manager"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "TUT",
+      "university_name": "Tshwane University of Technology",
+      "university_type": "technology",
+      "location": {
+        "province": "Gauteng",
+        "city": "Pretoria"
+      },
+      "application_link": "https://www.tut.ac.za/study-at-tut/online-application",
+      "faculties": [
+        {
+          "faculty_name": "Engineering & Built Environment",
+          "programs": [
+            {
+              "degree_name": "BEngTech Civil Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Construction Manager", "Transportation Engineer"]
+            },
+            {
+              "degree_name": "BEngTech Electrical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Automation Engineer", "Renewable Energy Specialist"]
+            },
+            {
+              "degree_name": "BEngTech Mechanical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Manufacturing Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Information & Communication Technology",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Information Technology",
+              "degree_type": "Bachelor",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 26,
+              "required_subjects": ["Mathematics 4 or Math Lit 6"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Software Developer", "Network Engineer", "Cybersecurity Analyst"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UCT",
+      "university_name": "University of Cape Town",
+      "university_type": "traditional",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "application_link": "https://applyonline.uct.ac.za/",
+      "faculties": [
+        {
+          "faculty_name": "Engineering & Built Environment",
+          "programs": [
+            {
+              "degree_name": "BSc Engineering (Civil)",
+              "degree_type": "BSc",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 42,
+              "required_subjects": ["Mathematics 80%", "Physical Sciences 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Structural Engineer", "Water Engineer"]
+            },
+            {
+              "degree_name": "BSc Engineering (Electrical)",
+              "degree_type": "BSc",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 42,
+              "required_subjects": ["Mathematics 80%", "Physical Sciences 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Power Systems Engineer", "Telecom Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "MBChB",
+              "degree_type": "MBChB",
+              "nqf_level": 8,
+              "duration_years": 6,
+              "min_aps": 45,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 70%", "Life Sciences 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Medical Doctor", "Surgeon", "Research Physician"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Commerce",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 40,
+              "required_subjects": ["Mathematics 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chartered Accountant", "Financial Analyst", "Auditor"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UFH",
+      "university_name": "University of Fort Hare",
+      "university_type": "traditional",
+      "location": {
+        "province": "Eastern Cape",
+        "city": "Alice"
+      },
+      "application_link": "https://apply.ufh.ac.za/",
+      "faculties": [
+        {
+          "faculty_name": "Management & Commerce",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4 or Math Lit 6"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Accountant", "Auditor", "Financial Manager"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UJ",
+      "university_name": "University of Johannesburg",
+      "university_type": "comprehensive",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "application_link": "https://www.uj.ac.za/admissions-aid/",
+      "faculties": [
+        {
+          "faculty_name": "Engineering & Built Environment",
+          "programs": [
+            {
+              "degree_name": "BEng Civil Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 36,
+              "required_subjects": ["Mathematics 6", "Physical Sciences 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Project Manager", "Geotechnical Engineer"]
+            },
+            {
+              "degree_name": "BEng Electrical & Electronic Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 36,
+              "required_subjects": ["Mathematics 6", "Physical Sciences 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Electronics Engineer", "Control Systems Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "College of Business & Economics",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 33,
+              "required_subjects": ["Mathematics 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chartered Accountant", "Tax Consultant", "Financial Controller"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UKZN",
+      "university_name": "University of KwaZulu-Natal",
+      "university_type": "traditional",
+      "location": {
+        "province": "KwaZulu-Natal",
+        "city": "Durban"
+      },
+      "application_link": "https://applications.ukzn.ac.za/",
+      "faculties": [
+        {
+          "faculty_name": "Agriculture Engineering & Science",
+          "programs": [
+            {
+              "degree_name": "BSc Engineering (Civil)",
+              "degree_type": "BSc",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 33,
+              "required_subjects": ["Mathematics Level 6", "Physical Sciences Level 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Water Engineer", "Structural Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "MBChB",
+              "degree_type": "MBChB",
+              "nqf_level": 8,
+              "duration_years": 6,
+              "min_aps": 35,
+              "required_subjects": ["Mathematics Level 5", "Physical Sciences Level 5", "Life Sciences Level 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Medical Doctor", "Specialist Physician", "Surgeon"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Law & Management Studies",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 32,
+              "required_subjects": ["Mathematics Level 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chartered Accountant", "Financial Manager", "Auditor"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UL",
+      "university_name": "University of Limpopo",
+      "university_type": "traditional",
+      "location": {
+        "province": "Limpopo",
+        "city": "Polokwane"
+      },
+      "application_link": "https://www.ul.ac.za/index.php?Entity=Apply",
+      "faculties": [
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "MBChB",
+              "degree_type": "MBChB",
+              "nqf_level": 8,
+              "duration_years": 6,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 5", "Life Sciences 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Medical Doctor", "General Practitioner", "Public Health Physician"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UMP",
+      "university_name": "University of Mpumalanga",
+      "university_type": "traditional",
+      "location": {
+        "province": "Mpumalanga",
+        "city": "Mbombela"
+      },
+      "application_link": "https://www.ump.ac.za/Study-with-us/Apply",
+      "faculties": [
+        {
+          "faculty_name": "Education",
+          "programs": [
+            {
+              "degree_name": "BEd Foundation Phase",
+              "degree_type": "BEd",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": ["English Home or First Additional Language 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Foundation Phase Teacher", "Early Childhood Educator"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UNISA",
+      "university_name": "University of South Africa (distance)",
+      "university_type": "distance",
+      "location": {
+        "province": "Gauteng",
+        "city": "Pretoria"
+      },
+      "application_link": "https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission",
+      "faculties": [
+        {
+          "faculty_name": "Economic & Management Sciences",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting Sciences",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 21,
+              "required_subjects": ["Mathematics 50% or Math Lit 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Accountant", "Financial Analyst", "Tax Practitioner"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Science Engineering & Technology",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Science in Computing",
+              "degree_type": "Bachelor",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 20,
+              "required_subjects": ["Mathematics 50%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Software Developer", "IT Project Manager", "Systems Analyst"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UFS",
+      "university_name": "University of the Free State",
+      "university_type": "traditional",
+      "location": {
+        "province": "Free State",
+        "city": "Bloemfontein"
+      },
+      "application_link": "https://apply.ufs.ac.za/",
+      "faculties": [
+        {
+          "faculty_name": "Economic & Management Sciences",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 32,
+              "required_subjects": ["Mathematics 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chartered Accountant", "Auditor", "Financial Manager"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "MBChB",
+              "degree_type": "MBChB",
+              "nqf_level": 8,
+              "duration_years": 5,
+              "min_aps": 36,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 70%", "Life Sciences 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Medical Doctor", "General Practitioner", "Specialist Physician"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Natural & Agricultural Sciences",
+          "programs": [
+            {
+              "degree_name": "BSc Agriculture",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": ["Mathematics 60%", "Physical Sciences or Life Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Agricultural Consultant", "Farm Manager", "Agri-business Specialist"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UWC",
+      "university_name": "University of the Western Cape",
+      "university_type": "traditional",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "application_link": "https://www.uwc.ac.za/apply-now",
+      "faculties": [
+        {
+          "faculty_name": "Community & Health Sciences",
+          "programs": [
+            {
+              "degree_name": "BNursing",
+              "degree_type": "BNursing",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": ["Life Sciences 50%", "Mathematics 40% or Math Lit 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Professional Nurse", "Midwife", "Community Health Nurse"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Dentistry",
+          "programs": [
+            {
+              "degree_name": "BDS (Bachelor of Dental Surgery)",
+              "degree_type": "BDS",
+              "nqf_level": 8,
+              "duration_years": 5,
+              "min_aps": 34,
+              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Dentist", "Oral Surgeon", "Orthodontist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Economic & Management Sciences",
+          "programs": [
+            {
+              "degree_name": "BCom",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 40% or Math Lit 60%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Financial Analyst", "Management Consultant", "Entrepreneur"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "WITS",
+      "university_name": "University of the Witwatersrand",
+      "university_type": "traditional",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "application_link": "https://www.wits.ac.za/applications/",
+      "faculties": [
+        {
+          "faculty_name": "Engineering & Built Environment",
+          "programs": [
+            {
+              "degree_name": "BSc Engineering (Civil)",
+              "degree_type": "BSc",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 42,
+              "required_subjects": ["Mathematics 80%", "Physical Sciences 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Structural Engineer", "Project Manager"]
+            },
+            {
+              "degree_name": "BSc Engineering (Mechanical)",
+              "degree_type": "BSc",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 42,
+              "required_subjects": ["Mathematics 80%", "Physical Sciences 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Automotive Engineer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "MBBCh",
+              "degree_type": "MBBCh",
+              "nqf_level": 8,
+              "duration_years": 6,
+              "min_aps": 44,
+              "required_subjects": ["Mathematics 70%", "Physical Sciences 70%", "Life Sciences 70%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Medical Doctor", "Surgeon", "Specialist Physician"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Commerce Law & Management",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 40,
+              "required_subjects": ["Mathematics 75%"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Chartered Accountant", "Financial Director", "Investment Banker"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "VUT",
+      "university_name": "Vaal University of Technology",
+      "university_type": "technology",
+      "location": {
+        "province": "Gauteng",
+        "city": "Vanderbijlpark"
+      },
+      "application_link": "https://www.vut.ac.za/apply-to-vut/",
+      "faculties": [
+        {
+          "faculty_name": "Engineering & Technology",
+          "programs": [
+            {
+              "degree_name": "BEngTech Civil Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Civil Engineer", "Construction Supervisor", "Project Engineer"]
+            },
+            {
+              "degree_name": "BEngTech Electrical Engineering",
+              "degree_type": "BEngTech",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Electrical Engineer", "Power Systems Technician", "Automation Specialist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Management Sciences",
+          "programs": [
+            {
+              "degree_name": "Bachelor Cost & Management Accounting",
+              "degree_type": "Bachelor",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4 or Math Lit 6"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Management Accountant", "Cost Analyst", "Financial Controller"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UNIZULU",
+      "university_name": "University of Zululand",
+      "university_type": "traditional",
+      "location": {
+        "province": "KwaZulu-Natal",
+        "city": "KwaDlangezwa"
+      },
+      "application_link": "https://www.unizulu.ac.za/apply/",
+      "faculties": [
+        {
+          "faculty_name": "Science Agriculture & Engineering",
+          "programs": [
+            {
+              "degree_name": "BSc Agriculture",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4", "Physical Sciences or Life Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Agricultural Manager", "Extension Officer", "Agri-business Consultant"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Commerce Administration & Law",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4 or Math Lit 6"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Accountant", "Auditor", "Financial Officer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Education",
+          "programs": [
+            {
+              "degree_name": "BEd Senior & FET Phase",
+              "degree_type": "BEd",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": ["English Home or First Additional Language 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["High School Teacher", "Subject Specialist", "School Principal"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "WSU",
+      "university_name": "Walter Sisulu University",
+      "university_type": "comprehensive",
+      "location": {
+        "province": "Eastern Cape",
+        "city": "Mthatha"
+      },
+      "application_link": "https://www.wsu.ac.za/index.php/study-at-wsu/apply-to-study-at-wsu",
+      "faculties": [
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "MBChB",
+              "degree_type": "MBChB",
+              "nqf_level": 8,
+              "duration_years": 6,
+              "min_aps": 30,
+              "required_subjects": ["Mathematics 5", "Physical Sciences 5", "Life Sciences 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Medical Doctor", "General Practitioner", "Rural Health Specialist"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Business Management Sciences & Law",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": ["Mathematics 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Accountant", "Tax Consultant", "Financial Manager"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Education",
+          "programs": [
+            {
+              "degree_name": "BEd Senior Phase & FET",
+              "degree_type": "BEd",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": ["English 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["High School Teacher", "Curriculum Developer"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UNIVEN",
+      "university_name": "University of Venda",
+      "university_type": "traditional",
+      "location": {
+        "province": "Limpopo",
+        "city": "Thohoyandou"
+      },
+      "application_link": "https://www.univen.ac.za/students/apply-now/",
+      "faculties": [
+        {
+          "faculty_name": "Science Engineering & Technology",
+          "programs": [
+            {
+              "degree_name": "BSc Computer Science",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 26,
+              "required_subjects": ["Mathematics 5"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Software Developer", "IT Consultant", "Systems Analyst"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Agriculture",
+          "programs": [
+            {
+              "degree_name": "BSc Agriculture",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": ["Mathematics 4", "Life Sciences or Physical Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Agricultural Scientist", "Farm Manager", "Extension Officer"]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "Bachelor of Nursing",
+              "degree_type": "Bachelor",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": ["Life Sciences 4"],
+              "recommended_subjects": [],
+              "career_outcomes": ["Professional Nurse", "Community Health Nurse", "Nurse Educator"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
