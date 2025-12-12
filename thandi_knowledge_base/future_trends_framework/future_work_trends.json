@@ -1,0 +1,161 @@
+{
+  "id": "edu_future_work_trends",
+  "title": "Future Work Trends",
+  "language": "en",
+  "version": 2,
+  "last_updated": "2025-11",
+  "summary": "Explore South Africa’s future job trends with EduEasy. Learn about growing industries like AI and green energy, required skills, and how to prepare, guided by Thandi.",
+  "tags": [
+    "Future Trends",
+    "Careers",
+    "Skills",
+    "Green Economy",
+    "AI",
+    "Healthcare",
+    "Digital Economy",
+    "EduEasy",
+    "4IR",
+    "Sustainability",
+    "Data Analysis"
+  ],
+  "source_links": [
+    "https://www.dhet.gov.za/SitePages/FutureSkills.aspx",
+    "https://www.labour.gov.za/labour-market-information",
+    "https://www.hsrc.ac.za/en/research-data/ktree-doc/23102",
+    "https://www.mict.org.za/skills-development",
+    "https://www.ewseta.org.za",
+    "https://www.hwseta.org.za"
+  ],
+  "source_details": [
+    {
+      "url": "https://www.dhet.gov.za/SitePages/FutureSkills.aspx",
+      "title": "DHET Future Skills Outlook",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.labour.gov.za/labour-market-information",
+      "title": "DEL Labour Market Information",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.hsrc.ac.za/en/research-data/ktree-doc/23102",
+      "title": "HSRC Skills Analysis",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.mict.org.za/skills-development",
+      "title": "MICT SETA Skills Development",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.ewseta.org.za",
+      "title": "EWSETA Green Skills",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    },
+    {
+      "url": "https://www.hwseta.org.za",
+      "title": "HWSETA Healthcare Skills",
+      "date": "2025-11",
+      "is_official": true,
+      "last_verified": "2025-11-02"
+    }
+  ],
+  "localized_terms": {
+    "Future Trends": {
+      "Zulu": "Izitayela Zomsebenzi Wesikhathi Esizayo",
+      "Xhosa": "Iindlela Zomsebenzi Zexesha Elizayo"
+    },
+    "Skills": {
+      "Zulu": "Amakhono",
+      "Xhosa": "Izakhono"
+    },
+    "Career": {
+      "Zulu": "Umsebenzi",
+      "Xhosa": "Umsebenzi"
+    },
+    "Job": {
+      "Zulu": "Umsebenzi",
+      "Xhosa": "Umsebenzi"
+    },
+    "Artificial Intelligence": {
+      "Zulu": "Ubuhlakani Bokwenziwa",
+      "Xhosa": "Ubukrelekrele Bokwenziwa"
+    },
+    "Green Economy": {
+      "Zulu": "Umnotho Oluhlaza",
+      "Xhosa": "Uqoqosho Oluhlaza"
+    }
+  },
+  "file_name": "future_work_trends.html",
+  "content_type": "html",
+  "word_count_estimate": 460,
+  "feedback_config": {
+    "method": "chatbot_prompt",
+    "prompt": "Was this helpful? Reply 'Yes' or 'No' or share feedback.",
+    "collection_point": "Thandi Chatbot"
+  },
+  "chatbot_priorities": {
+    "keywords": [
+      "future trends",
+      "future jobs",
+      "careers",
+      "skills",
+      "green economy",
+      "AI",
+      "healthcare",
+      "digital economy",
+      "EduEasy",
+      "4IR",
+      "sustainability",
+      "data analysis",
+      "cybersecurity",
+      "renewable energy"
+    ],
+    "priority_response": "EduEasy helps you prepare for future careers in AI, green energy, and more. Plan with Thandi at https://edueasy.co.za."
+  },
+  "rag_metadata": {
+    "chunk_strategy": "semantic_sections",
+    "expected_chunks": 6,
+    "sections": [
+      "What Are Future Work Trends",
+      "Top Future Industries",
+      "How to Prepare",
+      "Next Steps"
+    ],
+    "key_entities": {
+      "industries": ["Green Economy", "Artificial Intelligence", "Healthcare", "Digital Economy"],
+      "skills": [
+        "Renewable energy",
+        "Sustainability",
+        "Data analysis",
+        "Coding",
+        "Nursing",
+        "Community health",
+        "Cybersecurity",
+        "Cloud computing"
+      ],
+      "processes": ["Career planning", "Matric subject matching", "NSFAS application"],
+      "nqf_levels": ["NQF 4–6", "NQF 5–7", "NQF 7"]
+    },
+    "answers_questions": [17, 18, 19],
+    "supports_questions": [20]
+  },
+  "content_quality": {
+    "completeness": 9,
+    "accuracy": 9,
+    "sa_specific": 10,
+    "actionability": 9,
+    "last_reviewed": "2025-11-02",
+    "needs_update": false
+  }
+}

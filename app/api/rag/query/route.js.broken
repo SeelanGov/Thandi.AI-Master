@@ -1,0 +1,299 @@
+// app/api/rag/query/route.js
+// STEP 5: API Endpoint for RAG Query System
+
+import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+import { generateQueryEmbedding } from '@/lib/rag/embeddings.mjs';
+import { hybridSearch } from '@/lib/rag/hybrid-search.mjs';
+import { 
+  extractStudentProfile, 
+  assembleContext, 
+  reRankChunks,
+  deduplicateChunks 
+} from '@/lib/rag/retrieval.mjs';
+import { generateResponse } from '@/lib/rag/generation.mjs';
+
+/**
+ * POST /api/rag/query
+ * Main RAG query endpoint
+ * 
+ * Request body:
+ * {
+ *   query: string,              // Student's question
+ *   options?: {
+ *     maxRetries?: number,      // Max LLM retries (default: 2)
+ *     timeout?: number,         // Timeout in ms (default: 10000)
+ *     includeDebug?: boolean    // Include debug info (default: false)
+ *   }
+ * }
+ * 
+ * Response:
+ * {
+ *   success: boolean,
+ *   query: string,
+ *   response: string,
+ *   studentProfile: object,
+ *   metadata: object,
+ *   error?: string
+ * }
+ */
+export async function POST(request) {
+  const startTime = Date.now();
+  
+  try {
+    // Parse request body
+    const body = await request.json();
+    const { query, options = {} } = body;
+
+    // Validate input
+    if (!query || typeof query !== 'string') {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Invalid request: query is required and must be a string'
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (query.trim().length < 10) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Query too short: please provide at least 10 characters'
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (query.length > 1000) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Query too long: maximum 1000 characters'
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Step 1: Extract student profile
+    const profileStart = Date.now();
+    const studentProfile = extractStudentProfile(query);
+    const profileTime = Date.now() - profileStart;
+
+    // Step 1.5: Call Requirements Engine for grade-specific guidance
+    let requirementsData = null;
+    if (studentProfile.grade) {
+      try {
+        const supabase = createClient(
+          process.env.NEXT_PUBLIC_SUPABASE_URL,
+          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+        );
+
+        const { data, error } = await supabase.functions.invoke(
+          'requirements-engine',
+          {
+            body: {
+              learner_grade: studentProfile.grade.toString(),
+              subjects: studentProfile.subjects || [],
+              career_interests: studentProfile.interests || [],
+              institution: studentProfile.institution
+            }
+          }
+        );
+
+        if (!error && data) {
+          requirementsData = data;
+        }
+      } catch (error) {
+        console.error('Requirements engine error:', error);
+        // Graceful degradation - continue without requirements
+      }
+    }
+
+    // Step 2: Generate query embedding
+    const embeddingStart = Date.now();
+    const queryEmbedding = await generateQueryEmbedding(query);
+    const embeddingTime = Date.now() - embeddingStart;
+
+    // Step 3: Search knowledge base (using hybrid search)
+    const searchStart = Date.now();
+    const searchResults = await hybridSearch(query, queryEmbedding, {
+      limit: 10,
+      debug: options.includeDebug || false
+    });
+    const searchTime = Date.now() - searchStart;
+
+    if (searchResults.length === 0) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'No relevant information found. Please try rephrasing your question.',
+          query,
+          studentProfile
+        }),
+        { status: 404, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Step 4: Re-rank and deduplicate
+    const reRanked = reRankChunks(searchResults, studentProfile);
+    const deduplicated = deduplicateChunks(reRanked, 0.9);
+
+    // Step 5: Assemble context
+    const contextStart = Date.now();
+    const assembled = assembleContext(deduplicated, studentProfile, {
+      maxTokens: 3000,
+      format: 'structured'
+    });
+    const contextTime = Date.now() - contextStart;
+
+    // Step 6: Generate LLM response (with requirements data)
+    const generationStart = Date.now();
+    const result = await generateResponse(
+      query,
+      assembled.context,
+      studentProfile,
+      {
+        maxRetries: options.maxRetries || 2,
+        timeout: options.timeout || 10000,
+        requirementsData // Pass requirements to generation
+      }
+    );
+    const generationTime = Date.now() - generationStart;
+
+    if (!result.success) {
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: result.error || 'Failed to generate response',
+          query,
+          studentProfile,
+          metadata: {
+            processingTime: Date.now() - startTime,
+            ...result.metadata
+          }
+        }),
+        { 
+          status: 500,
+          headers: { 'Content-Type': 'application/json' }
+        }
+      );
+    }
+
+    // Calculate total processing time
+    const totalTime = Date.now() - startTime;
+
+    // Build response
+    const response = {
+      success: true,
+      query,
+      response: result.response,
+      requirements: requirementsData, // Include requirements data
+      studentProfile: {
+        academicStrengths: studentProfile.academicStrengths,
+        academicWeaknesses: studentProfile.academicWeaknesses,
+        interests: studentProfile.interests,
+        financialConstraint: studentProfile.financialConstraint,
+        priorityModules: studentProfile.priorityModules
+      },
+      metadata: {
+        processingTime: totalTime,
+        breakdown: {
+          profileExtraction: profileTime,
+          embedding: embeddingTime,
+          search: searchTime,
+          contextAssembly: contextTime,
+          generation: generationTime
+        },
+        chunksRetrieved: searchResults.length,
+        chunksUsed: assembled.metadata.includedChunks,
+        tokensUsed: assembled.metadata.tokensUsed,
+        modelUsed: result.metadata.modelUsed,
+        retries: result.metadata.retries,
+        validationPassed: result.metadata.validationPassed,
+        requirementsEngineUsed: !!requirementsData
+      }
+    };
+
+    // Add debug info if requested
+    if (options.includeDebug) {
+      response.debug = {
+        searchResults: searchResults.map(r => ({
+          id: r.id,
+          similarity: r.similarity,
+          module: r.module_name,
+          text: r.chunk_text.substring(0, 100) + '...'
+        })),
+        validation: result.validation,
+        sources: assembled.metadata.sources
+      };
+    }
+
+    return new Response(
+      JSON.stringify(response),
+      { status: 200, headers: { 'Content-Type': 'application/json' } }
+    );
+
+  } catch (error) {
+    console.error('RAG query error:', error);
+    
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: 'Internal server error: ' + error.message,
+        metadata: {
+          processingTime: Date.now() - startTime
+        }
+      }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
+  }
+}
+
+/**
+ * GET /api/rag/query
+ * Health check endpoint
+ */
+export async function GET() {
+  return new Response(
+    JSON.stringify({
+      status: 'ok',
+      endpoint: '/api/rag/query',
+      method: 'POST',
+      description: 'RAG-based career guidance query endpoint',
+      version: '1.0.0',
+      usage: {
+        method: 'POST',
+        body: {
+          query: 'string (required, 10-1000 chars)',
+          options: {
+            maxRetries: 'number (optional, default: 2)',
+            timeout: 'number (optional, default: 10000ms)',
+            includeDebug: 'boolean (optional, default: false)'
+          }
+        }
+      }
+    }),
+    { status: 200, headers: { 'Content-Type': 'application/json' } }
+  );
+}
+
+/**
+ * OPTIONS /api/rag/query
+ * CORS preflight handler
+ */
+export async function OPTIONS() {
+  return new Response(
+    JSON.stringify({}),
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+      }
+    }
+  );
+}
