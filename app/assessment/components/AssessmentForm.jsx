@@ -11,6 +11,7 @@ import PreliminaryReport from './PreliminaryReport';
 import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
 import ConsentCheckbox from './ConsentCheckbox';
+import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
@@ -168,22 +169,19 @@ export default function AssessmentForm() {
     
     const API_URL = '/api/rag/query';
     
-    // Get current date context
+    // Get current date context with emergency calendar fix
     const currentDate = new Date();
     const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
     const currentYear = currentDate.getFullYear();
     
-    // Build context-rich query
+    // EMERGENCY FIX: Use academic calendar intelligence instead of hardcoded assumptions
+    const academicContext = getAcademicContext(currentDate, formData.grade || 10);
+    
+    // Build context-rich query with accurate timeline
     let query = `I am a Grade ${formData.grade || 10} student in South Africa. Today is ${currentMonth} ${currentYear}. `;
     
-    // Add grade-specific context
-    if (formData.grade === 12) {
-      query += `I am writing my final exams in about 1 month (late November/early December ${currentYear}). `;
-    } else if (formData.grade === 11) {
-      query += `I have 1 full year left before Grade 12 finals. `;
-    } else if (formData.grade === 10) {
-      query += `I have 2 years left before Grade 12 finals. `;
-    }
+    // Add accurate grade-specific context using emergency calendar
+    query += academicContext.timelineMessage + ' ';
     
     query += `Subjects I enjoy: ${formData.enjoyedSubjects.join(', ')}. Interests: ${formData.interests.join(', ')}.`;
 

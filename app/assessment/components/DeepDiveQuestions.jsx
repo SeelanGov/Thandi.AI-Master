@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 
 export default function DeepDiveQuestions({ onComplete, grade, isLoading = false }) {
   const [currentMarks, setCurrentMarks] = useState({});
@@ -71,15 +72,23 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
     onComplete(deepDiveData);
   };
   
-  // Grade-specific messaging
+  // Grade-specific messaging with emergency calendar fix
   const isGrade12 = grade === 12;
   const isGrade11 = grade === 11;
   const currentDate = new Date();
   const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
   const currentYear = currentDate.getFullYear();
   
+  // EMERGENCY FIX: Use academic calendar intelligence
+  const academicContext = getAcademicContext(currentDate, grade);
+  
   const getGradeSpecificTitle = () => {
     if (isGrade12) {
+      if (academicContext.isPostFinals) {
+        return `Your Grade 12 marks (${currentMonth} ${currentYear} - finals complete)`;
+      } else if (academicContext.isFinalsActive) {
+        return `Your current marks (${currentMonth} ${currentYear} - during finals)`;
+      }
       return `Your CURRENT marks (${currentMonth} ${currentYear} - before finals)`;
     } else if (isGrade11) {
       return `Your current marks (${currentMonth} ${currentYear})`;
@@ -89,22 +98,51 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
   
   const getGradeSpecificInfo = () => {
     if (isGrade12) {
-      return `⏰ You're writing finals SOON! We'll show you: 1) What marks you need in finals, 2) Bursaries closing NOW, 3) Application deadlines`;
+      if (academicContext.isPostFinals) {
+        return `🎓 Finals complete! We'll show you: 1) University applications for 2026, 2) NSFAS funding options, 3) Backup plans if needed`;
+      } else if (academicContext.isFinalsActive) {
+        return `⏰ Finals happening now! Focus on: 1) Remaining exams, 2) Stress management, 3) Post-exam planning`;
+      }
+      return `⏰ Finals approaching! We'll show you: 1) What marks you need in finals, 2) Bursaries closing soon, 3) Application deadlines`;
     } else if (isGrade11) {
       return `📅 You have 1 year left! We'll show you: 1) What to improve by Grade 12, 2) Bursaries to apply for, 3) Subject choices to reconsider`;
     }
     return `💡 We'll use this to show you how to improve your marks and find the right bursaries`;
   };
   
+  const getUrgencyBanner = () => {
+    if (!isGrade12) return null;
+    
+    if (academicContext.isPostFinals) {
+      return {
+        icon: '🎓',
+        title: 'Grade 12 - Finals Complete!',
+        message: 'Focus on university applications and planning your next steps'
+      };
+    } else if (academicContext.isFinalsActive) {
+      return {
+        icon: '⏰',
+        title: 'Grade 12 - Finals in Progress!',
+        message: 'Focus on remaining exams and managing stress'
+      };
+    } else {
+      return {
+        icon: '⏰',
+        title: 'Grade 12 - Finals Approaching!',
+        message: 'We\'ll focus on what you can do RIGHT NOW before finals'
+      };
+    }
+  };
+  
   return (
     <div className="deep-dive-container">
       <div className="deep-dive-card">
-        {isGrade12 && (
+        {isGrade12 && getUrgencyBanner() && (
           <div className="urgency-banner">
-            <span className="urgency-icon">⏰</span>
+            <span className="urgency-icon">{getUrgencyBanner().icon}</span>
             <div className="urgency-content">
-              <strong>Grade 12 - Finals in ~1 month!</strong>
-              <p>We'll focus on what you can do RIGHT NOW before finals</p>
+              <strong>{getUrgencyBanner().title}</strong>
+              <p>{getUrgencyBanner().message}</p>
             </div>
           </div>
         )}
