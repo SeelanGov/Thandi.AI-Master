@@ -1,0 +1,438 @@
+{
+  "timestamp": "2025-12-13T07:56:10.384Z",
+  "summary": {
+    "totalCareers": 24,
+    "categories": 8,
+    "dataQualityScore": 97.22222222222221,
+    "completenessScore": 100,
+    "overallScore": 98.61111111111111
+  },
+  "coverage": {
+    "totalCareers": 24,
+    "categories": {},
+    "subcategories": {},
+    "demandLevels": {},
+    "subjectCoverage": {},
+    "gaps": [
+      {
+        "type": "underrepresented_category",
+        "category": "Education",
+        "currentCount": 1,
+        "recommendedMinimum": 2,
+        "severity": "high"
+      },
+      {
+        "type": "underrepresented_category",
+        "category": "Business & Finance",
+        "currentCount": 1,
+        "recommendedMinimum": 2,
+        "severity": "high"
+      },
+      {
+        "type": "underrepresented_category",
+        "category": "Legal",
+        "currentCount": 1,
+        "recommendedMinimum": 2,
+        "severity": "high"
+      },
+      {
+        "type": "underrepresented_category",
+        "category": "Business & Social Impact",
+        "currentCount": 1,
+        "recommendedMinimum": 2,
+        "severity": "high"
+      },
+      {
+        "type": "underrepresented_category",
+        "category": "Design & Construction",
+        "currentCount": 1,
+        "recommendedMinimum": 2,
+        "severity": "high"
+      },
+      {
+        "type": "subject_coverage_gap",
+        "subject": "Information Technology",
+        "currentCount": 1,
+        "recommendedMinimum": 3,
+        "severity": "low"
+      },
+      {
+        "type": "subject_coverage_gap",
+        "subject": "Business Studies",
+        "currentCount": 0,
+        "recommendedMinimum": 3,
+        "severity": "high"
+      },
+      {
+        "type": "subject_coverage_gap",
+        "subject": "Accounting",
+        "currentCount": 1,
+        "recommendedMinimum": 3,
+        "severity": "low"
+      },
+      {
+        "type": "subject_coverage_gap",
+        "subject": "Economics",
+        "currentCount": 0,
+        "recommendedMinimum": 3,
+        "severity": "high"
+      },
+      {
+        "type": "subject_coverage_gap",
+        "subject": "English",
+        "currentCount": 2,
+        "recommendedMinimum": 3,
+        "severity": "low"
+      },
+      {
+        "type": "subject_coverage_gap",
+        "subject": "Visual Arts",
+        "currentCount": 1,
+        "recommendedMinimum": 3,
+        "severity": "low"
+      }
+    ],
+    "recommendations": [
+      {
+        "priority": 1,
+        "action": "Add more careers in Education category",
+        "details": "Currently 1 careers, recommend at least 2",
+        "category": "Education"
+      },
+      {
+        "priority": 1,
+        "action": "Add more careers in Business & Finance category",
+        "details": "Currently 1 careers, recommend at least 2",
+        "category": "Business & Finance"
+      },
+      {
+        "priority": 1,
+        "action": "Add more careers in Legal category",
+        "details": "Currently 1 careers, recommend at least 2",
+        "category": "Legal"
+      },
+      {
+        "priority": 1,
+        "action": "Add more careers in Business & Social Impact category",
+        "details": "Currently 1 careers, recommend at least 2",
+        "category": "Business & Social Impact"
+      },
+      {
+        "priority": 1,
+        "action": "Add more careers in Design & Construction category",
+        "details": "Currently 1 careers, recommend at least 2",
+        "category": "Design & Construction"
+      },
+      {
+        "priority": 1,
+        "action": "Add careers requiring Business Studies",
+        "details": "Currently 0 careers, recommend at least 3",
+        "category": "subject_coverage"
+      },
+      {
+        "priority": 1,
+        "action": "Add careers requiring Economics",
+        "details": "Currently 0 careers, recommend at least 3",
+        "category": "subject_coverage"
+      },
+      {
+        "priority": 3,
+        "action": "Add careers requiring Information Technology",
+        "details": "Currently 1 careers, recommend at least 3",
+        "category": "subject_coverage"
+      },
+      {
+        "priority": 3,
+        "action": "Add careers requiring Accounting",
+        "details": "Currently 1 careers, recommend at least 3",
+        "category": "subject_coverage"
+      },
+      {
+        "priority": 3,
+        "action": "Add careers requiring English",
+        "details": "Currently 2 careers, recommend at least 3",
+        "category": "subject_coverage"
+      },
+      {
+        "priority": 3,
+        "action": "Add careers requiring Visual Arts",
+        "details": "Currently 1 careers, recommend at least 3",
+        "category": "subject_coverage"
+      }
+    ]
+  },
+  "metadata": {
+    "totalCareers": 24,
+    "fieldCompleteness": {},
+    "dataTypes": {},
+    "inconsistencies": [],
+    "qualityScore": 97.22222222222221,
+    "recommendations": []
+  },
+  "completeness": {
+    "totalCareers": 24,
+    "validCareers": [
+      {
+        "career_code": "data_scientist",
+        "career_title": "Data Scientist",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "software_developer",
+        "career_title": "Software Developer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "registered_nurse",
+        "career_title": "Registered Nurse",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "high_school_teacher",
+        "career_title": "High School Teacher",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "chartered_accountant",
+        "career_title": "Chartered Accountant (CA)",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "mechanical_engineer",
+        "career_title": "Mechanical Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "medical_doctor",
+        "career_title": "Medical Doctor",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "physiotherapist",
+        "career_title": "Physiotherapist",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "corporate_lawyer",
+        "career_title": "Corporate Lawyer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "social_entrepreneur",
+        "career_title": "Social Entrepreneur",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "electrical_engineer",
+        "career_title": "Electrical Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "civil_engineer",
+        "career_title": "Civil Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "chemical_engineer",
+        "career_title": "Chemical Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "industrial_engineer",
+        "career_title": "Industrial Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "computer_engineer",
+        "career_title": "Computer Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "mining_engineer",
+        "career_title": "Mining Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "biomedical_engineer",
+        "career_title": "Biomedical Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "pharmacist",
+        "career_title": "Pharmacist",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "architect",
+        "career_title": "Architect",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "aerospace_engineer",
+        "career_title": "Aerospace Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "agricultural_engineer",
+        "career_title": "Agricultural Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "software_engineer",
+        "career_title": "Software Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "data_engineer",
+        "career_title": "Data Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      },
+      {
+        "career_code": "systems_engineer",
+        "career_title": "Systems Engineer",
+        "issues": [],
+        "warnings": [],
+        "completenessScore": 100
+      }
+    ],
+    "invalidCareers": [],
+    "warnings": [],
+    "completenessScore": 100
+  },
+  "priorityActions": [
+    {
+      "priority": 1,
+      "action": "Add more careers in Education category",
+      "details": "Currently 1 careers, recommend at least 2",
+      "category": "Education",
+      "source": "coverage_analysis",
+      "impact": "high"
+    },
+    {
+      "priority": 1,
+      "action": "Add more careers in Business & Finance category",
+      "details": "Currently 1 careers, recommend at least 2",
+      "category": "Business & Finance",
+      "source": "coverage_analysis",
+      "impact": "high"
+    },
+    {
+      "priority": 1,
+      "action": "Add more careers in Legal category",
+      "details": "Currently 1 careers, recommend at least 2",
+      "category": "Legal",
+      "source": "coverage_analysis",
+      "impact": "high"
+    },
+    {
+      "priority": 1,
+      "action": "Add more careers in Business & Social Impact category",
+      "details": "Currently 1 careers, recommend at least 2",
+      "category": "Business & Social Impact",
+      "source": "coverage_analysis",
+      "impact": "high"
+    },
+    {
+      "priority": 1,
+      "action": "Add more careers in Design & Construction category",
+      "details": "Currently 1 careers, recommend at least 2",
+      "category": "Design & Construction",
+      "source": "coverage_analysis",
+      "impact": "high"
+    },
+    {
+      "priority": 1,
+      "action": "Add careers requiring Business Studies",
+      "details": "Currently 0 careers, recommend at least 3",
+      "category": "subject_coverage",
+      "source": "coverage_analysis",
+      "impact": "high"
+    },
+    {
+      "priority": 1,
+      "action": "Add careers requiring Economics",
+      "details": "Currently 0 careers, recommend at least 3",
+      "category": "subject_coverage",
+      "source": "coverage_analysis",
+      "impact": "high"
+    },
+    {
+      "priority": 3,
+      "action": "Add careers requiring Information Technology",
+      "details": "Currently 1 careers, recommend at least 3",
+      "category": "subject_coverage",
+      "source": "coverage_analysis",
+      "impact": "low"
+    },
+    {
+      "priority": 3,
+      "action": "Add careers requiring Accounting",
+      "details": "Currently 1 careers, recommend at least 3",
+      "category": "subject_coverage",
+      "source": "coverage_analysis",
+      "impact": "low"
+    },
+    {
+      "priority": 3,
+      "action": "Add careers requiring English",
+      "details": "Currently 2 careers, recommend at least 3",
+      "category": "subject_coverage",
+      "source": "coverage_analysis",
+      "impact": "low"
+    },
+    {
+      "priority": 3,
+      "action": "Add careers requiring Visual Arts",
+      "details": "Currently 1 careers, recommend at least 3",
+      "category": "subject_coverage",
+      "source": "coverage_analysis",
+      "impact": "low"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "deploy:validate": "node scripts/deploy-enhanced-rag.js validate",
+    "deploy:start": "node scripts/deploy-enhanced-rag.js start",
+    "deploy:start:staging": "node scripts/deploy-enhanced-rag.js start staging",
+    "deploy:start:production": "node scripts/deploy-enhanced-rag.js start production",
+    "deploy:start:dry-run": "node scripts/deploy-enhanced-rag.js start production --dry-run",
+    "deploy:advance": "node scripts/deploy-enhanced-rag.js advance",
+    "deploy:complete": "node scripts/deploy-enhanced-rag.js complete",
+    "deploy:rollback": "node scripts/deploy-enhanced-rag.js rollback",
+    "deploy:rollback:dry-run": "node scripts/deploy-enhanced-rag.js rollback --dry-run",
+    "deploy:status": "node scripts/deploy-enhanced-rag.js status",
+    "deploy:canary": "node scripts/deploy-enhanced-rag.js start production --skip-validation",
+    "deploy:auto": "node scripts/deploy-enhanced-rag.js start production --auto-advance",
+    "deploy:emergency-rollback": "node scripts/deploy-enhanced-rag.js rollback",
+    "test:deployment": "npm run deploy:validate && npm run test:comprehensive",
+    "test:comprehensive": "node test-comprehensive-validation.js"
+  }
+}
