@@ -8,6 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:student": "jest --testPathPattern=student",
     "test:stack": "node scripts/test-thandi-stack.js",
     "test:rag": "node scripts/test-rag-query.js",
     "test:suite": "node scripts/test-rag-suite.js",
@@ -33,11 +36,14 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
+    "fast-check": "^4.4.0",
+    "jest": "^30.2.0",
     "typescript": "^5.3.3"
   },
   "engines": {

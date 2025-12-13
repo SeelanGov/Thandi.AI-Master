@@ -41,7 +41,17 @@ const SUBJECTS = [
   { id: 'consumer_studies', name: 'Consumer Studies', category: 'practical', emoji: '🛍️' },
 ];
 
-export default function SubjectSelection({ selected, onChange }) {
+export default function SubjectSelection({ selected, onChange, curriculumProfile }) {
+  // Filter subjects to only show those from curriculum profile (Step 1)
+  const availableSubjects = curriculumProfile?.currentSubjects?.length > 0 
+    ? SUBJECTS.filter(subject => 
+        curriculumProfile.currentSubjects.some(currentSubj => 
+          currentSubj.toLowerCase().includes(subject.name.toLowerCase()) ||
+          subject.name.toLowerCase().includes(currentSubj.toLowerCase())
+        )
+      )
+    : SUBJECTS; // Fallback to all subjects if no curriculum profile
+
   const toggleSubject = (subjectId) => {
     if (selected.includes(subjectId)) {
       onChange(selected.filter(id => id !== subjectId));
@@ -58,22 +68,32 @@ export default function SubjectSelection({ selected, onChange }) {
 
   return (
     <div className="subject-selection">
-      {/* CHANGED: New question focuses on ENJOYED subjects */}
-      <h2>Which subjects do you actually ENJOY? 💚</h2>
+      {/* FIXED: Aligned with curriculum profile from Step 1 */}
+      <h2>Which of your CURRENT subjects do you most enjoy? 💚</h2>
       <p className="subtitle">
-        Pick 2-3 subjects you like (not just take). This helps Thandi give better advice.
+        From the subjects you selected in Step 1, pick 2-3 that you genuinely enjoy studying.
       </p>
 
-      {/* NEW: Helpful tip */}
+      {/* Show curriculum context */}
+      {curriculumProfile?.currentSubjects?.length > 0 && (
+        <div className="context-box">
+          <span className="context-icon">📚</span>
+          <span className="context-text">
+            Showing subjects from your {curriculumProfile.framework} curriculum profile
+          </span>
+        </div>
+      )}
+
+      {/* Updated tip for alignment */}
       <div className="tip-box">
         <span className="tip-icon">💡</span>
         <span className="tip-text">
-          Only select subjects you genuinely enjoy. If you take Math but don't like it, don't select it!
+          This helps Thandi focus on career paths that match subjects you both take AND enjoy!
         </span>
       </div>
 
       <div className="subjects-grid">
-        {SUBJECTS.map((subject) => (
+        {availableSubjects.map((subject) => (
           <button
             key={subject.id}
             onClick={() => toggleSubject(subject.id)}
@@ -119,6 +139,29 @@ export default function SubjectSelection({ selected, onChange }) {
           margin-bottom: 16px;
           font-size: 16px;
           line-height: 1.5;
+        }
+
+        .context-box {
+          background: #eff6ff;
+          border: 2px solid #3b82f6;
+          border-radius: 8px;
+          padding: 12px 16px;
+          margin-bottom: 16px;
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .context-icon {
+          font-size: 20px;
+          flex-shrink: 0;
+        }
+
+        .context-text {
+          color: #1e40af;
+          font-size: 14px;
+          line-height: 1.5;
+          font-weight: 500;
         }
 
         .tip-box {

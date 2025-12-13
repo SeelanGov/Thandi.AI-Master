@@ -12,6 +12,8 @@ import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
 import ConsentCheckbox from './ConsentCheckbox';
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
+import { StudentProfileBuilder } from '../../../lib/student/StudentProfileBuilder.js';
+import { QueryContextStructurer } from '../../../lib/student/QueryContextStructurer.js';
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
@@ -169,69 +171,66 @@ export default function AssessmentForm() {
     
     const API_URL = '/api/rag/query';
     
-    // Get current date context with emergency calendar fix
-    const currentDate = new Date();
-    const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
-    const currentYear = currentDate.getFullYear();
+    // ENHANCED: Build query using new student understanding system
+    let query;
     
-    // EMERGENCY FIX: Use academic calendar intelligence instead of hardcoded assumptions
-    const academicContext = getAcademicContext(currentDate, formData.grade || 10);
+    try {
+      // Use new student understanding system to address questionnaire gap
+      const profileBuilder = new StudentProfileBuilder();
+      const contextStructurer = new QueryContextStructurer();
+      
+      // Build comprehensive student profile (captures ALL questionnaire data)
+      const studentProfile = profileBuilder.buildProfile(formData);
+      console.log('📊 Student profile built:', {
+        completeness: studentProfile.metadata.profileCompleteness + '%',
+        motivationCaptured: studentProfile.motivations.hasContent,
+        concernsCaptured: studentProfile.concerns.hasContent,
+        careerInterestsCaptured: studentProfile.careerInterests.hasContent
+      });
+      
+      // Structure query context for optimal LLM comprehension
+      const queryContext = contextStructurer.buildContext(studentProfile);
+      console.log('🏗️ Query context structured:', {
+        sectionsIncluded: queryContext.metadata.sectionsIncluded,
+        priorityRequests: queryContext.metadata.priorityRequestsCount,
+        queryLength: queryContext.structuredQuery.length
+      });
+      
+      // Use the enhanced structured query (includes ALL questionnaire data)
+      query = queryContext.structuredQuery;
+      
+      console.log('✅ Enhanced query includes:');
+      console.log('   - Motivation context:', queryContext.motivationContext ? '✅' : '❌');
+      console.log('   - Concerns context:', queryContext.concernsContext ? '✅' : '❌');
+      console.log('   - Career interests:', queryContext.priorityRequests.includes('CRITICAL') ? '✅' : '❌');
+      console.log('   - Academic context:', queryContext.academicContext ? '✅' : '❌');
     
-    // Build context-rich query with accurate timeline
-    let query = `I am a Grade ${formData.grade || 10} student in South Africa. Today is ${currentMonth} ${currentYear}. `;
-    
-    // Add accurate grade-specific context using emergency calendar
-    query += academicContext.timelineMessage + ' ';
-    
-    query += `Subjects I enjoy: ${formData.enjoyedSubjects.join(', ')}. Interests: ${formData.interests.join(', ')}.`;
+    } catch (profileError) {
+      console.error('❌ Enhanced profile building failed, falling back to legacy system:', profileError);
+      
+      // FALLBACK: Use legacy query building if enhanced system fails
+      const currentDate = new Date();
+      const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+      const currentYear = currentDate.getFullYear();
+      
+      const academicContext = getAcademicContext(currentDate, formData.grade || 10);
+      
+      query = `I am a Grade ${formData.grade || 10} student in South Africa. Today is ${currentMonth} ${currentYear}. `;
+      query += academicContext.timelineMessage + ' ';
+      query += `Subjects I enjoy: ${formData.enjoyedSubjects.join(', ')}. Interests: ${formData.interests.join(', ')}.`;
 
-    // Add career interests for cross-referencing - EMPHASIZE IT
-    if (formData.openQuestions?.careerInterests && formData.openQuestions.careerInterests.trim()) {
-      query += `\n\nIMPORTANT: Student explicitly stated career interest: "${formData.openQuestions.careerInterests}". `;
-      query += `Prioritize this career if their subjects and marks make it feasible. `;
-      query += `If not feasible, explain why clearly and suggest closest alternatives.`;
-    }
-
-    // Add family background context
-    if (formData.constraints?.familyBackground) {
-      if (formData.constraints.familyBackground === 'no') {
-        query += ` I would be the first in my family to go to university (first-generation student).`;
-      } else if (formData.constraints.familyBackground.startsWith('yes')) {
-        query += ` I have family members who went to university.`;
+      // Add career interests (maintain existing functionality)
+      if (formData.openQuestions?.careerInterests && formData.openQuestions.careerInterests.trim()) {
+        query += `\n\nCRITICAL STUDENT REQUEST: "${formData.openQuestions.careerInterests}". `;
+        query += `This is what the student WANTS to do. Prioritize this career if their subjects and marks make it feasible. `;
+        query += `If not feasible with current marks, explain EXACTLY what marks they need and provide realistic stepping-stone alternatives. `;
+        query += `Always acknowledge their stated interest directly in your response.`;
       }
-    }
 
-    // Add deep dive data if available
-    if (formData.assessmentDepth === 'comprehensive') {
-      if (formData.marksUnknown) {
-        query += ` I don't know my exact marks yet. `;
-        query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
-        if (formData.strugglingSubjects && formData.strugglingSubjects.length > 0) {
-          query += `Subjects I'm struggling with: ${formData.strugglingSubjects.join(', ')}. `;
-        }
-        query += `Give me general guidance on career paths and what marks I should aim for.`;
-      } else if (formData.subjectMarks && formData.subjectMarks.length > 0) {
-        query += ` My current marks (as of ${currentMonth} ${currentYear}): `;
-        formData.subjectMarks.forEach(({subject, exactMark}) => {
-          query += `${subject}: ${exactMark}%, `;
-        });
-        
-        query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
-        
-        if (formData.strugglingSubjects && formData.strugglingSubjects.length > 0) {
-          query += `Subjects I'm struggling with: ${formData.strugglingSubjects.join(', ')}. `;
-        }
-        
-        if (formData.grade === 12) {
-          query += `I need: 1) What marks I need in my FINAL EXAMS (writing in ~1 month), 2) Bursaries with deadlines in the next 3-6 months, 3) Application deadlines I must meet NOW, 4) Realistic backup options if my marks don't improve. Be specific about MY current marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}) and what's achievable in the next month.`;
-        } else if (formData.grade === 11) {
-          query += `I need: 1) What marks to target by end of Grade 12, 2) Bursaries to apply for in ${currentYear + 1}, 3) Year-by-year improvement plan (Grade 11→12), 4) Subject choices to reconsider. Be specific about MY current marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}).`;
-        } else {
-          query += `I need: 1) Mark targets for Grade 12, 2) Bursaries I can qualify for, 3) Year-by-year plan (Grade ${formData.grade}→12), 4) Backup options. Be specific about MY marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}).`;
-        }
+      // Add constraints
+      if (formData.constraints) {
+        query += ` Constraints: ${formData.constraints.time}, ${formData.constraints.money}, ${formData.constraints.location}. Recommend careers matching subjects I ENJOY with education pathways.`;
       }
-    } else {
-      query += ` Constraints: ${formData.constraints.time}, ${formData.constraints.money}, ${formData.constraints.location}. Recommend careers matching subjects I ENJOY with education pathways.`;
     }
     
     try {
@@ -322,6 +321,7 @@ export default function AssessmentForm() {
         onComplete={handleDeepDiveComplete}
         grade={grade}
         isLoading={isLoading}
+        curriculumProfile={formData.curriculumProfile}
       />
     );
   }
@@ -424,6 +424,7 @@ export default function AssessmentForm() {
           <SubjectSelection
             selected={formData.enjoyedSubjects}
             onChange={(enjoyedSubjects) => updateFormData('enjoyedSubjects', enjoyedSubjects)}
+            curriculumProfile={formData.curriculumProfile}
           />
         )}
 

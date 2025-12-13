@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { IEB_SUBJECTS, IEB_SUBJECT_WARNINGS } from '../../../lib/curriculum/ieb-subjects.js';
 
 const CAPS_SUBJECTS = [
   { name: 'Mathematics', warning: null, emoji: '🔢' },
@@ -36,7 +37,7 @@ const CAPS_SUBJECTS = [
   { name: 'Mechanical Technology', warning: null, emoji: '⚙️' }
 ];
 
-const SUBJECT_WARNINGS = {
+const CAPS_SUBJECT_WARNINGS = {
   'Mathematical Literacy': {
     type: 'critical',
     message: 'Blocks most engineering, medicine, and science degrees'
@@ -61,7 +62,9 @@ export default function CurriculumProfile({ grade, onChange }) {
 
   const handleFrameworkChange = (newFramework) => {
     setFramework(newFramework);
-    onChange({ framework: newFramework, currentSubjects });
+    // Clear subjects when switching frameworks to avoid confusion
+    setCurrentSubjects([]);
+    onChange({ framework: newFramework, currentSubjects: [] });
   };
 
   const handleSubjectToggle = (subjectName) => {
@@ -73,9 +76,13 @@ export default function CurriculumProfile({ grade, onChange }) {
     onChange({ framework, currentSubjects: updated });
   };
 
+  // Get curriculum-specific subjects and warnings
+  const subjectList = framework === 'IEB' ? IEB_SUBJECTS : CAPS_SUBJECTS;
+  const subjectWarnings = framework === 'IEB' ? IEB_SUBJECT_WARNINGS : CAPS_SUBJECT_WARNINGS;
+
   const getActiveWarnings = () => {
     return currentSubjects
-      .map(subj => SUBJECT_WARNINGS[subj])
+      .map(subj => subjectWarnings[subj])
       .filter(Boolean);
   };
 
@@ -107,7 +114,7 @@ export default function CurriculumProfile({ grade, onChange }) {
 
       {/* Subject Selection */}
       <div className="subject-grid">
-        {CAPS_SUBJECTS.map(subject => (
+        {subjectList.map(subject => (
           <button
             key={subject.name}
             type="button"
@@ -129,7 +136,7 @@ export default function CurriculumProfile({ grade, onChange }) {
           {getActiveWarnings().map((warning, idx) => (
             <div key={idx} className={`warning-box ${warning.type}`}>
               <span className="warning-icon">
-                {warning.type === 'critical' ? '⚠️' : '✅'}
+                {warning.type === 'critical' ? '⚠️' : warning.type === 'positive' ? '✅' : 'ℹ️'}
               </span>
               <span className="warning-text">{warning.message}</span>
             </div>
@@ -269,6 +276,11 @@ export default function CurriculumProfile({ grade, onChange }) {
           border: 2px solid #10b981;
         }
 
+        .warning-box.info {
+          background: #eff6ff;
+          border: 2px solid #3b82f6;
+        }
+
         .warning-icon {
           font-size: 20px;
           flex-shrink: 0;
@@ -285,6 +297,10 @@ export default function CurriculumProfile({ grade, onChange }) {
 
         .warning-box.positive .warning-text {
           color: #065f46;
+        }
+
+        .warning-box.info .warning-text {
+          color: #1e40af;
         }
 
         .checkmark {

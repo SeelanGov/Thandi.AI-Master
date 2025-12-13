@@ -2,13 +2,14 @@
 import { useState } from 'react';
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 
-export default function DeepDiveQuestions({ onComplete, grade, isLoading = false }) {
+export default function DeepDiveQuestions({ onComplete, grade, isLoading = false, curriculumProfile }) {
   const [currentMarks, setCurrentMarks] = useState({});
   const [marksUnknown, setMarksUnknown] = useState(false);
   const [supportSystem, setSupportSystem] = useState([]);
   const [strugglingSubjects, setStrugglingSubjects] = useState([]);
   
-  const subjects = ['Mathematics', 'Physical Science', 'Life Sciences', 'English', 'Afrikaans'];
+  // FIXED: Use actual curriculum subjects instead of hardcoded list
+  const subjects = curriculumProfile?.currentSubjects || ['Mathematics', 'Physical Science', 'Life Sciences', 'English', 'Afrikaans'];
   const supportOptions = [
     'School tutoring available',
     'Private tutor (family can afford)',
