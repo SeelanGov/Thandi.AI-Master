@@ -1,0 +1,262 @@
+{
+  "name": "Enhanced RAG Filtering Deployment",
+  "version": "1.0.0",
+  "description": "Deployment configuration for Enhanced RAG filtering system",
+  
+  "environments": {
+    "development": {
+      "url": "http://localhost:3000",
+      "branch": "main",
+      "autoAdvance": true,
+      "validationTimeout": 30000,
+      "features": {
+        "enhanced_rag_filtering": 100,
+        "fallback_careers": 100,
+        "performance_monitoring": 100,
+        "subject_category_prioritization": 100,
+        "profile_complexity_analysis": 100,
+        "enhanced_error_handling": 100,
+        "enhanced_safety_validation": 100
+      }
+    },
+    
+    "staging": {
+      "url": "https://staging.thandi.ai",
+      "branch": "staging",
+      "autoAdvance": false,
+      "validationTimeout": 60000,
+      "features": {
+        "enhanced_rag_filtering": 100,
+        "fallback_careers": 100,
+        "performance_monitoring": 100,
+        "subject_category_prioritization": 50,
+        "profile_complexity_analysis": 50,
+        "enhanced_error_handling": 100,
+        "enhanced_safety_validation": 100
+      }
+    },
+    
+    "production": {
+      "url": "https://thandi.ai",
+      "branch": "production",
+      "autoAdvance": false,
+      "validationTimeout": 120000,
+      "features": {
+        "enhanced_rag_filtering": 0,
+        "fallback_careers": 0,
+        "performance_monitoring": 100,
+        "subject_category_prioritization": 0,
+        "profile_complexity_analysis": 0,
+        "enhanced_error_handling": 100,
+        "enhanced_safety_validation": 100
+      }
+    }
+  },
+  
+  "deployment": {
+    "strategy": "staged_rollout",
+    "stages": [
+      {
+        "name": "canary",
+        "percentage": 10,
+        "duration": 172800000,
+        "description": "10% of traffic for 48 hours"
+      },
+      {
+        "name": "gradual",
+        "percentage": 50,
+        "duration": 604800000,
+        "description": "50% of traffic for 7 days"
+      },
+      {
+        "name": "full",
+        "percentage": 100,
+        "duration": 0,
+        "description": "100% of traffic"
+      }
+    ],
+    
+    "healthChecks": {
+      "interval": 300000,
+      "timeout": 30000,
+      "retries": 3,
+      "endpoints": [
+        "/api/health",
+        "/api/rag/health",
+        "/api/rag/query"
+      ]
+    },
+    
+    "rollback": {
+      "automatic": true,
+      "thresholds": {
+        "errorRate": 0.05,
+        "responseTime": 8000,
+        "memoryUsage": 150,
+        "careerCount": 3
+      },
+      "cooldown": 3600000
+    }
+  },
+  
+  "monitoring": {
+    "metrics": {
+      "responseTime": {
+        "threshold": 5000,
+        "unit": "milliseconds",
+        "alertLevel": "warning"
+      },
+      "errorRate": {
+        "threshold": 0.01,
+        "unit": "percentage",
+        "alertLevel": "critical"
+      },
+      "careerCount": {
+        "threshold": 3,
+        "unit": "count",
+        "alertLevel": "warning"
+      },
+      "memoryUsage": {
+        "threshold": 100,
+        "unit": "megabytes",
+        "alertLevel": "warning"
+      },
+      "diversityScore": {
+        "threshold": 2.5,
+        "unit": "score",
+        "alertLevel": "info"
+      }
+    },
+    
+    "alerts": {
+      "channels": ["slack", "email"],
+      "escalation": {
+        "warning": 300000,
+        "critical": 60000
+      }
+    },
+    
+    "retention": {
+      "metrics": 2592000000,
+      "logs": 604800000,
+      "reports": 7776000000
+    }
+  },
+  
+  "notifications": {
+    "slack": {
+      "enabled": true,
+      "webhook": "${SLACK_WEBHOOK_URL}",
+      "channels": {
+        "deployments": "#deployments",
+        "incidents": "#incidents",
+        "monitoring": "#monitoring"
+      }
+    },
+    
+    "email": {
+      "enabled": true,
+      "recipients": ["${NOTIFICATION_EMAIL}"],
+      "templates": {
+        "deployment": "deployment-notification.html",
+        "incident": "incident-notification.html",
+        "rollback": "rollback-notification.html"
+      }
+    },
+    
+    "oncall": {
+      "enabled": false,
+      "webhook": "${ONCALL_WEBHOOK_URL}",
+      "escalationPolicy": "enhanced-rag-policy"
+    }
+  },
+  
+  "security": {
+    "cors": {
+      "origins": ["https://thandi.ai", "https://www.thandi.ai"],
+      "credentials": true
+    },
+    
+    "rateLimit": {
+      "windowMs": 900000,
+      "max": 100,
+      "skipSuccessfulRequests": false
+    },
+    
+    "headers": {
+      "contentSecurityPolicy": true,
+      "hsts": true,
+      "noSniff": true
+    }
+  },
+  
+  "performance": {
+    "caching": {
+      "enabled": true,
+      "ttl": 300000,
+      "maxSize": "100MB"
+    },
+    
+    "compression": {
+      "enabled": true,
+      "level": 6
+    },
+    
+    "database": {
+      "poolSize": 10,
+      "timeout": 30000,
+      "retryAttempts": 3
+    }
+  },
+  
+  "validation": {
+    "preDeployment": {
+      "required": [
+        "environment_variables",
+        "feature_flags",
+        "database_config",
+        "api_config",
+        "security_config",
+        "performance_config",
+        "monitoring_config",
+        "rollback_config"
+      ],
+      "timeout": 300000
+    },
+    
+    "postDeployment": {
+      "required": [
+        "health_check",
+        "feature_verification",
+        "performance_check",
+        "integration_test"
+      ],
+      "timeout": 600000
+    }
+  },
+  
+  "backup": {
+    "configuration": {
+      "enabled": true,
+      "retention": 30,
+      "location": "backups/config"
+    },
+    
+    "database": {
+      "enabled": false,
+      "schedule": "0 2 * * *",
+      "retention": 7
+    }
+  },
+  
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "destinations": ["console", "file"],
+    "rotation": {
+      "enabled": true,
+      "maxSize": "10MB",
+      "maxFiles": 5
+    }
+  }
+}

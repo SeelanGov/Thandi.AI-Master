@@ -7,11 +7,11 @@ last_updated: 2025-12-15
 ---
 
 ## Overview
-UCT recognizes IEB NSC using FPS (APS + NBT), excludes AP subjects from calculation.
+UCT recognizes IEB NSC using FPS (Faculty Point Score system, which combines APS + NBT scores), excludes Advanced Programme subjects from calculation.
 
 ## IEB Admission Requirements
-APS calculation: Best 6 subjects excluding Life Orientation and AP subjects
-AP subject policy: Explicitly excluded from APS/FPS; no bonuses awarded
+APS calculation: Best 6 subjects excluding Life Orientation and AP subjects (uses FPS - Faculty Point Score system)
+AP subject policy: Advanced Programme subjects explicitly excluded from APS/FPS calculations; no bonus points awarded
 Minimum endorsement: Bachelor's degree pass
 
 ## Faculty Requirements

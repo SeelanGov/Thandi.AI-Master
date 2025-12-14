@@ -7,11 +7,11 @@ last_updated: 2025-12-15
 ---
 
 ## Overview
-Wits recognizes IEB NSC equivalently to CAPS, using APS on best 7 subjects including LO.
+Wits recognizes IEB NSC equivalently to CAPS, using APS (Admission Point Score) system on best 7 subjects including Life Orientation.
 
 ## IEB Admission Requirements
-APS calculation: Best 7 subjects including Life Orientation
-AP subject policy: Included with bonuses (+2 for 90-100% in Math/English; IEB-specific)
+APS calculation: Best 7 subjects including Life Orientation (Admission Point Score system)
+AP subject policy: Advanced Programme subjects included with bonus points (+2 for 90-100% in Math/English; IEB-specific)
 Minimum endorsement: Bachelor's degree pass
 
 ## Faculty Requirements

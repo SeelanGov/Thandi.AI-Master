@@ -1,0 +1,67 @@
+{
+  "totalDirectories": 34,
+  "totalFiles": 81,
+  "byFormat": {
+    ".mdc": 1,
+    ".md": 45,
+    ".html": 10,
+    ".json": 18,
+    ".js": 1,
+    ".markdown": 3,
+    ".txt": 2,
+    ".csv": 1
+  },
+  "byCurriculum": {
+    "ieb": {
+      "files": 21,
+      "subjects": 16,
+      "universities": 5
+    },
+    "caps": {
+      "files": 2,
+      "subjects": 2,
+      "universities": 0
+    },
+    "shared": {
+      "files": 58
+    }
+  },
+  "highPriorityDirs": [
+    "caps",
+    "ieb",
+    "nsfas_framework",
+    "pathways",
+    "university_framework"
+  ],
+  "lowPriorityDirs": [
+    "4ir_careers_framework",
+    "busary_scholarship_framework",
+    "career_misconceptions_framework",
+    "critical_skills_framework",
+    "decision_making_framework",
+    "future_trends_framework",
+    "nsc_framework",
+    "qa_framework",
+    "rpl_framework",
+    "saqa_framework",
+    "seta_learnership_framework",
+    "seta_pathways",
+    "tvet_framework",
+    "tvet_pathways",
+    "university_pathways"
+  ],
+  "recommendations": [
+    {
+      "priority": "CRITICAL",
+      "issue": "CAPS curriculum severely underrepresented",
+      "action": "Add 14 CAPS subject files",
+      "impact": "Will fix 0-source CAPS queries causing 58.3% accuracy"
+    },
+    {
+      "priority": "HIGH",
+      "issue": "No CAPS university requirements",
+      "action": "Add 5 CAPS university files",
+      "impact": "Will enable university comparison queries"
+    }
+  ]
+}

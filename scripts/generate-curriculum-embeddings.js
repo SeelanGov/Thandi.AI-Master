@@ -49,12 +49,36 @@ const openai = new OpenAI({
 });
 
 /**
- * Extract curriculum and category from file path
+ * Extract curriculum and category from file path and content
  * @param {string} filePath - Full path to the file
- * @returns {object} - {curriculum, category}
+ * @param {string} content - File content to extract YAML metadata
+ * @returns {object} - {curriculum, category, subject_name, university_name}
  */
-function extractMetadata(filePath) {
-  const pathParts = filePath.split(path.sep);
+function extractMetadata(filePath, content) {
+  // Normalize path separators for cross-platform compatibility
+  const normalizedPath = filePath.replace(/\\/g, '/');
+  const pathParts = normalizedPath.split('/');
+  
+  // Extract YAML frontmatter
+  let yamlData = {};
+  if (content.startsWith('---')) {
+    const yamlEndIndex = content.indexOf('---', 3);
+    if (yamlEndIndex !== -1) {
+      const yamlContent = content.substring(3, yamlEndIndex);
+      try {
+        // Simple YAML parsing for our specific format
+        yamlContent.split('\n').forEach(line => {
+          const [key, ...valueParts] = line.split(':');
+          if (key && valueParts.length > 0) {
+            const value = valueParts.join(':').trim();
+            yamlData[key.trim()] = value;
+          }
+        });
+      } catch (error) {
+        console.warn(`Failed to parse YAML in ${filePath}:`, error.message);
+      }
+    }
+  }
   
   // Check if file is in curriculum-specific directory
   if (pathParts.includes('caps')) {
@@ -62,7 +86,13 @@ function extractMetadata(filePath) {
     const category = pathParts.includes('subjects') ? 'subject' :
                     pathParts.includes('universities') ? 'university' :
                     pathParts.includes('requirements') ? 'requirement' : 'general';
-    return { curriculum, category };
+    return { 
+      curriculum, 
+      category,
+      subject_name: yamlData.subject_name || null,
+      university_name: yamlData.university_name || null,
+      file_path: normalizedPath
+    };
   }
   
   if (pathParts.includes('ieb')) {
@@ -70,11 +100,17 @@ function extractMetadata(filePath) {
     const category = pathParts.includes('subjects') ? 'subject' :
                     pathParts.includes('universities') ? 'university' :
                     pathParts.includes('requirements') ? 'requirement' : 'general';
-    return { curriculum, category };
+    return { 
+      curriculum, 
+      category,
+      subject_name: yamlData.subject_name || null,
+      university_name: yamlData.university_name || null,
+      file_path: normalizedPath
+    };
   }
   
   // Default for shared content
-  return { curriculum: 'shared', category: 'general' };
+  return { curriculum: 'shared', category: 'general', file_path: normalizedPath };
 }
 
 /**
@@ -133,7 +169,7 @@ function chunkContent(content, maxChunkSize = 400) {
 async function processFile(filePath) {
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
-    const metadata = extractMetadata(filePath);
+    const metadata = extractMetadata(filePath, content);
     const chunks = chunkContent(content);
     
     const embeddings = [];
@@ -155,6 +191,7 @@ async function processFile(filePath) {
         chunk_metadata: {
           ...metadata,
           source_file: path.relative(path.join(__dirname, '..'), filePath),
+          file_path: metadata.file_path || path.relative(path.join(__dirname, '..'), filePath),
           chunk_index: i,
           total_chunks: chunks.length,
           created_at: new Date().toISOString()

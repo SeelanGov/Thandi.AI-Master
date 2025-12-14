@@ -17,4 +17,4 @@ Problem-solving and application focus; minimum 60% in Grade 9 Mathematics recomm
 Same core topics and progression (Gr10 basics, Gr11 advanced, Gr12 integration); IEB assessments more analytical and less rote, with greater emphasis on applied problems and critical reasoning.
 
 ## University Notes
-Required for STEM; min 5 (60-69%) for most (e.g., UP BSc Maths: 6 (70-79%), SU BEng: 70%, UCT BSc: 70-80%, Wits BSc: 6+). AP Maths recommended for bonuses.
+Required for STEM; min 5 (60-69%) for most (e.g., UP BSc Maths: 6 (70-79%), SU BEng: 70%, UCT BSc: 70-80%, Wits BSc: 6+). Advanced Programme Mathematics provides APS bonus points at universities like Wits (+2 for 90-100%) and counts toward university admission calculations.

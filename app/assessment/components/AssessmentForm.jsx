@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import SubjectSelection from './SubjectSelection';
+import EnhancedSubjectSelection from './EnhancedSubjectSelection';
 import InterestAreas from './InterestAreas';
 import Constraints from './Constraints';
 import OpenQuestions from './OpenQuestions';
@@ -12,8 +12,8 @@ import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
 import ConsentCheckbox from './ConsentCheckbox';
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
-import { StudentProfileBuilder } from '../../../lib/student/StudentProfileBuilder.js';
-import { QueryContextStructurer } from '../../../lib/student/QueryContextStructurer.js';
+const StudentProfileBuilder = require('../../../lib/student/StudentProfileBuilder.js');
+const QueryContextStructurer = require('../../../lib/student/QueryContextStructurer.js');
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
@@ -51,6 +51,8 @@ export default function AssessmentForm() {
   });
   const [formData, setFormData] = useState({
     enjoyedSubjects: [],  // CHANGED: Now tracks subjects student ENJOYS
+    subjectMarks: {},     // NEW: Tracks marks for each subject
+    apsScore: null,       // NEW: Calculated APS score
     interests: [],
     constraints: {
       time: '',
@@ -105,6 +107,23 @@ export default function AssessmentForm() {
     setFormData(prev => ({
       ...prev,
       [field]: value
+    }));
+  };
+
+  // Handle subject and marks updates together
+  const handleSubjectMarksUpdate = (subjects, marks) => {
+    setFormData(prev => ({
+      ...prev,
+      enjoyedSubjects: subjects,
+      subjectMarks: marks
+    }));
+  };
+
+  // Handle APS score updates
+  const handleAPSUpdate = (apsResult) => {
+    setFormData(prev => ({
+      ...prev,
+      apsScore: apsResult
     }));
   };
 
@@ -180,30 +199,42 @@ export default function AssessmentForm() {
       const contextStructurer = new QueryContextStructurer();
       
       // Build comprehensive student profile (captures ALL questionnaire data)
-      const studentProfile = profileBuilder.buildProfile(formData);
+      const studentProfile = profileBuilder.buildProfile({
+        grade: formData.grade,
+        subjects: formData.enjoyedSubjects,
+        motivation: formData.openQuestions?.motivation || '',
+        concerns: formData.openQuestions?.concerns || '',
+        careerInterests: formData.openQuestions?.careerInterests || '',
+        marks: formData.subjectMarks || {},
+        curriculum: formData.curriculumProfile?.framework || 'CAPS'
+      });
+      
       console.log('📊 Student profile built:', {
-        completeness: studentProfile.metadata.profileCompleteness + '%',
-        motivationCaptured: studentProfile.motivations.hasContent,
-        concernsCaptured: studentProfile.concerns.hasContent,
-        careerInterestsCaptured: studentProfile.careerInterests.hasContent
+        completeness: studentProfile.metadata.completionLevel + '%',
+        motivationCaptured: studentProfile.motivations.hasMotivation,
+        concernsCaptured: studentProfile.concerns.hasConcerns,
+        careerInterestsCaptured: studentProfile.careerInterests.hasCareerInterests,
+        marksAvailable: studentProfile.academic.hasMarks,
+        apsScore: studentProfile.academic.apsData?.currentAPS || 'Not calculated'
       });
       
       // Structure query context for optimal LLM comprehension
       const queryContext = contextStructurer.buildContext(studentProfile);
       console.log('🏗️ Query context structured:', {
         sectionsIncluded: queryContext.metadata.sectionsIncluded,
-        priorityRequests: queryContext.metadata.priorityRequestsCount,
-        queryLength: queryContext.structuredQuery.length
+        expectedPersonalizationScore: queryContext.metadata.expectedPersonalizationScore + '%',
+        queryLength: queryContext.formattedContext.length
       });
       
       // Use the enhanced structured query (includes ALL questionnaire data)
-      query = queryContext.structuredQuery;
+      query = queryContext.formattedContext;
       
       console.log('✅ Enhanced query includes:');
-      console.log('   - Motivation context:', queryContext.motivationContext ? '✅' : '❌');
-      console.log('   - Concerns context:', queryContext.concernsContext ? '✅' : '❌');
-      console.log('   - Career interests:', queryContext.priorityRequests.includes('CRITICAL') ? '✅' : '❌');
-      console.log('   - Academic context:', queryContext.academicContext ? '✅' : '❌');
+      console.log('   - Motivation context:', studentProfile.motivations.hasMotivation ? '✅' : '❌');
+      console.log('   - Concerns context:', studentProfile.concerns.hasConcerns ? '✅' : '❌');
+      console.log('   - Career interests:', studentProfile.careerInterests.hasCareerInterests ? '✅' : '❌');
+      console.log('   - Academic context:', studentProfile.academic.hasMarks ? '✅' : '❌');
+      console.log('   - Marks data included:', studentProfile.academic.hasMarks ? '✅' : '❌');
     
     } catch (profileError) {
       console.error('❌ Enhanced profile building failed, falling back to legacy system:', profileError);
@@ -265,6 +296,8 @@ export default function AssessmentForm() {
             ...data.metadata,
             grade: formData.grade,
             enjoyedSubjects: formData.enjoyedSubjects,
+            subjectMarks: formData.subjectMarks,
+            apsScore: formData.apsScore,
             interests: formData.interests,
             curriculumProfile: formData.curriculumProfile,
             consentGiven: consent.given,
@@ -289,10 +322,18 @@ export default function AssessmentForm() {
     if (confirm('Are you sure you want to start over? All your answers will be lost.')) {
       localStorage.removeItem(STORAGE_KEY);
       setFormData({
-        enjoyedSubjects: [],  // CHANGED
+        enjoyedSubjects: [],
+        subjectMarks: {},
+        apsScore: null,
         interests: [],
-        constraints: { time: '', money: '', location: '' },
-        openQuestions: { motivation: '', concerns: '' }
+        constraints: { time: '', money: '', location: '', familyBackground: '' },
+        openQuestions: { motivation: '', concerns: '', careerInterests: '' },
+        grade: null,
+        assessmentDepth: 'quick',
+        curriculumProfile: {
+          framework: 'CAPS',
+          currentSubjects: []
+        }
       });
       setCurrentStep(1);
     }
@@ -421,10 +462,13 @@ export default function AssessmentForm() {
         )}
 
         {currentStep === 2 && (
-          <SubjectSelection
+          <EnhancedSubjectSelection
             selected={formData.enjoyedSubjects}
-            onChange={(enjoyedSubjects) => updateFormData('enjoyedSubjects', enjoyedSubjects)}
+            marks={formData.subjectMarks}
+            onChange={handleSubjectMarksUpdate}
             curriculumProfile={formData.curriculumProfile}
+            grade={formData.grade}
+            onAPSUpdate={handleAPSUpdate}
           />
         )}
 
