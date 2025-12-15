@@ -1,0 +1,71 @@
+{
+  "systemHealth": {
+    "devServer": "RUNNING",
+    "database": "FAILED",
+    "biasMonitoring": "OPERATIONAL"
+  },
+  "uiComponents": {
+    "AssessmentForm.jsx": {
+      "exists": true,
+      "errorHandling": true,
+      "validation": false,
+      "accessibility": false
+    },
+    "SubjectSelection.jsx": {
+      "exists": true,
+      "errorHandling": false,
+      "validation": false,
+      "accessibility": false
+    },
+    "MarkInput.jsx": {
+      "exists": true,
+      "errorHandling": false,
+      "validation": true,
+      "accessibility": true
+    },
+    "OpenQuestions.jsx": {
+      "exists": true,
+      "errorHandling": false,
+      "validation": false,
+      "accessibility": false
+    },
+    "DeepDiveQuestions.jsx": {
+      "exists": true,
+      "errorHandling": false,
+      "validation": false,
+      "accessibility": false
+    }
+  },
+  "biasMonitoring": {
+    "accessible": true,
+    "hasMetrics": true,
+    "hasCharts": false,
+    "hasRealTime": false,
+    "componentsWorking": 4,
+    "totalComponents": 4
+  },
+  "studentFlow": {
+    "Grade 11 Mathematics + Physical Sciences": {
+      "success": true,
+      "teachingBias": true,
+      "stemCareers": true,
+      "diversity": true,
+      "responseLength": 1578
+    },
+    "Grade 11 Mathematics + Life Sciences": {
+      "success": true,
+      "teachingBias": true,
+      "stemCareers": true,
+      "diversity": true,
+      "responseLength": 1578
+    },
+    "Mathematical Literacy + Business": {
+      "success": true,
+      "teachingBias": true,
+      "stemCareers": true,
+      "diversity": true,
+      "responseLength": 1578
+    }
+  },
+  "overallStatus": "EXCELLENT"
+}

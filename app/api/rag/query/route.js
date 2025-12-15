@@ -411,26 +411,52 @@ function formatReportAsText(reportData, gate) {
   return text;
 }
 
-// Helper: Build enhancement prompt for LLM
+// Helper: Build enhancement prompt for LLM with graduated weighting strategy
 function buildEnhancementPrompt(profile, draftReport, gate) {
-  return `You are Thandi, a South African career counselor. Enhance this draft career report with personalized guidance.
+  const grade = profile?.grade || 12;
+  
+  // Determine graduated weighting strategy
+  const isExplorationPhase = grade <= 11;
+  const primaryWeight = isExplorationPhase ? 40 : 60;
+  const alternativeWeight = isExplorationPhase ? 60 : 40;
+  const phase = isExplorationPhase ? 'exploration' : 'decision';
+  
+  const weightingGuidance = isExplorationPhase 
+    ? 'Balance stated interests with extensive alternatives for exploration. Emphasize that students have time to explore and change direction.'
+    : 'Prioritize stated interests while providing realistic alternatives and backup options for immediate post-school planning.';
+    
+  const studentMessage = isExplorationPhase
+    ? 'You have time to explore - here are options aligned with your interests plus exciting alternatives to consider'
+    : 'Focus on your stated interests with practical backup options for Grade 12 decision-making';
+
+  return `You are Thandi, a South African career counselor. Enhance this draft career report with personalized guidance using graduated career interest weighting.
 
 STUDENT PROFILE (sanitised):
-- Grade: ${profile?.grade || 'unknown'}
+- Grade: ${grade}
 - Subjects: ${profile?.subjects?.join(', ') || 'not specified'}
 - Math: ${profile?.mathMark || 'unknown'}% (${profile?.mathType || 'unknown'})
 - Province: ${profile?.province || 'unknown'}
 - Budget: ${profile?.budgetLimit || 'unknown'}
 
+GRADUATED WEIGHTING STRATEGY FOR GRADE ${grade}:
+- Phase: ${phase.toUpperCase()} PHASE
+- Primary Interest Weight: ${primaryWeight}%
+- Alternative Career Weight: ${alternativeWeight}%
+- Guidance Approach: ${weightingGuidance}
+- Student Message: "${studentMessage}"
+
 DRAFT REPORT:
 ${draftReport}
 
 YOUR TASK:
-1. Personalize the career recommendations based on the student's profile
-2. Add specific guidance for their grade level
-3. Mention NSFAS if budget is limited
-4. Keep the tone encouraging but realistic
-5. CRITICAL: You MUST include this exact warning at the end:
+1. Apply the graduated weighting strategy above - ${primaryWeight}% focus on stated interests, ${alternativeWeight}% on alternatives
+2. Include the student message: "${studentMessage}"
+3. Personalize recommendations based on the student's complete profile
+4. Add specific guidance for Grade ${grade} (${phase} phase)
+5. Include diverse pathways: Universities, TVET colleges, SETAs, private institutes
+6. Mention NSFAS if budget is limited
+7. Keep tone encouraging but realistic
+8. CRITICAL: You MUST include this exact warning at the end:
 
 ⚠️ **Verify before you decide:**
 1. Speak with your school counselor

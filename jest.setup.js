@@ -9,8 +9,8 @@ beforeAll(() => {
   console.error = (...args) => {
     if (
       typeof args[0] === 'string' &&
-      args[0].includes('[StudentProfileBuilder]') ||
-      args[0].includes('[QueryContextStructurer]')
+      (args[0].includes('[StudentProfileBuilder]') ||
+       args[0].includes('[QueryContextStructurer]'))
     ) {
       // Suppress expected error logs from our classes
       return;

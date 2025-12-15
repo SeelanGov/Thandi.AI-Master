@@ -1,0 +1,258 @@
+{
+  "timestamp": "2025-12-15T13:58:55.885Z",
+  "metrics": {
+    "totalSessions": 0,
+    "successfulSessions": 0,
+    "failedSessions": 0,
+    "biasDetectionStats": {
+      "totalAnalyses": 0,
+      "biasDetected": 0,
+      "teachingBiasDetected": 0,
+      "categoryDominanceDetected": 0,
+      "stemBiasDetected": 0
+    },
+    "diversityStats": {
+      "totalEnforcements": 0,
+      "diversityCorrections": 0,
+      "qualityPreservations": 0,
+      "averageDiversityImprovement": 0,
+      "categoryBalanceAdjustments": 0
+    },
+    "stemStats": {
+      "totalAnalyses": 0,
+      "stemStudentsIdentified": 0,
+      "careersBoostApplied": 0,
+      "averageBoostValue": 0,
+      "stemIdentificationRate": 0
+    },
+    "performanceStats": {
+      "totalProcessingTime": 0,
+      "averageProcessingTime": 0,
+      "minProcessingTime": null,
+      "maxProcessingTime": 0,
+      "timeoutCount": 0
+    },
+    "profileStats": {
+      "gradeDistribution": {},
+      "subjectDistribution": {},
+      "stemProfileCount": 0,
+      "nonStemProfileCount": 0
+    },
+    "outcomeStats": {
+      "averageTeachingPercentage": 0,
+      "averageSTEMPercentage": 0,
+      "averageCategoryCount": 0,
+      "averageDiversityScore": 0,
+      "qualityScores": []
+    },
+    "hourlyTrends": [
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      },
+      {
+        "timestamp": null,
+        "sessions": 0,
+        "biasDetected": 0,
+        "avgTeachingPercentage": 0,
+        "avgSTEMPercentage": 0,
+        "avgProcessingTime": 0
+      }
+    ],
+    "activeAlerts": [],
+    "alertHistory": []
+  },
+  "config": {
+    "enableLogging": true,
+    "enableFileLogging": true,
+    "logDirectory": "./logs/bias-monitoring",
+    "alertThresholds": {
+      "teachingBiasThreshold": 40,
+      "lowSTEMThreshold": 20,
+      "lowDiversityThreshold": 30,
+      "highProcessingTime": 1000,
+      "errorRateThreshold": 5
+    },
+    "retentionDays": 30
+  }
+}

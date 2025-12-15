@@ -1,0 +1,5 @@
+# Deploy to staging
+vercel --prod=false
+
+# Deploy to production (after staging verification)
+vercel --prod

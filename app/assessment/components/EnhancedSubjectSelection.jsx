@@ -199,6 +199,24 @@ export default function EnhancedSubjectSelection({
           <div className="marks-header">
             <h3>📊 Your Current Marks</h3>
             <p>Add your latest marks to get realistic career guidance and APS calculation</p>
+            
+            {/* CRITICAL: Marks Verification Warning */}
+            <div className="verification-warning">
+              <div className="warning-icon">⚠️</div>
+              <div className="warning-content">
+                <h4>Important: Mark Accuracy Verification</h4>
+                <p>
+                  <strong>Your marks will be verified by educational authorities.</strong> 
+                  Please ensure all marks are accurate and from your most recent reports. 
+                  Incorrect marks may affect your university applications and bursary eligibility.
+                </p>
+                <ul>
+                  <li>Use marks from your latest school report</li>
+                  <li>Double-check all percentages before submitting</li>
+                  <li>Contact your school if you're unsure about any marks</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           <div className="marks-grid">
@@ -216,6 +234,49 @@ export default function EnhancedSubjectSelection({
               />
             ))}
           </div>
+
+          {/* CRITICAL: Marks Verification Confirmation */}
+          {hasAllMarks && (
+            <div className="verification-confirmation">
+              <h4>📋 Confirm Mark Accuracy</h4>
+              <p>Please confirm that all marks entered are accurate and current:</p>
+              
+              <div className="confirmation-checkboxes">
+                <label className="confirmation-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={marksVerificationConfirmed}
+                    onChange={(e) => setMarksVerificationConfirmed(e.target.checked)}
+                    required
+                  />
+                  <span className="checkmark-custom"></span>
+                  <span className="checkbox-text">
+                    ✅ I confirm that all marks entered are accurate and from my most recent school reports
+                  </span>
+                </label>
+                
+                <label className="confirmation-checkbox">
+                  <input
+                    type="checkbox"
+                    checked={showVerificationWarning}
+                    onChange={(e) => setShowVerificationWarning(e.target.checked)}
+                    required
+                  />
+                  <span className="checkmark-custom"></span>
+                  <span className="checkbox-text">
+                    ⚖️ I understand that these marks may be verified by educational authorities
+                  </span>
+                </label>
+              </div>
+              
+              {(!marksVerificationConfirmed || !showVerificationWarning) && (
+                <div className="confirmation-warning">
+                  <span className="warning-icon">⚠️</span>
+                  <span>You must confirm mark accuracy to proceed with your assessment</span>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Consistency Validation */}
           <ConsistencyValidator
@@ -637,6 +698,143 @@ export default function EnhancedSubjectSelection({
 
         .edit-marks-btn:hover {
           background: #2563eb;
+        }
+
+        /* Verification Warning Styles */
+        .verification-warning {
+          background: #fef2f2;
+          border: 2px solid #ef4444;
+          border-radius: 12px;
+          padding: 20px;
+          margin: 16px 0;
+          display: flex;
+          gap: 16px;
+          align-items: flex-start;
+        }
+
+        .warning-icon {
+          font-size: 24px;
+          flex-shrink: 0;
+          margin-top: 2px;
+        }
+
+        .warning-content h4 {
+          color: #dc2626;
+          margin: 0 0 8px 0;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        .warning-content p {
+          color: #7f1d1d;
+          margin: 0 0 12px 0;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        .warning-content ul {
+          color: #7f1d1d;
+          margin: 0;
+          padding-left: 20px;
+          font-size: 14px;
+        }
+
+        .warning-content li {
+          margin-bottom: 4px;
+        }
+
+        /* Verification Confirmation Styles */
+        .verification-confirmation {
+          background: #f0f9ff;
+          border: 2px solid #3b82f6;
+          border-radius: 12px;
+          padding: 20px;
+          margin: 24px 0;
+        }
+
+        .verification-confirmation h4 {
+          color: #1e40af;
+          margin: 0 0 8px 0;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        .verification-confirmation p {
+          color: #1e3a8a;
+          margin: 0 0 16px 0;
+          font-size: 14px;
+        }
+
+        .confirmation-checkboxes {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 16px;
+        }
+
+        .confirmation-checkbox {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          cursor: pointer;
+          padding: 12px;
+          background: white;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          transition: all 0.2s;
+        }
+
+        .confirmation-checkbox:hover {
+          background: #f8fafc;
+          border-color: #3b82f6;
+        }
+
+        .confirmation-checkbox input[type="checkbox"] {
+          display: none;
+        }
+
+        .checkmark-custom {
+          width: 20px;
+          height: 20px;
+          border: 2px solid #d1d5db;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          transition: all 0.2s;
+          margin-top: 2px;
+        }
+
+        .confirmation-checkbox input[type="checkbox"]:checked + .checkmark-custom {
+          background: #3b82f6;
+          border-color: #3b82f6;
+        }
+
+        .confirmation-checkbox input[type="checkbox"]:checked + .checkmark-custom::after {
+          content: "✓";
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        .checkbox-text {
+          color: #374151;
+          font-size: 14px;
+          line-height: 1.5;
+          flex: 1;
+        }
+
+        .confirmation-warning {
+          background: #fef3c7;
+          border: 1px solid #f59e0b;
+          border-radius: 6px;
+          padding: 12px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+          color: #92400e;
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
