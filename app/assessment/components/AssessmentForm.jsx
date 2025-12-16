@@ -11,6 +11,9 @@ import PreliminaryReport from './PreliminaryReport';
 import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
 import ConsentCheckbox from './ConsentCheckbox';
+import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
+const StudentProfileBuilder = require('../../../lib/student/StudentProfileBuilder.js');
+const QueryContextStructurer = require('../../../lib/student/QueryContextStructurer.js');
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
@@ -185,7 +188,7 @@ export default function AssessmentForm() {
       query += `I have 2 years left before Grade 12 finals. `;
     }
     
-    query += `Subjects I enjoy: ${formData.enjoyedSubjects.join(', ')}. Interests: ${formData.interests.join(', ')}.`;
+    query += `Subjects I enjoy: ${(formData.enjoyedSubjects || []).join(', ')}. Interests: ${(formData.interests || []).join(', ')}.`;
 
     // Add career interests for cross-referencing - EMPHASIZE IT
     if (formData.openQuestions?.careerInterests && formData.openQuestions.careerInterests.trim()) {
@@ -233,7 +236,8 @@ export default function AssessmentForm() {
         }
       }
     } else {
-      query += ` Constraints: ${formData.constraints.time}, ${formData.constraints.money}, ${formData.constraints.location}. Recommend careers matching subjects I ENJOY with education pathways.`;
+      const constraints = formData.constraints || {};
+      query += ` Constraints: ${constraints.time || 'flexible'}, ${constraints.money || 'not specified'}, ${constraints.location || 'anywhere'}. Recommend careers matching subjects I ENJOY with education pathways.`;
     }
     
     try {
