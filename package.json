@@ -19,6 +19,7 @@
     "embeddings:generate": "node scripts/generate-embeddings.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
     "@supabase/supabase-js": "^2.80.0",
     "dotenv": "^17.2.3",
     "groq-sdk": "^0.3.3",
