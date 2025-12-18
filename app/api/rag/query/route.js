@@ -1,10 +1,56 @@
-// RAG endpoint with Upstash cache integration
+// RAG endpoint with Upstash cache integration and specific program recommendations
 import { NextResponse } from 'next/server';
 import { getCachedResponse, setCachedResponse } from '@/lib/cache/rag-cache.js';
 import { getAcademicContext, getContextualAdvice } from '@/lib/academic/emergency-calendar.js';
+import { generateSpecificRecommendations, formatRecommendationsForLLM } from '@/lib/matching/program-matcher.js';
 
-// Generate career guidance with proper verification footer
-function generateCareerGuidance(query, grade, curriculum) {
+// Helper function to extract career interests from query
+function extractCareerInterests(queryText) {
+  const interests = [];
+  const lowerQuery = queryText.toLowerCase();
+  
+  if (lowerQuery.includes('engineering') || lowerQuery.includes('egd')) interests.push('engineering');
+  if (lowerQuery.includes('medicine') || lowerQuery.includes('doctor')) interests.push('medicine');
+  if (lowerQuery.includes('business') || lowerQuery.includes('accounting')) interests.push('business');
+  if (lowerQuery.includes('law') || lowerQuery.includes('lawyer')) interests.push('law');
+  if (lowerQuery.includes('computer') || lowerQuery.includes('technology') || lowerQuery.includes('it')) interests.push('technology');
+  if (lowerQuery.includes('architecture')) interests.push('architecture');
+  
+  return interests.join(', ');
+}
+
+// Helper function to extract marks from query text
+function extractMarksFromQuery(queryText) {
+  const marks = {};
+  const markPatterns = [
+    /Mathematics:\s*(\d+(?:\.\d+)?%?)/gi,
+    /Physical Sciences:\s*(\d+(?:\.\d+)?%?)/gi,
+    /Life Sciences:\s*(\d+(?:\.\d+)?%?)/gi,
+    /English.*Language:\s*(\d+(?:\.\d+)?%?)/gi,
+    /Accounting:\s*(\d+(?:\.\d+)?%?)/gi,
+    /EGD:\s*(\d+(?:\.\d+)?%?)/gi,
+    /Engineering.*Design:\s*(\d+(?:\.\d+)?%?)/gi
+  ];
+  
+  const subjectNames = ['mathematics', 'physical_sciences', 'life_sciences', 'english', 'accounting', 'egd', 'egd'];
+  
+  markPatterns.forEach((pattern, index) => {
+    const matches = queryText.match(pattern);
+    if (matches) {
+      matches.forEach(match => {
+        const markValue = match.match(/(\d+(?:\.\d+)?)/)?.[1];
+        if (markValue) {
+          marks[subjectNames[index]] = parseFloat(markValue);
+        }
+      });
+    }
+  });
+  
+  return marks;
+}
+
+// Generate enhanced career guidance with specific program recommendations
+function generateCareerGuidance(query, grade, curriculum, studentProfile = null) {
   const gradeLevel = grade || 'grade10';
   const curriculumType = curriculum || 'caps';
   
@@ -12,6 +58,26 @@ function generateCareerGuidance(query, grade, curriculum) {
   const gradeNumber = parseInt(gradeLevel.replace('grade', '')) || 10;
   const academicContext = getAcademicContext(new Date(), gradeNumber);
   const contextualAdvice = getContextualAdvice(academicContext);
+  
+  // Generate specific program recommendations if student profile available
+  let specificRecommendations = null;
+  let recommendationsContext = '';
+  
+  if (studentProfile && studentProfile.marks && Object.keys(studentProfile.marks).length > 0) {
+    try {
+      specificRecommendations = generateSpecificRecommendations({
+        ...studentProfile,
+        grade: gradeNumber,
+        careerInterests: extractCareerInterests(query)
+      });
+      
+      if (specificRecommendations.success) {
+        recommendationsContext = formatRecommendationsForLLM(specificRecommendations);
+      }
+    } catch (error) {
+      console.error('Error generating specific recommendations:', error);
+    }
+  }
   
   // Parse query for specific career interests and context
   const isGrade12 = query.includes('Grade 12') || gradeLevel === 'grade12' || gradeLevel === '12';
@@ -27,7 +93,10 @@ function generateCareerGuidance(query, grade, curriculum) {
   
   let careerResponse;
   
-  if (isGrade12 && (hasArchitectureInterest || hasEngineeringInterest || hasLawInterest)) {
+  // Use specific recommendations if available
+  if (specificRecommendations && specificRecommendations.success) {
+    careerResponse = generateEnhancedResponse(query, gradeNumber, curriculumType, academicContext, contextualAdvice, specificRecommendations);
+  } else if (isGrade12 && (hasArchitectureInterest || hasEngineeringInterest || hasLawInterest)) {
     // Personalized Grade 12 response with specific career analysis
     careerResponse = `# Your Career Guidance Results - Grade 12 Final Year
 
@@ -219,12 +288,139 @@ ${contextualAdvice.urgentDeadlines.length > 0
   };
 }
 
+// Generate enhanced response with specific program recommendations
+function generateEnhancedResponse(query, grade, curriculum, academicContext, contextualAdvice, recommendations) {
+  const { apsData, timeline, programs, bursaries } = recommendations;
+  
+  let response = `# Your Specific Career Guidance Results
+
+## Based on Your Assessment
+**Grade Level**: GRADE ${grade}
+**Curriculum**: ${String(curriculum).toUpperCase()}
+**Academic Timeline**: ${academicContext.timelineMessage}
+**Current Phase**: ${timeline.phase.replace('-', ' ').toUpperCase()}
+
+## Your Academic Performance Analysis
+**Current APS Score**: ${apsData.current} points
+**Projected Final APS**: ${apsData.projected.min}-${apsData.projected.max} points
+**University Eligibility**: ${apsData.universityEligible ? '✅ Qualified for university admission' : '⚠️ Need improvement for university'}
+
+## Recommended University Programs
+
+`;
+
+  // Add top 3 programs with specific details
+  programs.slice(0, 3).forEach((program, index) => {
+    const feasibilityIcon = program.feasibility === 'High' ? '✅' : program.feasibility === 'Medium' ? '⚠️' : '🔄';
+    
+    response += `### ${index + 1}. ${program.program} at ${program.university} ${feasibilityIcon}
+**APS Required**: ${program.apsRequired} (You're projected: ${apsData.projected.min}-${apsData.projected.max})
+**Admission Chance**: ${program.admissionProbability}% 
+**Application Deadline**: ${program.applicationDeadline}
+**Duration**: ${program.duration}
+**Requirements**: ${program.subjectRequirements.join(', ')}
+**Feasibility**: ${program.feasibility}
+
+`;
+  });
+
+  // Add bursary information
+  if (bursaries.length > 0) {
+    response += `## Eligible Bursaries & Financial Aid
+
+`;
+    
+    bursaries.forEach((bursary, index) => {
+      const urgencyIcon = bursary.urgency === 'CRITICAL' ? '🚨' : bursary.urgency === 'HIGH' ? '⚠️' : 'ℹ️';
+      
+      response += `### ${index + 1}. ${bursary.name} ${urgencyIcon}
+**Amount**: ${bursary.amount}
+**Eligibility Match**: ${bursary.matchPercentage}%
+**Deadline**: ${bursary.deadline}
+**Why You Qualify**: ${bursary.eligibilityReasons.join(', ')}
+**Apply**: ${bursary.applicationUrl}
+
+`;
+    });
+  }
+
+  // Add grade-specific action plan
+  response += `## ${timeline.urgency} Action Plan
+
+### Current Focus: ${timeline.timeline}
+
+### Priority Actions:
+${timeline.actionItems.map(item => `- **${item}**`).join('\n')}
+
+`;
+
+  // Add grade-specific advice
+  if (grade === 12) {
+    response += `### Grade 12 Specific Guidance:
+- **Finals Strategy**: Focus on subjects needed for your target programs
+- **Application Timeline**: Most universities close applications by September 2026
+- **Backup Planning**: Apply to multiple programs with different APS requirements
+- **NSFAS Deadline**: December 31, 2025 - Apply immediately if eligible
+
+`;
+  } else if (grade === 11) {
+    response += `### Grade 11 Specific Guidance:
+- **Performance Optimization**: You have 1 year to improve your APS score
+- **Subject Choices**: Last chance to change subjects if needed for your career goals
+- **Bursary Preparation**: Start researching and preparing applications for 2026
+- **University Research**: Visit campuses and attend information sessions
+
+`;
+  } else {
+    response += `### Grade 10 Specific Guidance:
+- **Foundation Building**: Focus on building strong academic foundations
+- **Career Exploration**: You have time to explore different career options
+- **Subject Planning**: Choose Grade 11 subjects that align with your career interests
+- **Long-term Planning**: Start building a profile for university applications
+
+`;
+  }
+
+  // Add backup options if needed
+  if (programs.length > 3) {
+    response += `## Alternative Options
+
+If your first choices are challenging, consider these backup options:
+
+`;
+    
+    programs.slice(3, 5).forEach((program, index) => {
+      response += `- **${program.program} at ${program.university}**: APS ${program.apsRequired} (${program.admissionProbability}% chance)
+`;
+    });
+  }
+
+  response += `
+
+---
+
+⚠️ **Verify before you decide**: This is AI-generated advice based on your current performance. Always confirm with school counselors, career advisors, and university admission offices before making important decisions about your future.`;
+
+  return response;
+}
+
 export async function POST(request) {
   const startTime = Date.now();
   
   try {
     const body = await request.json();
-    const { query, grade, curriculum, profile } = body;
+    const { query, grade, curriculum, profile, curriculumProfile } = body;
+    
+    // Extract student profile data for specific recommendations
+    let enhancedStudentProfile = null;
+    if (profile || curriculumProfile) {
+      enhancedStudentProfile = {
+        marks: extractMarksFromQuery(query),
+        constraints: profile?.constraints || {},
+        careerInterests: extractCareerInterests(query),
+        ...profile
+      };
+    }
     
     // Quick validation
     if (!query) {
@@ -266,13 +462,13 @@ export async function POST(request) {
     }
     
     // Create profile for caching
-    const studentProfile = profile || {
+    const cacheProfile = profile || {
       grade: parsedGrade,
       curriculum: curriculum || 'caps'
     };
     
     // Check cache first
-    const cachedResult = await getCachedResponse(studentProfile, query);
+    const cachedResult = await getCachedResponse(cacheProfile, query);
     if (cachedResult) {
       const totalTime = Date.now() - startTime;
       console.log(`[CACHE HIT] Total response time: ${totalTime}ms`);
@@ -287,8 +483,10 @@ export async function POST(request) {
       });
     }
     
+
+    
     // Generate proper career guidance response with verification footer
-    const careerGuidance = generateCareerGuidance(query, parsedGrade, curriculum);
+    const careerGuidance = generateCareerGuidance(query, parsedGrade, curriculum, enhancedStudentProfile);
     
     const response = {
       success: true,
@@ -312,7 +510,7 @@ export async function POST(request) {
     };
     
     // Cache the response asynchronously (don't wait)
-    setCachedResponse(studentProfile, query, response).catch(err => {
+    setCachedResponse(cacheProfile, query, response).catch(err => {
       console.error('Cache set error:', err.message);
     });
     
