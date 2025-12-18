@@ -11,8 +11,8 @@ function generateCareerGuidance(query, grade, curriculum) {
   const careerResponse = `# Your Career Guidance Results
 
 ## Based on Your Assessment
-**Grade Level**: ${gradeLevel.toUpperCase()}
-**Curriculum**: ${curriculumType.toUpperCase()}
+**Grade Level**: ${String(gradeLevel).toUpperCase()}
+**Curriculum**: ${String(curriculumType).toUpperCase()}
 **Query**: ${query}
 
 ## Recommended Career Paths
@@ -32,7 +32,7 @@ function generateCareerGuidance(query, grade, curriculum) {
 - **Financial Services**: Banking, investment, and financial planning
 - **Entrepreneurship**: Start your own business ventures
 
-## Next Steps for ${gradeLevel.toUpperCase()} Students
+## Next Steps for ${String(gradeLevel).toUpperCase()} Students
 
 1. **Subject Selection**: Choose subjects that align with your career interests
 2. **University Research**: Investigate admission requirements for your chosen field
