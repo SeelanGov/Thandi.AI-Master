@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import SubjectSelection from './SubjectSelection';
+import MarksCollection from './MarksCollection';
 import InterestAreas from './InterestAreas';
 import Constraints from './Constraints';
 import OpenQuestions from './OpenQuestions';
@@ -10,7 +11,7 @@ import GradeSelector from './GradeSelector';
 import PreliminaryReport from './PreliminaryReport';
 import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
-import ConsentCheckbox from './ConsentCheckbox';
+
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 const StudentProfileBuilder = require('../../../lib/student/StudentProfileBuilder.js');
 const QueryContextStructurer = require('../../../lib/student/QueryContextStructurer.js');
@@ -46,8 +47,8 @@ export default function AssessmentForm() {
   const [showDeepDive, setShowDeepDive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [consent, setConsent] = useState({
-    given: false,
-    timestamp: null
+    given: true, // Default to true until we implement proper login/consent flow
+    timestamp: new Date().toISOString()
   });
   const [formData, setFormData] = useState({
     enjoyedSubjects: [],  // CHANGED: Now tracks subjects student ENJOYS
@@ -57,6 +58,11 @@ export default function AssessmentForm() {
       money: '',
       location: '',
       familyBackground: ''
+    },
+    marksData: {
+      marksOption: '',
+      exactMarks: {},
+      rangeMarks: {}
     },
     openQuestions: {
       motivation: '',
@@ -124,11 +130,11 @@ export default function AssessmentForm() {
 
   const handleCoreQuestionsComplete = () => {
     if (grade === 10) {
-      // Grade 10: Show preliminary report with opt-in
+      // Grade 10: Show preliminary report with opt-in to DeepDive
       setShowPreliminaryReport(true);
     } else {
-      // Grade 11-12: Go straight to deep dive (no preliminary report)
-      setShowDeepDive(true);
+      // Grade 11-12: Go directly to results (no DeepDive needed)
+      handleSubmit();
     }
   };
 
@@ -150,11 +156,52 @@ export default function AssessmentForm() {
   };
 
   const nextStep = () => {
-    if (currentStep < 5) {
+    // Validation for Step 1: Require complete subject selection for accurate LLM analysis
+    if (currentStep === 1) {
+      const selectedSubjects = formData.curriculumProfile?.currentSubjects?.length || 0;
+      
+      if (selectedSubjects === 0) {
+        alert('Please select your subjects from your curriculum before continuing.');
+        return;
+      }
+      
+      // Require minimum subjects for accurate analysis (South African students typically take 7 subjects)
+      if (selectedSubjects < 6) {
+        alert(`Please select all your subjects (you've selected ${selectedSubjects}). Thandi needs your complete subject list to give accurate career recommendations.`);
+        return;
+      }
+      
+      // Check for required core subjects
+      const currentSubjects = formData.curriculumProfile.currentSubjects;
+      const hasLanguage = currentSubjects.some(subject => 
+        subject.includes('English') || subject.includes('Afrikaans') || subject.includes('Zulu') || subject.includes('Xhosa')
+      );
+      const hasMathOrLit = currentSubjects.some(subject => 
+        subject.includes('Mathematics') || subject.includes('Mathematical Literacy')
+      );
+      
+      if (!hasLanguage) {
+        alert('Please select at least one language subject (English, Afrikaans, etc.) - this is required for all South African students.');
+        return;
+      }
+      
+      if (!hasMathOrLit) {
+        alert('Please select either Mathematics or Mathematical Literacy - this is required for all South African students.');
+        return;
+      }
+    }
+    
+    if (currentStep < 6) {
       setCurrentStep(prev => prev + 1);
     } else {
-      // Core questions complete
-      handleCoreQuestionsComplete();
+      // All 6 steps complete - handle submission
+      if (grade === 10) {
+        // Grade 10: Show preliminary report with opt-in to DeepDive
+        setShowPreliminaryReport(true);
+      } else {
+        // Grade 11-12: Go directly to results (no DeepDive)
+        handleSubmit();
+      }
     }
   };
 
@@ -206,39 +253,77 @@ export default function AssessmentForm() {
       }
     }
 
-    // Add deep dive data if available
-    if (formData.assessmentDepth === 'comprehensive') {
-      if (formData.marksUnknown) {
+    // Add marks data from Step 2 (MarksCollection - for all grades)
+    if (formData.marksData?.marksOption) {
+      if (formData.marksData.marksOption === 'unknown') {
         query += ` I don't know my exact marks yet. `;
-        query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
-        if (formData.strugglingSubjects && formData.strugglingSubjects.length > 0) {
-          query += `Subjects I'm struggling with: ${formData.strugglingSubjects.join(', ')}. `;
-        }
         query += `Give me general guidance on career paths and what marks I should aim for.`;
-      } else if (formData.subjectMarks && formData.subjectMarks.length > 0) {
+      } else if (formData.marksData.marksOption === 'provide' && formData.marksData.exactMarks) {
         query += ` My current marks (as of ${currentMonth} ${currentYear}): `;
-        formData.subjectMarks.forEach(({subject, exactMark}) => {
-          query += `${subject}: ${exactMark}%, `;
+        Object.entries(formData.marksData.exactMarks).forEach(([subject, mark]) => {
+          if (mark && mark !== '') {
+            query += `${subject}: ${mark}%, `;
+          }
         });
         
-        query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
+        if (formData.grade === 12) {
+          query += `I need: 1) What marks I need in my FINAL EXAMS (writing in ~1 month), 2) Bursaries with deadlines in the next 3-6 months, 3) Application deadlines I must meet NOW, 4) Realistic backup options if my marks don't improve. Be specific about MY current marks and what's achievable in the next month.`;
+        } else if (formData.grade === 11) {
+          query += `I need: 1) What marks to target by end of Grade 12, 2) Bursaries to apply for in ${currentYear + 1}, 3) Year-by-year improvement plan (Grade 11→12), 4) Subject choices to reconsider. Be specific about MY current marks.`;
+        } else {
+          query += `I need: 1) Mark targets for Grade 12, 2) Bursaries I can qualify for, 3) Year-by-year plan (Grade ${formData.grade}→12), 4) Backup options. Be specific about MY marks.`;
+        }
+      } else if (formData.marksData.marksOption === 'ranges' && formData.marksData.rangeMarks) {
+        query += ` My current performance levels (as of ${currentMonth} ${currentYear}): `;
+        Object.entries(formData.marksData.rangeMarks).forEach(([subject, range]) => {
+          if (range && range !== '') {
+            const rangeText = {
+              'struggling': '30-49%',
+              'average': '50-69%', 
+              'good': '70-79%',
+              'excellent': '80-100%'
+            }[range] || range;
+            query += `${subject}: ${rangeText}, `;
+          }
+        });
         
+        if (formData.grade === 12) {
+          query += `I need: 1) What marks I need in my FINAL EXAMS (writing in ~1 month), 2) Bursaries with deadlines in the next 3-6 months, 3) Application deadlines I must meet NOW, 4) Realistic backup options. Focus on my current performance levels.`;
+        } else if (formData.grade === 11) {
+          query += `I need: 1) What marks to target by end of Grade 12, 2) Bursaries to apply for in ${currentYear + 1}, 3) Year-by-year improvement plan (Grade 11→12), 4) Subject choices to reconsider. Focus on my current performance levels.`;
+        } else {
+          query += `I need: 1) Mark targets for Grade 12, 2) Bursaries I can qualify for, 3) Year-by-year plan (Grade ${formData.grade}→12), 4) Backup options. Focus on my current performance levels.`;
+        }
+      }
+    }
+
+    // Add deep dive data if available (for Grade 10 comprehensive assessment)
+    if (formData.assessmentDepth === 'comprehensive') {
+      if (formData.marksUnknown) {
+        query += ` Additional context: I don't know my exact marks yet. `;
+        query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
         if (formData.strugglingSubjects && formData.strugglingSubjects.length > 0) {
           query += `Subjects I'm struggling with: ${formData.strugglingSubjects.join(', ')}. `;
         }
+      } else if (formData.subjectMarks && formData.subjectMarks.length > 0) {
+        // Only add DeepDive marks if no main assessment marks were provided
+        if (!formData.constraints?.marksOption || formData.constraints.marksOption === 'unknown') {
+          query += ` My current marks (as of ${currentMonth} ${currentYear}): `;
+          formData.subjectMarks.forEach(({subject, exactMark}) => {
+            query += `${subject}: ${exactMark}%, `;
+          });
+        }
         
-        if (formData.grade === 12) {
-          query += `I need: 1) What marks I need in my FINAL EXAMS (writing in ~1 month), 2) Bursaries with deadlines in the next 3-6 months, 3) Application deadlines I must meet NOW, 4) Realistic backup options if my marks don't improve. Be specific about MY current marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}) and what's achievable in the next month.`;
-        } else if (formData.grade === 11) {
-          query += `I need: 1) What marks to target by end of Grade 12, 2) Bursaries to apply for in ${currentYear + 1}, 3) Year-by-year improvement plan (Grade 11→12), 4) Subject choices to reconsider. Be specific about MY current marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}).`;
-        } else {
-          query += `I need: 1) Mark targets for Grade 12, 2) Bursaries I can qualify for, 3) Year-by-year plan (Grade ${formData.grade}→12), 4) Backup options. Be specific about MY marks (${formData.subjectMarks.map(m => `${m.subject}: ${m.exactMark}%`).join(', ')}).`;
+        query += `Support available: ${formData.supportSystem?.slice(0, 2).join(', ') || 'None'}. `;
+        if (formData.strugglingSubjects && formData.strugglingSubjects.length > 0) {
+          query += `Subjects I'm struggling with: ${formData.strugglingSubjects.join(', ')}. `;
         }
       }
-    } else {
-      const constraints = formData.constraints || {};
-      query += ` Constraints: ${constraints.time || 'flexible'}, ${constraints.money || 'not specified'}, ${constraints.location || 'anywhere'}. Recommend careers matching subjects I ENJOY with education pathways.`;
     }
+
+    // Add constraints context
+    const constraints = formData.constraints || {};
+    query += ` Constraints: ${constraints.time || 'flexible'}, ${constraints.money || 'not specified'}, ${constraints.location || 'anywhere'}. Recommend careers matching subjects I ENJOY with education pathways.`;
     
     try {
       const response = await fetch(API_URL, {
@@ -416,7 +501,7 @@ export default function AssessmentForm() {
         </div>
       </div>
 
-      <ProgressBar currentStep={currentStep} totalSteps={5} />
+      <ProgressBar currentStep={currentStep} totalSteps={6} />
 
       <div className="assessment-content">
         {currentStep === 1 && (
@@ -427,27 +512,36 @@ export default function AssessmentForm() {
         )}
 
         {currentStep === 2 && (
-          <SubjectSelection
-            selected={formData.enjoyedSubjects}
-            onChange={(enjoyedSubjects) => updateFormData('enjoyedSubjects', enjoyedSubjects)}
+          <MarksCollection
+            curriculumProfile={formData.curriculumProfile}
+            values={formData.marksData}
+            onChange={(marksData) => updateFormData('marksData', marksData)}
           />
         )}
 
         {currentStep === 3 && (
+          <SubjectSelection
+            selected={formData.enjoyedSubjects}
+            onChange={(enjoyedSubjects) => updateFormData('enjoyedSubjects', enjoyedSubjects)}
+            curriculumProfile={formData.curriculumProfile}
+          />
+        )}
+
+        {currentStep === 4 && (
           <InterestAreas
             selected={formData.interests}
             onChange={(interests) => updateFormData('interests', interests)}
           />
         )}
 
-        {currentStep === 4 && (
+        {currentStep === 5 && (
           <Constraints
             values={formData.constraints}
             onChange={(constraints) => updateFormData('constraints', constraints)}
           />
         )}
 
-        {currentStep === 5 && (
+        {currentStep === 6 && (
           <OpenQuestions
             values={formData.openQuestions}
             onChange={(openQuestions) => updateFormData('openQuestions', openQuestions)}
@@ -455,20 +549,7 @@ export default function AssessmentForm() {
         )}
       </div>
 
-      {/* Consent checkbox - shown on final step */}
-      {currentStep === 5 && (
-        <div className="mb-6">
-          <ConsentCheckbox 
-            onConsentChange={handleConsentChange}
-            required={false}
-          />
-          {!consent.given && (
-            <p className="text-sm text-gray-600 mt-2">
-              ℹ️ Without consent, you'll receive a standard report (no personalized AI guidance)
-            </p>
-          )}
-        </div>
-      )}
+
 
       <div className="assessment-navigation">
         {currentStep > 1 && (
@@ -478,7 +559,7 @@ export default function AssessmentForm() {
         )}
 
         <button onClick={nextStep} className="btn-primary">
-          {currentStep === 5 ? 'Continue →' : 'Next →'}
+          {currentStep === 6 ? 'Continue →' : 'Next →'}
         </button>
       </div>
 

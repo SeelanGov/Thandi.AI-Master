@@ -20,6 +20,7 @@ dist/
 .env.development.local
 .env.test.local
 .env.production.local
+.env.staging
 
 # Logs
 npm-debug.log*
@@ -29,6 +30,9 @@ yarn-error.log*
 
 # Vercel
 .vercel
+
+# Kiro documentation (may contain secrets)
+.kiro/
 
 # Backup files
 backups/
@@ -45,6 +49,25 @@ insert-*.cjs
 complete-*.cjs
 final-*.cjs
 setup-*.ps1
+
+# Security and cleanup scripts
+security-audit-*.js
+clean-*.js
+*-cleanup.js
+*-security-*.js
+
+# Documentation with potential secrets
+*VERCEL*.md
+*API-SETUP*.md
+*SUPABASE*.md
+*SECURITY*.md
+*DEPLOYMENT*.md
+*BATCH*.md
+G10-12-*.md
+scripts/README.md
+scripts/debug-*.js
+scripts/test-*.js
+scripts/verify-*.js
 
 # OS generated files
 .DS_Store

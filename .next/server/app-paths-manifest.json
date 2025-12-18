@@ -1,10 +1,3 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/g10-12/route": "app/api/g10-12/route.js",
-  "/api/health/route": "app/api/health/route.js",
-  "/api/pdf/[sessionId]/route": "app/api/pdf/[sessionId]/route.js",
-  "/api/rag/query/route": "app/api/rag/query/route.js",
-  "/assessment/page": "app/assessment/page.js",
-  "/test/page": "app/test/page.js",
-  "/results/page": "app/results/page.js"
+  "/assessment/page": "app/assessment/page.js"
 }

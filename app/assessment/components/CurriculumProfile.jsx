@@ -82,7 +82,28 @@ export default function CurriculumProfile({ grade, onChange }) {
   return (
     <div className="curriculum-profile">
       <h2>Your Current Subjects</h2>
-      <p className="subtitle">Select the subjects you are TAKING this year (not what you enjoy)</p>
+      <p className="subtitle">Select ALL the subjects you are taking this year - Thandi needs your complete subject list for accurate career recommendations</p>
+      
+      {currentSubjects.length === 0 && (
+        <div className="requirement-notice critical">
+          <span className="requirement-icon">⚠️</span>
+          <span className="requirement-text">Please select all your subjects (typically 7 subjects) - this is essential for accurate career guidance</span>
+        </div>
+      )}
+      
+      {currentSubjects.length > 0 && currentSubjects.length < 6 && (
+        <div className="requirement-notice warning">
+          <span className="requirement-icon">📝</span>
+          <span className="requirement-text">You've selected {currentSubjects.length} subjects. Most students take 6-7 subjects. Please add any missing subjects.</span>
+        </div>
+      )}
+      
+      {currentSubjects.length >= 6 && (
+        <div className="requirement-notice success">
+          <span className="requirement-icon">✅</span>
+          <span className="requirement-text">Great! You've selected {currentSubjects.length} subjects. This gives Thandi enough information for accurate recommendations.</span>
+        </div>
+      )}
 
       {/* Framework Selection */}
       <div className="framework-selector">
@@ -102,6 +123,22 @@ export default function CurriculumProfile({ grade, onChange }) {
           >
             IEB (Independent schools)
           </button>
+        </div>
+      </div>
+
+      {/* Helpful guide */}
+      <div className="subject-guide">
+        <h3>📚 Typical Subject Combinations (7 subjects):</h3>
+        <div className="guide-examples">
+          <div className="guide-example">
+            <strong>Science Stream:</strong> English, Afrikaans, Mathematics, Physical Sciences, Life Sciences, Geography, Life Orientation
+          </div>
+          <div className="guide-example">
+            <strong>Commerce Stream:</strong> English, Afrikaans, Mathematics, Accounting, Business Studies, Economics, Life Orientation
+          </div>
+          <div className="guide-example">
+            <strong>Humanities Stream:</strong> English, Afrikaans, Mathematical Literacy, History, Geography, Life Sciences, Life Orientation
+          </div>
         </div>
       </div>
 
@@ -138,8 +175,9 @@ export default function CurriculumProfile({ grade, onChange }) {
       )}
 
       {currentSubjects.length > 0 && (
-        <div className="selected-count">
-          {currentSubjects.length} subjects selected
+        <div className={`selected-count ${currentSubjects.length >= 6 ? 'complete' : 'incomplete'}`}>
+          {currentSubjects.length} of 6-7 subjects selected
+          {currentSubjects.length >= 6 ? ' ✅' : ` (${6 - currentSubjects.length} more needed)`}
         </div>
       )}
 
@@ -195,6 +233,36 @@ export default function CurriculumProfile({ grade, onChange }) {
           background: #eff6ff;
           color: #1e40af;
           font-weight: 500;
+        }
+
+        .subject-guide {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 16px;
+          margin-bottom: 24px;
+        }
+
+        .subject-guide h3 {
+          font-size: 16px;
+          color: #374151;
+          margin: 0 0 12px 0;
+        }
+
+        .guide-examples {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .guide-example {
+          font-size: 14px;
+          color: #6b7280;
+          line-height: 1.4;
+        }
+
+        .guide-example strong {
+          color: #374151;
         }
 
         .subject-grid {
@@ -298,11 +366,68 @@ export default function CurriculumProfile({ grade, onChange }) {
 
         .selected-count {
           text-align: center;
-          color: #6b7280;
           font-size: 14px;
           padding: 12px;
-          background: #f9fafb;
           border-radius: 6px;
+          font-weight: 500;
+        }
+
+        .selected-count.incomplete {
+          color: #f59e0b;
+          background: #fef3c7;
+          border: 1px solid #f59e0b;
+        }
+
+        .selected-count.complete {
+          color: #10b981;
+          background: #d1fae5;
+          border: 1px solid #10b981;
+        }
+
+        .requirement-notice {
+          border-radius: 8px;
+          padding: 12px 16px;
+          margin-bottom: 24px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .requirement-notice.critical {
+          background: #fef2f2;
+          border: 2px solid #ef4444;
+        }
+
+        .requirement-notice.critical .requirement-text {
+          color: #dc2626;
+        }
+
+        .requirement-notice.warning {
+          background: #fef3c7;
+          border: 2px solid #f59e0b;
+        }
+
+        .requirement-notice.warning .requirement-text {
+          color: #92400e;
+        }
+
+        .requirement-notice.success {
+          background: #d1fae5;
+          border: 2px solid #10b981;
+        }
+
+        .requirement-notice.success .requirement-text {
+          color: #065f46;
+        }
+
+        .requirement-icon {
+          font-size: 20px;
+          flex-shrink: 0;
+        }
+
+        .requirement-text {
+          font-size: 14px;
+          font-weight: 500;
         }
 
         @media (max-width: 768px) {

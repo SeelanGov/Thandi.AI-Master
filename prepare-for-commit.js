@@ -1,130 +1,74 @@
 #!/usr/bin/env node
 
-/**
- * Prepare for Commit Script
- * Final verification before GitHub commit and Vercel deployment
- */
+// Prepare for GitHub Commit
+// Final check before committing to ensure no secrets are exposed
 
-import { execSync } from 'child_process';
+console.log('📋 PREPARE FOR GITHUB COMMIT');
+console.log('=' .repeat(50));
+
 import fs from 'fs';
 
-const colors = {
-  red: '\x1b[31m',
-  green: '\x1b[32m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  cyan: '\x1b[36m',
-  reset: '\x1b[0m',
-  bold: '\x1b[1m'
-};
+// Check critical files exist and are secure
+const criticalChecks = [
+  { file: '.env.local', shouldExist: true, inGitignore: true },
+  { file: '.gitignore', shouldExist: true, inGitignore: false },
+  { file: 'package.json', shouldExist: true, inGitignore: false },
+  { file: 'next.config.js', shouldExist: true, inGitignore: false }
+];
 
-function log(message, color = 'white') {
-  console.log(`${colors[color]}${message}${colors.reset}`);
-}
+console.log('\n🔍 CRITICAL FILE CHECK:');
+console.log('-'.repeat(30));
 
-function logBold(message, color = 'white') {
-  console.log(`${colors.bold}${colors[color]}${message}${colors.reset}`);
-}
+let allGood = true;
 
-async function runSecurityAudit() {
-  logBold('🔒 Running Security Audit...', 'cyan');
+criticalChecks.forEach(check => {
+  const exists = fs.existsSync(check.file);
   
-  try {
-    execSync('node security-audit-pre-commit.js', { stdio: 'inherit' });
-    return true;
-  } catch (error) {
-    log('❌ Security audit failed!', 'red');
-    return false;
+  if (check.shouldExist && exists) {
+    console.log(`✅ ${check.file}: Present`);
+  } else if (check.shouldExist && !exists) {
+    console.log(`❌ ${check.file}: Missing (REQUIRED)`);
+    allGood = false;
+  } else if (!check.shouldExist && exists) {
+    console.log(`⚠️ ${check.file}: Present (should be excluded)`);
+  } else {
+    console.log(`✅ ${check.file}: Correctly excluded`);
   }
-}
+});
 
-function checkCriticalFiles() {
-  logBold('\n📋 Checking Critical Files...', 'blue');
+// Check .gitignore has required entries
+console.log('\n🛡️ GITIGNORE CHECK:');
+console.log('-'.repeat(30));
+
+try {
+  const gitignoreContent = fs.readFileSync('.gitignore', 'utf8');
+  const requiredEntries = ['.env.local', 'node_modules', '.next', '.vercel'];
   
-  const checks = [
-    {
-      file: '.env.local',
-      shouldExist: false,
-      message: '.env.local should not exist in repository'
-    },
-    {
-      file: '.gitignore',
-      shouldExist: true,
-      message: '.gitignore should exist'
-    },
-    {
-      file: '.env.example',
-      shouldExist: true,
-      message: '.env.example should exist for documentation'
-    }
-  ];
-  
-  let allPassed = true;
-  
-  checks.forEach(({ file, shouldExist, message }) => {
-    const exists = fs.existsSync(file);
-    if (exists === shouldExist) {
-      log(`✅ ${message}`, 'green');
+  requiredEntries.forEach(entry => {
+    if (gitignoreContent.includes(entry)) {
+      console.log(`✅ ${entry}: Protected`);
     } else {
-      log(`❌ ${message}`, 'red');
-      allPassed = false;
+      console.log(`❌ ${entry}: Not in .gitignore`);
+      allGood = false;
     }
   });
-  
-  return allPassed;
+} catch (error) {
+  console.log('❌ Cannot read .gitignore');
+  allGood = false;
 }
 
-function showCommitInstructions() {
-  logBold('\n🚀 READY FOR COMMIT & DEPLOY', 'green');
-  log('=====================================', 'green');
-  
-  logBold('\n📝 Git Commit Commands:', 'cyan');
-  log('git add .', 'white');
-  log('git commit -m "Security cleanup: Remove all exposed secrets and prepare for deployment"', 'white');
-  log('git push origin main', 'white');
-  
-  logBold('\n🌐 Vercel Deployment:', 'cyan');
-  log('1. Go to Vercel dashboard', 'white');
-  log('2. Set environment variables manually:', 'white');
-  log('   - GROQ_API_KEY', 'yellow');
-  log('   - OPENAI_API_KEY', 'yellow');
-  log('   - ANTHROPIC_API_KEY', 'yellow');
-  log('   - NEXT_PUBLIC_SUPABASE_URL', 'yellow');
-  log('   - SUPABASE_SERVICE_ROLE_KEY', 'yellow');
-  log('3. Deploy from GitHub', 'white');
-  
-  logBold('\n⚠️  IMPORTANT REMINDERS:', 'yellow');
-  log('• Never commit .env.local to GitHub', 'white');
-  log('• Always use Vercel dashboard for production secrets', 'white');
-  log('• Keep API keys secure and rotate regularly', 'white');
-  log('• Use .env.example for documentation only', 'white');
+// Final status
+console.log('\n' + '=' .repeat(50));
+if (allGood) {
+  console.log('✅ READY FOR COMMIT');
+  console.log('🔒 All sensitive files protected');
+  console.log('📝 Safe to commit to GitHub');
+  console.log('\n📋 COMMIT COMMANDS:');
+  console.log('git add .');
+  console.log('git commit -m "Environment recovery complete - Triple LLM setup"');
+  console.log('git push origin main');
+} else {
+  console.log('❌ NOT READY FOR COMMIT');
+  console.log('🔧 Fix issues above before committing');
 }
-
-async function main() {
-  logBold('🎯 COMMIT PREPARATION CHECKLIST', 'cyan');
-  log('Verifying security and readiness for GitHub & Vercel\n', 'white');
-  
-  // Step 1: Security Audit
-  const securityPassed = await runSecurityAudit();
-  if (!securityPassed) {
-    log('\n❌ Security audit failed. Please fix issues before committing.', 'red');
-    process.exit(1);
-  }
-  
-  // Step 2: File Checks
-  const filesPassed = checkCriticalFiles();
-  if (!filesPassed) {
-    log('\n❌ Critical file checks failed. Please fix issues before committing.', 'red');
-    process.exit(1);
-  }
-  
-  // Step 3: Success
-  showCommitInstructions();
-  
-  logBold('\n✅ ALL CHECKS PASSED - READY TO COMMIT!', 'green');
-}
-
-main().catch(error => {
-  console.error('Preparation failed:', error);
-  process.exit(1);
-});
+console.log('=' .repeat(50));

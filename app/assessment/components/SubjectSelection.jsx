@@ -41,7 +41,68 @@ const SUBJECTS = [
   { id: 'consumer_studies', name: 'Consumer Studies', category: 'practical', emoji: '🛍️' },
 ];
 
-export default function SubjectSelection({ selected, onChange }) {
+export default function SubjectSelection({ selected, onChange, curriculumProfile }) {
+  // Filter subjects to only show those selected in Step 1
+  const availableSubjects = curriculumProfile?.currentSubjects || [];
+  
+  // Debug: Basic logging
+  console.log('🔍 SubjectSelection - Available subjects:', availableSubjects.length);
+  
+  // Create a robust mapping function to handle name mismatches
+  const isSubjectAvailable = (subject) => {
+    if (availableSubjects.length === 0) return true; // Show all if none selected
+    
+    // Direct name match
+    if (availableSubjects.includes(subject.name)) return true;
+    
+    // Create bidirectional mapping between Step 1 names and Step 3 names
+    const nameMapping = {
+      // Step 3 name -> Step 1 names it should match
+      'Mathematics': ['Mathematics'],
+      'Mathematical Literacy': ['Mathematical Literacy'],
+      'Physical Sciences': ['Physical Sciences'],
+      'Life Sciences': ['Life Sciences'],
+      'Accounting': ['Accounting'],
+      'Business Studies': ['Business Studies'],
+      'Economics': ['Economics'],
+      'Geography': ['Geography'],
+      'History': ['History'],
+      'English': ['English Home Language', 'English First Additional Language'],
+      'Afrikaans': ['Afrikaans Home Language', 'Afrikaans First Additional Language'],
+      'isiZulu': ['IsiZulu Home Language', 'IsiXhosa Home Language', 'Sesotho Home Language', 'Setswana Home Language'],
+      'Computer Applications Technology': ['Computer Applications Technology (CAT)'],
+      'Information Technology': ['Information Technology'],
+      'EGD (Engineering Graphics & Design)': ['Engineering Graphics and Design (EGD)'],
+      'Visual Arts': ['Visual Arts'],
+      'Dramatic Arts': ['Dramatic Arts'],
+      'Music': ['Music'],
+      'Tourism': ['Tourism'],
+      'Hospitality Studies': ['Hospitality Studies'],
+      'Consumer Studies': ['Consumer Studies']
+    };
+    
+    // Check if any of the Step 1 names match this Step 3 subject
+    const step1Names = nameMapping[subject.name] || [];
+    const hasMatch = step1Names.some(step1Name => availableSubjects.includes(step1Name));
+    
+    // Also try partial matching for edge cases
+    if (!hasMatch) {
+      const subjectLower = subject.name.toLowerCase();
+      const partialMatch = availableSubjects.some(available => {
+        const availableLower = available.toLowerCase();
+        return availableLower.includes(subjectLower) || subjectLower.includes(availableLower);
+      });
+      return partialMatch;
+    }
+    
+    return hasMatch;
+  };
+  
+  const filteredSubjects = SUBJECTS.filter(isSubjectAvailable);
+  
+  // Debug logging
+  console.log('🔍 SubjectSelection - Filtering:', `${filteredSubjects.length}/${SUBJECTS.length} subjects`);
+  
   const toggleSubject = (subjectId) => {
     if (selected.includes(subjectId)) {
       onChange(selected.filter(id => id !== subjectId));
@@ -72,8 +133,19 @@ export default function SubjectSelection({ selected, onChange }) {
         </span>
       </div>
 
+      {availableSubjects.length > 0 && (
+        <div className="subjects-info">
+          <p className="subjects-note">
+            📚 Showing subjects from your curriculum: {availableSubjects.join(', ')}
+          </p>
+          <p className="filter-status">
+            🔍 Filtered to {filteredSubjects.length} of {SUBJECTS.length} subjects
+          </p>
+        </div>
+      )}
+
       <div className="subjects-grid">
-        {SUBJECTS.map((subject) => (
+        {filteredSubjects.map((subject) => (
           <button
             key={subject.id}
             onClick={() => toggleSubject(subject.id)}
@@ -226,6 +298,27 @@ export default function SubjectSelection({ selected, onChange }) {
           font-size: 14px;
           margin-top: 16px;
           font-weight: 500;
+        }
+
+        .subjects-info {
+          background: #f0f9ff;
+          border: 1px solid #bae6fd;
+          border-radius: 6px;
+          padding: 12px;
+          margin-bottom: 20px;
+        }
+
+        .subjects-note {
+          color: #0c4a6e;
+          font-size: 14px;
+          margin: 0 0 4px 0;
+        }
+
+        .filter-status {
+          color: #059669;
+          font-size: 12px;
+          font-weight: 500;
+          margin: 0;
         }
 
         @media (max-width: 768px) {

@@ -1,6 +1,6 @@
 'use client';
 
-export default function OpenQuestions({ values, onChange }) {
+export default function OpenQuestions({ values = {}, onChange }) {
   const updateQuestion = (field, value) => {
     onChange({
       ...values,
@@ -20,14 +20,14 @@ export default function OpenQuestions({ values, onChange }) {
         </label>
         <textarea
           id="motivation"
-          value={values.motivation}
+          value={values.motivation || ''}
           onChange={(e) => updateQuestion('motivation', e.target.value)}
           placeholder="E.g., I love solving problems, helping people, being creative..."
           className="textarea-input"
           rows={4}
         />
         <div className="char-count">
-          {values.motivation.length} / 500 characters
+          {(values.motivation || '').length} / 500 characters
         </div>
       </div>
 
@@ -38,7 +38,7 @@ export default function OpenQuestions({ values, onChange }) {
         </label>
         <textarea
           id="concerns"
-          value={values.concerns}
+          value={values.concerns || ''}
           onChange={(e) => updateQuestion('concerns', e.target.value)}
           placeholder="E.g., I'm worried about finding a job, I don't know if I can afford university..."
           className="textarea-input"
@@ -46,7 +46,7 @@ export default function OpenQuestions({ values, onChange }) {
           maxLength={500}
         />
         <div className="char-count">
-          {values.concerns.length} / 500 characters
+          {(values.concerns || '').length} / 500 characters
         </div>
       </div>
 

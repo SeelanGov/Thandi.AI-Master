@@ -1,0 +1,107 @@
+{
+  "timestamp": "2025-12-16T13:32:05.910Z",
+  "summary": {
+    "passed": 7,
+    "failed": 10,
+    "warnings": 2,
+    "total": 19,
+    "successRate": 36.84210526315789
+  },
+  "details": [
+    {
+      "name": "OpenQuestions Component exists",
+      "status": "PASS",
+      "message": "Found at app/assessment/components/OpenQuestions.jsx"
+    },
+    {
+      "name": "DeepDiveQuestions Component exists",
+      "status": "PASS",
+      "message": "Found at app/assessment/components/DeepDiveQuestions.jsx"
+    },
+    {
+      "name": "SubjectEnjoymentSelection Component exists",
+      "status": "FAIL",
+      "message": "Not found at app/assessment/components/SubjectEnjoymentSelection.jsx"
+    },
+    {
+      "name": "SubjectMarksCollection Component exists",
+      "status": "FAIL",
+      "message": "Not found at app/assessment/components/SubjectMarksCollection.jsx"
+    },
+    {
+      "name": "Step 4 Layout Reorganization",
+      "status": "FAIL",
+      "message": "Section-group layout not found"
+    },
+    {
+      "name": "Technical Information Removal",
+      "status": "PASS",
+      "message": "No technical cards found"
+    },
+    {
+      "name": "Student-Friendly Messaging",
+      "status": "FAIL",
+      "message": "Student-friendly messaging missing"
+    },
+    {
+      "name": "Calendar Dependency Fix",
+      "status": "FAIL",
+      "message": "Calendar-dependent messaging still present"
+    },
+    {
+      "name": "Urgency Banner Update",
+      "status": "FAIL",
+      "message": "Calendar-specific urgency still present"
+    },
+    {
+      "name": "CSS Layout Improvements",
+      "status": "FAIL",
+      "message": "Layout CSS improvements missing"
+    },
+    {
+      "name": "Mobile Responsiveness",
+      "status": "PASS",
+      "message": "Mobile breakpoints found"
+    },
+    {
+      "name": "Data Structure Preservation",
+      "status": "FAIL",
+      "message": "Data structure changes may break backend"
+    },
+    {
+      "name": "API Submission Format",
+      "status": "PASS",
+      "message": "Assessment depth parameter maintained"
+    },
+    {
+      "name": "Technical Jargon Removal",
+      "status": "PASS",
+      "message": "No technical terms found in student interface"
+    },
+    {
+      "name": "Student-Friendly Language",
+      "status": "FAIL",
+      "message": "Only 1/4 friendly terms found"
+    },
+    {
+      "name": "Error Boundary Component exists",
+      "status": "FAIL",
+      "message": "Not found at app/assessment/components/ErrorBoundary.jsx"
+    },
+    {
+      "name": "Error Boundary Implementation",
+      "status": "WARN",
+      "message": "Error boundary not found - may need implementation"
+    },
+    {
+      "name": "Minimal Re-renders",
+      "status": "WARN",
+      "message": "Check for potential performance issues"
+    },
+    {
+      "name": "Component Size Optimization",
+      "status": "PASS",
+      "message": "Average component size: 10662 chars"
+    }
+  ]
+}

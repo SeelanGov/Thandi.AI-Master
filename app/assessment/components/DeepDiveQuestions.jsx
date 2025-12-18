@@ -8,14 +8,32 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
   const [strugglingSubjects, setStrugglingSubjects] = useState([]);
   
   const subjects = ['Mathematics', 'Physical Science', 'Life Sciences', 'English', 'Afrikaans'];
-  const supportOptions = [
-    'School tutoring available',
-    'Private tutor (family can afford)',
-    'Study groups with friends',
-    'Online resources (Khan Academy, etc.)',
-    'Family help with homework',
-    'None of the above'
-  ];
+  // Grade-appropriate support options
+  const getSupportOptions = () => {
+    if (grade === 12) {
+      // Post-graduation support options
+      return [
+        'Online courses (Coursera, Khan Academy, etc.)',
+        'Private tutoring (if affordable)',
+        'Self-study resources',
+        'Career counseling services',
+        'Family guidance and support',
+        'None of the above'
+      ];
+    } else {
+      // Current student support options (Grade 10-11)
+      return [
+        'School tutoring available',
+        'Private tutor (family can afford)',
+        'Study groups with friends',
+        'Online resources (Khan Academy, etc.)',
+        'Family help with homework',
+        'None of the above'
+      ];
+    }
+  };
+  
+  const supportOptions = getSupportOptions();
   const strugglingOptions = [
     'Mathematics',
     'Physical Sciences',
