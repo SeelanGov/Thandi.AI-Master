@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import jsPDF from 'jspdf';
 import ThandiChat from './components/ThandiChat';
+import { trackEnhancedRecommendations, trackPDFDownload, trackEnhancementFeature } from '@/lib/analytics/track-events';
 
 export default function ResultsPage() {
   const [results, setResults] = useState(null);
@@ -33,6 +34,16 @@ export default function ResultsPage() {
       console.log('📊 Results loaded:', parsed);
       console.log('✅ Footer verified:', responseText.includes('⚠️ **Verify before you decide'));
       console.log('🚪 Gate data:', parsed.gate);
+      
+      // Track enhanced recommendations
+      const hasEnhancement = responseText.includes('University') && responseText.includes('APS');
+      const programsCount = (responseText.match(/University of|UCT|UJ|Wits|TUT/g) || []).length;
+      const bursariesCount = (responseText.match(/Bursary|NSFAS|Sasol/g) || []).length;
+      
+      if (hasEnhancement) {
+        trackEnhancedRecommendations(parsed.grade, programsCount, bursariesCount);
+        trackEnhancementFeature('specific_programs', parsed.grade, true);
+      }
     } catch (error) {
       console.error('Error loading results:', error);
       window.location.href = '/test';
@@ -249,6 +260,10 @@ export default function ResultsPage() {
     // 6. Save PDF
     const timestamp = new Date().toISOString().split('T')[0];
     pdf.save(`thandi-career-guidance-${timestamp}.pdf`);
+    
+    // Track PDF download with enhancement status
+    const hasEnhancedContent = results.response?.includes('University') && results.response?.includes('APS');
+    trackPDFDownload(results.grade, hasEnhancedContent);
   };
 
   if (loading) {

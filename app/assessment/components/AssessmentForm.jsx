@@ -13,6 +13,7 @@ import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
 
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
+import { trackAssessmentComplete, trackJourneyComplete } from '../../../lib/analytics/track-events';
 const StudentProfileBuilder = require('../../../lib/student/StudentProfileBuilder.js');
 const QueryContextStructurer = require('../../../lib/student/QueryContextStructurer.js');
 
@@ -79,6 +80,11 @@ export default function AssessmentForm() {
 
   // Load saved data on mount - but don't override grade selection
   useEffect(() => {
+    // Set assessment start time for journey tracking
+    if (!localStorage.getItem('assessment_start_time')) {
+      localStorage.setItem('assessment_start_time', Date.now().toString());
+    }
+    
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
@@ -364,6 +370,21 @@ export default function AssessmentForm() {
           }
         };
         localStorage.setItem('thandi_results', JSON.stringify(resultsWithMetadata));
+        
+        // Track assessment completion
+        trackAssessmentComplete(formData.grade, formData.curriculum || 'caps');
+        
+        // Track journey completion
+        const startTime = localStorage.getItem('assessment_start_time');
+        if (startTime) {
+          trackJourneyComplete(
+            formData.grade,
+            parseInt(startTime),
+            Date.now(),
+            currentStep
+          );
+        }
+        
         // Navigate to results
         window.location.href = '/results';
       } else {
