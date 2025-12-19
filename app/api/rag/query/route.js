@@ -411,15 +411,39 @@ export async function POST(request) {
     const body = await request.json();
     const { query, grade, curriculum, profile, curriculumProfile } = body;
     
+    // CRITICAL FIX: Grade parameter takes absolute priority over query text parsing
+    const gradeParam = grade || profile?.grade || curriculumProfile?.grade;
+    
     // Extract student profile data for specific recommendations
     let enhancedStudentProfile = null;
     if (profile || curriculumProfile) {
+      // CRITICAL FIX: Use structured marks data from profile.marksData if available
+      let marksData = {};
+      
+      // Priority 1: Use structured marks from profile.marksData (from AssessmentForm)
+      if (profile?.marksData?.exactMarks) {
+        Object.entries(profile.marksData.exactMarks).forEach(([subject, mark]) => {
+          if (mark && mark !== '') {
+            // Convert subject names to match expected format
+            const subjectKey = subject.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+            marksData[subjectKey] = parseFloat(mark);
+          }
+        });
+      }
+      
+      // Priority 2: Fallback to query text extraction if no structured data
+      if (Object.keys(marksData).length === 0) {
+        marksData = extractMarksFromQuery(query);
+      }
+      
       enhancedStudentProfile = {
-        marks: extractMarksFromQuery(query),
+        marks: marksData,
         constraints: profile?.constraints || {},
         careerInterests: extractCareerInterests(query),
         ...profile
       };
+      
+
     }
     
     // Quick validation
@@ -427,11 +451,20 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Query is required' }, { status: 400 });
     }
     
-    // Parse grade from query if not provided or if query contains explicit grade
-    let parsedGrade = grade || 'grade10';
+    // CRITICAL FIX: Grade parameter takes ABSOLUTE PRIORITY
+    // The frontend sends the correct grade, don't let query parsing override it
+    let parsedGrade = 'grade10'; // Default fallback
     
-    // Check for explicit grade mentions in query with priority for "I am a Grade X student" pattern
-    if (query) {
+    // FIRST PRIORITY: Use the grade parameter sent from frontend (most reliable)
+    if (grade) {
+      if (grade === '10' || grade === 10 || grade === 'grade10') parsedGrade = 'grade10';
+      else if (grade === '11' || grade === 11 || grade === 'grade11') parsedGrade = 'grade11';
+      else if (grade === '12' || grade === 12 || grade === 'grade12') parsedGrade = 'grade12';
+      else if (typeof grade === 'string' && grade.startsWith('grade')) parsedGrade = grade;
+    }
+    
+    // SECOND PRIORITY: Only parse query if no grade parameter provided
+    if (!grade && query) {
       // First priority: "I am a Grade X student" pattern
       const studentPattern = query.match(/I am a Grade (\d+) student/i);
       if (studentPattern) {
@@ -451,15 +484,8 @@ export async function POST(request) {
       }
     }
     
-    // Final fallback: use passed grade parameter, ensure proper format
-    if (!parsedGrade || parsedGrade === 'grade10') {
-      if (grade) {
-        if (grade === '10' || grade === 10) parsedGrade = 'grade10';
-        else if (grade === '11' || grade === 11) parsedGrade = 'grade11';
-        else if (grade === '12' || grade === 12) parsedGrade = 'grade12';
-        else if (typeof grade === 'string' && grade.startsWith('grade')) parsedGrade = grade;
-      }
-    }
+    // Debug logging for grade detection
+    console.log(`[GRADE DETECTION] Input grade: ${grade}, Parsed grade: ${parsedGrade}, Query contains: ${query?.substring(0, 100)}...`);
     
     // Create profile for caching
     const cacheProfile = profile || {

@@ -65,6 +65,7 @@ export default function AssessmentForm() {
       exactMarks: {},
       rangeMarks: {}
     },
+
     openQuestions: {
       motivation: '',
       concerns: '',
@@ -135,7 +136,10 @@ export default function AssessmentForm() {
   };
 
   const handleCoreQuestionsComplete = () => {
-    if (grade === 10) {
+    // CRITICAL FIX: Ensure proper grade comparison (grade is a number from GradeSelector)
+    const gradeNumber = parseInt(grade) || parseInt(formData.grade) || 10;
+    
+    if (gradeNumber === 10) {
       // Grade 10: Show preliminary report with opt-in to DeepDive
       setShowPreliminaryReport(true);
     } else {
@@ -201,7 +205,9 @@ export default function AssessmentForm() {
       setCurrentStep(prev => prev + 1);
     } else {
       // All 6 steps complete - handle submission
-      if (grade === 10) {
+      const gradeNumber = parseInt(grade) || parseInt(formData.grade) || 10;
+      
+      if (gradeNumber === 10) {
         // Grade 10: Show preliminary report with opt-in to DeepDive
         setShowPreliminaryReport(true);
       } else {
@@ -337,9 +343,16 @@ export default function AssessmentForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           query,
+          grade: `grade${formData.grade}`, // Fix: Send grade as top-level parameter
+          curriculum: 'caps',
           curriculumProfile: {
             ...formData.curriculumProfile,
             grade: formData.grade
+          },
+          profile: {
+            grade: formData.grade,
+            marks: formData.curriculumProfile?.currentSubjects || {},
+            constraints: formData.constraints || {}
           },
           session: {
             externalProcessingConsent: consent.given,

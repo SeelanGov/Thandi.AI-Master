@@ -14,16 +14,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/api/rag/query/route.js"
-    ],
-    "/results/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/results/page.js"
-    ],
-    "/api/cache/health/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/cache/health/route.js"
     ]
   }
 }
