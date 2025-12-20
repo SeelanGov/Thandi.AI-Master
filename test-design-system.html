@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thandi Assessment Design System Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Include our design system CSS variables and components */
+        :root {
+            --thandi-teal: #114E4E;
+            --thandi-gold: #DFA33A;
+            --thandi-teal-mid: #2C7A7B;
+            --thandi-teal-light: #3AB795;
+            --thandi-cream: #F3E6C9;
+            --thandi-brown: #5C3B20;
+            --assessment-bg: #f8fafc;
+            --assessment-card-bg: #ffffff;
+            --assessment-border: rgba(17, 78, 78, 0.1);
+            --assessment-border-focus: #2C7A7B;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --radius-md: 0.75rem;
+            --radius-xl: 1.5rem;
+            --shadow-thandi: 0 4px 6px rgba(17, 78, 78, 0.08);
+            --shadow-thandi-lg: 0 8px 25px rgba(17, 78, 78, 0.12);
+            --transition-normal: 0.3s ease-out;
+        }
+        
+        body {
+            font-family: 'Nunito', system-ui, sans-serif;
+            background-color: var(--assessment-bg);
+        }
+        
+        .assessment-container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .assessment-card {
+            background: var(--assessment-card-bg);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-thandi);
+            border: 1px solid var(--assessment-border);
+            padding: var(--space-2xl);
+            margin: var(--space-lg) 0;
+            transition: all var(--transition-normal);
+        }
+        
+        .assessment-card:hover {
+            box-shadow: var(--shadow-thandi-lg);
+            transform: translateY(-2px);
+        }
+        
+        .assessment-title {
+            font-family: 'Poppins', system-ui, sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--thandi-teal);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .btn-assessment-primary {
+            font-family: 'Nunito', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            background: linear-gradient(135deg, var(--thandi-teal) 0%, var(--thandi-teal-mid) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--space-md) var(--space-xl);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-width: 140px;
+        }
+        
+        .btn-assessment-primary:hover {
+            background: linear-gradient(135deg, #0d3d3d 0%, #236b6b 100%);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-thandi-lg);
+        }
+        
+        .btn-assessment-gold {
+            font-family: 'Nunito', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            background: var(--thandi-gold);
+            color: var(--thandi-teal);
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--space-md) var(--space-xl);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-width: 140px;
+        }
+        
+        .btn-assessment-gold:hover {
+            background: #c8922e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(223, 163, 58, 0.25);
+        }
+        
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+        
+        .selection-item {
+            background: var(--assessment-card-bg);
+            border: 2px solid var(--assessment-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+        
+        .selection-item:hover {
+            border-color: var(--thandi-teal-mid);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-thandi);
+        }
+        
+        .selection-item.selected {
+            border-color: var(--thandi-gold);
+            background: rgba(223, 163, 58, 0.05);
+        }
+        
+        .selection-item.selected::after {
+            content: '✓';
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: var(--thandi-gold);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="assessment-container">
+        <div class="assessment-card">
+            <h1 class="assessment-title">Thandi Assessment Design System</h1>
+            <p style="color: var(--thandi-brown); margin-bottom: 2rem;">Testing our design foundations before implementing components.</p>
+            
+            <h2 style="font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--thandi-teal); margin-bottom: 1rem;">Button System</h2>
+            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <button class="btn-assessment-primary">Primary Button</button>
+                <button class="btn-assessment-gold">Gold Button</button>
+            </div>
+            
+            <h2 style="font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--thandi-teal); margin-bottom: 1rem;">Selection Components</h2>
+            <div class="selection-grid">
+                <div class="selection-item">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Option 1</div>
+                    <div style="color: var(--thandi-brown); font-size: 0.9rem;">This is a description of option 1</div>
+                </div>
+                <div class="selection-item selected">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Option 2 (Selected)</div>
+                    <div style="color: var(--thandi-brown); font-size: 0.9rem;">This option is currently selected</div>
+                </div>
+                <div class="selection-item">
+                    <div style="font-weight: 600; margin-bottom: 0.5rem;">Option 3</div>
+                    <div style="color: var(--thandi-brown); font-size: 0.9rem;">Another option to choose from</div>
+                </div>
+            </div>
+            
+            <h2 style="font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--thandi-teal); margin-bottom: 1rem;">Color Palette</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                <div style="background: var(--thandi-teal); color: white; padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                    <div style="font-weight: 600;">Thandi Teal</div>
+                    <div style="font-size: 0.8rem; opacity: 0.9;">#114E4E</div>
+                </div>
+                <div style="background: var(--thandi-gold); color: var(--thandi-teal); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                    <div style="font-weight: 600;">Thandi Gold</div>
+                    <div style="font-size: 0.8rem; opacity: 0.9;">#DFA33A</div>
+                </div>
+                <div style="background: var(--thandi-teal-light); color: white; padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                    <div style="font-weight: 600;">Teal Light</div>
+                    <div style="font-size: 0.8rem; opacity: 0.9;">#3AB795</div>
+                </div>
+                <div style="background: var(--thandi-cream); color: var(--thandi-teal); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                    <div style="font-weight: 600;">Thandi Cream</div>
+                    <div style="font-size: 0.8rem; opacity: 0.9;">#F3E6C9</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Add click handlers for selection items
+        document.querySelectorAll('.selection-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.selection-item').forEach(i => i.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Add hover effects for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

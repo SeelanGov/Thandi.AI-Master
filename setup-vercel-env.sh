@@ -1,34 +1,18 @@
-#!/bin/bash
-# Setup Vercel Environment Variables
-# Run this script to add all environment variables to Vercel
-
-echo "🔐 Setting up Vercel Environment Variables..."
-echo "=============================================="
-echo ""
-echo "This will add environment variables from .env.local to Vercel"
-echo "You'll be prompted to paste each value"
-echo ""
-
-# Read from .env.local
-source .env.local
-
-echo "Adding GROQ_API_KEY..."
-echo "$GROQ_API_KEY" | vercel env add GROQ_API_KEY production
-
-echo "Adding OPENAI_API_KEY..."
-echo "$OPENAI_API_KEY" | vercel env add OPENAI_API_KEY production
-
-echo "Adding NEXT_PUBLIC_SUPABASE_URL..."
-echo "$NEXT_PUBLIC_SUPABASE_URL" | vercel env add NEXT_PUBLIC_SUPABASE_URL production
-
-echo "Adding NEXT_PUBLIC_SUPABASE_ANON_KEY..."
-echo "$NEXT_PUBLIC_SUPABASE_ANON_KEY" | vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY production
-
-echo "Adding SUPABASE_SERVICE_ROLE_KEY..."
-echo "$SUPABASE_SERVICE_ROLE_KEY" | vercel env add SUPABASE_SERVICE_ROLE_KEY production
-
-echo ""
-echo "✅ Environment variables added!"
-echo ""
-echo "🚀 Now redeploy with:"
-echo "   vercel --prod"
+vercel env add NEXT_PUBLIC_SUPABASE_URL production
+vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY production
+vercel env add SUPABASE_SERVICE_ROLE_KEY production
+vercel env add SUPABASE_ACCESS_TOKEN production
+vercel env add ANTHROPIC_API_KEY production
+vercel env add OPENAI_API_KEY production
+vercel env add GROQ_API_KEY production
+vercel env add LLM_PROVIDER production
+vercel env add ANTHROPIC_MODEL production
+vercel env add OPENAI_MODEL production
+vercel env add GROQ_MODEL production
+vercel env add OPENAI_EMBEDDING_MODEL production
+vercel env add UPSTASH_REDIS_REST_URL production
+vercel env add UPSTASH_REDIS_REST_TOKEN production
+vercel env add NODE_ENV production
+vercel env add BACKEND_URL production
+vercel env add NEXTAUTH_SECRET production
+vercel env add NEXTAUTH_URL production

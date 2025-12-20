@@ -422,6 +422,7 @@ export async function POST(request) {
       
       // Priority 1: Use structured marks from profile.marksData (from AssessmentForm)
       if (profile?.marksData?.exactMarks) {
+        console.log(`[MARKS DEBUG] Found structured marks:`, profile.marksData.exactMarks);
         Object.entries(profile.marksData.exactMarks).forEach(([subject, mark]) => {
           if (mark && mark !== '') {
             // Convert subject names to match expected format
@@ -429,11 +430,14 @@ export async function POST(request) {
             marksData[subjectKey] = parseFloat(mark);
           }
         });
+        console.log(`[MARKS DEBUG] Processed marks data:`, marksData);
       }
       
       // Priority 2: Fallback to query text extraction if no structured data
       if (Object.keys(marksData).length === 0) {
+        console.log(`[MARKS DEBUG] No structured marks found, extracting from query`);
         marksData = extractMarksFromQuery(query);
+        console.log(`[MARKS DEBUG] Extracted from query:`, marksData);
       }
       
       enhancedStudentProfile = {
@@ -443,7 +447,12 @@ export async function POST(request) {
         ...profile
       };
       
-
+      console.log(`[PROFILE DEBUG] Enhanced student profile created:`, {
+        hasMarks: Object.keys(marksData).length > 0,
+        marksCount: Object.keys(marksData).length,
+        grade: enhancedStudentProfile.grade,
+        sessionId: enhancedStudentProfile.sessionId
+      });
     }
     
     // Quick validation
@@ -487,26 +496,42 @@ export async function POST(request) {
     // Debug logging for grade detection
     console.log(`[GRADE DETECTION] Input grade: ${grade}, Parsed grade: ${parsedGrade}, Query contains: ${query?.substring(0, 100)}...`);
     
-    // Create profile for caching
+    // Create profile for caching with session ID for uniqueness
     const cacheProfile = profile || {
       grade: parsedGrade,
       curriculum: curriculum || 'caps'
     };
     
-    // Check cache first
-    const cachedResult = await getCachedResponse(cacheProfile, query);
-    if (cachedResult) {
-      const totalTime = Date.now() - startTime;
-      console.log(`[CACHE HIT] Total response time: ${totalTime}ms`);
-      
-      return NextResponse.json({
-        ...cachedResult,
-        performance: {
-          ...cachedResult.performance,
-          totalTime,
-          source: 'cache'
-        }
-      });
+    // CRITICAL FIX: Add session ID to prevent cache collision between students
+    if (!cacheProfile.sessionId) {
+      cacheProfile.sessionId = `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    }
+    
+    // CRITICAL FIX: Bypass cache for assessment submissions with marks data
+    const hasMarksData = (profile?.marksData?.exactMarks && Object.keys(profile.marksData.exactMarks).length > 0) ||
+                        (profile?.marks && Object.keys(profile.marks).length > 0);
+    
+    const shouldBypassCache = hasMarksData || query.includes('assessment') || query.includes('APS') || query.includes('marks');
+    
+    // Check cache first (but bypass if assessment submission)
+    let cachedResult = null;
+    if (!shouldBypassCache) {
+      cachedResult = await getCachedResponse(cacheProfile, query);
+      if (cachedResult) {
+        const totalTime = Date.now() - startTime;
+        console.log(`[CACHE HIT] Total response time: ${totalTime}ms`);
+        
+        return NextResponse.json({
+          ...cachedResult,
+          performance: {
+            ...cachedResult.performance,
+            totalTime,
+            source: 'cache'
+          }
+        });
+      }
+    } else {
+      console.log(`[CACHE BYPASS] Assessment submission detected - generating fresh response`);
     }
     
 
@@ -535,10 +560,14 @@ export async function POST(request) {
       timestamp: new Date().toISOString()
     };
     
-    // Cache the response asynchronously (don't wait)
-    setCachedResponse(cacheProfile, query, response).catch(err => {
-      console.error('Cache set error:', err.message);
-    });
+    // Cache the response asynchronously (but only if not assessment submission)
+    if (!shouldBypassCache) {
+      setCachedResponse(cacheProfile, query, response).catch(err => {
+        console.error('Cache set error:', err.message);
+      });
+    } else {
+      console.log(`[CACHE SKIP] Not caching assessment submission response`);
+    }
     
     return NextResponse.json(response);
     
