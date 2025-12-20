@@ -265,6 +265,11 @@ ${contextualAdvice.urgentDeadlines.length > 0
 ⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.`
   }
 
+  // CRITICAL: Ensure verification warning is ALWAYS present
+  if (!careerResponse.includes('⚠️') || !careerResponse.includes('verify')) {
+    careerResponse += `\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.`;
+  }
+
   return {
     response: careerResponse,
     fullResponse: careerResponse,
@@ -511,7 +516,10 @@ export async function POST(request) {
     const hasMarksData = (profile?.marksData?.exactMarks && Object.keys(profile.marksData.exactMarks).length > 0) ||
                         (profile?.marks && Object.keys(profile.marks).length > 0);
     
-    const shouldBypassCache = hasMarksData || query.includes('assessment') || query.includes('APS') || query.includes('marks');
+    // ENHANCED: Always bypass cache for assessment submissions to prevent collisions
+    const shouldBypassCache = true; // Force bypass for all assessment requests
+    
+    console.log(`[CACHE DEBUG] shouldBypassCache: ${shouldBypassCache}, hasMarksData: ${hasMarksData}, sessionId: ${cacheProfile.sessionId}`);
     
     // Check cache first (but bypass if assessment submission)
     let cachedResult = null;
