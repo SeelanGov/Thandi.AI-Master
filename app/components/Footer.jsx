@@ -7,6 +7,17 @@ export default function Footer() {
     { label: 'Admin', href: '/admin' },
   ];
 
+  const legalLinks = [
+    { label: 'Privacy Policy', href: '/legal/privacy-policy' },
+    { label: 'Terms of Service', href: '/legal/terms-of-service' },
+    { label: 'Cookie Policy', href: '/legal/cookie-policy' },
+    { label: 'Disclaimers', href: '/legal/disclaimers' },
+    { label: 'POPIA Compliance', href: '/legal/popia-compliance' },
+    { label: 'Student Data Protection', href: '/legal/student-data-protection' },
+    { label: 'AI Content Policy', href: '/legal/content-policy' },
+    { label: 'Accessibility Statement', href: '/legal/accessibility-statement' },
+  ];
+
   const socialLinks = [
     { 
       label: 'Twitter', 
@@ -40,7 +51,7 @@ export default function Footer() {
   return (
     <footer className="bg-thandi-teal text-thandi-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
@@ -57,6 +68,19 @@ export default function Footer() {
               Discover your path from school to a successful career that matches 
               your interests, subjects, and goals.
             </p>
+            
+            {/* Trust Badges */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-thandi-gold/20 text-thandi-gold border border-thandi-gold/30">
+                POPIA Compliant
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-thandi-gold/20 text-thandi-gold border border-thandi-gold/30">
+                B-BBEE Level 1
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-thandi-gold/20 text-thandi-gold border border-thandi-gold/30">
+                Student Data Protected
+              </span>
+            </div>
             
             {/* Social Links */}
             <div className="flex space-x-4">
@@ -89,29 +113,44 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Legal & Compliance */}
+          <div>
+            <h4 className="text-lg font-semibold font-heading mb-4">Legal & Compliance</h4>
+            <ul className="space-y-2">
+              {legalLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-thandi-cream/80 hover:text-thandi-gold transition-colors font-body text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Contact Information */}
+        {/* Company Information */}
         <div className="mt-12 pt-8 border-t border-thandi-cream/20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h5 className="font-semibold font-heading mb-2">Get in Touch</h5>
+              <h5 className="font-semibold font-heading mb-2">Company Information</h5>
               <p className="text-thandi-cream/80 text-sm font-body">
+                <span className="block">THANDI AI (PTY) LTD</span>
+                <span className="block">Registration: 2025/939429/07</span>
+                <span className="block">POPIA Reg: 2025-068149</span>
+                <span className="block">B-BBEE Level 1 Contributor</span>
+              </p>
+            </div>
+            <div>
+              <h5 className="font-semibold font-heading mb-2">Contact Information</h5>
+              <p className="text-thandi-cream/80 text-sm font-body">
+                <span className="block">Durban, KwaZulu-Natal</span>
                 <span className="block">Email: hello@thandi.online</span>
-              </p>
-            </div>
-            <div>
-              <h5 className="font-semibold font-heading mb-2">Location</h5>
-              <p className="text-thandi-cream/80 text-sm font-body">
-                Cape Town, South Africa<br />
-                Serving students nationwide
-              </p>
-            </div>
-            <div>
-              <h5 className="font-semibold font-heading mb-2">Support</h5>
-              <p className="text-thandi-cream/80 text-sm font-body">
-                Available Monday - Friday<br />
-                8:00 AM - 5:00 PM SAST
+                <span className="block">Available Monday - Friday</span>
+                <span className="block">8:00 AM - 5:00 PM SAST</span>
               </p>
             </div>
           </div>
@@ -120,18 +159,18 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-thandi-cream/20 flex flex-col md:flex-row justify-between items-center">
           <p className="text-thandi-cream/70 text-sm font-body">
-            © 2025 Thandi AI (PTY) LTD. All rights reserved. • POPIA Compliant
+            © 2025 Thandi AI (PTY) LTD. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="#" className="text-thandi-cream/70 hover:text-thandi-gold text-sm transition-colors font-body">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-thandi-cream/70 hover:text-thandi-gold text-sm transition-colors font-body">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-thandi-cream/70 hover:text-thandi-gold text-sm transition-colors font-body">
-              Cookie Policy
-            </Link>
+          <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
+            {legalLinks.slice(0, 4).map((link) => (
+              <Link 
+                key={link.label}
+                href={link.href} 
+                className="text-thandi-cream/70 hover:text-thandi-gold text-sm transition-colors font-body"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
