@@ -14,8 +14,6 @@ import CurriculumProfile from './CurriculumProfile';
 
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 import { trackAssessmentComplete, trackJourneyComplete } from '../../../lib/analytics/track-events';
-const StudentProfileBuilder = require('../../../lib/student/StudentProfileBuilder.js');
-const QueryContextStructurer = require('../../../lib/student/QueryContextStructurer.js');
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
@@ -81,6 +79,9 @@ export default function AssessmentForm() {
 
   // Load saved data on mount - but don't override grade selection
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     // Set assessment start time for journey tracking
     if (!localStorage.getItem('assessment_start_time')) {
       localStorage.setItem('assessment_start_time', Date.now().toString());
@@ -133,24 +134,180 @@ export default function AssessmentForm() {
     setGrade(selectedGrade);
     setFormData(prev => ({ ...prev, grade: selectedGrade }));
     setCurrentStep(1);
+    // Scroll to top when starting the assessment
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleCoreQuestionsComplete = () => {
-    // CRITICAL FIX: Ensure proper grade comparison (grade is a number from GradeSelector)
-    const gradeNumber = parseInt(grade) || parseInt(formData.grade) || 10;
+  const generatePreliminaryReport = async () => {
+    // Generate preliminary report with REAL assessment data
+    setIsLoading(true);
     
-    if (gradeNumber === 10) {
-      // Grade 10: Show preliminary report with opt-in to DeepDive
+    try {
+      // Build query using actual assessment data
+      let preliminaryQuery = `I am a Grade 10 student in South Africa following the ${formData.curriculumProfile?.framework || 'CAPS'} curriculum. 
+      
+      Subjects I enjoy: ${(formData.enjoyedSubjects || []).join(', ')}. 
+      Interests: ${(formData.interests || []).join(', ')}.`;
+
+      // Add marks data if available
+      if (formData.marksData?.marksOption === 'provide' && formData.marksData.exactMarks) {
+        const marksEntries = Object.entries(formData.marksData.exactMarks)
+          .filter(([_, mark]) => mark && mark !== '')
+          .map(([subject, mark]) => `${subject}: ${mark}%`);
+        
+        if (marksEntries.length > 0) {
+          preliminaryQuery += `\n\nMy current marks: ${marksEntries.join(', ')}.`;
+        }
+      } else if (formData.marksData?.marksOption === 'ranges' && formData.marksData.rangeMarks) {
+        const rangeEntries = Object.entries(formData.marksData.rangeMarks)
+          .filter(([_, range]) => range && range !== '')
+          .map(([subject, range]) => `${subject}: ${range}`);
+        
+        if (rangeEntries.length > 0) {
+          preliminaryQuery += `\n\nMy performance levels: ${rangeEntries.join(', ')}.`;
+        }
+      } else {
+        preliminaryQuery += `\n\nI haven't provided my marks yet - please give general guidance.`;
+      }
+
+      // Add constraints if available
+      if (formData.constraints) {
+        const constraints = [];
+        if (formData.constraints.time) constraints.push(`Time: ${formData.constraints.time}`);
+        if (formData.constraints.money) constraints.push(`Budget: ${formData.constraints.money}`);
+        if (formData.constraints.location) constraints.push(`Location: ${formData.constraints.location}`);
+        
+        if (constraints.length > 0) {
+          preliminaryQuery += `\n\nConstraints: ${constraints.join(', ')}.`;
+        }
+      }
+      
+      preliminaryQuery += `\n\nPlease provide 3 career recommendations with:
+      1. Career title and match percentage (based on my interests and subjects)
+      2. What marks I need to achieve by Grade 12
+      3. Specific subjects to focus on improving
+      4. One relevant bursary opportunity with amount
+      
+      Keep it concise - this is a preliminary report before detailed 2-year planning.`;
+
+      const response = await fetch('/api/rag/query', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: preliminaryQuery,
+          grade: `grade${formData.grade}`,
+          curriculum: formData.curriculumProfile?.framework?.toLowerCase() || 'caps',
+          curriculumProfile: {
+            ...formData.curriculumProfile,
+            grade: formData.grade
+          },
+          profile: {
+            grade: formData.grade,
+            marks: formData.marksData || {},
+            constraints: formData.constraints || {}
+          },
+          session: {
+            externalProcessingConsent: consent.given,
+            consentTimestamp: consent.timestamp
+          },
+          options: {
+            includeDebug: false,
+            preliminaryReport: true
+          }
+        })
+      });
+
+      const data = await response.json();
+      
+      if (data.success && data.response) {
+        // Parse the response to extract career recommendations
+        const parsedCareers = parsePreliminaryResponse(data.response);
+        
+        // Store both raw and parsed results
+        localStorage.setItem('thandi_preliminary_results', JSON.stringify({
+          ...data,
+          parsedCareers
+        }));
+        
+        setIsLoading(false);
+        setShowPreliminaryReport(true);
+      } else {
+        // Fallback to mock data if API fails
+        console.warn('Preliminary report API failed, using fallback data');
+        setIsLoading(false);
+        setShowPreliminaryReport(true);
+      }
+    } catch (error) {
+      console.error('Preliminary report error:', error);
+      setIsLoading(false);
       setShowPreliminaryReport(true);
-    } else {
-      // Grade 11-12: Go directly to results (no DeepDive needed)
-      handleSubmit();
     }
+  };
+
+  const parsePreliminaryResponse = (response) => {
+    // Try to extract career information from the response
+    const careers = [];
+    
+    // Look for numbered career recommendations
+    const careerMatches = response.match(/\d+\.\s*\*\*([^*]+)\*\*[^]*?(?=\d+\.|$)/g);
+    
+    if (careerMatches && careerMatches.length > 0) {
+      careerMatches.slice(0, 3).forEach((match, index) => {
+        const titleMatch = match.match(/\d+\.\s*\*\*([^*]+)\*\*/);
+        const title = titleMatch ? titleMatch[1].trim() : `Career Option ${index + 1}`;
+        
+        // Extract match percentage if mentioned
+        const percentMatch = match.match(/(\d+)%\s*match/i);
+        const matchPercent = percentMatch ? parseInt(percentMatch[1]) : 75 + (index * 5);
+        
+        // Extract key information
+        const reason = match.substring(0, 200).replace(/\*\*/g, '').replace(/\d+\.\s*/, '').trim() + '...';
+        
+        // Look for bursary information
+        const bursaryMatch = match.match(/bursary|NSFAS|funding/i);
+        const bursaries = bursaryMatch ? ['NSFAS funding available'] : ['Check university websites'];
+        
+        careers.push({
+          title,
+          match: matchPercent,
+          reason,
+          bursaries
+        });
+      });
+    }
+    
+    // Fallback if parsing fails
+    if (careers.length === 0) {
+      return [
+        {
+          title: "Based on your interests",
+          match: 80,
+          reason: "We found careers matching your subject preferences. Complete the detailed assessment for specific recommendations.",
+          bursaries: ["NSFAS funding available"]
+        },
+        {
+          title: "Alternative career path",
+          match: 75,
+          reason: "Additional options based on your profile. Get your personalized plan for detailed guidance.",
+          bursaries: ["Private bursaries available"]
+        },
+        {
+          title: "Backup option",
+          match: 70,
+          reason: "Solid fallback choice. Your 2-year plan will show how to improve for better options.",
+          bursaries: ["Various funding options"]
+        }
+      ];
+    }
+    
+    return careers;
   };
 
   const handleDeepDiveOptIn = () => {
     setShowPreliminaryReport(false);
     setShowDeepDive(true);
+    // Scroll to top for DeepDive questions
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSkipDeepDive = () => {
@@ -159,10 +316,187 @@ export default function AssessmentForm() {
   };
 
   const handleDeepDiveComplete = (deepDiveData) => {
-    // Submit with comprehensive assessment
-    setFormData(prev => ({ ...prev, ...deepDiveData }));
-    // Trigger submit after state update
-    setTimeout(() => handleSubmit(), 100);
+    // Combine main assessment data with DeepDive enhancement data
+    // NO duplicate marks - DeepDive focuses on 2-year planning
+    const enhancedFormData = { 
+      ...formData, 
+      ...deepDiveData,
+      assessmentDepth: 'comprehensive'
+    };
+    
+    // Update form data with enhancement
+    setFormData(enhancedFormData);
+    
+    // Submit with comprehensive assessment - includes 2-year planning context
+    setTimeout(() => {
+      handleSubmitWithEnhancement(enhancedFormData);
+    }, 100);
+  };
+
+  const handleSubmitWithEnhancement = async (enhancedData) => {
+    console.log('📤 Submitting enhanced assessment:', enhancedData);
+    
+    setIsLoading(true);
+    
+    const API_URL = '/api/rag/query';
+    
+    // Get current date context
+    const currentDate = new Date();
+    const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+    const currentYear = currentDate.getFullYear();
+    
+    // Build enhanced query with 2-year planning focus
+    let query = `I am a Grade ${enhancedData.grade || 10} student in South Africa following the ${enhancedData.curriculumProfile?.framework || 'CAPS'} curriculum. Today is ${currentMonth} ${currentYear}. I have 2 years left before Grade 12 finals.
+
+    ASSESSMENT DATA:
+    Subjects I enjoy: ${(enhancedData.enjoyedSubjects || []).join(', ')}.
+    Interests: ${(enhancedData.interests || []).join(', ')}.`;
+
+    // Add marks data from main assessment (Step 2)
+    if (enhancedData.marksData?.marksOption === 'provide' && enhancedData.marksData.exactMarks) {
+      const marksEntries = Object.entries(enhancedData.marksData.exactMarks)
+        .filter(([_, mark]) => mark && mark !== '')
+        .map(([subject, mark]) => `${subject}: ${mark}%`);
+      
+      if (marksEntries.length > 0) {
+        query += `\n    Current marks: ${marksEntries.join(', ')}.`;
+      }
+    } else if (enhancedData.marksData?.marksOption === 'ranges' && enhancedData.marksData.rangeMarks) {
+      const rangeEntries = Object.entries(enhancedData.marksData.rangeMarks)
+        .filter(([_, range]) => range && range !== '')
+        .map(([subject, range]) => `${subject}: ${range}`);
+      
+      if (rangeEntries.length > 0) {
+        query += `\n    Performance levels: ${rangeEntries.join(', ')}.`;
+      }
+    }
+
+    // Add career interests for prioritization
+    if (enhancedData.openQuestions?.careerInterests && enhancedData.openQuestions.careerInterests.trim()) {
+      query += `\n\n    CAREER GOAL: "${enhancedData.openQuestions.careerInterests}"
+      Please prioritize this career if my subjects and marks make it feasible. If not, explain why and suggest closest alternatives.`;
+    }
+
+    // Add 2-year planning context from DeepDive
+    query += `\n\n    2-YEAR PLANNING CONTEXT:`;
+    
+    if (enhancedData.studyHabits && enhancedData.studyHabits.length > 0) {
+      query += `\n    Study habits: ${enhancedData.studyHabits.join(', ')}.`;
+    }
+    
+    if (enhancedData.strugglingSubjects && enhancedData.strugglingSubjects.length > 0) {
+      query += `\n    Subjects needing improvement: ${enhancedData.strugglingSubjects.join(', ')}.`;
+    }
+    
+    if (enhancedData.improvementAreas && enhancedData.improvementAreas.length > 0) {
+      query += `\n    Skills to develop: ${enhancedData.improvementAreas.join(', ')}.`;
+    }
+    
+    if (enhancedData.timeCommitment) {
+      query += `\n    Time available for improvement: ${enhancedData.timeCommitment}.`;
+    }
+    
+    if (enhancedData.supportSystem && enhancedData.supportSystem.length > 0) {
+      query += `\n    Support available: ${enhancedData.supportSystem.join(', ')}.`;
+    }
+
+    // Add constraints
+    const constraints = enhancedData.constraints || {};
+    query += `\n\n    CONSTRAINTS: ${constraints.time || 'flexible'}, ${constraints.money || 'not specified'}, ${constraints.location || 'anywhere'}.`;
+
+    // Request comprehensive 2-year plan
+    query += `\n\n    Please provide a COMPREHENSIVE 2-YEAR SUCCESS PLAN including:
+    1. Specific career recommendations with match percentages
+    2. Year-by-year mark improvement targets (Grade 10 → 11 → 12)
+    3. Month-by-month study schedule for struggling subjects
+    4. Bursary opportunities with deadlines and amounts
+    5. University application timeline and requirements
+    6. Backup career options if marks don't improve as planned
+    7. Study techniques tailored to my learning style and available time
+    
+    Focus on actionable steps I can take starting NOW to reach my career goals by Grade 12.`;
+    
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query,
+          grade: `grade${enhancedData.grade}`,
+          curriculum: enhancedData.curriculumProfile?.framework?.toLowerCase() || 'caps',
+          curriculumProfile: {
+            ...enhancedData.curriculumProfile,
+            grade: enhancedData.grade
+          },
+          profile: {
+            grade: enhancedData.grade,
+            marks: enhancedData.marksData || {},
+            constraints: enhancedData.constraints || {},
+            enhancement: {
+              studyHabits: enhancedData.studyHabits,
+              strugglingSubjects: enhancedData.strugglingSubjects,
+              improvementAreas: enhancedData.improvementAreas,
+              timeCommitment: enhancedData.timeCommitment,
+              supportSystem: enhancedData.supportSystem
+            }
+          },
+          session: {
+            externalProcessingConsent: consent.given,
+            consentTimestamp: consent.timestamp
+          },
+          options: {
+            includeDebug: false,
+            comprehensivePlan: true
+          }
+        })
+      });
+      
+      const data = await response.json();
+      console.log('📥 Enhanced RAG Response:', data);
+      
+      if (data.success) {
+        // Save enhanced results with metadata
+        const resultsWithMetadata = {
+          ...data,
+          metadata: {
+            ...data.metadata,
+            grade: enhancedData.grade,
+            enjoyedSubjects: enhancedData.enjoyedSubjects,
+            interests: enhancedData.interests,
+            curriculumProfile: enhancedData.curriculumProfile,
+            consentGiven: consent.given,
+            enhanced: true,
+            assessmentDepth: 'comprehensive',
+            planType: '2-year-success-plan'
+          }
+        };
+        localStorage.setItem('thandi_results', JSON.stringify(resultsWithMetadata));
+        
+        // Track assessment completion
+        trackAssessmentComplete(enhancedData.grade, enhancedData.curriculum || 'caps');
+        
+        // Track journey completion
+        const startTime = localStorage.getItem('assessment_start_time');
+        if (startTime) {
+          trackJourneyComplete(
+            enhancedData.grade,
+            parseInt(startTime),
+            Date.now(),
+            currentStep
+          );
+        }
+        
+        // Navigate to results
+        window.location.href = '/results';
+      } else {
+        setIsLoading(false);
+        alert('Error: ' + (data.error || 'Failed to get recommendations'));
+      }
+    } catch (error) {
+      console.error('❌ Enhanced submission error:', error);
+      setIsLoading(false);
+      alert('Network error. Please check your connection and try again.');
+    }
   };
 
   const nextStep = () => {
@@ -203,13 +537,15 @@ export default function AssessmentForm() {
     
     if (currentStep < 6) {
       setCurrentStep(prev => prev + 1);
+      // Scroll to top of the page smoothly when advancing to next step
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       // All 6 steps complete - handle submission
       const gradeNumber = parseInt(grade) || parseInt(formData.grade) || 10;
       
       if (gradeNumber === 10) {
-        // Grade 10: Show preliminary report with opt-in to DeepDive
-        setShowPreliminaryReport(true);
+        // Grade 10: Generate preliminary report with real data
+        generatePreliminaryReport();
       } else {
         // Grade 11-12: Go directly to results (no DeepDive)
         handleSubmit();
@@ -220,6 +556,8 @@ export default function AssessmentForm() {
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep(prev => prev - 1);
+      // Scroll to top of the page smoothly when going back to previous step
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -236,7 +574,7 @@ export default function AssessmentForm() {
     const currentYear = currentDate.getFullYear();
     
     // Build context-rich query
-    let query = `I am a Grade ${formData.grade || 10} student in South Africa. Today is ${currentMonth} ${currentYear}. `;
+    let query = `I am a Grade ${formData.grade || 10} student in South Africa following the ${formData.curriculumProfile?.framework || 'CAPS'} curriculum. Today is ${currentMonth} ${currentYear}. `;
     
     // Add grade-specific context
     if (formData.grade === 12) {
@@ -344,7 +682,7 @@ export default function AssessmentForm() {
         body: JSON.stringify({
           query,
           grade: `grade${formData.grade}`, // Fix: Send grade as top-level parameter
-          curriculum: 'caps',
+          curriculum: formData.curriculumProfile?.framework?.toLowerCase() || 'caps',
           curriculumProfile: {
             ...formData.curriculumProfile,
             grade: formData.grade
@@ -420,7 +758,10 @@ export default function AssessmentForm() {
         constraints: { time: '', money: '', location: '' },
         openQuestions: { motivation: '', concerns: '' }
       });
-      setCurrentStep(1);
+      setCurrentStep(0);
+      setGrade(null);
+      // Scroll to top when starting over
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -431,9 +772,24 @@ export default function AssessmentForm() {
 
   // Preliminary report screen (Grade 10 only)
   if (showPreliminaryReport) {
+    // Try to load real preliminary results
+    const preliminaryData = localStorage.getItem('thandi_preliminary_results');
+    let careersToShow = mockCareers; // Fallback
+    
+    if (preliminaryData) {
+      try {
+        const parsed = JSON.parse(preliminaryData);
+        if (parsed.parsedCareers && parsed.parsedCareers.length > 0) {
+          careersToShow = parsed.parsedCareers;
+        }
+      } catch (e) {
+        console.error('Failed to parse preliminary results:', e);
+      }
+    }
+    
     return (
       <PreliminaryReport 
-        careers={mockCareers}
+        careers={careersToShow}
         onDeepDive={handleDeepDiveOptIn}
         onSkip={handleSkipDeepDive}
       />
@@ -464,231 +820,165 @@ export default function AssessmentForm() {
           <p className="loading-subtext">This takes 10-15 seconds</p>
         </div>
         
-        <style jsx>{`
-          .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
+      <style jsx>{`
+        .loading-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(17, 78, 78, 0.8);
+          backdrop-filter: blur(4px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          animation: fadeIn 0.3s ease-out;
+        }
+        
+        .loading-card {
+          background: white;
+          border-radius: var(--radius-xl);
+          padding: var(--space-3xl) var(--space-xl);
+          max-width: 400px;
+          text-align: center;
+          box-shadow: var(--shadow-thandi-xl);
+          animation: slideUp 0.5s ease-out;
+        }
+        
+        .loading-spinner {
+          width: 64px;
+          height: 64px;
+          border: 4px solid var(--assessment-border);
+          border-top-color: var(--thandi-teal);
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          margin: 0 auto var(--space-lg);
+        }
+        
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
           }
-          
-          .loading-card {
-            background: white;
-            border-radius: 16px;
-            padding: 48px 32px;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
-          
-          .loading-spinner {
-            width: 64px;
-            height: 64px;
-            border: 4px solid #e5e7eb;
-            border-top-color: #3b82f6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 24px;
-          }
-          
-          @keyframes spin {
-            to { transform: rotate(360deg); }
-          }
-          
-          .loading-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-          }
-          
-          .loading-text {
-            font-size: 16px;
-            color: #6b7280;
-            margin-bottom: 8px;
-          }
-          
-          .loading-subtext {
-            font-size: 14px;
-            color: #9ca3af;
-          }
-        `}</style>
+        }
+        
+        .loading-title {
+          font-family: var(--font-poppins), sans-serif;
+          font-size: 24px;
+          font-weight: 700;
+          color: var(--thandi-teal);
+          margin-bottom: var(--space-md);
+        }
+        
+        .loading-text {
+          font-family: var(--font-nunito), sans-serif;
+          font-size: 16px;
+          color: var(--assessment-text-secondary);
+          margin-bottom: var(--space-sm);
+        }
+        
+        .loading-subtext {
+          font-family: var(--font-nunito), sans-serif;
+          font-size: 14px;
+          color: var(--assessment-text-muted);
+        }
+      `}</style>
       </div>
     );
   }
 
   return (
-    <div className="assessment-container">
-      <div className="assessment-header">
-        <h1>Career Assessment</h1>
-        <div className="header-info">
-          {grade && <span className="grade-badge">Grade {grade}</span>}
-          <button onClick={startOver} className="btn-secondary">
-            Start Over
+    <div className="assessment-container animate-fade-in">
+      <div className="assessment-card">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="assessment-title">Career Assessment</h1>
+          <div className="flex items-center gap-4">
+            {grade && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-thandi-teal text-white">
+                Grade {grade}
+              </span>
+            )}
+            <button onClick={startOver} className="btn-assessment-secondary text-sm px-4 py-2">
+              Start Over
+            </button>
+          </div>
+        </div>
+
+        <ProgressBar currentStep={currentStep} totalSteps={6} />
+
+        <div className="animate-slide-up">
+          {currentStep === 1 && (
+            <CurriculumProfile
+              grade={grade}
+              onChange={(curriculumProfile) => updateFormData('curriculumProfile', curriculumProfile)}
+            />
+          )}
+
+          {currentStep === 2 && (
+            <MarksCollection
+              curriculumProfile={formData.curriculumProfile}
+              values={formData.marksData}
+              onChange={(marksData) => updateFormData('marksData', marksData)}
+            />
+          )}
+
+          {currentStep === 3 && (
+            <SubjectSelection
+              selected={formData.enjoyedSubjects}
+              onChange={(enjoyedSubjects) => updateFormData('enjoyedSubjects', enjoyedSubjects)}
+              curriculumProfile={formData.curriculumProfile}
+            />
+          )}
+
+          {currentStep === 4 && (
+            <InterestAreas
+              selected={formData.interests}
+              onChange={(interests) => updateFormData('interests', interests)}
+            />
+          )}
+
+          {currentStep === 5 && (
+            <Constraints
+              values={formData.constraints}
+              onChange={(constraints) => updateFormData('constraints', constraints)}
+            />
+          )}
+
+          {currentStep === 6 && (
+            <OpenQuestions
+              values={formData.openQuestions}
+              onChange={(openQuestions) => updateFormData('openQuestions', openQuestions)}
+            />
+          )}
+        </div>
+
+        <div className="assessment-navigation">
+          {currentStep > 1 && (
+            <button onClick={prevStep} className="btn-assessment-secondary">
+              ← Previous
+            </button>
+          )}
+          <div className="flex-1"></div>
+          <button onClick={nextStep} className="btn-assessment-primary">
+            {currentStep === 6 ? 'Continue →' : 'Next →'}
           </button>
         </div>
       </div>
-
-      <ProgressBar currentStep={currentStep} totalSteps={6} />
-
-      <div className="assessment-content">
-        {currentStep === 1 && (
-          <CurriculumProfile
-            grade={grade}
-            onChange={(curriculumProfile) => updateFormData('curriculumProfile', curriculumProfile)}
-          />
-        )}
-
-        {currentStep === 2 && (
-          <MarksCollection
-            curriculumProfile={formData.curriculumProfile}
-            values={formData.marksData}
-            onChange={(marksData) => updateFormData('marksData', marksData)}
-          />
-        )}
-
-        {currentStep === 3 && (
-          <SubjectSelection
-            selected={formData.enjoyedSubjects}
-            onChange={(enjoyedSubjects) => updateFormData('enjoyedSubjects', enjoyedSubjects)}
-            curriculumProfile={formData.curriculumProfile}
-          />
-        )}
-
-        {currentStep === 4 && (
-          <InterestAreas
-            selected={formData.interests}
-            onChange={(interests) => updateFormData('interests', interests)}
-          />
-        )}
-
-        {currentStep === 5 && (
-          <Constraints
-            values={formData.constraints}
-            onChange={(constraints) => updateFormData('constraints', constraints)}
-          />
-        )}
-
-        {currentStep === 6 && (
-          <OpenQuestions
-            values={formData.openQuestions}
-            onChange={(openQuestions) => updateFormData('openQuestions', openQuestions)}
-          />
-        )}
-      </div>
-
-
-
-      <div className="assessment-navigation">
-        {currentStep > 1 && (
-          <button onClick={prevStep} className="btn-secondary">
-            ← Previous
-          </button>
-        )}
-
-        <button onClick={nextStep} className="btn-primary">
-          {currentStep === 6 ? 'Continue →' : 'Next →'}
-        </button>
-      </div>
-
-      <style jsx>{`
-        .assessment-container {
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 20px;
-        }
-
-        .assessment-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 30px;
-        }
-
-        .assessment-header h1 {
-          font-size: 28px;
-          color: #1a1a1a;
-          margin: 0;
-        }
-
-        .header-info {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-        }
-
-        .grade-badge {
-          background: #dbeafe;
-          color: #1e40af;
-          padding: 6px 12px;
-          border-radius: 6px;
-          font-size: 14px;
-          font-weight: 500;
-        }
-
-        .assessment-content {
-          min-height: 400px;
-          margin: 30px 0;
-        }
-
-        .assessment-navigation {
-          display: flex;
-          justify-content: space-between;
-          gap: 15px;
-          margin-top: 30px;
-        }
-
-        .btn-primary, .btn-secondary {
-          padding: 12px 24px;
-          font-size: 16px;
-          border-radius: 8px;
-          border: none;
-          cursor: pointer;
-          font-weight: 500;
-          transition: all 0.2s;
-          min-width: 120px;
-        }
-
-        .btn-primary {
-          background: #2563eb;
-          color: white;
-        }
-
-        .btn-primary:hover {
-          background: #1d4ed8;
-        }
-
-        .btn-secondary {
-          background: #f3f4f6;
-          color: #374151;
-        }
-
-        .btn-secondary:hover {
-          background: #e5e7eb;
-        }
-
-        @media (max-width: 768px) {
-          .assessment-container {
-            padding: 15px;
-          }
-
-          .assessment-header h1 {
-            font-size: 24px;
-          }
-
-          .btn-primary, .btn-secondary {
-            padding: 10px 20px;
-            font-size: 14px;
-            min-width: 100px;
-          }
-        }
-      `}</style>
     </div>
+
   );
 }

@@ -36,6 +36,39 @@ const CAPS_SUBJECTS = [
   { name: 'Mechanical Technology', warning: null, emoji: '⚙️' }
 ];
 
+const IEB_SUBJECTS = [
+  { name: 'Mathematics', warning: null, emoji: '🔢' },
+  { name: 'Mathematical Literacy', warning: '⚠️ Limits engineering, medicine, and most science degrees', emoji: '📊' },
+  { name: 'Physical Sciences', warning: null, emoji: '⚗️' },
+  { name: 'Life Sciences', warning: null, emoji: '🧬' },
+  { name: 'Accounting', warning: null, emoji: '💰' },
+  { name: 'Business Studies', warning: null, emoji: '💼' },
+  { name: 'Economics', warning: null, emoji: '📈' },
+  { name: 'Geography', warning: null, emoji: '🌍' },
+  { name: 'History', warning: null, emoji: '📜' },
+  { name: 'English Home Language', warning: null, emoji: '📚' },
+  { name: 'English First Additional Language', warning: null, emoji: '📖' },
+  { name: 'Afrikaans Home Language', warning: null, emoji: '🗣️' },
+  { name: 'Afrikaans First Additional Language', warning: null, emoji: '💬' },
+  { name: 'IsiZulu Home Language', warning: null, emoji: '🗣️' },
+  { name: 'Life Orientation', warning: null, emoji: '🏃' },
+  { name: 'French', warning: null, emoji: '🇫🇷' },
+  { name: 'German', warning: null, emoji: '🇩🇪' },
+  { name: 'Portuguese', warning: null, emoji: '🇵🇹' },
+  { name: 'Computer Applications Technology (CAT)', warning: null, emoji: '💻' },
+  { name: 'Information Technology', warning: null, emoji: '🖥️' },
+  { name: 'Engineering Graphics and Design (EGD)', warning: null, emoji: '📐' },
+  { name: 'Visual Arts', warning: null, emoji: '🎨' },
+  { name: 'Dramatic Arts', warning: null, emoji: '🎭' },
+  { name: 'Music', warning: null, emoji: '🎵' },
+  { name: 'Dance Studies', warning: null, emoji: '💃' },
+  { name: 'Design', warning: null, emoji: '🎨' },
+  { name: 'Consumer Studies', warning: null, emoji: '🛍️' },
+  { name: 'Hospitality Studies', warning: null, emoji: '🍽️' },
+  { name: 'Tourism', warning: null, emoji: '✈️' },
+  { name: 'Sports Science', warning: null, emoji: '🏃‍♂️' }
+];
+
 const SUBJECT_WARNINGS = {
   'Mathematical Literacy': {
     type: 'critical',
@@ -61,7 +94,9 @@ export default function CurriculumProfile({ grade, onChange }) {
 
   const handleFrameworkChange = (newFramework) => {
     setFramework(newFramework);
-    onChange({ framework: newFramework, currentSubjects });
+    // Clear subjects when switching frameworks
+    setCurrentSubjects([]);
+    onChange({ framework: newFramework, currentSubjects: [] });
   };
 
   const handleSubjectToggle = (subjectName) => {
@@ -79,46 +114,57 @@ export default function CurriculumProfile({ grade, onChange }) {
       .filter(Boolean);
   };
 
+  // Get subjects based on selected framework
+  const availableSubjects = framework === 'IEB' ? IEB_SUBJECTS : CAPS_SUBJECTS;
+
   return (
-    <div className="curriculum-profile">
-      <h2>Your Current Subjects</h2>
-      <p className="subtitle">Select ALL the subjects you are taking this year - Thandi needs your complete subject list for accurate career recommendations</p>
+    <div className="animate-slide-up">
+      <h2 className="assessment-subtitle">Your Current Subjects</h2>
+      <p className="assessment-description">
+        Select ALL the subjects you are taking this year - Thandi needs your complete subject list for accurate career recommendations
+      </p>
       
       {currentSubjects.length === 0 && (
-        <div className="requirement-notice critical">
-          <span className="requirement-icon">⚠️</span>
-          <span className="requirement-text">Please select all your subjects (typically 7 subjects) - this is essential for accurate career guidance</span>
+        <div className="bg-red-50 border-2 border-red-400 rounded-lg p-4 mb-6 flex items-center gap-3">
+          <span className="text-xl flex-shrink-0">⚠️</span>
+          <span className="text-red-700 text-sm font-medium">
+            Please select all your subjects (typically 7 subjects) - this is essential for accurate career guidance
+          </span>
         </div>
       )}
       
       {currentSubjects.length > 0 && currentSubjects.length < 6 && (
-        <div className="requirement-notice warning">
-          <span className="requirement-icon">📝</span>
-          <span className="requirement-text">You've selected {currentSubjects.length} subjects. Most students take 6-7 subjects. Please add any missing subjects.</span>
+        <div className="bg-amber-50 border-2 border-amber-400 rounded-lg p-4 mb-6 flex items-center gap-3">
+          <span className="text-xl flex-shrink-0">📝</span>
+          <span className="text-amber-800 text-sm font-medium">
+            You've selected {currentSubjects.length} subjects. Most students take 6-7 subjects. Please add any missing subjects.
+          </span>
         </div>
       )}
       
       {currentSubjects.length >= 6 && (
-        <div className="requirement-notice success">
-          <span className="requirement-icon">✅</span>
-          <span className="requirement-text">Great! You've selected {currentSubjects.length} subjects. This gives Thandi enough information for accurate recommendations.</span>
+        <div className="bg-green-50 border-2 border-green-400 rounded-lg p-4 mb-6 flex items-center gap-3">
+          <span className="text-xl flex-shrink-0">✅</span>
+          <span className="text-green-800 text-sm font-medium">
+            Great! You've selected {currentSubjects.length} subjects. This gives Thandi enough information for accurate recommendations.
+          </span>
         </div>
       )}
 
       {/* Framework Selection */}
-      <div className="framework-selector">
-        <label>Which curriculum are you following?</label>
-        <div className="framework-options">
+      <div className="mb-8">
+        <label className="assessment-label">Which curriculum are you following?</label>
+        <div className="flex gap-3">
           <button
             type="button"
-            className={`framework-btn ${framework === 'CAPS' ? 'active' : ''}`}
+            className={`flex-1 btn-assessment-secondary ${framework === 'CAPS' ? 'bg-thandi-teal text-white border-thandi-teal' : ''}`}
             onClick={() => handleFrameworkChange('CAPS')}
           >
             CAPS (Government schools)
           </button>
           <button
             type="button"
-            className={`framework-btn ${framework === 'IEB' ? 'active' : ''}`}
+            className={`flex-1 btn-assessment-secondary ${framework === 'IEB' ? 'bg-thandi-teal text-white border-thandi-teal' : ''}`}
             onClick={() => handleFrameworkChange('IEB')}
           >
             IEB (Independent schools)
@@ -127,319 +173,89 @@ export default function CurriculumProfile({ grade, onChange }) {
       </div>
 
       {/* Helpful guide */}
-      <div className="subject-guide">
-        <h3>📚 Typical Subject Combinations (7 subjects):</h3>
-        <div className="guide-examples">
-          <div className="guide-example">
-            <strong>Science Stream:</strong> English, Afrikaans, Mathematics, Physical Sciences, Life Sciences, Geography, Life Orientation
-          </div>
-          <div className="guide-example">
-            <strong>Commerce Stream:</strong> English, Afrikaans, Mathematics, Accounting, Business Studies, Economics, Life Orientation
-          </div>
-          <div className="guide-example">
-            <strong>Humanities Stream:</strong> English, Afrikaans, Mathematical Literacy, History, Geography, Life Sciences, Life Orientation
-          </div>
+      <div className="bg-slate-50 border border-slate-200 rounded-lg p-4 mb-6">
+        <h3 className="font-heading font-semibold text-base text-assessment-text-primary mb-3">
+          📚 {framework} Curriculum - {availableSubjects.length} subjects available:
+        </h3>
+        <div className="space-y-2">
+          {framework === 'CAPS' ? (
+            <>
+              <div className="text-sm text-assessment-text-secondary">
+                <strong className="text-assessment-text-primary">Science Stream:</strong> English, Afrikaans, Mathematics, Physical Sciences, Life Sciences, Geography, Life Orientation
+              </div>
+              <div className="text-sm text-assessment-text-secondary">
+                <strong className="text-assessment-text-primary">Commerce Stream:</strong> English, Afrikaans, Mathematics, Accounting, Business Studies, Economics, Life Orientation
+              </div>
+              <div className="text-sm text-assessment-text-secondary">
+                <strong className="text-assessment-text-primary">Humanities Stream:</strong> English, Afrikaans, Mathematical Literacy, History, Geography, Life Sciences, Life Orientation
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-sm text-assessment-text-secondary">
+                <strong className="text-assessment-text-primary">IEB Science Stream:</strong> English, Afrikaans, Mathematics, Physical Sciences, Life Sciences, Geography, Life Orientation
+              </div>
+              <div className="text-sm text-assessment-text-secondary">
+                <strong className="text-assessment-text-primary">IEB Commerce Stream:</strong> English, Afrikaans, Mathematics, Accounting, Business Studies, Economics, Life Orientation
+              </div>
+              <div className="text-sm text-assessment-text-secondary">
+                <strong className="text-assessment-text-primary">IEB Languages:</strong> French, German, Portuguese available (not in CAPS)
+              </div>
+              <div className="text-sm text-assessment-text-secondary">
+                <strong className="text-assessment-text-primary">IEB Specialties:</strong> Dance Studies, Design, Sports Science
+              </div>
+            </>
+          )}
         </div>
       </div>
 
       {/* Subject Selection */}
-      <div className="subject-grid">
-        {CAPS_SUBJECTS.map(subject => (
+      <div className="selection-grid">
+        {availableSubjects.map(subject => (
           <button
             key={subject.name}
             type="button"
-            className={`subject-card ${currentSubjects.includes(subject.name) ? 'selected' : ''}`}
+            className={`selection-item ${currentSubjects.includes(subject.name) ? 'selected' : ''}`}
             onClick={() => handleSubjectToggle(subject.name)}
           >
-            <span className="subject-emoji">{subject.emoji}</span>
-            <span className="subject-name">{subject.name}</span>
-            {currentSubjects.includes(subject.name) && (
-              <span className="checkmark">✓</span>
-            )}
+            <span className="text-2xl flex-shrink-0">{subject.emoji}</span>
+            <span className="selection-item-title">{subject.name}</span>
           </button>
         ))}
       </div>
 
       {/* Active Warnings */}
       {getActiveWarnings().length > 0 && (
-        <div className="warnings-section">
+        <div className="space-y-3 mt-6">
           {getActiveWarnings().map((warning, idx) => (
-            <div key={idx} className={`warning-box ${warning.type}`}>
-              <span className="warning-icon">
+            <div key={idx} className={`flex items-center gap-3 p-3 rounded-lg ${
+              warning.type === 'critical' 
+                ? 'bg-amber-50 border-2 border-amber-400' 
+                : 'bg-green-50 border-2 border-green-400'
+            }`}>
+              <span className="text-xl flex-shrink-0">
                 {warning.type === 'critical' ? '⚠️' : '✅'}
               </span>
-              <span className="warning-text">{warning.message}</span>
+              <span className={`text-sm font-medium ${
+                warning.type === 'critical' ? 'text-amber-800' : 'text-green-800'
+              }`}>
+                {warning.message}
+              </span>
             </div>
           ))}
         </div>
       )}
 
       {currentSubjects.length > 0 && (
-        <div className={`selected-count ${currentSubjects.length >= 6 ? 'complete' : 'incomplete'}`}>
+        <div className={`text-center text-sm font-medium p-3 rounded-lg mt-6 ${
+          currentSubjects.length >= 6 
+            ? 'text-green-700 bg-green-50 border border-green-200' 
+            : 'text-amber-700 bg-amber-50 border border-amber-200'
+        }`}>
           {currentSubjects.length} of 6-7 subjects selected
           {currentSubjects.length >= 6 ? ' ✅' : ` (${6 - currentSubjects.length} more needed)`}
         </div>
       )}
-
-      <style jsx>{`
-        .curriculum-profile {
-          padding: 20px 0;
-        }
-
-        h2 {
-          font-size: 24px;
-          color: #1a1a1a;
-          margin-bottom: 8px;
-        }
-
-        .subtitle {
-          color: #6b7280;
-          margin-bottom: 24px;
-        }
-
-        .framework-selector {
-          margin-bottom: 32px;
-        }
-
-        .framework-selector label {
-          display: block;
-          font-weight: 500;
-          margin-bottom: 12px;
-          color: #374151;
-        }
-
-        .framework-options {
-          display: flex;
-          gap: 12px;
-        }
-
-        .framework-btn {
-          flex: 1;
-          padding: 12px 24px;
-          border: 2px solid #e5e7eb;
-          border-radius: 8px;
-          background: white;
-          cursor: pointer;
-          font-size: 14px;
-          transition: all 0.2s;
-        }
-
-        .framework-btn:hover {
-          border-color: #3b82f6;
-        }
-
-        .framework-btn.active {
-          border-color: #3b82f6;
-          background: #eff6ff;
-          color: #1e40af;
-          font-weight: 500;
-        }
-
-        .subject-guide {
-          background: #f8fafc;
-          border: 1px solid #e2e8f0;
-          border-radius: 8px;
-          padding: 16px;
-          margin-bottom: 24px;
-        }
-
-        .subject-guide h3 {
-          font-size: 16px;
-          color: #374151;
-          margin: 0 0 12px 0;
-        }
-
-        .guide-examples {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .guide-example {
-          font-size: 14px;
-          color: #6b7280;
-          line-height: 1.4;
-        }
-
-        .guide-example strong {
-          color: #374151;
-        }
-
-        .subject-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-          gap: 12px;
-          margin-bottom: 20px;
-        }
-
-        .subject-card {
-          padding: 16px;
-          border: 2px solid #e5e7eb;
-          border-radius: 8px;
-          background: white;
-          cursor: pointer;
-          text-align: left;
-          position: relative;
-          transition: all 0.2s;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-
-        .subject-card:hover {
-          border-color: #3b82f6;
-          transform: translateY(-2px);
-        }
-
-        .subject-card.selected {
-          border-color: #3b82f6;
-          background: #eff6ff;
-        }
-
-        .subject-emoji {
-          font-size: 24px;
-          flex-shrink: 0;
-        }
-
-        .subject-name {
-          flex: 1;
-          font-size: 14px;
-          color: #374151;
-          font-weight: 500;
-        }
-
-        .subject-card.selected .subject-name {
-          color: #1e40af;
-        }
-
-        .warnings-section {
-          margin-top: 24px;
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
-
-        .warning-box {
-          padding: 12px 16px;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-
-        .warning-box.critical {
-          background: #fef3c7;
-          border: 2px solid #f59e0b;
-        }
-
-        .warning-box.positive {
-          background: #d1fae5;
-          border: 2px solid #10b981;
-        }
-
-        .warning-icon {
-          font-size: 20px;
-          flex-shrink: 0;
-        }
-
-        .warning-text {
-          font-size: 14px;
-          font-weight: 500;
-        }
-
-        .warning-box.critical .warning-text {
-          color: #92400e;
-        }
-
-        .warning-box.positive .warning-text {
-          color: #065f46;
-        }
-
-        .checkmark {
-          position: absolute;
-          top: 8px;
-          right: 8px;
-          color: #3b82f6;
-          font-size: 18px;
-          font-weight: bold;
-        }
-
-        .selected-count {
-          text-align: center;
-          font-size: 14px;
-          padding: 12px;
-          border-radius: 6px;
-          font-weight: 500;
-        }
-
-        .selected-count.incomplete {
-          color: #f59e0b;
-          background: #fef3c7;
-          border: 1px solid #f59e0b;
-        }
-
-        .selected-count.complete {
-          color: #10b981;
-          background: #d1fae5;
-          border: 1px solid #10b981;
-        }
-
-        .requirement-notice {
-          border-radius: 8px;
-          padding: 12px 16px;
-          margin-bottom: 24px;
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-
-        .requirement-notice.critical {
-          background: #fef2f2;
-          border: 2px solid #ef4444;
-        }
-
-        .requirement-notice.critical .requirement-text {
-          color: #dc2626;
-        }
-
-        .requirement-notice.warning {
-          background: #fef3c7;
-          border: 2px solid #f59e0b;
-        }
-
-        .requirement-notice.warning .requirement-text {
-          color: #92400e;
-        }
-
-        .requirement-notice.success {
-          background: #d1fae5;
-          border: 2px solid #10b981;
-        }
-
-        .requirement-notice.success .requirement-text {
-          color: #065f46;
-        }
-
-        .requirement-icon {
-          font-size: 20px;
-          flex-shrink: 0;
-        }
-
-        .requirement-text {
-          font-size: 14px;
-          font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-          .subject-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .framework-options {
-            flex-direction: column;
-          }
-        }
-      `}</style>
     </div>
   );
 }

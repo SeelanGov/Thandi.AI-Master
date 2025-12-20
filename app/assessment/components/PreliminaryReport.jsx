@@ -30,30 +30,38 @@ export default function PreliminaryReport({ careers, onDeepDive, onSkip }) {
 
         <div className="cta-section">
           <h3 className="cta-title">
-            💰 See Your 3-Year Success Plan
+            🎯 Get Your Personalized 2-Year Success Plan
           </h3>
           
           <p className="cta-value">
-            Worth <strong>R50,000+ in bursaries</strong> & clear steps
+            Turn these matches into a <strong>step-by-step roadmap</strong> from Grade 10 → 12
           </p>
           
           <ul className="cta-benefits">
             <li>
               <span className="check">✓</span>
-              How to improve marks year-by-year
+              <strong>Year-by-year mark targets</strong> for each subject
             </li>
             <li>
               <span className="check">✓</span>
-              Bursary deadlines and amounts
+              <strong>Month-by-month study schedule</strong> to improve struggling subjects
             </li>
             <li>
               <span className="check">✓</span>
-              Backup plans if things change
+              <strong>Bursary deadlines & amounts</strong> (worth R50,000+)
+            </li>
+            <li>
+              <span className="check">✓</span>
+              <strong>University application timeline</strong> and requirements
+            </li>
+            <li>
+              <span className="check">✓</span>
+              <strong>Backup career options</strong> if marks don't improve
             </li>
           </ul>
           
           <p className="cta-time">
-            ⏱️ Takes 5 more minutes
+            ⏱️ Takes 5 more minutes • No duplicate questions
           </p>
         
           <div className="cta-buttons">
@@ -70,7 +78,7 @@ export default function PreliminaryReport({ careers, onDeepDive, onSkip }) {
             }}
             className="btn-deep-dive"
           >
-            Build My Plan →
+            Get My 2-Year Success Plan →
           </button>
           
           <button 
