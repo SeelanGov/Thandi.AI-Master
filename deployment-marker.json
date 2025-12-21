@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-12-21T05:12:05.276Z",
+  "commit": "a7423b5d",
+  "reason": "Force deployment - footer legal integration not deployed",
+  "changes": [
+    "Footer legal integration with 8 legal documents",
+    "Privacy-focused updates (removed Information Officer, phone)",
+    "Dynamic legal document routing",
+    "Professional styling and trust badges",
+    "APS scoring fixes"
+  ]
+}
