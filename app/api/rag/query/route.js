@@ -425,20 +425,57 @@ export async function POST(request) {
       // CRITICAL FIX: Use structured marks data from profile.marksData if available
       let marksData = {};
       
-      // Priority 1: Use structured marks from profile.marksData (from AssessmentForm)
-      if (profile?.marksData?.exactMarks) {
-        console.log(`[MARKS DEBUG] Found structured marks:`, profile.marksData.exactMarks);
+      // Priority 1: Use structured marks from profile.marks (from AssessmentForm)
+      if (profile?.marks) {
+        console.log(`[MARKS DEBUG] Found structured marks:`, profile.marks);
+        Object.entries(profile.marks).forEach(([subject, mark]) => {
+          if (mark && mark !== '') {
+            // Convert subject names to match expected format
+            const subjectKey = subject.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+            const markValue = parseFloat(mark);
+            if (!isNaN(markValue) && markValue > 0) {
+              marksData[subjectKey] = markValue;
+            }
+          }
+        });
+      }
+      
+      // Priority 2: Fallback to profile.marksData.exactMarks (legacy format)
+      else if (profile?.marksData?.exactMarks) {
+        console.log(`[MARKS DEBUG] Found legacy structured marks:`, profile.marksData.exactMarks);
         Object.entries(profile.marksData.exactMarks).forEach(([subject, mark]) => {
           if (mark && mark !== '') {
             // Convert subject names to match expected format
             const subjectKey = subject.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
-            marksData[subjectKey] = parseFloat(mark);
+            const markValue = parseFloat(mark);
+            if (!isNaN(markValue) && markValue > 0) {
+              marksData[subjectKey] = markValue;
+            }
           }
         });
         console.log(`[MARKS DEBUG] Processed marks data:`, marksData);
       }
       
-      // Priority 2: Fallback to query text extraction if no structured data
+      // Priority 2: Check for rangeMarks if exactMarks is empty
+      if (Object.keys(marksData).length === 0 && profile?.marksData?.rangeMarks) {
+        console.log(`[MARKS DEBUG] Found range marks:`, profile.marksData.rangeMarks);
+        Object.entries(profile.marksData.rangeMarks).forEach(([subject, range]) => {
+          if (range && range !== '') {
+            const subjectKey = subject.toLowerCase().replace(/\s+/g, '_').replace(/[^a-z0-9_]/g, '');
+            // Use middle of range for APS calculation
+            const rangeMatch = range.match(/(\d+)-(\d+)/);
+            if (rangeMatch) {
+              const min = parseInt(rangeMatch[1]);
+              const max = parseInt(rangeMatch[2]);
+              const midpoint = Math.round((min + max) / 2);
+              marksData[subjectKey] = midpoint;
+            }
+          }
+        });
+        console.log(`[MARKS DEBUG] Processed range marks data:`, marksData);
+      }
+      
+      // Priority 3: Fallback to query text extraction if no structured data
       if (Object.keys(marksData).length === 0) {
         console.log(`[MARKS DEBUG] No structured marks found, extracting from query`);
         marksData = extractMarksFromQuery(query);
@@ -455,6 +492,7 @@ export async function POST(request) {
       console.log(`[PROFILE DEBUG] Enhanced student profile created:`, {
         hasMarks: Object.keys(marksData).length > 0,
         marksCount: Object.keys(marksData).length,
+        marksData: marksData,
         grade: enhancedStudentProfile.grade,
         sessionId: enhancedStudentProfile.sessionId
       });
