@@ -17,6 +17,58 @@ import { trackAssessmentComplete, trackJourneyComplete } from '../../../lib/anal
 
 const STORAGE_KEY = 'thandi_assessment_data';
 
+// ✅ CRITICAL FIX: Extract actual marks from marksData structure for APS calculation
+function extractActualMarks(marksData) {
+  let actualMarks = {};
+  
+  if (!marksData) return actualMarks;
+  
+  // Handle exact marks (user provided specific percentages)
+  if (marksData.marksOption === 'provide' && marksData.exactMarks) {
+    Object.entries(marksData.exactMarks).forEach(([subject, mark]) => {
+      if (mark && mark !== '') {
+        // Convert subject name to match backend expectations
+        const subjectKey = subject.toLowerCase()
+          .replace(/\s+/g, '_')
+          .replace(/[^a-z0-9_]/g, '');
+        const markValue = parseFloat(mark);
+        if (!isNaN(markValue) && markValue > 0) {
+          actualMarks[subjectKey] = markValue;
+        }
+      }
+    });
+  }
+  
+  // Handle range marks (user selected performance levels)
+  else if (marksData.marksOption === 'ranges' && marksData.rangeMarks) {
+    Object.entries(marksData.rangeMarks).forEach(([subject, range]) => {
+      if (range && range !== '') {
+        const subjectKey = subject.toLowerCase()
+          .replace(/\s+/g, '_')
+          .replace(/[^a-z0-9_]/g, '');
+        
+        // Convert performance level to midpoint percentage for APS calculation
+        const rangeToMark = {
+          'struggling': 40,    // 30-49% range
+          'average': 60,       // 50-69% range  
+          'good': 75,          // 70-79% range
+          'excellent': 90      // 80-100% range
+        };
+        
+        const markValue = rangeToMark[range];
+        if (markValue) {
+          actualMarks[subjectKey] = markValue;
+        }
+      }
+    });
+  }
+  
+  console.log(`[MARKS EXTRACTION] Input:`, marksData);
+  console.log(`[MARKS EXTRACTION] Output:`, actualMarks);
+  
+  return actualMarks;
+}
+
 // Mock data for preliminary report
 const mockCareers = [
   {
@@ -212,7 +264,8 @@ export default function AssessmentForm() {
           },
           profile: {
             grade: formData.grade,
-            marks: formData.marksData || {},
+            marks: extractActualMarks(formData.marksData),  // ✅ FIXED: Extract flat marks structure
+            marksData: formData.marksData,  // Keep original for reference
             constraints: formData.constraints || {}
           },
           session: {
@@ -439,7 +492,8 @@ export default function AssessmentForm() {
           },
           profile: {
             grade: enhancedData.grade,
-            marks: enhancedData.marksData || {},
+            marks: extractActualMarks(enhancedData.marksData),  // ✅ FIXED: Extract flat marks structure
+            marksData: enhancedData.marksData,  // Keep original for reference
             constraints: enhancedData.constraints || {},
             enhancement: {
               studyHabits: enhancedData.studyHabits,
@@ -698,7 +752,8 @@ export default function AssessmentForm() {
           },
           profile: {
             grade: formData.grade,
-            marks: formData.curriculumProfile?.currentSubjects || {},
+            marks: extractActualMarks(formData.marksData),  // ✅ FIXED: Extract flat marks structure
+            marksData: formData.marksData,  // Keep original for reference
             constraints: formData.constraints || {}
           },
           session: {
