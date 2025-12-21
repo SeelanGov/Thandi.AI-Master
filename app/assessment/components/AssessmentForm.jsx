@@ -197,6 +197,15 @@ export default function AssessmentForm() {
           query: preliminaryQuery,
           grade: `grade${formData.grade}`,
           curriculum: formData.curriculumProfile?.framework?.toLowerCase() || 'caps',
+          // Add structured subjects data for APS calculation
+          subjects: formData.marksData?.exactMarks ? 
+            Object.entries(formData.marksData.exactMarks)
+              .filter(([_, mark]) => mark && mark !== '')
+              .map(([subject, mark]) => ({
+                name: subject,
+                mark: parseFloat(mark) || 0,
+                level: 'Higher Grade' // Default for Grade 10
+              })) : [],
           curriculumProfile: {
             ...formData.curriculumProfile,
             grade: formData.grade
