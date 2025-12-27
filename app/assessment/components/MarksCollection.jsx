@@ -60,7 +60,7 @@ export default function MarksCollection({ curriculumProfile, values = {}, onChan
             </h3>
             <div className="flex flex-wrap gap-2">
               {selectedSubjects.map(subject => (
-                <span key={subject} className="bg-blue-50 text-blue-800 px-3 py-1 rounded-lg text-sm border border-blue-200">
+                <span key={subject} className="bg-thandi-cream text-thandi-teal px-3 py-1 rounded-lg text-sm border border-thandi-teal/20">
                   {subject}
                 </span>
               ))}
@@ -155,9 +155,9 @@ export default function MarksCollection({ curriculumProfile, values = {}, onChan
           )}
 
           {values.marksOption === 'unknown' && (
-            <div className="bg-blue-50 border-2 border-blue-400 rounded-lg p-4 flex items-start gap-3">
+            <div className="bg-thandi-teal-50 border-2 border-thandi-teal-400 rounded-lg p-4 flex items-start gap-3">
               <span className="text-xl flex-shrink-0">💡</span>
-              <p className="text-blue-800 text-sm">
+              <p className="text-thandi-teal-800 text-sm">
                 No problem! We'll give you general career guidance. You can always update your marks later for more personalized advice.
               </p>
             </div>

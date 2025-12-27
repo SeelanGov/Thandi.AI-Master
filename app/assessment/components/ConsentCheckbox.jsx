@@ -16,7 +16,7 @@ export default function ConsentCheckbox({ onConsentChange, required = true }) {
   };
 
   return (
-    <div className="consent-gate-container border-2 border-blue-500 rounded-lg p-6 bg-blue-50 my-6">
+    <div className="consent-gate-container border-2 border-thandi-teal rounded-lg p-6 bg-thandi-cream my-6">
       <div className="flex items-start space-x-3">
         <input
           type="checkbox"
@@ -24,7 +24,7 @@ export default function ConsentCheckbox({ onConsentChange, required = true }) {
           checked={consentGiven}
           onChange={handleConsentChange}
           required={required}
-          className="mt-1 h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+          className="mt-1 h-5 w-5 text-thandi-teal focus:ring-thandi-teal border-gray-300 rounded"
         />
         <div className="flex-1">
           <label 
@@ -38,13 +38,13 @@ export default function ConsentCheckbox({ onConsentChange, required = true }) {
           <button
             type="button"
             onClick={() => setShowDetails(!showDetails)}
-            className="text-sm text-blue-600 hover:text-blue-800 underline mt-1 block"
+            className="text-sm text-thandi-teal hover:text-thandi-brown underline mt-1 block"
           >
             {showDetails ? 'Hide details' : 'Why is this needed?'}
           </button>
 
           {showDetails && (
-            <div className="mt-3 p-4 bg-white rounded border border-blue-200">
+            <div className="mt-3 p-4 bg-white rounded border border-thandi-teal/20">
               <h4 className="font-semibold text-gray-900 mb-2">
                 {consentText.title}
               </h4>
@@ -55,7 +55,7 @@ export default function ConsentCheckbox({ onConsentChange, required = true }) {
                 href={consentText.learnMoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-blue-600 hover:text-blue-800 underline mt-2 inline-block"
+                className="text-sm text-thandi-teal hover:text-thandi-brown underline mt-2 inline-block"
               >
                 Read our full privacy policy →
               </a>

@@ -133,8 +133,8 @@ export default function SubjectSelection({ selected, onChange, curriculumProfile
       </div>
 
       {availableSubjects.length > 0 && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-6">
-          <p className="text-blue-900 text-sm mb-1">
+        <div className="bg-thandi-teal-50 border border-thandi-teal-200 rounded-lg p-3 mb-6">
+          <p className="text-thandi-teal-900 text-sm mb-1">
             📚 Showing subjects from your curriculum: {availableSubjects.join(', ')}
           </p>
           <p className="text-green-700 text-xs font-medium">
@@ -164,7 +164,7 @@ export default function SubjectSelection({ selected, onChange, curriculumProfile
       )}
 
       {atMax && (
-        <div className="bg-blue-50 border border-blue-200 text-blue-700 p-3 rounded-lg text-sm mt-4">
+        <div className="bg-thandi-teal-50 border border-thandi-teal-200 text-thandi-teal-700 p-3 rounded-lg text-sm mt-4">
           Maximum 5 subjects selected. Deselect one to choose another.
         </div>
       )}

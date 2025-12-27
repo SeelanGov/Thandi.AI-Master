@@ -1,0 +1,126 @@
+import { createClient } from '@supabase/supabase-js';
+import { NextResponse } from 'next/server';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
+
+export async function GET(request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const query = searchParams.get('q');
+    const province = searchParams.get('province');
+    const type = searchParams.get('type');
+    const limit = parseInt(searchParams.get('limit')) || 10;
+
+    if (!query || query.length < 2) {
+      return NextResponse.json({
+        error: 'Search query must be at least 2 characters',
+        results: []
+      }, { status: 400 });
+    }
+
+    // Build search query - FILTER OUT PRIMARY SCHOOLS
+    let searchQuery = supabase
+      .from('school_master')
+      .select('school_id, name, province, type, status')
+      .not('type', 'ilike', '%PRIMARY%') // ✅ CRITICAL: Filter out primary schools
+      .limit(limit);
+
+    // Add text search on school name
+    searchQuery = searchQuery.or(
+      `name.ilike.%${query}%,school_id.eq.${query}`
+    );
+
+    // Add filters if provided
+    if (province) {
+      searchQuery = searchQuery.eq('province', province);
+    }
+
+    if (type) {
+      searchQuery = searchQuery.ilike('type', `%${type}%`);
+    }
+
+    // Execute search
+    const { data: schools, error } = await searchQuery;
+
+    if (error) {
+      console.error('School search error:', error);
+      return NextResponse.json({
+        error: 'Search failed',
+        results: []
+      }, { status: 500 });
+    }
+
+    // Format results for frontend
+    const results = schools.map(school => ({
+      school_id: school.school_id,
+      name: school.name,
+      province: school.province,
+      type: school.type,
+      status: school.status,
+      claim_url: school.status === 'unclaimed' 
+        ? `${process.env.NEXT_PUBLIC_BASE_URL}/school/claim/${school.school_id}`
+        : null
+    }));
+
+    return NextResponse.json({
+      query,
+      total: results.length,
+      results
+    });
+
+  } catch (error) {
+    console.error('School search API error:', error);
+    return NextResponse.json({
+      error: 'Internal server error',
+      results: []
+    }, { status: 500 });
+  }
+}
+
+// Get all provinces for filter dropdown
+export async function POST(request) {
+  try {
+    const { action } = await request.json();
+
+    if (action === 'get_provinces') {
+      const { data: provinces, error } = await supabase
+        .from('school_master')
+        .select('province')
+        .group('province')
+        .order('province');
+
+      if (error) {
+        return NextResponse.json({ error: 'Failed to fetch provinces' }, { status: 500 });
+      }
+
+      return NextResponse.json({
+        provinces: provinces.map(p => p.province)
+      });
+    }
+
+    if (action === 'get_types') {
+      const { data: types, error } = await supabase
+        .from('school_master')
+        .select('type')
+        .group('type')
+        .order('type');
+
+      if (error) {
+        return NextResponse.json({ error: 'Failed to fetch types' }, { status: 500 });
+      }
+
+      return NextResponse.json({
+        types: types.map(t => t.type)
+      });
+    }
+
+    return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
+
+  } catch (error) {
+    console.error('School search POST error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}

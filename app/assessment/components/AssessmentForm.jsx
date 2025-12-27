@@ -11,6 +11,7 @@ import GradeSelector from './GradeSelector';
 import PreliminaryReport from './PreliminaryReport';
 import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
+import StudentRegistration from '../../../components/StudentRegistration';
 
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 import { trackAssessmentComplete, trackJourneyComplete } from '../../../lib/analytics/track-events';
@@ -94,6 +95,7 @@ const mockCareers = [
 export default function AssessmentForm() {
   const [currentStep, setCurrentStep] = useState(0); // Start with grade selection
   const [grade, setGrade] = useState(null);
+  const [studentInfo, setStudentInfo] = useState(null); // New: Store student registration info
   const [showPreliminaryReport, setShowPreliminaryReport] = useState(false);
   const [showDeepDive, setShowDeepDive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -185,7 +187,14 @@ export default function AssessmentForm() {
   const handleGradeSelect = (selectedGrade) => {
     setGrade(selectedGrade);
     setFormData(prev => ({ ...prev, grade: selectedGrade }));
-    setCurrentStep(1);
+    setCurrentStep(0.5); // Go to student registration
+    // Scroll to top when starting the assessment
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleStudentRegistration = (registrationData) => {
+    setStudentInfo(registrationData);
+    setCurrentStep(1); // Go to first assessment step
     // Scroll to top when starting the assessment
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -816,6 +825,8 @@ export default function AssessmentForm() {
   const startOver = () => {
     if (confirm('Are you sure you want to start over? All your answers will be lost.')) {
       localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem('thandi_student_token');
+      localStorage.removeItem('thandi_session_token');
       setFormData({
         enjoyedSubjects: [],  // CHANGED
         interests: [],
@@ -824,6 +835,7 @@ export default function AssessmentForm() {
       });
       setCurrentStep(0);
       setGrade(null);
+      setStudentInfo(null);
       // Scroll to top when starting over
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -832,6 +844,15 @@ export default function AssessmentForm() {
   // Grade selection screen
   if (currentStep === 0) {
     return <GradeSelector onSelect={handleGradeSelect} />;
+  }
+
+  // Student registration screen (POPIA compliance)
+  if (currentStep === 0.5) {
+    return (
+      <div className="assessment-container animate-fade-in">
+        <StudentRegistration onComplete={handleStudentRegistration} />
+      </div>
+    );
   }
 
   // Preliminary report screen (Grade 10 only)
@@ -976,13 +997,23 @@ export default function AssessmentForm() {
                 Grade {grade}
               </span>
             )}
+            {studentInfo && studentInfo.type === 'registered' && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                Hi {studentInfo.name}!
+              </span>
+            )}
+            {studentInfo && studentInfo.type === 'anonymous' && (
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                Anonymous
+              </span>
+            )}
             <button onClick={startOver} className="btn-assessment-secondary text-sm px-4 py-2">
               Start Over
             </button>
           </div>
         </div>
 
-        <ProgressBar currentStep={currentStep} totalSteps={6} />
+        <ProgressBar currentStep={currentStep >= 1 ? currentStep : 1} totalSteps={6} />
 
         <div className="animate-slide-up">
           {currentStep === 1 && (

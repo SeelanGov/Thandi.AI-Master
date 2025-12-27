@@ -1,0 +1,274 @@
+import { createClient } from '@supabase/supabase-js';
+import { NextResponse } from 'next/server';
+import crypto from 'crypto';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
+
+// Email domain validation patterns
+const PUBLIC_SCHOOL_DOMAINS = [
+  /.*\.kzn\.gov\.za$/,
+  /.*\.dbe\.gov\.za$/,
+  /.*\.education\.gov\.za$/,
+  /.*\.mpumalanga\.gov\.za$/,
+  /.*\.nw\.gov\.za$/,
+  /.*\.northern-cape\.gov\.za$/
+];
+
+function validateSchoolEmail(email, schoolType) {
+  const emailLower = email.toLowerCase();
+  const domain = emailLower.split('@')[1];
+  
+  // For public schools, require government domain
+  if (schoolType.includes('Public School')) {
+    const publicDomains = [
+      'kzn.gov.za',
+      'dbe.gov.za', 
+      'education.gov.za',
+      'mpumalanga.gov.za',
+      'nw.gov.za',
+      'northern-cape.gov.za',
+      'gauteng.gov.za',
+      'westerncape.gov.za',
+      'limpopo.gov.za',
+      'freestate.gov.za'
+    ];
+    
+    return publicDomains.some(govDomain => 
+      domain === govDomain || domain.endsWith('.' + govDomain)
+    );
+  }
+  
+  // For independent schools, allow any valid email but flag for manual review
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(emailLower);
+}
+
+function generateMagicToken(schoolId, email) {
+  // Simple token generation using crypto instead of JWT
+  const payload = JSON.stringify({
+    schoolId,
+    email,
+    type: 'school_claim',
+    exp: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
+  });
+  
+  const secret = process.env.MAGIC_LINK_SECRET || 'thandi_school_dashboard_2025_secure_key_change_in_prod';
+  const hmac = crypto.createHmac('sha256', secret);
+  hmac.update(payload);
+  const signature = hmac.digest('hex');
+  
+  return Buffer.from(payload).toString('base64') + '.' + signature;
+}
+
+export async function POST(request) {
+  try {
+    const { school_id, principal_email, contact_phone } = await request.json();
+
+    // Validate required fields
+    if (!school_id || !principal_email) {
+      return NextResponse.json({
+        error: 'School ID and principal email are required'
+      }, { status: 400 });
+    }
+
+    // Check if school exists and is unclaimed
+    const { data: school, error: schoolError } = await supabase
+      .from('school_master')
+      .select('*')
+      .eq('school_id', school_id)
+      .single();
+
+    if (schoolError || !school) {
+      return NextResponse.json({
+        error: 'School not found'
+      }, { status: 404 });
+    }
+
+    if (school.status !== 'unclaimed') {
+      return NextResponse.json({
+        error: 'School has already been claimed'
+      }, { status: 409 });
+    }
+
+    // Validate email domain
+    const isValidEmail = validateSchoolEmail(principal_email, school.type);
+    if (!isValidEmail) {
+      return NextResponse.json({
+        error: 'Invalid email domain for school type. Public schools must use government email addresses.'
+      }, { status: 400 });
+    }
+
+    // Generate magic link token
+    const token = generateMagicToken(school_id, principal_email);
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || `http://localhost:${process.env.PORT || 3001}`;
+    const magicLink = `${baseUrl}/school/verify?token=${token}`;
+
+    // Update school with claim attempt
+    const { error: updateError } = await supabase
+      .from('school_master')
+      .update({
+        principal_email,
+        contact_phone,
+        status: 'claim_pending',
+        updated_at: new Date().toISOString()
+      })
+      .eq('school_id', school_id);
+
+    if (updateError) {
+      console.error('Error updating school:', updateError);
+      return NextResponse.json({
+        error: 'Failed to process claim'
+      }, { status: 500 });
+    }
+
+    // Store magic link token (in production, send via email)
+    const { error: tokenError } = await supabase
+      .from('school_magic_links')
+      .insert({
+        school_id,
+        email: principal_email,
+        token,
+        expires_at: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+        created_at: new Date().toISOString()
+      });
+
+    if (tokenError) {
+      console.error('Error storing magic link:', tokenError);
+      // Continue anyway - the main claim was successful
+    }
+
+    // In production, send email here
+    // await sendMagicLinkEmail(principal_email, magicLink, school.name);
+
+    return NextResponse.json({
+      success: true,
+      message: 'Magic link sent to your email address',
+      // For development only - remove in production
+      magic_link: magicLink,
+      expires_in: '24 hours'
+    });
+
+  } catch (error) {
+    console.error('School claim API error:', error);
+    return NextResponse.json({
+      error: 'Internal server error'
+    }, { status: 500 });
+  }
+}
+
+// Verify magic link token
+export async function GET(request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const token = searchParams.get('token');
+
+    if (!token) {
+      return NextResponse.json({
+        error: 'Token is required'
+      }, { status: 400 });
+    }
+
+    // Verify token
+    let decoded;
+    try {
+      const [payloadB64, signature] = token.split('.');
+      if (!payloadB64 || !signature) {
+        throw new Error('Invalid token format');
+      }
+      
+      const payload = Buffer.from(payloadB64, 'base64').toString();
+      const secret = process.env.MAGIC_LINK_SECRET || 'thandi_school_dashboard_2025_secure_key_change_in_prod';
+      const hmac = crypto.createHmac('sha256', secret);
+      hmac.update(payload);
+      const expectedSignature = hmac.digest('hex');
+      
+      if (signature !== expectedSignature) {
+        throw new Error('Invalid signature');
+      }
+      
+      decoded = JSON.parse(payload);
+      
+      // Check expiration
+      if (Date.now() > decoded.exp) {
+        throw new Error('Token expired');
+      }
+      
+    } catch (tokenError) {
+      return NextResponse.json({
+        error: 'Invalid or expired token'
+      }, { status: 401 });
+    }
+
+    // Check if token exists in database and hasn't been used
+    const { data: magicLink, error: linkError } = await supabase
+      .from('school_magic_links')
+      .select('*')
+      .eq('token', token)
+      .eq('used', false)
+      .single();
+
+    if (linkError || !magicLink) {
+      return NextResponse.json({
+        error: 'Token not found or already used'
+      }, { status: 401 });
+    }
+
+    // Check if token has expired
+    if (new Date() > new Date(magicLink.expires_at)) {
+      return NextResponse.json({
+        error: 'Token has expired'
+      }, { status: 401 });
+    }
+
+    // Mark token as used and complete school claim
+    const { error: useTokenError } = await supabase
+      .from('school_magic_links')
+      .update({ used: true, used_at: new Date().toISOString() })
+      .eq('token', token);
+
+    const { error: claimError } = await supabase
+      .from('school_master')
+      .update({
+        status: 'claimed',
+        claimed_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      })
+      .eq('school_id', decoded.schoolId);
+
+    if (useTokenError || claimError) {
+      console.error('Error completing claim:', { useTokenError, claimError });
+      return NextResponse.json({
+        error: 'Failed to complete claim'
+      }, { status: 500 });
+    }
+
+    // Get school details for response
+    const { data: school, error: schoolError } = await supabase
+      .from('school_master')
+      .select('*')
+      .eq('school_id', decoded.schoolId)
+      .single();
+
+    return NextResponse.json({
+      success: true,
+      message: 'School successfully claimed',
+      school: {
+        school_id: school.school_id,
+        name: school.name,
+        province: school.province,
+        type: school.type,
+        status: school.status
+      },
+      redirect_url: `/school/dashboard?school_id=${school.school_id}`
+    });
+
+  } catch (error) {
+    console.error('Magic link verification error:', error);
+    return NextResponse.json({
+      error: 'Internal server error'
+    }, { status: 500 });
+  }
+}

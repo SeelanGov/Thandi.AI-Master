@@ -105,9 +105,9 @@ export default function DeepDiveQuestions({ onComplete, grade, isLoading = false
   return (
     <div className="assessment-container animate-fade-in">
       <div className="assessment-card">
-        <div className="bg-blue-50 border-2 border-blue-400 rounded-lg p-4 mb-6 flex items-start gap-3">
+        <div className="bg-thandi-cream border-2 border-thandi-gold rounded-lg p-4 mb-6 flex items-start gap-3">
           <span className="text-xl flex-shrink-0">🎯</span>
-          <div className="text-blue-800 text-sm">
+          <div className="text-thandi-brown text-sm">
             <strong className="block mb-1">Get Your 2-Year Success Plan!</strong>
             We'll create a personalized roadmap showing exactly what to improve from Grade 10 → 12 to reach your dream career.
           </div>

@@ -72,9 +72,9 @@ export default function OpenQuestions({ values = {}, onChange }) {
         </div>
       </div>
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-8 flex items-start gap-3">
+      <div className="bg-thandi-cream border border-thandi-teal/20 rounded-lg p-4 mt-8 flex items-start gap-3">
         <div className="text-xl flex-shrink-0">ℹ️</div>
-        <div className="text-blue-800 text-sm">
+        <div className="text-thandi-brown text-sm">
           <strong className="block mb-1">Your privacy matters:</strong>
           Your answers are used only to provide career recommendations. We don't share your information with anyone.
         </div>
