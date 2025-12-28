@@ -1,12 +1,11 @@
 {
-  "timestamp": "2025-12-21T05:12:05.276Z",
-  "commit": "a7423b5d",
-  "reason": "Force deployment - footer legal integration not deployed",
+  "timestamp": "2025-12-28T16:44:20.471Z",
+  "trigger": "force-rebuild-assessment-page-fix",
+  "commit": "Assessment page Next.js structure restoration",
   "changes": [
-    "Footer legal integration with 8 legal documents",
-    "Privacy-focused updates (removed Information Officer, phone)",
-    "Dynamic legal document routing",
-    "Professional styling and trust badges",
-    "APS scoring fixes"
+    "Comprehensive RAG route restored",
+    "Name input UX cursor jumping fixed",
+    "Assessment page structure verified",
+    "All components functional"
   ]
 }
