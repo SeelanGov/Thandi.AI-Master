@@ -10,9 +10,6 @@ const nextConfig = {
     removeConsole: false, // Keep console logs for debugging
   },
   
-  // Optimize for production deployment
-  output: 'standalone',
-  
   // Ensure proper webpack configuration
   webpack: (config, { isServer }) => {
     // Ensure proper module resolution

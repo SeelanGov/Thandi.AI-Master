@@ -1,16 +1,11 @@
 {
+  "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "framework": "nextjs",
   "functions": {
     "app/api/**/*.js": {
       "runtime": "nodejs18.x"
     }
   },
-  "regions": ["cpt1"],
-  "build": {
-    "env": {
-      "NEXT_TELEMETRY_DISABLED": "1"
-    }
-  }
+  "regions": ["cpt1"]
 }
