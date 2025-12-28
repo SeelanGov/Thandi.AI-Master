@@ -6,6 +6,7 @@ import AssessmentForm from './components/AssessmentForm';
 export const metadata = {
   title: 'THANDI Career Assessment - Discover Your Future',
   description: 'Complete your personalized career assessment with THANDI and discover the perfect career path for your South African education journey.',
+  version: '2.0.1' // Force rebuild
 };
 
 // Bulletproof loading component
