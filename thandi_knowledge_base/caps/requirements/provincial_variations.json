@@ -1,0 +1,362 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/caps/provincial_variations.schema.json",
+  "kb_id": "caps-provincial-variations-v1",
+  "exam_board": "CAPS",
+  "version": "1.0.0",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "DBE Evaluation Reports",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "dbe_checked": true,
+      "provincial_audits_verified": true,
+      "last_source_check": "2025-12-27",
+      "sources": [
+        "DPME Implementation Evaluation",
+        "Provincial Education Audits",
+        "DBE Annual Performance Plans"
+      ]
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "provinces": [
+    {
+      "name": "Western Cape",
+      "code": "WC",
+      "population_rank": 4,
+      "education_department": "WCED",
+      "variations": {
+        "language_policy": "Afrikaans/English dual medium common",
+        "practical_labs": "Well-equipped in metros; rural gaps",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["Strong WCED support; effective teacher training programs"]
+      },
+      "strengths": [
+        "Highest matric pass rates nationally (80%+)",
+        "Strong infrastructure in Cape Town and surrounding metros",
+        "Effective teacher development programs",
+        "Good resource provisioning systems"
+      ],
+      "challenges": [
+        "Rural schools in Karoo and West Coast under-resourced",
+        "Language medium choices can limit school options",
+        "Inequality between former Model C and township schools"
+      ],
+      "student_implications": {
+        "subject_availability": "Full CAPS subject range available in metros; limited options in rural areas",
+        "practical_subjects": "Physical Sciences, Life Sciences labs generally well-equipped in urban schools",
+        "language_support": "Strong Afrikaans/English support; limited indigenous language options",
+        "university_preparation": "Excellent university placement rates, especially from metro schools"
+      },
+      "career_guidance_notes": [
+        "Strong STEM infrastructure supports engineering/medicine pathways",
+        "Tourism industry presence supports Tourism subject relevance",
+        "Agricultural areas provide Consumer Studies practical opportunities"
+      ]
+    },
+    {
+      "name": "KwaZulu-Natal",
+      "code": "KZN",
+      "population_rank": 2,
+      "education_department": "KZN DoE",
+      "variations": {
+        "language_policy": "isiZulu/English prevalent",
+        "practical_labs": "Urban better resourced; rural challenges",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["Language support initiatives; district resource divides"]
+      },
+      "strengths": [
+        "Strong isiZulu language programs",
+        "Good urban school infrastructure (Durban, Pietermaritzburg)",
+        "Cultural integration in curriculum delivery",
+        "Active community involvement in education"
+      ],
+      "challenges": [
+        "Significant rural-urban resource divide",
+        "Teacher provisioning in remote areas",
+        "Infrastructure backlogs in former homeland areas",
+        "Language transition challenges for some students"
+      ],
+      "student_implications": {
+        "subject_availability": "Full range in urban areas; limited practical subjects in rural schools",
+        "practical_subjects": "Lab shortages in rural areas affect Physical Sciences, Life Sciences",
+        "language_support": "Excellent isiZulu HL/FAL programs; English support varies",
+        "university_preparation": "Strong from urban schools; rural students may need additional support"
+      },
+      "career_guidance_notes": [
+        "Strong cultural studies support for humanities pathways",
+        "Agricultural context supports Consumer Studies and Geography",
+        "Port and industrial presence supports technical subjects"
+      ]
+    },
+    {
+      "name": "Gauteng",
+      "code": "GP",
+      "population_rank": 1,
+      "education_department": "GDE",
+      "variations": {
+        "language_policy": "Multilingual (English, Afrikaans, indigenous)",
+        "practical_labs": "High availability in urban areas",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["Advanced tech integration; strong monitoring"]
+      },
+      "strengths": [
+        "Best-resourced province with modern facilities",
+        "Advanced technology integration in schools",
+        "Strong teacher provisioning and development",
+        "Excellent university and industry partnerships"
+      ],
+      "challenges": [
+        "Overcrowding in popular schools",
+        "High competition for school placement",
+        "Inequality between affluent and township schools",
+        "Language medium pressures"
+      ],
+      "student_implications": {
+        "subject_availability": "Full CAPS subject range widely available",
+        "practical_subjects": "Excellent lab facilities for Physical Sciences, Life Sciences, IT",
+        "language_support": "Multiple language options; strong English programs",
+        "university_preparation": "Highest university acceptance rates nationally"
+      },
+      "career_guidance_notes": [
+        "Strong STEM infrastructure supports all technical pathways",
+        "Business hub context enhances Business Studies, Economics relevance",
+        "IT industry presence supports Information Technology subject"
+      ]
+    },
+    {
+      "name": "Eastern Cape",
+      "code": "EC",
+      "population_rank": 3,
+      "education_department": "ECDoE",
+      "variations": {
+        "language_policy": "isiXhosa/English dominant",
+        "practical_labs": "Limited resources; infrastructure issues",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["Focus on rural support; teacher provisioning gaps"]
+      },
+      "strengths": [
+        "Strong isiXhosa cultural programs",
+        "Community-based education initiatives",
+        "Improving infrastructure in urban centers",
+        "Cultural heritage integration in curriculum"
+      ],
+      "challenges": [
+        "Significant infrastructure backlogs",
+        "Teacher shortages, especially in STEM subjects",
+        "Limited practical lab facilities",
+        "Rural school resource constraints"
+      ],
+      "student_implications": {
+        "subject_availability": "Limited practical subject options in many schools",
+        "practical_subjects": "Physical Sciences, Life Sciences may lack proper lab facilities",
+        "language_support": "Strong isiXhosa programs; English support varies by district",
+        "university_preparation": "May require additional support for competitive programs"
+      },
+      "career_guidance_notes": [
+        "Students may need to consider TVET pathways for technical careers",
+        "Strong humanities foundation supports teaching, social work pathways",
+        "Agricultural context supports Geography, Consumer Studies"
+      ]
+    },
+    {
+      "name": "Northern Cape",
+      "code": "NC",
+      "population_rank": 9,
+      "education_department": "NCED",
+      "variations": {
+        "language_policy": "Afrikaans/English; Setswana in parts",
+        "practical_labs": "Sparse due to geography",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["Teacher shortages; distance learning emphasis"]
+      },
+      "strengths": [
+        "Small class sizes in many schools",
+        "Strong community support networks",
+        "Innovative distance learning programs",
+        "Cultural diversity in curriculum delivery"
+      ],
+      "challenges": [
+        "Geographic isolation of many schools",
+        "Severe teacher shortages",
+        "Limited practical facilities",
+        "Transport challenges for students"
+      ],
+      "student_implications": {
+        "subject_availability": "Limited subject choices, especially practical subjects",
+        "practical_subjects": "Physical Sciences, Life Sciences often theoretical only",
+        "language_support": "Good Afrikaans/English programs; limited indigenous options",
+        "university_preparation": "May require bridging programs for competitive courses"
+      },
+      "career_guidance_notes": [
+        "Mining industry context supports Geography, Physical Sciences",
+        "Agricultural focus supports Consumer Studies",
+        "Distance learning skills valuable for future study"
+      ]
+    },
+    {
+      "name": "Free State",
+      "code": "FS",
+      "population_rank": 8,
+      "education_department": "FSDoE",
+      "variations": {
+        "language_policy": "Sesotho/Afrikaans/English",
+        "practical_labs": "Mixed; urban better",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["Provisioning models vary; audit revealed shortages"]
+      },
+      "strengths": [
+        "Multilingual education programs",
+        "Strong agricultural education context",
+        "Improving urban school infrastructure",
+        "Cultural integration in curriculum"
+      ],
+      "challenges": [
+        "Resource allocation inconsistencies",
+        "Teacher provisioning gaps",
+        "Rural-urban infrastructure divide",
+        "Limited practical facilities in rural areas"
+      ],
+      "student_implications": {
+        "subject_availability": "Variable by district; urban schools better equipped",
+        "practical_subjects": "Lab availability depends on school location",
+        "language_support": "Strong Sesotho programs; multilingual options",
+        "university_preparation": "Urban students better prepared; rural may need support"
+      },
+      "career_guidance_notes": [
+        "Agricultural context supports Consumer Studies, Geography",
+        "Mining presence supports Physical Sciences pathways",
+        "Strong humanities foundation for teaching careers"
+      ]
+    },
+    {
+      "name": "North West",
+      "code": "NW",
+      "population_rank": 6,
+      "education_department": "NWDoE",
+      "variations": {
+        "language_policy": "Setswana/English",
+        "practical_labs": "Resource challenges in rural areas",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["District-level support programs"]
+      },
+      "strengths": [
+        "Strong Setswana language programs",
+        "Community-based education initiatives",
+        "Improving district support systems",
+        "Cultural heritage integration"
+      ],
+      "challenges": [
+        "Rural school resource constraints",
+        "Teacher provisioning difficulties",
+        "Limited practical facilities",
+        "Infrastructure maintenance issues"
+      ],
+      "student_implications": {
+        "subject_availability": "Limited practical subject options in rural schools",
+        "practical_subjects": "Physical Sciences, Life Sciences may lack proper equipment",
+        "language_support": "Excellent Setswana programs; English support varies",
+        "university_preparation": "May require additional academic support"
+      },
+      "career_guidance_notes": [
+        "Mining industry supports Physical Sciences, Geography pathways",
+        "Agricultural context enhances Consumer Studies relevance",
+        "Tourism potential supports Tourism subject applications"
+      ]
+    },
+    {
+      "name": "Mpumalanga",
+      "code": "MP",
+      "population_rank": 5,
+      "education_department": "MPDoE",
+      "variations": {
+        "language_policy": "siSwati/English",
+        "practical_labs": "Urban-rural divide",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["Ongoing curriculum monitoring"]
+      },
+      "strengths": [
+        "Strong siSwati cultural programs",
+        "Improving monitoring systems",
+        "Industrial context for technical subjects",
+        "Community involvement in education"
+      ],
+      "challenges": [
+        "Significant urban-rural resource gaps",
+        "Teacher shortages in specialized subjects",
+        "Infrastructure development needs",
+        "Limited practical facilities in rural areas"
+      ],
+      "student_implications": {
+        "subject_availability": "Full range in urban areas; limited rural options",
+        "practical_subjects": "Industrial areas better equipped; rural schools lack labs",
+        "language_support": "Strong siSwati programs; English varies by location",
+        "university_preparation": "Urban students well-prepared; rural need support"
+      },
+      "career_guidance_notes": [
+        "Industrial context supports Physical Sciences, IT pathways",
+        "Agricultural areas enhance Geography, Consumer Studies",
+        "Tourism industry supports Tourism subject relevance"
+      ]
+    },
+    {
+      "name": "Limpopo",
+      "code": "LP",
+      "population_rank": 7,
+      "education_department": "LDoE",
+      "variations": {
+        "language_policy": "Sepedi/Tshivenda/English",
+        "practical_labs": "Significant rural gaps",
+        "exam_dates": "Standard DBE calendar",
+        "notes": ["Teacher provision issues; reform challenges"]
+      },
+      "strengths": [
+        "Rich multilingual education programs",
+        "Strong cultural heritage integration",
+        "Community-based learning initiatives",
+        "Improving infrastructure in some areas"
+      ],
+      "challenges": [
+        "Severe rural infrastructure gaps",
+        "Critical teacher shortages",
+        "Limited practical facilities",
+        "Geographic isolation of many schools"
+      ],
+      "student_implications": {
+        "subject_availability": "Very limited practical subject options in rural areas",
+        "practical_subjects": "Physical Sciences, Life Sciences often theoretical only",
+        "language_support": "Excellent indigenous language programs; English support limited",
+        "university_preparation": "Significant additional support needed for competitive programs"
+      },
+      "career_guidance_notes": [
+        "Students should consider TVET pathways for technical careers",
+        "Strong foundation for teaching and social work careers",
+        "Agricultural context supports Consumer Studies, Geography"
+      ]
+    }
+  ],
+  "general_implications": {
+    "subject_selection": "Students in well-resourced provinces have more subject options; rural students may need to focus on theoretical subjects",
+    "university_preparation": "Metro and urban students generally better prepared; rural students may benefit from bridging programs",
+    "career_pathways": "STEM careers more accessible from well-equipped schools; all students can pursue humanities and business pathways",
+    "language_considerations": "Home language advantages vary by province; English proficiency crucial for university success"
+  },
+  "query_triggers": [
+    "CAPS provincial differences",
+    "School resources by province",
+    "Language policy CAPS",
+    "Rural vs urban CAPS schools",
+    "Provincial education quality",
+    "CAPS implementation variations"
+  ],
+  "related_gates": ["caps-overview", "caps-assessment-structure"],
+  "source_links": [
+    "https://www.education.gov.za/Portals/0/Documents/Reports/DPME%20Implementation%20Evaluation.pdf",
+    "https://www.education.gov.za/Curriculum/ProvincialReports.aspx"
+  ]
+}

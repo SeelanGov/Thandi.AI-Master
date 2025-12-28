@@ -1,0 +1,201 @@
+{
+  "timestamp": "2025-12-21T06:48:02.145Z",
+  "summary": {
+    "totalChecks": 28,
+    "errors": 1,
+    "warnings": 6,
+    "successes": 10
+  },
+  "findings": [
+    {
+      "timestamp": "2025-12-21T06:47:59.862Z",
+      "category": "ARCHITECTURE",
+      "message": "Analyzing API route structure...",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.882Z",
+      "category": "API_STRUCTURE",
+      "message": "APS Logic Present: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.883Z",
+      "category": "API_STRUCTURE",
+      "message": "Marks Processing: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.884Z",
+      "category": "API_STRUCTURE",
+      "message": "Input Validation: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.885Z",
+      "category": "API_STRUCTURE",
+      "message": "Error Handling: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.886Z",
+      "category": "API_STRUCTURE",
+      "message": "APS Calculation Pattern: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.887Z",
+      "category": "ARCHITECTURE",
+      "message": "Analyzing frontend components...",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.890Z",
+      "category": "FRONTEND_STRUCTURE",
+      "message": "API Integration: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.890Z",
+      "category": "FRONTEND_STRUCTURE",
+      "message": "Data Structure: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.891Z",
+      "category": "FRONTEND_STRUCTURE",
+      "message": "Error Handling: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.891Z",
+      "category": "FRONTEND_STRUCTURE",
+      "message": "Form Validation: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.891Z",
+      "category": "ARCHITECTURE",
+      "message": "Analyzing data flow patterns...",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.894Z",
+      "category": "DATA_FLOW",
+      "message": "APS Display Logic: true",
+      "status": "SUCCESS"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.895Z",
+      "category": "DATA_FLOW",
+      "message": "Data Retrieval: false",
+      "status": "WARNING"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.895Z",
+      "category": "DATA_FLOW",
+      "message": "APS Display Format: false",
+      "status": "WARNING"
+    },
+    {
+      "timestamp": "2025-12-21T06:47:59.898Z",
+      "category": "LIVE_TESTING",
+      "message": "Testing API endpoint with realistic data...",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.990Z",
+      "category": "LIVE_TESTING",
+      "message": "API Call Failed: 400 - undefined",
+      "status": "ERROR"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.991Z",
+      "category": "RAW_ANALYSIS",
+      "message": "Analyzing raw response content...",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.991Z",
+      "category": "RAW_ANALYSIS",
+      "message": "Expected APS for test data: 39 points",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.992Z",
+      "category": "RAW_ANALYSIS",
+      "message": "Zero Points Bug: No matches found",
+      "status": "WARNING"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.992Z",
+      "category": "RAW_ANALYSIS",
+      "message": "APS Calculation: No matches found",
+      "status": "WARNING"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.993Z",
+      "category": "RAW_ANALYSIS",
+      "message": "Current APS: No matches found",
+      "status": "WARNING"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.993Z",
+      "category": "RAW_ANALYSIS",
+      "message": "Projected APS: No matches found",
+      "status": "WARNING"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.994Z",
+      "category": "RAW_ANALYSIS",
+      "message": "Error Messages: Found 1 matches",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.994Z",
+      "category": "RAW_ANALYSIS",
+      "message": "  - \"error\"",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.994Z",
+      "category": "RAW_ANALYSIS",
+      "message": "Validation Errors: Found 1 matches",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.995Z",
+      "category": "RAW_ANALYSIS",
+      "message": "  - \"required\"",
+      "status": "INFO"
+    },
+    {
+      "timestamp": "2025-12-21T06:48:01.995Z",
+      "category": "RAW_ANALYSIS",
+      "message": "Response length: 29 characters",
+      "status": "INFO"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "CRITICAL",
+      "action": "Fix API endpoint errors",
+      "reason": "API returning 400: undefined"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Investigate short API responses",
+      "reason": "Response may be truncated or incomplete"
+    }
+  ],
+  "expectedAPS": 39,
+  "nextSteps": [
+    "Fix API endpoint to accept and validate assessment data properly",
+    "Implement APS calculation function in backend API",
+    "Add proper error handling for malformed requests",
+    "Create unit tests for APS calculation logic",
+    "Add integration tests for full assessment flow",
+    "Implement logging and monitoring for production debugging",
+    "Add input validation on both frontend and backend"
+  ]
+}

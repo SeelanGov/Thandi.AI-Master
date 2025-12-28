@@ -1,0 +1,235 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/caps/grade_progression.schema.json",
+  "kb_id": "caps-grade-progression-v1",
+  "exam_board": "CAPS",
+  "version": "1.1.0-2026",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "DBE Policy Documents",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "dbe_checked": true,
+      "policy_documents_verified": true,
+      "last_source_check": "2025-12-27",
+      "sources": [
+        "National Policy on Programme and Promotion Requirements",
+        "DBE Circular S13 of 2014",
+        "NSC Examination Guidelines"
+      ]
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "progression_rules": {
+    "grade_10_to_11": {
+      "minimum_subjects": 7,
+      "compulsory_subjects": [
+        "Home Language (HL)",
+        "First Additional Language (FAL)", 
+        "Mathematics OR Mathematical Literacy",
+        "Life Orientation"
+      ],
+      "elective_subjects": 3,
+      "promotion_requirements": {
+        "home_language": "40% minimum (compulsory)",
+        "two_other_subjects": "40% minimum each",
+        "three_other_subjects": "30% minimum each", 
+        "maximum_failures": "1 subject (below 30%)",
+        "life_orientation": "40% minimum (does not count towards promotion but must be passed)"
+      },
+      "subject_changes": {
+        "deadline": "End of Term 1, Grade 10",
+        "approval_required": "HOD and Principal approval",
+        "restrictions": [
+          "Cannot switch from Mathematics to Math Lit after Grade 10",
+          "Cannot add Physical Sciences after Grade 10",
+          "Language changes require proficiency assessment",
+          "Practical subjects require facility availability"
+        ],
+        "exceptions": [
+          "Medical reasons with documentation",
+          "Family relocation requiring different language medium",
+          "Extreme circumstances with provincial approval"
+        ]
+      },
+      "common_scenarios": [
+        {
+          "scenario": "Student wants to switch from Math Lit to Mathematics in Grade 11",
+          "outcome": "NOT ALLOWED - Must be done by end of Grade 10 Term 1",
+          "alternative": "Consider bridging programs or TVET pathways for technical careers"
+        },
+        {
+          "scenario": "Student failed one subject with 25%",
+          "outcome": "PROMOTED - Can fail one subject and still progress",
+          "requirement": "Must meet other promotion criteria"
+        },
+        {
+          "scenario": "Student wants to add Physical Sciences in Grade 11",
+          "outcome": "NOT ALLOWED - Too much foundational content to catch up",
+          "alternative": "Consider Life Sciences or other science pathway"
+        }
+      ]
+    },
+    "grade_11_to_12": {
+      "minimum_subjects": 7,
+      "promotion_requirements": {
+        "home_language": "40% minimum (compulsory)",
+        "two_other_subjects": "40% minimum each",
+        "three_other_subjects": "30% minimum each",
+        "maximum_failures": "1 subject (below 30%)",
+        "life_orientation": "40% minimum",
+        "additional_requirement": "Must meet NSC entry criteria for Grade 12 final examinations"
+      },
+      "subject_changes": {
+        "policy": "RARELY ALLOWED - Subjects generally locked from Grade 10/11",
+        "exceptional_circumstances": [
+          "Medical reasons preventing practical work",
+          "School no longer offering specific subject",
+          "Language medium changes due to relocation"
+        ],
+        "approval_process": "Provincial Department approval required",
+        "deadline": "Before end of Term 1, Grade 11 (exceptional cases only)"
+      },
+      "nsc_preparation": {
+        "sba_portfolio": "Must complete all SBA requirements for each subject",
+        "preliminary_exams": "Compulsory for university application purposes",
+        "final_exam_entry": "Automatic if promotion requirements met"
+      }
+    },
+    "nsc_certification": {
+      "minimum_requirements": {
+        "subjects": "7 subjects minimum",
+        "home_language": "40% minimum",
+        "first_additional_language": "30% minimum", 
+        "mathematics_or_math_lit": "30% minimum",
+        "life_orientation": "40% minimum (does not count for university admission)",
+        "three_other_subjects": "30% minimum each",
+        "overall": "Must pass at least 6 of 7 subjects"
+      },
+      "university_admission": {
+        "minimum_aps": "Varies by university and program (typically 21-45 points)",
+        "english_requirement": "50% in English HL OR 60% in English FAL",
+        "subject_specific": "Each program has specific subject and performance requirements",
+        "life_orientation_exclusion": "LO does not count towards APS calculation"
+      },
+      "special_provisions": {
+        "immigrant_concessions": "Available for recent immigrants with language barriers",
+        "disability_accommodations": "Extra time, alternative formats available",
+        "second_chance_exams": "Supplementary exams in February for failed subjects"
+      },
+      "certification_levels": [
+        {
+          "level": "Higher Certificate Pass",
+          "requirements": "Pass in any 4 subjects (including Home Language and 2 others at 40%+)",
+          "pathway": "Higher Certificate programs at universities/colleges"
+        },
+        {
+          "level": "National Senior Certificate Pass", 
+          "requirements": "Pass in any 4 subjects including Home Language at 40%+",
+          "pathway": "Diploma programs at universities/TVET colleges"
+        },
+        {
+          "level": "Bachelor's Pass",
+          "requirements": "Pass in 4 subjects at 50%+ (including Home Language) + 2 others at 30%+",
+          "pathway": "Bachelor's degree programs at universities"
+        }
+      ]
+    }
+  },
+  "notes_2026": "No structural changes; focus on LTSM delivery and e-learning enhancements",
+  "critical_decision_points": {
+    "end_of_grade_9": {
+      "decisions": [
+        "Final subject selection for Grades 10-12",
+        "Mathematics vs Mathematical Literacy choice",
+        "Science subject selection (Physical Sciences, Life Sciences)",
+        "Language medium confirmation"
+      ],
+      "implications": "These choices largely determine university and career pathways",
+      "advice": "Consult with teachers, parents, and career counselors before finalizing"
+    },
+    "end_of_grade_10_term_1": {
+      "decisions": [
+        "Last chance for subject changes",
+        "Final confirmation of Grade 11-12 pathway"
+      ],
+      "implications": "After this point, subjects are locked until Grade 12",
+      "advice": "Ensure subject combination aligns with intended university programs"
+    },
+    "grade_11_performance": {
+      "decisions": [
+        "University application preparation",
+        "Career pathway refinement",
+        "Additional support needs identification"
+      ],
+      "implications": "Grade 11 results often used for early university applications",
+      "advice": "Focus on improving performance in university-required subjects"
+    }
+  },
+  "common_student_questions": [
+    {
+      "question": "Can I change from Math Lit to Mathematics in Grade 11?",
+      "answer": "No, this change must be made by the end of Grade 10 Term 1. After that, the curriculum gap is too large to bridge.",
+      "alternatives": "Consider TVET programs or bridging courses for technical careers"
+    },
+    {
+      "question": "What happens if I fail one subject?",
+      "answer": "You can still be promoted if you meet other requirements (40% in Home Language + 2 others, 30% in 3 others). You can fail maximum 1 subject.",
+      "note": "Failed subject may limit university program options"
+    },
+    {
+      "question": "Do I need to pass Life Orientation?",
+      "answer": "Yes, you need 40% in Life Orientation to get your NSC, but it doesn't count towards university APS calculations.",
+      "importance": "Still required for NSC certification"
+    },
+    {
+      "question": "Can I add Physical Sciences in Grade 11?",
+      "answer": "No, Physical Sciences has too much foundational content from Grade 10. Must be selected by Grade 10.",
+      "alternatives": "Consider Life Sciences or other science pathways"
+    },
+    {
+      "question": "What if my school stops offering my subject?",
+      "answer": "This is an exceptional circumstance that may allow subject changes with provincial approval.",
+      "process": "School must apply to provincial department with documentation"
+    }
+  ],
+  "provincial_variations": {
+    "implementation": "National policy implemented consistently across provinces",
+    "variations": [
+      "Some provinces may have slightly different deadlines for subject changes",
+      "Rural schools may have limited subject offerings affecting progression",
+      "Language medium availability varies by province and district"
+    ],
+    "support_systems": [
+      "Provincial subject advisors available for guidance",
+      "District offices handle exceptional circumstance applications",
+      "School governing bodies may have additional local policies"
+    ]
+  },
+  "query_triggers": [
+    "CAPS grade progression",
+    "Can I change subjects in Grade 11?",
+    "CAPS promotion requirements",
+    "What happens if I fail a subject?",
+    "NSC certification requirements",
+    "Grade 10 to 11 progression",
+    "Subject change deadlines CAPS",
+    "Mathematics to Math Lit switch",
+    "Physical Sciences Grade 11 add"
+  ],
+  "related_gates": [
+    "caps-subject-requirements",
+    "caps-assessment-structure", 
+    "math-lit-engineering",
+    "caps-vs-ieb-progression"
+  ],
+  "source_links": [
+    "https://www.education.gov.za/Portals/0/Documents/Legislation/Call%20for%20Comments/National%20policy%20pertaining%20to%20the%20programme%20and%20promotion%20requirements%20of%20the%20National%20Curriculum%20Statement%20Grades%20R-12.pdf",
+    "https://www.education.gov.za/Curriculum/NationalSeniorCertificate.aspx",
+    "https://www.education.gov.za/Portals/0/Documents/Legislation/CircularS13of2014.pdf"
+  ]
+}

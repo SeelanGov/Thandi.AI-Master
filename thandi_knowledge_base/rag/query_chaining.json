@@ -1,0 +1,236 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/rag/query_chaining.schema.json",
+  "kb_id": "query-chaining-v2",
+  "version": "2.0.0",
+  "created_at": "2025-12-27",
+  "chaining_rules": {
+    "low_mathematics_performance": {
+      "trigger": "mathematics_mark < 60",
+      "chain_sequence": [
+        "suggest_mathematics_improvement_plan",
+        "show_math_lit_career_limitations", 
+        "recommend_tutoring_resources",
+        "calculate_career_impact"
+      ],
+      "personalized_message": "Your Mathematics performance may limit STEM career access. Let's explore improvement strategies and alternative pathways.",
+      "follow_up_queries": [
+        "What careers can I access with Mathematical Literacy?",
+        "How can I improve my Mathematics marks?",
+        "What's the difference between Math and Math Lit for careers?"
+      ]
+    },
+    "high_stem_performance": {
+      "trigger": "mathematics_mark >= 70 AND physical_sciences_mark >= 70",
+      "chain_sequence": [
+        "highlight_stem_career_opportunities",
+        "show_engineering_medicine_pathways",
+        "suggest_ieb_8th_subject_advantage",
+        "calculate_high_earning_potential"
+      ],
+      "personalized_message": "Excellent STEM performance! You're well-positioned for high-demand engineering and medical careers.",
+      "follow_up_queries": [
+        "What engineering specializations match my interests?",
+        "Should I consider IEB Further Studies Mathematics?",
+        "What are the salary prospects for STEM careers?"
+      ]
+    },
+    "commerce_pathway_interest": {
+      "trigger": "accounting_mark >= 60 OR business_studies_mark >= 60",
+      "chain_sequence": [
+        "show_commerce_career_options",
+        "explain_ca_pathway_requirements",
+        "suggest_university_bcom_programs",
+        "highlight_business_opportunities"
+      ],
+      "personalized_message": "Strong commerce performance opens excellent business and finance career paths.",
+      "follow_up_queries": [
+        "What's the path to becoming a Chartered Accountant?",
+        "Which universities have the best BCom programs?",
+        "What are the salary expectations in finance careers?"
+      ]
+    },
+    "subject_switching_consideration": {
+      "trigger": "grade == 10 AND term <= 1",
+      "chain_sequence": [
+        "explain_switching_deadlines",
+        "analyze_current_subject_combination",
+        "show_career_impact_of_changes",
+        "recommend_optimal_combination"
+      ],
+      "personalized_message": "Grade 10 Term 1 is your last chance for major subject changes. Let's optimize your combination.",
+      "follow_up_queries": [
+        "What happens if I switch from Math to Math Lit?",
+        "Should I add Physical Sciences for engineering?",
+        "What subject combination is best for my target career?"
+      ]
+    },
+    "university_application_anxiety": {
+      "trigger": "grade == 12 AND month >= 3",
+      "chain_sequence": [
+        "show_application_timeline",
+        "calculate_realistic_aps_prediction",
+        "suggest_safety_target_reach_strategy",
+        "provide_bursary_opportunities"
+      ],
+      "personalized_message": "University applications can feel overwhelming. Let's create a strategic plan based on your performance.",
+      "follow_up_queries": [
+        "What universities should I apply to with my APS?",
+        "When are the application deadlines?",
+        "What bursaries am I eligible for?"
+      ]
+    },
+    "career_uncertainty": {
+      "trigger": "career_interests == 'undecided' OR multiple_career_interests",
+      "chain_sequence": [
+        "show_subject_based_career_options",
+        "highlight_versatile_degree_programs",
+        "suggest_career_exploration_activities",
+        "provide_decision_making_framework"
+      ],
+      "personalized_message": "Career uncertainty is normal! Let's explore options based on your strengths and interests.",
+      "follow_up_queries": [
+        "What careers match my subject combination?",
+        "Which degrees keep the most career options open?",
+        "How do I choose between similar careers?"
+      ]
+    },
+    "financial_constraints": {
+      "trigger": "budget_constraint == 'limited' OR nsfas_eligible == true",
+      "chain_sequence": [
+        "prioritize_affordable_universities",
+        "highlight_bursary_opportunities",
+        "suggest_nsfas_application_process",
+        "show_roi_analysis_for_education"
+      ],
+      "personalized_message": "Financial constraints shouldn't limit your dreams. Let's find funding solutions and affordable pathways.",
+      "follow_up_queries": [
+        "What bursaries am I eligible for?",
+        "How do I apply for NSFAS?",
+        "Which careers offer the best return on education investment?"
+      ]
+    },
+    "rural_student_challenges": {
+      "trigger": "location_type == 'rural' OR school_resources == 'limited'",
+      "chain_sequence": [
+        "acknowledge_rural_challenges",
+        "highlight_online_learning_resources",
+        "suggest_university_support_programs",
+        "show_rural_bursary_opportunities"
+      ],
+      "personalized_message": "Rural students face unique challenges but also have special opportunities. Let's leverage available support.",
+      "follow_up_queries": [
+        "What online resources can help me study?",
+        "Do universities have special programs for rural students?",
+        "Are there bursaries specifically for rural students?"
+      ]
+    },
+    "first_generation_university": {
+      "trigger": "family_university_background == 'none'",
+      "chain_sequence": [
+        "explain_university_application_process",
+        "highlight_first_generation_support",
+        "provide_university_orientation_info",
+        "suggest_mentorship_programs"
+      ],
+      "personalized_message": "Being first in your family to attend university is exciting! Let's ensure you have all the support you need.",
+      "follow_up_queries": [
+        "What should I expect at university?",
+        "Are there support programs for first-generation students?",
+        "How do I prepare for university life?"
+      ]
+    },
+    "high_achiever_optimization": {
+      "trigger": "predicted_aps >= 40",
+      "chain_sequence": [
+        "highlight_competitive_program_access",
+        "suggest_scholarship_opportunities",
+        "recommend_leadership_development",
+        "show_international_opportunities"
+      ],
+      "personalized_message": "Excellent performance! Let's maximize your opportunities and explore premium pathways.",
+      "follow_up_queries": [
+        "What are the most competitive programs I can access?",
+        "Are there international study opportunities?",
+        "What scholarships are available for high achievers?"
+      ]
+    }
+  },
+  "contextual_triggers": {
+    "time_sensitive": {
+      "grade_10_term_1": "Subject switching deadline approaching",
+      "grade_12_march": "University applications opening soon",
+      "grade_12_july": "Main application deadline approaching",
+      "grade_12_september": "Final application deadline approaching",
+      "grade_12_december": "Results and university offers coming"
+    },
+    "performance_based": {
+      "improving_trend": "Marks showing upward trajectory",
+      "declining_trend": "Marks showing concerning decline", 
+      "consistent_high": "Consistently high performance",
+      "inconsistent": "Variable performance across subjects"
+    },
+    "emotional_state": {
+      "stressed": "High stress indicators in responses",
+      "confident": "High confidence in responses",
+      "uncertain": "Uncertainty about future plans",
+      "motivated": "High motivation and engagement"
+    }
+  },
+  "response_personalization": {
+    "tone_adaptation": {
+      "encouraging": "For students with challenges or low confidence",
+      "challenging": "For high achievers who need motivation",
+      "supportive": "For students facing difficult decisions",
+      "informative": "For students seeking specific information"
+    },
+    "complexity_levels": {
+      "simple": "Basic explanations for overwhelmed students",
+      "detailed": "Comprehensive analysis for engaged students",
+      "technical": "Detailed technical information for high achievers"
+    }
+  },
+  "follow_up_suggestions": {
+    "immediate_actions": [
+      "Schedule a meeting with your school counselor",
+      "Research specific university programs online",
+      "Start a study improvement plan",
+      "Apply for relevant bursaries"
+    ],
+    "medium_term_planning": [
+      "Create a university application timeline",
+      "Develop subject improvement strategies",
+      "Explore career shadowing opportunities",
+      "Build a portfolio for creative programs"
+    ],
+    "long_term_goals": [
+      "Plan your university degree progression",
+      "Consider postgraduate study options",
+      "Explore international opportunities",
+      "Develop leadership and networking skills"
+    ]
+  },
+  "rag": {
+    "chunk_size": 600,
+    "chunk_overlap": 100,
+    "curriculum_match_boost": 1.8
+  },
+  "query_triggers": [
+    "low math performance help",
+    "subject switching advice",
+    "university application strategy",
+    "career uncertainty guidance",
+    "financial aid options"
+  ],
+  "related_gates": [
+    "rag/advanced_templates.json",
+    "careers/subject_mapper.json",
+    "university/application_timelines.json",
+    "caps/requirements/grade_progression.json"
+  ],
+  "verification": {
+    "status": "verified",
+    "reviewer": "Educational Psychology Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": "Student behavior analysis, educational counseling best practices"
+  }
+}

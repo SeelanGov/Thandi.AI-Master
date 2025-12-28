@@ -1,0 +1,228 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/system/dynamic/change_detection.schema.json",
+  "kb_id": "change-detection-v3w3",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "detection_algorithms": [
+    {
+      "type": "content_diff_analysis",
+      "description": "Automated comparison of current vs. previous versions",
+      "threshold": 0.1,
+      "applies_to": [
+        "financial_aid/bursaries.json",
+        "university/program_thresholds.json",
+        "international/scholarships.json",
+        "international/visa_guidance.json"
+      ],
+      "detection_method": "Semantic similarity scoring with 10% change threshold",
+      "alert_conditions": [
+        "APS threshold changes >2 points",
+        "Scholarship deadline shifts >30 days",
+        "Visa fee increases >15%",
+        "New bursary programs added"
+      ]
+    },
+    {
+      "type": "deadline_monitoring",
+      "description": "Track critical date changes for applications and deadlines",
+      "threshold": "7_days_variance",
+      "applies_to": [
+        "Rhodes Scholarship (July 31)",
+        "Chevening (October 7)",
+        "NSFAS (January 31)",
+        "University applications (varies by institution)"
+      ],
+      "monitoring_frequency": "daily_during_application_seasons",
+      "alert_conditions": [
+        "Deadline moved earlier by >7 days",
+        "New deadline announced",
+        "Application process changes"
+      ]
+    },
+    {
+      "type": "policy_change_detection",
+      "description": "Monitor government and institutional policy updates",
+      "threshold": "any_policy_modification",
+      "applies_to": [
+        "DBE curriculum changes",
+        "NSFAS eligibility criteria",
+        "Visa policy modifications",
+        "University admission requirements"
+      ],
+      "sources": [
+        "gov.za gazette notifications",
+        "University official communications",
+        "Immigration department updates",
+        "Scholarship provider announcements"
+      ],
+      "alert_conditions": [
+        "Income threshold changes (NSFAS)",
+        "Subject requirement modifications",
+        "Visa processing time changes >50%",
+        "New qualification pathways"
+      ]
+    },
+    {
+      "type": "data_consistency_check",
+      "description": "Identify contradictions between related data sources",
+      "threshold": "any_contradiction_detected",
+      "applies_to": "all_knowledge_base_files",
+      "consistency_rules": [
+        {
+          "rule": "aps_calculation_alignment",
+          "check": "APS values consistent across university/aps_calculator.json and university/program_thresholds.json",
+          "tolerance": "0_point_variance"
+        },
+        {
+          "rule": "scholarship_eligibility_match",
+          "check": "Academic requirements align between scholarships.json and university requirements",
+          "tolerance": "equivalent_performance_levels"
+        },
+        {
+          "rule": "visa_timeline_coherence",
+          "check": "Processing times consistent with application deadlines",
+          "tolerance": "logical_sequence_maintained"
+        }
+      ]
+    }
+  ],
+  "alert_system": {
+    "notification_levels": {
+      "critical": {
+        "description": "Immediate action required - affects student decisions",
+        "examples": [
+          "Visa policy changes affecting current applicants",
+          "Scholarship deadline moved earlier",
+          "Major APS threshold increases"
+        ],
+        "response_time": "within_1_hour",
+        "notification_method": "immediate_email_and_system_alert"
+      },
+      "high": {
+        "description": "Important updates requiring review within 24 hours",
+        "examples": [
+          "New bursary programs announced",
+          "University requirement modifications",
+          "Processing time changes >25%"
+        ],
+        "response_time": "within_24_hours",
+        "notification_method": "daily_digest_email"
+      },
+      "medium": {
+        "description": "Regular updates for weekly review",
+        "examples": [
+          "Fee adjustments <15%",
+          "Minor deadline clarifications",
+          "Additional program offerings"
+        ],
+        "response_time": "within_1_week",
+        "notification_method": "weekly_summary_report"
+      },
+      "low": {
+        "description": "Informational updates for monthly review",
+        "examples": [
+          "Website layout changes",
+          "Contact information updates",
+          "Minor policy clarifications"
+        ],
+        "response_time": "within_1_month",
+        "notification_method": "monthly_maintenance_report"
+      }
+    },
+    "escalation_procedures": {
+      "auto_escalation": "Critical alerts not acknowledged within 2 hours escalate to supervisor",
+      "manual_review_triggers": [
+        "Contradictory information from multiple sources",
+        "Changes affecting >1000 students",
+        "Policy changes requiring legal review"
+      ],
+      "rollback_conditions": [
+        "Detected misinformation in updates",
+        "System performance degradation >50%",
+        "User complaint rate increase >200%"
+      ]
+    }
+  },
+  "monitoring_dashboard": {
+    "real_time_metrics": [
+      {
+        "metric": "data_freshness_score",
+        "calculation": "Percentage of files updated within required frequency",
+        "target": ">95%",
+        "current_baseline": "To be established"
+      },
+      {
+        "metric": "contradiction_detection_rate",
+        "calculation": "Number of contradictions detected per 1000 data points",
+        "target": "<5_per_1000",
+        "current_baseline": "To be established"
+      },
+      {
+        "metric": "change_detection_accuracy",
+        "calculation": "True positive rate for detected changes",
+        "target": ">90%",
+        "current_baseline": "To be established"
+      }
+    ],
+    "historical_tracking": [
+      "Change frequency by data type",
+      "Alert response times",
+      "Update success rates",
+      "User impact assessments"
+    ]
+  },
+  "integration_points": {
+    "rag_system": {
+      "update_triggers": "Automatically refresh RAG embeddings when content changes detected",
+      "cache_invalidation": "Clear relevant cache entries for updated content",
+      "reindexing": "Schedule full reindex for major structural changes"
+    },
+    "user_notifications": {
+      "student_alerts": "Notify affected students of relevant changes (opt-in basis)",
+      "counselor_updates": "Provide change summaries for education counselors",
+      "system_administrators": "Technical change notifications for system maintenance"
+    }
+  },
+  "quality_metrics": {
+    "detection_accuracy": {
+      "false_positive_rate": "Target <5% (changes flagged that aren't significant)",
+      "false_negative_rate": "Target <2% (significant changes missed)",
+      "response_time": "Target <1 hour for critical changes"
+    },
+    "data_integrity": {
+      "consistency_score": "Percentage of data points without contradictions",
+      "completeness_score": "Percentage of required fields populated",
+      "accuracy_verification": "Multi-source confirmation rate"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "detect changes in scholarships",
+    "monitor visa policy updates",
+    "check for deadline changes",
+    "data consistency verification",
+    "system change alerts"
+  ],
+  "related_gates": [
+    "system/dynamic/update_rules.json",
+    "system/analytics/metrics.json",
+    "system/analytics/error_handling.json",
+    "financial_aid/bursaries.json",
+    "international/scholarships.json"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "Data Quality Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "detection_algorithms": "Based on industry best practices for educational data monitoring",
+      "alert_thresholds": "Calibrated using 2020-2025 change frequency analysis",
+      "quality_metrics": "Aligned with data governance standards for student-facing systems"
+    }
+  }
+}

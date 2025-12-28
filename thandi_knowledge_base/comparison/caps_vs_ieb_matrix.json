@@ -1,0 +1,193 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/comparison/caps_vs_ieb_matrix.schema.json",
+  "kb_id": "caps-ieb-comparison-v1",
+  "version": "1.0.0",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "Comparative Sources",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "comparative_analyses_checked": true,
+      "multiple_sources_verified": true,
+      "last_source_check": "2025-12-27",
+      "sources": [
+        "Nova Pioneer Comparative Analysis",
+        "CambriLearn Educational Guides", 
+        "Matric College Analyses",
+        "Independent School Comparisons"
+      ]
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "comparison_matrix": {
+    "certification": {
+      "caps": "NSC via DBE",
+      "ieb": "NSC via IEB", 
+      "impact": "Identical recognition; both SAQA-approved for universities",
+      "details": [
+        "Both systems lead to the same National Senior Certificate",
+        "SAQA (South African Qualifications Authority) recognizes both equally",
+        "Universities treat CAPS and IEB NSC certificates identically",
+        "No preference given to either system in admissions processes"
+      ]
+    },
+    "assessment_weighting": {
+      "caps": "25% SBA + 75% Final Exam",
+      "ieb": "25% SBA + 75% Final Exam (with flexible SBA design)",
+      "impact": "IEB emphasizes critical thinking in assessments",
+      "details": [
+        "Both systems use identical 25% SBA + 75% final exam weighting",
+        "Common myth that IEB uses 60/40 split is FALSE",
+        "IEB allows schools more creativity in designing the 25% SBA component",
+        "IEB assessments often emphasize higher-order thinking skills"
+      ]
+    },
+    "subject_flexibility": {
+      "caps": "Exactly 7 subjects; no additions",
+      "ieb": "7-9 subjects; extras boost APS",
+      "impact": "IEB allows broader specialization",
+      "details": [
+        "CAPS students must take exactly 7 subjects with no flexibility",
+        "IEB students can take 8th or 9th subjects for APS advantage",
+        "Additional IEB subjects can add 3-7 APS points",
+        "Further Studies programmes available only through IEB"
+      ]
+    },
+    "curriculum_rigor": {
+      "caps": "Standardized national content",
+      "ieb": "CAPS-based but more challenging, problem-solving focus",
+      "impact": "IEB better prepares for university; higher pass thresholds perceived",
+      "details": [
+        "Both systems follow the same CAPS curriculum framework",
+        "IEB schools often set higher internal standards and expectations",
+        "IEB emphasizes critical thinking and problem-solving approaches",
+        "IEB students generally report better preparation for university workload"
+      ]
+    },
+    "university_recognition": {
+      "caps": "Fully accepted locally/internationally",
+      "ieb": "Fully accepted; stronger international perception",
+      "impact": "No admission difference; IEB may aid global applications",
+      "details": [
+        "Both qualifications accepted equally by South African universities",
+        "International universities recognize both NSC certificates",
+        "IEB may have slight advantage for overseas applications due to private school association",
+        "Academic performance matters more than certification body"
+      ]
+    },
+    "school_type": {
+      "caps": "Public schools",
+      "ieb": "Private/independent schools",
+      "impact": "IEB often in better-resourced environments",
+      "details": [
+        "CAPS delivered through government public schools (free)",
+        "IEB delivered through private independent schools (fee-paying)",
+        "IEB schools typically have better facilities and smaller class sizes",
+        "Resource differences can impact learning experience and outcomes"
+      ]
+    }
+  },
+  "key_decision_factors": {
+    "choose_caps_if": [
+      "Cost is a primary concern (free vs R50K-200K/year)",
+      "Strong public schools available in your area",
+      "Student doesn't need 8th subject APS boost",
+      "Family values public education system"
+    ],
+    "choose_ieb_if": [
+      "Can afford private school fees",
+      "Want flexibility of 8th/9th subjects for APS boost",
+      "Prefer smaller class sizes and better resources",
+      "Student would benefit from Further Studies programmes"
+    ],
+    "neutral_factors": [
+      "University admission prospects (identical)",
+      "NSC qualification value (identical)", 
+      "Assessment weighting structure (identical)",
+      "Basic curriculum content (identical)"
+    ]
+  },
+  "common_misconceptions": [
+    {
+      "myth": "IEB is automatically better than CAPS",
+      "reality": "Different delivery methods for same qualification - depends on individual needs"
+    },
+    {
+      "myth": "IEB uses 60% continuous assessment vs 40% exam",
+      "reality": "Both IEB and CAPS use 25% SBA + 75% final exam weighting"
+    },
+    {
+      "myth": "Universities prefer IEB students",
+      "reality": "Universities treat both NSC certificates identically in admissions"
+    },
+    {
+      "myth": "IEB is easier than CAPS",
+      "reality": "IEB often has higher standards and more rigorous assessments"
+    },
+    {
+      "myth": "CAPS students can't compete with IEB students",
+      "reality": "Academic success depends on individual effort, not certification system"
+    }
+  ],
+  "financial_comparison": {
+    "caps_costs": {
+      "school_fees": "R0 (free public education)",
+      "additional_costs": "~R5K-10K/year (books, transport, extras)",
+      "4_year_total": "R20K-40K"
+    },
+    "ieb_costs": {
+      "school_fees": "R50K-200K/year (varies by school)",
+      "additional_costs": "~R10K-20K/year (books, extras, 8th subjects)",
+      "4_year_total": "R240K-880K"
+    },
+    "value_considerations": [
+      "IEB investment may provide better university preparation",
+      "8th subject APS boost could secure competitive program admission",
+      "Smaller classes and resources may improve outcomes",
+      "However, motivated CAPS students achieve identical university success"
+    ]
+  },
+  "performance_outcomes": {
+    "pass_rates": {
+      "caps_national": "~76% (varies significantly by province and school)",
+      "ieb_average": "~98% (consistently high across member schools)",
+      "context": "Different student populations and resource levels affect comparison"
+    },
+    "university_preparation": {
+      "caps_strengths": "Large-scale system with proven university pathways",
+      "ieb_strengths": "Enhanced critical thinking and independent learning skills",
+      "outcome": "Both systems produce successful university students"
+    }
+  },
+  "query_triggers": [
+    "CAPS vs IEB comparison",
+    "Should I choose CAPS or IEB?",
+    "IEB vs CAPS differences",
+    "Is IEB better than CAPS?",
+    "CAPS vs IEB for university",
+    "IEB assessment vs CAPS assessment", 
+    "Cost of IEB vs CAPS",
+    "IEB advantages over CAPS",
+    "CAPS vs IEB recognition"
+  ],
+  "related_gates": [
+    "caps-overview",
+    "ieb-overview",
+    "caps-assessment-structure", 
+    "ieb-assessment-structure",
+    "ieb-subject-flexibility",
+    "aps-calculation"
+  ],
+  "source_links": [
+    "https://www.novapioneer.com/south-africa/blog/caps-vs-ieb",
+    "https://www.cambrilearn.com/blog/ieb-vs-caps",
+    "https://www.matriccollege.co.za/caps-vs-ieb-curriculum",
+    "https://www.education.gov.za/Curriculum/CurriculumAssessmentPolicyStatements(CAPS).aspx",
+    "https://www.ieb.co.za/programmes/nsc"
+  ]
+}

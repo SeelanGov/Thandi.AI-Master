@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/caps/subjects/exam_prep.schema.json",
+  "kb_id": "caps-math-exam-prep-v2",
+  "exam_board": "CAPS",
+  "version": "2.0.0",
+  "created_at": "2025-12-27",
+  "subject": "Mathematics",
+  "tips": {
+    "general": [
+      "Practice past papers (DBE/IEB equivalents)",
+      "Master proofs and derivations", 
+      "Use calculators efficiently for trig/calc",
+      "Revise special angles/exponents daily"
+    ],
+    "grade_10": [
+      "Focus on basic trig ratios and algebraic manipulation",
+      "Draw diagrams for geometry problems"
+    ],
+    "grade_11": [
+      "Practice quadratic inequalities graphically",
+      "Memorize reduction formulae"
+    ],
+    "grade_12": [
+      "Optimize calculus problems step-by-step",
+      "Use counting principles for probability combos"
+    ]
+  },
+  "common_pitfalls": {
+    "grade_10": [
+      "Misreading graphs",
+      "Algebraic errors in factorisation", 
+      "Forgetting interval notation for inequalities"
+    ],
+    "grade_11": [
+      "Incorrect surd simplification",
+      "Confusing identity values",
+      "Nature of roots miscalculation"
+    ],
+    "grade_12": [
+      "Derivative rules mix-ups",
+      "Infinite series convergence errors",
+      "3D trig angle oversights"
+    ]
+  },
+  "resources": [
+    "DBE past exams (education.gov.za)",
+    "Khan Academy videos on CAPS topics", 
+    "Siyavula textbooks",
+    "Exam guidelines 2025"
+  ],
+  "rag": {
+    "chunk_size": 600,
+    "chunk_overlap": 80,
+    "curriculum_match_boost": 1.8
+  },
+  "query_triggers": [
+    "math exam tips grade 11",
+    "common mistakes caps math",
+    "prep for grade 12 calculus"
+  ],
+  "related_gates": [
+    "caps/requirements/assessment_structure.json#Mathematics",
+    "curriculum_gates/rag_templates.json#subject_advice"
+  ],
+  "verification": {
+    "status": "verified",
+    "reviewer": "DBE Exam Guidelines + Educator Resources",
+    "reviewed_at": "2025-12-27",
+    "source_verification": "DBE Past Papers; Siyavula Practice (2025-aligned)"
+  }
+}

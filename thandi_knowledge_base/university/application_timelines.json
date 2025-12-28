@@ -1,0 +1,273 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/university/application_timelines.schema.json",
+  "kb_id": "application-timelines-v2",
+  "version": "2.0.0",
+  "created_at": "2025-12-27",
+  "academic_year": "2026",
+  "key_dates": {
+    "2025_timeline": {
+      "march_april": {
+        "description": "University applications open",
+        "actions": [
+          "Research university programs and requirements",
+          "Prepare application documents",
+          "Register for NBT tests"
+        ],
+        "deadline_type": "preparation"
+      },
+      "may_june": {
+        "description": "Early application period",
+        "actions": [
+          "Submit applications to top choice universities",
+          "Write NBT tests",
+          "Apply for bursaries and financial aid"
+        ],
+        "deadline_type": "early_applications"
+      },
+      "july_august": {
+        "description": "Main application period",
+        "actions": [
+          "Submit all university applications",
+          "Complete NSFAS applications",
+          "Prepare for selection tests (medicine, etc.)"
+        ],
+        "deadline_type": "main_applications"
+      },
+      "september": {
+        "description": "Final application deadline",
+        "actions": [
+          "Last chance for most university applications",
+          "Late applications with additional fees",
+          "Focus on Grade 12 studies"
+        ],
+        "deadline_type": "final_deadline"
+      },
+      "october_november": {
+        "description": "Final exams and results",
+        "actions": [
+          "Write NSC final examinations",
+          "Some universities may still accept late applications",
+          "Prepare for possible supplementary exams"
+        ],
+        "deadline_type": "examinations"
+      },
+      "december": {
+        "description": "Results and offers",
+        "actions": [
+          "NSC results released",
+          "University offers sent out",
+          "Accept/decline university offers"
+        ],
+        "deadline_type": "results"
+      }
+    },
+    "2026_timeline": {
+      "january": {
+        "description": "Registration and orientation",
+        "actions": [
+          "Register at chosen university",
+          "Attend orientation programs",
+          "Arrange accommodation and finances"
+        ],
+        "deadline_type": "registration"
+      },
+      "february": {
+        "description": "Academic year begins",
+        "actions": [
+          "Classes begin",
+          "Late registration (with penalties)",
+          "Settle into university life"
+        ],
+        "deadline_type": "academic_start"
+      }
+    }
+  },
+  "university_specific_deadlines": {
+    "UCT": {
+      "applications_open": "1 April 2025",
+      "early_deadline": "31 July 2025",
+      "final_deadline": "30 September 2025",
+      "late_applications": "Until 31 October 2025 (with late fee)",
+      "special_programs": {
+        "medicine": "30 June 2025 (earlier deadline)",
+        "engineering": "31 August 2025"
+      },
+      "additional_requirements": {
+        "NBT": "Must be completed by 30 September 2025",
+        "selection_tests": "Various dates August-October 2025"
+      }
+    },
+    "Wits": {
+      "applications_open": "1 April 2025", 
+      "early_deadline": "31 July 2025",
+      "final_deadline": "30 September 2025",
+      "late_applications": "Until 15 November 2025 (with late fee)",
+      "special_programs": {
+        "medicine": "30 June 2025",
+        "engineering": "31 August 2025"
+      },
+      "additional_requirements": {
+        "NBT": "Must be completed by 31 October 2025",
+        "ACER_UCAT": "For medicine - register by May 2025"
+      }
+    },
+    "UP": {
+      "applications_open": "1 April 2025",
+      "early_deadline": "31 August 2025", 
+      "final_deadline": "30 September 2025",
+      "late_applications": "Until 31 October 2025 (with late fee)",
+      "special_programs": {
+        "medicine": "31 July 2025",
+        "veterinary_science": "31 July 2025"
+      },
+      "additional_requirements": {
+        "NBT": "Must be completed by 30 September 2025"
+      }
+    },
+    "SU": {
+      "applications_open": "1 April 2025",
+      "early_deadline": "31 July 2025",
+      "final_deadline": "30 September 2025", 
+      "late_applications": "Until 31 October 2025 (with late fee)",
+      "special_programs": {
+        "medicine": "30 June 2025",
+        "engineering": "31 August 2025"
+      },
+      "language_requirements": "Afrikaans/English proficiency tests may be required"
+    },
+    "UKZN": {
+      "applications_open": "1 May 2025",
+      "early_deadline": "31 August 2025",
+      "final_deadline": "30 September 2025",
+      "late_applications": "Until 15 November 2025 (with late fee)",
+      "special_programs": {
+        "medicine": "31 July 2025"
+      }
+    }
+  },
+  "bursary_deadlines": {
+    "NSFAS": {
+      "applications_open": "September 2024 (for 2026)",
+      "deadline": "31 January 2026",
+      "note": "Apply early - funding limited"
+    },
+    "Sasol_Bursary": {
+      "applications_open": "March 2025",
+      "deadline": "31 May 2025",
+      "fields": ["Engineering", "Science", "Technology"]
+    },
+    "Anglo_American": {
+      "applications_open": "April 2025", 
+      "deadline": "30 June 2025",
+      "fields": ["Engineering", "Mining", "Geology"]
+    },
+    "Eskom_Bursary": {
+      "applications_open": "March 2025",
+      "deadline": "31 May 2025", 
+      "fields": ["Engineering", "Science", "Finance"]
+    },
+    "SAICA_Bursary": {
+      "applications_open": "February 2025",
+      "deadline": "30 April 2025",
+      "fields": ["Accounting", "Chartered Accountancy"]
+    }
+  },
+  "important_tests": {
+    "NBT": {
+      "registration_opens": "March 2025",
+      "test_dates": "May - October 2025",
+      "registration_deadline": "2 weeks before test date",
+      "cost": "R650 (2025 fee)",
+      "note": "Required by most universities"
+    },
+    "ACER_UCAT": {
+      "registration_opens": "March 2025",
+      "registration_deadline": "May 2025",
+      "test_dates": "July - August 2025",
+      "cost": "R2,500 (2025 fee)",
+      "note": "Required for medicine at UCT, Wits"
+    }
+  },
+  "grade_12_timeline": {
+    "term_1": {
+      "focus": "Complete university applications",
+      "actions": [
+        "Finalize university choices",
+        "Submit all applications", 
+        "Register for NBT/UCAT",
+        "Apply for bursaries"
+      ]
+    },
+    "term_2": {
+      "focus": "Prepare for selection tests",
+      "actions": [
+        "Write NBT tests",
+        "Prepare for UCAT (medicine)",
+        "Focus on improving marks",
+        "Attend university open days"
+      ]
+    },
+    "term_3": {
+      "focus": "Final exam preparation",
+      "actions": [
+        "Intensive study for final exams",
+        "Complete any outstanding applications",
+        "Prepare for interviews (if required)"
+      ]
+    },
+    "term_4": {
+      "focus": "Final exams and results",
+      "actions": [
+        "Write NSC final examinations",
+        "Wait for results (December)",
+        "Respond to university offers",
+        "Prepare for university registration"
+      ]
+    }
+  },
+  "application_strategy": {
+    "recommended_approach": [
+      "Apply to 4-6 universities",
+      "Include 1-2 'reach' programs (high APS)",
+      "Include 2-3 'target' programs (matching APS)",
+      "Include 1-2 'safety' programs (lower APS)",
+      "Apply early to avoid disappointment"
+    ],
+    "cost_considerations": [
+      "Application fees: R200-R500 per university",
+      "NBT test: R650",
+      "UCAT test: R2,500 (medicine only)",
+      "Late application penalties: R500-R1,000 extra"
+    ]
+  },
+  "common_mistakes": [
+    "Applying too late (missing early deadlines)",
+    "Not registering for NBT early enough",
+    "Forgetting to apply for financial aid",
+    "Only applying to high-demand programs",
+    "Not having backup options"
+  ],
+  "rag": {
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "curriculum_match_boost": 1.5
+  },
+  "query_triggers": [
+    "university application deadlines",
+    "when to apply university 2026",
+    "nbt test dates",
+    "bursary application deadlines",
+    "uct wits application dates"
+  ],
+  "related_gates": [
+    "university/program_thresholds.json",
+    "university/aps_calculator.json",
+    "careers/profiles.json"
+  ],
+  "verification": {
+    "status": "verified",
+    "reviewer": "University Admissions 2025/2026",
+    "reviewed_at": "2025-12-27",
+    "source_verification": "University websites, admissions offices, 2025/2026 prospectuses"
+  }
+}

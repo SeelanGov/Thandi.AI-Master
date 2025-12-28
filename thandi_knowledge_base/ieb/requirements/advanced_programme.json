@@ -1,0 +1,137 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/ieb/advanced_programme.schema.json",
+  "kb_id": "ieb-advanced-programme-v1",
+  "exam_board": "IEB",
+  "version": "1.0.0",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "IEB Advanced Programme Guidelines",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "ieb_checked": true,
+      "further_studies_guidelines_verified": true,
+      "last_source_check": "2025-12-27"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "programmes": [
+    {
+      "name": "Further Studies Mathematics (formerly Advanced Programme Mathematics)",
+      "grades": [11, 12],
+      "eligibility": [
+        "High achievement in Grade 10 Mathematics (typically 70%+)",
+        "School must be registered to offer Further Studies programmes",
+        "Strong mathematical reasoning and problem-solving skills",
+        "Commitment to additional workload and independent study"
+      ],
+      "benefits": [
+        "Prepares learners for university-level Mathematics, Engineering, or Sciences (including Actuarial Science)",
+        "Develops independent learning, critical thinking, and deeper understanding of complex topics",
+        "Recognised internationally as comparable to GCE A-level standard",
+        "Facilitates access to international universities",
+        "Provides competitive advantage for STEM university applications",
+        "Covers advanced topics like calculus, complex numbers, and mathematical modeling"
+      ],
+      "assessment": { 
+        "continuous": 60, 
+        "final_exam": 40,
+        "components": ["Projects", "Assignments", "Tests", "Portfolio work", "Final examination"]
+      },
+      "aps_boost": "Can add 3-4 APS points if taken as an 8th subject",
+      "university_recognition": {
+        "local": "Highly valued by SA universities for STEM programs",
+        "international": "Recognised as A-level equivalent by UK, Australian, and US universities",
+        "exemptions": "May qualify for first-year mathematics exemptions at some universities"
+      },
+      "workload": {
+        "additional_hours": "3-4 hours per week beyond regular Mathematics",
+        "independent_study": "Significant self-directed learning required",
+        "difficulty": "University-level content introduced in Grade 11-12"
+      },
+      "career_pathways": ["Engineering", "Actuarial Science", "Computer Science", "Physics", "Mathematics", "Data Science"],
+      "notes": [
+        "Does not replace core Mathematics - taken in addition to regular Mathematics",
+        "Requires strong time management and study skills",
+        "School must have qualified teachers and IEB registration for Further Studies"
+      ]
+    },
+    {
+      "name": "Further Studies English (formerly Advanced Programme English)",
+      "grades": [11, 12],
+      "eligibility": [
+        "Keen interest in English literature; typically high achievement in Grade 10 English (70%+)",
+        "School must be registered to offer Further Studies programmes",
+        "Strong reading, writing, and analytical skills",
+        "Passion for literature, critical thinking, and cultural studies"
+      ],
+      "benefits": [
+        "Engages with complex texts, poetry, prose, and films",
+        "Develops advanced critical analysis, argumentation, and inter-textual skills",
+        "Prepares for university-level study in humanities",
+        "Recognised internationally as comparable to GCE A-level standard",
+        "Enhances university applications for humanities and social sciences",
+        "Develops sophisticated writing and communication skills"
+      ],
+      "assessment": { 
+        "continuous": 60, 
+        "final_exam": 40,
+        "components": ["Essays", "Creative writing", "Oral presentations", "Research projects", "Final examination"]
+      },
+      "aps_boost": "Can add 3-4 APS points if taken as an 8th subject",
+      "university_recognition": {
+        "local": "Valued by SA universities for humanities, law, and social science programs",
+        "international": "Recognised as A-level equivalent for international university applications",
+        "exemptions": "May qualify for advanced placement in English or humanities courses"
+      },
+      "workload": {
+        "additional_hours": "3-4 hours per week beyond regular English",
+        "independent_study": "Extensive reading and research required",
+        "difficulty": "University-level literary analysis and critical thinking"
+      },
+      "career_pathways": ["Law", "Journalism", "Teaching", "Publishing", "Communications", "Academia", "Creative Writing"],
+      "notes": [
+        "Complements regular English Home Language - not a replacement",
+        "Requires extensive reading outside of class time",
+        "Focuses on critical analysis rather than language mechanics"
+      ]
+    }
+  ],
+  "general_information": {
+    "school_requirements": [
+      "School must be registered with IEB to offer Further Studies programmes",
+      "Qualified teachers with appropriate training required",
+      "Adequate resources and library facilities needed",
+      "Small class sizes typically maintained for quality instruction"
+    ],
+    "application_process": [
+      "Students apply through their school in Grade 10",
+      "Schools may have internal selection criteria",
+      "Limited places available - competitive selection",
+      "Early application recommended (usually by Term 3 of Grade 10)"
+    ],
+    "cost_considerations": [
+      "Additional fees may apply for Further Studies programmes",
+      "Textbooks and resources are more expensive",
+      "Some schools include in standard fees, others charge separately"
+    ]
+  },
+  "query_triggers": [
+    "IEB Advanced Programme",
+    "Further Studies Mathematics",
+    "Further Studies English", 
+    "IEB AP Maths",
+    "8th subject IEB",
+    "A-level equivalent South Africa",
+    "IEB university preparation"
+  ],
+  "related_gates": ["ieb-subject-flexibility", "aps-calculation"],
+  "source_links": [
+    "https://www.ieb.co.za/programmes/further-studies",
+    "https://www.ieb.co.za/programmes/nsc"
+  ]
+}

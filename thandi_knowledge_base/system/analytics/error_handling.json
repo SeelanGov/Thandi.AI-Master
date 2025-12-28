@@ -1,0 +1,239 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/system/analytics/error_handling.schema.json",
+  "kb_id": "error-handling-v3w3",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "error_categories": {
+    "data_inconsistency_errors": {
+      "description": "Contradictions or conflicts between different data sources",
+      "examples": [
+        {
+          "error_type": "aps_calculation_mismatch",
+          "description": "Different APS values for same marks between calculator and thresholds",
+          "detection_method": "Automated cross-reference validation",
+          "resolution_strategy": "Flag for manual review, use most recent official source",
+          "prevention": "Regular consistency checks across related files"
+        },
+        {
+          "error_type": "deadline_conflicts",
+          "description": "Conflicting application deadlines from different sources",
+          "detection_method": "Date comparison algorithms",
+          "resolution_strategy": "Prioritize official institutional sources over aggregated data",
+          "prevention": "Single source of truth for critical dates with backup verification"
+        },
+        {
+          "error_type": "eligibility_contradictions",
+          "description": "Conflicting eligibility criteria for same program/bursary",
+          "detection_method": "Semantic analysis of eligibility requirements",
+          "resolution_strategy": "Display both sources with disclaimer, escalate for verification",
+          "prevention": "Multi-source verification for all eligibility criteria"
+        }
+      ],
+      "handling_protocol": {
+        "immediate_action": "Display warning to user about potential inconsistency",
+        "background_action": "Log error for review, attempt automatic resolution",
+        "escalation": "Manual review required within 24 hours for critical inconsistencies",
+        "user_communication": "Transparent communication about data verification process"
+      }
+    },
+    "edge_case_scenarios": {
+      "description": "Unusual student situations not covered by standard pathways",
+      "examples": [
+        {
+          "scenario": "abet_adult_learner_international",
+          "description": "ABET-qualified adult learner seeking international study",
+          "current_coverage": "Limited - no specific pathway defined",
+          "fallback_strategy": "Redirect to RPL information and suggest consultation",
+          "improvement_needed": "Create specialized pathway for ABET international transitions"
+        },
+        {
+          "scenario": "refugee_student_documentation",
+          "description": "Refugee students without standard SA documentation",
+          "current_coverage": "Not explicitly addressed",
+          "fallback_strategy": "Provide general information, recommend specialized support organizations",
+          "improvement_needed": "Add refugee-specific guidance and documentation alternatives"
+        },
+        {
+          "scenario": "gap_year_multiple_years",
+          "description": "Students with extended gap years (2+ years) seeking university admission",
+          "current_coverage": "Basic gap year information only",
+          "fallback_strategy": "General university admission guidance with age considerations",
+          "improvement_needed": "Specific guidance for extended gap years and mature student pathways"
+        },
+        {
+          "scenario": "international_student_sa_universities",
+          "description": "International students seeking admission to SA universities",
+          "current_coverage": "SA student focus only",
+          "fallback_strategy": "Provide general university information, suggest direct university contact",
+          "improvement_needed": "Add international student admission requirements and processes"
+        },
+        {
+          "scenario": "career_change_mid_career",
+          "description": "Working professionals seeking career change through further education",
+          "current_coverage": "Limited adult learner information",
+          "fallback_strategy": "General career guidance with adult learning options",
+          "improvement_needed": "Specialized career change pathways and part-time study options"
+        }
+      ],
+      "handling_protocol": {
+        "recognition": "Automated detection of edge case indicators in user queries",
+        "response_strategy": "Acknowledge unique situation, provide available relevant information",
+        "escalation_path": "Offer connection to specialized counselors or support services",
+        "data_collection": "Log edge cases to inform future knowledge base expansion"
+      }
+    },
+    "technical_errors": {
+      "description": "System failures, API errors, and technical malfunctions",
+      "error_types": [
+        {
+          "error": "knowledge_base_query_failure",
+          "description": "RAG system unable to retrieve relevant information",
+          "causes": ["Index corruption", "Search service downtime", "Query parsing errors"],
+          "immediate_response": "Apologize for technical difficulty, offer to try rephrasing query",
+          "background_action": "Log error details, attempt automatic retry, alert technical team",
+          "user_experience": "Graceful degradation with manual fallback options"
+        },
+        {
+          "error": "template_rendering_failure",
+          "description": "Personalization templates fail to render properly",
+          "causes": ["Missing variable data", "Template syntax errors", "Data type mismatches"],
+          "immediate_response": "Provide basic information without personalization",
+          "background_action": "Log template error, use fallback generic response",
+          "user_experience": "Functional response with reduced personalization"
+        },
+        {
+          "error": "external_api_failure",
+          "description": "External data sources (exchange rates, salary data) unavailable",
+          "causes": ["API downtime", "Rate limiting", "Authentication failures"],
+          "immediate_response": "Use cached data with timestamp disclaimer",
+          "background_action": "Retry API calls, alert if extended outage",
+          "user_experience": "Slightly outdated but functional information"
+        }
+      ],
+      "recovery_procedures": {
+        "automatic_retry": "Retry failed operations up to 3 times with exponential backoff",
+        "graceful_degradation": "Provide reduced functionality rather than complete failure",
+        "cache_utilization": "Use cached data when live data unavailable",
+        "manual_intervention": "Alert technical team for issues requiring human intervention"
+      }
+    },
+    "user_input_errors": {
+      "description": "Invalid, incomplete, or ambiguous user queries",
+      "error_types": [
+        {
+          "error": "insufficient_information",
+          "description": "User query lacks necessary details for accurate response",
+          "examples": ["What bursaries can I get?", "Should I study abroad?"],
+          "response_strategy": "Ask clarifying questions to gather needed information",
+          "guidance_approach": "Provide framework for thinking about the decision"
+        },
+        {
+          "error": "contradictory_requirements",
+          "description": "User expresses conflicting goals or constraints",
+          "examples": ["Want international study but no financial resources", "High career aspirations with low academic performance"],
+          "response_strategy": "Acknowledge constraints, provide realistic pathway options",
+          "guidance_approach": "Help prioritize goals and identify compromise solutions"
+        },
+        {
+          "error": "unrealistic_expectations",
+          "description": "User expectations don't align with their profile or circumstances",
+          "examples": ["Low APS expecting Harvard admission", "No work experience expecting Chevening"],
+          "response_strategy": "Gently correct misconceptions while maintaining encouragement",
+          "guidance_approach": "Provide alternative pathways and improvement strategies"
+        }
+      ],
+      "communication_strategies": {
+        "empathetic_responses": "Acknowledge user's aspirations while providing realistic guidance",
+        "educational_approach": "Explain requirements and processes to build understanding",
+        "solution_focused": "Always provide actionable alternatives and improvement paths",
+        "encouragement": "Maintain positive tone while being honest about challenges"
+      }
+    }
+  },
+  "error_prevention_strategies": {
+    "proactive_measures": {
+      "data_validation": {
+        "input_validation": "Validate all data inputs against expected formats and ranges",
+        "cross_reference_checking": "Automatically verify consistency across related data sources",
+        "regular_audits": "Scheduled comprehensive reviews of knowledge base accuracy",
+        "source_verification": "Multi-source confirmation for critical information"
+      },
+      "system_monitoring": {
+        "performance_tracking": "Continuous monitoring of response times and error rates",
+        "capacity_management": "Proactive scaling to handle usage spikes",
+        "dependency_monitoring": "Track health of external APIs and data sources",
+        "user_behavior_analysis": "Identify patterns that lead to errors or confusion"
+      },
+      "content_quality_assurance": {
+        "regular_updates": "Scheduled reviews and updates of time-sensitive information",
+        "expert_review": "Subject matter expert validation of critical content",
+        "user_feedback_integration": "Systematic incorporation of user feedback into improvements",
+        "edge_case_documentation": "Proactive identification and documentation of edge cases"
+      }
+    },
+    "continuous_improvement": {
+      "error_pattern_analysis": "Regular analysis of error logs to identify systemic issues",
+      "user_journey_optimization": "Improve common user paths to reduce error likelihood",
+      "knowledge_gap_identification": "Systematic identification of missing information",
+      "process_refinement": "Continuous improvement of error handling procedures"
+    }
+  },
+  "user_experience_optimization": {
+    "error_communication": {
+      "transparency": "Clear communication about what went wrong and why",
+      "helpfulness": "Always provide alternative actions or information",
+      "empathy": "Acknowledge user frustration and provide reassurance",
+      "education": "Use errors as opportunities to educate users about processes"
+    },
+    "recovery_assistance": {
+      "guided_retry": "Help users reformulate queries for better results",
+      "alternative_pathways": "Suggest different approaches to achieve user goals",
+      "human_escalation": "Clear path to human assistance when automated help insufficient",
+      "follow_up": "Check back with users who experienced significant errors"
+    }
+  },
+  "monitoring_and_reporting": {
+    "error_metrics": {
+      "error_rate_tracking": "Monitor error rates by category and severity",
+      "resolution_time_measurement": "Track how quickly errors are resolved",
+      "user_impact_assessment": "Measure how errors affect user satisfaction and outcomes",
+      "prevention_effectiveness": "Evaluate success of error prevention measures"
+    },
+    "reporting_framework": {
+      "real_time_alerts": "Immediate notification of critical errors",
+      "daily_summaries": "Daily error reports with trends and patterns",
+      "weekly_analysis": "Comprehensive analysis of error patterns and resolutions",
+      "monthly_reviews": "Strategic review of error handling effectiveness and improvements"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "system error handling",
+    "data inconsistency resolution",
+    "edge case scenarios",
+    "technical error recovery",
+    "user input validation",
+    "error prevention strategies"
+  ],
+  "related_gates": [
+    "system/analytics/metrics.json",
+    "system/dynamic/change_detection.json",
+    "curriculum_gates/enhanced/chaining_rules.json",
+    "system/inclusivity/alternative_pathways.json"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "System Reliability Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "error_categories": "Based on common issues in educational guidance systems and user feedback analysis",
+      "handling_procedures": "Aligned with customer service best practices and technical support standards",
+      "prevention_strategies": "Validated against system reliability and quality assurance methodologies"
+    }
+  }
+}

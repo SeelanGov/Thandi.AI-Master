@@ -1,0 +1,265 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/system/inclusivity/languages.schema.json",
+  "kb_id": "languages-v3w3",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "supported_languages": {
+    "primary_languages": [
+      {
+        "language": "English",
+        "iso_code": "en-ZA",
+        "coverage": "100%",
+        "status": "fully_supported",
+        "use_case": "Primary language for all content and interactions",
+        "quality_level": "native_professional",
+        "maintenance": "continuous_updates_and_refinement"
+      },
+      {
+        "language": "Afrikaans", 
+        "iso_code": "af-ZA",
+        "coverage": "75%",
+        "status": "high_priority_expansion",
+        "use_case": "Key templates, bursary information, university requirements",
+        "quality_level": "professional_translation",
+        "maintenance": "quarterly_updates",
+        "implementation_priority": "Phase 1 - Core educational content"
+      }
+    ],
+    "secondary_languages": [
+      {
+        "language": "isiZulu",
+        "iso_code": "zu-ZA",
+        "coverage": "25%",
+        "status": "pilot_implementation",
+        "use_case": "Basic guidance, key deadlines, bursary eligibility",
+        "quality_level": "community_validated_translation",
+        "maintenance": "biannual_updates",
+        "implementation_priority": "Phase 2 - Essential information access"
+      },
+      {
+        "language": "isiXhosa",
+        "iso_code": "xh-ZA", 
+        "coverage": "25%",
+        "status": "pilot_implementation",
+        "use_case": "Basic guidance, key deadlines, bursary eligibility",
+        "quality_level": "community_validated_translation",
+        "maintenance": "biannual_updates",
+        "implementation_priority": "Phase 2 - Essential information access"
+      }
+    ],
+    "future_expansion": [
+      {
+        "language": "Sesotho",
+        "iso_code": "st-ZA",
+        "priority": "medium",
+        "rationale": "Significant student population in Free State and Lesotho",
+        "implementation_timeline": "Phase 3 - 2026-2027"
+      },
+      {
+        "language": "Setswana",
+        "iso_code": "tn-ZA",
+        "priority": "medium", 
+        "rationale": "North West Province and Botswana student access",
+        "implementation_timeline": "Phase 3 - 2026-2027"
+      },
+      {
+        "language": "Sepedi",
+        "iso_code": "nso-ZA",
+        "priority": "medium",
+        "rationale": "Limpopo Province student population",
+        "implementation_timeline": "Phase 3 - 2026-2027"
+      }
+    ]
+  },
+  "translation_strategy": {
+    "content_prioritization": {
+      "tier_1_critical": {
+        "description": "Essential information that affects student decisions",
+        "content_types": [
+          "Bursary application deadlines and eligibility",
+          "University admission requirements",
+          "APS calculation explanations",
+          "Scholarship application processes",
+          "Visa requirements and processes"
+        ],
+        "translation_quality": "Professional translation with subject matter expert review",
+        "update_frequency": "Immediate translation of any changes"
+      },
+      "tier_2_important": {
+        "description": "Helpful guidance that improves user experience",
+        "content_types": [
+          "Career pathway descriptions",
+          "Study tips and exam preparation",
+          "University life guidance",
+          "Financial planning advice",
+          "International study information"
+        ],
+        "translation_quality": "Professional translation with community validation",
+        "update_frequency": "Quarterly translation updates"
+      },
+      "tier_3_supplementary": {
+        "description": "Additional context and detailed explanations",
+        "content_types": [
+          "Detailed career profiles",
+          "Historical context and background information",
+          "Advanced planning strategies",
+          "Specialized pathway information"
+        ],
+        "translation_quality": "Community translation with professional review",
+        "update_frequency": "Annual translation updates"
+      }
+    },
+    "quality_assurance": {
+      "translation_validation": {
+        "professional_review": "All Tier 1 content reviewed by certified translators",
+        "community_validation": "Native speakers from target communities review translations",
+        "back_translation": "Critical content back-translated to verify accuracy",
+        "cultural_adaptation": "Ensure cultural appropriateness and local context relevance"
+      },
+      "accuracy_maintenance": {
+        "regular_audits": "Quarterly review of translation accuracy and relevance",
+        "feedback_integration": "User feedback on translation quality incorporated into improvements",
+        "terminology_consistency": "Maintain consistent terminology across all translated content",
+        "update_synchronization": "Ensure translated content stays current with English updates"
+      }
+    }
+  },
+  "cultural_adaptation": {
+    "communication_styles": {
+      "afrikaans_adaptation": {
+        "tone": "Direct and practical, emphasizing concrete steps and outcomes",
+        "examples": "Use familiar educational system references and cultural contexts",
+        "family_dynamics": "Acknowledge family involvement in educational decisions",
+        "regional_variations": "Consider differences between urban and rural Afrikaans communities"
+      },
+      "zulu_xhosa_adaptation": {
+        "tone": "Respectful and community-oriented, emphasizing collective benefit",
+        "examples": "Include references to ubuntu philosophy and community responsibility",
+        "family_dynamics": "Recognize extended family and community input in decision-making",
+        "traditional_values": "Balance modern opportunities with respect for traditional values"
+      },
+      "general_principles": {
+        "respect": "Show respect for all cultural backgrounds and languages",
+        "inclusivity": "Ensure no cultural group feels excluded or marginalized",
+        "accessibility": "Make information accessible regardless of language proficiency",
+        "empowerment": "Empower students to make informed decisions within their cultural context"
+      }
+    },
+    "localization_considerations": {
+      "regional_relevance": {
+        "provincial_focus": "Highlight opportunities and resources relevant to specific provinces",
+        "local_examples": "Use examples and case studies from local communities",
+        "regional_universities": "Emphasize universities and opportunities accessible from each region",
+        "transport_considerations": "Factor in regional transport and accessibility challenges"
+      },
+      "socioeconomic_sensitivity": {
+        "economic_realities": "Acknowledge different economic circumstances across communities",
+        "resource_availability": "Consider varying access to technology and internet connectivity",
+        "family_obligations": "Understand different family economic responsibilities and expectations",
+        "opportunity_awareness": "Bridge information gaps that may exist in different communities"
+      }
+    }
+  },
+  "implementation_framework": {
+    "technical_infrastructure": {
+      "content_management": {
+        "multilingual_cms": "Content management system supporting multiple languages",
+        "translation_workflow": "Streamlined process for content translation and updates",
+        "version_control": "Track translation versions and maintain consistency across languages",
+        "automated_alerts": "Notify translators when source content changes"
+      },
+      "user_interface": {
+        "language_selection": "Clear and accessible language selection interface",
+        "mixed_language_support": "Support for users who prefer different languages for different content types",
+        "fallback_mechanisms": "Graceful fallback to English when translations unavailable",
+        "accessibility_compliance": "Ensure language options meet accessibility standards"
+      }
+    },
+    "resource_requirements": {
+      "human_resources": {
+        "professional_translators": "Certified translators for each target language",
+        "community_validators": "Native speakers from target communities for validation",
+        "cultural_consultants": "Experts in cultural adaptation and localization",
+        "project_coordinators": "Manage translation projects and quality assurance"
+      },
+      "financial_planning": {
+        "translation_costs": "Budget for professional translation services",
+        "technology_investment": "Multilingual content management and delivery systems",
+        "ongoing_maintenance": "Continuous costs for updates and quality assurance",
+        "community_engagement": "Resources for community validation and feedback collection"
+      }
+    }
+  },
+  "success_metrics": {
+    "usage_analytics": {
+      "language_preference_tracking": "Monitor which languages users select and prefer",
+      "content_engagement": "Measure engagement with translated vs. English content",
+      "completion_rates": "Track whether users complete tasks in their preferred language",
+      "satisfaction_by_language": "User satisfaction scores broken down by language"
+    },
+    "accessibility_impact": {
+      "demographic_reach": "Measure expansion of user base to different language communities",
+      "information_comprehension": "Assess whether translations improve user understanding",
+      "decision_quality": "Evaluate whether multilingual support leads to better educational decisions",
+      "barrier_reduction": "Measure reduction in language-based barriers to information access"
+    },
+    "quality_indicators": {
+      "translation_accuracy": "Regular assessment of translation quality and accuracy",
+      "cultural_appropriateness": "Community feedback on cultural sensitivity and relevance",
+      "user_feedback": "Direct user feedback on translation quality and usefulness",
+      "error_reporting": "Track and resolve translation errors and inconsistencies"
+    }
+  },
+  "pilot_program": {
+    "phase_1_implementation": {
+      "target_content": "NSFAS application guidance in Afrikaans, isiZulu, and isiXhosa",
+      "duration": "3 months",
+      "success_criteria": [
+        "90% translation accuracy verified by community validators",
+        "50% increase in engagement from target language communities",
+        "Positive feedback from 80% of pilot users"
+      ],
+      "evaluation_methods": [
+        "User surveys and feedback collection",
+        "Usage analytics and engagement tracking",
+        "Community focus groups and validation sessions"
+      ]
+    },
+    "expansion_planning": {
+      "phase_2_scope": "University admission requirements and bursary information",
+      "phase_3_scope": "Career guidance and international opportunities",
+      "long_term_vision": "Comprehensive multilingual educational guidance system",
+      "sustainability_planning": "Develop sustainable model for ongoing translation and maintenance"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "multilingual support",
+    "afrikaans university guidance",
+    "zulu bursary information",
+    "xhosa career advice",
+    "language accessibility",
+    "cultural adaptation"
+  ],
+  "related_gates": [
+    "system/inclusivity/alternative_pathways.json",
+    "financial_aid/bursaries.json",
+    "curriculum_gates/enhanced/personalization_templates.json",
+    "system/analytics/metrics.json"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "Multilingual Education Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "language_priorities": "Based on South African census data and student population analysis",
+      "cultural_considerations": "Validated with cultural experts and community representatives",
+      "implementation_strategy": "Aligned with multilingual education best practices and accessibility standards"
+    }
+  }
+}

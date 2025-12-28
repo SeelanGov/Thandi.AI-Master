@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/caps/subjects/exam_prep.schema.json",
+  "kb_id": "caps-phys-sci-exam-prep-v3",
+  "exam_board": "CAPS",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "subject": "Physical Sciences",
+  "tips": {
+    "general": [
+      "Practice calculations with units/SI",
+      "Draw free-body diagrams for mechanics",
+      "Revise reaction types daily",
+      "Use past DBE papers"
+    ],
+    "grade_10": [
+      "Focus on bonding models",
+      "Understand wave properties"
+    ],
+    "grade_11": [
+      "Master vector resolutions",
+      "Practice ideal gas laws"
+    ],
+    "grade_12": [
+      "Optimize energy calculations",
+      "Balance redox equations"
+    ]
+  },
+  "common_pitfalls": {
+    "grade_10": [
+      "Unit conversion errors",
+      "Confusing physical/chemical changes"
+    ],
+    "grade_11": [
+      "Vector sign mistakes",
+      "Circuit resistance miscalculations"
+    ],
+    "grade_12": [
+      "Projectile trajectory oversights",
+      "Equilibrium constant confusions"
+    ]
+  },
+  "resources": [
+    "DBE past exams (education.gov.za)",
+    "PhET simulations for practicals",
+    "Siyavula textbooks",
+    "IEB guidelines for advanced prep"
+  ],
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "physical sciences exam tips grade 12",
+    "common mistakes caps physics",
+    "prep for grade 11 electrostatics"
+  ],
+  "related_gates": [
+    "caps/requirements/assessment_structure.json#Physical_Sciences",
+    "curriculum_gates/rag_templates.json#subject_advice"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "DBE Exam Guidelines + Educator Analyses",
+    "reviewed_at": "2025-12-27",
+    "source_verification": "DBE Past Papers; Studocu/Scribd Analyses (2025-aligned)"
+  }
+}

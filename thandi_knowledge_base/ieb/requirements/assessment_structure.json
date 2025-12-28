@@ -1,0 +1,119 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/ieb/assessment_structure.schema.json",
+  "kb_id": "ieb-assessment-structure-v1",
+  "exam_board": "IEB",
+  "version": "1.0.0",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "IEB Assessment Guidelines",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "ieb_checked": true,
+      "assessment_guidelines_verified": true,
+      "last_source_check": "2025-12-27"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "structure": {
+    "Mathematics": {
+      "continuous_assessment": 25,
+      "final_exam": 75,
+      "components": ["Tests", "Assignments/Investigations", "Projects", "Mid-year/Preliminary exams"],
+      "ieb_flexibility": "Schools can design innovative problem-solving tasks and real-world applications within the 25% SBA allocation",
+      "notes": ["Emphasis on mathematical reasoning and problem-solving", "Projects often involve mathematical modeling"]
+    },
+    "English": {
+      "continuous_assessment": 25,
+      "final_exam": 75,
+      "components": ["Oral tasks", "Writing assignments (essays, creative writing)", "Literature studies", "Tests/exams"],
+      "ieb_flexibility": "Schools can choose literature texts and design creative writing tasks that suit their context",
+      "notes": ["Strong emphasis on critical analysis and original thinking", "Oral component includes prepared and impromptu tasks"]
+    },
+    "Physical_Sciences": {
+      "continuous_assessment": 25,
+      "final_exam": 75,
+      "components": ["Practical experiments/PATs", "Tests", "Assignments", "Mid-year/Preliminary exams"],
+      "ieb_flexibility": "Schools can design additional practical investigations beyond standard PATs",
+      "notes": ["Practical work emphasizes scientific method and inquiry", "Strong focus on experimental design and analysis"]
+    },
+    "Life_Sciences": {
+      "continuous_assessment": 25,
+      "final_exam": 75,
+      "components": ["Practical tasks", "Tests", "Research projects", "Mid-year/Preliminary exams"],
+      "ieb_flexibility": "Schools can incorporate field work, research projects, and contemporary biological issues",
+      "notes": ["Research projects often involve current scientific topics", "Practical work includes both lab and field investigations"]
+    },
+    "Accounting": {
+      "continuous_assessment": 25,
+      "final_exam": 75,
+      "components": ["Projects", "Tests", "Case studies", "Mid-year/Preliminary exams"],
+      "ieb_flexibility": "Schools can use real business case studies and contemporary accounting scenarios",
+      "notes": ["Projects often involve analysis of real company financial statements", "Case studies connect theory to business practice"]
+    },
+    "Mathematical_Literacy": {
+      "continuous_assessment": 25,
+      "final_exam": 75,
+      "components": ["Assignments/Investigations", "Control tests", "Mid-year/Preliminary exams"],
+      "ieb_flexibility": "Schools can design investigations using local data and real-world contexts",
+      "notes": ["Strong emphasis on practical applications and data analysis", "Investigations often use authentic local contexts"]
+    }
+  },
+  "key_differences_from_caps": {
+    "assessment_weighting": "IDENTICAL - Both IEB and CAPS use 25% SBA + 75% Final Exam",
+    "flexibility": "IEB allows schools more creativity in designing SBA components within the 25% allocation",
+    "innovation": "IEB encourages innovative, rigorous assessments that go beyond minimum requirements",
+    "school_autonomy": "Individual IEB schools can adapt assessment methods to their educational philosophy",
+    "quality_assurance": "IEB provides guidelines but trusts schools to maintain high standards"
+  },
+  "common_misconceptions": [
+    {
+      "myth": "IEB uses 60% continuous assessment + 40% final exam",
+      "reality": "IEB follows the same 25% SBA + 75% final exam weighting as CAPS",
+      "clarification": "The 60/40 split applies only to Further Studies programmes, not regular NSC subjects"
+    },
+    {
+      "myth": "IEB is easier because of more continuous assessment",
+      "reality": "IEB has the same assessment weighting but often more rigorous SBA tasks",
+      "clarification": "IEB schools typically set higher standards within the 25% SBA component"
+    }
+  ],
+  "flexibility_notes": "IEB aligns with CAPS weighting (25% SBA, 75% final exam) but allows schools some flexibility in designing SBA components within guidelines. Emphasis on rigorous, innovative assessments.",
+  "advantages_of_ieb_approach": [
+    "Schools can design SBA tasks that match their educational philosophy",
+    "More innovative and creative assessment methods encouraged",
+    "Real-world applications and contemporary issues can be incorporated",
+    "Teachers have professional autonomy within IEB guidelines",
+    "Assessment tasks often more engaging and relevant to students"
+  ],
+  "university_preparation": {
+    "continuous_assessment_skills": "IEB students often better prepared for university-style ongoing assessment",
+    "critical_thinking": "SBA tasks emphasize analysis, evaluation, and original thinking",
+    "research_skills": "Projects and investigations develop independent research abilities",
+    "time_management": "Balanced assessment load teaches effective time management"
+  },
+  "quality_assurance": {
+    "moderation": "IEB moderates SBA tasks to ensure consistency across schools",
+    "guidelines": "Clear assessment guidelines provided while allowing creativity",
+    "teacher_training": "IEB provides ongoing professional development for teachers",
+    "school_visits": "Regular quality assurance visits to maintain standards"
+  },
+  "query_triggers": [
+    "IEB assessment structure",
+    "IEB vs CAPS assessment",
+    "IEB continuous assessment",
+    "IEB SBA weighting",
+    "How is IEB assessed?",
+    "IEB 60/40 myth",
+    "IEB school flexibility"
+  ],
+  "related_gates": ["caps-vs-ieb-assessment", "ieb-school-flexibility"],
+  "source_links": [
+    "https://www.ieb.co.za/programmes/nsc",
+    "https://www.ieb.co.za/assessment-guidelines"
+  ]
+}

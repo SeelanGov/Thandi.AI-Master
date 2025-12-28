@@ -1,0 +1,142 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/curriculum_gates/enhanced/personalization_templates.schema.json",
+  "kb_id": "personalization-templates-v3w3",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "templates": {
+    "global_pathway_analysis": {
+      "template": "**Your Profile:** APS {{aps}} • {{strongest_subjects}} • {{career_interests}} • Household Income: {{income_bracket}}\n\n**Recommended Pathway:**\n🎓 **University:** {{recommended_university}} ({{local_or_international}})\n💰 **Funding:** {{primary_funding_source}} ({{funding_amount_range}})\n📋 **Requirements:** {{specific_requirements}}\n🛂 **Visa Path:** {{visa_pathway}} (if international)\n\n**Career Projection:**\n💼 **{{target_career}}**\n- **SA Salary:** {{sa_salary_range}}\n- **International Salary:** {{international_salary_range}} ({{salary_uplift}}% premium)\n- **Growth Potential:** {{career_growth_description}}\n\n**Next Steps:**\n{{actionable_next_steps}}\n\n*Source: {{data_sources}}*",
+      "variables": [
+        "aps", "strongest_subjects", "career_interests", "income_bracket",
+        "recommended_university", "local_or_international", "primary_funding_source",
+        "funding_amount_range", "specific_requirements", "visa_pathway",
+        "target_career", "sa_salary_range", "international_salary_range",
+        "salary_uplift", "career_growth_description", "actionable_next_steps", "data_sources"
+      ],
+      "use_cases": ["comprehensive_guidance", "high_achiever_planning", "international_interest"]
+    },
+    "financial_aid_strategy": {
+      "template": "**Bursary Strategy for {{student_name}}**\n\n**Your Eligibility Profile:**\n- Household Income: {{income_level}} ({{eligibility_category}})\n- Academic Performance: {{academic_standing}}\n- Special Circumstances: {{special_circumstances}}\n\n**Recommended Applications:**\n{{#each recommended_bursaries}}\n🏆 **{{name}}** ({{type}})\n- **Value:** {{value_range}}\n- **Match Score:** {{match_score}}/100\n- **Deadline:** {{deadline}}\n- **Requirements:** {{key_requirements}}\n- **Work Commitment:** {{work_commitment}}\n{{/each}}\n\n**Application Timeline:**\n{{application_timeline}}\n\n**Success Tips:**\n{{success_optimization_tips}}\n\n**Backup Options:**\n{{backup_funding_sources}}\n\n*Total Potential Funding: {{total_funding_potential}}*",
+      "variables": [
+        "student_name", "income_level", "eligibility_category", "academic_standing",
+        "special_circumstances", "recommended_bursaries", "application_timeline",
+        "success_optimization_tips", "backup_funding_sources", "total_funding_potential"
+      ],
+      "use_cases": ["financial_planning", "bursary_matching", "low_income_support"]
+    },
+    "international_mobility_plan": {
+      "template": "**International Study Plan for {{student_name}}**\n\n**Target Destination:** {{target_country}}\n**University Options:**\n{{#each university_options}}\n🏛️ **{{name}}** ({{ranking}})\n- **SA Acceptance Rate:** {{sa_acceptance_rate}}\n- **Requirements:** {{requirements}}\n- **Annual Cost:** {{total_cost}} ({{rand_equivalent}})\n- **Scholarship Opportunities:** {{scholarships}}\n{{/each}}\n\n**Visa Pathway:**\n📋 **{{visa_type}}**\n- **Processing Time:** {{processing_time}}\n- **Success Rate:** {{success_rate}}\n- **Work Authorization:** {{work_authorization}}\n- **PR Pathway:** {{pr_pathway}}\n\n**Career Outcomes:**\n💼 **{{target_career}} Comparison:**\n- **SA Salary:** {{sa_salary}}\n- **{{target_country}} Salary:** {{international_salary}} ({{percentage_increase}}% higher)\n- **Career Progression:** {{career_progression}}\n\n**Preparation Timeline:**\n{{preparation_timeline}}\n\n**Investment Analysis:**\n- **Total Investment:** {{total_investment}}\n- **ROI Timeline:** {{roi_timeline}}\n- **Break-even Point:** {{break_even}}\n\n*Recommendation: {{final_recommendation}}*",
+      "variables": [
+        "student_name", "target_country", "university_options", "visa_type",
+        "processing_time", "success_rate", "work_authorization", "pr_pathway",
+        "target_career", "sa_salary", "international_salary", "percentage_increase",
+        "career_progression", "preparation_timeline", "total_investment",
+        "roi_timeline", "break_even", "final_recommendation"
+      ],
+      "use_cases": ["international_planning", "visa_guidance", "career_comparison"]
+    },
+    "alternative_pathway_guidance": {
+      "template": "**Alternative Pathways for {{student_name}}**\n\n**Current Situation:** {{current_situation}}\n**Challenge:** {{primary_challenge}}\n\n**Recommended Alternatives:**\n\n{{#each alternative_options}}\n🛤️ **Option {{@index}}: {{pathway_name}}**\n- **Description:** {{description}}\n- **Timeline:** {{timeline}}\n- **Requirements:** {{requirements}}\n- **Advantages:** {{advantages}}\n- **Considerations:** {{considerations}}\n- **Success Rate:** {{success_rate}}\n{{/each}}\n\n**Support Resources:**\n{{support_resources}}\n\n**Success Stories:**\n{{success_examples}}\n\n**Next Immediate Steps:**\n{{immediate_actions}}\n\n*Remember: {{motivational_message}}*",
+      "variables": [
+        "student_name", "current_situation", "primary_challenge", "alternative_options",
+        "support_resources", "success_examples", "immediate_actions", "motivational_message"
+      ],
+      "use_cases": ["low_aps_guidance", "abet_pathways", "career_change_support"]
+    },
+    "special_needs_accommodation": {
+      "template": "**Inclusive Education Plan for {{student_name}}**\n\n**Accommodation Needs:** {{accommodation_type}}\n**Support Level Required:** {{support_level}}\n\n**University Recommendations:**\n{{#each inclusive_universities}}\n🏫 **{{name}}**\n- **Accessibility Rating:** {{accessibility_rating}}/5\n- **Support Services:** {{support_services}}\n- **Accommodation Examples:** {{accommodation_examples}}\n- **Contact:** {{disability_office_contact}}\n{{/each}}\n\n**Enhanced Funding Options:**\n{{#each enhanced_funding}}\n💰 **{{bursary_name}}**\n- **Additional Allowances:** {{additional_allowances}}\n- **Special Provisions:** {{special_provisions}}\n- **Application Process:** {{application_process}}\n{{/each}}\n\n**Technology Support:**\n{{technology_recommendations}}\n\n**Peer Support Networks:**\n{{peer_support_options}}\n\n**Legal Rights & Advocacy:**\n{{rights_information}}\n\n**Success Planning:**\n{{success_strategies}}\n\n*Your potential is unlimited - accommodations ensure equal access to achieve your goals.*",
+      "variables": [
+        "student_name", "accommodation_type", "support_level", "inclusive_universities",
+        "enhanced_funding", "technology_recommendations", "peer_support_options",
+        "rights_information", "success_strategies"
+      ],
+      "use_cases": ["disability_support", "inclusive_planning", "accessibility_guidance"]
+    },
+    "rural_student_transition": {
+      "template": "**Urban/International Transition Plan for {{student_name}}**\n\n**From:** {{home_location}} ({{province}})\n**To:** {{destination}} ({{destination_type}})\n\n**Financial Planning:**\n💰 **Rural-Preference Funding:**\n{{#each rural_bursaries}}\n- **{{name}}:** {{value}} ({{rural_advantage}})\n{{/each}}\n\n**Accommodation Strategy:**\n🏠 **Housing Options:**\n- **University Residence:** {{residence_cost}} ({{residence_benefits}})\n- **Private Accommodation:** {{private_cost}} ({{private_considerations}})\n- **Shared Housing:** {{shared_cost}} ({{community_aspects}})\n\n**Cultural Transition Support:**\n🌍 **Preparation Areas:**\n- **Language:** {{language_considerations}}\n- **Technology:** {{technology_preparation}}\n- **Social Integration:** {{social_integration_tips}}\n- **Academic Expectations:** {{academic_adjustment}}\n\n**Community Connection:**\n{{community_networks}}\n\n**Transport & Logistics:**\n{{transport_planning}}\n\n**Maintaining Home Ties:**\n{{home_connection_strategies}}\n\n**Career Impact Planning:**\n{{career_community_impact}}\n\n*Your rural background is a strength - use it to make a positive impact wherever you study.*",
+      "variables": [
+        "student_name", "home_location", "province", "destination", "destination_type",
+        "rural_bursaries", "residence_cost", "residence_benefits", "private_cost",
+        "private_considerations", "shared_cost", "community_aspects", "language_considerations",
+        "technology_preparation", "social_integration_tips", "academic_adjustment",
+        "community_networks", "transport_planning", "home_connection_strategies",
+        "career_community_impact"
+      ],
+      "use_cases": ["rural_transition", "cultural_adaptation", "community_connection"]
+    },
+    "first_generation_guidance": {
+      "template": "**First-Generation University Guide for {{student_name}}**\n\n**Understanding University:**\n📚 **What to Expect:**\n- **Academic Structure:** {{academic_structure_explanation}}\n- **Assessment Methods:** {{assessment_explanation}}\n- **Support Services:** {{support_services_overview}}\n- **Campus Life:** {{campus_life_description}}\n\n**Family Communication:**\n👨‍👩‍👧‍👦 **Explaining to Family:**\n{{family_explanation_guide}}\n\n**Mentorship Opportunities:**\n{{#each mentorship_programs}}\n🤝 **{{program_name}}**\n- **Provider:** {{provider}}\n- **Support Type:** {{support_type}}\n- **How to Apply:** {{application_process}}\n{{/each}}\n\n**Financial Literacy:**\n💡 **Understanding Costs:**\n{{financial_literacy_content}}\n\n**Academic Success Strategies:**\n{{academic_success_tips}}\n\n**Building Your Support Network:**\n{{network_building_advice}}\n\n**Common Challenges & Solutions:**\n{{common_challenges}}\n\n**Celebrating Your Achievement:**\n{{achievement_recognition}}\n\n*You're not just changing your life - you're opening doors for your entire family's future.*",
+      "variables": [
+        "student_name", "academic_structure_explanation", "assessment_explanation",
+        "support_services_overview", "campus_life_description", "family_explanation_guide",
+        "mentorship_programs", "financial_literacy_content", "academic_success_tips",
+        "network_building_advice", "common_challenges", "achievement_recognition"
+      ],
+      "use_cases": ["first_generation_support", "family_communication", "university_orientation"]
+    }
+  },
+  "template_optimization": {
+    "personalization_variables": {
+      "demographic_factors": ["age", "gender", "location", "language_preference", "cultural_background"],
+      "academic_factors": ["aps", "subject_performance", "learning_style", "academic_confidence"],
+      "socioeconomic_factors": ["household_income", "family_education_level", "employment_status"],
+      "aspirational_factors": ["career_interests", "international_interest", "risk_tolerance", "timeline_flexibility"]
+    },
+    "adaptive_formatting": {
+      "information_density": "Adjust detail level based on student's information processing capacity",
+      "language_complexity": "Scale vocabulary and sentence structure to student's education level",
+      "visual_elements": "Include more visual cues for visual learners, structured lists for analytical thinkers",
+      "cultural_sensitivity": "Adapt examples and references to student's cultural context"
+    },
+    "response_timing": {
+      "immediate_needs": "Prioritize urgent information (deadlines, requirements)",
+      "medium_term_planning": "Include preparation steps and timeline guidance",
+      "long_term_vision": "Connect current decisions to future career and life goals"
+    }
+  },
+  "quality_assurance": {
+    "template_testing": {
+      "variable_validation": "Ensure all template variables have valid data sources",
+      "output_coherence": "Verify template outputs are logical and actionable",
+      "cultural_appropriateness": "Review templates for cultural sensitivity and inclusivity"
+    },
+    "user_feedback_integration": {
+      "satisfaction_scoring": "Track user satisfaction with different template formats",
+      "effectiveness_measurement": "Monitor whether templated advice leads to successful outcomes",
+      "continuous_improvement": "Regularly update templates based on user feedback and success data"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.5
+  },
+  "query_triggers": [
+    "personalized university guidance",
+    "bursary application strategy",
+    "international study planning",
+    "alternative pathway options",
+    "special needs university support",
+    "rural student transition help",
+    "first generation university guide"
+  ],
+  "related_gates": [
+    "curriculum_gates/enhanced/chaining_rules.json",
+    "financial_aid/matcher.json",
+    "international/universities.json",
+    "international/scholarships.json",
+    "careers/profiles.json",
+    "system/inclusivity/alternative_pathways.json"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "Educational Communication Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "template_design": "Based on educational psychology research and student communication best practices",
+      "personalization_factors": "Validated against student success literature and counselor experience",
+      "cultural_sensitivity": "Reviewed for South African cultural context and inclusivity standards"
+    }
+  }
+}

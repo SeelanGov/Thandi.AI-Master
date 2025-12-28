@@ -1,0 +1,343 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/careers/subject_mapper.schema.json",
+  "kb_id": "subject-career-mapper-v2",
+  "version": "2.0.0",
+  "created_at": "2025-12-27",
+  "mappings": {
+    "Mathematics": {
+      "essential_careers": [
+        "Software Engineer",
+        "Mechanical Engineer", 
+        "Electrical Engineer",
+        "Civil Engineer",
+        "Architect",
+        "Actuary",
+        "Data Scientist",
+        "Chartered Accountant"
+      ],
+      "accessible_careers": [
+        "Financial Analyst",
+        "Economist",
+        "Statistician",
+        "Physics Teacher",
+        "Mathematics Teacher"
+      ],
+      "career_note": "Mathematics (not Math Lit) is gateway to STEM careers",
+      "switching_deadline": "End Grade 10 Term 1 - cannot switch from Math Lit after this"
+    },
+    "Mathematical Literacy": {
+      "essential_careers": [],
+      "accessible_careers": [
+        "Teacher (non-STEM subjects)",
+        "Social Worker",
+        "Business Manager",
+        "Marketing Specialist",
+        "Human Resources"
+      ],
+      "excluded_careers": [
+        "Engineering (all types)",
+        "Computer Science",
+        "Actuarial Science",
+        "Architecture",
+        "Data Science"
+      ],
+      "career_note": "Limits access to STEM careers but suitable for business/humanities",
+      "switching_deadline": "Cannot switch TO Mathematics after Grade 10 Term 1"
+    },
+    "Physical Sciences": {
+      "essential_careers": [
+        "Mechanical Engineer",
+        "Electrical Engineer", 
+        "Civil Engineer",
+        "Chemical Engineer",
+        "Medical Doctor",
+        "Pharmacist",
+        "Physicist"
+      ],
+      "accessible_careers": [
+        "Architect",
+        "Pilot",
+        "Science Teacher",
+        "Research Scientist"
+      ],
+      "career_note": "Critical for engineering and medical careers",
+      "university_requirements": "70%+ for competitive engineering/medicine programs"
+    },
+    "Life Sciences": {
+      "essential_careers": [
+        "Medical Doctor",
+        "Veterinarian", 
+        "Nurse",
+        "Pharmacist",
+        "Physiotherapist",
+        "Dietitian"
+      ],
+      "accessible_careers": [
+        "Psychologist",
+        "Life Sciences Teacher",
+        "Environmental Scientist",
+        "Biotechnologist"
+      ],
+      "career_note": "Gateway to healthcare and biological sciences",
+      "university_requirements": "70%+ for medicine, 60%+ for other health sciences"
+    },
+    "English Home Language": {
+      "essential_careers": [
+        "Lawyer/Advocate",
+        "Journalist",
+        "English Teacher",
+        "Editor/Writer"
+      ],
+      "accessible_careers": [
+        "All careers (communication skills)",
+        "Marketing Specialist",
+        "Human Resources",
+        "Public Relations"
+      ],
+      "career_note": "Required for all university programs, critical for language-based careers",
+      "university_requirements": "60-70%+ for most programs"
+    },
+    "Afrikaans First Additional Language": {
+      "essential_careers": [
+        "Afrikaans Teacher",
+        "Translator/Interpreter"
+      ],
+      "accessible_careers": [
+        "All careers in Afrikaans-speaking areas",
+        "Government positions",
+        "Legal careers (advantage in certain courts)"
+      ],
+      "career_note": "Advantage in Western Cape, Free State, Northern Cape employment",
+      "university_requirements": "Language requirement for most SA universities"
+    },
+    "Accounting": {
+      "essential_careers": [
+        "Chartered Accountant",
+        "Financial Manager",
+        "Auditor",
+        "Tax Consultant"
+      ],
+      "accessible_careers": [
+        "Business Analyst",
+        "Banking Professional",
+        "Economics careers",
+        "Business Teacher"
+      ],
+      "career_note": "Strong foundation for all business careers",
+      "university_requirements": "70%+ for CA programs, 60%+ for general BCom"
+    },
+    "Business Studies": {
+      "essential_careers": [
+        "Business Manager",
+        "Entrepreneur",
+        "Marketing Manager",
+        "Human Resources Manager"
+      ],
+      "accessible_careers": [
+        "Sales Representative",
+        "Project Manager",
+        "Business Analyst",
+        "Business Teacher"
+      ],
+      "career_note": "Excellent foundation for business and management careers",
+      "university_requirements": "60%+ for BCom programs"
+    },
+    "Economics": {
+      "essential_careers": [
+        "Economist",
+        "Financial Analyst",
+        "Investment Banker",
+        "Policy Analyst"
+      ],
+      "accessible_careers": [
+        "Business careers",
+        "Government positions",
+        "Research roles",
+        "Economics Teacher"
+      ],
+      "career_note": "Valuable for understanding markets and economic policy",
+      "university_requirements": "65%+ for economics programs"
+    },
+    "History": {
+      "essential_careers": [
+        "Historian",
+        "History Teacher",
+        "Museum Curator",
+        "Archivist"
+      ],
+      "accessible_careers": [
+        "Lawyer (analytical skills)",
+        "Journalist",
+        "Government positions",
+        "Tourism Guide"
+      ],
+      "career_note": "Develops critical thinking and research skills",
+      "university_requirements": "60%+ for humanities programs"
+    },
+    "Geography": {
+      "essential_careers": [
+        "Geographer",
+        "Urban Planner",
+        "Environmental Consultant",
+        "Geography Teacher"
+      ],
+      "accessible_careers": [
+        "GIS Specialist",
+        "Tourism Manager",
+        "Meteorologist",
+        "Surveyor"
+      ],
+      "career_note": "Combines physical and human sciences",
+      "university_requirements": "60%+ for geography/environmental programs"
+    },
+    "Information Technology": {
+      "essential_careers": [
+        "Software Engineer",
+        "IT Support Specialist",
+        "Network Administrator",
+        "IT Teacher"
+      ],
+      "accessible_careers": [
+        "Data Scientist",
+        "Cybersecurity Specialist",
+        "Web Developer",
+        "Digital Marketing"
+      ],
+      "career_note": "Growing field with excellent job prospects",
+      "university_requirements": "60%+ for IT programs, Mathematics also required"
+    },
+    "Consumer Studies": {
+      "essential_careers": [
+        "Dietitian",
+        "Food Technologist",
+        "Consumer Studies Teacher",
+        "Hospitality Manager"
+      ],
+      "accessible_careers": [
+        "Chef",
+        "Nutritionist",
+        "Food Safety Inspector",
+        "Restaurant Manager"
+      ],
+      "career_note": "Combines nutrition, textiles, and consumer economics",
+      "university_requirements": "60%+ for related programs"
+    },
+    "Tourism": {
+      "essential_careers": [
+        "Tourism Manager",
+        "Travel Agent",
+        "Tour Guide",
+        "Tourism Teacher"
+      ],
+      "accessible_careers": [
+        "Hotel Manager",
+        "Event Coordinator",
+        "Airlines Staff",
+        "Tourism Marketing"
+      ],
+      "career_note": "Important industry in South Africa",
+      "university_requirements": "55%+ for tourism programs"
+    },
+    "Visual Arts": {
+      "essential_careers": [
+        "Graphic Designer",
+        "Fine Artist",
+        "Art Teacher",
+        "Art Therapist"
+      ],
+      "accessible_careers": [
+        "Architect (design skills)",
+        "Web Designer",
+        "Advertising Creative",
+        "Museum Curator"
+      ],
+      "career_note": "Develops creativity and visual communication skills",
+      "university_requirements": "Portfolio often more important than marks"
+    }
+  },
+  "subject_combinations": {
+    "STEM_pathway": {
+      "core": ["Mathematics", "Physical Sciences"],
+      "recommended": ["Life Sciences", "Information Technology"],
+      "careers": ["Engineering", "Medicine", "Computer Science", "Architecture"],
+      "note": "Mathematics essential - Math Lit excludes these careers"
+    },
+    "Commerce_pathway": {
+      "core": ["Mathematics", "Accounting"],
+      "recommended": ["Business Studies", "Economics"],
+      "careers": ["Chartered Accountant", "Financial Analyst", "Business Manager"],
+      "note": "Mathematics preferred over Math Lit for competitive programs"
+    },
+    "Humanities_pathway": {
+      "core": ["English HL", "History"],
+      "recommended": ["Geography", "Additional Language"],
+      "careers": ["Lawyer", "Teacher", "Journalist", "Social Worker"],
+      "note": "Strong language skills essential"
+    },
+    "Healthcare_pathway": {
+      "core": ["Life Sciences", "Physical Sciences"],
+      "recommended": ["Mathematics", "English HL"],
+      "careers": ["Doctor", "Nurse", "Pharmacist", "Physiotherapist"],
+      "note": "Science subjects with high marks required"
+    }
+  },
+  "career_accessibility": {
+    "high_aps_required": {
+      "careers": ["Medical Doctor", "Engineering", "Actuarial Science"],
+      "typical_aps": "40-42",
+      "key_subjects": ["Mathematics 70%+", "Sciences 70%+"]
+    },
+    "moderate_aps_required": {
+      "careers": ["Chartered Accountant", "Lawyer", "Psychologist"],
+      "typical_aps": "35-39",
+      "key_subjects": ["Core subjects 60-70%"]
+    },
+    "accessible_aps": {
+      "careers": ["Teacher", "Social Worker", "Business roles"],
+      "typical_aps": "28-34",
+      "key_subjects": ["Teaching subject 60%+"]
+    }
+  },
+  "switching_considerations": {
+    "grade_10_decisions": [
+      "Mathematics vs Mathematical Literacy (CRITICAL - affects all STEM careers)",
+      "Physical Sciences (required for engineering/medicine)",
+      "Life Sciences (required for healthcare)",
+      "Subject combination for target career pathway"
+    ],
+    "grade_11_limitations": [
+      "Cannot switch from Math Lit to Mathematics",
+      "Cannot add Physical Sciences",
+      "Limited subject changes possible"
+    ],
+    "career_impact": [
+      "Math Lit choice eliminates 50%+ of high-paying careers",
+      "Missing Physical Sciences eliminates engineering",
+      "Missing Life Sciences eliminates healthcare careers"
+    ]
+  },
+  "rag": {
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "curriculum_match_boost": 1.5
+  },
+  "query_triggers": [
+    "mathematics careers",
+    "what careers need physical sciences",
+    "math lit career options",
+    "accounting career paths",
+    "subject combinations engineering"
+  ],
+  "related_gates": [
+    "careers/profiles.json",
+    "caps/requirements/subject_requirements.json",
+    "university/program_thresholds.json",
+    "comparison/caps_vs_ieb_matrix.json"
+  ],
+  "verification": {
+    "status": "verified",
+    "reviewer": "Career Guidance Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": "University prospectuses, Professional body requirements, Career guidance resources"
+  }
+}

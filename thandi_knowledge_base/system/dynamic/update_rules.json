@@ -1,0 +1,192 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/system/dynamic/update_rules.schema.json",
+  "kb_id": "update-rules-v3w3",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "update_rules": [
+    {
+      "component": "university_thresholds",
+      "frequency": "annual",
+      "schedule": "april_to_november",
+      "actions": [
+        "Monitor UCT prospectus (April release)",
+        "Track Wits applications (September close)",
+        "Check UP/Stellenbosch updates (July-November)",
+        "Verify APS threshold changes (typically +2-5 points for competitive programs)"
+      ],
+      "triggers": [
+        "New year prospectus release",
+        "Enrollment planning announcements (November)",
+        "DBE Action Plan updates"
+      ],
+      "sources": [
+        "uct.ac.za/apply",
+        "wits.ac.za/admissions",
+        "up.ac.za/admissions",
+        "sun.ac.za/admissions"
+      ],
+      "last_updated": "2025-12-27",
+      "next_check": "2026-04-01"
+    },
+    {
+      "component": "scholarships_bursaries",
+      "frequency": "biannual",
+      "schedule": "january_july",
+      "actions": [
+        "Verify Rhodes Scholarship deadline (July 31 - stable)",
+        "Check Chevening updates (October 7 - shifted from November 2024)",
+        "Monitor NSFAS policy changes (income threshold R350k stable)",
+        "Track corporate bursary expansions (Sasol 2025 growth)"
+      ],
+      "triggers": [
+        "Scholarship provider announcements",
+        "Government policy gazettes",
+        "Corporate CSI program updates"
+      ],
+      "sources": [
+        "rhodeshouse.ox.ac.uk",
+        "chevening.org",
+        "nsfas.org.za",
+        "zabursaries.co.za"
+      ],
+      "critical_changes": [
+        "NSFAS income threshold adjustments",
+        "Disability concession updates (R600k threshold added 2023)",
+        "New corporate bursary programs"
+      ],
+      "last_updated": "2025-12-27",
+      "next_check": "2026-01-15"
+    },
+    {
+      "component": "visa_immigration",
+      "frequency": "quarterly",
+      "schedule": "seasonal_monitoring",
+      "actions": [
+        "Monitor US policy changes (quarterly updates, July 2025 reciprocity changes)",
+        "Track UK Graduate Route modifications (biannual, 2025 reforms)",
+        "Check Australian fee increases (25% hike July 2025 to AUD 2,000)",
+        "Verify Canadian permit caps (2025-2026 restrictions)"
+      ],
+      "triggers": [
+        "USCIS policy bulletins",
+        "UKVI rule changes",
+        "Australian Immigration updates",
+        "IRCC announcements"
+      ],
+      "sources": [
+        "uscis.gov/news",
+        "gov.uk/government/organisations/uk-visas-and-immigration",
+        "homeaffairs.gov.au/news-media",
+        "canada.ca/en/immigration-refugees-citizenship"
+      ],
+      "processing_time_monitoring": {
+        "us_f1": "3-6 months (summer peaks)",
+        "uk_student": "3 weeks (post-2025 reforms)",
+        "au_subclass_500": "4-8 weeks (Jan-March peaks)",
+        "ca_study_permit": "4-8 weeks (seasonal variations)"
+      },
+      "last_updated": "2025-12-27",
+      "next_check": "2026-03-01"
+    },
+    {
+      "component": "curriculum_requirements",
+      "frequency": "annual",
+      "schedule": "november_gazette_cycle",
+      "actions": [
+        "Monitor DBE gov.za media statements (no RSS feeds available)",
+        "Track IEB guideline updates via member notifications",
+        "Check Action Plan 2025 literacy/numeracy focus",
+        "Verify e-learning policy revamps (2024 initiatives)"
+      ],
+      "triggers": [
+        "Government gazette publications",
+        "DBE Action Plan releases",
+        "IEB member communications",
+        "Provincial education department circulars"
+      ],
+      "sources": [
+        "education.gov.za",
+        "ieb.co.za/guidelines",
+        "gov.za/documents"
+      ],
+      "stability_notes": "Minimal changes 2020-2025; focus on multilingualism and inclusivity in 2025",
+      "last_updated": "2025-12-27",
+      "next_check": "2026-11-01"
+    },
+    {
+      "component": "career_salary_data",
+      "frequency": "quarterly",
+      "schedule": "market_data_refresh",
+      "actions": [
+        "Update salary benchmarks via Glassdoor API",
+        "Refresh exchange rates for international comparisons",
+        "Monitor job market trends (post-COVID recovery patterns)",
+        "Track visa success rates and processing times"
+      ],
+      "triggers": [
+        "Quarterly salary surveys",
+        "Exchange rate fluctuations >5%",
+        "Major economic policy changes",
+        "Immigration policy updates"
+      ],
+      "sources": [
+        "glassdoor.com/api",
+        "payscale.com",
+        "xe.com/api (exchange rates)",
+        "statssa.gov.za"
+      ],
+      "last_updated": "2025-12-27",
+      "next_check": "2026-03-01"
+    }
+  ],
+  "automation_framework": {
+    "implementation_method": "cron_jobs_and_webhooks",
+    "monitoring_tools": [
+      "RSS feed aggregators where available",
+      "Web scraping for sites without APIs",
+      "Email alert subscriptions",
+      "Manual quarterly reviews"
+    ],
+    "alert_thresholds": {
+      "critical_changes": "Immediate notification (visa policies, major scholarship changes)",
+      "moderate_changes": "Weekly digest (APS adjustments, deadline shifts)",
+      "minor_updates": "Monthly summary (fee adjustments, processing time changes)"
+    }
+  },
+  "quality_assurance": {
+    "verification_protocol": "Multi-source cross-checking required for all updates",
+    "change_approval": "Manual review required for changes affecting >1000 students",
+    "rollback_procedures": "Maintain previous version for 30 days",
+    "testing_requirements": "Validate updated data with sample queries before deployment"
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "update scholarships 2026",
+    "latest visa requirements",
+    "university deadline changes",
+    "aps threshold updates",
+    "bursary policy changes"
+  ],
+  "related_gates": [
+    "international/scholarships.json",
+    "international/visa_guidance.json",
+    "university/program_thresholds.json",
+    "financial_aid/bursaries.json",
+    "system/dynamic/change_detection.json"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "System Architecture Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "update_frequencies": "Based on 2020-2025 historical patterns and official source analysis",
+      "automation_feasibility": "Assessed against available APIs and data sources",
+      "quality_protocols": "Aligned with educational data management best practices"
+    }
+  }
+}

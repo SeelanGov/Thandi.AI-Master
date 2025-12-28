@@ -1,0 +1,267 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/ieb/subject_requirements.schema.json",
+  "kb_id": "ieb-subject-requirements-v1",
+  "exam_board": "IEB",
+  "grades": [10, 11, 12],
+  "version": "1.0.0",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "IEB Subject Guidelines",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "ieb_checked": true,
+      "subject_guidelines_verified": true,
+      "last_source_check": "2025-12-27"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "core_subjects": {
+    "Mathematics": {
+      "compulsory": true,
+      "grades": [10, 11, 12],
+      "prerequisites": "Grade 9 Mathematics (60%+ recommended)",
+      "ieb_enhancements": [
+        "Schools can offer additional enrichment beyond CAPS minimum",
+        "Option to take Further Studies Mathematics as 8th subject",
+        "More emphasis on problem-solving and mathematical reasoning"
+      ],
+      "gateway_paths": ["Engineering", "Computer Science", "Actuarial Science", "Architecture"],
+      "aps_strategy": "Essential for STEM; Further Studies Maths adds 3-4 APS points"
+    },
+    "Mathematical_Literacy": {
+      "compulsory": false,
+      "alternative_to": "Mathematics",
+      "grades": [10, 11, 12],
+      "prerequisites": "Grade 9 Mathematics",
+      "ieb_enhancements": [
+        "Real-world problem-solving emphasis",
+        "School-specific contexts and case studies",
+        "Enhanced data analysis components"
+      ],
+      "gateway_paths": ["Humanities", "Business (non-quantitative)", "Arts"],
+      "aps_strategy": "Limits STEM options but solid for humanities/business"
+    },
+    "English_Home_Language": {
+      "compulsory": true,
+      "grades": [10, 11, 12],
+      "prerequisites": "Grade 9 English (50%+)",
+      "ieb_enhancements": [
+        "Schools choose literature texts within IEB framework",
+        "Option for Further Studies English as 8th subject",
+        "Enhanced critical thinking and analysis focus"
+      ],
+      "gateway_paths": ["All university programs", "Law", "Journalism", "Teaching"],
+      "aps_strategy": "Compulsory; Further Studies English boosts humanities applications"
+    },
+    "Life_Orientation": {
+      "compulsory": true,
+      "grades": [10, 11, 12],
+      "aps_exclusion": true,
+      "ieb_enhancements": [
+        "Schools can integrate contemporary issues",
+        "Flexible community service components",
+        "Enhanced life skills focus"
+      ],
+      "notes": ["Does not count towards APS calculation"]
+    }
+  },
+  "elective_subjects": {
+    "Business_Studies": {
+      "prerequisites": "None; aligns with CAPS but with IEB emphasis on critical thinking",
+      "content_overview": "Business environments, entrepreneurship, operations, marketing, finance; integrated projects",
+      "ieb_notes": [
+        "Option for AP integration in related fields",
+        "School variations in case studies",
+        "8th/9th subject for APS boost in commerce pathways"
+      ],
+      "gateway_paths": ["BCom", "Business Management", "Entrepreneurship", "Marketing"],
+      "aps_strategy": "Strong for commerce degrees; 8th subject adds 3-4 points",
+      "school_flexibility": "Schools can use local business case studies and guest speakers"
+    },
+    "Economics": {
+      "prerequisites": "Mathematics recommended",
+      "content_overview": "Economic systems, micro/macro economics, global issues; data analysis",
+      "ieb_notes": [
+        "Advanced analytical skills emphasis",
+        "Flexibility in school-paced enrichment",
+        "Pairs well with AP Mathematics for STEM-commerce"
+      ],
+      "gateway_paths": ["Economics degrees", "BCom", "Development Studies", "Public Policy"],
+      "aps_strategy": "Excellent for economics/finance programs; complements Mathematics",
+      "school_flexibility": "Schools can emphasize current economic issues and local contexts"
+    },
+    "Geography": {
+      "prerequisites": "Basic map skills",
+      "content_overview": "Physical/human geography, environmental management, GIS; field studies",
+      "ieb_notes": [
+        "Enhanced practical components",
+        "School-customized field trips",
+        "8th subject option for broader APS"
+      ],
+      "gateway_paths": ["Environmental Science", "Urban Planning", "Geology", "Tourism"],
+      "aps_strategy": "Good for environmental/earth science programs; 8th subject flexibility",
+      "school_flexibility": "Field work can be tailored to local geographical features"
+    },
+    "History": {
+      "prerequisites": "Interest in humanities",
+      "content_overview": "Global/SA history, source analysis, themes of power/race",
+      "ieb_notes": [
+        "Critical source evaluation focus",
+        "Variations in depth per school",
+        "Complements AP English for humanities"
+      ],
+      "gateway_paths": ["History", "Law", "Political Science", "International Relations"],
+      "aps_strategy": "Strong for humanities; pairs well with Further Studies English",
+      "school_flexibility": "Schools can emphasize different historical periods or themes"
+    },
+    "Information_Technology": {
+      "prerequisites": "Computer access; basic ICT",
+      "content_overview": "Programming, networks, databases, ethics; project-based",
+      "ieb_notes": [
+        "Advanced programming options",
+        "School resources determine depth",
+        "8th subject for tech pathways"
+      ],
+      "gateway_paths": ["Computer Science", "Information Systems", "Software Engineering"],
+      "aps_strategy": "Excellent for IT degrees; 8th subject adds technical credibility",
+      "school_flexibility": "Programming languages and projects vary by school resources"
+    },
+    "Consumer_Studies": {
+      "prerequisites": "Practical facilities",
+      "content_overview": "Consumer rights, nutrition, production, sustainability",
+      "ieb_notes": [
+        "Hands-on projects emphasized",
+        "School flexibility in practicals",
+        "Boosts APS in lifestyle fields"
+      ],
+      "gateway_paths": ["Nutrition", "Fashion Design", "Food Technology", "Consumer Science"],
+      "aps_strategy": "Niche but valuable for specific career paths",
+      "school_flexibility": "Practical projects can reflect school facilities and local contexts"
+    },
+    "Tourism": {
+      "prerequisites": "Interest in travel",
+      "content_overview": "Tourism industry, sustainability, marketing, global attractions",
+      "ieb_notes": [
+        "Real-world case studies",
+        "Variations in excursions",
+        "8th/9th subject for service sectors"
+      ],
+      "gateway_paths": ["Tourism Management", "Hospitality", "Event Management", "Travel"],
+      "aps_strategy": "Good for hospitality/tourism degrees; 8th subject option",
+      "school_flexibility": "Excursions and case studies can be location-specific"
+    },
+    "Afrikaans_HL_FAL": {
+      "prerequisites": "Prior language exposure",
+      "content_overview": "Language/literature, orals, writing; cultural texts",
+      "ieb_notes": [
+        "AP options for advanced language",
+        "School dual-medium variations",
+        "Enhances multilingual APS"
+      ],
+      "gateway_paths": ["Teaching", "Translation", "Media", "Government"],
+      "aps_strategy": "Valuable for multilingual competency; some universities give preference",
+      "school_flexibility": "Dual-medium schools can integrate across subjects"
+    },
+    "isiZulu_HL_FAL": {
+      "prerequisites": "Prior language exposure",
+      "content_overview": "Grammar, literature, orals; cultural heritage",
+      "ieb_notes": [
+        "Emphasis on oral traditions",
+        "School-specific cultural integration",
+        "Supports diverse APS pathways"
+      ],
+      "gateway_paths": ["Teaching", "Social Work", "Media", "Cultural Studies"],
+      "aps_strategy": "Increasingly valued by universities for transformation goals",
+      "school_flexibility": "Cultural components can reflect school community"
+    },
+    "Physical_Sciences": {
+      "prerequisites": "Strong Grade 9 Mathematics (60%+), Grade 9 Natural Sciences (50%+)",
+      "content_overview": "Physics and Chemistry; practical investigations and theory",
+      "ieb_notes": [
+        "Enhanced practical investigations beyond CAPS minimum",
+        "Schools can offer additional enrichment activities",
+        "Essential for STEM pathways"
+      ],
+      "gateway_paths": ["Engineering", "Medicine (some programs)", "Science degrees"],
+      "aps_strategy": "Essential for STEM; high performance crucial for competitive programs",
+      "school_flexibility": "Additional practical work and enrichment possible"
+    },
+    "Life_Sciences": {
+      "prerequisites": "Grade 9 Natural Sciences (50%+)",
+      "content_overview": "Biology topics; practical work and research projects",
+      "ieb_notes": [
+        "Research projects can be school-customized",
+        "Field work opportunities vary by location",
+        "Essential for health science pathways"
+      ],
+      "gateway_paths": ["Medicine", "Nursing", "Veterinary Science", "Biological Sciences"],
+      "aps_strategy": "Essential for health sciences; high performance required for medicine",
+      "school_flexibility": "Research topics and field work can be location-specific"
+    },
+    "Accounting": {
+      "prerequisites": "Grade 9 Mathematics (50%+), Grade 9 EMS",
+      "content_overview": "Financial accounting, management accounting, auditing",
+      "ieb_notes": [
+        "Real business case studies emphasized",
+        "Schools can use contemporary accounting scenarios",
+        "Strong preparation for commerce degrees"
+      ],
+      "gateway_paths": ["BCom Accounting", "Chartered Accountancy", "Financial Management"],
+      "aps_strategy": "Essential for CA pathway; high performance opens top commerce programs",
+      "school_flexibility": "Case studies can reflect current business environment"
+    }
+  },
+  "ieb_specific_advantages": {
+    "subject_flexibility": {
+      "8th_9th_subjects": "Can take 8-9 subjects instead of 7 to boost APS by 3-7 points",
+      "further_studies": "Advanced programmes available in Mathematics and English",
+      "school_choice": "Different IEB schools may offer different subject combinations"
+    },
+    "assessment_innovation": {
+      "practical_emphasis": "Enhanced practical work and real-world applications",
+      "critical_thinking": "Greater emphasis on analysis and evaluation skills",
+      "contemporary_relevance": "Schools can incorporate current issues and local contexts"
+    },
+    "university_preparation": {
+      "independent_learning": "Greater emphasis on self-directed study skills",
+      "research_skills": "Projects and investigations develop research abilities",
+      "time_management": "Balanced assessment load teaches effective planning"
+    }
+  },
+  "strategic_considerations": {
+    "aps_optimization": [
+      "Take 8th subject in area of strength to boost APS",
+      "Further Studies programmes add significant APS value",
+      "Choose subjects that align with intended university program"
+    ],
+    "school_selection": [
+      "Different IEB schools offer different subject combinations",
+      "Check which Further Studies programmes are available",
+      "Consider school resources for practical subjects"
+    ],
+    "cost_factors": [
+      "Additional subjects may incur extra fees",
+      "Further Studies programmes often cost more",
+      "Factor in textbook and resource costs"
+    ]
+  },
+  "query_triggers": [
+    "IEB subject requirements",
+    "IEB 8th subject strategy",
+    "IEB vs CAPS subjects",
+    "IEB Further Studies options",
+    "IEB school flexibility",
+    "IEB subject combinations",
+    "IEB APS boost strategy"
+  ],
+  "related_gates": ["ieb-subject-flexibility", "aps-calculation", "caps-vs-ieb-subjects"],
+  "source_links": [
+    "https://www.ieb.co.za/programmes/nsc",
+    "https://www.ieb.co.za/subject-guidelines"
+  ]
+}

@@ -1,0 +1,278 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/ieb/school_flexibility.schema.json",
+  "kb_id": "ieb-school-flexibility-v1",
+  "exam_board": "IEB",
+  "version": "1.0.0",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "IEB Guidelines and School Descriptions",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "ieb_checked": true,
+      "school_policies_verified": true,
+      "last_source_check": "2025-12-27",
+      "sources": [
+        "IEB Website School Guidelines",
+        "ISASA Member School Policies",
+        "IEB Assessment Framework Documents"
+      ]
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "flexibility_framework": {
+    "core_principle": "IEB provides framework guidelines while allowing schools significant autonomy in implementation within CAPS alignment",
+    "quality_assurance": "IEB moderates outcomes to ensure consistency and standards across member schools",
+    "school_autonomy": "Individual schools adapt teaching methods, assessment design, and enrichment activities to their educational philosophy"
+  },
+  "flexibility_areas": [
+    {
+      "area": "Subject Count and Selection",
+      "standard_caps": "Exactly 7 subjects",
+      "ieb_flexibility": "7-9 subjects; 8th/9th subjects (e.g., Further Studies) for APS boost",
+      "implementation_options": [
+        "8th subject in area of student strength (Mathematics, English, Sciences)",
+        "9th subject for exceptionally capable students",
+        "Further Studies programmes as advanced options",
+        "Subject combinations tailored to university pathway goals"
+      ],
+      "school_variations": [
+        "Some schools specialize in STEM with mandatory 8th science subject",
+        "Arts-focused schools may offer additional creative subjects",
+        "Dual-medium schools provide language flexibility",
+        "International schools may offer global curriculum integration"
+      ],
+      "student_benefits": [
+        "APS boost of 3-7 points from additional subjects",
+        "Enhanced university competitiveness",
+        "Broader knowledge base and skills development",
+        "Flexibility to explore interests beyond minimum requirements"
+      ],
+      "considerations": [
+        "Additional subjects increase workload and stress",
+        "Extra fees may apply for 8th/9th subjects",
+        "Timetabling constraints may limit combinations",
+        "Not all schools offer all subject options"
+      ]
+    },
+    {
+      "area": "Assessment Design and Innovation",
+      "standard_caps": "25% SBA with prescribed components",
+      "ieb_flexibility": "25% SBA with school-customized components (projects, orals, practicals)",
+      "implementation_options": [
+        "Innovative project-based assessments",
+        "Real-world case studies and applications",
+        "Cross-curricular integrated assignments",
+        "Contemporary issue analysis and research projects",
+        "Enhanced practical work beyond minimum requirements"
+      ],
+      "school_variations": [
+        "Technology-rich schools use digital portfolios and online assessments",
+        "Research-focused schools emphasize independent investigation projects",
+        "Community-engaged schools include service learning components",
+        "International schools incorporate global perspectives"
+      ],
+      "student_benefits": [
+        "More engaging and relevant assessment tasks",
+        "Development of critical thinking and analysis skills",
+        "Better preparation for university-style assignments",
+        "Enhanced creativity and independent learning abilities"
+      ],
+      "quality_controls": [
+        "IEB moderation ensures consistency across schools",
+        "Assessment guidelines maintain academic rigor",
+        "External verification of school-designed tasks",
+        "Regular quality assurance visits and reviews"
+      ]
+    },
+    {
+      "area": "Curriculum Pace and Depth",
+      "standard_caps": "Standardized pacing and content coverage",
+      "ieb_flexibility": "Schools adjust pacing and depth within IEB/CAPS framework",
+      "implementation_options": [
+        "Accelerated programs for high achievers",
+        "Enrichment activities beyond curriculum minimum",
+        "Flexible pacing to accommodate different learning styles",
+        "Integration of current events and contemporary issues",
+        "Enhanced practical work and field studies"
+      ],
+      "school_variations": [
+        "Academic schools may cover content faster with more depth",
+        "Holistic schools balance academics with broader development",
+        "Specialized schools (e.g., science, arts) provide focused enrichment",
+        "Small schools offer more individualized pacing"
+      ],
+      "student_benefits": [
+        "Learning tailored to individual needs and abilities",
+        "Deeper understanding through enrichment activities",
+        "Better preparation for university-level thinking",
+        "Enhanced engagement through relevant applications"
+      ],
+      "teacher_autonomy": [
+        "Professional freedom to adapt teaching methods",
+        "Flexibility to incorporate innovative pedagogies",
+        "Ability to respond to student interests and needs",
+        "Encouragement of creative and engaging lesson design"
+      ]
+    },
+    {
+      "area": "Language and Cultural Integration",
+      "standard_caps": "Provincial language policies apply",
+      "ieb_flexibility": "Schools design language programs within IEB guidelines",
+      "implementation_options": [
+        "Dual-medium instruction in multiple subjects",
+        "Cultural integration across curriculum areas",
+        "International language options (French, German, Mandarin)",
+        "Heritage language preservation programs",
+        "Cross-cultural competency development"
+      ],
+      "school_variations": [
+        "Dual-medium schools offer Afrikaans/English integration",
+        "Multicultural schools celebrate diverse backgrounds",
+        "International schools provide global language options",
+        "Heritage schools maintain cultural traditions"
+      ],
+      "student_benefits": [
+        "Enhanced multilingual competency",
+        "Cultural awareness and global citizenship",
+        "Improved communication skills",
+        "Broader career and study opportunities"
+      ]
+    },
+    {
+      "area": "Technology Integration and Innovation",
+      "standard_caps": "Basic technology requirements",
+      "ieb_flexibility": "Schools integrate advanced technology based on resources",
+      "implementation_options": [
+        "1:1 device programs with digital learning platforms",
+        "Advanced laboratory equipment and software",
+        "Online collaboration and research tools",
+        "Digital portfolio and assessment systems",
+        "Virtual reality and simulation technologies"
+      ],
+      "school_variations": [
+        "Well-resourced schools provide cutting-edge technology",
+        "STEM-focused schools emphasize technical skills",
+        "Creative schools use technology for arts and media",
+        "Traditional schools balance technology with conventional methods"
+      ],
+      "student_benefits": [
+        "Enhanced digital literacy and technical skills",
+        "Access to advanced learning resources",
+        "Preparation for technology-rich university environment",
+        "Development of 21st-century workplace skills"
+      ]
+    }
+  ],
+  "school_selection_considerations": {
+    "academic_philosophy": [
+      "Traditional academic focus vs holistic development",
+      "Competitive vs collaborative learning environment",
+      "Structured vs flexible approach to education",
+      "Specialization vs broad-based curriculum"
+    ],
+    "resource_availability": [
+      "Laboratory and technology facilities",
+      "Library and research resources",
+      "Sports and extracurricular facilities",
+      "Teacher qualifications and experience"
+    ],
+    "student_support": [
+      "Class sizes and teacher-student ratios",
+      "Academic support and tutoring programs",
+      "University guidance and career counseling",
+      "Special needs accommodation and support"
+    ],
+    "cost_and_value": [
+      "School fees and additional costs",
+      "Value for money in terms of outcomes",
+      "Bursary and scholarship availability",
+      "Long-term return on investment"
+    ]
+  },
+  "quality_assurance_framework": {
+    "ieb_oversight": [
+      "Regular school visits and quality reviews",
+      "Moderation of assessment tasks and standards",
+      "Teacher training and professional development",
+      "Curriculum compliance monitoring"
+    ],
+    "school_accountability": [
+      "Annual reporting on student outcomes",
+      "Maintenance of IEB membership standards",
+      "Continuous improvement planning",
+      "Parent and student satisfaction monitoring"
+    ],
+    "outcome_consistency": [
+      "Standardized final examinations",
+      "Cross-school moderation of SBA tasks",
+      "University placement tracking",
+      "Graduate feedback and success monitoring"
+    ]
+  },
+  "common_misconceptions": [
+    {
+      "myth": "IEB schools can do whatever they want",
+      "reality": "Schools have flexibility within strict IEB guidelines and CAPS alignment requirements"
+    },
+    {
+      "myth": "All IEB schools are the same",
+      "reality": "Significant variation in approach, resources, and specialization between schools"
+    },
+    {
+      "myth": "IEB flexibility means lower standards",
+      "reality": "IEB maintains high standards through rigorous moderation and quality assurance"
+    },
+    {
+      "myth": "School flexibility doesn't matter for university admission",
+      "reality": "School approach can significantly impact student preparation and university readiness"
+    }
+  ],
+  "strategic_advice": {
+    "for_parents": [
+      "Visit multiple IEB schools to understand different approaches",
+      "Consider your child's learning style and needs",
+      "Evaluate school resources and support systems",
+      "Assess alignment with family values and goals"
+    ],
+    "for_students": [
+      "Consider which school environment suits your personality",
+      "Evaluate subject offerings and extracurricular opportunities",
+      "Think about your university and career goals",
+      "Consider the balance between academic pressure and personal development"
+    ],
+    "for_educators": [
+      "Understand the flexibility available within IEB guidelines",
+      "Develop innovative assessment and teaching approaches",
+      "Maintain focus on student outcomes and university preparation",
+      "Engage with IEB professional development opportunities"
+    ]
+  },
+  "query_triggers": [
+    "IEB school flexibility",
+    "How do IEB schools differ?",
+    "IEB vs CAPS school differences",
+    "IEB school selection criteria",
+    "IEB assessment flexibility",
+    "IEB curriculum customization",
+    "IEB school autonomy",
+    "IEB quality assurance",
+    "Choosing an IEB school"
+  ],
+  "related_gates": [
+    "ieb-overview",
+    "ieb-subject-requirements",
+    "ieb-assessment-structure",
+    "caps-vs-ieb-comparison",
+    "school-selection-strategy"
+  ],
+  "source_links": [
+    "https://www.ieb.co.za/programmes/nsc",
+    "https://www.isasa.org/independent-examinations-board-ieb/",
+    "https://www.ieb.co.za/member-schools"
+  ]
+}

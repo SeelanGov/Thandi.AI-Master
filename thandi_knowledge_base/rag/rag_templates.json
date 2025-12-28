@@ -1,0 +1,203 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/rag/rag_templates.schema.json",
+  "kb_id": "rag-templates-v1",
+  "version": "1.0.0",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "Internal RAG Design",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "kb_structure_based": true,
+      "template_tested": true,
+      "last_source_check": "2025-12-27",
+      "sources": [
+        "Knowledge Base Structure Analysis",
+        "RAG System Design Specifications",
+        "Student Query Pattern Analysis"
+      ]
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "curriculum_aware_templates": {
+    "subject_advice": {
+      "template": "**Curriculum:** {{exam_board}} • **Grade:** {{grade}}\n**Subject:** {{subject_name}}\n- **Assessment:** {{assessment_summary}}\n- **Switch Deadline:** {{switching_deadline}}\n- **Gateway Paths:** {{gateway_paths}}\n\n> Source: {{kb_id}} • Verified: {{verification_status}}",
+      "use_cases": [
+        "Student asking about specific subject requirements",
+        "Subject switching deadline queries",
+        "Career pathway guidance for subjects",
+        "Assessment structure explanations"
+      ],
+      "example_output": "**Curriculum:** CAPS • **Grade:** 10-12\n**Subject:** Mathematics\n- **Assessment:** 25% SBA (tests, assignments) + 75% final exam\n- **Switch Deadline:** End of Grade 10 Term 1 (cannot switch from Math Lit after this)\n- **Gateway Paths:** Engineering, Computer Science, Actuarial Science, Architecture\n\n> Source: caps-subject-requirements-v1 • Verified: verified"
+    },
+    "comparison": {
+      "template": "**CAPS vs IEB Comparison:**\n{{comparison_data}}\n\n**Recommendation for {{student_profile}}:**\n{{personalized_advice}}",
+      "use_cases": [
+        "Students choosing between CAPS and IEB",
+        "Parents evaluating curriculum options",
+        "Cost-benefit analysis requests",
+        "University preparation comparisons"
+      ],
+      "example_output": "**CAPS vs IEB Comparison:**\n• Certification: Both lead to identical NSC qualification\n• Assessment: Both use 25% SBA + 75% exam (IEB 60/40 myth is FALSE)\n• Subjects: CAPS = 7 subjects, IEB = 7-9 subjects (APS boost)\n• Cost: CAPS = Free, IEB = R50K-200K/year\n\n**Recommendation for High Achiever Targeting Medicine:**\nIEB advantage through 8th subject (Further Studies Math) could provide 3-4 APS boost for competitive medical programs. However, strong CAPS performance achieves identical university outcomes at significantly lower cost."
+    },
+    "progression_query": {
+      "template": "**Progression Rules:** {{progression_rules}}\n- **Requirements:** {{promotion_requirements}}\n- **Changes:** {{subject_changes}}\n\n> Source: {{kb_id}}",
+      "use_cases": [
+        "Grade progression requirement queries",
+        "Subject change deadline questions",
+        "Promotion criteria explanations",
+        "NSC certification requirements"
+      ],
+      "example_output": "**Progression Rules:** Grade 10 to 11 CAPS progression\n- **Requirements:** 40% Home Language + 40% in 2 others + 30% in 3 others (max 1 fail)\n- **Changes:** Subject changes allowed until end Grade 10 Term 1 only. Cannot switch Math Lit→Math or add Physical Sciences after Grade 10.\n\n> Source: caps-grade-progression-v1"
+    }
+  },
+  "advanced_templates": {
+    "pathway_planning": {
+      "template": "**{{pathway_name}} Pathway Planning:**\n\n**Core Subjects Required:**\n{{core_subjects}}\n\n**Recommended Additional:**\n{{recommended_subjects}}\n\n**Target Careers:**\n{{career_options}}\n\n**APS Strategy ({{exam_board}}):**\n{{aps_optimization}}\n\n**University Preparation:**\n{{university_advantages}}\n\n> Pathway Guide: {{kb_id}} • Updated: {{last_updated}}",
+      "use_cases": [
+        "Career pathway planning queries",
+        "Subject combination optimization",
+        "University preparation guidance",
+        "APS maximization strategies"
+      ]
+    },
+    "provincial_context": {
+      "template": "**Provincial Context: {{province_name}}**\n\n**Resource Reality:**\n{{resource_availability}}\n\n**Student Implications:**\n{{student_impact}}\n\n**Recommendations:**\n{{strategic_advice}}\n\n> Provincial Guide: {{kb_id}} • Verified: {{verification_status}}",
+      "use_cases": [
+        "Location-specific educational guidance",
+        "Resource availability queries",
+        "Provincial education quality questions",
+        "Rural vs urban school differences"
+      ]
+    },
+    "financial_analysis": {
+      "template": "**Financial Analysis: {{comparison_type}}**\n\n**Cost Breakdown:**\n{{cost_details}}\n\n**4-Year Investment:**\n{{total_investment}}\n\n**ROI Considerations:**\n{{value_analysis}}\n\n**Recommendation:**\n{{financial_advice}}\n\n> Financial Guide: {{kb_id}} • Updated: {{last_updated}}",
+      "use_cases": [
+        "Education cost comparisons",
+        "Investment analysis for private education",
+        "Bursary and scholarship guidance",
+        "Value-for-money assessments"
+      ]
+    }
+  },
+  "response_formatting": {
+    "curriculum_indicators": {
+      "caps_badge": "🏛️ CAPS",
+      "ieb_badge": "🎓 IEB",
+      "verified_badge": "✅ Verified",
+      "draft_badge": "⚠️ Draft"
+    },
+    "urgency_markers": {
+      "deadline_warning": "⏰ **DEADLINE ALERT:**",
+      "critical_decision": "🚨 **CRITICAL DECISION POINT:**",
+      "myth_buster": "❌ **MYTH BUSTED:**",
+      "key_insight": "💡 **KEY INSIGHT:**"
+    },
+    "grade_specific": {
+      "grade_9": "📚 **Grade 9 Planning Phase**",
+      "grade_10": "🎯 **Grade 10 Decision Point**", 
+      "grade_11": "📈 **Grade 11 Optimization**",
+      "grade_12": "🎓 **Grade 12 Execution**"
+    }
+  },
+  "query_enhancement": {
+    "curriculum_filters": {
+      "caps_queries": [
+        "exam_board: 'CAPS'",
+        "curriculum_type: 'public'",
+        "assessment_type: 'dbe'"
+      ],
+      "ieb_queries": [
+        "exam_board: 'IEB'", 
+        "curriculum_type: 'independent'",
+        "assessment_type: 'ieb'"
+      ]
+    },
+    "boost_parameters": {
+      "curriculum_match_boost": 1.5,
+      "grade_relevance_boost": 1.3,
+      "verification_status_boost": 1.2,
+      "recent_update_boost": 1.1
+    },
+    "context_enrichment": [
+      "Include grade-specific information when available",
+      "Add provincial context for CAPS queries",
+      "Highlight IEB flexibility advantages when relevant",
+      "Provide cost context for decision-making queries"
+    ]
+  },
+  "error_handling": {
+    "missing_data_template": "**Information Request: {{query_topic}}**\n\n⚠️ **Limited Information Available**\n\nBased on available knowledge base data:\n{{available_info}}\n\n**Recommendation:**\n{{fallback_advice}}\n\n> Note: For complete guidance, consult with school counselors or education department.",
+    "conflicting_sources": "**Multiple Perspectives: {{topic}}**\n\n{{source_1_view}}\n\n{{source_2_view}}\n\n**Balanced Recommendation:**\n{{synthesized_advice}}\n\n> Sources: {{source_list}} • Last Updated: {{update_date}}",
+    "outdated_warning": "⚠️ **Information Age Warning:** This guidance is based on {{data_age}} information. Educational policies may have changed. Please verify current requirements with official sources."
+  },
+  "personalization_variables": {
+    "student_profile_types": [
+      "high_achiever_stem",
+      "commerce_focused", 
+      "humanities_scholar",
+      "creative_arts",
+      "undecided_explorer",
+      "cost_conscious",
+      "international_aspirant"
+    ],
+    "decision_factors": [
+      "academic_performance",
+      "financial_constraints",
+      "career_clarity",
+      "university_goals",
+      "geographic_location",
+      "family_preferences"
+    ]
+  },
+  "integration_hooks": {
+    "assessment_system": {
+      "student_data_merge": "Combine RAG responses with student assessment results for personalized guidance",
+      "performance_context": "Include current academic performance in subject recommendations",
+      "pathway_alignment": "Match RAG advice with student's demonstrated strengths"
+    },
+    "chat_system": {
+      "conversation_memory": "Maintain context of previous curriculum discussions",
+      "follow_up_suggestions": "Provide relevant next questions based on current query",
+      "escalation_triggers": "Identify when human counselor intervention is needed"
+    }
+  },
+  "quality_metrics": {
+    "response_quality_indicators": [
+      "Curriculum accuracy (verified sources)",
+      "Grade-appropriate language and complexity",
+      "Actionable advice with clear next steps",
+      "Balanced perspective on options",
+      "Current and relevant information"
+    ],
+    "success_measurements": [
+      "Student decision confidence improvement",
+      "Reduced counselor intervention needs",
+      "Accurate pathway guidance outcomes",
+      "Myth correction effectiveness"
+    ]
+  },
+  "query_triggers": [
+    "RAG template usage",
+    "Curriculum-aware responses",
+    "Student guidance formatting",
+    "Knowledge base integration",
+    "Personalized education advice"
+  ],
+  "related_gates": [
+    "caps-overview",
+    "ieb-overview",
+    "caps-vs-ieb-comparison",
+    "student-assessment-integration",
+    "chat-system-enhancement"
+  ],
+  "source_links": [
+    "Internal Knowledge Base Structure",
+    "RAG System Design Documentation",
+    "Student Query Pattern Analysis"
+  ]
+}

@@ -1,0 +1,558 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/caps/subjects/topic_breakdown.schema.json",
+  "kb_id": "caps-math-topics-v2",
+  "exam_board": "CAPS",
+  "version": "2.0.0",
+  "created_at": "2025-12-27",
+  "subject": "Mathematics",
+  "topics": {
+    "grade_10": {
+      "term_1": [
+        {
+          "topic": "Algebraic Expressions",
+          "subtopics": [
+            "Real numbers (rational/irrational)",
+            "Surd approximation",
+            "Rounding",
+            "Binomial-trinomial multiplication",
+            "Factorisation (trinomials, cubes)",
+            "Algebraic fractions simplification"
+          ],
+          "hours": 3,
+          "difficulty": "medium",
+          "prerequisites": ["Grade 9 algebra basics"],
+          "career_relevance": ["Engineering", "Computer Science", "Finance"]
+        },
+        {
+          "topic": "Exponents",
+          "subtopics": [
+            "Laws of exponents (m,n ∈ Z, Q)",
+            "Simplification and equations"
+          ],
+          "hours": 2,
+          "difficulty": "medium",
+          "prerequisites": ["Basic arithmetic"],
+          "career_relevance": ["Science", "Engineering", "Economics"]
+        },
+        {
+          "topic": "Number Patterns",
+          "subtopics": [
+            "Constant difference patterns (linear general term)"
+          ],
+          "hours": 1,
+          "difficulty": "easy",
+          "prerequisites": ["Basic sequences"],
+          "career_relevance": ["Data Science", "Research", "Finance"]
+        },
+        {
+          "topic": "Equations and Inequalities",
+          "subtopics": [
+            "Linear/quadratic/simultaneous equations",
+            "Word problems",
+            "Literal equations",
+            "Linear inequalities (graphical)"
+          ],
+          "hours": 1,
+          "difficulty": "medium",
+          "prerequisites": ["Algebraic manipulation"],
+          "career_relevance": ["Engineering", "Business", "Economics"]
+        },
+        {
+          "topic": "Trigonometry",
+          "subtopics": [
+            "Trig ratios (sin, cos, tan)",
+            "Extensions to 0-360°",
+            "Reciprocals (cosec, sec, cot)",
+            "Special angles (0-90°)",
+            "2D problems",
+            "Equations (0-90°)",
+            "Ratio values (0-360°)"
+          ],
+          "hours": 1,
+          "difficulty": "hard",
+          "prerequisites": ["Basic geometry"],
+          "career_relevance": ["Engineering", "Architecture", "Physics"]
+        }
+      ],
+      "term_2": [
+        {
+          "topic": "Functions",
+          "subtopics": [
+            "Function concept",
+            "Representations (tables, graphs, formulae)",
+            "Point-by-point plotting (y=x^2, 1/x, b^x)",
+            "Effects of a, q on graphs",
+            "Trig functions plotting (sin, cos, tan)",
+            "Effects on trig graphs"
+          ],
+          "hours": 4,
+          "difficulty": "hard",
+          "prerequisites": ["Coordinate geometry", "Basic algebra"],
+          "career_relevance": ["Computer Science", "Engineering", "Data Science"]
+        },
+        {
+          "topic": "Trigonometric Functions",
+          "subtopics": [
+            "Plotting sin/cos/tan (-360-360°)",
+            "Parameter k effects",
+            "Parameter p effects",
+            "Combined sketches"
+          ],
+          "hours": 1,
+          "difficulty": "hard",
+          "prerequisites": ["Basic trigonometry"],
+          "career_relevance": ["Engineering", "Physics", "Architecture"]
+        },
+        {
+          "topic": "Euclidean Geometry",
+          "subtopics": [
+            "Lines/angles/triangles revision",
+            "Mid-point theorem",
+            "Special quadrilaterals (kite, parallelogram, etc.)",
+            "Properties proofs"
+          ],
+          "hours": 3,
+          "difficulty": "medium",
+          "prerequisites": ["Grade 9 geometry"],
+          "career_relevance": ["Architecture", "Engineering", "Design"]
+        }
+      ],
+      "term_3": [
+        {
+          "topic": "Analytical Geometry",
+          "subtopics": [
+            "Cartesian coordinates",
+            "Distance/gradient/mid-point formulae",
+            "Parallel/perpendicular lines"
+          ],
+          "hours": 2,
+          "difficulty": "medium",
+          "prerequisites": ["Coordinate systems"],
+          "career_relevance": ["Engineering", "Computer Graphics", "Architecture"]
+        },
+        {
+          "topic": "Finance and Growth",
+          "subtopics": [
+            "Simple/compound growth (A=P(1+i)^n)",
+            "Real-life applications (interest, inflation)"
+          ],
+          "hours": 2,
+          "difficulty": "easy",
+          "prerequisites": ["Basic percentages"],
+          "career_relevance": ["Finance", "Banking", "Business", "Economics"]
+        },
+        {
+          "topic": "Statistics",
+          "subtopics": [
+            "Central tendency (mean, mode, median)",
+            "Dispersion (range, percentiles, quartiles)",
+            "Box-and-whisker",
+            "Data analysis"
+          ],
+          "hours": 2,
+          "difficulty": "medium",
+          "prerequisites": ["Basic data handling"],
+          "career_relevance": ["Data Science", "Research", "Business Analytics"]
+        },
+        {
+          "topic": "Trigonometry",
+          "subtopics": [
+            "2D problems"
+          ],
+          "hours": 2,
+          "difficulty": "hard",
+          "prerequisites": ["Trigonometric ratios"],
+          "career_relevance": ["Engineering", "Surveying", "Navigation"]
+        },
+        {
+          "topic": "Euclidean Geometry",
+          "subtopics": [
+            "Problems/proofs (parallel lines, triangles, quadrilaterals)"
+          ],
+          "hours": 1,
+          "difficulty": "hard",
+          "prerequisites": ["Geometric theorems"],
+          "career_relevance": ["Architecture", "Engineering", "Design"]
+        },
+        {
+          "topic": "Measurement",
+          "subtopics": [
+            "Prisms/cylinders revision",
+            "Dimension effects (k factor)",
+            "Spheres/pyramids/cones"
+          ],
+          "hours": 1,
+          "difficulty": "medium",
+          "prerequisites": ["Basic geometry"],
+          "career_relevance": ["Engineering", "Architecture", "Manufacturing"]
+        }
+      ],
+      "term_4": [
+        {
+          "topic": "Probability",
+          "subtopics": [
+            "Relative frequency vs theory",
+            "Venn diagrams",
+            "P(A or B)",
+            "Mutually exclusive/complementary events"
+          ],
+          "hours": 2,
+          "difficulty": "medium",
+          "prerequisites": ["Basic counting"],
+          "career_relevance": ["Statistics", "Insurance", "Risk Management"]
+        },
+        {
+          "topic": "Revision",
+          "subtopics": [],
+          "hours": 4,
+          "difficulty": "varies",
+          "prerequisites": ["All Grade 10 topics"],
+          "career_relevance": ["Exam preparation"]
+        }
+      ]
+    },
+    "grade_11": {
+      "term_1": [
+        {
+          "topic": "Exponents and Surds",
+          "subtopics": [
+            "Rational exponents",
+            "Surds operations/equations"
+          ],
+          "hours": 3,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 10 exponents"],
+          "career_relevance": ["Engineering", "Physics", "Computer Science"]
+        },
+        {
+          "topic": "Equations and Inequalities",
+          "subtopics": [
+            "Complete square",
+            "Quadratic equations/formula",
+            "Inequalities (graphical)",
+            "Simultaneous (linear-quadratic)",
+            "Nature of roots"
+          ],
+          "hours": 3,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 10 equations"],
+          "career_relevance": ["Engineering", "Economics", "Computer Science"]
+        },
+        {
+          "topic": "Number Patterns",
+          "subtopics": [
+            "Constant second difference (quadratic)"
+          ],
+          "hours": 3,
+          "difficulty": "medium",
+          "prerequisites": ["Linear patterns"],
+          "career_relevance": ["Data Science", "Research", "Finance"]
+        },
+        {
+          "topic": "Analytical Geometry",
+          "subtopics": [
+            "Line equations (two points, parallel/perp)",
+            "Inclination (tan θ = m)"
+          ],
+          "hours": 3,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 10 analytical geometry"],
+          "career_relevance": ["Engineering", "Computer Graphics", "Architecture"]
+        }
+      ],
+      "term_2": [
+        {
+          "topic": "Functions",
+          "subtopics": [
+            "Parameter effects (a,q,p) on trig graphs",
+            "Average gradient concept",
+            "Plotting/effects on sin/cos/tan"
+          ],
+          "hours": 4,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 10 functions"],
+          "career_relevance": ["Engineering", "Physics", "Computer Science"]
+        },
+        {
+          "topic": "Trigonometry",
+          "subtopics": [
+            "Identities (sin^2+cos^2=1, tan=sin/cos)",
+            "Reduction formulae",
+            "Identity values",
+            "General solutions/intervals"
+          ],
+          "hours": 4,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 10 trigonometry"],
+          "career_relevance": ["Engineering", "Physics", "Navigation"]
+        }
+      ],
+      "term_3": [
+        {
+          "topic": "Measurement",
+          "subtopics": [
+            "Grade 10 revision"
+          ],
+          "hours": 1,
+          "difficulty": "medium",
+          "prerequisites": ["Grade 10 measurement"],
+          "career_relevance": ["Engineering", "Architecture", "Manufacturing"]
+        },
+        {
+          "topic": "Euclidean Geometry",
+          "subtopics": [
+            "Axioms (tangent perp radius)",
+            "Circle theorems (chords, angles, tangents)",
+            "Proofs/converses/riders"
+          ],
+          "hours": 3,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 10 geometry"],
+          "career_relevance": ["Architecture", "Engineering", "Design"]
+        },
+        {
+          "topic": "Trigonometry",
+          "subtopics": [
+            "Sine/cosine/area rules",
+            "2D problems"
+          ],
+          "hours": 2,
+          "difficulty": "hard",
+          "prerequisites": ["Trigonometric identities"],
+          "career_relevance": ["Engineering", "Surveying", "Navigation"]
+        },
+        {
+          "topic": "Finance, Growth and Decay",
+          "subtopics": [
+            "Decay formulae",
+            "Periods/effective rates"
+          ],
+          "hours": 2,
+          "difficulty": "medium",
+          "prerequisites": ["Grade 10 finance"],
+          "career_relevance": ["Finance", "Banking", "Economics"]
+        },
+        {
+          "topic": "Probability",
+          "subtopics": [
+            "Addition/complementary rules",
+            "Dependent/independent events",
+            "Venn/tree diagrams"
+          ],
+          "hours": 2,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 10 probability"],
+          "career_relevance": ["Statistics", "Insurance", "Data Science"]
+        }
+      ],
+      "term_4": [
+        {
+          "topic": "Statistics",
+          "subtopics": [
+            "Histograms/polygons/ogives",
+            "Variance/standard deviation",
+            "Symmetric/skewed data",
+            "Outliers"
+          ],
+          "hours": 3,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 10 statistics"],
+          "career_relevance": ["Data Science", "Research", "Quality Control"]
+        },
+        {
+          "topic": "Revision",
+          "subtopics": [],
+          "hours": 3,
+          "difficulty": "varies",
+          "prerequisites": ["All Grade 11 topics"],
+          "career_relevance": ["Exam preparation"]
+        }
+      ]
+    },
+    "grade_12": {
+      "term_1": [
+        {
+          "topic": "Sequences and Series",
+          "subtopics": [
+            "Arithmetic/geometric sequences",
+            "Sigma notation",
+            "Sums to infinity",
+            "Proofs"
+          ],
+          "hours": 6,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 11 patterns"],
+          "career_relevance": ["Mathematics", "Engineering", "Computer Science"]
+        },
+        {
+          "topic": "Functions",
+          "subtopics": [
+            "Inverses/restrictions",
+            "Logarithmic/exponential"
+          ],
+          "hours": 3,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 11 functions"],
+          "career_relevance": ["Engineering", "Computer Science", "Physics"]
+        },
+        {
+          "topic": "Finance",
+          "subtopics": [
+            "Annuities/loans/investments",
+            "Present/future values"
+          ],
+          "hours": 3,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 11 finance"],
+          "career_relevance": ["Finance", "Banking", "Investment", "Actuarial Science"]
+        }
+      ],
+      "term_2": [
+        {
+          "topic": "Calculus",
+          "subtopics": [
+            "Limits/derivatives (first principles/rules)",
+            "Graphs/tangents/optimization"
+          ],
+          "hours": 8,
+          "difficulty": "very_hard",
+          "prerequisites": ["Functions", "Analytical geometry"],
+          "career_relevance": ["Engineering", "Physics", "Computer Science", "Economics"]
+        },
+        {
+          "topic": "Probability",
+          "subtopics": [
+            "Counting principle",
+            "Permutations/combinations"
+          ],
+          "hours": 3,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 11 probability"],
+          "career_relevance": ["Statistics", "Computer Science", "Operations Research"]
+        }
+      ],
+      "term_3": [
+        {
+          "topic": "Analytical Geometry",
+          "subtopics": [
+            "Circle equations",
+            "Parabola/ellipse/hyperbola"
+          ],
+          "hours": 4,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 11 analytical geometry"],
+          "career_relevance": ["Engineering", "Computer Graphics", "Architecture"]
+        },
+        {
+          "topic": "Trigonometry",
+          "subtopics": [
+            "Compound/double angles",
+            "3D problems"
+          ],
+          "hours": 4,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 11 trigonometry"],
+          "career_relevance": ["Engineering", "Physics", "Navigation", "Architecture"]
+        },
+        {
+          "topic": "Statistics",
+          "subtopics": [
+            "Bivariate data",
+            "Regression/correlation"
+          ],
+          "hours": 3,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 11 statistics"],
+          "career_relevance": ["Data Science", "Research", "Economics", "Psychology"]
+        }
+      ],
+      "term_4": [
+        {
+          "topic": "Euclidean Geometry",
+          "subtopics": [
+            "Proportionality/similarity",
+            "Advanced circle theorems"
+          ],
+          "hours": 3,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 11 geometry"],
+          "career_relevance": ["Architecture", "Engineering", "Design"]
+        },
+        {
+          "topic": "Revision",
+          "subtopics": [],
+          "hours": 4,
+          "difficulty": "varies",
+          "prerequisites": ["All Grade 12 topics"],
+          "career_relevance": ["Final exam preparation"]
+        }
+      ]
+    }
+  },
+  "curriculum_notes": {
+    "pacing": "Order not prescriptive; ensure balanced assessment. Total: 4.5 hours/week.",
+    "emphasis": "Trigonometry early in year for better integration.",
+    "assessment": "Continuous assessment throughout all terms.",
+    "practical_work": "Calculator use encouraged for complex calculations."
+  },
+  "career_pathways": {
+    "high_math_careers": [
+      "Engineering (all branches)",
+      "Computer Science",
+      "Actuarial Science",
+      "Physics",
+      "Mathematics",
+      "Data Science",
+      "Economics",
+      "Architecture"
+    ],
+    "medium_math_careers": [
+      "Business Studies",
+      "Accounting",
+      "Finance",
+      "Statistics",
+      "Psychology (research)",
+      "Geography (GIS)"
+    ],
+    "gateway_requirements": {
+      "engineering": "Mathematics 70%+ (not Math Lit)",
+      "computer_science": "Mathematics 60%+ (not Math Lit)",
+      "actuarial": "Mathematics 80%+ (not Math Lit)",
+      "architecture": "Mathematics 60%+ (not Math Lit)"
+    }
+  },
+  "rag": {
+    "chunk_size": 800,
+    "chunk_overlap": 100,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "math topics grade 10",
+    "caps math breakdown",
+    "grade 12 calculus hours",
+    "mathematics curriculum",
+    "trigonometry grade 11",
+    "functions grade 10",
+    "calculus requirements",
+    "math career pathways",
+    "mathematics vs mathematical literacy"
+  ],
+  "related_gates": [
+    "caps/requirements/assessment_structure.json#Mathematics",
+    "caps/requirements/grade_progression.json",
+    "caps/requirements/subject_requirements.json#Mathematics",
+    "comparison/caps_vs_ieb_matrix.json#mathematics"
+  ],
+  "verification": {
+    "status": "verified",
+    "reviewer": "DBE CAPS Document Analysis",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "primary_source": "DBE CAPS Mathematics Grades 10-12",
+      "document_url": "https://dsj.co.za/wp-content/uploads/PDF/FET-_-MATHEMATICS-_-GR-10-12-_-Web1133.pdf",
+      "document_year": "2011",
+      "amendments_checked": "2025-12-27 (no major amendments found)",
+      "cross_referenced": ["IEB Mathematics curriculum", "University entrance requirements"]
+    }
+  }
+}

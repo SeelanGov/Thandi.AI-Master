@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/financial_aid/bursaries.schema.json",
+  "kb_id": "bursaries-v3",
+  "version": "3.1.0-2026",
+  "created_at": "2025-12-27",
+  "bursaries": [
+    {
+      "name": "NSFAS",
+      "eligibility": "South African citizen/permanent resident; household income ≤ R350,000 p.a.; disability concessions (≤ R600,000); first-time undergrads",
+      "amounts": "Tuition full; accommodation R45,000 max; books R5,200; living allowance R16,500; transport R7,750",
+      "deadlines": "Closed: Nov 15, 2025; Outcomes: From Dec 15, 2025",
+      "application": "Online via nsfas.org.za; requires myNSFAS account, ID, proof of income"
+    },
+    {
+      "name": "Sasol Bursary",
+      "eligibility": "SA citizens; STEM fields (Engineering, Sciences); min 70% Math/Science/English; full-time undergrad",
+      "amounts": "Full tuition, accommodation, meals, books; laptop allowance; psychosocial support",
+      "deadlines": "Open: May 2025; Close: Sept 2025 for 2026",
+      "application": "Online at sasolbursaries.com; academic records, motivation letter"
+    },
+    {
+      "name": "Anglo American Bursary",
+      "eligibility": "SA citizens; Mining/Engineering; min 65% aggregate; rural preference",
+      "amounts": "Full tuition + accommodation + books + stipend + vacation work",
+      "deadlines": "August 31, 2025",
+      "application": "angloamerican.com careers portal",
+      "work_commitment": "3-5 years with Anglo American"
+    },
+    {
+      "name": "Eskom Bursary Programme",
+      "eligibility": "SA citizens; Engineering/Electrical fields; min 60% Math/Science",
+      "amounts": "Full costs + living allowance + vacation work",
+      "deadlines": "July 31, 2025",
+      "application": "eskom.co.za careers section",
+      "work_commitment": "5 years with Eskom"
+    },
+    {
+      "name": "Funza Lushaka Bursary",
+      "eligibility": "SA citizens; Education degrees; min 60% aggregate",
+      "amounts": "Tuition + books + accommodation + meals",
+      "deadlines": "January 31, 2026",
+      "application": "funzalushaka.doe.gov.za",
+      "work_commitment": "Teaching for same period as funding received"
+    },
+    {
+      "name": "ISFAP (Missing Middle)",
+      "eligibility": "Household income R350,001-R600,000; min 70% aggregate",
+      "amounts": "Full wrap-around: tuition + accommodation + books + stipend + laptop + support",
+      "deadlines": "January 31, 2026",
+      "application": "isfap.org.za online",
+      "work_commitment": "None"
+    },
+    {
+      "name": "Allan Gray Orbis Foundation",
+      "eligibility": "Top 10% academic performance; leadership potential; entrepreneurial spirit",
+      "amounts": "Full tuition + accommodation + books + mentorship + entrepreneurship programme",
+      "deadlines": "July 31, 2025",
+      "application": "allangrayorbis.org online",
+      "work_commitment": "None (entrepreneurship encouraged)"
+    },
+    {
+      "name": "SAICA Bursary Programme",
+      "eligibility": "CA(SA) pathway; min 65% Math + 70% Accounting; BCom/BAcc studies",
+      "amounts": "Tuition + books + mentorship + articles placement support",
+      "deadlines": "April 30, 2025",
+      "application": "saica.co.za bursaries section",
+      "work_commitment": "Complete CA(SA) qualification and articles"
+    }
+  ],
+  "notes": "For special needs: Extra allowances in NSFAS/ISFAP. Track deadlines annually.",
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "nsfas 2026 outcomes",
+    "sasol bursary deadlines 2026"
+  ],
+  "related_gates": [
+    "university/program_thresholds.json",
+    "careers/profiles.json"
+  ],
+  "verification": {
+    "status": "verified",
+    "reviewer": "NSFAS/DBE + Provider Sites",
+    "source_verification": "nsfas.org.za (2026); sasolbursaries.com; zabursaries.co.za"
+  },
+  "last_verified": "2025-12-27"
+}

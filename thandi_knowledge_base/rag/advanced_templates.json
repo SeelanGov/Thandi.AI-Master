@@ -1,0 +1,158 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/rag/advanced_templates.schema.json",
+  "kb_id": "advanced-rag-v2",
+  "version": "2.0.0",
+  "created_at": "2025-12-27",
+  "templates": {
+    "career_simulation": {
+      "template": "**Career Simulation: {{career_name}}**\n\n**Your Current Profile:**\n- Grade: {{grade}}\n- Marks: {{current_marks}}\n- Subjects: {{subjects}}\n\n**Path to {{career_name}}:**\n1. **University Requirements:** {{university_requirements}}\n2. **APS Needed:** {{aps_required}} (You have: {{current_aps}})\n3. **Subject Performance:** {{subject_analysis}}\n\n**Action Plan:**\n{{improvement_strategy}}\n\n**Salary Expectations:**\n- Entry: {{entry_salary}}\n- Mid-career: {{mid_salary}}\n- Senior: {{senior_salary}}\n\n**Timeline:** {{career_timeline}}\n\n> Simulation based on: {{data_sources}}",
+      "use_cases": [
+        "Student wants to see path to specific career",
+        "Career exploration with current performance",
+        "Gap analysis for target career",
+        "Motivation through salary visualization"
+      ]
+    },
+    "subject_switch_impact": {
+      "template": "**Subject Switch Analysis: {{current_subject}} → {{new_subject}}**\n\n⚠️ **Switch Status:** {{switch_feasibility}}\n\n**Career Impact:**\n- **Careers Lost:** {{careers_lost}}\n- **Careers Gained:** {{careers_gained}}\n- **Net Effect:** {{net_career_impact}}\n\n**University Impact:**\n- **Programs Lost:** {{programs_lost}}\n- **Programs Gained:** {{programs_gained}}\n\n**Salary Impact:**\n- **Average Lost Potential:** {{salary_impact_negative}}\n- **Average Gained Potential:** {{salary_impact_positive}}\n\n**Recommendation:** {{switch_recommendation}}\n\n**Deadline:** {{switching_deadline}}\n\n> Analysis based on: {{analysis_sources}}",
+      "use_cases": [
+        "Student considering subject change",
+        "Mathematics vs Mathematical Literacy decision",
+        "Adding/dropping science subjects",
+        "Career pathway optimization"
+      ]
+    },
+    "university_strategy": {
+      "template": "**University Application Strategy for {{student_name}}**\n\n**Your Profile:**\n- Expected APS: {{predicted_aps}}\n- Target Career: {{target_career}}\n- Budget: {{financial_constraints}}\n\n**Recommended Applications:**\n\n**🎯 REACH (Stretch Goals):**\n{{reach_universities}}\n\n**🎯 TARGET (Good Match):**\n{{target_universities}}\n\n**🎯 SAFETY (Backup Options):**\n{{safety_universities}}\n\n**Application Timeline:**\n{{application_schedule}}\n\n**Bursary Strategy:**\n{{bursary_recommendations}}\n\n**Total Cost:** {{application_costs}}\n\n> Strategy personalized for: {{personalization_factors}}",
+      "use_cases": [
+        "University application planning",
+        "Risk management in applications",
+        "Financial planning for applications",
+        "Timeline optimization"
+      ]
+    },
+    "performance_improvement": {
+      "template": "**Performance Improvement Plan: {{subject_name}}**\n\n**Current Status:**\n- Current Mark: {{current_mark}}\n- Target Mark: {{target_mark}}\n- Gap: {{improvement_needed}}\n\n**Improvement Strategy:**\n{{study_plan}}\n\n**Weekly Schedule:**\n{{weekly_schedule}}\n\n**Resources:**\n{{recommended_resources}}\n\n**Milestones:**\n{{improvement_milestones}}\n\n**Career Impact:**\n- If you reach {{target_mark}}: {{positive_outcomes}}\n- If you stay at {{current_mark}}: {{current_outcomes}}\n\n**Motivation:** {{motivational_message}}\n\n> Plan based on: {{improvement_data}}",
+      "use_cases": [
+        "Subject-specific improvement planning",
+        "Grade 12 final exam preparation",
+        "Career-driven motivation",
+        "Resource allocation optimization"
+      ]
+    },
+    "caps_vs_ieb_decision": {
+      "template": "**CAPS vs IEB Decision Analysis for {{student_profile}}**\n\n**Your Situation:**\n- Grade: {{current_grade}}\n- Target Career: {{target_career}}\n- Family Budget: {{budget_range}}\n- Current Performance: {{performance_level}}\n\n**CAPS Path:**\n- **Cost:** Free\n- **Career Accessibility:** {{caps_career_access}}\n- **University Options:** {{caps_university_options}}\n- **APS Potential:** {{caps_aps_potential}}\n\n**IEB Path:**\n- **Cost:** {{ieb_cost_estimate}}\n- **Career Accessibility:** {{ieb_career_access}}\n- **University Options:** {{ieb_university_options}}\n- **APS Potential:** {{ieb_aps_potential}} (with 8th subject boost)\n\n**ROI Analysis:**\n{{roi_calculation}}\n\n**Recommendation:** {{final_recommendation}}\n\n**Decision Factors:** {{key_decision_factors}}\n\n> Analysis personalized for: {{personalization_context}}",
+      "use_cases": [
+        "Curriculum choice decision support",
+        "Cost-benefit analysis for families",
+        "Career-specific curriculum advice",
+        "Grade 9/10 planning"
+      ]
+    },
+    "bursary_matching": {
+      "template": "**Bursary Opportunities for {{student_name}}**\n\n**Your Profile Match:**\n- Target Career: {{target_career}}\n- Expected APS: {{aps_estimate}}\n- Financial Need: {{financial_status}}\n- Location: {{location}}\n\n**High Match Bursaries:**\n{{high_match_bursaries}}\n\n**Moderate Match Bursaries:**\n{{moderate_match_bursaries}}\n\n**Application Strategy:**\n{{bursary_strategy}}\n\n**Deadlines Calendar:**\n{{deadline_schedule}}\n\n**Application Requirements:**\n{{application_requirements}}\n\n**Success Tips:**\n{{success_strategies}}\n\n> Matching based on: {{matching_criteria}}",
+      "use_cases": [
+        "Financial aid planning",
+        "Bursary application optimization",
+        "Deadline management",
+        "Application strategy development"
+      ]
+    }
+  },
+  "personalization_variables": {
+    "student_demographics": [
+      "grade_level",
+      "curriculum_type",
+      "province",
+      "school_type",
+      "family_background"
+    ],
+    "academic_profile": [
+      "current_marks",
+      "subject_selection",
+      "performance_trends",
+      "predicted_aps",
+      "strengths_weaknesses"
+    ],
+    "career_interests": [
+      "target_career",
+      "career_certainty",
+      "alternative_interests",
+      "salary_priorities",
+      "work_environment_preferences"
+    ],
+    "constraints": [
+      "financial_limitations",
+      "geographic_constraints",
+      "time_availability",
+      "family_expectations",
+      "health_considerations"
+    ]
+  },
+  "dynamic_content_rules": {
+    "grade_10_focus": [
+      "Subject selection optimization",
+      "Foundation building strategies",
+      "Long-term career planning",
+      "CAPS vs IEB decision support"
+    ],
+    "grade_11_focus": [
+      "Performance improvement plans",
+      "University preparation",
+      "Subject mastery strategies",
+      "Career pathway refinement"
+    ],
+    "grade_12_focus": [
+      "University application strategy",
+      "Final exam preparation",
+      "Bursary applications",
+      "Backup planning"
+    ]
+  },
+  "response_enhancement": {
+    "motivational_elements": [
+      "Success stories from similar students",
+      "Salary progression visualization",
+      "Achievement milestone celebration",
+      "Progress tracking encouragement"
+    ],
+    "practical_elements": [
+      "Specific action steps",
+      "Resource recommendations",
+      "Timeline clarity",
+      "Cost transparency"
+    ],
+    "emotional_support": [
+      "Validation of concerns",
+      "Confidence building",
+      "Stress management",
+      "Family communication tips"
+    ]
+  },
+  "rag": {
+    "chunk_size": 800,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "career simulation",
+    "subject switch analysis",
+    "university application strategy",
+    "performance improvement plan",
+    "caps vs ieb decision",
+    "bursary matching"
+  ],
+  "related_gates": [
+    "careers/profiles.json",
+    "careers/subject_mapper.json",
+    "university/program_thresholds.json",
+    "university/application_timelines.json",
+    "rag/rag_templates.json"
+  ],
+  "verification": {
+    "status": "verified",
+    "reviewer": "RAG Enhancement Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": "Template testing with student scenarios, personalization validation"
+  }
+}

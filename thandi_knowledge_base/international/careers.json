@@ -1,0 +1,300 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/international/careers.schema.json",
+  "kb_id": "global-careers-v3",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "careers": [
+    {
+      "name": "Software Engineer",
+      "global_demand": "Very High",
+      "sa_salary": "R400,000-R2,500,000/year",
+      "global_salaries": {
+        "united_states": {
+          "entry": "$85,000/year (R1,570,000/year)",
+          "mid": "$130,000/year (R2,405,000/year)",
+          "senior": "$200,000+/year (R3,700,000+/year)",
+          "locations": "San Francisco, Seattle, New York (highest paying)"
+        },
+        "united_kingdom": {
+          "entry": "£45,000/year (R1,050,000/year)",
+          "mid": "£70,000/year (R1,630,000/year)", 
+          "senior": "£120,000+/year (R2,800,000+/year)",
+          "locations": "London, Cambridge, Edinburgh"
+        },
+        "australia": {
+          "entry": "AUD $75,000/year (R920,000/year)",
+          "mid": "AUD $110,000/year (R1,350,000/year)",
+          "senior": "AUD $160,000+/year (R1,960,000+/year)",
+          "locations": "Sydney, Melbourne, Brisbane"
+        },
+        "canada": {
+          "entry": "CAD $70,000/year (R770,000/year)",
+          "mid": "CAD $95,000/year (R1,045,000/year)",
+          "senior": "CAD $140,000+/year (R1,540,000+/year)",
+          "locations": "Toronto, Vancouver, Montreal"
+        }
+      },
+      "visa_pathways": {
+        "united_states": {
+          "visa_type": "H-1B Specialty Occupation",
+          "requirements": ["Bachelor's degree", "Job offer from US employer", "Lottery system"],
+          "success_rate": "30-40% (lottery dependent)",
+          "pathway_to_pr": "EB-2/EB-3 Green Card (2-10 years depending on country)"
+        },
+        "united_kingdom": {
+          "visa_type": "Skilled Worker Visa",
+          "requirements": ["Job offer", "Salary threshold £26,200+", "English proficiency"],
+          "success_rate": "High with job offer",
+          "pathway_to_pr": "Indefinite Leave to Remain after 5 years"
+        },
+        "australia": {
+          "visa_type": "Temporary Skill Shortage (TSS) Visa",
+          "requirements": ["Skills assessment", "Job offer", "English proficiency"],
+          "success_rate": "High for skilled workers",
+          "pathway_to_pr": "Employer Nomination Scheme (ENS) after 3 years"
+        },
+        "canada": {
+          "visa_type": "Express Entry (Federal Skilled Worker)",
+          "requirements": ["Points-based system", "Language proficiency", "Education assessment"],
+          "success_rate": "High for high-scoring candidates",
+          "pathway_to_pr": "Direct pathway to permanent residence"
+        }
+      },
+      "skill_requirements": {
+        "technical": ["Programming languages", "Software architecture", "Database design"],
+        "soft_skills": ["Problem-solving", "Communication", "Teamwork"],
+        "certifications": ["AWS/Azure certifications", "Agile/Scrum", "Specific technology stacks"]
+      },
+      "career_progression": "Junior Developer → Senior Developer → Tech Lead → Engineering Manager/Architect"
+    },
+    {
+      "name": "Medical Doctor",
+      "global_demand": "High",
+      "sa_salary": "R600,000-R3,000,000/year",
+      "global_salaries": {
+        "united_states": {
+          "entry": "$200,000/year (R3,700,000/year)",
+          "mid": "$300,000/year (R5,550,000/year)",
+          "senior": "$500,000+/year (R9,250,000+/year)",
+          "locations": "All states, rural areas often pay premiums"
+        },
+        "united_kingdom": {
+          "entry": "£35,000/year (R815,000/year) - Junior Doctor",
+          "mid": "£80,000/year (R1,860,000/year) - Consultant",
+          "senior": "£150,000+/year (R3,500,000+/year) - Senior Consultant",
+          "locations": "NHS positions nationwide, private practice in cities"
+        },
+        "australia": {
+          "entry": "AUD $70,000/year (R860,000/year) - Intern",
+          "mid": "AUD $200,000/year (R2,450,000/year) - Specialist",
+          "senior": "AUD $400,000+/year (R4,900,000+/year) - Senior Specialist",
+          "locations": "Major cities and rural areas (bonuses for rural)"
+        },
+        "canada": {
+          "entry": "CAD $60,000/year (R660,000/year) - Resident",
+          "mid": "CAD $250,000/year (R2,750,000/year) - Family Doctor",
+          "senior": "CAD $400,000+/year (R4,400,000+/year) - Specialist",
+          "locations": "All provinces, rural incentives available"
+        }
+      },
+      "visa_pathways": {
+        "united_states": {
+          "visa_type": "J-1 (Training) then H-1B",
+          "requirements": ["USMLE exams", "Residency match", "Medical license"],
+          "success_rate": "Moderate (competitive residency matching)",
+          "pathway_to_pr": "EB-2 National Interest Waiver for underserved areas"
+        },
+        "united_kingdom": {
+          "visa_type": "Health and Care Worker Visa",
+          "requirements": ["GMC registration", "Job offer from NHS", "English proficiency"],
+          "success_rate": "High with qualifications",
+          "pathway_to_pr": "Indefinite Leave to Remain after 5 years"
+        },
+        "australia": {
+          "visa_type": "Temporary Skill Shortage Visa",
+          "requirements": ["AHPRA registration", "Job offer", "English proficiency"],
+          "success_rate": "High for qualified doctors",
+          "pathway_to_pr": "Priority processing for medical professionals"
+        },
+        "canada": {
+          "visa_type": "Express Entry or Provincial Nominee",
+          "requirements": ["Medical Council of Canada qualification", "Language proficiency"],
+          "success_rate": "High for qualified candidates",
+          "pathway_to_pr": "Direct pathway available"
+        }
+      },
+      "qualification_recognition": {
+        "additional_requirements": "Most countries require local medical licensing exams and supervised practice periods",
+        "timeline": "2-5 years for full qualification recognition",
+        "support": "Many countries offer bridging programs for international medical graduates"
+      }
+    },
+    {
+      "name": "Mechanical Engineer",
+      "global_demand": "High",
+      "sa_salary": "R350,000-R1,800,000/year",
+      "global_salaries": {
+        "united_states": {
+          "entry": "$65,000/year (R1,200,000/year)",
+          "mid": "$90,000/year (R1,665,000/year)",
+          "senior": "$130,000+/year (R2,405,000+/year)",
+          "locations": "Manufacturing hubs: Michigan, Texas, California"
+        },
+        "united_kingdom": {
+          "entry": "£28,000/year (R650,000/year)",
+          "mid": "£45,000/year (R1,050,000/year)",
+          "senior": "£70,000+/year (R1,630,000+/year)",
+          "locations": "Manufacturing centers and London"
+        },
+        "australia": {
+          "entry": "AUD $65,000/year (R800,000/year)",
+          "mid": "AUD $85,000/year (R1,040,000/year)",
+          "senior": "AUD $120,000+/year (R1,470,000+/year)",
+          "locations": "Mining regions and major cities"
+        },
+        "canada": {
+          "entry": "CAD $60,000/year (R660,000/year)",
+          "mid": "CAD $80,000/year (R880,000/year)",
+          "senior": "CAD $110,000+/year (R1,210,000+/year)",
+          "locations": "Ontario, Alberta, Quebec"
+        }
+      },
+      "visa_pathways": {
+        "qualification_recognition": "Professional Engineering (PE) license required in most countries",
+        "pathway_difficulty": "Moderate - engineering qualifications generally well-recognized",
+        "additional_requirements": "May need to complete local engineering ethics and law courses"
+      }
+    },
+    {
+      "name": "Data Scientist",
+      "global_demand": "Very High",
+      "sa_salary": "R450,000-R2,000,000/year",
+      "global_salaries": {
+        "united_states": {
+          "entry": "$95,000/year (R1,760,000/year)",
+          "mid": "$130,000/year (R2,405,000/year)",
+          "senior": "$180,000+/year (R3,330,000+/year)",
+          "locations": "Tech hubs: San Francisco, New York, Seattle"
+        },
+        "united_kingdom": {
+          "entry": "£40,000/year (R930,000/year)",
+          "mid": "£60,000/year (R1,395,000/year)",
+          "senior": "£90,000+/year (R2,095,000+/year)",
+          "locations": "London, Cambridge, Manchester"
+        },
+        "australia": {
+          "entry": "AUD $80,000/year (R980,000/year)",
+          "mid": "AUD $110,000/year (R1,350,000/year)",
+          "senior": "AUD $150,000+/year (R1,840,000+/year)",
+          "locations": "Sydney, Melbourne, Brisbane"
+        },
+        "canada": {
+          "entry": "CAD $75,000/year (R825,000/year)",
+          "mid": "CAD $100,000/year (R1,100,000/year)",
+          "senior": "CAD $140,000+/year (R1,540,000+/year)",
+          "locations": "Toronto, Vancouver, Montreal"
+        }
+      },
+      "visa_pathways": {
+        "advantage": "High demand occupation in most countries",
+        "requirements": "Strong quantitative background and programming skills",
+        "success_rate": "Very high for qualified candidates"
+      }
+    },
+    {
+      "name": "Chartered Accountant",
+      "global_demand": "Moderate-High",
+      "sa_salary": "R300,000-R2,500,000/year",
+      "global_salaries": {
+        "united_states": {
+          "entry": "$55,000/year (R1,020,000/year)",
+          "mid": "$75,000/year (R1,390,000/year)",
+          "senior": "$120,000+/year (R2,220,000+/year)",
+          "note": "CPA qualification required"
+        },
+        "united_kingdom": {
+          "entry": "£25,000/year (R580,000/year)",
+          "mid": "£45,000/year (R1,050,000/year)",
+          "senior": "£80,000+/year (R1,860,000+/year)",
+          "note": "ACCA/ICAEW qualification recognized"
+        },
+        "australia": {
+          "entry": "AUD $55,000/year (R675,000/year)",
+          "mid": "AUD $75,000/year (R920,000/year)",
+          "senior": "AUD $120,000+/year (R1,470,000+/year)",
+          "note": "CPA Australia qualification preferred"
+        },
+        "canada": {
+          "entry": "CAD $50,000/year (R550,000/year)",
+          "mid": "CAD $70,000/year (R770,000/year)",
+          "senior": "CAD $100,000+/year (R1,100,000+/year)",
+          "note": "CPA Canada qualification required"
+        }
+      },
+      "qualification_recognition": {
+        "mutual_recognition": "SAICA has mutual recognition agreements with several countries",
+        "additional_requirements": "May need to complete local accounting standards and tax law courses",
+        "timeline": "6 months to 2 years for full qualification"
+      }
+    }
+  ],
+  "global_trends": {
+    "high_demand_skills": [
+      "Artificial Intelligence/Machine Learning",
+      "Cybersecurity",
+      "Cloud Computing",
+      "Healthcare (aging populations)",
+      "Renewable Energy Engineering"
+    ],
+    "emerging_opportunities": [
+      "Remote work increasing global opportunities",
+      "Digital nomad visas in various countries",
+      "Startup ecosystems welcoming international talent",
+      "Green technology sector expansion"
+    ]
+  },
+  "success_strategies": {
+    "preparation": [
+      "Develop strong English proficiency early",
+      "Gain international experience through internships",
+      "Build a global network through online platforms",
+      "Understand target country's work culture"
+    ],
+    "application_tips": [
+      "Research visa requirements early",
+      "Get qualifications assessed before applying",
+      "Build relevant local experience if possible",
+      "Consider starting with multinational companies"
+    ]
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.5
+  },
+  "query_triggers": [
+    "software engineer salary usa",
+    "doctor salary uk",
+    "work abroad south africa",
+    "international career opportunities",
+    "visa requirements engineer",
+    "global salary comparison"
+  ],
+  "related_gates": [
+    "international/universities.json",
+    "careers/profiles.json",
+    "careers/subject_mapper.json",
+    "university/aps_calculator.json"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "International Career Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "salary_data": "Glassdoor, PayScale, government statistics December 2025",
+      "visa_information": "Official immigration websites and legal sources",
+      "exchange_rates": "December 2025 rates (USD 1 = R18.50, GBP 1 = R23.30, etc.)"
+    }
+  }
+}

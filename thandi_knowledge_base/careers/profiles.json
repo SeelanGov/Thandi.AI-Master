@@ -1,0 +1,286 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/careers/profiles.schema.json",
+  "kb_id": "career-profiles-v2",
+  "version": "2.0.0",
+  "created_at": "2025-12-27",
+  "careers": [
+    {
+      "name": "Software Engineer",
+      "category": "Technology",
+      "required_subjects": ["Mathematics", "Information Technology"],
+      "recommended_subjects": ["Physical Sciences", "English HL"],
+      "minimum_aps": 35,
+      "competitive_aps": "38-42",
+      "university_programs": ["BSc Computer Science", "BEng Computer Engineering", "BSc Information Technology"],
+      "skills": ["Programming", "Problem-solving", "Logical thinking", "Mathematics"],
+      "salary_range": {
+        "entry": "R400,000-R600,000/year",
+        "mid": "R600,000-R1,200,000/year", 
+        "senior": "R1,200,000-R2,500,000/year"
+      },
+      "job_outlook": "Excellent - High demand in SA tech sector, remote work opportunities",
+      "pathways": [
+        "BSc Computer Science at UCT/Wits/UP",
+        "Coding bootcamps (WeThinkCode, HyperionDev)",
+        "Self-taught + portfolio development"
+      ],
+      "bursaries": ["Sasol Bursary", "ESKOM Bursary", "Google Developer Scholarship"],
+      "work_environment": "Office/remote, collaborative teams, project-based",
+      "growth_potential": "High - can progress to senior developer, team lead, CTO"
+    },
+    {
+      "name": "Mechanical Engineer", 
+      "category": "Engineering",
+      "required_subjects": ["Mathematics", "Physical Sciences"],
+      "recommended_subjects": ["Engineering Graphics & Design", "English HL"],
+      "minimum_aps": 38,
+      "competitive_aps": "40-42",
+      "university_programs": ["BEng Mechanical Engineering", "BSc Engineering"],
+      "skills": ["Mathematics", "Physics", "Design thinking", "Problem-solving"],
+      "salary_range": {
+        "entry": "R350,000-R500,000/year",
+        "mid": "R500,000-R900,000/year",
+        "senior": "R900,000-R1,800,000/year"
+      },
+      "job_outlook": "Good - Manufacturing, mining, automotive sectors",
+      "pathways": [
+        "BEng Mechanical Engineering at UCT/Wits/UP/SU",
+        "Apprenticeships with major manufacturers",
+        "Technician → Technologist → Engineer pathway"
+      ],
+      "bursaries": ["Sasol Engineering Bursary", "Anglo American Bursary", "Eskom Bursary"],
+      "work_environment": "Office, factory floor, project sites",
+      "growth_potential": "High - can specialize in automotive, aerospace, manufacturing"
+    },
+    {
+      "name": "Medical Doctor",
+      "category": "Healthcare", 
+      "required_subjects": ["Mathematics OR Mathematical Literacy", "Physical Sciences", "Life Sciences"],
+      "recommended_subjects": ["English HL", "Additional Science"],
+      "minimum_aps": 40,
+      "competitive_aps": "42 (maximum)",
+      "university_programs": ["MBChB Medicine"],
+      "skills": ["Science knowledge", "Communication", "Empathy", "Critical thinking"],
+      "salary_range": {
+        "entry": "R600,000-R800,000/year (intern)",
+        "mid": "R800,000-R1,500,000/year (specialist)",
+        "senior": "R1,500,000-R3,000,000/year (consultant)"
+      },
+      "job_outlook": "Excellent - Always in demand, especially in rural areas",
+      "pathways": [
+        "MBChB at UCT/Wits/UP/SU/UKZN (6 years)",
+        "Internship (2 years) + Community service (1 year)",
+        "Specialization (3-5 years additional)"
+      ],
+      "bursaries": ["NSFAS", "Provincial Health Bursaries", "Private hospital bursaries"],
+      "work_environment": "Hospitals, clinics, private practice",
+      "growth_potential": "Very high - can specialize, open private practice, research"
+    },
+    {
+      "name": "Chartered Accountant (CA)",
+      "category": "Finance",
+      "required_subjects": ["Mathematics", "Accounting"],
+      "recommended_subjects": ["Business Studies", "Economics", "English HL"],
+      "minimum_aps": 35,
+      "competitive_aps": "38-42",
+      "university_programs": ["BCom Accounting", "BCom Chartered Accountancy"],
+      "skills": ["Mathematics", "Attention to detail", "Ethics", "Business acumen"],
+      "salary_range": {
+        "entry": "R300,000-R450,000/year",
+        "mid": "R600,000-R1,200,000/year",
+        "senior": "R1,200,000-R2,500,000/year"
+      },
+      "job_outlook": "Good - Always needed in business, audit firms",
+      "pathways": [
+        "BCom Accounting (3 years) + CTA (1 year) + Articles (3 years)",
+        "Big 4 firms (PwC, Deloitte, KPMG, EY)",
+        "Corporate finance roles"
+      ],
+      "bursaries": ["SAICA Bursary", "Big 4 firm bursaries", "Corporate bursaries"],
+      "work_environment": "Office-based, client visits, deadline-driven",
+      "growth_potential": "High - can become partner, CFO, start own practice"
+    },
+    {
+      "name": "Lawyer/Advocate",
+      "category": "Legal",
+      "required_subjects": ["English HL", "Any other language"],
+      "recommended_subjects": ["History", "Geography", "Business Studies"],
+      "minimum_aps": 35,
+      "competitive_aps": "38-42",
+      "university_programs": ["LLB Law"],
+      "skills": ["Language", "Critical thinking", "Research", "Communication"],
+      "salary_range": {
+        "entry": "R250,000-R400,000/year",
+        "mid": "R500,000-R1,000,000/year",
+        "senior": "R1,000,000-R3,000,000/year"
+      },
+      "job_outlook": "Moderate - Competitive field, specialization important",
+      "pathways": [
+        "LLB at UCT/Wits/UP/SU (4 years)",
+        "Articles of clerkship (2 years)",
+        "Admission as attorney/advocate"
+      ],
+      "bursaries": ["Law Society bursaries", "Corporate law firm bursaries"],
+      "work_environment": "Law firms, courts, corporate legal departments",
+      "growth_potential": "High - can become senior counsel, judge, start own firm"
+    },
+    {
+      "name": "Teacher (High School)",
+      "category": "Education",
+      "required_subjects": ["Teaching subject", "English OR Afrikaans"],
+      "recommended_subjects": ["Additional teaching subject", "Life Sciences"],
+      "minimum_aps": 28,
+      "competitive_aps": "30-35",
+      "university_programs": ["BEd", "BA/BSc + PGCE"],
+      "skills": ["Communication", "Patience", "Subject knowledge", "Leadership"],
+      "salary_range": {
+        "entry": "R200,000-R280,000/year",
+        "mid": "R280,000-R400,000/year",
+        "senior": "R400,000-R600,000/year (principal)"
+      },
+      "job_outlook": "Good - Always needed, especially in STEM subjects",
+      "pathways": [
+        "BEd at most universities (4 years)",
+        "Subject degree + PGCE (4+1 years)",
+        "Teaching practice + registration with SACE"
+      ],
+      "bursaries": ["Funza Lushaka Bursary", "Provincial education bursaries"],
+      "work_environment": "Schools, classrooms, educational institutions",
+      "growth_potential": "Moderate - can become HOD, deputy principal, principal"
+    },
+    {
+      "name": "Nurse",
+      "category": "Healthcare",
+      "required_subjects": ["Mathematics OR Mathematical Literacy", "Life Sciences", "Physical Sciences"],
+      "recommended_subjects": ["English HL"],
+      "minimum_aps": 28,
+      "competitive_aps": "30-35",
+      "university_programs": ["BCur Nursing", "Diploma in Nursing"],
+      "skills": ["Science knowledge", "Empathy", "Communication", "Physical stamina"],
+      "salary_range": {
+        "entry": "R180,000-R250,000/year",
+        "mid": "R250,000-R400,000/year",
+        "senior": "R400,000-R600,000/year (specialist)"
+      },
+      "job_outlook": "Excellent - High demand, especially specialized nurses",
+      "pathways": [
+        "BCur Nursing (4 years)",
+        "Diploma in Nursing (3 years)",
+        "Specialization in ICU, theatre, pediatrics"
+      ],
+      "bursaries": ["Provincial health bursaries", "Private hospital bursaries"],
+      "work_environment": "Hospitals, clinics, community health centers",
+      "growth_potential": "Good - can specialize, become unit manager, nursing educator"
+    },
+    {
+      "name": "Data Scientist",
+      "category": "Technology",
+      "required_subjects": ["Mathematics", "Information Technology"],
+      "recommended_subjects": ["Physical Sciences", "Statistics"],
+      "minimum_aps": 36,
+      "competitive_aps": "38-42",
+      "university_programs": ["BSc Data Science", "BSc Statistics", "BSc Computer Science"],
+      "skills": ["Mathematics", "Statistics", "Programming", "Critical thinking"],
+      "salary_range": {
+        "entry": "R450,000-R650,000/year",
+        "mid": "R650,000-R1,200,000/year",
+        "senior": "R1,200,000-R2,000,000/year"
+      },
+      "job_outlook": "Excellent - Rapidly growing field, high demand",
+      "pathways": [
+        "BSc Data Science/Statistics + programming skills",
+        "Online courses (Coursera, edX) + portfolio",
+        "Bootcamps + practical projects"
+      ],
+      "bursaries": ["Tech company bursaries", "CSIR bursaries"],
+      "work_environment": "Office/remote, collaborative, project-based",
+      "growth_potential": "Very high - can become lead data scientist, AI researcher"
+    },
+    {
+      "name": "Architect",
+      "category": "Design",
+      "required_subjects": ["Mathematics", "Physical Sciences"],
+      "recommended_subjects": ["Engineering Graphics & Design", "Visual Arts"],
+      "minimum_aps": 35,
+      "competitive_aps": "37-40",
+      "university_programs": ["BAS Architecture", "BSc Architecture"],
+      "skills": ["Mathematics", "Design", "Spatial thinking", "Communication"],
+      "salary_range": {
+        "entry": "R250,000-R400,000/year",
+        "mid": "R400,000-R800,000/year",
+        "senior": "R800,000-R1,500,000/year"
+      },
+      "job_outlook": "Moderate - Depends on construction industry cycles",
+      "pathways": [
+        "BAS Architecture (5-6 years)",
+        "Practical experience (2 years)",
+        "Professional registration with SACAP"
+      ],
+      "bursaries": ["SACAP bursaries", "Construction company bursaries"],
+      "work_environment": "Architectural firms, construction sites, client meetings",
+      "growth_potential": "High - can start own firm, specialize in sustainable design"
+    },
+    {
+      "name": "Psychologist",
+      "category": "Healthcare",
+      "required_subjects": ["Mathematics OR Mathematical Literacy", "Life Sciences"],
+      "recommended_subjects": ["English HL", "History"],
+      "minimum_aps": 32,
+      "competitive_aps": "35-38",
+      "university_programs": ["BA Psychology", "BSocSci Psychology"],
+      "skills": ["Communication", "Empathy", "Research", "Critical thinking"],
+      "salary_range": {
+        "entry": "R200,000-R350,000/year",
+        "mid": "R350,000-R600,000/year",
+        "senior": "R600,000-R1,200,000/year"
+      },
+      "job_outlook": "Good - Growing awareness of mental health importance",
+      "pathways": [
+        "BA/BSocSci Psychology (3 years) + Honours (1 year) + Masters (2 years)",
+        "Internship + registration with HPCSA",
+        "Specialization in clinical, educational, industrial psychology"
+      ],
+      "bursaries": ["HPCSA bursaries", "University bursaries"],
+      "work_environment": "Private practice, hospitals, schools, corporations",
+      "growth_potential": "Good - can specialize, open private practice, research"
+    }
+  ],
+  "career_categories": {
+    "technology": ["Software Engineer", "Data Scientist"],
+    "engineering": ["Mechanical Engineer", "Civil Engineer", "Electrical Engineer"],
+    "healthcare": ["Medical Doctor", "Nurse", "Psychologist"],
+    "finance": ["Chartered Accountant", "Financial Analyst", "Actuary"],
+    "legal": ["Lawyer/Advocate"],
+    "education": ["Teacher (High School)"],
+    "design": ["Architect"]
+  },
+  "salary_trends": {
+    "high_growth": ["Software Engineer", "Data Scientist", "Medical Doctor"],
+    "stable": ["Teacher", "Nurse", "Chartered Accountant"],
+    "variable": ["Lawyer", "Architect"],
+    "note": "Salaries vary by location, experience, and economic conditions"
+  },
+  "rag": {
+    "chunk_size": 500,
+    "chunk_overlap": 50,
+    "curriculum_match_boost": 1.5
+  },
+  "query_triggers": [
+    "software engineer career",
+    "doctor salary south africa", 
+    "engineering careers",
+    "career options mathematics",
+    "high paying careers sa"
+  ],
+  "related_gates": [
+    "careers/subject_mapper.json",
+    "university/program_thresholds.json",
+    "caps/requirements/subject_requirements.json"
+  ],
+  "verification": {
+    "status": "verified",
+    "reviewer": "SA Career Data 2025",
+    "reviewed_at": "2025-12-27",
+    "source_verification": "PayScale SA, Stats SA, LinkedIn Economic Graph, Professional Bodies"
+  }
+}

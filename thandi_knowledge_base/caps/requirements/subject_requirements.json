@@ -1,0 +1,829 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/caps/subject_requirements.schema.json",
+  "kb_id": "caps-subject-requirements-v1",
+  "exam_board": "CAPS",
+  "grades": [10, 11, 12],
+  "version": "1.0.0",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "DBE CAPS Documents",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "dbe_checked": true,
+      "caps_documents_verified": true,
+      "last_source_check": "2025-12-27"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "subjects": [
+    {
+      "name": "Mathematics",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Grade 9 Mathematics (50%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Most schools enforce Term 1 deadline; check with school administration",
+            "exceptions": ["Some schools allow Term 2 with HOD approval"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Mathematics (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot switch from Math Lit to Math after Grade 10",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Mathematics (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Engineering", "Computer Science", "Actuarial Science", "Architecture", "Quantity Surveying"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "50-70%",
+        "aps_contribution": "3-6 points",
+        "university_threshold_subjects": ["Engineering (35+ APS)", "Medicine (40+ APS)"]
+      },
+      "related_gates": ["math-lit-engineering"],
+      "query_triggers": [
+        "Can I switch from Math Lit to Math?",
+        "What subjects do I need for engineering?",
+        "Mathematics requirements for university"
+      ],
+      "notes": [
+        "Switching from Mathematical Literacy to Mathematics after Grade 10 is extremely difficult due to curriculum depth.",
+        "For most STEM HEI programmes, Mathematics at Grade 12 is required.",
+        "Engineering programs typically require 60%+ in Mathematics for admission."
+      ]
+    },
+    {
+      "name": "Mathematical Literacy",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Grade 9 Mathematics"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Can switch to Mathematics if strong Grade 9 performance",
+            "exceptions": ["Requires HOD approval and catch-up program"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Mathematics or Mathematical Literacy"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot switch to Mathematics after Grade 10",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Mathematical Literacy"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Humanities", "Business (non-quantitative)", "Arts", "Education", "Social Work"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "50-70%",
+        "aps_contribution": "3-6 points",
+        "university_threshold_subjects": ["Business Studies", "Humanities"]
+      },
+      "related_gates": ["math-lit-engineering"],
+      "query_triggers": [
+        "Math Lit vs Mathematics",
+        "Can I do engineering with Math Lit?",
+        "What careers can I do with Math Lit?"
+      ],
+      "notes": [
+        "Mathematical Literacy generally excludes Engineering/Actuarial/most Computer Science degrees.",
+        "Consider IT diplomas at TVET colleges as alternative technical pathway.",
+        "Strong performance in Math Lit (70%+) opens business and humanities programs."
+      ]
+    },
+    {
+      "name": "Physical Sciences",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Strong Grade 9 Mathematics (60%+)", "Grade 9 Natural Sciences (50%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Requires Mathematics as co-requisite",
+            "exceptions": ["Some schools allow Term 2 with intensive catch-up"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Mathematics (50%+)", "Pass Grade 10 Physical Sciences (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add Physical Sciences in Grade 11",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Physical Sciences (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Engineering", "Medicine (some programs)", "Science degrees", "Architecture"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "45-65%",
+        "aps_contribution": "3-5 points",
+        "university_threshold_subjects": ["Engineering (60%+)", "Medicine (varies by university)"]
+      },
+      "related_gates": ["medicine-subject-chain"],
+      "query_triggers": [
+        "Do I need Physical Sciences for engineering?",
+        "Physical Sciences for medicine",
+        "Can I add Physical Sciences in Grade 11?"
+      ],
+      "notes": [
+        "Many HEIs require Physical Sciences AND Mathematics for Engineering programs.",
+        "Check faculty-specific APS and subject requirements.",
+        "Practical component requires lab access - confirm with school."
+      ]
+    },
+    {
+      "name": "Life Sciences",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Grade 9 Natural Sciences (50%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Popular subject - check class availability",
+            "exceptions": ["May be added in Term 2 if space available"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Life Sciences (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add Life Sciences in Grade 11",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Life Sciences (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Medicine", "Nursing", "Veterinary Science", "Biological Sciences", "Environmental Science"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "55-70%",
+        "aps_contribution": "4-6 points",
+        "university_threshold_subjects": ["Medicine (70%+)", "Nursing (60%+)"]
+      },
+      "related_gates": ["medicine-subject-chain"],
+      "query_triggers": [
+        "Life Sciences for medicine",
+        "Do I need Life Sciences for nursing?",
+        "Biology careers"
+      ],
+      "notes": [
+        "Essential for all health science programs.",
+        "Medicine requires Life Sciences + Physical Sciences + Mathematics.",
+        "Nursing requires Life Sciences but Physical Sciences is optional."
+      ]
+    },
+    {
+      "name": "English Home Language",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Grade 9 English (60%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Compulsory subject - cannot be dropped",
+            "exceptions": []
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 English HL (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Compulsory subject",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 English HL (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Compulsory subject",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["All university programs", "Law", "Journalism", "Teaching", "Business"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 40
+      },
+      "aps_context": {
+        "typical_performance": "50-70%",
+        "aps_contribution": "3-6 points",
+        "university_threshold_subjects": ["All programs require 50%+ English"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "English requirements for university",
+        "Can I switch English HL to FAL?",
+        "English for law degree"
+      ],
+      "notes": [
+        "Compulsory subject - must be taken by all students.",
+        "University admission requires minimum 50% in English HL or 60% in English FAL.",
+        "Law programs typically require 65%+ in English."
+      ]
+    },
+    {
+      "name": "Accounting",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Grade 9 Mathematics (50%+)", "Grade 9 Economic and Management Sciences"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Popular business subject",
+            "exceptions": ["May be added in Term 2 with catch-up"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Accounting (50%+)", "Pass Grade 10 Mathematics (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add Accounting in Grade 11 - too much content to catch up",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Accounting (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["BCom Accounting", "Chartered Accountancy", "Financial Management", "Auditing", "Business Studies"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "55-70%",
+        "aps_contribution": "4-6 points",
+        "university_threshold_subjects": ["BCom programs (60%+)", "CA pathway (70%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "Accounting for BCom",
+        "Do I need Accounting for business studies?",
+        "Chartered Accountant requirements"
+      ],
+      "notes": [
+        "Essential for Chartered Accountancy pathway.",
+        "BCom programs prefer Accounting but may accept strong Mathematics + Economics.",
+        "Requires strong mathematical skills and attention to detail."
+      ]
+    },
+    {
+      "name": "Business Studies",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Basic numeracy and language skills"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Popular business subject - check class availability",
+            "exceptions": ["May be added in Term 2 with catch-up"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Business Studies (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add Business Studies in Grade 11 - extensive content to catch up",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Business Studies (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["BCom", "Business Management", "Entrepreneurship", "Marketing", "Human Resources"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "55-70%",
+        "aps_contribution": "4-6 points",
+        "university_threshold_subjects": ["BCom programs (60%+)", "Business Management (55%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "Business Studies for BCom",
+        "Do I need Business Studies for management?",
+        "Business Studies vs Economics"
+      ],
+      "notes": [
+        "Grade 10: Business environments, roles, and sectors basics.",
+        "Grade 11: Intermediate entrepreneurship and operations management.",
+        "Grade 12: Advanced applications in marketing, HR, and financial management.",
+        "Includes case studies and business plan projects."
+      ]
+    },
+    {
+      "name": "Economics",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Mathematics recommended for quantitative elements"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Analytical subject - Mathematics co-requisite helpful",
+            "exceptions": ["May be added in Term 2 with intensive support"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Economics (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add Economics in Grade 11 - complex theoretical foundation needed",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Economics (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Economics degrees", "BCom", "Development Studies", "Public Policy", "Finance"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "50-65%",
+        "aps_contribution": "3-5 points",
+        "university_threshold_subjects": ["Economics programs (65%+)", "BCom Economics (60%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "Economics for university",
+        "Do I need Mathematics for Economics?",
+        "Economics vs Business Studies"
+      ],
+      "notes": [
+        "Grade 10: Basic economic problems, circular flow, economic systems.",
+        "Grade 11: Microeconomics (markets, production) and business cycles.",
+        "Grade 12: Macroeconomics (growth, unemployment) and contemporary issues (globalization, poverty).",
+        "Assessment includes data response questions and essays on economic policies."
+      ]
+    },
+    {
+      "name": "Geography",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Basic map skills from lower grades"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Requires practical mapwork skills",
+            "exceptions": ["May be added in Term 2 with map skills catch-up"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Geography (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add Geography in Grade 11 - extensive mapwork foundation needed",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Geography (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Environmental Science", "Urban Planning", "Geology", "Tourism", "GIS Specialist"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "50-65%",
+        "aps_contribution": "3-5 points",
+        "university_threshold_subjects": ["Environmental Science (60%+)", "Urban Planning (55%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "Geography for environmental science",
+        "Do I need Geography for urban planning?",
+        "Geography mapwork requirements"
+      ],
+      "notes": [
+        "Grade 10: Physical geography (atmosphere, geomorphology).",
+        "Grade 11: Human geography (population, urban/rural settlement).",
+        "Grade 12: Integrated economic geography and environmental issues.",
+        "Assessment includes practical mapwork, GIS, and field trips."
+      ]
+    },
+    {
+      "name": "History",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Interest in social sciences"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Reading-intensive subject",
+            "exceptions": ["May be added in Term 2 with reading support"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 History (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add History in Grade 11 - extensive content knowledge required",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 History (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["History", "Law", "Political Science", "International Relations", "Journalism"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "55-70%",
+        "aps_contribution": "4-6 points",
+        "university_threshold_subjects": ["Law (65%+)", "Political Science (60%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "History for law degree",
+        "Do I need History for political science?",
+        "History source analysis"
+      ],
+      "notes": [
+        "Grade 10: 19th century transformations in southern Africa.",
+        "Grade 11: 20th century world history (colonialism, nationalism, Cold War).",
+        "Grade 12: Post-WWII independence in Africa, civil society protests, ideas of race.",
+        "Assessment includes source-based questions and extended essays."
+      ]
+    },
+    {
+      "name": "Information Technology",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Access to computers", "Basic ICT skills"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Requires computer lab access - check school facilities",
+            "exceptions": ["May be added in Term 2 if lab space available"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 IT (40%+)", "Continued computer access"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add IT in Grade 11 - programming foundation essential",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 IT (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Computer Science", "Information Systems", "Software Engineering", "IT Support"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "60-75%",
+        "aps_contribution": "4-7 points",
+        "university_threshold_subjects": ["Computer Science (65%+)", "Information Systems (60%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "IT for computer science",
+        "Do I need IT for software engineering?",
+        "IT programming requirements"
+      ],
+      "notes": [
+        "Grade 10: Hardware/software basics, introduction to programming.",
+        "Grade 11: Intermediate coding (Java/Delphi), networks, databases.",
+        "Grade 12: Advanced systems, web design, social implications of technology.",
+        "Assessment includes practical programming tasks and theory exams."
+      ]
+    },
+    {
+      "name": "Consumer Studies",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Practical facilities for food/production"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Requires specialized facilities - check school resources",
+            "exceptions": ["May be added in Term 2 if facilities available"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Consumer Studies (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add Consumer Studies in Grade 11 - practical skills foundation needed",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Consumer Studies (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Nutrition", "Fashion Design", "Food Technology", "Consumer Science", "Hospitality"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "60-75%",
+        "aps_contribution": "4-7 points",
+        "university_threshold_subjects": ["Nutrition (65%+)", "Fashion Design (60%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "Consumer Studies for nutrition",
+        "Do I need Consumer Studies for fashion design?",
+        "Consumer Studies practical requirements"
+      ],
+      "notes": [
+        "Grade 10: Consumer rights/responsibilities, basic food and nutrition.",
+        "Grade 11: Clothing production, housing, intermediate food preparation.",
+        "Grade 12: Advanced management, entrepreneurship, sustainable consumption.",
+        "Assessment includes practical assessments (cooking, sewing) and projects."
+      ]
+    },
+    {
+      "name": "Tourism",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Interest in travel and geography"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Growing industry subject",
+            "exceptions": ["May be added in Term 2 with geography support"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Tourism (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add Tourism in Grade 11 - industry knowledge foundation needed",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Tourism (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Tourism Management", "Hospitality", "Event Management", "Travel Agent", "Hotel Management"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 30
+      },
+      "aps_context": {
+        "typical_performance": "55-70%",
+        "aps_contribution": "4-6 points",
+        "university_threshold_subjects": ["Tourism Management (60%+)", "Hospitality (55%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "Tourism for hospitality degree",
+        "Do I need Tourism for event management?",
+        "Tourism industry careers"
+      ],
+      "notes": [
+        "Grade 10: SA tourism focus - sectors, attractions, transport.",
+        "Grade 11: Africa tourism, customer service, sustainable tourism.",
+        "Grade 12: World tourism, global events, marketing strategies.",
+        "Assessment includes case studies and tour planning projects."
+      ]
+    },
+    {
+      "name": "Afrikaans Home Language",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Prior exposure to Afrikaans"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Language proficiency required",
+            "exceptions": ["May switch between HL/FAL with language assessment"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 Afrikaans HL (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add new language in Grade 11",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 Afrikaans HL (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Teaching", "Translation", "Media", "Government", "Law"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 40
+      },
+      "aps_context": {
+        "typical_performance": "60-75%",
+        "aps_contribution": "4-7 points",
+        "university_threshold_subjects": ["Teaching (65%+)", "Translation Studies (70%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "Afrikaans for teaching",
+        "Do I need Afrikaans for government jobs?",
+        "Afrikaans HL vs FAL"
+      ],
+      "notes": [
+        "Language structures, literature (poems, novels, drama).",
+        "HL: Deeper literary analysis and cultural contexts.",
+        "Assessment includes oral presentations and literature exams.",
+        "Valuable for multilingual competency in SA context."
+      ]
+    },
+    {
+      "name": "isiZulu Home Language",
+      "grade_requirements": {
+        "10": {
+          "allowed": true,
+          "prerequisites": ["Prior exposure to isiZulu"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Language proficiency required",
+            "exceptions": ["May switch between HL/FAL with language assessment"]
+          }
+        },
+        "11": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 10 isiZulu HL (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "Cannot add new language in Grade 11",
+            "exceptions": []
+          }
+        },
+        "12": {
+          "allowed": true,
+          "prerequisites": ["Pass Grade 11 isiZulu HL (40%+)"],
+          "switching_deadline": {
+            "standard_term": 1,
+            "notes": "No subject changes allowed in Grade 12",
+            "exceptions": []
+          }
+        }
+      },
+      "gateway_paths": ["Teaching", "Social Work", "Media", "Cultural Studies", "Government"],
+      "minimum_pass_policy": {
+        "scale": "NSC",
+        "threshold": 40
+      },
+      "aps_context": {
+        "typical_performance": "60-75%",
+        "aps_contribution": "4-7 points",
+        "university_threshold_subjects": ["Teaching (65%+)", "Social Work (60%+)"]
+      },
+      "related_gates": [],
+      "query_triggers": [
+        "isiZulu for teaching",
+        "Do I need isiZulu for social work?",
+        "isiZulu HL vs FAL"
+      ],
+      "notes": [
+        "Language grammar, literature (folklore, modern texts), oral traditions.",
+        "HL: Advanced literary critique and cultural heritage focus.",
+        "Assessment includes oral tasks, comprehension, and creative writing.",
+        "Increasingly valued by universities for transformation and cultural competency."
+      ]
+    }
+  ]
+}

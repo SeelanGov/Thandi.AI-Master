@@ -1,0 +1,361 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/caps/subjects/topic_breakdown.schema.json",
+  "kb_id": "caps-phys-sci-topics-v3",
+  "exam_board": "CAPS",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "subject": "Physical Sciences",
+  "topics": {
+    "grade_10": {
+      "term_1": [
+        {
+          "topic": "Matter and Materials",
+          "subtopics": [
+            "Classification of matter",
+            "States of matter and kinetic molecular theory",
+            "Atomic structure",
+            "Periodic table",
+            "Chemical bonding"
+          ],
+          "hours": 12,
+          "difficulty": "medium",
+          "prerequisites": ["Grade 9 Natural Sciences"],
+          "career_relevance": ["Engineering", "Medicine", "Chemistry", "Materials Science"],
+          "practical_work": "Atomic models, periodic trends experiments"
+        },
+        {
+          "topic": "Chemical Change",
+          "subtopics": [
+            "Physical and chemical change",
+            "Representing chemical change",
+            "Reactions in aqueous solutions",
+            "Quantitative aspects of chemical change"
+          ],
+          "hours": 15,
+          "difficulty": "medium",
+          "prerequisites": ["Basic chemistry concepts"],
+          "career_relevance": ["Chemical Engineering", "Pharmacy", "Medicine", "Research"],
+          "practical_work": "Chemical reactions, stoichiometry calculations"
+        }
+      ],
+      "term_2": [
+        {
+          "topic": "Waves, Sound and Light",
+          "subtopics": [
+            "Transverse pulses on a string/spring",
+            "Transverse waves",
+            "Longitudinal waves",
+            "Sound",
+            "Electromagnetic radiation"
+          ],
+          "hours": 14,
+          "difficulty": "hard",
+          "prerequisites": ["Basic wave concepts"],
+          "career_relevance": ["Physics", "Engineering", "Acoustics", "Telecommunications"],
+          "practical_work": "Wave demonstrations, sound experiments"
+        },
+        {
+          "topic": "Electricity and Magnetism",
+          "subtopics": [
+            "Magnetism",
+            "Electrostatics",
+            "Electric circuits"
+          ],
+          "hours": 10,
+          "difficulty": "hard",
+          "prerequisites": ["Basic electricity concepts"],
+          "career_relevance": ["Electrical Engineering", "Electronics", "Physics", "Renewable Energy"],
+          "practical_work": "Circuit building, magnetic field experiments"
+        }
+      ],
+      "term_3": [
+        {
+          "topic": "Mechanics",
+          "subtopics": [
+            "Vectors in two dimensions",
+            "Newton's laws"
+          ],
+          "hours": 15,
+          "difficulty": "hard",
+          "prerequisites": ["Mathematics vectors", "Basic physics"],
+          "career_relevance": ["Mechanical Engineering", "Physics", "Aerospace", "Robotics"],
+          "practical_work": "Force experiments, vector analysis"
+        }
+      ],
+      "term_4": [
+        {
+          "topic": "Revision",
+          "subtopics": [],
+          "hours": 8,
+          "difficulty": "varies",
+          "prerequisites": ["All Grade 10 topics"],
+          "career_relevance": ["Exam preparation"],
+          "practical_work": "Review of all practicals"
+        }
+      ]
+    },
+    "grade_11": {
+      "term_1": [
+        {
+          "topic": "Mechanics",
+          "subtopics": [
+            "Vectors in two dimensions",
+            "Newton's laws and application",
+            "Atomic combinations: molecular structure",
+            "Intermolecular forces",
+            "Ideal gases"
+          ],
+          "hours": 28,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 10 mechanics", "Advanced mathematics"],
+          "career_relevance": ["Engineering", "Physics", "Aerospace", "Automotive"],
+          "practical_work": "Advanced mechanics experiments, gas law investigations"
+        }
+      ],
+      "term_2": [
+        {
+          "topic": "Waves, Sound and Light",
+          "subtopics": [
+            "Geometrical optics",
+            "2D and 3D wavefronts"
+          ],
+          "hours": 8,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 10 waves"],
+          "career_relevance": ["Optics", "Telecommunications", "Medical Physics", "Astronomy"],
+          "practical_work": "Lens experiments, wave interference"
+        },
+        {
+          "topic": "Electricity and Magnetism",
+          "subtopics": [
+            "Electrostatics",
+            "Electromagnetism",
+            "Electric circuits"
+          ],
+          "hours": 16,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 10 electricity"],
+          "career_relevance": ["Electrical Engineering", "Electronics", "Power Systems", "Renewable Energy"],
+          "practical_work": "Advanced circuit analysis, electromagnetic induction"
+        }
+      ],
+      "term_3": [
+        {
+          "topic": "Matter and Materials",
+          "subtopics": [
+            "Quantitative aspects of chemical change",
+            "Energy and chemical change",
+            "Types of reactions"
+          ],
+          "hours": 18,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 10 chemistry"],
+          "career_relevance": ["Chemical Engineering", "Chemistry", "Materials Science", "Pharmacy"],
+          "practical_work": "Thermochemistry, reaction rate experiments"
+        }
+      ],
+      "term_4": [
+        {
+          "topic": "Revision",
+          "subtopics": [],
+          "hours": 8,
+          "difficulty": "varies",
+          "prerequisites": ["All Grade 11 topics"],
+          "career_relevance": ["Exam preparation"],
+          "practical_work": "Comprehensive practical review"
+        }
+      ]
+    },
+    "grade_12": {
+      "term_1": [
+        {
+          "topic": "Mechanics",
+          "subtopics": [
+            "Momentum and impulse",
+            "Vertical projectile motion",
+            "Work, energy and power"
+          ],
+          "hours": 18,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 11 mechanics", "Calculus concepts"],
+          "career_relevance": ["Engineering", "Physics", "Aerospace", "Sports Science"],
+          "practical_work": "Collision experiments, projectile motion analysis"
+        },
+        {
+          "topic": "Electricity and Magnetism",
+          "subtopics": [
+            "Electric circuits",
+            "Electrodynamics"
+          ],
+          "hours": 12,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 11 electricity", "Advanced mathematics"],
+          "career_relevance": ["Electrical Engineering", "Electronics", "Power Generation", "Telecommunications"],
+          "practical_work": "AC/DC circuits, electromagnetic induction applications"
+        }
+      ],
+      "term_2": [
+        {
+          "topic": "Waves, Sound and Light",
+          "subtopics": [
+            "Optical phenomena and properties of materials"
+          ],
+          "hours": 4,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 11 optics"],
+          "career_relevance": ["Optics", "Materials Science", "Medical Physics", "Laser Technology"],
+          "practical_work": "Advanced optics experiments"
+        },
+        {
+          "topic": "Matter and Materials",
+          "subtopics": [
+            "Organic molecules",
+            "Reaction rates",
+            "Chemical equilibrium",
+            "Acids and bases"
+          ],
+          "hours": 28,
+          "difficulty": "very_hard",
+          "prerequisites": ["Grade 11 chemistry", "Advanced mathematics"],
+          "career_relevance": ["Chemistry", "Chemical Engineering", "Pharmacy", "Biochemistry"],
+          "practical_work": "Organic synthesis, equilibrium experiments, pH measurements"
+        }
+      ],
+      "term_3": [
+        {
+          "topic": "Chemical Change",
+          "subtopics": [
+            "Electrochemical reactions",
+            "The chemical industry (fertilisers)"
+          ],
+          "hours": 12,
+          "difficulty": "hard",
+          "prerequisites": ["Grade 12 chemistry"],
+          "career_relevance": ["Chemical Engineering", "Industrial Chemistry", "Environmental Science", "Battery Technology"],
+          "practical_work": "Electrochemical cells, industrial process analysis"
+        }
+      ],
+      "term_4": [
+        {
+          "topic": "Revision",
+          "subtopics": [],
+          "hours": 8,
+          "difficulty": "varies",
+          "prerequisites": ["All Grade 12 topics"],
+          "career_relevance": ["Final exam preparation"],
+          "practical_work": "Comprehensive practical examination preparation"
+        }
+      ]
+    }
+  },
+  "curriculum_notes": {
+    "integration": "Physics and Chemistry integrated; practicals: 10-15% of SBA. Total: 4 hours/week.",
+    "adaptations": "Adapt for special needs (e.g., virtual labs).",
+    "assessment": "Continuous assessment throughout all terms with practical component",
+    "equipment": "Laboratory access essential for practical work"
+  },
+  "physics_chemistry_split": {
+    "grade_10": {
+      "physics_topics": ["Waves, Sound and Light", "Electricity and Magnetism", "Mechanics"],
+      "chemistry_topics": ["Matter and Materials", "Chemical Change"],
+      "integration_notes": "Topics build on each other across physics/chemistry divide"
+    },
+    "grade_11": {
+      "physics_topics": ["Mechanics", "Waves, Sound and Light", "Electricity and Magnetism"],
+      "chemistry_topics": ["Matter and Materials"],
+      "integration_notes": "Atomic structure bridges physics and chemistry"
+    },
+    "grade_12": {
+      "physics_topics": ["Mechanics", "Electricity and Magnetism", "Waves, Sound and Light"],
+      "chemistry_topics": ["Matter and Materials", "Chemical Change"],
+      "integration_notes": "Electrochemistry combines physics and chemistry principles"
+    }
+  },
+  "career_pathways": {
+    "physics_focused_careers": [
+      "Physicist",
+      "Electrical Engineer",
+      "Mechanical Engineer",
+      "Aerospace Engineer",
+      "Medical Physicist",
+      "Renewable Energy Engineer"
+    ],
+    "chemistry_focused_careers": [
+      "Chemist",
+      "Chemical Engineer",
+      "Pharmacist",
+      "Materials Scientist",
+      "Environmental Scientist",
+      "Food Scientist"
+    ],
+    "integrated_careers": [
+      "Biomedical Engineer",
+      "Nuclear Engineer",
+      "Petroleum Engineer",
+      "Nanotechnology Researcher",
+      "Forensic Scientist"
+    ],
+    "gateway_requirements": {
+      "engineering": "Physical Sciences 70%+ (both physics and chemistry)",
+      "medicine": "Physical Sciences 70%+ (chemistry focus important)",
+      "pure_sciences": "Physical Sciences 80%+ for competitive programs"
+    }
+  },
+  "special_needs_adaptations": {
+    "visual_impairments": [
+      "Tactile models for atomic structure",
+      "Audio descriptions of experiments",
+      "Braille periodic tables and formulae"
+    ],
+    "hearing_impairments": [
+      "Visual wave demonstrations",
+      "Written instructions for all practicals",
+      "Sign language interpretation for complex concepts"
+    ],
+    "physical_disabilities": [
+      "Virtual laboratory simulations",
+      "Modified practical equipment",
+      "Partner-assisted experiments"
+    ],
+    "learning_disabilities": [
+      "Simplified concept maps",
+      "Extended time for calculations",
+      "Step-by-step practical guides"
+    ]
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "physical sciences topics grade 11",
+    "caps physics chemistry split",
+    "grade 12 electrodynamics hours",
+    "physical sciences career requirements",
+    "physics chemistry integration",
+    "physical sciences practical work"
+  ],
+  "related_gates": [
+    "caps/requirements/assessment_structure.json#Physical_Sciences",
+    "caps/requirements/grade_progression.json",
+    "careers/subject_mapper.json#Physical_Sciences",
+    "caps/subjects/mathematics/topic_breakdown.json"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "DBE CAPS Documents + IEB Guidelines",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "primary_sources": [
+        "education.gov.za CAPS PDFs (2025, stable for 2026)",
+        "IEB.co.za SAGs"
+      ],
+      "cross_referenced": [
+        "University entrance requirements",
+        "Professional body requirements (ECSA, SAICE)"
+      ]
+    }
+  }
+}

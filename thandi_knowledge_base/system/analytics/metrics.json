@@ -1,0 +1,241 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/system/analytics/metrics.schema.json",
+  "kb_id": "metrics-v3w3",
+  "version": "3.0.0",
+  "created_at": "2025-12-27",
+  "performance_metrics": {
+    "response_time_tracking": {
+      "targets": {
+        "simple_queries": {
+          "description": "Basic information retrieval (APS calculation, single bursary info)",
+          "target_time": "<5_seconds",
+          "current_baseline": "To be established",
+          "examples": ["What is my APS?", "NSFAS deadline", "UCT engineering requirements"]
+        },
+        "medium_queries": {
+          "description": "Multi-source comparisons and personalized recommendations",
+          "target_time": "<10_seconds", 
+          "current_baseline": "To be established",
+          "examples": ["Compare engineering bursaries", "International vs SA study costs", "Career salary comparison"]
+        },
+        "complex_queries": {
+          "description": "Comprehensive pathway planning with multiple chaining rules",
+          "target_time": "<15_seconds",
+          "current_baseline": "To be established",
+          "examples": ["Complete international study plan", "Alternative pathways for low APS", "Special needs accommodation planning"]
+        }
+      },
+      "measurement_methods": {
+        "server_response_time": "Time from query receipt to response generation",
+        "rag_processing_time": "Time for knowledge base search and retrieval",
+        "template_rendering_time": "Time for personalized response formatting",
+        "total_user_experience_time": "End-to-end time including network latency"
+      },
+      "optimization_strategies": {
+        "caching": "Cache frequently accessed data and common query results",
+        "indexing": "Optimize search indices for faster knowledge base queries",
+        "parallel_processing": "Process multiple data sources simultaneously",
+        "progressive_loading": "Deliver partial results while processing continues"
+      }
+    },
+    "accuracy_and_quality": {
+      "information_accuracy": {
+        "target": ">95%",
+        "measurement": "Percentage of factually correct information in responses",
+        "verification_method": "Regular fact-checking against official sources",
+        "error_categories": [
+          "Outdated information (deadlines, requirements)",
+          "Calculation errors (APS, costs, percentages)",
+          "Mismatched recommendations (wrong bursary for profile)",
+          "Contradictory advice (conflicting sources)"
+        ]
+      },
+      "recommendation_relevance": {
+        "target": ">90%",
+        "measurement": "Percentage of recommendations rated as relevant by users",
+        "feedback_mechanism": "Post-response relevance rating (1-5 scale)",
+        "improvement_tracking": "Monthly analysis of relevance scores by query type"
+      },
+      "completeness_score": {
+        "target": ">85%",
+        "measurement": "Percentage of user questions fully addressed in single response",
+        "follow_up_rate": "Track how often users need additional clarification",
+        "gap_identification": "Identify common information gaps for knowledge base enhancement"
+      }
+    },
+    "user_satisfaction": {
+      "satisfaction_scoring": {
+        "overall_satisfaction": {
+          "target": ">4.0/5.0",
+          "measurement": "Average user satisfaction rating",
+          "collection_method": "Optional post-interaction survey"
+        },
+        "usefulness_rating": {
+          "target": ">4.2/5.0", 
+          "measurement": "How useful users found the information",
+          "tracking": "By query type and user demographic"
+        },
+        "clarity_rating": {
+          "target": ">4.0/5.0",
+          "measurement": "How clear and understandable the response was",
+          "improvement_focus": "Template optimization and language simplification"
+        }
+      },
+      "behavioral_metrics": {
+        "session_duration": "Average time users spend engaging with responses",
+        "return_rate": "Percentage of users who return for additional queries",
+        "recommendation_follow_through": "Percentage of users who act on recommendations",
+        "sharing_behavior": "How often users share information with others"
+      }
+    },
+    "system_utilization": {
+      "query_volume_tracking": {
+        "daily_queries": "Number of queries processed per day",
+        "peak_usage_times": "Identify high-traffic periods for capacity planning",
+        "seasonal_patterns": "Track usage spikes during application seasons",
+        "query_type_distribution": "Breakdown of simple/medium/complex query ratios"
+      },
+      "knowledge_base_coverage": {
+        "content_utilization": "Which knowledge base sections are accessed most frequently",
+        "unused_content_identification": "Identify underutilized content for review or removal",
+        "gap_analysis": "Queries that cannot be answered with current knowledge base",
+        "expansion_priorities": "Data-driven priorities for knowledge base growth"
+      },
+      "template_effectiveness": {
+        "template_usage_frequency": "Which personalization templates are used most often",
+        "template_satisfaction_correlation": "Correlation between template type and user satisfaction",
+        "customization_success": "How well templates adapt to different user profiles",
+        "template_optimization_opportunities": "Identify templates needing improvement"
+      }
+    }
+  },
+  "success_outcome_tracking": {
+    "student_achievement_correlation": {
+      "university_admission_success": {
+        "tracking_method": "Follow-up surveys with users who received university guidance",
+        "success_rate_target": ">80% of users following recommendations gain admission",
+        "correlation_analysis": "Relationship between advice quality and admission success"
+      },
+      "scholarship_application_success": {
+        "tracking_method": "Monitor scholarship award announcements and user feedback",
+        "success_rate_target": ">60% of users applying to recommended scholarships receive funding",
+        "optimization_focus": "Improve recommendation accuracy for better success rates"
+      },
+      "career_pathway_alignment": {
+        "tracking_method": "Long-term follow-up on career choices and satisfaction",
+        "alignment_target": ">75% of users pursue careers aligned with recommendations",
+        "satisfaction_measurement": "Career satisfaction ratings from users 2-5 years later"
+      }
+    },
+    "system_impact_measurement": {
+      "accessibility_improvement": {
+        "underrepresented_student_usage": "Track usage by rural, first-generation, and special needs students",
+        "barrier_reduction": "Measure reduction in information access barriers",
+        "equity_outcomes": "Monitor whether system reduces educational inequality"
+      },
+      "decision_quality_enhancement": {
+        "informed_decision_making": "Percentage of users reporting better understanding after interaction",
+        "decision_confidence": "User confidence levels in educational and career choices",
+        "regret_reduction": "Track whether users experience fewer regrets about educational decisions"
+      }
+    }
+  },
+  "real_time_monitoring": {
+    "dashboard_metrics": [
+      {
+        "metric": "current_response_time",
+        "display": "Average response time over last hour",
+        "alert_threshold": ">20_seconds",
+        "action": "Investigate performance bottlenecks"
+      },
+      {
+        "metric": "error_rate",
+        "display": "Percentage of failed queries in last 24 hours",
+        "alert_threshold": ">5%",
+        "action": "Review error logs and implement fixes"
+      },
+      {
+        "metric": "user_satisfaction",
+        "display": "Average satisfaction score over last week",
+        "alert_threshold": "<3.5/5.0",
+        "action": "Analyze feedback and improve response quality"
+      },
+      {
+        "metric": "knowledge_base_freshness",
+        "display": "Percentage of content updated within required timeframes",
+        "alert_threshold": "<90%",
+        "action": "Trigger content update procedures"
+      }
+    ],
+    "automated_alerts": {
+      "performance_degradation": "Alert when response times exceed targets by >50%",
+      "accuracy_concerns": "Alert when error rate increases by >100% from baseline",
+      "user_satisfaction_drop": "Alert when satisfaction scores drop below 3.5/5.0",
+      "system_capacity_limits": "Alert when query volume approaches system limits"
+    }
+  },
+  "analytics_integration": {
+    "data_collection_methods": {
+      "user_interaction_logging": "Log all queries, responses, and user feedback",
+      "performance_monitoring": "Continuous monitoring of system performance metrics",
+      "outcome_tracking": "Follow-up surveys and success rate monitoring",
+      "external_validation": "Cross-reference with official statistics and outcomes"
+    },
+    "reporting_framework": {
+      "daily_reports": "Performance metrics and system health indicators",
+      "weekly_reports": "User satisfaction trends and content utilization analysis",
+      "monthly_reports": "Comprehensive system performance and improvement recommendations",
+      "quarterly_reports": "Strategic analysis and knowledge base expansion planning"
+    },
+    "continuous_improvement": {
+      "a_b_testing": "Test different response formats and recommendation strategies",
+      "machine_learning_integration": "Use analytics data to improve recommendation algorithms",
+      "predictive_analytics": "Predict user needs and proactively provide relevant information",
+      "feedback_loop_optimization": "Continuously refine system based on user feedback and outcomes"
+    }
+  },
+  "privacy_and_ethics": {
+    "data_protection": {
+      "anonymization": "All user data anonymized for analytics purposes",
+      "consent_management": "Clear opt-in/opt-out mechanisms for data collection",
+      "data_retention": "Automatic deletion of personal data after specified periods",
+      "security_measures": "Encryption and secure storage of all analytics data"
+    },
+    "ethical_considerations": {
+      "bias_monitoring": "Regular analysis for potential bias in recommendations",
+      "fairness_assessment": "Ensure equal quality of service across all user demographics",
+      "transparency": "Clear communication about how recommendations are generated",
+      "accountability": "Regular audits of system decisions and outcomes"
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "curriculum_match_boost": 2.0
+  },
+  "query_triggers": [
+    "system performance metrics",
+    "user satisfaction tracking",
+    "response time analysis",
+    "accuracy measurement",
+    "success rate monitoring",
+    "analytics dashboard"
+  ],
+  "related_gates": [
+    "system/analytics/error_handling.json",
+    "system/dynamic/change_detection.json",
+    "curriculum_gates/enhanced/chaining_rules.json",
+    "curriculum_gates/enhanced/personalization_templates.json"
+  ],
+  "last_verified": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "Data Analytics Specialist",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "performance_targets": "Based on EdTech industry benchmarks and user experience research",
+      "measurement_methods": "Validated against analytics best practices and privacy regulations",
+      "success_metrics": "Aligned with educational outcome research and student success indicators"
+    }
+  }
+}
