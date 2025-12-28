@@ -5,9 +5,10 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 
 export default function StudentRegistration({ onComplete }) {
-  const [step, setStep] = useState('privacy'); // privacy, registration, anonymous
+  // State management with proper initialization
+  const [step, setStep] = useState('privacy');
   const [consent, setConsent] = useState(false);
-  const [isHydrated, setIsHydrated] = useState(false); // Emergency: Track hydration
+  const [isClient, setIsClient] = useState(false);
   const [studentData, setStudentData] = useState({
     name: '',
     surname: '',
@@ -19,40 +20,35 @@ export default function StudentRegistration({ onComplete }) {
   const [schoolResults, setSchoolResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Ref for first name input to handle focus properly
+  // Ref for proper focus management
   const firstNameInputRef = useRef(null);
 
-  // Emergency: Detect hydration and force client-side rendering
+  // Ensure client-side rendering
   useEffect(() => {
-    setIsHydrated(true);
-    console.log('🔧 StudentRegistration hydrated successfully');
+    setIsClient(true);
   }, []);
 
-  // Focus first name field only when registration form first appears
+  // Focus management with proper client-side check
   useEffect(() => {
-    if (step === 'registration' && firstNameInputRef.current && isHydrated) {
-      // Small delay to ensure DOM is ready
+    if (isClient && step === 'registration' && firstNameInputRef.current) {
       const timer = setTimeout(() => {
         firstNameInputRef.current?.focus();
       }, 100);
       return () => clearTimeout(timer);
     }
-  }, [step, isHydrated]);
+  }, [step, isClient]);
 
-  // Emergency: Show loading state until hydrated
-  if (!isHydrated) {
+  // Show loading state until client-side rendering is ready
+  if (!isClient) {
     return (
       <Card className="max-w-2xl mx-auto p-8">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-thandi-teal mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading assessment...</p>
+          <p className="text-gray-600">Preparing registration form...</p>
         </div>
       </Card>
     );
   }
-
-  // Debug: Log current step
-  console.log('StudentRegistration - Current step:', step);
 
   // Privacy Notice Step
   const PrivacyNotice = () => (
