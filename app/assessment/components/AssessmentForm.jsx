@@ -11,7 +11,7 @@ import GradeSelector from './GradeSelector';
 import PreliminaryReport from './PreliminaryReport';
 import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
-import StudentRegistration from '../../../components/BulletproofStudentRegistration';
+import BulletproofStudentRegistration from '../../../components/BulletproofStudentRegistration';
 
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 import { trackAssessmentComplete, trackJourneyComplete } from '../../../lib/analytics/track-events';
@@ -850,7 +850,7 @@ export default function AssessmentForm() {
   if (currentStep === 0.5) {
     return (
       <div className="assessment-container animate-fade-in">
-        <StudentRegistration onComplete={handleStudentRegistration} />
+        <BulletproofStudentRegistration onComplete={handleStudentRegistration} />
       </div>
     );
   }
