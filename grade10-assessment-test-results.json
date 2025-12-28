@@ -1,0 +1,194 @@
+{
+  "timestamp": "2025-12-28T15:08:14.395Z",
+  "testProfile": {
+    "grade": "grade10",
+    "curriculum": "caps",
+    "marks": {
+      "Mathematics": "75",
+      "Physical Sciences": "72",
+      "Life Sciences": "68",
+      "English Home Language": "78",
+      "Afrikaans First Additional Language": "65",
+      "History": "70",
+      "Geography": "73"
+    },
+    "careerInterests": [
+      "engineering",
+      "technology",
+      "medicine"
+    ],
+    "constraints": {
+      "financialAid": true,
+      "location": "gauteng"
+    },
+    "sessionId": "test-grade10-1766934494381"
+  },
+  "queries": [
+    {
+      "name": "Initial Career Exploration",
+      "query": "I am a Grade 10 student interested in engineering and technology. What career paths should I consider?",
+      "expectedFeatures": [
+        "grade-specific advice",
+        "engineering recommendations",
+        "subject guidance"
+      ],
+      "response": "# Your Specific Career Guidance Results\n\n## Based on Your Assessment\n**Grade Level**: GRADE 10\n**Curriculum**: CAPS\n**Academic Timeline**: You have completed Grade 10. Your Grade 12 finals will be in October-November 2027 (23 months away).\n**Current Phase**: EXPLORATION\n\n## Your Academic Performance Analysis\n**Current APS Score**: 40 points\n**Projected Final APS**: 40-42 points\n**University Eligibility**: ✅ Qualified for university admission\n\n## Recommended University Programs\n\n### 1. Mechanical Engineering at University of Cape Town ✅\n**APS Required**: 35 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: July 31, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 70%, Physical Sciences: 70%\n**Feasibility**: High\n\n### 2. Mechanical Engineering at University of Johannesburg ✅\n**APS Required**: 30 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 65%, Physical Sciences: 65%\n**Feasibility**: High\n\n### 3. Information Technology at University of Johannesburg ✅\n**APS Required**: 26 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 3 years\n**Requirements**: Mathematics: 60%, Physical Sciences: 60%\n**Feasibility**: High\n\n## Eligible Bursaries & Financial Aid\n\n### 1. Sasol Engineering Bursary ⚠️\n**Amount**: R120,000/year\n**Eligibility Match**: 60%\n**Deadline**: May 15, 2026\n**Why You Qualify**: APS requirement met (0+ required), Career interest alignment (engineering)\n**Apply**: https://www.sasol.com/careers/bursaries\n\n### 2. NSFAS (National Student Financial Aid Scheme) 🚨\n**Amount**: R80,000/year\n**Eligibility Match**: 30%\n**Deadline**: December 31, 2025\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.nsfas.org.za\n\n### 3. Funza Lushaka Teaching Bursary ℹ️\n**Amount**: R60,000/year\n**Eligibility Match**: 30%\n**Deadline**: February 28, 2026\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.education.gov.za/Programmes/FunzaLushaka.aspx\n\n## MEDIUM Action Plan\n\n### Current Focus: 2+ years to finals - Build strong foundation\n\n### Priority Actions:\n- **Focus on academic improvement**\n- **Explore career options**\n- **Build extracurricular profile**\n\n### Grade 10 Specific Guidance:\n- **Foundation Building**: Focus on building strong academic foundations\n- **Career Exploration**: You have time to explore different career options\n- **Subject Planning**: Choose Grade 11 subjects that align with your career interests\n- **Long-term Planning**: Start building a profile for university applications\n\n## Alternative Options\n\nIf your first choices are challenging, consider these backup options:\n\n- **Engineering Technology at Tshwane University of Technology**: APS 25 (95% chance)\n- **Information Systems at University of South Africa (UNISA)**: APS 22 (95% chance)\n\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice based on your current performance. Always confirm with school counselors, career advisors, and university admission offices before making important decisions about your future.\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.",
+      "responseTime": 815,
+      "analysis": {
+        "hasComprehensiveContent": true,
+        "hasGradeSpecificAdvice": true,
+        "hasVerificationFooter": true,
+        "hasAcademicCalendar": true,
+        "hasSpecificRecommendations": true,
+        "hasKnowledgeBaseIntegration": true,
+        "responseLength": 3406,
+        "missingFeatures": [
+          "grade-specific advice",
+          "engineering recommendations",
+          "subject guidance"
+        ],
+        "qualityScore": 100
+      },
+      "metadata": {
+        "grade": "grade10",
+        "curriculum": "caps",
+        "provider": "generated",
+        "hasVerificationFooter": true
+      }
+    },
+    {
+      "name": "Subject Selection Guidance",
+      "query": "I want to become an engineer. What subjects should I choose for Grade 11 and 12?",
+      "expectedFeatures": [
+        "subject requirements",
+        "caps curriculum",
+        "engineering prerequisites"
+      ],
+      "response": "# Your Specific Career Guidance Results\n\n## Based on Your Assessment\n**Grade Level**: GRADE 10\n**Curriculum**: CAPS\n**Academic Timeline**: You have completed Grade 10. Your Grade 12 finals will be in October-November 2027 (23 months away).\n**Current Phase**: EXPLORATION\n\n## Your Academic Performance Analysis\n**Current APS Score**: 40 points\n**Projected Final APS**: 40-42 points\n**University Eligibility**: ✅ Qualified for university admission\n\n## Recommended University Programs\n\n### 1. Mechanical Engineering at University of Cape Town ✅\n**APS Required**: 35 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: July 31, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 70%, Physical Sciences: 70%\n**Feasibility**: High\n\n### 2. Business Science at University of the Witwatersrand ✅\n**APS Required**: 35 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 3 years\n**Requirements**: Mathematics: 70%, English: 70%\n**Feasibility**: High\n\n### 3. Mechanical Engineering at University of Johannesburg ✅\n**APS Required**: 30 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 65%, Physical Sciences: 65%\n**Feasibility**: High\n\n## Eligible Bursaries & Financial Aid\n\n### 1. NSFAS (National Student Financial Aid Scheme) 🚨\n**Amount**: R80,000/year\n**Eligibility Match**: 30%\n**Deadline**: December 31, 2025\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.nsfas.org.za\n\n### 2. Sasol Engineering Bursary ⚠️\n**Amount**: R120,000/year\n**Eligibility Match**: 30%\n**Deadline**: May 15, 2026\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.sasol.com/careers/bursaries\n\n### 3. Funza Lushaka Teaching Bursary ℹ️\n**Amount**: R60,000/year\n**Eligibility Match**: 30%\n**Deadline**: February 28, 2026\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.education.gov.za/Programmes/FunzaLushaka.aspx\n\n## MEDIUM Action Plan\n\n### Current Focus: 2+ years to finals - Build strong foundation\n\n### Priority Actions:\n- **Focus on academic improvement**\n- **Explore career options**\n- **Build extracurricular profile**\n\n### Grade 10 Specific Guidance:\n- **Foundation Building**: Focus on building strong academic foundations\n- **Career Exploration**: You have time to explore different career options\n- **Subject Planning**: Choose Grade 11 subjects that align with your career interests\n- **Long-term Planning**: Start building a profile for university applications\n\n## Alternative Options\n\nIf your first choices are challenging, consider these backup options:\n\n- **Accounting at University of Johannesburg**: APS 28 (95% chance)\n- **Information Technology at University of Johannesburg**: APS 26 (95% chance)\n\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice based on your current performance. Always confirm with school counselors, career advisors, and university admission offices before making important decisions about your future.\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.",
+      "responseTime": 745,
+      "analysis": {
+        "hasComprehensiveContent": true,
+        "hasGradeSpecificAdvice": true,
+        "hasVerificationFooter": true,
+        "hasAcademicCalendar": true,
+        "hasSpecificRecommendations": true,
+        "hasKnowledgeBaseIntegration": true,
+        "responseLength": 3331,
+        "missingFeatures": [
+          "subject requirements",
+          "caps curriculum",
+          "engineering prerequisites"
+        ],
+        "qualityScore": 100
+      },
+      "metadata": {
+        "grade": "grade10",
+        "curriculum": "caps",
+        "provider": "generated",
+        "hasVerificationFooter": true
+      }
+    },
+    {
+      "name": "University Planning",
+      "query": "What universities offer good engineering programs and what are the requirements?",
+      "expectedFeatures": [
+        "university recommendations",
+        "aps requirements",
+        "program details"
+      ],
+      "response": "# Your Specific Career Guidance Results\n\n## Based on Your Assessment\n**Grade Level**: GRADE 10\n**Curriculum**: CAPS\n**Academic Timeline**: You have completed Grade 10. Your Grade 12 finals will be in October-November 2027 (23 months away).\n**Current Phase**: EXPLORATION\n\n## Your Academic Performance Analysis\n**Current APS Score**: 40 points\n**Projected Final APS**: 40-42 points\n**University Eligibility**: ✅ Qualified for university admission\n\n## Recommended University Programs\n\n### 1. Mechanical Engineering at University of Cape Town ✅\n**APS Required**: 35 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: July 31, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 70%, Physical Sciences: 70%\n**Feasibility**: High\n\n### 2. Mechanical Engineering at University of Johannesburg ✅\n**APS Required**: 30 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 65%, Physical Sciences: 65%\n**Feasibility**: High\n\n### 3. Information Technology at University of Johannesburg ✅\n**APS Required**: 26 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 3 years\n**Requirements**: Mathematics: 60%, Physical Sciences: 60%\n**Feasibility**: High\n\n## Eligible Bursaries & Financial Aid\n\n### 1. Sasol Engineering Bursary ⚠️\n**Amount**: R120,000/year\n**Eligibility Match**: 60%\n**Deadline**: May 15, 2026\n**Why You Qualify**: APS requirement met (0+ required), Career interest alignment (engineering)\n**Apply**: https://www.sasol.com/careers/bursaries\n\n### 2. NSFAS (National Student Financial Aid Scheme) 🚨\n**Amount**: R80,000/year\n**Eligibility Match**: 30%\n**Deadline**: December 31, 2025\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.nsfas.org.za\n\n### 3. Funza Lushaka Teaching Bursary ℹ️\n**Amount**: R60,000/year\n**Eligibility Match**: 30%\n**Deadline**: February 28, 2026\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.education.gov.za/Programmes/FunzaLushaka.aspx\n\n## MEDIUM Action Plan\n\n### Current Focus: 2+ years to finals - Build strong foundation\n\n### Priority Actions:\n- **Focus on academic improvement**\n- **Explore career options**\n- **Build extracurricular profile**\n\n### Grade 10 Specific Guidance:\n- **Foundation Building**: Focus on building strong academic foundations\n- **Career Exploration**: You have time to explore different career options\n- **Subject Planning**: Choose Grade 11 subjects that align with your career interests\n- **Long-term Planning**: Start building a profile for university applications\n\n## Alternative Options\n\nIf your first choices are challenging, consider these backup options:\n\n- **Engineering Technology at Tshwane University of Technology**: APS 25 (95% chance)\n- **Information Systems at University of South Africa (UNISA)**: APS 22 (95% chance)\n\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice based on your current performance. Always confirm with school counselors, career advisors, and university admission offices before making important decisions about your future.\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.",
+      "responseTime": 884,
+      "analysis": {
+        "hasComprehensiveContent": true,
+        "hasGradeSpecificAdvice": true,
+        "hasVerificationFooter": true,
+        "hasAcademicCalendar": true,
+        "hasSpecificRecommendations": true,
+        "hasKnowledgeBaseIntegration": true,
+        "responseLength": 3406,
+        "missingFeatures": [
+          "university recommendations",
+          "aps requirements",
+          "program details"
+        ],
+        "qualityScore": 100
+      },
+      "metadata": {
+        "grade": "grade10",
+        "curriculum": "caps",
+        "provider": "generated",
+        "hasVerificationFooter": true
+      }
+    },
+    {
+      "name": "Financial Aid Guidance",
+      "query": "I need financial help for university. What bursaries and scholarships are available for engineering students?",
+      "expectedFeatures": [
+        "bursary information",
+        "nsfas guidance",
+        "scholarship options"
+      ],
+      "response": "# Your Specific Career Guidance Results\n\n## Based on Your Assessment\n**Grade Level**: GRADE 10\n**Curriculum**: CAPS\n**Academic Timeline**: You have completed Grade 10. Your Grade 12 finals will be in October-November 2027 (23 months away).\n**Current Phase**: EXPLORATION\n\n## Your Academic Performance Analysis\n**Current APS Score**: 40 points\n**Projected Final APS**: 40-42 points\n**University Eligibility**: ✅ Qualified for university admission\n\n## Recommended University Programs\n\n### 1. Mechanical Engineering at University of Cape Town ✅\n**APS Required**: 35 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: July 31, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 70%, Physical Sciences: 70%\n**Feasibility**: High\n\n### 2. Mechanical Engineering at University of Johannesburg ✅\n**APS Required**: 30 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 65%, Physical Sciences: 65%\n**Feasibility**: High\n\n### 3. Information Technology at University of Johannesburg ✅\n**APS Required**: 26 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 3 years\n**Requirements**: Mathematics: 60%, Physical Sciences: 60%\n**Feasibility**: High\n\n## Eligible Bursaries & Financial Aid\n\n### 1. Sasol Engineering Bursary ⚠️\n**Amount**: R120,000/year\n**Eligibility Match**: 60%\n**Deadline**: May 15, 2026\n**Why You Qualify**: APS requirement met (0+ required), Career interest alignment (engineering)\n**Apply**: https://www.sasol.com/careers/bursaries\n\n### 2. NSFAS (National Student Financial Aid Scheme) 🚨\n**Amount**: R80,000/year\n**Eligibility Match**: 30%\n**Deadline**: December 31, 2025\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.nsfas.org.za\n\n### 3. Funza Lushaka Teaching Bursary ℹ️\n**Amount**: R60,000/year\n**Eligibility Match**: 30%\n**Deadline**: February 28, 2026\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.education.gov.za/Programmes/FunzaLushaka.aspx\n\n## MEDIUM Action Plan\n\n### Current Focus: 2+ years to finals - Build strong foundation\n\n### Priority Actions:\n- **Focus on academic improvement**\n- **Explore career options**\n- **Build extracurricular profile**\n\n### Grade 10 Specific Guidance:\n- **Foundation Building**: Focus on building strong academic foundations\n- **Career Exploration**: You have time to explore different career options\n- **Subject Planning**: Choose Grade 11 subjects that align with your career interests\n- **Long-term Planning**: Start building a profile for university applications\n\n## Alternative Options\n\nIf your first choices are challenging, consider these backup options:\n\n- **Engineering Technology at Tshwane University of Technology**: APS 25 (95% chance)\n- **Information Systems at University of South Africa (UNISA)**: APS 22 (95% chance)\n\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice based on your current performance. Always confirm with school counselors, career advisors, and university admission offices before making important decisions about your future.\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.",
+      "responseTime": 1003,
+      "analysis": {
+        "hasComprehensiveContent": true,
+        "hasGradeSpecificAdvice": true,
+        "hasVerificationFooter": true,
+        "hasAcademicCalendar": true,
+        "hasSpecificRecommendations": true,
+        "hasKnowledgeBaseIntegration": true,
+        "responseLength": 3406,
+        "missingFeatures": [
+          "bursary information",
+          "nsfas guidance",
+          "scholarship options"
+        ],
+        "qualityScore": 100
+      },
+      "metadata": {
+        "grade": "grade10",
+        "curriculum": "caps",
+        "provider": "generated",
+        "hasVerificationFooter": true
+      }
+    },
+    {
+      "name": "Academic Performance Analysis",
+      "query": "Based on my current marks, am I on track for engineering at university?",
+      "expectedFeatures": [
+        "aps calculation",
+        "performance analysis",
+        "improvement suggestions"
+      ],
+      "response": "# Your Specific Career Guidance Results\n\n## Based on Your Assessment\n**Grade Level**: GRADE 10\n**Curriculum**: CAPS\n**Academic Timeline**: You have completed Grade 10. Your Grade 12 finals will be in October-November 2027 (23 months away).\n**Current Phase**: EXPLORATION\n\n## Your Academic Performance Analysis\n**Current APS Score**: 40 points\n**Projected Final APS**: 40-42 points\n**University Eligibility**: ✅ Qualified for university admission\n\n## Recommended University Programs\n\n### 1. Mechanical Engineering at University of Cape Town ✅\n**APS Required**: 35 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: July 31, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 70%, Physical Sciences: 70%\n**Feasibility**: High\n\n### 2. Mechanical Engineering at University of Johannesburg ✅\n**APS Required**: 30 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 4 years\n**Requirements**: Mathematics: 65%, Physical Sciences: 65%\n**Feasibility**: High\n\n### 3. Information Technology at University of Johannesburg ✅\n**APS Required**: 26 (You're projected: 40-42)\n**Admission Chance**: 95% \n**Application Deadline**: September 30, 2026\n**Duration**: 3 years\n**Requirements**: Mathematics: 60%, Physical Sciences: 60%\n**Feasibility**: High\n\n## Eligible Bursaries & Financial Aid\n\n### 1. Sasol Engineering Bursary ⚠️\n**Amount**: R120,000/year\n**Eligibility Match**: 60%\n**Deadline**: May 15, 2026\n**Why You Qualify**: APS requirement met (0+ required), Career interest alignment (engineering)\n**Apply**: https://www.sasol.com/careers/bursaries\n\n### 2. NSFAS (National Student Financial Aid Scheme) 🚨\n**Amount**: R80,000/year\n**Eligibility Match**: 30%\n**Deadline**: December 31, 2025\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.nsfas.org.za\n\n### 3. Funza Lushaka Teaching Bursary ℹ️\n**Amount**: R60,000/year\n**Eligibility Match**: 30%\n**Deadline**: February 28, 2026\n**Why You Qualify**: APS requirement met (0+ required)\n**Apply**: https://www.education.gov.za/Programmes/FunzaLushaka.aspx\n\n## MEDIUM Action Plan\n\n### Current Focus: 2+ years to finals - Build strong foundation\n\n### Priority Actions:\n- **Focus on academic improvement**\n- **Explore career options**\n- **Build extracurricular profile**\n\n### Grade 10 Specific Guidance:\n- **Foundation Building**: Focus on building strong academic foundations\n- **Career Exploration**: You have time to explore different career options\n- **Subject Planning**: Choose Grade 11 subjects that align with your career interests\n- **Long-term Planning**: Start building a profile for university applications\n\n## Alternative Options\n\nIf your first choices are challenging, consider these backup options:\n\n- **Engineering Technology at Tshwane University of Technology**: APS 25 (95% chance)\n- **Information Systems at University of South Africa (UNISA)**: APS 22 (95% chance)\n\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice based on your current performance. Always confirm with school counselors, career advisors, and university admission offices before making important decisions about your future.\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.",
+      "responseTime": 380,
+      "analysis": {
+        "hasComprehensiveContent": true,
+        "hasGradeSpecificAdvice": true,
+        "hasVerificationFooter": true,
+        "hasAcademicCalendar": true,
+        "hasSpecificRecommendations": true,
+        "hasKnowledgeBaseIntegration": true,
+        "responseLength": 3406,
+        "missingFeatures": [
+          "aps calculation",
+          "improvement suggestions"
+        ],
+        "qualityScore": 100
+      },
+      "metadata": {
+        "grade": "grade10",
+        "curriculum": "caps",
+        "provider": "generated",
+        "hasVerificationFooter": true
+      }
+    }
+  ],
+  "overallAnalysis": {
+    "totalQueries": 5,
+    "averageQualityScore": 100,
+    "averageResponseTime": 765,
+    "criticalIssues": [],
+    "recommendations": []
+  }
+}
