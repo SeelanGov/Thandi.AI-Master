@@ -11,7 +11,7 @@ import GradeSelector from './GradeSelector';
 import PreliminaryReport from './PreliminaryReport';
 import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
-import StudentRegistration from '../../../components/StudentRegistration';
+import StudentRegistration from '../../../components/BulletproofStudentRegistration';
 
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 import { trackAssessmentComplete, trackJourneyComplete } from '../../../lib/analytics/track-events';

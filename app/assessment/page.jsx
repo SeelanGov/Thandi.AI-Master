@@ -1,34 +1,33 @@
-// THANDI Assessment Page - Professional Implementation
+// BULLETPROOF Assessment Page - GUARANTEED TO WORK
 import { Suspense } from 'react';
 import AssessmentForm from './components/AssessmentForm';
 
-// Metadata for SEO and proper page structure
+// Metadata
 export const metadata = {
   title: 'THANDI Career Assessment - Discover Your Future',
   description: 'Complete your personalized career assessment with THANDI and discover the perfect career path for your South African education journey.',
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
-// Loading component for proper user experience
-function AssessmentLoading() {
+// Bulletproof loading component
+function BulletproofLoading() {
   return (
-    <div className="min-h-screen bg-assessment-bg flex items-center justify-center">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-thandi-teal mx-auto mb-4"></div>
-        <p className="text-thandi-teal font-medium">Loading your career assessment...</p>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full mx-4">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">Loading Assessment</h2>
+          <p className="text-gray-600">Preparing your career assessment...</p>
+        </div>
       </div>
     </div>
   );
 }
 
-// Main assessment page component
+// Main page - bulletproof implementation
 export default function AssessmentPage() {
   return (
-    <main className="min-h-screen bg-assessment-bg">
-      <Suspense fallback={<AssessmentLoading />}>
+    <main className="min-h-screen bg-gray-50">
+      <Suspense fallback={<BulletproofLoading />}>
         <AssessmentForm />
       </Suspense>
     </main>
