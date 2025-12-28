@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/Card';
 export default function StudentRegistration({ onComplete }) {
   const [step, setStep] = useState('privacy'); // privacy, registration, anonymous
   const [consent, setConsent] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false); // Emergency: Track hydration
   const [studentData, setStudentData] = useState({
     name: '',
     surname: '',
@@ -21,16 +22,34 @@ export default function StudentRegistration({ onComplete }) {
   // Ref for first name input to handle focus properly
   const firstNameInputRef = useRef(null);
 
+  // Emergency: Detect hydration and force client-side rendering
+  useEffect(() => {
+    setIsHydrated(true);
+    console.log('🔧 StudentRegistration hydrated successfully');
+  }, []);
+
   // Focus first name field only when registration form first appears
   useEffect(() => {
-    if (step === 'registration' && firstNameInputRef.current) {
+    if (step === 'registration' && firstNameInputRef.current && isHydrated) {
       // Small delay to ensure DOM is ready
       const timer = setTimeout(() => {
         firstNameInputRef.current?.focus();
       }, 100);
       return () => clearTimeout(timer);
     }
-  }, [step]);
+  }, [step, isHydrated]);
+
+  // Emergency: Show loading state until hydrated
+  if (!isHydrated) {
+    return (
+      <Card className="max-w-2xl mx-auto p-8">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-thandi-teal mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading assessment...</p>
+        </div>
+      </Card>
+    );
+  }
 
   // Debug: Log current step
   console.log('StudentRegistration - Current step:', step);
