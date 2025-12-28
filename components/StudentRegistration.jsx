@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 
@@ -17,6 +17,20 @@ export default function StudentRegistration({ onComplete }) {
   const [schoolSearch, setSchoolSearch] = useState('');
   const [schoolResults, setSchoolResults] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // Ref for first name input to handle focus properly
+  const firstNameInputRef = useRef(null);
+
+  // Focus first name field only when registration form first appears
+  useEffect(() => {
+    if (step === 'registration' && firstNameInputRef.current) {
+      // Small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        firstNameInputRef.current?.focus();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [step]);
 
   // Debug: Log current step
   console.log('StudentRegistration - Current step:', step);
@@ -146,11 +160,11 @@ export default function StudentRegistration({ onComplete }) {
             </label>
             <input
               type="text"
+              ref={firstNameInputRef}
               value={studentData.name}
               onChange={(e) => setStudentData({...studentData, name: e.target.value})}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-thandi-teal"
               placeholder="Enter your first name"
-              autoFocus={true}
               required
             />
           </div>
