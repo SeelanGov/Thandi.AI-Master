@@ -1,0 +1,16 @@
+{
+  "rootCause": "permission_or_execution_error",
+  "possibleCauses": [],
+  "fixes": [
+    "Ensure package.json has clean, standard build script",
+    "Clear node_modules and reinstall dependencies",
+    "Simplify or remove custom Vercel configuration"
+  ],
+  "verificationSteps": [
+    "Test local build: npm run build",
+    "Check package.json syntax and scripts",
+    "Verify Node.js version compatibility",
+    "Test with clean node_modules installation",
+    "Deploy with minimal Vercel configuration"
+  ]
+}

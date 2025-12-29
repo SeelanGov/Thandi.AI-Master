@@ -1,0 +1,301 @@
+{
+  "timestamp": "2025-12-29T19:52:50.555Z",
+  "totalTested": 15,
+  "workingCount": 2,
+  "notFoundCount": 13,
+  "errorCount": 0,
+  "workingUrls": [
+    "https://thandiai.vercel.app",
+    "https://thandi.vercel.app"
+  ],
+  "allResults": [
+    {
+      "url": "https://thandi-ai.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:38 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::pnccw-1767037958166-7a5411e606f6"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-ai-master.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:38 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::bp6xz-1767037958906-a41a18bbf0ae"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-ai-seelan.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:39 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::sxt6p-1767037959418-49779fa2e2f5"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-ai-seelan-gov.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:40 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::l9r44-1767037960493-d3db38c924ab"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-rag-system.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:40 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::pnccw-1767037960803-dccf0d3fa611"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-rag-system-seelan.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:41 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::l2mrb-1767037961273-ab0e5cc7dcde"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-rag-system-seelan-gov.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:41 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::b9w44-1767037961578-64aca2875973"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-ai-git-main.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:41 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::ftwht-1767037961856-239d76b42052"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-ai-git-main-seelan.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:42 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::b9w44-1767037962157-65a69f1b1d44"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-ai-git-main-seelan-gov.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:42 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::rgl8x-1767037962430-52309449b510"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-ai-384b8a51.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:42 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::l2mrb-1767037962870-a384aa7e1f97"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-ai-876dd721.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:43 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::czpx4-1767037963126-2ca3730bf33b"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandiai.vercel.app",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "13972",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "35648",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:43 GMT",
+        "etag": "\"91851aa6fd8f63d8f8d45801ef2882c6\"",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "DENY",
+        "x-matched-path": "/",
+        "x-nextjs-prerender": "1",
+        "x-nextjs-stale-time": "300",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "cpt1::j24hk-1767037963351-c1a9ee1f6037"
+      },
+      "bodyLength": 35646,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi.vercel.app",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "6204",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:47 GMT",
+        "etag": "\"f94a5fea8dbc7825a467374e51d9d7ae\"",
+        "last-modified": "Mon, 29 Dec 2025 19:52:47 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-matched-path": "/",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "cpt1::bjz2r-1767037966820-104d5a8f3b62"
+      },
+      "bodyLength": 6199,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    },
+    {
+      "url": "https://thandi-career-guidance.vercel.app",
+      "status": 404,
+      "headers": {
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-length": "107",
+        "content-type": "text/plain; charset=utf-8",
+        "date": "Mon, 29 Dec 2025 19:52:48 GMT",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "x-vercel-error": "DEPLOYMENT_NOT_FOUND",
+        "x-vercel-id": "cpt1::l9r44-1767037968926-f5ed900d4f1e"
+      },
+      "bodyLength": 107,
+      "hasContent": true,
+      "isNextJs": false,
+      "error": null
+    }
+  ]
+}

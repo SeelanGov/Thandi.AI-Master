@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-12-29T19:49:41.280Z",
+  "localBuildStatus": "success",
+  "packageJsonIssues": [],
+  "vercelConfigIssues": [],
+  "dependencyIssues": [],
+  "nodeVersionIssues": [],
+  "filePermissionIssues": [],
+  "recommendations": [
+    "Next.js 15.x detected - ensure compatibility with all dependencies",
+    "Review experimental features for Vercel compatibility"
+  ],
+  "criticalFixes": []
+}
