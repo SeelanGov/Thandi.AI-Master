@@ -1,0 +1,995 @@
+{
+  "timestamp": "2025-12-29T16:29:46.553Z",
+  "summary": {
+    "universityCoverage": 100,
+    "fourIRCoverage": 40,
+    "totalPrograms": 124,
+    "criticalGaps": {
+      "missingUniversities": 0,
+      "missing4IRCareers": 9
+    }
+  },
+  "details": {
+    "universityAnalysis": {
+      "totalUniversities": 26,
+      "totalPrograms": 124,
+      "typeAnalysis": {
+        "technology": {
+          "count": 6,
+          "universities": [
+            "Cape Peninsula University of Technology",
+            "Central University of Technology",
+            "Durban University of Technology",
+            "Mangosuthu University of Technology",
+            "Tshwane University of Technology",
+            "Vaal University of Technology"
+          ]
+        },
+        "comprehensive": {
+          "count": 3,
+          "universities": [
+            "Nelson Mandela University",
+            "University of Johannesburg",
+            "Walter Sisulu University"
+          ]
+        },
+        "traditional": {
+          "count": 16,
+          "universities": [
+            "North-West University",
+            "Rhodes University",
+            "Sefako Makgatho Health Sciences University",
+            "Sol Plaatje University",
+            "Stellenbosch University",
+            "University of Cape Town",
+            "University of Fort Hare",
+            "University of KwaZulu-Natal",
+            "University of Limpopo",
+            "University of Mpumalanga",
+            "University of the Free State",
+            "University of the Western Cape",
+            "University of the Witwatersrand",
+            "University of Zululand",
+            "University of Venda",
+            "University of Pretoria"
+          ]
+        },
+        "distance": {
+          "count": 1,
+          "universities": [
+            "University of South Africa (distance)"
+          ]
+        }
+      },
+      "facultyAnalysis": {
+        "Engineering & the Built Environment": 2,
+        "Informatics & Design": 1,
+        "Health & Wellness Sciences": 1,
+        "Engineering, Built Environment & Information Technology": 1,
+        "Health & Environmental Sciences": 1,
+        "Health Sciences": 11,
+        "Engineering": 3,
+        "Natural Sciences": 1,
+        "Engineering the Built Environment & IT": 1,
+        "Business & Economic Sciences": 1,
+        "Economic & Management Sciences": 6,
+        "Commerce": 2,
+        "Humanities": 3,
+        "Science": 1,
+        "Pharmacy": 2,
+        "Medicine": 1,
+        "Health Care Sciences": 1,
+        "Education": 5,
+        "Natural & Applied Sciences": 1,
+        "Medicine & Health Sciences": 1,
+        "Engineering & Built Environment": 4,
+        "Information & Communication Technology": 1,
+        "Management & Commerce": 1,
+        "College of Business & Economics": 1,
+        "Agriculture Engineering & Science": 1,
+        "Law & Management Studies": 1,
+        "Science Engineering & Technology": 2,
+        "Natural & Agricultural Sciences": 2,
+        "Community & Health Sciences": 1,
+        "Dentistry": 1,
+        "Commerce Law & Management": 1,
+        "Arts & Design": 1,
+        "Engineering & Technology": 1,
+        "Management Sciences": 1,
+        "Science Agriculture & Engineering": 1,
+        "Commerce Administration & Law": 1,
+        "Business Management Sciences & Law": 1,
+        "Agriculture": 1,
+        "Engineering, Built Environment & IT": 1,
+        "Theology & Religion": 1
+      },
+      "degreeTypeAnalysis": {
+        "BEngTech": 17,
+        "Bachelor": 11,
+        "BSc": 24,
+        "BHSc": 1,
+        "BEng": 14,
+        "BCom": 18,
+        "BPharm": 2,
+        "BBusiness Science": 1,
+        "BA": 8,
+        "MBChB": 8,
+        "BEd": 8,
+        "LLB": 2,
+        "BNursing": 1,
+        "BDS": 1,
+        "MBBCh": 1,
+        "BArch": 2,
+        "BChD": 1,
+        "BBusSci": 1,
+        "BEcon": 1,
+        "BVSc": 1,
+        "BTh": 1
+      }
+    },
+    "fourIRAnalysis": {
+      "coveredCareers": [
+        {
+          "name": "Cybersecurity Engineer",
+          "chunks": [
+            "Career Overview",
+            "Skills & Education",
+            "Financial Reality & Job Market"
+          ]
+        },
+        {
+          "name": "Cloud Engineer",
+          "chunks": [
+            "Career Overview",
+            "Skills & Education",
+            "Financial Reality & Job Market"
+          ]
+        },
+        {
+          "name": "Data Scientist",
+          "chunks": [
+            "Career Overview"
+          ]
+        },
+        {
+          "name": "AI/ML Engineer",
+          "chunks": [
+            "Career Overview",
+            "Skills & Education",
+            "Financial Reality & Job Market"
+          ]
+        },
+        {
+          "name": "UX/UI Designer",
+          "chunks": [
+            "Career Overview",
+            "Skills & Education",
+            "Financial Reality & Job Market"
+          ]
+        },
+        {
+          "name": "DevOps Engineer",
+          "chunks": [
+            "Career Overview",
+            "Skills & Education",
+            "Financial Reality & Job Market"
+          ]
+        }
+      ],
+      "missingCareers": [
+        "Robotics Engineer",
+        "IoT Specialist",
+        "Blockchain Developer",
+        "Renewable Energy Engineer",
+        "Digital Marketing Specialist",
+        "Product Manager (Tech)",
+        "Automation Engineer",
+        "Quantum Computing Specialist",
+        "AR/VR Developer"
+      ],
+      "coveragePercentage": 40
+    },
+    "missingUniversities": {
+      "totalUniversities": 26,
+      "currentCount": 26,
+      "missingUniversities": [],
+      "coveragePercentage": 100
+    },
+    "degreeGaps": {
+      "totalPrograms": 124,
+      "programsByCategory": {
+        "Engineering": [
+          {
+            "university": "Cape Peninsula University of Technology",
+            "faculty": "Engineering & the Built Environment",
+            "program": "BEngTech Civil Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Cape Peninsula University of Technology",
+            "faculty": "Engineering & the Built Environment",
+            "program": "BEngTech Electrical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Cape Peninsula University of Technology",
+            "faculty": "Engineering & the Built Environment",
+            "program": "BEngTech Mechanical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Central University of Technology",
+            "faculty": "Engineering, Built Environment & Information Technology",
+            "program": "BEngTech Civil Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Central University of Technology",
+            "faculty": "Engineering, Built Environment & Information Technology",
+            "program": "BEngTech Electrical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Central University of Technology",
+            "faculty": "Engineering, Built Environment & Information Technology",
+            "program": "BEngTech Mechanical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Durban University of Technology",
+            "faculty": "Engineering & the Built Environment",
+            "program": "BEngTech Civil Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Durban University of Technology",
+            "faculty": "Engineering & the Built Environment",
+            "program": "BEngTech Electrical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Durban University of Technology",
+            "faculty": "Engineering & the Built Environment",
+            "program": "BEngTech Mechanical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Mangosuthu University of Technology",
+            "faculty": "Engineering",
+            "program": "BEngTech Chemical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Mangosuthu University of Technology",
+            "faculty": "Engineering",
+            "program": "BEngTech Civil Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Mangosuthu University of Technology",
+            "faculty": "Engineering",
+            "program": "BEngTech Electrical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "North-West University",
+            "faculty": "Engineering",
+            "program": "BEng Chemical Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "North-West University",
+            "faculty": "Engineering",
+            "program": "BEng Electrical & Electronic Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "North-West University",
+            "faculty": "Engineering",
+            "program": "BEng Mechanical Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "Rhodes University",
+            "faculty": "Science",
+            "program": "BSc (Computer Science majors)",
+            "type": "BSc"
+          },
+          {
+            "university": "Stellenbosch University",
+            "faculty": "Engineering",
+            "program": "BEng Civil",
+            "type": "BEng"
+          },
+          {
+            "university": "Stellenbosch University",
+            "faculty": "Engineering",
+            "program": "BEng Electrical & Electronic",
+            "type": "BEng"
+          },
+          {
+            "university": "Tshwane University of Technology",
+            "faculty": "Engineering & Built Environment",
+            "program": "BEngTech Civil Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Tshwane University of Technology",
+            "faculty": "Engineering & Built Environment",
+            "program": "BEngTech Electrical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Tshwane University of Technology",
+            "faculty": "Engineering & Built Environment",
+            "program": "BEngTech Mechanical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "University of Cape Town",
+            "faculty": "Engineering & Built Environment",
+            "program": "BSc Engineering (Civil)",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Cape Town",
+            "faculty": "Engineering & Built Environment",
+            "program": "BSc Engineering (Electrical)",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Johannesburg",
+            "faculty": "Engineering & Built Environment",
+            "program": "BEng Civil Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "University of Johannesburg",
+            "faculty": "Engineering & Built Environment",
+            "program": "BEng Electrical & Electronic Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "University of KwaZulu-Natal",
+            "faculty": "Agriculture Engineering & Science",
+            "program": "BSc Engineering (Civil)",
+            "type": "BSc"
+          },
+          {
+            "university": "University of the Witwatersrand",
+            "faculty": "Engineering & Built Environment",
+            "program": "BSc Engineering (Civil)",
+            "type": "BSc"
+          },
+          {
+            "university": "University of the Witwatersrand",
+            "faculty": "Engineering & Built Environment",
+            "program": "BSc Engineering (Mechanical)",
+            "type": "BSc"
+          },
+          {
+            "university": "Vaal University of Technology",
+            "faculty": "Engineering & Technology",
+            "program": "BEngTech Civil Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Vaal University of Technology",
+            "faculty": "Engineering & Technology",
+            "program": "BEngTech Electrical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "University of Venda",
+            "faculty": "Science Engineering & Technology",
+            "program": "BSc Computer Science",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BEng Computer Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BEng Civil Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BEng Mechanical Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BEng Electrical Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BEng Chemical Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BEng Industrial Engineering",
+            "type": "BEng"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BSc Computer Science",
+            "type": "BSc"
+          }
+        ],
+        "Health Sciences": [
+          {
+            "university": "Cape Peninsula University of Technology",
+            "faculty": "Health & Wellness Sciences",
+            "program": "BSc Nursing",
+            "type": "BSc"
+          },
+          {
+            "university": "Durban University of Technology",
+            "faculty": "Health Sciences",
+            "program": "Bachelor of Health Sciences in Nursing",
+            "type": "Bachelor"
+          },
+          {
+            "university": "Nelson Mandela University",
+            "faculty": "Health Sciences",
+            "program": "Bachelor of Pharmacy",
+            "type": "Bachelor"
+          },
+          {
+            "university": "Rhodes University",
+            "faculty": "Pharmacy",
+            "program": "Bachelor of Pharmacy",
+            "type": "Bachelor"
+          },
+          {
+            "university": "Sefako Makgatho Health Sciences University",
+            "faculty": "Medicine",
+            "program": "MBChB",
+            "type": "MBChB"
+          },
+          {
+            "university": "Sefako Makgatho Health Sciences University",
+            "faculty": "Health Care Sciences",
+            "program": "Bachelor of Nursing Science",
+            "type": "Bachelor"
+          },
+          {
+            "university": "Sefako Makgatho Health Sciences University",
+            "faculty": "Pharmacy",
+            "program": "Bachelor of Pharmacy",
+            "type": "Bachelor"
+          },
+          {
+            "university": "Stellenbosch University",
+            "faculty": "Medicine & Health Sciences",
+            "program": "MBChB",
+            "type": "MBChB"
+          },
+          {
+            "university": "University of the Western Cape",
+            "faculty": "Community & Health Sciences",
+            "program": "BNursing",
+            "type": "BNursing"
+          },
+          {
+            "university": "University of the Western Cape",
+            "faculty": "Dentistry",
+            "program": "BDS (Bachelor of Dental Surgery)",
+            "type": "BDS"
+          },
+          {
+            "university": "University of Venda",
+            "faculty": "Health Sciences",
+            "program": "Bachelor of Nursing",
+            "type": "Bachelor"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Health Sciences",
+            "program": "MBChB Medicine",
+            "type": "MBChB"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Health Sciences",
+            "program": "BChD Dentistry",
+            "type": "BChD"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Health Sciences",
+            "program": "BPharm Pharmacy",
+            "type": "BPharm"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Health Sciences",
+            "program": "BSc Nursing",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Health Sciences",
+            "program": "BSc Physiotherapy",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Health Sciences",
+            "program": "BSc Occupational Therapy",
+            "type": "BSc"
+          }
+        ],
+        "Business & Commerce": [
+          {
+            "university": "Nelson Mandela University",
+            "faculty": "Business & Economic Sciences",
+            "program": "BCom Accounting for Chartered Accountants",
+            "type": "BCom"
+          },
+          {
+            "university": "North-West University",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom Chartered Accountancy",
+            "type": "BCom"
+          },
+          {
+            "university": "Stellenbosch University",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom Management Sciences",
+            "type": "BCom"
+          },
+          {
+            "university": "University of Cape Town",
+            "faculty": "Commerce",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "University of Fort Hare",
+            "faculty": "Management & Commerce",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "University of Johannesburg",
+            "faculty": "College of Business & Economics",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "University of KwaZulu-Natal",
+            "faculty": "Law & Management Studies",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "University of South Africa (distance)",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom Accounting Sciences",
+            "type": "BCom"
+          },
+          {
+            "university": "University of the Free State",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "University of the Western Cape",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom",
+            "type": "BCom"
+          },
+          {
+            "university": "University of the Witwatersrand",
+            "faculty": "Commerce Law & Management",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "Vaal University of Technology",
+            "faculty": "Management Sciences",
+            "program": "Bachelor Cost & Management Accounting",
+            "type": "Bachelor"
+          },
+          {
+            "university": "University of Zululand",
+            "faculty": "Commerce Administration & Law",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "Walter Sisulu University",
+            "faculty": "Business Management Sciences & Law",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom Accounting",
+            "type": "BCom"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom Finance",
+            "type": "BCom"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom Marketing",
+            "type": "BCom"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Economic & Management Sciences",
+            "program": "BCom Management",
+            "type": "BCom"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Economic & Management Sciences",
+            "program": "BBusSci Business Science",
+            "type": "BBusSci"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Economic & Management Sciences",
+            "program": "BEcon Economics",
+            "type": "BEcon"
+          }
+        ],
+        "Science": [
+          {
+            "university": "Central University of Technology",
+            "faculty": "Health & Environmental Sciences",
+            "program": "BHSc Clinical Technology",
+            "type": "BHSc"
+          },
+          {
+            "university": "Rhodes University",
+            "faculty": "Science",
+            "program": "BSc (Computer Science majors)",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Venda",
+            "faculty": "Science Engineering & Technology",
+            "program": "BSc Computer Science",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BSc Computer Science",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Mathematics",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Physics",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Chemistry",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Biology",
+            "type": "BSc"
+          }
+        ],
+        "Humanities": [
+          {
+            "university": "University of Cape Town",
+            "faculty": "Humanities",
+            "program": "BA Psychology",
+            "type": "BA"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Humanities",
+            "program": "BA Psychology",
+            "type": "BA"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Humanities",
+            "program": "BA Sociology",
+            "type": "BA"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Humanities",
+            "program": "BA Languages",
+            "type": "BA"
+          }
+        ],
+        "Education": [
+          {
+            "university": "Sol Plaatje University",
+            "faculty": "Education",
+            "program": "BEd Senior & FET Phase",
+            "type": "BEd"
+          },
+          {
+            "university": "University of Mpumalanga",
+            "faculty": "Education",
+            "program": "BEd Foundation Phase",
+            "type": "BEd"
+          },
+          {
+            "university": "University of Zululand",
+            "faculty": "Education",
+            "program": "BEd Senior & FET Phase",
+            "type": "BEd"
+          },
+          {
+            "university": "Walter Sisulu University",
+            "faculty": "Education",
+            "program": "BEd Senior Phase & FET",
+            "type": "BEd"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Education",
+            "program": "BEd Foundation Phase",
+            "type": "BEd"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Education",
+            "program": "BEd Intermediate Phase",
+            "type": "BEd"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Education",
+            "program": "BEd Senior Phase",
+            "type": "BEd"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Education",
+            "program": "BEd FET Phase",
+            "type": "BEd"
+          }
+        ],
+        "Law": [
+          {
+            "university": "University of Cape Town",
+            "faculty": "Humanities",
+            "program": "LLB Law",
+            "type": "LLB"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Humanities",
+            "program": "LLB Law",
+            "type": "LLB"
+          }
+        ],
+        "Agriculture": [
+          {
+            "university": "University of the Free State",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Agriculture",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Mathematics",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Physics",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Chemistry",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Biology",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Agriculture",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BSc Forestry",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Natural & Agricultural Sciences",
+            "program": "BVSc Veterinary Science",
+            "type": "BVSc"
+          }
+        ],
+        "Arts & Design": [
+          {
+            "university": "University of the Witwatersrand",
+            "faculty": "Arts & Design",
+            "program": "BA Fine Arts",
+            "type": "BA"
+          },
+          {
+            "university": "University of the Witwatersrand",
+            "faculty": "Arts & Design",
+            "program": "BArch Architecture",
+            "type": "BArch"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BArch Architecture",
+            "type": "BArch"
+          }
+        ],
+        "Technology & IT": [
+          {
+            "university": "Cape Peninsula University of Technology",
+            "faculty": "Informatics & Design",
+            "program": "Bachelor of Information Technology",
+            "type": "Bachelor"
+          },
+          {
+            "university": "Central University of Technology",
+            "faculty": "Engineering, Built Environment & Information Technology",
+            "program": "BEngTech Civil Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Central University of Technology",
+            "faculty": "Engineering, Built Environment & Information Technology",
+            "program": "BEngTech Electrical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Central University of Technology",
+            "faculty": "Engineering, Built Environment & Information Technology",
+            "program": "BEngTech Mechanical Engineering",
+            "type": "BEngTech"
+          },
+          {
+            "university": "Sol Plaatje University",
+            "faculty": "Natural & Applied Sciences",
+            "program": "BSc Data Science",
+            "type": "BSc"
+          },
+          {
+            "university": "Tshwane University of Technology",
+            "faculty": "Information & Communication Technology",
+            "program": "Bachelor of Information Technology",
+            "type": "Bachelor"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BSc Information Technology",
+            "type": "BSc"
+          },
+          {
+            "university": "University of Pretoria",
+            "faculty": "Engineering, Built Environment & IT",
+            "program": "BSc Data Science",
+            "type": "BSc"
+          }
+        ]
+      },
+      "expectedCategories": {
+        "Engineering": [
+          "Civil",
+          "Mechanical",
+          "Electrical",
+          "Chemical",
+          "Computer",
+          "Industrial",
+          "Mining",
+          "Aeronautical"
+        ],
+        "Health Sciences": [
+          "Medicine",
+          "Nursing",
+          "Pharmacy",
+          "Dentistry",
+          "Physiotherapy",
+          "Occupational Therapy",
+          "Radiography"
+        ],
+        "Business & Commerce": [
+          "Accounting",
+          "Finance",
+          "Marketing",
+          "Management",
+          "Economics",
+          "Supply Chain"
+        ],
+        "Science": [
+          "Computer Science",
+          "Mathematics",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "Environmental Science"
+        ],
+        "Humanities": [
+          "Psychology",
+          "Sociology",
+          "History",
+          "Languages",
+          "Philosophy",
+          "Anthropology"
+        ],
+        "Education": [
+          "Foundation Phase",
+          "Intermediate Phase",
+          "Senior Phase",
+          "FET Phase",
+          "Special Needs"
+        ],
+        "Law": [
+          "LLB",
+          "Legal Studies"
+        ],
+        "Agriculture": [
+          "Agricultural Science",
+          "Veterinary Science",
+          "Forestry",
+          "Food Science"
+        ],
+        "Arts & Design": [
+          "Fine Arts",
+          "Graphic Design",
+          "Architecture",
+          "Music",
+          "Drama"
+        ],
+        "Technology & IT": [
+          "Information Technology",
+          "Software Engineering",
+          "Cybersecurity",
+          "Data Science"
+        ]
+      }
+    }
+  }
+}

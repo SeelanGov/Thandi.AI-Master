@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "description": "ROI analysis tools for different educational pathways",
+    "calculation_method": "Net Present Value over 10 years",
+    "last_updated": "2025-12-29"
+  },
+  "scenarios": [
+    {
+      "scenario_name": "Fast Employment Track (TVET Focus)",
+      "pathway": "TVET → Employment → Skills Upgrade",
+      "timeline": {
+        "year_1": {
+          "investment": "R15K",
+          "income": "R180K",
+          "net": "R165K"
+        },
+        "year_2": {
+          "investment": "R0",
+          "income": "R240K",
+          "net": "R240K"
+        },
+        "year_3": {
+          "investment": "R30K",
+          "income": "R300K",
+          "net": "R270K"
+        },
+        "year_5": {
+          "investment": "R0",
+          "income": "R420K",
+          "net": "R420K"
+        },
+        "year_10": {
+          "investment": "R0",
+          "income": "R600K",
+          "net": "R600K"
+        }
+      },
+      "total_investment": "R45K",
+      "total_10_year_income": "R4.2M",
+      "roi_percentage": "9233%",
+      "break_even_months": 1
+    },
+    {
+      "scenario_name": "Balanced Professional Track (Private + University)",
+      "pathway": "Private Diploma → University Degree → Career",
+      "timeline": {
+        "year_1": {
+          "investment": "R80K",
+          "income": "R0",
+          "net": "-R80K"
+        },
+        "year_2": {
+          "investment": "R65K",
+          "income": "R0",
+          "net": "-R65K"
+        },
+        "year_3": {
+          "investment": "R65K",
+          "income": "R0",
+          "net": "-R65K"
+        },
+        "year_4": {
+          "investment": "R65K",
+          "income": "R0",
+          "net": "-R65K"
+        },
+        "year_5": {
+          "investment": "R0",
+          "income": "R480K",
+          "net": "R480K"
+        },
+        "year_10": {
+          "investment": "R0",
+          "income": "R840K",
+          "net": "R840K"
+        }
+      },
+      "total_investment": "R275K",
+      "total_10_year_income": "R5.8M",
+      "roi_percentage": "2009%",
+      "break_even_months": 8
+    },
+    {
+      "scenario_name": "Premium Leadership Track (University + MBA)",
+      "pathway": "University Degree → Work Experience → MBA → Executive",
+      "timeline": {
+        "year_1": {
+          "investment": "R65K",
+          "income": "R0",
+          "net": "-R65K"
+        },
+        "year_2": {
+          "investment": "R65K",
+          "income": "R0",
+          "net": "-R65K"
+        },
+        "year_3": {
+          "investment": "R65K",
+          "income": "R0",
+          "net": "-R65K"
+        },
+        "year_4": {
+          "investment": "R0",
+          "income": "R360K",
+          "net": "R360K"
+        },
+        "year_5": {
+          "investment": "R0",
+          "income": "R480K",
+          "net": "R480K"
+        },
+        "year_6": {
+          "investment": "R200K",
+          "income": "R600K",
+          "net": "R400K"
+        },
+        "year_7": {
+          "investment": "R200K",
+          "income": "R720K",
+          "net": "R520K"
+        },
+        "year_10": {
+          "investment": "R0",
+          "income": "R1.2M",
+          "net": "R1.2M"
+        }
+      },
+      "total_investment": "R595K",
+      "total_10_year_income": "R8.5M",
+      "roi_percentage": "1328%",
+      "break_even_months": 12
+    }
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "metadata": {
+    "category": "health_sciences_specializations",
+    "total_programs": 14,
+    "universities_covered": 5,
+    "last_updated": "2025-12-29"
+  },
+  "specializations": {
+    "UCT": [
+      {
+        "degree_name": "BSc Radiography",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 38,
+        "required_subjects": [
+          "Mathematics 6",
+          "Physical Sciences 6",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Groote Schuur Hospital, Red Cross Children's Hospital",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Diagnostic Radiographer",
+          "Therapeutic Radiographer",
+          "Medical Imaging Specialist"
+        ],
+        "4ir_pathways": [
+          "AI Medical Imaging Specialist",
+          "Telemedicine Technologist",
+          "Digital Health Specialist"
+        ],
+        "salary_range": "R25K-R85K",
+        "employment_rate": "96%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Medical fitness certificate"
+      },
+      {
+        "degree_name": "BSc Occupational Therapy",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 40,
+        "required_subjects": [
+          "Mathematics 5",
+          "Life Sciences 6",
+          "English 6"
+        ],
+        "recommended_subjects": [
+          "Physical Sciences 5"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Groote Schuur Hospital, Community health centers",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Occupational Therapist",
+          "Rehabilitation Specialist",
+          "Community Health Therapist"
+        ],
+        "4ir_pathways": [
+          "Digital Rehabilitation Specialist",
+          "Assistive Technology Developer",
+          "Telehealth Therapist"
+        ],
+        "salary_range": "R22K-R75K",
+        "employment_rate": "94%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Interview, Medical fitness"
+      },
+      {
+        "degree_name": "BSc Speech-Language Pathology & Audiology",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 38,
+        "required_subjects": [
+          "Mathematics 5",
+          "Life Sciences 6",
+          "English 7"
+        ],
+        "recommended_subjects": [
+          "Physical Sciences 5"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Red Cross Children's Hospital, ENT clinics",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Speech Therapist",
+          "Audiologist",
+          "Communication Disorders Specialist"
+        ],
+        "4ir_pathways": [
+          "Digital Speech Therapy Specialist",
+          "AI Communication Assistant Developer",
+          "Telehealth Speech Therapist"
+        ],
+        "salary_range": "R20K-R70K",
+        "employment_rate": "92%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Hearing test, Interview"
+      },
+      {
+        "degree_name": "BSc Physiotherapy",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 42,
+        "required_subjects": [
+          "Mathematics 6",
+          "Physical Sciences 6",
+          "Life Sciences 7"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Groote Schuur Hospital, Sports medicine clinics",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Physiotherapist",
+          "Sports Therapist",
+          "Rehabilitation Specialist"
+        ],
+        "4ir_pathways": [
+          "Digital Rehabilitation Specialist",
+          "Wearable Health Tech Specialist",
+          "Telehealth Physiotherapist"
+        ],
+        "salary_range": "R25K-R80K",
+        "employment_rate": "97%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Physical fitness test, Interview"
+      },
+      {
+        "degree_name": "BSc Dietetics",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 36,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Groote Schuur Hospital, Community nutrition centers",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Dietitian",
+          "Clinical Nutritionist",
+          "Sports Nutritionist"
+        ],
+        "4ir_pathways": [
+          "Digital Nutrition Specialist",
+          "AI Meal Planning Developer",
+          "Personalized Nutrition Analyst"
+        ],
+        "salary_range": "R18K-R65K",
+        "employment_rate": "89%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Interview"
+      }
+    ],
+    "WITS": [
+      {
+        "degree_name": "BSc Radiography",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 36,
+        "required_subjects": [
+          "Mathematics 6",
+          "Physical Sciences 6",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Charlotte Maxeke Hospital, Chris Hani Baragwanath Hospital",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Diagnostic Radiographer",
+          "Nuclear Medicine Technologist",
+          "Medical Imaging Specialist"
+        ],
+        "4ir_pathways": [
+          "AI Medical Imaging Specialist",
+          "Digital Radiology Specialist",
+          "Telemedicine Technologist"
+        ],
+        "salary_range": "R24K-R82K",
+        "employment_rate": "95%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Medical fitness certificate"
+      },
+      {
+        "degree_name": "BSc Occupational Therapy",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 38,
+        "required_subjects": [
+          "Mathematics 5",
+          "Life Sciences 6",
+          "English 6"
+        ],
+        "recommended_subjects": [
+          "Physical Sciences 5"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Charlotte Maxeke Hospital, Rehabilitation centers",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Occupational Therapist",
+          "Hand Therapist",
+          "Pediatric Therapist"
+        ],
+        "4ir_pathways": [
+          "Digital Rehabilitation Specialist",
+          "Assistive Technology Developer",
+          "VR Therapy Specialist"
+        ],
+        "salary_range": "R21K-R73K",
+        "employment_rate": "93%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Interview, Criminal clearance"
+      },
+      {
+        "degree_name": "BSc Speech-Language Pathology & Audiology",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 36,
+        "required_subjects": [
+          "Mathematics 5",
+          "Life Sciences 6",
+          "English 7"
+        ],
+        "recommended_subjects": [
+          "Physical Sciences 5"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Charlotte Maxeke Hospital, Audiology clinics",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Speech Therapist",
+          "Audiologist",
+          "Early Intervention Specialist"
+        ],
+        "4ir_pathways": [
+          "AI Speech Recognition Developer",
+          "Digital Hearing Aid Specialist",
+          "Telehealth Communication Therapist"
+        ],
+        "salary_range": "R19K-R68K",
+        "employment_rate": "91%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Hearing assessment, Interview"
+      },
+      {
+        "degree_name": "BSc Biokinetics",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 34,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Sports medicine clinics, Rehabilitation centers",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Biokineticist",
+          "Exercise Therapist",
+          "Sports Scientist"
+        ],
+        "4ir_pathways": [
+          "Wearable Health Tech Specialist",
+          "Digital Fitness Analyst",
+          "AI Exercise Prescription Developer"
+        ],
+        "salary_range": "R20K-R70K",
+        "employment_rate": "88%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Physical fitness assessment"
+      }
+    ],
+    "UP": [
+      {
+        "degree_name": "BSc Radiography",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 35,
+        "required_subjects": [
+          "Mathematics 6",
+          "Physical Sciences 6",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Steve Biko Academic Hospital, Kalafong Hospital",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Diagnostic Radiographer",
+          "Radiation Therapist",
+          "Medical Imaging Technologist"
+        ],
+        "4ir_pathways": [
+          "AI Diagnostic Imaging Specialist",
+          "Digital Health Technologist",
+          "Telemedicine Radiographer"
+        ],
+        "salary_range": "R23K-R80K",
+        "employment_rate": "94%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Medical examination"
+      },
+      {
+        "degree_name": "BSc Physiotherapy",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 40,
+        "required_subjects": [
+          "Mathematics 6",
+          "Physical Sciences 6",
+          "Life Sciences 7"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Steve Biko Academic Hospital, Sports medicine facilities",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Physiotherapist",
+          "Sports Physiotherapist",
+          "Neurological Physiotherapist"
+        ],
+        "4ir_pathways": [
+          "Digital Rehabilitation Specialist",
+          "Wearable Health Monitoring Specialist",
+          "AI Movement Analysis Developer"
+        ],
+        "salary_range": "R24K-R78K",
+        "employment_rate": "96%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Physical assessment, Interview"
+      },
+      {
+        "degree_name": "BSc Dietetics",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 34,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Steve Biko Academic Hospital, Community health centers",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Dietitian",
+          "Clinical Nutritionist",
+          "Public Health Nutritionist"
+        ],
+        "4ir_pathways": [
+          "Personalized Nutrition AI Developer",
+          "Digital Health Coach",
+          "Nutrigenomics Specialist"
+        ],
+        "salary_range": "R17K-R63K",
+        "employment_rate": "87%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Interview"
+      }
+    ],
+    "UWC": [
+      {
+        "degree_name": "BSc Physiotherapy",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 32,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Tygerberg Hospital, Community health centers",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Physiotherapist",
+          "Community Physiotherapist",
+          "Pediatric Physiotherapist"
+        ],
+        "4ir_pathways": [
+          "Telehealth Physiotherapist",
+          "Digital Rehabilitation Specialist",
+          "Community Health Tech Specialist"
+        ],
+        "salary_range": "R20K-R70K",
+        "employment_rate": "90%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Community service commitment"
+      },
+      {
+        "degree_name": "BSc Dietetics",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 32,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Tygerberg Hospital, Community nutrition programs",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Dietitian",
+          "Community Nutritionist",
+          "Public Health Dietitian"
+        ],
+        "4ir_pathways": [
+          "Digital Nutrition Educator",
+          "Community Health Tech Specialist",
+          "Mobile Health App Developer"
+        ],
+        "salary_range": "R16K-R60K",
+        "employment_rate": "85%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Community service orientation"
+      }
+    ],
+    "UJ": [
+      {
+        "degree_name": "BSc Biokinetics",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 32,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "English 6"
+        ],
+        "nbt_required": true,
+        "clinical_placements": "Sports medicine clinics, Fitness centers",
+        "hpcsa_registration": "Health Professions Council of South Africa",
+        "career_outcomes": [
+          "Biokineticist",
+          "Exercise Physiologist",
+          "Sports Performance Analyst"
+        ],
+        "4ir_pathways": [
+          "Wearable Fitness Tech Developer",
+          "AI Sports Performance Analyst",
+          "Digital Health Coach"
+        ],
+        "salary_range": "R18K-R65K",
+        "employment_rate": "86%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "NBT required, Fitness assessment"
+      }
+    ]
+  }
+}

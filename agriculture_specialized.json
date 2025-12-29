@@ -1,0 +1,233 @@
+{
+  "metadata": {
+    "category": "agriculture_specialized",
+    "total_programs": 5,
+    "universities_covered": 3,
+    "last_updated": "2025-12-29"
+  },
+  "programs": {
+    "UP": [
+      {
+        "degree_name": "BSc Horticulture",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 30,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 4",
+          "Life Sciences 5"
+        ],
+        "recommended_subjects": [
+          "Agricultural Sciences"
+        ],
+        "fieldwork_required": true,
+        "career_outcomes": [
+          "Horticulturist",
+          "Landscape Designer",
+          "Crop Specialist",
+          "Garden Center Manager"
+        ],
+        "4ir_pathways": [
+          "Precision Agriculture Specialist",
+          "Smart Farming Technologist",
+          "Agricultural IoT Developer"
+        ],
+        "salary_range": "R15K-R55K",
+        "employment_rate": "82%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Practical fieldwork component required"
+      },
+      {
+        "degree_name": "BSc Food Science",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 32,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "Agricultural Sciences"
+        ],
+        "fieldwork_required": true,
+        "career_outcomes": [
+          "Food Scientist",
+          "Quality Control Manager",
+          "Product Development Specialist",
+          "Food Safety Inspector"
+        ],
+        "4ir_pathways": [
+          "Food Technology AI Developer",
+          "Smart Food Processing Specialist",
+          "Blockchain Food Traceability Developer"
+        ],
+        "salary_range": "R18K-R70K",
+        "employment_rate": "88%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Laboratory and fieldwork components"
+      },
+      {
+        "degree_name": "BSc Agricultural Economics",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 28,
+        "required_subjects": [
+          "Mathematics 5",
+          "English 5"
+        ],
+        "recommended_subjects": [
+          "Agricultural Sciences",
+          "Economics"
+        ],
+        "fieldwork_required": true,
+        "career_outcomes": [
+          "Agricultural Economist",
+          "Farm Manager",
+          "Agricultural Policy Analyst",
+          "Rural Development Specialist"
+        ],
+        "4ir_pathways": [
+          "Agricultural Data Analyst",
+          "Smart Farming Business Developer",
+          "Agricultural Fintech Specialist"
+        ],
+        "salary_range": "R16K-R65K",
+        "employment_rate": "85%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Farm visits and practical assessments"
+      }
+    ],
+    "STELLENBOSCH": [
+      {
+        "degree_name": "BSc Viticulture & Oenology",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 32,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 6"
+        ],
+        "recommended_subjects": [
+          "Agricultural Sciences"
+        ],
+        "fieldwork_required": true,
+        "career_outcomes": [
+          "Viticulturist",
+          "Winemaker",
+          "Wine Quality Manager",
+          "Vineyard Manager"
+        ],
+        "4ir_pathways": [
+          "Precision Viticulture Specialist",
+          "Wine AI Quality Analyst",
+          "Smart Vineyard Technologist"
+        ],
+        "salary_range": "R20K-R80K",
+        "employment_rate": "90%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Vineyard and cellar practical work required"
+      },
+      {
+        "degree_name": "BSc Food Technology",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 30,
+        "required_subjects": [
+          "Mathematics 5",
+          "Physical Sciences 5",
+          "Life Sciences 5"
+        ],
+        "recommended_subjects": [
+          "Agricultural Sciences"
+        ],
+        "fieldwork_required": true,
+        "career_outcomes": [
+          "Food Technologist",
+          "Process Engineer",
+          "Quality Assurance Manager",
+          "Research Scientist"
+        ],
+        "4ir_pathways": [
+          "Food Processing AI Specialist",
+          "Smart Manufacturing Technologist",
+          "Sustainable Food Tech Developer"
+        ],
+        "salary_range": "R19K-R75K",
+        "employment_rate": "87%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Industrial placement and laboratory work"
+      }
+    ],
+    "UFS": [
+      {
+        "degree_name": "BSc Agricultural Economics",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 26,
+        "required_subjects": [
+          "Mathematics 4",
+          "English 5"
+        ],
+        "recommended_subjects": [
+          "Agricultural Sciences",
+          "Economics"
+        ],
+        "fieldwork_required": true,
+        "career_outcomes": [
+          "Agricultural Economist",
+          "Farm Business Advisor",
+          "Agricultural Bank Specialist",
+          "Commodity Trader"
+        ],
+        "4ir_pathways": [
+          "Agricultural Data Scientist",
+          "Farm Management Software Developer",
+          "Agricultural Market Analyst"
+        ],
+        "salary_range": "R14K-R60K",
+        "employment_rate": "83%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Farm placement and business project required"
+      },
+      {
+        "degree_name": "BSc Horticulture",
+        "degree_type": "BSc",
+        "nqf_level": 7,
+        "duration_years": 4,
+        "min_aps": 28,
+        "required_subjects": [
+          "Mathematics 4",
+          "Physical Sciences 4",
+          "Life Sciences 5"
+        ],
+        "recommended_subjects": [
+          "Agricultural Sciences"
+        ],
+        "fieldwork_required": true,
+        "career_outcomes": [
+          "Horticulturist",
+          "Crop Production Manager",
+          "Greenhouse Manager",
+          "Plant Breeder"
+        ],
+        "4ir_pathways": [
+          "Smart Greenhouse Developer",
+          "Precision Horticulture Specialist",
+          "Plant Genetics AI Researcher"
+        ],
+        "salary_range": "R13K-R50K",
+        "employment_rate": "80%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Practical farm work and research project"
+      }
+    ]
+  }
+}

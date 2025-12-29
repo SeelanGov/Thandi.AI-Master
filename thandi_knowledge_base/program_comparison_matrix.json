@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "description": "Side-by-side comparison of similar programs across institution types",
+    "categories": [
+      "IT Programs",
+      "Business Programs",
+      "Creative Programs",
+      "Engineering Programs"
+    ],
+    "last_updated": "2025-12-29"
+  },
+  "comparisons": [
+    {
+      "category": "Information Technology Programs",
+      "programs": [
+        {
+          "institution_type": "TVET",
+          "program": "NC(V) Information Technology",
+          "duration": "1 year",
+          "cost": "R15K",
+          "entry_aps": 18,
+          "employment_rate": "86%",
+          "starting_salary": "R17K-R25K",
+          "progression": "Can articulate to BTech IT"
+        },
+        {
+          "institution_type": "Private",
+          "program": "CTU Diploma Software Development",
+          "duration": "2 years",
+          "cost": "R124K",
+          "entry_aps": "Grade 12 + Math 4",
+          "employment_rate": "89%",
+          "starting_salary": "R25K-R40K",
+          "progression": "Articulates to BSc Computer Science"
+        },
+        {
+          "institution_type": "University",
+          "program": "UCT BSc Computer Science",
+          "duration": "3 years",
+          "cost": "R195K",
+          "entry_aps": 35,
+          "employment_rate": "92%",
+          "starting_salary": "R40K-R70K",
+          "progression": "Honours, Masters, PhD pathways"
+        }
+      ],
+      "recommendation": "TVET for quick employment, Private for industry skills, University for comprehensive foundation"
+    },
+    {
+      "category": "Business Management Programs",
+      "programs": [
+        {
+          "institution_type": "TVET",
+          "program": "NC(V) Business Studies",
+          "duration": "1 year",
+          "cost": "R15K",
+          "entry_aps": 17,
+          "employment_rate": "81%",
+          "starting_salary": "R15K-R22K",
+          "progression": "Can articulate to BCom degrees"
+        },
+        {
+          "institution_type": "Private",
+          "program": "Varsity College BCom Business",
+          "duration": "3 years",
+          "cost": "R255K",
+          "entry_aps": "Grade 12 Bachelor's pass",
+          "employment_rate": "87%",
+          "starting_salary": "R28K-R45K",
+          "progression": "Direct pathway to Honours and MBA"
+        },
+        {
+          "institution_type": "University",
+          "program": "WITS BCom Business Science",
+          "duration": "3 years",
+          "cost": "R180K",
+          "entry_aps": 32,
+          "employment_rate": "90%",
+          "starting_salary": "R35K-R60K",
+          "progression": "Honours, Masters, MBA pathways"
+        }
+      ],
+      "recommendation": "TVET for basic business skills, Private for practical focus, University for analytical depth"
+    },
+    {
+      "category": "Digital Marketing Programs",
+      "programs": [
+        {
+          "institution_type": "TVET",
+          "program": "Not Available",
+          "duration": "N/A",
+          "cost": "N/A",
+          "entry_aps": "N/A",
+          "employment_rate": "N/A",
+          "starting_salary": "N/A",
+          "progression": "N/A"
+        },
+        {
+          "institution_type": "Private",
+          "program": "Red & Yellow Digital Marketing",
+          "duration": "1 year",
+          "cost": "R78K",
+          "entry_aps": "Grade 12 pass",
+          "employment_rate": "91%",
+          "starting_salary": "R25K-R40K",
+          "progression": "Articulates to marketing degrees"
+        },
+        {
+          "institution_type": "University",
+          "program": "UJ BCom Marketing Management",
+          "duration": "3 years",
+          "cost": "R180K",
+          "entry_aps": 28,
+          "employment_rate": "85%",
+          "starting_salary": "R30K-R50K",
+          "progression": "Honours in Marketing"
+        }
+      ],
+      "recommendation": "Private institutions dominate this field - Red & Yellow for specialization, University for broader marketing foundation"
+    }
+  ]
+}

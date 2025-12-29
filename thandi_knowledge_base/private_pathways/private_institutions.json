@@ -1,0 +1,2285 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "last_updated": "2025-12-29",
+    "total_institutions": 30,
+    "total_programs": 62,
+    "content_type": "private_institutions_pathways",
+    "description": "South African private institutions and colleges - industry-aligned programs"
+  },
+  "institutions": [
+    {
+      "institution_code": "VARSITY_COLLEGE",
+      "institution_name": "Varsity College (IIE)",
+      "institution_type": "private_higher_education",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Sandton",
+        "Pretoria",
+        "Cape Town",
+        "Durban",
+        "Port Elizabeth"
+      ],
+      "contact": {
+        "phone": "011-669-9000",
+        "email": "info@varsitycollege.co.za"
+      },
+      "application_link": "https://www.varsitycollege.co.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Commerce in Business Management",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, no NBT required",
+          "annual_cost": "R85000",
+          "career_outcomes": [
+            "Business Manager",
+            "Marketing Manager",
+            "Operations Manager",
+            "Entrepreneur"
+          ],
+          "4ir_pathways": [
+            "Digital Business Strategist",
+            "E-commerce Manager",
+            "Business Intelligence Analyst"
+          ],
+          "employment_rate": "87%",
+          "industry_partnerships": [
+            "Deloitte",
+            "PwC",
+            "Standard Bank"
+          ],
+          "pathway_to_university": "Credits transfer to partner universities"
+        },
+        {
+          "qualification_name": "Bachelor of Arts in Strategic Brand Communication",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass",
+          "annual_cost": "R82000",
+          "career_outcomes": [
+            "Brand Manager",
+            "Digital Marketer",
+            "Communications Specialist",
+            "Creative Director"
+          ],
+          "4ir_pathways": [
+            "Digital Marketing Specialist",
+            "Social Media Strategist",
+            "Content Creator"
+          ],
+          "employment_rate": "84%",
+          "industry_partnerships": [
+            "Ogilvy",
+            "FCB",
+            "King James Group"
+          ],
+          "pathway_to_university": "Articulates to Honours programs"
+        },
+        {
+          "qualification_name": "Bachelor of Science in Information Technology",
+          "qualification_type": "BSc",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Mathematics 4 or Mathematical Literacy 5",
+          "annual_cost": "R88000",
+          "career_outcomes": [
+            "Software Developer",
+            "Systems Analyst",
+            "IT Project Manager",
+            "Database Administrator"
+          ],
+          "4ir_pathways": [
+            "Cloud Developer",
+            "AI Specialist",
+            "Cybersecurity Analyst",
+            "DevOps Engineer"
+          ],
+          "employment_rate": "92%",
+          "industry_partnerships": [
+            "Microsoft",
+            "Amazon Web Services",
+            "Accenture"
+          ],
+          "pathway_to_university": "Credits transfer to international universities"
+        },
+        {
+          "qualification_name": "Diploma in Digital Marketing",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass",
+          "annual_cost": "R65000",
+          "career_outcomes": [
+            "Digital Marketing Coordinator",
+            "Social Media Manager",
+            "SEO Specialist"
+          ],
+          "4ir_pathways": [
+            "Digital Marketing Specialist",
+            "Marketing Automation Specialist",
+            "Data-Driven Marketer"
+          ],
+          "employment_rate": "89%",
+          "industry_partnerships": [
+            "Google",
+            "Facebook",
+            "HubSpot"
+          ],
+          "pathway_to_university": "Can articulate to degree programs"
+        }
+      ]
+    },
+    {
+      "institution_code": "BOSTON_CITY_CAMPUS",
+      "institution_name": "Boston City Campus & Business College",
+      "institution_type": "private_college",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town",
+        "Durban",
+        "Pretoria",
+        "Bloemfontein",
+        "Port Elizabeth"
+      ],
+      "contact": {
+        "phone": "011-551-2000",
+        "email": "info@boston.co.za"
+      },
+      "application_link": "https://www.boston.co.za",
+      "accreditation": "DHET registered, QCTO aligned",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Information Technology",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Mathematics 3 or Mathematical Literacy 4",
+          "annual_cost": "R52000",
+          "career_outcomes": [
+            "IT Support Specialist",
+            "Network Administrator",
+            "Web Developer"
+          ],
+          "4ir_pathways": [
+            "Cloud Support Specialist",
+            "Cybersecurity Assistant",
+            "Digital Systems Analyst"
+          ],
+          "employment_rate": "85%",
+          "industry_partnerships": [
+            "Cisco",
+            "CompTIA",
+            "Microsoft"
+          ],
+          "pathway_to_university": "Articulates to BTech programs"
+        },
+        {
+          "qualification_name": "Diploma in Business Management",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 pass",
+          "annual_cost": "R48000",
+          "career_outcomes": [
+            "Business Administrator",
+            "Operations Coordinator",
+            "Project Manager"
+          ],
+          "4ir_pathways": [
+            "Digital Business Analyst",
+            "Process Automation Specialist",
+            "E-commerce Coordinator"
+          ],
+          "employment_rate": "82%",
+          "industry_partnerships": [
+            "SAICA",
+            "CIMA",
+            "Local businesses"
+          ],
+          "pathway_to_university": "Credits transfer to degree programs"
+        },
+        {
+          "qualification_name": "Diploma in Graphic Design",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, portfolio submission",
+          "annual_cost": "R55000",
+          "career_outcomes": [
+            "Graphic Designer",
+            "Web Designer",
+            "Brand Designer",
+            "Creative Assistant"
+          ],
+          "4ir_pathways": [
+            "UX/UI Designer",
+            "Digital Content Creator",
+            "Motion Graphics Designer"
+          ],
+          "employment_rate": "79%",
+          "industry_partnerships": [
+            "Adobe",
+            "Design agencies",
+            "Marketing companies"
+          ],
+          "pathway_to_university": "Can articulate to design degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "SACAP",
+      "institution_name": "South African College of Applied Psychology",
+      "institution_type": "private_higher_education",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Cape Town",
+        "Johannesburg",
+        "Durban"
+      ],
+      "contact": {
+        "phone": "021-820-4111",
+        "email": "info@sacap.edu.za"
+      },
+      "application_link": "https://www.sacap.edu.za",
+      "accreditation": "DHET registered, HPCSA recognized",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Psychology",
+          "qualification_type": "BPsych",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, English 5, Mathematics 4",
+          "annual_cost": "R95000",
+          "career_outcomes": [
+            "Psychologist",
+            "Counsellor",
+            "HR Specialist",
+            "Research Assistant"
+          ],
+          "4ir_pathways": [
+            "Digital Mental Health Specialist",
+            "AI-Assisted Therapy Coordinator",
+            "Virtual Counselling Specialist"
+          ],
+          "employment_rate": "88%",
+          "industry_partnerships": [
+            "HPCSA",
+            "SADAG",
+            "Corporate wellness programs"
+          ],
+          "pathway_to_university": "Direct pathway to Honours in Psychology"
+        },
+        {
+          "qualification_name": "Diploma in Counselling and Communication Skills",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, English 4",
+          "annual_cost": "R68000",
+          "career_outcomes": [
+            "Counselling Assistant",
+            "Life Coach",
+            "Community Worker",
+            "HR Assistant"
+          ],
+          "4ir_pathways": [
+            "Digital Wellness Coach",
+            "Online Counselling Coordinator",
+            "Mental Health App Facilitator"
+          ],
+          "employment_rate": "83%",
+          "industry_partnerships": [
+            "NGOs",
+            "Corporate wellness",
+            "Healthcare facilities"
+          ],
+          "pathway_to_university": "Can articulate to psychology degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "RED_YELLOW",
+      "institution_name": "Red & Yellow Creative School of Business",
+      "institution_type": "private_creative_school",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Cape Town",
+        "Johannesburg"
+      ],
+      "contact": {
+        "phone": "021-685-8200",
+        "email": "info@redandyellow.co.za"
+      },
+      "application_link": "https://www.redandyellow.co.za",
+      "accreditation": "DHET registered, Industry recognized",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Digital Marketing",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, creative portfolio",
+          "annual_cost": "R78000",
+          "career_outcomes": [
+            "Digital Marketing Manager",
+            "Social Media Strategist",
+            "Content Creator",
+            "SEO Specialist"
+          ],
+          "4ir_pathways": [
+            "Digital Marketing Specialist",
+            "Marketing Automation Expert",
+            "Data-Driven Marketing Analyst"
+          ],
+          "employment_rate": "91%",
+          "industry_partnerships": [
+            "Google",
+            "Facebook",
+            "Twitter",
+            "Leading agencies"
+          ],
+          "pathway_to_university": "Articulates to marketing degrees"
+        },
+        {
+          "qualification_name": "Diploma in UX/UI Design",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, design portfolio",
+          "annual_cost": "R82000",
+          "career_outcomes": [
+            "UX Designer",
+            "UI Designer",
+            "Product Designer",
+            "Digital Experience Designer"
+          ],
+          "4ir_pathways": [
+            "UX/UI Designer",
+            "Digital Product Manager",
+            "Human-Computer Interaction Specialist"
+          ],
+          "employment_rate": "94%",
+          "industry_partnerships": [
+            "Adobe",
+            "Figma",
+            "Tech startups",
+            "Digital agencies"
+          ],
+          "pathway_to_university": "Can articulate to design and technology degrees"
+        },
+        {
+          "qualification_name": "Diploma in Brand Communication",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, creative portfolio",
+          "annual_cost": "R75000",
+          "career_outcomes": [
+            "Brand Manager",
+            "Creative Director",
+            "Communications Manager",
+            "Advertising Executive"
+          ],
+          "4ir_pathways": [
+            "Digital Brand Strategist",
+            "Content Marketing Specialist",
+            "Brand Experience Designer"
+          ],
+          "employment_rate": "89%",
+          "industry_partnerships": [
+            "Ogilvy",
+            "FCB",
+            "King James",
+            "Independent agencies"
+          ],
+          "pathway_to_university": "Articulates to communication and marketing degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "VEGA",
+      "institution_name": "Vega School (IIE)",
+      "institution_type": "private_creative_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town",
+        "Durban",
+        "Pretoria"
+      ],
+      "contact": {
+        "phone": "011-315-2600",
+        "email": "info@vegaschool.com"
+      },
+      "application_link": "https://www.vegaschool.com",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Arts in Brand Communication",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, creative portfolio",
+          "annual_cost": "R92000",
+          "career_outcomes": [
+            "Brand Strategist",
+            "Creative Director",
+            "Account Director",
+            "Communications Manager"
+          ],
+          "4ir_pathways": [
+            "Digital Brand Strategist",
+            "Content Marketing Specialist",
+            "Brand Experience Designer"
+          ],
+          "employment_rate": "90%",
+          "industry_partnerships": [
+            "Ogilvy",
+            "FCB",
+            "Joe Public",
+            "King James Group"
+          ],
+          "pathway_to_university": "Direct pathway to Honours programs"
+        },
+        {
+          "qualification_name": "Bachelor of Arts in Creative Writing",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, writing portfolio",
+          "annual_cost": "R88000",
+          "career_outcomes": [
+            "Content Writer",
+            "Copywriter",
+            "Script Writer",
+            "Editor"
+          ],
+          "4ir_pathways": [
+            "Content Creator",
+            "Digital Storyteller",
+            "AI Content Strategist"
+          ],
+          "employment_rate": "85%",
+          "industry_partnerships": [
+            "Publishing houses",
+            "Media companies",
+            "Digital agencies"
+          ],
+          "pathway_to_university": "Articulates to media and communication degrees"
+        },
+        {
+          "qualification_name": "Bachelor of Arts in Game Design",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, portfolio",
+          "annual_cost": "R95000",
+          "career_outcomes": [
+            "Game Designer",
+            "Level Designer",
+            "Game Developer",
+            "Interactive Media Designer"
+          ],
+          "4ir_pathways": [
+            "VR/AR Developer",
+            "Interactive Experience Designer",
+            "Gamification Specialist"
+          ],
+          "employment_rate": "87%",
+          "industry_partnerships": [
+            "Local game studios",
+            "International publishers",
+            "Tech companies"
+          ],
+          "pathway_to_university": "Can articulate to computer science and design degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "ROSEBANK_COLLEGE",
+      "institution_name": "Rosebank College (IIE)",
+      "institution_type": "private_college",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town",
+        "Durban"
+      ],
+      "contact": {
+        "phone": "011-447-3700",
+        "email": "info@rosebankcollege.co.za"
+      },
+      "application_link": "https://www.rosebankcollege.co.za",
+      "accreditation": "DHET registered, QCTO aligned",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Information Technology",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Mathematics 3",
+          "annual_cost": "R58000",
+          "career_outcomes": [
+            "Software Developer",
+            "Systems Administrator",
+            "IT Support Specialist"
+          ],
+          "4ir_pathways": [
+            "Cloud Developer",
+            "DevOps Engineer",
+            "Cybersecurity Specialist"
+          ],
+          "employment_rate": "88%",
+          "industry_partnerships": [
+            "Microsoft",
+            "Oracle",
+            "Cisco"
+          ],
+          "pathway_to_university": "Articulates to BTech and degree programs"
+        },
+        {
+          "qualification_name": "Diploma in Business Management",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 pass",
+          "annual_cost": "R52000",
+          "career_outcomes": [
+            "Business Manager",
+            "Operations Manager",
+            "Project Coordinator"
+          ],
+          "4ir_pathways": [
+            "Digital Business Analyst",
+            "Process Automation Manager",
+            "E-commerce Manager"
+          ],
+          "employment_rate": "84%",
+          "industry_partnerships": [
+            "SAICA",
+            "Local businesses",
+            "Corporate partners"
+          ],
+          "pathway_to_university": "Credits transfer to business degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "DAMELIN",
+      "institution_name": "Damelin",
+      "institution_type": "private_college",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Multiple locations nationwide"
+      ],
+      "contact": {
+        "phone": "0860-326-354",
+        "email": "info@damelin.co.za"
+      },
+      "application_link": "https://www.damelin.co.za",
+      "accreditation": "DHET registered, QCTO aligned",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Information Technology",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 with Mathematics 3",
+          "annual_cost": "R45000",
+          "career_outcomes": [
+            "IT Technician",
+            "Network Administrator",
+            "Help Desk Specialist"
+          ],
+          "4ir_pathways": [
+            "Cloud Support Specialist",
+            "IT Automation Technician",
+            "Digital Systems Analyst"
+          ],
+          "employment_rate": "81%",
+          "industry_partnerships": [
+            "CompTIA",
+            "Microsoft",
+            "Cisco"
+          ],
+          "pathway_to_university": "Can articulate to degree programs"
+        },
+        {
+          "qualification_name": "Diploma in Digital Marketing",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass",
+          "annual_cost": "R38000",
+          "career_outcomes": [
+            "Digital Marketing Assistant",
+            "Social Media Coordinator",
+            "Content Creator"
+          ],
+          "4ir_pathways": [
+            "Digital Marketing Specialist",
+            "Social Media Strategist",
+            "Marketing Automation Coordinator"
+          ],
+          "employment_rate": "78%",
+          "industry_partnerships": [
+            "Google",
+            "Facebook",
+            "Digital agencies"
+          ],
+          "pathway_to_university": "Articulates to marketing degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "CTU_TRAINING",
+      "institution_name": "CTU Training Solutions",
+      "institution_type": "private_training_provider",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town",
+        "Durban",
+        "Pretoria"
+      ],
+      "contact": {
+        "phone": "011-794-4500",
+        "email": "info@ctutraining.ac.za"
+      },
+      "application_link": "https://www.ctutraining.ac.za",
+      "accreditation": "DHET registered, Industry certified",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Software Development",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 with Mathematics 4",
+          "annual_cost": "R62000",
+          "career_outcomes": [
+            "Software Developer",
+            "Web Developer",
+            "Mobile App Developer"
+          ],
+          "4ir_pathways": [
+            "Full Stack Developer",
+            "AI Developer",
+            "Cloud Developer"
+          ],
+          "employment_rate": "89%",
+          "industry_partnerships": [
+            "Microsoft",
+            "Oracle",
+            "SAP",
+            "Tech companies"
+          ],
+          "pathway_to_university": "Articulates to computer science degrees"
+        },
+        {
+          "qualification_name": "Diploma in Cybersecurity",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 with Mathematics 4",
+          "annual_cost": "R68000",
+          "career_outcomes": [
+            "Cybersecurity Analyst",
+            "Security Consultant",
+            "IT Security Specialist"
+          ],
+          "4ir_pathways": [
+            "Cybersecurity Specialist",
+            "Ethical Hacker",
+            "Security Automation Specialist"
+          ],
+          "employment_rate": "93%",
+          "industry_partnerships": [
+            "CompTIA Security+",
+            "Cisco",
+            "Ethical hacking organizations"
+          ],
+          "pathway_to_university": "Can articulate to cybersecurity degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "AFDA",
+      "institution_name": "AFDA - The South African School of Motion Picture Medium and Live Performance",
+      "institution_type": "private_creative_school",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Cape Town",
+        "Johannesburg",
+        "Durban",
+        "Port Elizabeth",
+        "Botswana"
+      ],
+      "contact": {
+        "phone": "021-424-5080",
+        "email": "info@afda.co.za"
+      },
+      "application_link": "https://www.afda.co.za",
+      "accreditation": "DHET registered, Industry recognized",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Arts in Motion Picture Medium",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, creative portfolio",
+          "annual_cost": "R105000",
+          "career_outcomes": [
+            "Film Director",
+            "Producer",
+            "Cinematographer",
+            "Film Editor"
+          ],
+          "4ir_pathways": [
+            "Digital Content Creator",
+            "VR/AR Content Developer",
+            "Streaming Platform Producer"
+          ],
+          "employment_rate": "86%",
+          "industry_partnerships": [
+            "Local film industry",
+            "International studios",
+            "Streaming platforms"
+          ],
+          "pathway_to_university": "Direct pathway to Honours programs"
+        },
+        {
+          "qualification_name": "Bachelor of Arts in Live Performance",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, audition required",
+          "annual_cost": "R98000",
+          "career_outcomes": [
+            "Actor",
+            "Theatre Director",
+            "Performance Coach",
+            "Arts Administrator"
+          ],
+          "4ir_pathways": [
+            "Digital Performance Creator",
+            "Virtual Reality Performer",
+            "Online Content Creator"
+          ],
+          "employment_rate": "82%",
+          "industry_partnerships": [
+            "Theatre companies",
+            "TV production houses",
+            "Streaming services"
+          ],
+          "pathway_to_university": "Articulates to performing arts degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "ACADEMY_OF_SOUND_ENGINEERING",
+      "institution_name": "Academy of Sound Engineering",
+      "institution_type": "private_technical_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "011-463-3375",
+        "email": "info@ase.co.za"
+      },
+      "application_link": "https://www.ase.co.za",
+      "accreditation": "DHET registered, Industry certified",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Sound Engineering",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, music/technical aptitude",
+          "annual_cost": "R72000",
+          "career_outcomes": [
+            "Sound Engineer",
+            "Audio Producer",
+            "Music Producer",
+            "Live Sound Technician"
+          ],
+          "4ir_pathways": [
+            "Digital Audio Specialist",
+            "Podcast Producer",
+            "Audio AI Developer"
+          ],
+          "employment_rate": "85%",
+          "industry_partnerships": [
+            "Record labels",
+            "Radio stations",
+            "Live venues",
+            "Streaming platforms"
+          ],
+          "pathway_to_university": "Can articulate to audio technology degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "AAA_SCHOOL",
+      "institution_name": "AAA School of Advertising",
+      "institution_type": "private_creative_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "011-463-2000",
+        "email": "info@aaaschool.co.za"
+      },
+      "application_link": "https://www.aaaschool.co.za",
+      "accreditation": "DHET registered, Industry recognized",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Advertising",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, creative portfolio",
+          "annual_cost": "R85000",
+          "career_outcomes": [
+            "Creative Director",
+            "Art Director",
+            "Copywriter",
+            "Account Manager"
+          ],
+          "4ir_pathways": [
+            "Digital Advertising Specialist",
+            "Programmatic Advertising Manager",
+            "Creative Technology Director"
+          ],
+          "employment_rate": "91%",
+          "industry_partnerships": [
+            "Ogilvy",
+            "FCB",
+            "Joe Public",
+            "King James Group"
+          ],
+          "pathway_to_university": "Articulates to BA Communication degrees"
+        },
+        {
+          "qualification_name": "Diploma in Digital Advertising",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, digital portfolio",
+          "annual_cost": "R78000",
+          "career_outcomes": [
+            "Digital Marketing Manager",
+            "Social Media Strategist",
+            "Performance Marketing Specialist"
+          ],
+          "4ir_pathways": [
+            "Marketing Automation Specialist",
+            "AI Marketing Analyst",
+            "Programmatic Advertising Expert"
+          ],
+          "employment_rate": "93%",
+          "industry_partnerships": [
+            "Google",
+            "Facebook",
+            "Twitter",
+            "TikTok"
+          ],
+          "pathway_to_university": "Can articulate to marketing degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "OPEN_WINDOW",
+      "institution_name": "Open Window Institute",
+      "institution_type": "private_creative_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Pretoria"
+      },
+      "campuses": [
+        "Pretoria"
+      ],
+      "contact": {
+        "phone": "012-030-0600",
+        "email": "info@openwindow.co.za"
+      },
+      "application_link": "https://www.openwindow.co.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Arts in Visual Communication",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, portfolio",
+          "annual_cost": "R89000",
+          "career_outcomes": [
+            "Graphic Designer",
+            "Visual Designer",
+            "Brand Designer",
+            "Creative Director"
+          ],
+          "4ir_pathways": [
+            "UX/UI Designer",
+            "Digital Brand Designer",
+            "AR/VR Visual Designer"
+          ],
+          "employment_rate": "88%",
+          "industry_partnerships": [
+            "Design agencies",
+            "Corporate brands",
+            "Digital studios"
+          ],
+          "pathway_to_university": "Direct pathway to Honours programs"
+        },
+        {
+          "qualification_name": "Bachelor of Arts in Film Arts",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, portfolio",
+          "annual_cost": "R92000",
+          "career_outcomes": [
+            "Film Director",
+            "Video Editor",
+            "Cinematographer",
+            "Producer"
+          ],
+          "4ir_pathways": [
+            "Digital Content Creator",
+            "VR/AR Content Developer",
+            "Streaming Content Producer"
+          ],
+          "employment_rate": "85%",
+          "industry_partnerships": [
+            "Film production companies",
+            "Streaming platforms",
+            "Digital agencies"
+          ],
+          "pathway_to_university": "Articulates to film and media degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "MILPARK_EDUCATION",
+      "institution_name": "Milpark Education",
+      "institution_type": "private_business_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town",
+        "Durban"
+      ],
+      "contact": {
+        "phone": "011-482-9600",
+        "email": "info@milpark.ac.za"
+      },
+      "application_link": "https://www.milpark.ac.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Commerce in Financial Planning",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, Mathematics 4",
+          "annual_cost": "R95000",
+          "career_outcomes": [
+            "Financial Planner",
+            "Investment Advisor",
+            "Risk Manager",
+            "Financial Analyst"
+          ],
+          "4ir_pathways": [
+            "Fintech Specialist",
+            "Robo-Advisor Developer",
+            "Digital Wealth Manager"
+          ],
+          "employment_rate": "89%",
+          "industry_partnerships": [
+            "Major banks",
+            "Investment firms",
+            "Insurance companies"
+          ],
+          "pathway_to_university": "Direct pathway to Honours and MBA programs"
+        },
+        {
+          "qualification_name": "Diploma in Banking and Finance",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, Mathematics 4",
+          "annual_cost": "R68000",
+          "career_outcomes": [
+            "Bank Consultant",
+            "Credit Analyst",
+            "Financial Advisor",
+            "Insurance Broker"
+          ],
+          "4ir_pathways": [
+            "Digital Banking Specialist",
+            "Cryptocurrency Analyst",
+            "Fintech Product Manager"
+          ],
+          "employment_rate": "87%",
+          "industry_partnerships": [
+            "Standard Bank",
+            "FNB",
+            "Nedbank",
+            "ABSA"
+          ],
+          "pathway_to_university": "Articulates to BCom Finance degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "REGENT_BUSINESS_SCHOOL",
+      "institution_name": "Regent Business School",
+      "institution_type": "private_business_school",
+      "location": {
+        "province": "KwaZulu-Natal",
+        "city": "Durban"
+      },
+      "campuses": [
+        "Durban",
+        "Johannesburg"
+      ],
+      "contact": {
+        "phone": "031-207-4200",
+        "email": "info@regent.ac.za"
+      },
+      "application_link": "https://www.regent.ac.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Master of Business Administration (MBA)",
+          "qualification_type": "MBA",
+          "nqf_level": 9,
+          "duration_years": 2,
+          "entry_requirements": "Bachelor's degree + 3 years work experience",
+          "annual_cost": "R120000",
+          "career_outcomes": [
+            "CEO",
+            "General Manager",
+            "Business Development Director",
+            "Strategy Consultant"
+          ],
+          "4ir_pathways": [
+            "Digital Transformation Leader",
+            "AI Strategy Director",
+            "Innovation Manager"
+          ],
+          "employment_rate": "95%",
+          "industry_partnerships": [
+            "Corporate South Africa",
+            "Consulting firms",
+            "Multinational companies"
+          ],
+          "pathway_to_university": "Advanced qualification - can lead to PhD programs"
+        },
+        {
+          "qualification_name": "Bachelor of Business Administration",
+          "qualification_type": "BBA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass",
+          "annual_cost": "R85000",
+          "career_outcomes": [
+            "Business Manager",
+            "Operations Manager",
+            "Project Manager",
+            "Entrepreneur"
+          ],
+          "4ir_pathways": [
+            "Digital Business Manager",
+            "E-commerce Director",
+            "Business Intelligence Manager"
+          ],
+          "employment_rate": "88%",
+          "industry_partnerships": [
+            "Local businesses",
+            "Corporate partners",
+            "SME sector"
+          ],
+          "pathway_to_university": "Direct pathway to MBA and Honours programs"
+        }
+      ]
+    },
+    {
+      "institution_code": "WETHINKCODE",
+      "institution_name": "WeThinkCode_",
+      "institution_type": "private_tech_academy",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "010-001-0690",
+        "email": "info@wethinkcode.co.za"
+      },
+      "application_link": "https://www.wethinkcode.co.za",
+      "accreditation": "Industry recognized, Employer validated",
+      "programs": [
+        {
+          "qualification_name": "NQF 5 Qualification in Software Development",
+          "qualification_type": "Certificate",
+          "nqf_level": 5,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, coding aptitude test",
+          "annual_cost": "R0",
+          "career_outcomes": [
+            "Software Developer",
+            "Full Stack Developer",
+            "Backend Developer",
+            "Frontend Developer"
+          ],
+          "4ir_pathways": [
+            "AI Developer",
+            "Machine Learning Engineer",
+            "Cloud Developer",
+            "DevOps Engineer"
+          ],
+          "employment_rate": "96%",
+          "industry_partnerships": [
+            "Amazon",
+            "Microsoft",
+            "Standard Bank",
+            "Discovery"
+          ],
+          "pathway_to_university": "Can articulate to computer science degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "HYPERIONDEV",
+      "institution_name": "HyperionDev",
+      "institution_type": "private_tech_academy",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Online",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "021-447-6440",
+        "email": "info@hyperiondev.com"
+      },
+      "application_link": "https://www.hyperiondev.com",
+      "accreditation": "Industry recognized, University partnerships",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Software Engineering",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, basic programming knowledge",
+          "annual_cost": "R55000",
+          "career_outcomes": [
+            "Software Engineer",
+            "Web Developer",
+            "Mobile App Developer",
+            "Systems Developer"
+          ],
+          "4ir_pathways": [
+            "Full Stack Developer",
+            "AI Engineer",
+            "Blockchain Developer",
+            "Cloud Engineer"
+          ],
+          "employment_rate": "92%",
+          "industry_partnerships": [
+            "Google",
+            "IBM",
+            "Amazon Web Services",
+            "Tech startups"
+          ],
+          "pathway_to_university": "Articulates to computer science and engineering degrees"
+        },
+        {
+          "qualification_name": "Certificate in Data Science",
+          "qualification_type": "Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, Mathematics 4",
+          "annual_cost": "R48000",
+          "career_outcomes": [
+            "Data Analyst",
+            "Business Intelligence Analyst",
+            "Data Scientist",
+            "Research Analyst"
+          ],
+          "4ir_pathways": [
+            "AI/ML Engineer",
+            "Data Science Specialist",
+            "Business Intelligence Developer"
+          ],
+          "employment_rate": "90%",
+          "industry_partnerships": [
+            "IBM",
+            "Microsoft",
+            "SAS",
+            "Tableau"
+          ],
+          "pathway_to_university": "Can articulate to data science and statistics degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "CAPSICUM_CULINARY",
+      "institution_name": "Capsicum Culinary Studio",
+      "institution_type": "private_culinary_school",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Cape Town",
+        "Johannesburg"
+      ],
+      "contact": {
+        "phone": "021-671-4000",
+        "email": "info@capsicum.co.za"
+      },
+      "application_link": "https://www.capsicum.co.za",
+      "accreditation": "DHET registered, Industry certified",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Culinary Arts",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, passion for cooking",
+          "annual_cost": "R75000",
+          "career_outcomes": [
+            "Chef",
+            "Sous Chef",
+            "Restaurant Manager",
+            "Food Stylist"
+          ],
+          "4ir_pathways": [
+            "Food Technology Specialist",
+            "Digital Menu Designer",
+            "Restaurant Automation Manager"
+          ],
+          "employment_rate": "85%",
+          "industry_partnerships": [
+            "Top restaurants",
+            "Hotel chains",
+            "Catering companies"
+          ],
+          "pathway_to_university": "Can articulate to hospitality management degrees"
+        },
+        {
+          "qualification_name": "Certificate in Pastry Arts",
+          "qualification_type": "Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass",
+          "annual_cost": "R58000",
+          "career_outcomes": [
+            "Pastry Chef",
+            "Baker",
+            "Cake Designer",
+            "Chocolatier"
+          ],
+          "4ir_pathways": [
+            "3D Food Printing Specialist",
+            "Digital Cake Designer",
+            "Food Innovation Developer"
+          ],
+          "employment_rate": "82%",
+          "industry_partnerships": [
+            "Bakeries",
+            "Hotels",
+            "Specialty food companies"
+          ],
+          "pathway_to_university": "Can articulate to food science degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "LISOF_FASHION",
+      "institution_name": "LISOF Fashion Design School",
+      "institution_type": "private_fashion_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "011-728-5923",
+        "email": "info@lisof.co.za"
+      },
+      "application_link": "https://www.lisof.co.za",
+      "accreditation": "DHET registered, Industry recognized",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Fashion Design",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 pass, creative portfolio",
+          "annual_cost": "R82000",
+          "career_outcomes": [
+            "Fashion Designer",
+            "Pattern Maker",
+            "Fashion Stylist",
+            "Fashion Buyer"
+          ],
+          "4ir_pathways": [
+            "Digital Fashion Designer",
+            "3D Fashion Modeler",
+            "Sustainable Fashion Specialist"
+          ],
+          "employment_rate": "79%",
+          "industry_partnerships": [
+            "Fashion retailers",
+            "Design studios",
+            "Manufacturing companies"
+          ],
+          "pathway_to_university": "Articulates to fashion and design degrees"
+        },
+        {
+          "qualification_name": "Certificate in Fashion Styling",
+          "qualification_type": "Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, fashion interest",
+          "annual_cost": "R65000",
+          "career_outcomes": [
+            "Fashion Stylist",
+            "Personal Shopper",
+            "Visual Merchandiser",
+            "Fashion Consultant"
+          ],
+          "4ir_pathways": [
+            "Virtual Styling Specialist",
+            "AI Fashion Advisor",
+            "Digital Wardrobe Manager"
+          ],
+          "employment_rate": "76%",
+          "industry_partnerships": [
+            "Fashion magazines",
+            "Retail chains",
+            "Celebrity stylists"
+          ],
+          "pathway_to_university": "Can articulate to fashion marketing degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "43_AIR_SCHOOL",
+      "institution_name": "43 Air School",
+      "institution_type": "private_aviation_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Wonderboom"
+      },
+      "campuses": [
+        "Wonderboom Airport"
+      ],
+      "contact": {
+        "phone": "012-567-6057",
+        "email": "info@43airschool.co.za"
+      },
+      "application_link": "https://www.43airschool.co.za",
+      "accreditation": "SACAA approved, ICAO recognized",
+      "programs": [
+        {
+          "qualification_name": "Commercial Pilot License (CPL)",
+          "qualification_type": "License",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 with Mathematics 5, Physical Sciences 5, English 5",
+          "annual_cost": "R450000",
+          "career_outcomes": [
+            "Commercial Pilot",
+            "Flight Instructor",
+            "Charter Pilot",
+            "Airline Pilot"
+          ],
+          "4ir_pathways": [
+            "Drone Operations Specialist",
+            "Aviation Technology Manager",
+            "Autonomous Flight Systems Operator"
+          ],
+          "employment_rate": "88%",
+          "industry_partnerships": [
+            "SAA",
+            "Comair",
+            "Charter companies",
+            "Flight training organizations"
+          ],
+          "pathway_to_university": "Can articulate to aeronautical engineering degrees"
+        },
+        {
+          "qualification_name": "Aircraft Maintenance Engineer License",
+          "qualification_type": "License",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Mathematics 4, Physical Sciences 4",
+          "annual_cost": "R180000",
+          "career_outcomes": [
+            "Aircraft Maintenance Engineer",
+            "Avionics Technician",
+            "Quality Control Inspector"
+          ],
+          "4ir_pathways": [
+            "Drone Maintenance Specialist",
+            "Aviation IoT Technician",
+            "Predictive Maintenance Analyst"
+          ],
+          "employment_rate": "92%",
+          "industry_partnerships": [
+            "Airlines",
+            "Maintenance organizations",
+            "Aircraft manufacturers"
+          ],
+          "pathway_to_university": "Articulates to aeronautical and mechanical engineering"
+        }
+      ]
+    },
+    {
+      "institution_code": "INSCAPE_DESIGN",
+      "institution_name": "Inscape Design College",
+      "institution_type": "private_design_school",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Cape Town",
+        "Johannesburg",
+        "Durban",
+        "Pretoria"
+      ],
+      "contact": {
+        "phone": "021-424-4200",
+        "email": "info@inscape.edu.za"
+      },
+      "application_link": "https://www.inscape.edu.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Design in Interaction Design",
+          "qualification_type": "BDes",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, portfolio",
+          "annual_cost": "R98000",
+          "career_outcomes": [
+            "UX Designer",
+            "UI Designer",
+            "Interaction Designer",
+            "Product Designer"
+          ],
+          "4ir_pathways": [
+            "UX/UI Designer",
+            "AR/VR Experience Designer",
+            "Voice Interface Designer"
+          ],
+          "employment_rate": "91%",
+          "industry_partnerships": [
+            "Tech companies",
+            "Digital agencies",
+            "Startups",
+            "Corporate design teams"
+          ],
+          "pathway_to_university": "Direct pathway to Honours and Masters programs"
+        },
+        {
+          "qualification_name": "Diploma in Graphic Design",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, creative portfolio",
+          "annual_cost": "R85000",
+          "career_outcomes": [
+            "Graphic Designer",
+            "Brand Designer",
+            "Digital Designer",
+            "Art Director"
+          ],
+          "4ir_pathways": [
+            "Digital Brand Designer",
+            "Motion Graphics Designer",
+            "AR/VR Visual Designer"
+          ],
+          "employment_rate": "87%",
+          "industry_partnerships": [
+            "Design agencies",
+            "Marketing companies",
+            "Publishing houses"
+          ],
+          "pathway_to_university": "Articulates to design degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "AAA_SCHOOL",
+      "institution_name": "AAA School of Advertising",
+      "institution_type": "private_creative_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "011-463-2000",
+        "email": "info@aaaschool.co.za"
+      },
+      "application_link": "https://www.aaaschool.co.za",
+      "accreditation": "DHET registered, Industry recognized",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Advertising",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, creative portfolio",
+          "annual_cost": "R85000",
+          "career_outcomes": [
+            "Creative Director",
+            "Art Director",
+            "Copywriter",
+            "Account Manager"
+          ],
+          "4ir_pathways": [
+            "Digital Advertising Specialist",
+            "Programmatic Advertising Manager",
+            "Creative Technology Director"
+          ],
+          "employment_rate": "91%",
+          "industry_partnerships": [
+            "Ogilvy",
+            "FCB",
+            "Joe Public",
+            "King James Group"
+          ],
+          "pathway_to_university": "Articulates to BA Communication degrees"
+        },
+        {
+          "qualification_name": "Diploma in Digital Advertising",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, digital portfolio",
+          "annual_cost": "R78000",
+          "career_outcomes": [
+            "Digital Marketing Manager",
+            "Social Media Strategist",
+            "Performance Marketing Specialist"
+          ],
+          "4ir_pathways": [
+            "Marketing Automation Specialist",
+            "AI Marketing Analyst",
+            "Programmatic Advertising Expert"
+          ],
+          "employment_rate": "93%",
+          "industry_partnerships": [
+            "Google",
+            "Facebook",
+            "Twitter",
+            "TikTok"
+          ],
+          "pathway_to_university": "Can articulate to marketing degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "OPEN_WINDOW",
+      "institution_name": "Open Window Institute",
+      "institution_type": "private_creative_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Pretoria"
+      },
+      "campuses": [
+        "Pretoria"
+      ],
+      "contact": {
+        "phone": "012-030-0600",
+        "email": "info@openwindow.co.za"
+      },
+      "application_link": "https://www.openwindow.co.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Arts in Visual Communication",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, portfolio",
+          "annual_cost": "R89000",
+          "career_outcomes": [
+            "Graphic Designer",
+            "Visual Designer",
+            "Brand Designer",
+            "Creative Director"
+          ],
+          "4ir_pathways": [
+            "UX/UI Designer",
+            "Digital Brand Designer",
+            "AR/VR Visual Designer"
+          ],
+          "employment_rate": "88%",
+          "industry_partnerships": [
+            "Design agencies",
+            "Corporate brands",
+            "Digital studios"
+          ],
+          "pathway_to_university": "Direct pathway to Honours programs"
+        },
+        {
+          "qualification_name": "Bachelor of Arts in Film Arts",
+          "qualification_type": "BA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, portfolio",
+          "annual_cost": "R92000",
+          "career_outcomes": [
+            "Film Director",
+            "Video Editor",
+            "Cinematographer",
+            "Producer"
+          ],
+          "4ir_pathways": [
+            "Digital Content Creator",
+            "VR/AR Content Developer",
+            "Streaming Content Producer"
+          ],
+          "employment_rate": "85%",
+          "industry_partnerships": [
+            "Film production companies",
+            "Streaming platforms",
+            "Digital agencies"
+          ],
+          "pathway_to_university": "Articulates to film and media degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "MILPARK_EDUCATION",
+      "institution_name": "Milpark Education",
+      "institution_type": "private_business_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town",
+        "Durban"
+      ],
+      "contact": {
+        "phone": "011-482-9600",
+        "email": "info@milpark.ac.za"
+      },
+      "application_link": "https://www.milpark.ac.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Commerce in Financial Planning",
+          "qualification_type": "BCom",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, Mathematics 4",
+          "annual_cost": "R95000",
+          "career_outcomes": [
+            "Financial Planner",
+            "Investment Advisor",
+            "Risk Manager",
+            "Financial Analyst"
+          ],
+          "4ir_pathways": [
+            "Fintech Specialist",
+            "Robo-Advisor Developer",
+            "Digital Wealth Manager"
+          ],
+          "employment_rate": "89%",
+          "industry_partnerships": [
+            "Major banks",
+            "Investment firms",
+            "Insurance companies"
+          ],
+          "pathway_to_university": "Direct pathway to Honours and MBA programs"
+        },
+        {
+          "qualification_name": "Diploma in Banking and Finance",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, Mathematics 4",
+          "annual_cost": "R68000",
+          "career_outcomes": [
+            "Bank Consultant",
+            "Credit Analyst",
+            "Financial Advisor",
+            "Insurance Broker"
+          ],
+          "4ir_pathways": [
+            "Digital Banking Specialist",
+            "Cryptocurrency Analyst",
+            "Fintech Product Manager"
+          ],
+          "employment_rate": "87%",
+          "industry_partnerships": [
+            "Standard Bank",
+            "FNB",
+            "Nedbank",
+            "ABSA"
+          ],
+          "pathway_to_university": "Articulates to BCom Finance degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "REGENT_BUSINESS_SCHOOL",
+      "institution_name": "Regent Business School",
+      "institution_type": "private_business_school",
+      "location": {
+        "province": "KwaZulu-Natal",
+        "city": "Durban"
+      },
+      "campuses": [
+        "Durban",
+        "Johannesburg"
+      ],
+      "contact": {
+        "phone": "031-207-4200",
+        "email": "info@regent.ac.za"
+      },
+      "application_link": "https://www.regent.ac.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Master of Business Administration (MBA)",
+          "qualification_type": "MBA",
+          "nqf_level": 9,
+          "duration_years": 2,
+          "entry_requirements": "Bachelor's degree + 3 years work experience",
+          "annual_cost": "R120000",
+          "career_outcomes": [
+            "CEO",
+            "General Manager",
+            "Business Development Director",
+            "Strategy Consultant"
+          ],
+          "4ir_pathways": [
+            "Digital Transformation Leader",
+            "AI Strategy Director",
+            "Innovation Manager"
+          ],
+          "employment_rate": "95%",
+          "industry_partnerships": [
+            "Corporate South Africa",
+            "Consulting firms",
+            "Multinational companies"
+          ],
+          "pathway_to_university": "Advanced qualification - can lead to PhD programs"
+        },
+        {
+          "qualification_name": "Bachelor of Business Administration",
+          "qualification_type": "BBA",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass",
+          "annual_cost": "R85000",
+          "career_outcomes": [
+            "Business Manager",
+            "Operations Manager",
+            "Project Manager",
+            "Entrepreneur"
+          ],
+          "4ir_pathways": [
+            "Digital Business Manager",
+            "E-commerce Director",
+            "Business Intelligence Manager"
+          ],
+          "employment_rate": "88%",
+          "industry_partnerships": [
+            "Local businesses",
+            "Corporate partners",
+            "SME sector"
+          ],
+          "pathway_to_university": "Direct pathway to MBA and Honours programs"
+        }
+      ]
+    },
+    {
+      "institution_code": "WETHINKCODE",
+      "institution_name": "WeThinkCode_",
+      "institution_type": "private_tech_academy",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "010-001-0690",
+        "email": "info@wethinkcode.co.za"
+      },
+      "application_link": "https://www.wethinkcode.co.za",
+      "accreditation": "Industry recognized, Employer validated",
+      "programs": [
+        {
+          "qualification_name": "NQF 5 Qualification in Software Development",
+          "qualification_type": "Certificate",
+          "nqf_level": 5,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, coding aptitude test",
+          "annual_cost": "R0",
+          "career_outcomes": [
+            "Software Developer",
+            "Full Stack Developer",
+            "Backend Developer",
+            "Frontend Developer"
+          ],
+          "4ir_pathways": [
+            "AI Developer",
+            "Machine Learning Engineer",
+            "Cloud Developer",
+            "DevOps Engineer"
+          ],
+          "employment_rate": "96%",
+          "industry_partnerships": [
+            "Amazon",
+            "Microsoft",
+            "Standard Bank",
+            "Discovery"
+          ],
+          "pathway_to_university": "Can articulate to computer science degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "HYPERIONDEV",
+      "institution_name": "HyperionDev",
+      "institution_type": "private_tech_academy",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Online",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "021-447-6440",
+        "email": "info@hyperiondev.com"
+      },
+      "application_link": "https://www.hyperiondev.com",
+      "accreditation": "Industry recognized, University partnerships",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Software Engineering",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, basic programming knowledge",
+          "annual_cost": "R55000",
+          "career_outcomes": [
+            "Software Engineer",
+            "Web Developer",
+            "Mobile App Developer",
+            "Systems Developer"
+          ],
+          "4ir_pathways": [
+            "Full Stack Developer",
+            "AI Engineer",
+            "Blockchain Developer",
+            "Cloud Engineer"
+          ],
+          "employment_rate": "92%",
+          "industry_partnerships": [
+            "Google",
+            "IBM",
+            "Amazon Web Services",
+            "Tech startups"
+          ],
+          "pathway_to_university": "Articulates to computer science and engineering degrees"
+        },
+        {
+          "qualification_name": "Certificate in Data Science",
+          "qualification_type": "Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, Mathematics 4",
+          "annual_cost": "R48000",
+          "career_outcomes": [
+            "Data Analyst",
+            "Business Intelligence Analyst",
+            "Data Scientist",
+            "Research Analyst"
+          ],
+          "4ir_pathways": [
+            "AI/ML Engineer",
+            "Data Science Specialist",
+            "Business Intelligence Developer"
+          ],
+          "employment_rate": "90%",
+          "industry_partnerships": [
+            "IBM",
+            "Microsoft",
+            "SAS",
+            "Tableau"
+          ],
+          "pathway_to_university": "Can articulate to data science and statistics degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "CAPSICUM_CULINARY",
+      "institution_name": "Capsicum Culinary Studio",
+      "institution_type": "private_culinary_school",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Cape Town",
+        "Johannesburg"
+      ],
+      "contact": {
+        "phone": "021-671-4000",
+        "email": "info@capsicum.co.za"
+      },
+      "application_link": "https://www.capsicum.co.za",
+      "accreditation": "DHET registered, Industry certified",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Culinary Arts",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, passion for cooking",
+          "annual_cost": "R75000",
+          "career_outcomes": [
+            "Chef",
+            "Sous Chef",
+            "Restaurant Manager",
+            "Food Stylist"
+          ],
+          "4ir_pathways": [
+            "Food Technology Specialist",
+            "Digital Menu Designer",
+            "Restaurant Automation Manager"
+          ],
+          "employment_rate": "85%",
+          "industry_partnerships": [
+            "Top restaurants",
+            "Hotel chains",
+            "Catering companies"
+          ],
+          "pathway_to_university": "Can articulate to hospitality management degrees"
+        },
+        {
+          "qualification_name": "Certificate in Pastry Arts",
+          "qualification_type": "Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass",
+          "annual_cost": "R58000",
+          "career_outcomes": [
+            "Pastry Chef",
+            "Baker",
+            "Cake Designer",
+            "Chocolatier"
+          ],
+          "4ir_pathways": [
+            "3D Food Printing Specialist",
+            "Digital Cake Designer",
+            "Food Innovation Developer"
+          ],
+          "employment_rate": "82%",
+          "industry_partnerships": [
+            "Bakeries",
+            "Hotels",
+            "Specialty food companies"
+          ],
+          "pathway_to_university": "Can articulate to food science degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "LISOF_FASHION",
+      "institution_name": "LISOF Fashion Design School",
+      "institution_type": "private_fashion_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Johannesburg"
+      },
+      "campuses": [
+        "Johannesburg",
+        "Cape Town"
+      ],
+      "contact": {
+        "phone": "011-728-5923",
+        "email": "info@lisof.co.za"
+      },
+      "application_link": "https://www.lisof.co.za",
+      "accreditation": "DHET registered, Industry recognized",
+      "programs": [
+        {
+          "qualification_name": "Diploma in Fashion Design",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 pass, creative portfolio",
+          "annual_cost": "R82000",
+          "career_outcomes": [
+            "Fashion Designer",
+            "Pattern Maker",
+            "Fashion Stylist",
+            "Fashion Buyer"
+          ],
+          "4ir_pathways": [
+            "Digital Fashion Designer",
+            "3D Fashion Modeler",
+            "Sustainable Fashion Specialist"
+          ],
+          "employment_rate": "79%",
+          "industry_partnerships": [
+            "Fashion retailers",
+            "Design studios",
+            "Manufacturing companies"
+          ],
+          "pathway_to_university": "Articulates to fashion and design degrees"
+        },
+        {
+          "qualification_name": "Certificate in Fashion Styling",
+          "qualification_type": "Certificate",
+          "nqf_level": 5,
+          "duration_years": 1,
+          "entry_requirements": "Grade 12 pass, fashion interest",
+          "annual_cost": "R65000",
+          "career_outcomes": [
+            "Fashion Stylist",
+            "Personal Shopper",
+            "Visual Merchandiser",
+            "Fashion Consultant"
+          ],
+          "4ir_pathways": [
+            "Virtual Styling Specialist",
+            "AI Fashion Advisor",
+            "Digital Wardrobe Manager"
+          ],
+          "employment_rate": "76%",
+          "industry_partnerships": [
+            "Fashion magazines",
+            "Retail chains",
+            "Celebrity stylists"
+          ],
+          "pathway_to_university": "Can articulate to fashion marketing degrees"
+        }
+      ]
+    },
+    {
+      "institution_code": "43_AIR_SCHOOL",
+      "institution_name": "43 Air School",
+      "institution_type": "private_aviation_school",
+      "location": {
+        "province": "Gauteng",
+        "city": "Wonderboom"
+      },
+      "campuses": [
+        "Wonderboom Airport"
+      ],
+      "contact": {
+        "phone": "012-567-6057",
+        "email": "info@43airschool.co.za"
+      },
+      "application_link": "https://www.43airschool.co.za",
+      "accreditation": "SACAA approved, ICAO recognized",
+      "programs": [
+        {
+          "qualification_name": "Commercial Pilot License (CPL)",
+          "qualification_type": "License",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 with Mathematics 5, Physical Sciences 5, English 5",
+          "annual_cost": "R450000",
+          "career_outcomes": [
+            "Commercial Pilot",
+            "Flight Instructor",
+            "Charter Pilot",
+            "Airline Pilot"
+          ],
+          "4ir_pathways": [
+            "Drone Operations Specialist",
+            "Aviation Technology Manager",
+            "Autonomous Flight Systems Operator"
+          ],
+          "employment_rate": "88%",
+          "industry_partnerships": [
+            "SAA",
+            "Comair",
+            "Charter companies",
+            "Flight training organizations"
+          ],
+          "pathway_to_university": "Can articulate to aeronautical engineering degrees"
+        },
+        {
+          "qualification_name": "Aircraft Maintenance Engineer License",
+          "qualification_type": "License",
+          "nqf_level": 6,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Mathematics 4, Physical Sciences 4",
+          "annual_cost": "R180000",
+          "career_outcomes": [
+            "Aircraft Maintenance Engineer",
+            "Avionics Technician",
+            "Quality Control Inspector"
+          ],
+          "4ir_pathways": [
+            "Drone Maintenance Specialist",
+            "Aviation IoT Technician",
+            "Predictive Maintenance Analyst"
+          ],
+          "employment_rate": "92%",
+          "industry_partnerships": [
+            "Airlines",
+            "Maintenance organizations",
+            "Aircraft manufacturers"
+          ],
+          "pathway_to_university": "Articulates to aeronautical and mechanical engineering"
+        }
+      ]
+    },
+    {
+      "institution_code": "INSCAPE_DESIGN",
+      "institution_name": "Inscape Design College",
+      "institution_type": "private_design_school",
+      "location": {
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "campuses": [
+        "Cape Town",
+        "Johannesburg",
+        "Durban",
+        "Pretoria"
+      ],
+      "contact": {
+        "phone": "021-424-4200",
+        "email": "info@inscape.edu.za"
+      },
+      "application_link": "https://www.inscape.edu.za",
+      "accreditation": "DHET registered, CHE accredited",
+      "programs": [
+        {
+          "qualification_name": "Bachelor of Design in Interaction Design",
+          "qualification_type": "BDes",
+          "nqf_level": 7,
+          "duration_years": 3,
+          "entry_requirements": "Grade 12 with Bachelor's pass, portfolio",
+          "annual_cost": "R98000",
+          "career_outcomes": [
+            "UX Designer",
+            "UI Designer",
+            "Interaction Designer",
+            "Product Designer"
+          ],
+          "4ir_pathways": [
+            "UX/UI Designer",
+            "AR/VR Experience Designer",
+            "Voice Interface Designer"
+          ],
+          "employment_rate": "91%",
+          "industry_partnerships": [
+            "Tech companies",
+            "Digital agencies",
+            "Startups",
+            "Corporate design teams"
+          ],
+          "pathway_to_university": "Direct pathway to Honours and Masters programs"
+        },
+        {
+          "qualification_name": "Diploma in Graphic Design",
+          "qualification_type": "Diploma",
+          "nqf_level": 6,
+          "duration_years": 2,
+          "entry_requirements": "Grade 12 pass, creative portfolio",
+          "annual_cost": "R85000",
+          "career_outcomes": [
+            "Graphic Designer",
+            "Brand Designer",
+            "Digital Designer",
+            "Art Director"
+          ],
+          "4ir_pathways": [
+            "Digital Brand Designer",
+            "Motion Graphics Designer",
+            "AR/VR Visual Designer"
+          ],
+          "employment_rate": "87%",
+          "industry_partnerships": [
+            "Design agencies",
+            "Marketing companies",
+            "Publishing houses"
+          ],
+          "pathway_to_university": "Articulates to design degrees"
+        }
+      ]
+    }
+  ]
+}

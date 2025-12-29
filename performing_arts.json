@@ -1,0 +1,298 @@
+{
+  "metadata": {
+    "category": "performing_arts",
+    "total_programs": 5,
+    "universities_covered": 6,
+    "last_updated": "2025-12-29"
+  },
+  "programs": {
+    "UCT": [
+      {
+        "degree_name": "BA Drama",
+        "degree_type": "BA",
+        "nqf_level": 7,
+        "duration_years": 3,
+        "min_aps": 35,
+        "required_subjects": [
+          "English 6"
+        ],
+        "recommended_subjects": [
+          "Drama",
+          "Music"
+        ],
+        "audition_required": true,
+        "portfolio_required": false,
+        "career_outcomes": [
+          "Actor",
+          "Director",
+          "Theatre Producer",
+          "Drama Teacher",
+          "Arts Administrator"
+        ],
+        "4ir_pathways": [
+          "Digital Content Creator",
+          "Virtual Performance Designer",
+          "Arts Technology Specialist"
+        ],
+        "salary_range": "R12K-R55K",
+        "employment_rate": "72%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Audition required - practical performance assessment"
+      },
+      {
+        "degree_name": "BA Music",
+        "degree_type": "BA",
+        "nqf_level": 7,
+        "duration_years": 3,
+        "min_aps": 33,
+        "required_subjects": [
+          "English 6"
+        ],
+        "recommended_subjects": [
+          "Music",
+          "Mathematics"
+        ],
+        "audition_required": true,
+        "portfolio_required": false,
+        "career_outcomes": [
+          "Musician",
+          "Music Teacher",
+          "Composer",
+          "Music Producer",
+          "Sound Engineer"
+        ],
+        "4ir_pathways": [
+          "Digital Music Producer",
+          "Audio Technology Specialist",
+          "Music AI Developer"
+        ],
+        "salary_range": "R10K-R60K",
+        "employment_rate": "68%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Audition required - musical performance and theory test"
+      }
+    ],
+    "WITS": [
+      {
+        "degree_name": "BA Dramatic Arts",
+        "degree_type": "BA",
+        "nqf_level": 7,
+        "duration_years": 3,
+        "min_aps": 35,
+        "required_subjects": [
+          "English 6"
+        ],
+        "recommended_subjects": [
+          "Drama",
+          "Music"
+        ],
+        "audition_required": true,
+        "portfolio_required": false,
+        "career_outcomes": [
+          "Actor",
+          "Director",
+          "Theatre Producer",
+          "Drama Teacher"
+        ],
+        "4ir_pathways": [
+          "Digital Marketing Specialist",
+          "Content Creator",
+          "Virtual Reality Performance Designer"
+        ],
+        "salary_range": "R12K-R50K",
+        "employment_rate": "70%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Audition required - performance and interview"
+      },
+      {
+        "degree_name": "BA Music",
+        "degree_type": "BA",
+        "nqf_level": 7,
+        "duration_years": 3,
+        "min_aps": 32,
+        "required_subjects": [
+          "English 6"
+        ],
+        "recommended_subjects": [
+          "Music",
+          "Mathematics"
+        ],
+        "audition_required": true,
+        "portfolio_required": false,
+        "career_outcomes": [
+          "Musician",
+          "Music Educator",
+          "Composer",
+          "Music Therapist"
+        ],
+        "4ir_pathways": [
+          "Digital Audio Specialist",
+          "Music Technology Developer",
+          "AI Music Composer"
+        ],
+        "salary_range": "R11K-R58K",
+        "employment_rate": "69%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Audition required - practical and theoretical assessment"
+      }
+    ],
+    "RHODES": [
+      {
+        "degree_name": "BA Drama",
+        "degree_type": "BA",
+        "nqf_level": 7,
+        "duration_years": 3,
+        "min_aps": 30,
+        "required_subjects": [
+          "English 6"
+        ],
+        "recommended_subjects": [
+          "Drama",
+          "English Literature"
+        ],
+        "audition_required": true,
+        "portfolio_required": false,
+        "career_outcomes": [
+          "Actor",
+          "Director",
+          "Drama Teacher",
+          "Arts Journalist"
+        ],
+        "4ir_pathways": [
+          "Digital Storytelling Specialist",
+          "Content Creator",
+          "Virtual Performance Designer"
+        ],
+        "salary_range": "R10K-R45K",
+        "employment_rate": "65%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Audition and interview required"
+      },
+      {
+        "degree_name": "BA Music",
+        "degree_type": "BA",
+        "nqf_level": 7,
+        "duration_years": 3,
+        "min_aps": 28,
+        "required_subjects": [
+          "English 6"
+        ],
+        "recommended_subjects": [
+          "Music"
+        ],
+        "audition_required": true,
+        "portfolio_required": false,
+        "career_outcomes": [
+          "Musician",
+          "Music Teacher",
+          "Community Music Facilitator"
+        ],
+        "4ir_pathways": [
+          "Digital Music Educator",
+          "Community Arts Technology Specialist"
+        ],
+        "salary_range": "R9K-R40K",
+        "employment_rate": "62%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Musical audition required"
+      }
+    ],
+    "STELLENBOSCH": [
+      {
+        "degree_name": "BA Music",
+        "degree_type": "BA",
+        "nqf_level": 7,
+        "duration_years": 3,
+        "min_aps": 34,
+        "required_subjects": [
+          "English 6",
+          "Afrikaans 6"
+        ],
+        "recommended_subjects": [
+          "Music",
+          "Mathematics"
+        ],
+        "audition_required": true,
+        "portfolio_required": false,
+        "career_outcomes": [
+          "Musician",
+          "Music Teacher",
+          "Composer",
+          "Music Researcher"
+        ],
+        "4ir_pathways": [
+          "Digital Music Producer",
+          "Music AI Researcher",
+          "Audio Technology Specialist"
+        ],
+        "salary_range": "R12K-R65K",
+        "employment_rate": "71%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Audition required - performance and music theory"
+      }
+    ],
+    "TUT": [
+      {
+        "degree_name": "Diploma Performing Arts",
+        "degree_type": "Diploma",
+        "nqf_level": 6,
+        "duration_years": 3,
+        "min_aps": 24,
+        "required_subjects": [
+          "English 5"
+        ],
+        "recommended_subjects": [
+          "Drama",
+          "Music",
+          "Visual Arts"
+        ],
+        "audition_required": true,
+        "portfolio_required": true,
+        "career_outcomes": [
+          "Performer",
+          "Arts Facilitator",
+          "Community Arts Coordinator"
+        ],
+        "4ir_pathways": [
+          "Digital Performance Creator",
+          "Community Arts Technology Facilitator"
+        ],
+        "salary_range": "R8K-R35K",
+        "employment_rate": "58%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Audition and portfolio required"
+      }
+    ],
+    "DUT": [
+      {
+        "degree_name": "Diploma Performing Arts",
+        "degree_type": "Diploma",
+        "nqf_level": 6,
+        "duration_years": 3,
+        "min_aps": 22,
+        "required_subjects": [
+          "English 5"
+        ],
+        "recommended_subjects": [
+          "Drama",
+          "Music"
+        ],
+        "audition_required": true,
+        "portfolio_required": true,
+        "career_outcomes": [
+          "Performer",
+          "Arts Educator",
+          "Community Theatre Coordinator"
+        ],
+        "4ir_pathways": [
+          "Digital Arts Facilitator",
+          "Community Media Producer"
+        ],
+        "salary_range": "R7K-R32K",
+        "employment_rate": "55%",
+        "application_deadline": "July 31, 2026",
+        "special_requirements": "Audition and portfolio submission required"
+      }
+    ]
+  }
+}

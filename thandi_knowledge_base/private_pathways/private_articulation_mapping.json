@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "description": "Mapping of private institution qualifications to university programs",
+    "last_updated": "2025-12-29",
+    "total_pathways": 8
+  },
+  "pathways": [
+    {
+      "private_qualification": "Diploma in Information Technology (Private)",
+      "university_programs": [
+        {
+          "university": "UNISA",
+          "program": "BSc Information Technology",
+          "requirements": "Diploma + bridging course + Mathematics 4"
+        },
+        {
+          "university": "UJ",
+          "program": "BTech Information Technology",
+          "requirements": "Diploma + work experience + interview"
+        },
+        {
+          "university": "TUT",
+          "program": "BTech IT",
+          "requirements": "Diploma + additional modules"
+        },
+        {
+          "university": "CPUT",
+          "program": "BTech Information Technology",
+          "requirements": "Diploma + portfolio + work experience"
+        }
+      ]
+    },
+    {
+      "private_qualification": "Diploma in Business Management (Private)",
+      "university_programs": [
+        {
+          "university": "UNISA",
+          "program": "BCom Business Management",
+          "requirements": "Diploma + bridging course + English 5"
+        },
+        {
+          "university": "UJ",
+          "program": "BCom Business Management",
+          "requirements": "Diploma + Mathematics 4 + English 5"
+        },
+        {
+          "university": "TUT",
+          "program": "BTech Business Administration",
+          "requirements": "Diploma + work experience"
+        },
+        {
+          "university": "VUT",
+          "program": "BCom Management",
+          "requirements": "Diploma + additional courses"
+        }
+      ]
+    },
+    {
+      "private_qualification": "Diploma in Digital Marketing (Private)",
+      "university_programs": [
+        {
+          "university": "UJ",
+          "program": "BCom Marketing Management",
+          "requirements": "Diploma + Mathematics 4 + portfolio"
+        },
+        {
+          "university": "UNISA",
+          "program": "BCom Marketing",
+          "requirements": "Diploma + bridging course"
+        },
+        {
+          "university": "TUT",
+          "program": "BTech Marketing",
+          "requirements": "Diploma + work experience + portfolio"
+        },
+        {
+          "university": "CPUT",
+          "program": "BTech Marketing",
+          "requirements": "Diploma + industry experience"
+        }
+      ]
+    },
+    {
+      "private_qualification": "Bachelor of Arts in Brand Communication (Private)",
+      "university_programs": [
+        {
+          "university": "UCT",
+          "program": "BA Honours in Media Studies",
+          "requirements": "BA + portfolio + interview"
+        },
+        {
+          "university": "WITS",
+          "program": "BA Honours in Strategic Communication",
+          "requirements": "BA + academic record + portfolio"
+        },
+        {
+          "university": "UJ",
+          "program": "BA Honours in Communication",
+          "requirements": "BA + work experience + portfolio"
+        },
+        {
+          "university": "UNISA",
+          "program": "BA Honours in Communication Science",
+          "requirements": "BA + additional modules"
+        }
+      ]
+    },
+    {
+      "private_qualification": "Diploma in UX/UI Design (Private)",
+      "university_programs": [
+        {
+          "university": "UCT",
+          "program": "BSc Computer Science",
+          "requirements": "Diploma + Mathematics 5 + portfolio"
+        },
+        {
+          "university": "WITS",
+          "program": "BSc Digital Arts",
+          "requirements": "Diploma + portfolio + interview"
+        },
+        {
+          "university": "UJ",
+          "program": "BA Graphic Design",
+          "requirements": "Diploma + creative portfolio"
+        },
+        {
+          "university": "CPUT",
+          "program": "BTech Graphic Design",
+          "requirements": "Diploma + portfolio + work experience"
+        }
+      ]
+    },
+    {
+      "private_qualification": "Bachelor of Psychology (Private)",
+      "university_programs": [
+        {
+          "university": "UCT",
+          "program": "BA Honours in Psychology",
+          "requirements": "BPsych + academic record + HPCSA registration"
+        },
+        {
+          "university": "WITS",
+          "program": "BA Honours in Psychology",
+          "requirements": "BPsych + research proposal + interview"
+        },
+        {
+          "university": "UP",
+          "program": "BA Honours in Psychology",
+          "requirements": "BPsych + academic performance + portfolio"
+        },
+        {
+          "university": "UNISA",
+          "program": "BA Honours in Psychology",
+          "requirements": "BPsych + additional modules"
+        }
+      ]
+    },
+    {
+      "private_qualification": "Diploma in Software Development (Private)",
+      "university_programs": [
+        {
+          "university": "UCT",
+          "program": "BSc Computer Science",
+          "requirements": "Diploma + Mathematics 5 + programming portfolio"
+        },
+        {
+          "university": "WITS",
+          "program": "BSc Computer Science",
+          "requirements": "Diploma + Mathematics 5 + technical interview"
+        },
+        {
+          "university": "UJ",
+          "program": "BSc Information Technology",
+          "requirements": "Diploma + Mathematics 4 + portfolio"
+        },
+        {
+          "university": "TUT",
+          "program": "BTech Information Technology",
+          "requirements": "Diploma + work experience"
+        }
+      ]
+    },
+    {
+      "private_qualification": "Bachelor of Arts in Motion Picture Medium (Private)",
+      "university_programs": [
+        {
+          "university": "UCT",
+          "program": "BA Honours in Film Studies",
+          "requirements": "BA + film portfolio + interview"
+        },
+        {
+          "university": "WITS",
+          "program": "BA Honours in Digital Arts",
+          "requirements": "BA + creative portfolio + academic record"
+        },
+        {
+          "university": "UJ",
+          "program": "BA Honours in Audiovisual Communication",
+          "requirements": "BA + portfolio + work experience"
+        },
+        {
+          "university": "UNISA",
+          "program": "BA Honours in Communication Science",
+          "requirements": "BA + additional modules + portfolio"
+        }
+      ]
+    }
+  ]
+}

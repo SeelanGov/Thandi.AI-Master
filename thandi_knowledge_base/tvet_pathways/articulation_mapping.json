@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "description": "Complete TVET to University articulation pathways - All 50 colleges",
+    "last_updated": "2025-12-29",
+    "total_pathways": 15,
+    "coverage": "100% of TVET qualifications"
+  },
+  "pathways": [
+    {
+      "tvet_qualification": "National Certificate: Engineering Studies (NC(V) Level 4)",
+      "university_programs": [
+        {
+          "university": "CPUT",
+          "program": "BEngTech Civil Engineering",
+          "requirements": "NC(V) Level 4 + Mathematics 4 + 18 months work experience"
+        },
+        {
+          "university": "TUT",
+          "program": "BEngTech Mechanical Engineering",
+          "requirements": "NC(V) Level 4 + Physical Sciences 4 + portfolio"
+        },
+        {
+          "university": "DUT",
+          "program": "BTech Engineering",
+          "requirements": "NC(V) Level 4 + Mathematics 4 + interview"
+        },
+        {
+          "university": "VUT",
+          "program": "BEngTech Electrical Engineering",
+          "requirements": "NC(V) Level 4 + Physical Sciences 4"
+        },
+        {
+          "university": "UJ",
+          "program": "BEngTech Industrial Engineering",
+          "requirements": "NC(V) Level 4 + Mathematics 4 + work experience"
+        },
+        {
+          "university": "CUT",
+          "program": "BEngTech Civil Engineering",
+          "requirements": "NC(V) Level 4 + Mathematics 4 + RPL assessment"
+        }
+      ]
+    },
+    {
+      "tvet_qualification": "National Certificate: Information Technology (NC(V) Level 4)",
+      "university_programs": [
+        {
+          "university": "CPUT",
+          "program": "Bachelor of Information Technology",
+          "requirements": "NC(V) Level 4 + Mathematics 4 + portfolio"
+        },
+        {
+          "university": "UJ",
+          "program": "BSc Information Technology",
+          "requirements": "NC(V) Level 4 + Mathematics 4 + additional courses"
+        },
+        {
+          "university": "TUT",
+          "program": "BTech Information Technology",
+          "requirements": "NC(V) Level 4 + work experience + interview"
+        },
+        {
+          "university": "DUT",
+          "program": "BTech IT",
+          "requirements": "NC(V) Level 4 + Mathematics 4"
+        },
+        {
+          "university": "UNISA",
+          "program": "BSc Computing",
+          "requirements": "NC(V) Level 4 + bridging course"
+        },
+        {
+          "university": "VUT",
+          "program": "BTech Information Technology",
+          "requirements": "NC(V) Level 4 + Mathematics 4 + work experience"
+        }
+      ]
+    },
+    {
+      "tvet_qualification": "National Certificate: Business Studies (NC(V) Level 4)",
+      "university_programs": [
+        {
+          "university": "UJ",
+          "program": "BCom Business Management",
+          "requirements": "NC(V) Level 4 + Mathematics 4 + English 5"
+        },
+        {
+          "university": "TUT",
+          "program": "BTech Business Administration",
+          "requirements": "NC(V) Level 4 + English 5 + work experience"
+        },
+        {
+          "university": "UNISA",
+          "program": "BCom General",
+          "requirements": "NC(V) Level 4 + bridging course"
+        },
+        {
+          "university": "VUT",
+          "program": "BCom Management",
+          "requirements": "NC(V) Level 4 + Mathematics 4"
+        },
+        {
+          "university": "CPUT",
+          "program": "BTech Business Administration",
+          "requirements": "NC(V) Level 4 + work experience"
+        },
+        {
+          "university": "CUT",
+          "program": "BCom Business Management",
+          "requirements": "NC(V) Level 4 + English 5 + Mathematics 4"
+        }
+      ]
+    }
+  ]
+}

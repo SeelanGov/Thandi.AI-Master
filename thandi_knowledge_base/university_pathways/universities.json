@@ -1,9 +1,9 @@
 {
   "metadata": {
     "version": "1.0",
-    "last_updated": "2025-01-19",
-    "total_universities": 24,
-    "total_programs": 80,
+    "last_updated": "2025-12-29",
+    "total_universities": 26,
+    "total_programs": 156,
     "content_type": "university_pathways",
     "description": "South African university undergraduate programs and pathways"
   },
@@ -27,9 +27,17 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 4", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 4",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Site Engineer", "Structural Engineer", "Water Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Site Engineer",
+                "Structural Engineer",
+                "Water Engineer"
+              ]
             },
             {
               "degree_name": "BEngTech Electrical Engineering",
@@ -37,9 +45,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Control Systems Engineer", "Power Systems Engineer"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Control Systems Engineer",
+                "Power Systems Engineer"
+              ]
             },
             {
               "degree_name": "BEngTech Mechanical Engineering",
@@ -47,9 +62,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Project Engineer"]
+              "career_outcomes": [
+                "Mechanical Engineer",
+                "Design Engineer",
+                "Project Engineer"
+              ]
             }
           ]
         },
@@ -62,9 +84,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4 or Mathematical Literacy 6"],
+              "required_subjects": [
+                "Mathematics 4 or Mathematical Literacy 6"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Software Developer", "Systems Analyst", "Network Administrator"]
+              "career_outcomes": [
+                "Software Developer",
+                "Systems Analyst",
+                "Network Administrator"
+              ]
             }
           ]
         },
@@ -77,9 +105,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Life Sciences 4", "Mathematics 4 or Math Lit 5"],
+              "required_subjects": [
+                "Life Sciences 4",
+                "Mathematics 4 or Math Lit 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Registered Nurse", "Clinical Nurse Practitioner", "Nurse Educator"]
+              "career_outcomes": [
+                "Registered Nurse",
+                "Clinical Nurse Practitioner",
+                "Nurse Educator"
+              ]
             }
           ]
         }
@@ -104,9 +139,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Construction Manager", "Structural Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Construction Manager",
+                "Structural Engineer"
+              ]
             },
             {
               "degree_name": "BEngTech Electrical Engineering",
@@ -114,9 +156,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Automation Engineer", "Renewable Energy Specialist"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Automation Engineer",
+                "Renewable Energy Specialist"
+              ]
             },
             {
               "degree_name": "BEngTech Mechanical Engineering",
@@ -124,9 +173,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Mechanical Engineer", "Maintenance Engineer", "Manufacturing Engineer"]
+              "career_outcomes": [
+                "Mechanical Engineer",
+                "Maintenance Engineer",
+                "Manufacturing Engineer"
+              ]
             }
           ]
         },
@@ -139,9 +195,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Life Sciences 4", "Physical Sciences 4"],
+              "required_subjects": [
+                "Life Sciences 4",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Clinical Technologist", "Cardiology Technologist", "Renal Dialysis Technologist"]
+              "career_outcomes": [
+                "Clinical Technologist",
+                "Cardiology Technologist",
+                "Renal Dialysis Technologist"
+              ]
             }
           ]
         }
@@ -166,9 +229,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Project Engineer", "Transportation Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Project Engineer",
+                "Transportation Engineer"
+              ]
             },
             {
               "degree_name": "BEngTech Electrical Engineering",
@@ -176,9 +246,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Power Systems Engineer", "Control Engineer", "Telecommunications Engineer"]
+              "career_outcomes": [
+                "Power Systems Engineer",
+                "Control Engineer",
+                "Telecommunications Engineer"
+              ]
             },
             {
               "degree_name": "BEngTech Mechanical Engineering",
@@ -186,9 +263,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Automotive Engineer"]
+              "career_outcomes": [
+                "Mechanical Engineer",
+                "Design Engineer",
+                "Automotive Engineer"
+              ]
             }
           ]
         },
@@ -201,9 +285,50 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Life Sciences 4", "Mathematics 4 or Math Lit 6"],
+              "required_subjects": [
+                "Life Sciences 4",
+                "Mathematics 4 or Math Lit 6"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Professional Nurse", "Midwife", "Community Health Nurse"]
+              "career_outcomes": [
+                "Professional Nurse",
+                "Midwife",
+                "Community Health Nurse"
+              ]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Performing Arts",
+          "programs": [
+            {
+              "degree_name": "Diploma Performing Arts",
+              "degree_type": "Diploma",
+              "nqf_level": 6,
+              "duration_years": 3,
+              "min_aps": 22,
+              "required_subjects": [
+                "English 5"
+              ],
+              "recommended_subjects": [
+                "Drama",
+                "Music"
+              ],
+              "audition_required": true,
+              "portfolio_required": true,
+              "career_outcomes": [
+                "Performer",
+                "Arts Educator",
+                "Community Theatre Coordinator"
+              ],
+              "4ir_pathways": [
+                "Digital Arts Facilitator",
+                "Community Media Producer"
+              ],
+              "salary_range": "R7K-R32K",
+              "employment_rate": "55%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Audition and portfolio submission required"
             }
           ]
         }
@@ -228,9 +353,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 4",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chemical Engineer", "Process Engineer", "Plant Manager"]
+              "career_outcomes": [
+                "Chemical Engineer",
+                "Process Engineer",
+                "Plant Manager"
+              ]
             },
             {
               "degree_name": "BEngTech Civil Engineering",
@@ -238,9 +370,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 4",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Construction Manager", "Geotechnical Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Construction Manager",
+                "Geotechnical Engineer"
+              ]
             },
             {
               "degree_name": "BEngTech Electrical Engineering",
@@ -248,9 +387,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 4",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Power Distribution Engineer", "Instrumentation Engineer"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Power Distribution Engineer",
+                "Instrumentation Engineer"
+              ]
             }
           ]
         },
@@ -263,9 +409,15 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Life Sciences 4", "Physical Sciences 4"],
+              "required_subjects": [
+                "Life Sciences 4",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Environmental Health Practitioner", "Occupational Health & Safety Officer"]
+              "career_outcomes": [
+                "Environmental Health Practitioner",
+                "Occupational Health & Safety Officer"
+              ]
             }
           ]
         }
@@ -290,9 +442,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 38,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Mechatronics Engineer", "Automation Engineer", "Robotics Engineer"]
+              "career_outcomes": [
+                "Mechatronics Engineer",
+                "Automation Engineer",
+                "Robotics Engineer"
+              ]
             }
           ]
         },
@@ -305,9 +464,17 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 38,
-              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 60%",
+                "Physical Sciences 60%",
+                "Life Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Pharmacist", "Clinical Pharmacist", "Industrial Pharmacist"]
+              "career_outcomes": [
+                "Pharmacist",
+                "Clinical Pharmacist",
+                "Industrial Pharmacist"
+              ]
             }
           ]
         },
@@ -320,9 +487,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 38,
-              "required_subjects": ["Mathematics 60%"],
+              "required_subjects": [
+                "Mathematics 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chartered Accountant", "Auditor", "Tax Specialist"]
+              "career_outcomes": [
+                "Chartered Accountant",
+                "Auditor",
+                "Tax Specialist"
+              ]
             }
           ]
         }
@@ -347,9 +520,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 34,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chemical Engineer", "Process Engineer", "Mining Engineer (Chem)"]
+              "career_outcomes": [
+                "Chemical Engineer",
+                "Process Engineer",
+                "Mining Engineer (Chem)"
+              ]
             },
             {
               "degree_name": "BEng Electrical & Electronic Engineering",
@@ -357,9 +537,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 34,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Electronics Engineer", "Control Systems Engineer"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Electronics Engineer",
+                "Control Systems Engineer"
+              ]
             },
             {
               "degree_name": "BEng Mechanical Engineering",
@@ -367,9 +554,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 34,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Energy Engineer"]
+              "career_outcomes": [
+                "Mechanical Engineer",
+                "Design Engineer",
+                "Energy Engineer"
+              ]
             }
           ]
         },
@@ -382,9 +576,17 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 32,
-              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 60%",
+                "Physical Sciences 60%",
+                "Life Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Pharmacist", "Community Pharmacist", "Hospital Pharmacist"]
+              "career_outcomes": [
+                "Pharmacist",
+                "Community Pharmacist",
+                "Hospital Pharmacist"
+              ]
             }
           ]
         },
@@ -397,9 +599,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 34,
-              "required_subjects": ["Mathematics 70%"],
+              "required_subjects": [
+                "Mathematics 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chartered Accountant", "Auditor", "Financial Director"]
+              "career_outcomes": [
+                "Chartered Accountant",
+                "Auditor",
+                "Financial Director"
+              ]
             }
           ]
         }
@@ -424,9 +632,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 38,
-              "required_subjects": ["Mathematics 50%"],
+              "required_subjects": [
+                "Mathematics 50%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Financial Manager", "Marketer", "Investment Analyst"]
+              "career_outcomes": [
+                "Financial Manager",
+                "Marketer",
+                "Investment Analyst"
+              ]
             },
             {
               "degree_name": "BBusiness Science",
@@ -434,9 +648,15 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 42,
-              "required_subjects": ["Mathematics 70%"],
+              "required_subjects": [
+                "Mathematics 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Management Consultant", "Data Analyst", "Entrepreneur"]
+              "career_outcomes": [
+                "Management Consultant",
+                "Data Analyst",
+                "Entrepreneur"
+              ]
             }
           ]
         },
@@ -451,7 +671,12 @@
               "min_aps": 35,
               "required_subjects": [],
               "recommended_subjects": [],
-              "career_outcomes": ["Journalist", "Teacher", "NGO Manager", "HR Specialist"]
+              "career_outcomes": [
+                "Journalist",
+                "Teacher",
+                "NGO Manager",
+                "HR Specialist"
+              ]
             }
           ]
         },
@@ -464,9 +689,16 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 40,
-              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 60%",
+                "Physical Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Data Scientist", "Environmental Consultant", "Research Scientist"]
+              "career_outcomes": [
+                "Data Scientist",
+                "Environmental Consultant",
+                "Research Scientist"
+              ]
             }
           ]
         },
@@ -479,9 +711,17 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 40,
-              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 60%",
+                "Physical Sciences 60%",
+                "Life Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Community Pharmacist", "Hospital Pharmacist", "Industrial Pharmacist"]
+              "career_outcomes": [
+                "Community Pharmacist",
+                "Hospital Pharmacist",
+                "Industrial Pharmacist"
+              ]
             }
           ]
         }
@@ -506,9 +746,17 @@
               "nqf_level": 8,
               "duration_years": 6,
               "min_aps": 32,
-              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 60%",
+                "Physical Sciences 60%",
+                "Life Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Medical Doctor", "General Practitioner", "Specialist"]
+              "career_outcomes": [
+                "Medical Doctor",
+                "General Practitioner",
+                "Specialist"
+              ]
             }
           ]
         },
@@ -521,9 +769,15 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Life Sciences 50%"],
+              "required_subjects": [
+                "Life Sciences 50%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Professional Nurse", "Nurse Educator", "Clinical Nurse Specialist"]
+              "career_outcomes": [
+                "Professional Nurse",
+                "Nurse Educator",
+                "Clinical Nurse Specialist"
+              ]
             }
           ]
         },
@@ -536,9 +790,17 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 32,
-              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 60%",
+                "Physical Sciences 60%",
+                "Life Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Pharmacist", "Clinical Pharmacist", "Pharmaceutical Researcher"]
+              "career_outcomes": [
+                "Pharmacist",
+                "Clinical Pharmacist",
+                "Pharmaceutical Researcher"
+              ]
             }
           ]
         }
@@ -563,9 +825,15 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 26,
-              "required_subjects": ["Depends on teaching subjects"],
+              "required_subjects": [
+                "Depends on teaching subjects"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["High School Teacher", "Subject Specialist", "Education Administrator"]
+              "career_outcomes": [
+                "High School Teacher",
+                "Subject Specialist",
+                "Education Administrator"
+              ]
             }
           ]
         },
@@ -578,9 +846,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 60%"],
+              "required_subjects": [
+                "Mathematics 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Data Scientist", "Business Intelligence Analyst", "Machine Learning Engineer"]
+              "career_outcomes": [
+                "Data Scientist",
+                "Business Intelligence Analyst",
+                "Machine Learning Engineer"
+              ]
             }
           ]
         }
@@ -605,9 +879,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 38,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Structural Engineer", "Water Resource Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Structural Engineer",
+                "Water Resource Engineer"
+              ]
             },
             {
               "degree_name": "BEng Electrical & Electronic",
@@ -615,9 +896,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 38,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Electronics Engineer", "Renewable Energy Specialist"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Electronics Engineer",
+                "Renewable Energy Specialist"
+              ]
             }
           ]
         },
@@ -630,9 +918,17 @@
               "nqf_level": 8,
               "duration_years": 6,
               "min_aps": 45,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 70%", "Life Sciences 70%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 70%",
+                "Life Sciences 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Medical Doctor", "Surgeon", "Research Physician"]
+              "career_outcomes": [
+                "Medical Doctor",
+                "Surgeon",
+                "Research Physician"
+              ]
             }
           ]
         },
@@ -645,9 +941,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 36,
-              "required_subjects": ["Mathematics 60%"],
+              "required_subjects": [
+                "Mathematics 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Business Manager", "Entrepreneur", "Operations Manager"]
+              "career_outcomes": [
+                "Business Manager",
+                "Entrepreneur",
+                "Operations Manager"
+              ]
             }
           ]
         }
@@ -672,9 +974,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Construction Manager", "Transportation Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Construction Manager",
+                "Transportation Engineer"
+              ]
             },
             {
               "degree_name": "BEngTech Electrical Engineering",
@@ -682,9 +991,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Automation Engineer", "Renewable Energy Specialist"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Automation Engineer",
+                "Renewable Energy Specialist"
+              ]
             },
             {
               "degree_name": "BEngTech Mechanical Engineering",
@@ -692,9 +1008,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Manufacturing Engineer"]
+              "career_outcomes": [
+                "Mechanical Engineer",
+                "Design Engineer",
+                "Manufacturing Engineer"
+              ]
             }
           ]
         },
@@ -707,9 +1030,50 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 26,
-              "required_subjects": ["Mathematics 4 or Math Lit 6"],
+              "required_subjects": [
+                "Mathematics 4 or Math Lit 6"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Software Developer", "Network Engineer", "Cybersecurity Analyst"]
+              "career_outcomes": [
+                "Software Developer",
+                "Network Engineer",
+                "Cybersecurity Analyst"
+              ]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Performing Arts",
+          "programs": [
+            {
+              "degree_name": "Diploma Performing Arts",
+              "degree_type": "Diploma",
+              "nqf_level": 6,
+              "duration_years": 3,
+              "min_aps": 24,
+              "required_subjects": [
+                "English 5"
+              ],
+              "recommended_subjects": [
+                "Drama",
+                "Music",
+                "Visual Arts"
+              ],
+              "audition_required": true,
+              "portfolio_required": true,
+              "career_outcomes": [
+                "Performer",
+                "Arts Facilitator",
+                "Community Arts Coordinator"
+              ],
+              "4ir_pathways": [
+                "Digital Performance Creator",
+                "Community Arts Technology Facilitator"
+              ],
+              "salary_range": "R8K-R35K",
+              "employment_rate": "58%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Audition and portfolio required"
             }
           ]
         }
@@ -734,9 +1098,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 42,
-              "required_subjects": ["Mathematics 80%", "Physical Sciences 70%"],
+              "required_subjects": [
+                "Mathematics 80%",
+                "Physical Sciences 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Structural Engineer", "Water Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Structural Engineer",
+                "Water Engineer"
+              ]
             },
             {
               "degree_name": "BSc Engineering (Electrical)",
@@ -744,9 +1115,71 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 42,
-              "required_subjects": ["Mathematics 80%", "Physical Sciences 70%"],
+              "required_subjects": [
+                "Mathematics 80%",
+                "Physical Sciences 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Power Systems Engineer", "Telecom Engineer"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Power Systems Engineer",
+                "Telecom Engineer"
+              ]
+            },
+            {
+              "degree_name": "BArch Architecture",
+              "degree_type": "BArch",
+              "nqf_level": 8,
+              "duration_years": 5,
+              "min_aps": 42,
+              "required_subjects": [
+                "Mathematics 7",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Design"
+              ],
+              "portfolio_required": true,
+              "career_outcomes": [
+                "Architect",
+                "Urban Planner",
+                "Heritage Specialist"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "AR/VR Developer"
+              ],
+              "salary_range": "R25K-R90K",
+              "employment_rate": "90%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Portfolio + interview required"
+            },
+            {
+              "degree_name": "BSc Software Engineering",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 40,
+              "required_subjects": [
+                "Mathematics 7",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [
+                "Information Technology"
+              ],
+              "career_outcomes": [
+                "Software Engineer",
+                "Full Stack Developer",
+                "Software Architect"
+              ],
+              "4ir_pathways": [
+                "AI/ML Engineer",
+                "DevOps Engineer",
+                "Cloud Engineer"
+              ],
+              "salary_range": "R25K-R120K",
+              "employment_rate": "95%"
             }
           ]
         },
@@ -759,9 +1192,177 @@
               "nqf_level": 8,
               "duration_years": 6,
               "min_aps": 45,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 70%", "Life Sciences 70%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 70%",
+                "Life Sciences 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Medical Doctor", "Surgeon", "Research Physician"]
+              "career_outcomes": [
+                "Medical Doctor",
+                "Surgeon",
+                "Research Physician"
+              ]
+            },
+            {
+              "degree_name": "BSc Radiography",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 38,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Groote Schuur Hospital, Red Cross Children's Hospital",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Diagnostic Radiographer",
+                "Therapeutic Radiographer",
+                "Medical Imaging Specialist"
+              ],
+              "4ir_pathways": [
+                "AI Medical Imaging Specialist",
+                "Telemedicine Technologist",
+                "Digital Health Specialist"
+              ],
+              "salary_range": "R25K-R85K",
+              "employment_rate": "96%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Medical fitness certificate"
+            },
+            {
+              "degree_name": "BSc Occupational Therapy",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 40,
+              "required_subjects": [
+                "Mathematics 5",
+                "Life Sciences 6",
+                "English 6"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences 5"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Groote Schuur Hospital, Community health centers",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Occupational Therapist",
+                "Rehabilitation Specialist",
+                "Community Health Therapist"
+              ],
+              "4ir_pathways": [
+                "Digital Rehabilitation Specialist",
+                "Assistive Technology Developer",
+                "Telehealth Therapist"
+              ],
+              "salary_range": "R22K-R75K",
+              "employment_rate": "94%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Interview, Medical fitness"
+            },
+            {
+              "degree_name": "BSc Speech-Language Pathology & Audiology",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 38,
+              "required_subjects": [
+                "Mathematics 5",
+                "Life Sciences 6",
+                "English 7"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences 5"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Red Cross Children's Hospital, ENT clinics",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Speech Therapist",
+                "Audiologist",
+                "Communication Disorders Specialist"
+              ],
+              "4ir_pathways": [
+                "Digital Speech Therapy Specialist",
+                "AI Communication Assistant Developer",
+                "Telehealth Speech Therapist"
+              ],
+              "salary_range": "R20K-R70K",
+              "employment_rate": "92%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Hearing test, Interview"
+            },
+            {
+              "degree_name": "BSc Physiotherapy",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 42,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6",
+                "Life Sciences 7"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Groote Schuur Hospital, Sports medicine clinics",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Physiotherapist",
+                "Sports Therapist",
+                "Rehabilitation Specialist"
+              ],
+              "4ir_pathways": [
+                "Digital Rehabilitation Specialist",
+                "Wearable Health Tech Specialist",
+                "Telehealth Physiotherapist"
+              ],
+              "salary_range": "R25K-R80K",
+              "employment_rate": "97%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Physical fitness test, Interview"
+            },
+            {
+              "degree_name": "BSc Dietetics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 36,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Groote Schuur Hospital, Community nutrition centers",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Dietitian",
+                "Clinical Nutritionist",
+                "Sports Nutritionist"
+              ],
+              "4ir_pathways": [
+                "Digital Nutrition Specialist",
+                "AI Meal Planning Developer",
+                "Personalized Nutrition Analyst"
+              ],
+              "salary_range": "R18K-R65K",
+              "employment_rate": "89%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Interview"
             }
           ]
         },
@@ -774,9 +1375,191 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 40,
-              "required_subjects": ["Mathematics 70%"],
+              "required_subjects": [
+                "Mathematics 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chartered Accountant", "Financial Analyst", "Auditor"]
+              "career_outcomes": [
+                "Chartered Accountant",
+                "Financial Analyst",
+                "Auditor"
+              ]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Humanities",
+          "programs": [
+            {
+              "degree_name": "BA Psychology",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": [
+                "Mathematics 5"
+              ],
+              "recommended_subjects": [
+                "Life Sciences"
+              ],
+              "career_outcomes": [
+                "Psychologist",
+                "Counselor",
+                "Human Resources Specialist"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R12K-R50K",
+              "employment_rate": "85%"
+            },
+            {
+              "degree_name": "LLB Law",
+              "degree_type": "LLB",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6"
+              ],
+              "recommended_subjects": [
+                "History",
+                "Geography"
+              ],
+              "career_outcomes": [
+                "Advocate",
+                "Attorney",
+                "Legal Advisor"
+              ],
+              "4ir_pathways": [
+                "Legal Tech Specialist",
+                "Blockchain Developer"
+              ],
+              "salary_range": "R15K-R120K",
+              "employment_rate": "90%"
+            },
+            {
+              "degree_name": "BA Fine Arts",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 38,
+              "required_subjects": [
+                "English 6"
+              ],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Design"
+              ],
+              "portfolio_required": true,
+              "career_outcomes": [
+                "Artist",
+                "Curator",
+                "Art Director",
+                "Gallery Manager"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "Digital Artist",
+                "AR/VR Content Creator"
+              ],
+              "salary_range": "R15K-R60K",
+              "employment_rate": "75%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Portfolio submission by June 30, 2026"
+            },
+            {
+              "degree_name": "BA Film & Media Studies",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 35,
+              "required_subjects": [
+                "English 6"
+              ],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Drama"
+              ],
+              "portfolio_required": true,
+              "career_outcomes": [
+                "Film Director",
+                "Producer",
+                "Screenwriter",
+                "Media Analyst"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist",
+                "Content Creator",
+                "AR/VR Developer"
+              ],
+              "salary_range": "R18K-R70K",
+              "employment_rate": "78%"
+            },
+            {
+              "degree_name": "BA Drama",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 35,
+              "required_subjects": [
+                "English 6"
+              ],
+              "recommended_subjects": [
+                "Drama",
+                "Music"
+              ],
+              "audition_required": true,
+              "portfolio_required": false,
+              "career_outcomes": [
+                "Actor",
+                "Director",
+                "Theatre Producer",
+                "Drama Teacher",
+                "Arts Administrator"
+              ],
+              "4ir_pathways": [
+                "Digital Content Creator",
+                "Virtual Performance Designer",
+                "Arts Technology Specialist"
+              ],
+              "salary_range": "R12K-R55K",
+              "employment_rate": "72%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Audition required - practical performance assessment"
+            },
+            {
+              "degree_name": "BA Music",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 33,
+              "required_subjects": [
+                "English 6"
+              ],
+              "recommended_subjects": [
+                "Music",
+                "Mathematics"
+              ],
+              "audition_required": true,
+              "portfolio_required": false,
+              "career_outcomes": [
+                "Musician",
+                "Music Teacher",
+                "Composer",
+                "Music Producer",
+                "Sound Engineer"
+              ],
+              "4ir_pathways": [
+                "Digital Music Producer",
+                "Audio Technology Specialist",
+                "Music AI Developer"
+              ],
+              "salary_range": "R10K-R60K",
+              "employment_rate": "68%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Audition required - musical performance and theory test"
             }
           ]
         }
@@ -801,9 +1584,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4 or Math Lit 6"],
+              "required_subjects": [
+                "Mathematics 4 or Math Lit 6"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Accountant", "Auditor", "Financial Manager"]
+              "career_outcomes": [
+                "Accountant",
+                "Auditor",
+                "Financial Manager"
+              ]
             }
           ]
         }
@@ -828,9 +1617,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 36,
-              "required_subjects": ["Mathematics 6", "Physical Sciences 5"],
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Project Manager", "Geotechnical Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Project Manager",
+                "Geotechnical Engineer"
+              ]
             },
             {
               "degree_name": "BEng Electrical & Electronic Engineering",
@@ -838,9 +1634,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 36,
-              "required_subjects": ["Mathematics 6", "Physical Sciences 5"],
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Electronics Engineer", "Control Systems Engineer"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Electronics Engineer",
+                "Control Systems Engineer"
+              ]
             }
           ]
         },
@@ -853,9 +1656,111 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 33,
-              "required_subjects": ["Mathematics 5"],
+              "required_subjects": [
+                "Mathematics 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chartered Accountant", "Tax Consultant", "Financial Controller"]
+              "career_outcomes": [
+                "Chartered Accountant",
+                "Tax Consultant",
+                "Financial Controller"
+              ]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Arts & Design",
+          "programs": [
+            {
+              "degree_name": "BA Graphic Design",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": [
+                "English 5"
+              ],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Design"
+              ],
+              "portfolio_required": true,
+              "career_outcomes": [
+                "Graphic Designer",
+                "Brand Designer",
+                "Web Designer",
+                "Art Director"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R15K-R65K",
+              "employment_rate": "82%"
+            },
+            {
+              "degree_name": "BA Fashion Design",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": [
+                "English 5"
+              ],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Consumer Studies"
+              ],
+              "portfolio_required": true,
+              "career_outcomes": [
+                "Fashion Designer",
+                "Stylist",
+                "Fashion Buyer",
+                "Textile Designer"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist",
+                "E-commerce Specialist"
+              ],
+              "salary_range": "R12K-R55K",
+              "employment_rate": "75%"
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "BSc Biokinetics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Sports medicine clinics, Fitness centers",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Biokineticist",
+                "Exercise Physiologist",
+                "Sports Performance Analyst"
+              ],
+              "4ir_pathways": [
+                "Wearable Fitness Tech Developer",
+                "AI Sports Performance Analyst",
+                "Digital Health Coach"
+              ],
+              "salary_range": "R18K-R65K",
+              "employment_rate": "86%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Fitness assessment"
             }
           ]
         }
@@ -880,9 +1785,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 33,
-              "required_subjects": ["Mathematics Level 6", "Physical Sciences Level 5"],
+              "required_subjects": [
+                "Mathematics Level 6",
+                "Physical Sciences Level 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Water Engineer", "Structural Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Water Engineer",
+                "Structural Engineer"
+              ]
             }
           ]
         },
@@ -895,9 +1807,17 @@
               "nqf_level": 8,
               "duration_years": 6,
               "min_aps": 35,
-              "required_subjects": ["Mathematics Level 5", "Physical Sciences Level 5", "Life Sciences Level 5"],
+              "required_subjects": [
+                "Mathematics Level 5",
+                "Physical Sciences Level 5",
+                "Life Sciences Level 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Medical Doctor", "Specialist Physician", "Surgeon"]
+              "career_outcomes": [
+                "Medical Doctor",
+                "Specialist Physician",
+                "Surgeon"
+              ]
             }
           ]
         },
@@ -910,9 +1830,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 32,
-              "required_subjects": ["Mathematics Level 5"],
+              "required_subjects": [
+                "Mathematics Level 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chartered Accountant", "Financial Manager", "Auditor"]
+              "career_outcomes": [
+                "Chartered Accountant",
+                "Financial Manager",
+                "Auditor"
+              ]
             }
           ]
         }
@@ -937,9 +1863,17 @@
               "nqf_level": 8,
               "duration_years": 6,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 5", "Life Sciences 5"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Medical Doctor", "General Practitioner", "Public Health Physician"]
+              "career_outcomes": [
+                "Medical Doctor",
+                "General Practitioner",
+                "Public Health Physician"
+              ]
             }
           ]
         }
@@ -964,9 +1898,14 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 26,
-              "required_subjects": ["English Home or First Additional Language 4"],
+              "required_subjects": [
+                "English Home or First Additional Language 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Foundation Phase Teacher", "Early Childhood Educator"]
+              "career_outcomes": [
+                "Foundation Phase Teacher",
+                "Early Childhood Educator"
+              ]
             }
           ]
         }
@@ -991,9 +1930,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 21,
-              "required_subjects": ["Mathematics 50% or Math Lit 60%"],
+              "required_subjects": [
+                "Mathematics 50% or Math Lit 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Accountant", "Financial Analyst", "Tax Practitioner"]
+              "career_outcomes": [
+                "Accountant",
+                "Financial Analyst",
+                "Tax Practitioner"
+              ]
             }
           ]
         },
@@ -1006,9 +1951,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 20,
-              "required_subjects": ["Mathematics 50%"],
+              "required_subjects": [
+                "Mathematics 50%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Software Developer", "IT Project Manager", "Systems Analyst"]
+              "career_outcomes": [
+                "Software Developer",
+                "IT Project Manager",
+                "Systems Analyst"
+              ]
             }
           ]
         }
@@ -1033,9 +1984,77 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 32,
-              "required_subjects": ["Mathematics 60%"],
+              "required_subjects": [
+                "Mathematics 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chartered Accountant", "Auditor", "Financial Manager"]
+              "career_outcomes": [
+                "Chartered Accountant",
+                "Auditor",
+                "Financial Manager"
+              ]
+            },
+            {
+              "degree_name": "BSc Agricultural Economics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": [
+                "Mathematics 4",
+                "English 5"
+              ],
+              "recommended_subjects": [
+                "Agricultural Sciences",
+                "Economics"
+              ],
+              "fieldwork_required": true,
+              "career_outcomes": [
+                "Agricultural Economist",
+                "Farm Business Advisor",
+                "Agricultural Bank Specialist",
+                "Commodity Trader"
+              ],
+              "4ir_pathways": [
+                "Agricultural Data Scientist",
+                "Farm Management Software Developer",
+                "Agricultural Market Analyst"
+              ],
+              "salary_range": "R14K-R60K",
+              "employment_rate": "83%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Farm placement and business project required"
+            },
+            {
+              "degree_name": "BSc Horticulture",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": [
+                "Mathematics 4",
+                "Physical Sciences 4",
+                "Life Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Agricultural Sciences"
+              ],
+              "fieldwork_required": true,
+              "career_outcomes": [
+                "Horticulturist",
+                "Crop Production Manager",
+                "Greenhouse Manager",
+                "Plant Breeder"
+              ],
+              "4ir_pathways": [
+                "Smart Greenhouse Developer",
+                "Precision Horticulture Specialist",
+                "Plant Genetics AI Researcher"
+              ],
+              "salary_range": "R13K-R50K",
+              "employment_rate": "80%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Practical farm work and research project"
             }
           ]
         },
@@ -1048,9 +2067,17 @@
               "nqf_level": 8,
               "duration_years": 5,
               "min_aps": 36,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 70%", "Life Sciences 70%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 70%",
+                "Life Sciences 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Medical Doctor", "General Practitioner", "Specialist Physician"]
+              "career_outcomes": [
+                "Medical Doctor",
+                "General Practitioner",
+                "Specialist Physician"
+              ]
             }
           ]
         },
@@ -1063,9 +2090,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 32,
-              "required_subjects": ["Mathematics 60%", "Physical Sciences or Life Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 60%",
+                "Physical Sciences or Life Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Agricultural Consultant", "Farm Manager", "Agri-business Specialist"]
+              "career_outcomes": [
+                "Agricultural Consultant",
+                "Farm Manager",
+                "Agri-business Specialist"
+              ]
             }
           ]
         }
@@ -1090,9 +2124,80 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 30,
-              "required_subjects": ["Life Sciences 50%", "Mathematics 40% or Math Lit 70%"],
+              "required_subjects": [
+                "Life Sciences 50%",
+                "Mathematics 40% or Math Lit 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Professional Nurse", "Midwife", "Community Health Nurse"]
+              "career_outcomes": [
+                "Professional Nurse",
+                "Midwife",
+                "Community Health Nurse"
+              ]
+            },
+            {
+              "degree_name": "BSc Physiotherapy",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Tygerberg Hospital, Community health centers",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Physiotherapist",
+                "Community Physiotherapist",
+                "Pediatric Physiotherapist"
+              ],
+              "4ir_pathways": [
+                "Telehealth Physiotherapist",
+                "Digital Rehabilitation Specialist",
+                "Community Health Tech Specialist"
+              ],
+              "salary_range": "R20K-R70K",
+              "employment_rate": "90%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Community service commitment"
+            },
+            {
+              "degree_name": "BSc Dietetics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Tygerberg Hospital, Community nutrition programs",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Dietitian",
+                "Community Nutritionist",
+                "Public Health Dietitian"
+              ],
+              "4ir_pathways": [
+                "Digital Nutrition Educator",
+                "Community Health Tech Specialist",
+                "Mobile Health App Developer"
+              ],
+              "salary_range": "R16K-R60K",
+              "employment_rate": "85%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Community service orientation"
             }
           ]
         },
@@ -1105,9 +2210,17 @@
               "nqf_level": 8,
               "duration_years": 5,
               "min_aps": 34,
-              "required_subjects": ["Mathematics 60%", "Physical Sciences 60%", "Life Sciences 60%"],
+              "required_subjects": [
+                "Mathematics 60%",
+                "Physical Sciences 60%",
+                "Life Sciences 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Dentist", "Oral Surgeon", "Orthodontist"]
+              "career_outcomes": [
+                "Dentist",
+                "Oral Surgeon",
+                "Orthodontist"
+              ]
             }
           ]
         },
@@ -1120,9 +2233,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 40% or Math Lit 60%"],
+              "required_subjects": [
+                "Mathematics 40% or Math Lit 60%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Financial Analyst", "Management Consultant", "Entrepreneur"]
+              "career_outcomes": [
+                "Financial Analyst",
+                "Management Consultant",
+                "Entrepreneur"
+              ]
             }
           ]
         }
@@ -1147,9 +2266,16 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 42,
-              "required_subjects": ["Mathematics 80%", "Physical Sciences 70%"],
+              "required_subjects": [
+                "Mathematics 80%",
+                "Physical Sciences 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Structural Engineer", "Project Manager"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Structural Engineer",
+                "Project Manager"
+              ]
             },
             {
               "degree_name": "BSc Engineering (Mechanical)",
@@ -1157,9 +2283,95 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 42,
-              "required_subjects": ["Mathematics 80%", "Physical Sciences 70%"],
+              "required_subjects": [
+                "Mathematics 80%",
+                "Physical Sciences 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Mechanical Engineer", "Design Engineer", "Automotive Engineer"]
+              "career_outcomes": [
+                "Mechanical Engineer",
+                "Design Engineer",
+                "Automotive Engineer"
+              ]
+            },
+            {
+              "degree_name": "BArch Architecture",
+              "degree_type": "BArch",
+              "nqf_level": 8,
+              "duration_years": 5,
+              "min_aps": 40,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Design"
+              ],
+              "portfolio_required": true,
+              "career_outcomes": [
+                "Architect",
+                "Urban Planner",
+                "Interior Designer"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "AR/VR Developer"
+              ],
+              "salary_range": "R22K-R85K",
+              "employment_rate": "89%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Portfolio submission required"
+            },
+            {
+              "degree_name": "BSc Cybersecurity",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 38,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Information Technology"
+              ],
+              "career_outcomes": [
+                "Cybersecurity Analyst",
+                "Security Consultant",
+                "Ethical Hacker"
+              ],
+              "4ir_pathways": [
+                "Cybersecurity Specialist",
+                "Cloud Security Engineer"
+              ],
+              "salary_range": "R30K-R150K",
+              "employment_rate": "98%"
+            },
+            {
+              "degree_name": "BSc Data Science",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 38,
+              "required_subjects": [
+                "Mathematics 7",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [
+                "Information Technology"
+              ],
+              "career_outcomes": [
+                "Data Scientist",
+                "Data Analyst",
+                "Machine Learning Engineer"
+              ],
+              "4ir_pathways": [
+                "AI/ML Engineer",
+                "Data Science Specialist"
+              ],
+              "salary_range": "R28K-R140K",
+              "employment_rate": "96%"
             }
           ]
         },
@@ -1172,9 +2384,145 @@
               "nqf_level": 8,
               "duration_years": 6,
               "min_aps": 44,
-              "required_subjects": ["Mathematics 70%", "Physical Sciences 70%", "Life Sciences 70%"],
+              "required_subjects": [
+                "Mathematics 70%",
+                "Physical Sciences 70%",
+                "Life Sciences 70%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Medical Doctor", "Surgeon", "Specialist Physician"]
+              "career_outcomes": [
+                "Medical Doctor",
+                "Surgeon",
+                "Specialist Physician"
+              ]
+            },
+            {
+              "degree_name": "BSc Radiography",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 36,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Charlotte Maxeke Hospital, Chris Hani Baragwanath Hospital",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Diagnostic Radiographer",
+                "Nuclear Medicine Technologist",
+                "Medical Imaging Specialist"
+              ],
+              "4ir_pathways": [
+                "AI Medical Imaging Specialist",
+                "Digital Radiology Specialist",
+                "Telemedicine Technologist"
+              ],
+              "salary_range": "R24K-R82K",
+              "employment_rate": "95%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Medical fitness certificate"
+            },
+            {
+              "degree_name": "BSc Occupational Therapy",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 38,
+              "required_subjects": [
+                "Mathematics 5",
+                "Life Sciences 6",
+                "English 6"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences 5"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Charlotte Maxeke Hospital, Rehabilitation centers",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Occupational Therapist",
+                "Hand Therapist",
+                "Pediatric Therapist"
+              ],
+              "4ir_pathways": [
+                "Digital Rehabilitation Specialist",
+                "Assistive Technology Developer",
+                "VR Therapy Specialist"
+              ],
+              "salary_range": "R21K-R73K",
+              "employment_rate": "93%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Interview, Criminal clearance"
+            },
+            {
+              "degree_name": "BSc Speech-Language Pathology & Audiology",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 36,
+              "required_subjects": [
+                "Mathematics 5",
+                "Life Sciences 6",
+                "English 7"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences 5"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Charlotte Maxeke Hospital, Audiology clinics",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Speech Therapist",
+                "Audiologist",
+                "Early Intervention Specialist"
+              ],
+              "4ir_pathways": [
+                "AI Speech Recognition Developer",
+                "Digital Hearing Aid Specialist",
+                "Telehealth Communication Therapist"
+              ],
+              "salary_range": "R19K-R68K",
+              "employment_rate": "91%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Hearing assessment, Interview"
+            },
+            {
+              "degree_name": "BSc Biokinetics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 34,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Sports medicine clinics, Rehabilitation centers",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Biokineticist",
+                "Exercise Therapist",
+                "Sports Scientist"
+              ],
+              "4ir_pathways": [
+                "Wearable Health Tech Specialist",
+                "Digital Fitness Analyst",
+                "AI Exercise Prescription Developer"
+              ],
+              "salary_range": "R20K-R70K",
+              "employment_rate": "88%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Physical fitness assessment"
             }
           ]
         },
@@ -1187,9 +2535,129 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 40,
-              "required_subjects": ["Mathematics 75%"],
+              "required_subjects": [
+                "Mathematics 75%"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Chartered Accountant", "Financial Director", "Investment Banker"]
+              "career_outcomes": [
+                "Chartered Accountant",
+                "Financial Director",
+                "Investment Banker"
+              ]
+            }
+          ]
+        },
+        {
+          "faculty_name": "Arts & Design",
+          "programs": [
+            {
+              "degree_name": "BA Fine Arts",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 24,
+              "required_subjects": [],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Design"
+              ],
+              "career_outcomes": [
+                "Artist",
+                "Gallery Curator",
+                "Art Teacher"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "AR/VR Developer"
+              ],
+              "salary_range": "R8K-R40K",
+              "employment_rate": "65%"
+            },
+            {
+              "degree_name": "BArch Architecture",
+              "degree_type": "BArch",
+              "nqf_level": 8,
+              "duration_years": 5,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Design"
+              ],
+              "career_outcomes": [
+                "Architect",
+                "Urban Planner",
+                "Interior Designer"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "AR/VR Developer"
+              ],
+              "salary_range": "R20K-R70K",
+              "employment_rate": "88%"
+            },
+            {
+              "degree_name": "BA Dramatic Arts",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 35,
+              "required_subjects": [
+                "English 6"
+              ],
+              "recommended_subjects": [
+                "Drama",
+                "Music"
+              ],
+              "audition_required": true,
+              "career_outcomes": [
+                "Actor",
+                "Director",
+                "Theatre Producer",
+                "Drama Teacher"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist",
+                "Content Creator"
+              ],
+              "salary_range": "R12K-R50K",
+              "employment_rate": "70%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Audition required"
+            },
+            {
+              "degree_name": "BA Music",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 32,
+              "required_subjects": [
+                "English 6"
+              ],
+              "recommended_subjects": [
+                "Music",
+                "Mathematics"
+              ],
+              "audition_required": true,
+              "portfolio_required": false,
+              "career_outcomes": [
+                "Musician",
+                "Music Educator",
+                "Composer",
+                "Music Therapist"
+              ],
+              "4ir_pathways": [
+                "Digital Audio Specialist",
+                "Music Technology Developer",
+                "AI Music Composer"
+              ],
+              "salary_range": "R11K-R58K",
+              "employment_rate": "69%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Audition required - practical and theoretical assessment"
             }
           ]
         }
@@ -1214,9 +2682,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Civil Engineer", "Construction Supervisor", "Project Engineer"]
+              "career_outcomes": [
+                "Civil Engineer",
+                "Construction Supervisor",
+                "Project Engineer"
+              ]
             },
             {
               "degree_name": "BEngTech Electrical Engineering",
@@ -1224,9 +2699,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Electrical Engineer", "Power Systems Technician", "Automation Specialist"]
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Power Systems Technician",
+                "Automation Specialist"
+              ]
             }
           ]
         },
@@ -1239,9 +2721,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4 or Math Lit 6"],
+              "required_subjects": [
+                "Mathematics 4 or Math Lit 6"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Management Accountant", "Cost Analyst", "Financial Controller"]
+              "career_outcomes": [
+                "Management Accountant",
+                "Cost Analyst",
+                "Financial Controller"
+              ]
             }
           ]
         }
@@ -1266,9 +2754,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4", "Physical Sciences or Life Sciences 4"],
+              "required_subjects": [
+                "Mathematics 4",
+                "Physical Sciences or Life Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Agricultural Manager", "Extension Officer", "Agri-business Consultant"]
+              "career_outcomes": [
+                "Agricultural Manager",
+                "Extension Officer",
+                "Agri-business Consultant"
+              ]
             }
           ]
         },
@@ -1281,9 +2776,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4 or Math Lit 6"],
+              "required_subjects": [
+                "Mathematics 4 or Math Lit 6"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Accountant", "Auditor", "Financial Officer"]
+              "career_outcomes": [
+                "Accountant",
+                "Auditor",
+                "Financial Officer"
+              ]
             }
           ]
         },
@@ -1296,9 +2797,15 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 26,
-              "required_subjects": ["English Home or First Additional Language 4"],
+              "required_subjects": [
+                "English Home or First Additional Language 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["High School Teacher", "Subject Specialist", "School Principal"]
+              "career_outcomes": [
+                "High School Teacher",
+                "Subject Specialist",
+                "School Principal"
+              ]
             }
           ]
         }
@@ -1323,9 +2830,17 @@
               "nqf_level": 8,
               "duration_years": 6,
               "min_aps": 30,
-              "required_subjects": ["Mathematics 5", "Physical Sciences 5", "Life Sciences 5"],
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Medical Doctor", "General Practitioner", "Rural Health Specialist"]
+              "career_outcomes": [
+                "Medical Doctor",
+                "General Practitioner",
+                "Rural Health Specialist"
+              ]
             }
           ]
         },
@@ -1338,9 +2853,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 28,
-              "required_subjects": ["Mathematics 4"],
+              "required_subjects": [
+                "Mathematics 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Accountant", "Tax Consultant", "Financial Manager"]
+              "career_outcomes": [
+                "Accountant",
+                "Tax Consultant",
+                "Financial Manager"
+              ]
             }
           ]
         },
@@ -1353,9 +2874,14 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 26,
-              "required_subjects": ["English 4"],
+              "required_subjects": [
+                "English 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["High School Teacher", "Curriculum Developer"]
+              "career_outcomes": [
+                "High School Teacher",
+                "Curriculum Developer"
+              ]
             }
           ]
         }
@@ -1380,9 +2906,15 @@
               "nqf_level": 7,
               "duration_years": 3,
               "min_aps": 26,
-              "required_subjects": ["Mathematics 5"],
+              "required_subjects": [
+                "Mathematics 5"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Software Developer", "IT Consultant", "Systems Analyst"]
+              "career_outcomes": [
+                "Software Developer",
+                "IT Consultant",
+                "Systems Analyst"
+              ]
             }
           ]
         },
@@ -1395,9 +2927,16 @@
               "nqf_level": 7,
               "duration_years": 4,
               "min_aps": 26,
-              "required_subjects": ["Mathematics 4", "Life Sciences or Physical Sciences 4"],
+              "required_subjects": [
+                "Mathematics 4",
+                "Life Sciences or Physical Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Agricultural Scientist", "Farm Manager", "Extension Officer"]
+              "career_outcomes": [
+                "Agricultural Scientist",
+                "Farm Manager",
+                "Extension Officer"
+              ]
             }
           ]
         },
@@ -1410,9 +2949,1227 @@
               "nqf_level": 8,
               "duration_years": 4,
               "min_aps": 28,
-              "required_subjects": ["Life Sciences 4"],
+              "required_subjects": [
+                "Life Sciences 4"
+              ],
               "recommended_subjects": [],
-              "career_outcomes": ["Professional Nurse", "Community Health Nurse", "Nurse Educator"]
+              "career_outcomes": [
+                "Professional Nurse",
+                "Community Health Nurse",
+                "Nurse Educator"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "university_code": "UP",
+      "university_name": "University of Pretoria",
+      "university_type": "traditional",
+      "location": {
+        "province": "Gauteng",
+        "city": "Pretoria"
+      },
+      "application_link": "https://www.up.ac.za/apply",
+      "faculties": [
+        {
+          "faculty_name": "Engineering, Built Environment & IT",
+          "programs": [
+            {
+              "degree_name": "BEng Computer Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [
+                "Information Technology"
+              ],
+              "career_outcomes": [
+                "Software Engineer",
+                "AI/ML Engineer",
+                "Systems Engineer",
+                "Cybersecurity Engineer"
+              ],
+              "4ir_pathways": [
+                "AI/ML Engineer",
+                "DevOps Engineer",
+                "Cybersecurity Engineer"
+              ],
+              "salary_range": "R25K-R80K",
+              "employment_rate": "95%"
+            },
+            {
+              "degree_name": "BEng Civil Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Civil Engineer",
+                "Structural Engineer",
+                "Water Engineer",
+                "Construction Manager"
+              ],
+              "4ir_pathways": [
+                "Automation Engineer",
+                "IoT Specialist"
+              ],
+              "salary_range": "R25K-R70K",
+              "employment_rate": "92%"
+            },
+            {
+              "degree_name": "BEng Mechanical Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Mechanical Engineer",
+                "Design Engineer",
+                "Manufacturing Engineer"
+              ],
+              "4ir_pathways": [
+                "Robotics Engineer",
+                "Automation Engineer"
+              ],
+              "salary_range": "R25K-R75K",
+              "employment_rate": "90%"
+            },
+            {
+              "degree_name": "BEng Electrical Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Electrical Engineer",
+                "Power Systems Engineer",
+                "Control Systems Engineer"
+              ],
+              "4ir_pathways": [
+                "IoT Specialist",
+                "Renewable Energy Engineer"
+              ],
+              "salary_range": "R25K-R75K",
+              "employment_rate": "93%"
+            },
+            {
+              "degree_name": "BEng Chemical Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6",
+                "Chemistry 5"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Chemical Engineer",
+                "Process Engineer",
+                "Environmental Engineer"
+              ],
+              "4ir_pathways": [
+                "Renewable Energy Engineer",
+                "Automation Engineer"
+              ],
+              "salary_range": "R30K-R80K",
+              "employment_rate": "88%"
+            },
+            {
+              "degree_name": "BEng Industrial Engineering",
+              "degree_type": "BEng",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Industrial Engineer",
+                "Operations Manager",
+                "Quality Manager"
+              ],
+              "4ir_pathways": [
+                "Automation Engineer",
+                "Data Scientist"
+              ],
+              "salary_range": "R25K-R70K",
+              "employment_rate": "91%"
+            },
+            {
+              "degree_name": "BSc Computer Science",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Information Technology"
+              ],
+              "career_outcomes": [
+                "Software Developer",
+                "Systems Analyst",
+                "Database Administrator"
+              ],
+              "4ir_pathways": [
+                "AI/ML Engineer",
+                "DevOps Engineer",
+                "Cybersecurity Engineer"
+              ],
+              "salary_range": "R20K-R70K",
+              "employment_rate": "96%"
+            },
+            {
+              "degree_name": "BSc Information Technology",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
+              "recommended_subjects": [
+                "Information Technology"
+              ],
+              "career_outcomes": [
+                "IT Specialist",
+                "Network Administrator",
+                "Systems Administrator"
+              ],
+              "4ir_pathways": [
+                "Cloud Engineer",
+                "DevOps Engineer",
+                "Cybersecurity Engineer"
+              ],
+              "salary_range": "R18K-R60K",
+              "employment_rate": "94%"
+            },
+            {
+              "degree_name": "BSc Data Science",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 34,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Information Technology"
+              ],
+              "career_outcomes": [
+                "Data Scientist",
+                "Data Analyst",
+                "Business Intelligence Analyst"
+              ],
+              "4ir_pathways": [
+                "AI/ML Engineer",
+                "Data Scientist"
+              ],
+              "salary_range": "R25K-R80K",
+              "employment_rate": "97%"
+            },
+            {
+              "degree_name": "BArch Architecture",
+              "degree_type": "BArch",
+              "nqf_level": 8,
+              "duration_years": 5,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
+              "recommended_subjects": [
+                "Visual Arts",
+                "Design"
+              ],
+              "career_outcomes": [
+                "Architect",
+                "Urban Planner",
+                "Interior Designer"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "AR/VR Developer"
+              ],
+              "salary_range": "R20K-R60K",
+              "employment_rate": "85%"
+            },
+            {
+              "degree_name": "BSc Construction Management",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4"
+              ],
+              "recommended_subjects": [
+                "EGD"
+              ],
+              "career_outcomes": [
+                "Construction Manager",
+                "Project Manager",
+                "Quantity Surveyor"
+              ],
+              "4ir_pathways": [
+                "IoT Specialist",
+                "Automation Engineer"
+              ],
+              "salary_range": "R18K-R65K",
+              "employment_rate": "92%"
+            },
+            {
+              "degree_name": "BSc Information Systems",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Information Technology"
+              ],
+              "career_outcomes": [
+                "Systems Analyst",
+                "Business Analyst",
+                "IT Consultant"
+              ],
+              "4ir_pathways": [
+                "Product Manager (Tech)",
+                "DevOps Engineer"
+              ],
+              "salary_range": "R22K-R100K",
+              "employment_rate": "93%"
+            }
+          ]
+        },
+        {
+          "faculty_name": "Health Sciences",
+          "programs": [
+            {
+              "degree_name": "MBChB Medicine",
+              "degree_type": "MBChB",
+              "nqf_level": 9,
+              "duration_years": 6,
+              "min_aps": 40,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Medical Doctor",
+                "Specialist Physician",
+                "General Practitioner"
+              ],
+              "4ir_pathways": [
+                "Digital Health Specialist",
+                "AI/ML Engineer (Healthcare)"
+              ],
+              "salary_range": "R40K-R150K",
+              "employment_rate": "99%"
+            },
+            {
+              "degree_name": "BChD Dentistry",
+              "degree_type": "BChD",
+              "nqf_level": 8,
+              "duration_years": 5,
+              "min_aps": 38,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 6",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Dentist",
+                "Oral Surgeon",
+                "Orthodontist"
+              ],
+              "4ir_pathways": [
+                "Digital Health Specialist"
+              ],
+              "salary_range": "R35K-R120K",
+              "employment_rate": "98%"
+            },
+            {
+              "degree_name": "BPharm Pharmacy",
+              "degree_type": "BPharm",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 6",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Pharmacist",
+                "Clinical Pharmacist",
+                "Industrial Pharmacist"
+              ],
+              "4ir_pathways": [
+                "Digital Health Specialist"
+              ],
+              "salary_range": "R25K-R80K",
+              "employment_rate": "95%"
+            },
+            {
+              "degree_name": "BSc Nursing",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": [
+                "Mathematics 4",
+                "Life Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences"
+              ],
+              "career_outcomes": [
+                "Professional Nurse",
+                "Nurse Manager",
+                "Clinical Nurse Specialist"
+              ],
+              "4ir_pathways": [
+                "Digital Health Specialist"
+              ],
+              "salary_range": "R15K-R45K",
+              "employment_rate": "97%"
+            },
+            {
+              "degree_name": "BSc Physiotherapy",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5",
+                "Life Sciences 6",
+                "Physical Sciences 5"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Physiotherapist",
+                "Sports Physiotherapist",
+                "Rehabilitation Specialist"
+              ],
+              "4ir_pathways": [
+                "Digital Health Specialist"
+              ],
+              "salary_range": "R20K-R60K",
+              "employment_rate": "92%"
+            },
+            {
+              "degree_name": "BSc Occupational Therapy",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": [
+                "Mathematics 4",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences"
+              ],
+              "career_outcomes": [
+                "Occupational Therapist",
+                "Rehabilitation Specialist",
+                "Community Health Worker"
+              ],
+              "4ir_pathways": [
+                "Digital Health Specialist"
+              ],
+              "salary_range": "R18K-R55K",
+              "employment_rate": "90%"
+            },
+            {
+              "degree_name": "BSc Radiography",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 35,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Steve Biko Academic Hospital, Kalafong Hospital",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Diagnostic Radiographer",
+                "Radiation Therapist",
+                "Medical Imaging Technologist"
+              ],
+              "4ir_pathways": [
+                "AI Diagnostic Imaging Specialist",
+                "Digital Health Technologist",
+                "Telemedicine Radiographer"
+              ],
+              "salary_range": "R23K-R80K",
+              "employment_rate": "94%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Medical examination"
+            },
+            {
+              "degree_name": "BSc Dietetics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 34,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "English 6"
+              ],
+              "nbt_required": true,
+              "clinical_placements": "Steve Biko Academic Hospital, Community health centers",
+              "hpcsa_registration": "Health Professions Council of South Africa",
+              "career_outcomes": [
+                "Dietitian",
+                "Clinical Nutritionist",
+                "Public Health Nutritionist"
+              ],
+              "4ir_pathways": [
+                "Personalized Nutrition AI Developer",
+                "Digital Health Coach",
+                "Nutrigenomics Specialist"
+              ],
+              "salary_range": "R17K-R63K",
+              "employment_rate": "87%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "NBT required, Interview"
+            },
+            {
+              "degree_name": "BSc Horticulture",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 30,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 4",
+                "Life Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Agricultural Sciences"
+              ],
+              "fieldwork_required": true,
+              "career_outcomes": [
+                "Horticulturist",
+                "Landscape Designer",
+                "Crop Specialist",
+                "Garden Center Manager"
+              ],
+              "4ir_pathways": [
+                "Precision Agriculture Specialist",
+                "Smart Farming Technologist",
+                "Agricultural IoT Developer"
+              ],
+              "salary_range": "R15K-R55K",
+              "employment_rate": "82%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Practical fieldwork component required"
+            },
+            {
+              "degree_name": "BSc Food Science",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 5",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "Agricultural Sciences"
+              ],
+              "fieldwork_required": true,
+              "career_outcomes": [
+                "Food Scientist",
+                "Quality Control Manager",
+                "Product Development Specialist",
+                "Food Safety Inspector"
+              ],
+              "4ir_pathways": [
+                "Food Technology AI Developer",
+                "Smart Food Processing Specialist",
+                "Blockchain Food Traceability Developer"
+              ],
+              "salary_range": "R18K-R70K",
+              "employment_rate": "88%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Laboratory and fieldwork components"
+            },
+            {
+              "degree_name": "BSc Agricultural Economics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": [
+                "Mathematics 5",
+                "English 5"
+              ],
+              "recommended_subjects": [
+                "Agricultural Sciences",
+                "Economics"
+              ],
+              "fieldwork_required": true,
+              "career_outcomes": [
+                "Agricultural Economist",
+                "Farm Manager",
+                "Agricultural Policy Analyst",
+                "Rural Development Specialist"
+              ],
+              "4ir_pathways": [
+                "Agricultural Data Analyst",
+                "Smart Farming Business Developer",
+                "Agricultural Fintech Specialist"
+              ],
+              "salary_range": "R16K-R65K",
+              "employment_rate": "85%",
+              "application_deadline": "July 31, 2026",
+              "special_requirements": "Farm visits and practical assessments"
+            }
+          ]
+        },
+        {
+          "faculty_name": "Economic & Management Sciences",
+          "programs": [
+            {
+              "degree_name": "BCom Accounting",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": [
+                "Mathematics 5",
+                "Accounting 5"
+              ],
+              "recommended_subjects": [
+                "Economics"
+              ],
+              "career_outcomes": [
+                "Chartered Accountant",
+                "Financial Manager",
+                "Auditor"
+              ],
+              "4ir_pathways": [
+                "Data Scientist",
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R15K-R80K",
+              "employment_rate": "93%"
+            },
+            {
+              "degree_name": "BCom Finance",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": [
+                "Mathematics 5"
+              ],
+              "recommended_subjects": [
+                "Accounting",
+                "Economics"
+              ],
+              "career_outcomes": [
+                "Financial Analyst",
+                "Investment Banker",
+                "Risk Manager"
+              ],
+              "4ir_pathways": [
+                "Data Scientist",
+                "AI/ML Engineer (Fintech)"
+              ],
+              "salary_range": "R18K-R90K",
+              "employment_rate": "91%"
+            },
+            {
+              "degree_name": "BCom Marketing",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": [
+                "Mathematics 4"
+              ],
+              "recommended_subjects": [
+                "Economics",
+                "Business Studies"
+              ],
+              "career_outcomes": [
+                "Marketing Manager",
+                "Brand Manager",
+                "Digital Marketing Specialist"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist",
+                "UX/UI Designer"
+              ],
+              "salary_range": "R15K-R70K",
+              "employment_rate": "88%"
+            },
+            {
+              "degree_name": "BCom Management",
+              "degree_type": "BCom",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": [
+                "Mathematics 4"
+              ],
+              "recommended_subjects": [
+                "Economics",
+                "Business Studies"
+              ],
+              "career_outcomes": [
+                "Operations Manager",
+                "Project Manager",
+                "Human Resources Manager"
+              ],
+              "4ir_pathways": [
+                "Product Manager (Tech)",
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R15K-R65K",
+              "employment_rate": "89%"
+            },
+            {
+              "degree_name": "BBusSci Business Science",
+              "degree_type": "BBusSci",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 6"
+              ],
+              "recommended_subjects": [
+                "Economics",
+                "Accounting"
+              ],
+              "career_outcomes": [
+                "Business Analyst",
+                "Management Consultant",
+                "Investment Analyst"
+              ],
+              "4ir_pathways": [
+                "Data Scientist",
+                "Product Manager (Tech)"
+              ],
+              "salary_range": "R20K-R85K",
+              "employment_rate": "94%"
+            },
+            {
+              "degree_name": "BEcon Economics",
+              "degree_type": "BEcon",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": [
+                "Mathematics 5"
+              ],
+              "recommended_subjects": [
+                "Economics"
+              ],
+              "career_outcomes": [
+                "Economist",
+                "Policy Analyst",
+                "Research Analyst"
+              ],
+              "4ir_pathways": [
+                "Data Scientist",
+                "AI/ML Engineer"
+              ],
+              "salary_range": "R18K-R75K",
+              "employment_rate": "87%"
+            }
+          ]
+        },
+        {
+          "faculty_name": "Humanities",
+          "programs": [
+            {
+              "degree_name": "BA Psychology",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 26,
+              "required_subjects": [
+                "Mathematics 4"
+              ],
+              "recommended_subjects": [
+                "Life Sciences"
+              ],
+              "career_outcomes": [
+                "Psychologist",
+                "Counselor",
+                "Human Resources Specialist"
+              ],
+              "4ir_pathways": [
+                "UX/UI Designer",
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R12K-R50K",
+              "employment_rate": "82%"
+            },
+            {
+              "degree_name": "BA Sociology",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 24,
+              "required_subjects": [],
+              "recommended_subjects": [
+                "History",
+                "Geography"
+              ],
+              "career_outcomes": [
+                "Social Worker",
+                "Community Development Worker",
+                "Research Analyst"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist",
+                "UX/UI Designer"
+              ],
+              "salary_range": "R10K-R40K",
+              "employment_rate": "75%"
+            },
+            {
+              "degree_name": "BA Languages",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 24,
+              "required_subjects": [],
+              "recommended_subjects": [
+                "Home Language",
+                "First Additional Language"
+              ],
+              "career_outcomes": [
+                "Translator",
+                "Language Teacher",
+                "Communications Specialist"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist",
+                "UX/UI Designer"
+              ],
+              "salary_range": "R10K-R45K",
+              "employment_rate": "78%"
+            },
+            {
+              "degree_name": "LLB Law",
+              "degree_type": "LLB",
+              "nqf_level": 8,
+              "duration_years": 4,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 5"
+              ],
+              "recommended_subjects": [
+                "History",
+                "Geography"
+              ],
+              "career_outcomes": [
+                "Advocate",
+                "Attorney",
+                "Legal Advisor"
+              ],
+              "4ir_pathways": [
+                "Legal Tech Specialist",
+                "Blockchain Developer"
+              ],
+              "salary_range": "R15K-R100K",
+              "employment_rate": "85%"
+            },
+            {
+              "degree_name": "BA Social Work",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": [
+                "Mathematics 4"
+              ],
+              "recommended_subjects": [
+                "Life Sciences",
+                "History"
+              ],
+              "career_outcomes": [
+                "Social Worker",
+                "Community Development Worker",
+                "Child Protection Officer"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R12K-R35K",
+              "employment_rate": "80%"
+            }
+          ]
+        },
+        {
+          "faculty_name": "Natural & Agricultural Sciences",
+          "programs": [
+            {
+              "degree_name": "BSc Mathematics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 32,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 5"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Mathematician",
+                "Statistician",
+                "Actuary"
+              ],
+              "4ir_pathways": [
+                "Data Scientist",
+                "AI/ML Engineer"
+              ],
+              "salary_range": "R18K-R80K",
+              "employment_rate": "92%"
+            },
+            {
+              "degree_name": "BSc Physics",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Physicist",
+                "Research Scientist",
+                "Laboratory Technician"
+              ],
+              "4ir_pathways": [
+                "Quantum Computing Specialist",
+                "Renewable Energy Engineer"
+              ],
+              "salary_range": "R15K-R70K",
+              "employment_rate": "88%"
+            },
+            {
+              "degree_name": "BSc Chemistry",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 30,
+              "required_subjects": [
+                "Mathematics 5",
+                "Physical Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Chemist",
+                "Laboratory Analyst",
+                "Quality Control Specialist"
+              ],
+              "4ir_pathways": [
+                "Renewable Energy Engineer"
+              ],
+              "salary_range": "R15K-R65K",
+              "employment_rate": "86%"
+            },
+            {
+              "degree_name": "BSc Biology",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 28,
+              "required_subjects": [
+                "Mathematics 4",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences"
+              ],
+              "career_outcomes": [
+                "Biologist",
+                "Research Scientist",
+                "Environmental Consultant"
+              ],
+              "4ir_pathways": [
+                "AI/ML Engineer (Biotech)"
+              ],
+              "salary_range": "R14K-R60K",
+              "employment_rate": "84%"
+            },
+            {
+              "degree_name": "BSc Agriculture",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": [
+                "Mathematics 4",
+                "Life Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences",
+                "Geography"
+              ],
+              "career_outcomes": [
+                "Agricultural Scientist",
+                "Farm Manager",
+                "Agricultural Consultant"
+              ],
+              "4ir_pathways": [
+                "IoT Specialist",
+                "Automation Engineer"
+              ],
+              "salary_range": "R12K-R55K",
+              "employment_rate": "82%"
+            },
+            {
+              "degree_name": "BSc Forestry",
+              "degree_type": "BSc",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": [
+                "Mathematics 4",
+                "Life Sciences 5"
+              ],
+              "recommended_subjects": [
+                "Physical Sciences",
+                "Geography"
+              ],
+              "career_outcomes": [
+                "Forester",
+                "Environmental Consultant",
+                "Conservation Officer"
+              ],
+              "4ir_pathways": [
+                "IoT Specialist",
+                "Renewable Energy Engineer"
+              ],
+              "salary_range": "R12K-R50K",
+              "employment_rate": "80%"
+            },
+            {
+              "degree_name": "BVSc Veterinary Science",
+              "degree_type": "BVSc",
+              "nqf_level": 9,
+              "duration_years": 6,
+              "min_aps": 38,
+              "required_subjects": [
+                "Mathematics 6",
+                "Physical Sciences 6",
+                "Life Sciences 6"
+              ],
+              "recommended_subjects": [],
+              "career_outcomes": [
+                "Veterinarian",
+                "Animal Health Specialist",
+                "Research Veterinarian"
+              ],
+              "4ir_pathways": [
+                "AI/ML Engineer (Veterinary)",
+                "Digital Health Specialist"
+              ],
+              "salary_range": "R25K-R80K",
+              "employment_rate": "96%"
+            }
+          ]
+        },
+        {
+          "faculty_name": "Education",
+          "programs": [
+            {
+              "degree_name": "BEd Foundation Phase",
+              "degree_type": "BEd",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 24,
+              "required_subjects": [
+                "Mathematics 4"
+              ],
+              "recommended_subjects": [
+                "Home Language",
+                "First Additional Language"
+              ],
+              "career_outcomes": [
+                "Foundation Phase Teacher",
+                "Early Childhood Development Specialist"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R12K-R35K",
+              "employment_rate": "85%"
+            },
+            {
+              "degree_name": "BEd Intermediate Phase",
+              "degree_type": "BEd",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 24,
+              "required_subjects": [
+                "Mathematics 4"
+              ],
+              "recommended_subjects": [
+                "Home Language",
+                "First Additional Language"
+              ],
+              "career_outcomes": [
+                "Intermediate Phase Teacher",
+                "Subject Specialist"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R12K-R35K",
+              "employment_rate": "87%"
+            },
+            {
+              "degree_name": "BEd Senior Phase",
+              "degree_type": "BEd",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 26,
+              "required_subjects": [
+                "Mathematics 4"
+              ],
+              "recommended_subjects": [
+                "Subject specialization"
+              ],
+              "career_outcomes": [
+                "Senior Phase Teacher",
+                "Subject Head"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R12K-R40K",
+              "employment_rate": "89%"
+            },
+            {
+              "degree_name": "BEd FET Phase",
+              "degree_type": "BEd",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 28,
+              "required_subjects": [
+                "Mathematics 5"
+              ],
+              "recommended_subjects": [
+                "Subject specialization"
+              ],
+              "career_outcomes": [
+                "FET Phase Teacher",
+                "Department Head"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R15K-R45K",
+              "employment_rate": "91%"
+            }
+          ]
+        },
+        {
+          "faculty_name": "Theology & Religion",
+          "programs": [
+            {
+              "degree_name": "BA Theology",
+              "degree_type": "BA",
+              "nqf_level": 7,
+              "duration_years": 3,
+              "min_aps": 22,
+              "required_subjects": [],
+              "recommended_subjects": [
+                "History",
+                "Languages"
+              ],
+              "career_outcomes": [
+                "Minister",
+                "Chaplain",
+                "Religious Studies Teacher"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R8K-R30K",
+              "employment_rate": "70%"
+            },
+            {
+              "degree_name": "BTh Theology",
+              "degree_type": "BTh",
+              "nqf_level": 7,
+              "duration_years": 4,
+              "min_aps": 22,
+              "required_subjects": [],
+              "recommended_subjects": [
+                "History",
+                "Languages"
+              ],
+              "career_outcomes": [
+                "Minister",
+                "Theologian",
+                "Religious Counselor"
+              ],
+              "4ir_pathways": [
+                "Digital Marketing Specialist"
+              ],
+              "salary_range": "R8K-R35K",
+              "employment_rate": "72%"
             }
           ]
         }

@@ -1,0 +1,184 @@
+{
+  "metadata": {
+    "description": "Comprehensive cross-institutional pathway mappings",
+    "last_updated": "2025-12-29",
+    "total_pathways": 25
+  },
+  "pathways": [
+    {
+      "pathway_name": "Engineering Technology Progression",
+      "pathway_type": "TVET → Private → University",
+      "description": "Complete engineering pathway from technical skills to professional engineering",
+      "steps": [
+        {
+          "step": 1,
+          "institution_type": "TVET",
+          "qualification": "NC(V) Engineering Studies",
+          "duration": "1 year",
+          "cost": "R15K",
+          "outcome": "Engineering Technician (R18K-R25K)"
+        },
+        {
+          "step": 2,
+          "institution_type": "Private",
+          "qualification": "CTU Diploma Software Development",
+          "duration": "2 years",
+          "cost": "R124K total",
+          "outcome": "Software Developer (R35K-R50K)"
+        },
+        {
+          "step": 3,
+          "institution_type": "University",
+          "qualification": "UCT BSc Computer Science",
+          "duration": "3 years",
+          "cost": "R195K total",
+          "outcome": "Software Engineer (R60K-R120K)"
+        }
+      ],
+      "total_investment": "R334K",
+      "total_duration": "6 years",
+      "final_4ir_career": "AI/ML Engineer (R80K-R200K)",
+      "roi_timeline": "12-18 months"
+    },
+    {
+      "pathway_name": "Creative Industries Fast Track",
+      "pathway_type": "Private → University → Advanced",
+      "description": "Accelerated pathway for creative professionals",
+      "steps": [
+        {
+          "step": 1,
+          "institution_type": "Private",
+          "qualification": "Red & Yellow UX/UI Design",
+          "duration": "1 year",
+          "cost": "R82K",
+          "outcome": "UX Designer (R30K-R45K)"
+        },
+        {
+          "step": 2,
+          "institution_type": "University",
+          "qualification": "UCT BSc Computer Science",
+          "duration": "3 years",
+          "cost": "R195K total",
+          "outcome": "UX Engineer (R50K-R80K)"
+        },
+        {
+          "step": 3,
+          "institution_type": "Advanced",
+          "qualification": "Industry Specialization",
+          "duration": "1 year",
+          "cost": "R50K",
+          "outcome": "Senior UX Architect (R80K-R150K)"
+        }
+      ],
+      "total_investment": "R327K",
+      "total_duration": "5 years",
+      "final_4ir_career": "AR/VR Experience Designer (R100K-R250K)",
+      "roi_timeline": "6-12 months"
+    },
+    {
+      "pathway_name": "Business Leadership Track",
+      "pathway_type": "TVET → Private → University → MBA",
+      "description": "Complete business leadership development pathway",
+      "steps": [
+        {
+          "step": 1,
+          "institution_type": "TVET",
+          "qualification": "NC(V) Business Studies",
+          "duration": "1 year",
+          "cost": "R15K",
+          "outcome": "Business Administrator (R15K-R25K)"
+        },
+        {
+          "step": 2,
+          "institution_type": "Private",
+          "qualification": "Varsity College BCom Business",
+          "duration": "3 years",
+          "cost": "R255K total",
+          "outcome": "Business Manager (R35K-R55K)"
+        },
+        {
+          "step": 3,
+          "institution_type": "University",
+          "qualification": "WITS MBA",
+          "duration": "2 years",
+          "cost": "R400K total",
+          "outcome": "Executive Manager (R80K-R150K)"
+        }
+      ],
+      "total_investment": "R670K",
+      "total_duration": "6 years",
+      "final_4ir_career": "Digital Transformation Leader (R150K-R400K)",
+      "roi_timeline": "18-24 months"
+    },
+    {
+      "pathway_name": "Digital Marketing Specialist",
+      "pathway_type": "Private → Private → University",
+      "description": "Comprehensive digital marketing expertise development",
+      "steps": [
+        {
+          "step": 1,
+          "institution_type": "Private",
+          "qualification": "Damelin Digital Marketing",
+          "duration": "1 year",
+          "cost": "R38K",
+          "outcome": "Digital Marketing Assistant (R18K-R28K)"
+        },
+        {
+          "step": 2,
+          "institution_type": "Private",
+          "qualification": "Red & Yellow Advanced Digital Marketing",
+          "duration": "1 year",
+          "cost": "R78K",
+          "outcome": "Digital Marketing Manager (R35K-R55K)"
+        },
+        {
+          "step": 3,
+          "institution_type": "University",
+          "qualification": "UJ BCom Marketing Management",
+          "duration": "3 years",
+          "cost": "R180K total",
+          "outcome": "Marketing Director (R60K-R100K)"
+        }
+      ],
+      "total_investment": "R296K",
+      "total_duration": "5 years",
+      "final_4ir_career": "Marketing Automation Specialist (R80K-R180K)",
+      "roi_timeline": "6-12 months"
+    },
+    {
+      "pathway_name": "Healthcare Technology Integration",
+      "pathway_type": "University → Private → Specialization",
+      "description": "Healthcare professional with technology specialization",
+      "steps": [
+        {
+          "step": 1,
+          "institution_type": "University",
+          "qualification": "UCT BSc Physiotherapy",
+          "duration": "4 years",
+          "cost": "R260K total",
+          "outcome": "Physiotherapist (R35K-R60K)"
+        },
+        {
+          "step": 2,
+          "institution_type": "Private",
+          "qualification": "SACAP Digital Health Specialization",
+          "duration": "1 year",
+          "cost": "R95K",
+          "outcome": "Digital Health Specialist (R50K-R80K)"
+        },
+        {
+          "step": 3,
+          "institution_type": "Professional",
+          "qualification": "Industry Certification",
+          "duration": "6 months",
+          "cost": "R30K",
+          "outcome": "Senior Digital Health Consultant (R80K-R120K)"
+        }
+      ],
+      "total_investment": "R385K",
+      "total_duration": "5.5 years",
+      "final_4ir_career": "Telemedicine Technology Director (R120K-R250K)",
+      "roi_timeline": "12-18 months"
+    }
+  ]
+}
