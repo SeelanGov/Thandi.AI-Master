@@ -66,19 +66,36 @@ export async function POST(request) {
       );
     }
 
-    // Create student assessment record with minimal required fields
+    // PHASE 1 SOLUTION: Provide required student_id and set school_id to NULL
     const { data: studentRecord, error: insertError } = await supabase
       .from('student_assessments')
       .insert({
-        student_id: `student_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        student_id: `student_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`, // Provide required student_id
+        student_name: student_name.trim(),
+        student_surname: student_surname.trim(),
+        school_id: null, // Set to NULL to bypass UUID constraint
+        grade: parseInt(grade),
+        consent_given: true,
+        consent_timestamp: consent_timestamp || new Date().toISOString(),
+        consent_version: consent_version || 'v1.0',
         assessment_data: {
-          student_name: student_name.trim(),
-          student_surname: student_surname.trim(),
-          school_id,
-          grade: parseInt(grade),
-          consent_given: true,
-          consent_timestamp: consent_timestamp || new Date().toISOString(),
-          consent_version: consent_version || 'v1.0'
+          // Store complete school information for dashboard integration
+          school_master_id: school.school_id, // Original school ID from school_master
+          school_name: school.name,
+          school_type: school.type,
+          school_province: school.province || 'Unknown',
+          
+          // Registration metadata
+          registration_timestamp: new Date().toISOString(),
+          registration_method: 'web_form',
+          
+          // Dashboard integration flags
+          dashboard_visible: true,
+          requires_school_linking: true, // Flag for future schema migration
+          
+          // POPIA compliance tracking
+          data_source: 'student_self_registration',
+          consent_method: 'web_form_checkbox'
         }
       })
       .select()
@@ -96,7 +113,7 @@ export async function POST(request) {
     const token = jwt.sign(
       {
         student_id: studentRecord.id,
-        school_id: school_id,
+        school_master_id: school.school_id, // Use school_master ID
         grade: parseInt(grade),
         name: student_name,
         type: 'registered'
@@ -105,14 +122,19 @@ export async function POST(request) {
       { expiresIn: '24h' }
     );
 
-    // Log successful registration (for audit)
-    console.log(`Student registered: ${student_name} ${student_surname} from ${school.name} (Grade ${grade})`);
+    // Log successful registration for audit trail
+    console.log(`✅ Student registered: ${student_name} ${student_surname} from ${school.name} (Grade ${grade}) - ID: ${studentRecord.id}`);
 
     return NextResponse.json({
       success: true,
       student_id: studentRecord.id,
       token,
-      message: 'Registration successful'
+      message: 'Registration successful',
+      school_info: {
+        id: school.school_id,
+        name: school.name,
+        type: school.type
+      }
     });
 
   } catch (error) {

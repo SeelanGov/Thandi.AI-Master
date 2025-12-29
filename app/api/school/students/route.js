@@ -1,58 +1,124 @@
-import { getSupabase } from '@/lib/supabase.js';
 import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
 
 export async function GET(request) {
   try {
-    const supabase = getSupabase();
-    const schoolId = request.headers.get('x-school-id');
     const { searchParams } = new URL(request.url);
-    const search = searchParams.get('search') || '';
+    const schoolId = searchParams.get('school_id');
     
     if (!schoolId) {
-      return NextResponse.json({ error: 'School ID required' }, { status: 400 });
+      return NextResponse.json(
+        { success: false, error: 'school_id parameter is required' },
+        { status: 400 }
+      );
     }
 
-    // Build query for students with their assessment data
-    let query = supabase
-      .from('students')
-      .select(`
-        id, 
-        first_name, 
-        last_name, 
-        email,
-        grade, 
-        class_name, 
-        enrollment_status,
-        assessments(
-          id,
-          completed_at,
-          at_risk_status,
-          at_risk_reasons,
-          career_matches
-        )
-      `)
+    // Verify school exists
+    const { data: school, error: schoolError } = await supabase
+      .from('school_master')
+      .select('school_id, name, province, type')
       .eq('school_id', schoolId)
-      .eq('enrollment_status', 'active');
+      .single();
 
-    // Add search filter if provided
-    if (search) {
-      query = query.or(`first_name.ilike.%${search}%,last_name.ilike.%${search}%,email.ilike.%${search}%,class_name.ilike.%${search}%`);
+    if (schoolError || !school) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid school ID' },
+        { status: 404 }
+      );
     }
 
-    const { data: students, error } = await query
-      .order('grade', { ascending: true })
-      .order('first_name', { ascending: true })
-      .limit(100);
+    // Get students for this school
+    const { data: students, error: studentsError } = await supabase
+      .from('student_assessments')
+      .select(`
+        id,
+        student_name,
+        student_surname,
+        grade,
+        created_at,
+        consent_given,
+        consent_timestamp,
+        assessment_data
+      `)
+      .filter('assessment_data->>school_master_id', 'eq', schoolId)
+      .order('created_at', { ascending: false });
 
-    if (error) {
-      console.error('Students query error:', error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
+    if (studentsError) {
+      console.error('Students query error:', studentsError);
+      return NextResponse.json(
+        { success: false, error: 'Failed to retrieve students' },
+        { status: 500 }
+      );
     }
 
-    return NextResponse.json(students || []);
+    // Format student data for school dashboard
+    const dashboardStudents = students.map(student => ({
+      id: student.id,
+      name: `${student.student_name} ${student.student_surname}`,
+      grade: student.grade,
+      registration_date: student.created_at,
+      consent_given: student.consent_given,
+      consent_date: student.consent_timestamp,
+      assessment_status: student.assessment_data?.assessment_completed ? 'completed' : 'registered',
+      assessment_date: student.assessment_data?.assessment_timestamp || null,
+      // Privacy: Only show that assessment was completed, not the content
+      has_career_guidance: !!student.assessment_data?.career_guidance
+    }));
+
+    // Calculate summary statistics
+    const summary = {
+      total_students: dashboardStudents.length,
+      completed_assessments: dashboardStudents.filter(s => s.assessment_status === 'completed').length,
+      pending_assessments: dashboardStudents.filter(s => s.assessment_status === 'registered').length,
+      consent_rate: dashboardStudents.length > 0 ? 
+        (dashboardStudents.filter(s => s.consent_given).length / dashboardStudents.length * 100).toFixed(1) : 0
+    };
+
+    return NextResponse.json({
+      success: true,
+      school: {
+        id: school.school_id,
+        name: school.name,
+        province: school.province,
+        type: school.type
+      },
+      summary,
+      students: dashboardStudents
+    });
 
   } catch (error) {
-    console.error('Students API error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error('School students API error:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+
+// POST endpoint for school admin actions (future use)
+export async function POST(request) {
+  try {
+    const body = await request.json();
+    const { action, school_id, student_id } = body;
+
+    // Placeholder for future school admin actions
+    // e.g., marking students for follow-up, adding notes, etc.
+    
+    return NextResponse.json({
+      success: false,
+      error: 'School admin actions not yet implemented'
+    }, { status: 501 });
+
+  } catch (error) {
+    console.error('School admin action error:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

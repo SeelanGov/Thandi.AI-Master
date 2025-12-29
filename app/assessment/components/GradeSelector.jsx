@@ -6,6 +6,12 @@ export default function GradeSelector({ onSelect }) {
     onSelect(grade);
   };
 
+  // Progressive enhancement: forms work with or without JavaScript
+  const handleFormSubmit = (e, grade) => {
+    e.preventDefault();
+    handleSelect(grade);
+  };
+
   return (
     <div className="assessment-container animate-fade-in">
       <div className="assessment-card text-center">
@@ -14,38 +20,32 @@ export default function GradeSelector({ onSelect }) {
         </h2>
         
         <div className="space-y-4 mb-6">
-          <button 
-            onClick={() => handleSelect(10)}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              handleSelect(10);
-            }}
-            className="btn-assessment-primary w-full text-lg py-4"
-          >
-            Grade 10
-          </button>
+          <form onSubmit={(e) => handleFormSubmit(e, 10)} method="post" action="/assessment/grade/10">
+            <button 
+              type="submit"
+              className="btn-assessment-primary w-full text-lg py-4"
+            >
+              Grade 10
+            </button>
+          </form>
           
-          <button 
-            onClick={() => handleSelect(11)}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              handleSelect(11);
-            }}
-            className="btn-assessment-primary w-full text-lg py-4"
-          >
-            Grade 11
-          </button>
+          <form onSubmit={(e) => handleFormSubmit(e, 11)} method="post" action="/assessment/grade/11">
+            <button 
+              type="submit"
+              className="btn-assessment-primary w-full text-lg py-4"
+            >
+              Grade 11
+            </button>
+          </form>
           
-          <button 
-            onClick={() => handleSelect(12)}
-            onTouchEnd={(e) => {
-              e.preventDefault();
-              handleSelect(12);
-            }}
-            className="btn-assessment-primary w-full text-lg py-4"
-          >
-            Grade 12
-          </button>
+          <form onSubmit={(e) => handleFormSubmit(e, 12)} method="post" action="/assessment/grade/12">
+            <button 
+              type="submit"
+              className="btn-assessment-primary w-full text-lg py-4"
+            >
+              Grade 12
+            </button>
+          </form>
         </div>
         
         <p className="assessment-hint">

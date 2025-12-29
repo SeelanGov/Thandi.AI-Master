@@ -92,9 +92,18 @@ const mockCareers = [
   }
 ];
 
-export default function AssessmentForm() {
-  const [currentStep, setCurrentStep] = useState(0); // Start with grade selection
-  const [grade, setGrade] = useState(null);
+export default function AssessmentForm({ initialGrade, initialStep }) {
+  // ✅ CRITICAL FIX: Initialize state based on URL parameters to prevent race condition
+  const [currentStep, setCurrentStep] = useState(() => {
+    // If URL has grade and step=registration, go directly to registration
+    if (initialGrade && initialStep === 'registration') {
+      return 0.5;
+    }
+    return 0; // Default: start with grade selection
+  });
+  const [grade, setGrade] = useState(() => {
+    return initialGrade ? parseInt(initialGrade) : null;
+  });
   const [studentInfo, setStudentInfo] = useState(null); // New: Store student registration info
   const [showPreliminaryReport, setShowPreliminaryReport] = useState(false);
   const [showDeepDive, setShowDeepDive] = useState(false);
@@ -103,32 +112,42 @@ export default function AssessmentForm() {
     given: true, // Default to true until we implement proper login/consent flow
     timestamp: new Date().toISOString()
   });
-  const [formData, setFormData] = useState({
-    enjoyedSubjects: [],  // CHANGED: Now tracks subjects student ENJOYS
-    interests: [],
-    constraints: {
-      time: '',
-      money: '',
-      location: '',
-      familyBackground: ''
-    },
-    marksData: {
-      marksOption: '',
-      exactMarks: {},
-      rangeMarks: {}
-    },
+  const [formData, setFormData] = useState(() => {
+    // Initialize formData with grade from URL parameters if present
+    const initialFormData = {
+      enjoyedSubjects: [],  // CHANGED: Now tracks subjects student ENJOYS
+      interests: [],
+      constraints: {
+        time: '',
+        money: '',
+        location: '',
+        familyBackground: ''
+      },
+      marksData: {
+        marksOption: '',
+        exactMarks: {},
+        rangeMarks: {}
+      },
 
-    openQuestions: {
-      motivation: '',
-      concerns: '',
-      careerInterests: ''
-    },
-    grade: null,
-    assessmentDepth: 'quick',
-    curriculumProfile: {
-      framework: 'CAPS',
-      currentSubjects: []
+      openQuestions: {
+        motivation: '',
+        concerns: '',
+        careerInterests: ''
+      },
+      grade: null,
+      assessmentDepth: 'quick',
+      curriculumProfile: {
+        framework: 'CAPS',
+        currentSubjects: []
+      }
+    };
+    
+    // Set grade from URL parameters if present
+    if (initialGrade) {
+      initialFormData.grade = parseInt(initialGrade);
     }
+    
+    return initialFormData;
   });
 
   // Load saved data on mount - but don't override grade selection
@@ -141,6 +160,18 @@ export default function AssessmentForm() {
       localStorage.setItem('assessment_start_time', Date.now().toString());
     }
     
+    // ✅ FIXED: URL parameters are now handled in state initialization
+    // This useEffect only handles localStorage loading
+    console.log('URL Parameters processed in state initialization:', { initialGrade, initialStep });
+    console.log('Current state:', { currentStep, grade });
+    
+    // Skip localStorage loading if coming from URL parameters
+    if (initialGrade && initialStep === 'registration') {
+      console.log('Skipping localStorage - using URL parameters');
+      return;
+    }
+    
+    // Load from localStorage only if not coming from URL
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
@@ -155,7 +186,7 @@ export default function AssessmentForm() {
         console.error('Failed to load saved assessment:', e);
       }
     }
-  }, []);
+  }, [initialGrade, initialStep, currentStep, grade]);
 
   // Save data on every change (but not on initial mount)
   useEffect(() => {
@@ -843,11 +874,13 @@ export default function AssessmentForm() {
 
   // Grade selection screen
   if (currentStep === 0) {
+    console.log('Rendering GradeSelector - currentStep:', currentStep);
     return <GradeSelector onSelect={handleGradeSelect} />;
   }
 
   // Student registration screen (POPIA compliance)
   if (currentStep === 0.5) {
+    console.log('Rendering BulletproofStudentRegistration - currentStep:', currentStep, 'grade:', grade);
     return (
       <div className="assessment-container animate-fade-in">
         <BulletproofStudentRegistration onComplete={handleStudentRegistration} />

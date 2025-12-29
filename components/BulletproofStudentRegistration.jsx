@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react';
 
 export default function BulletproofStudentRegistration({ onComplete }) {
-  const [mounted, setMounted] = useState(false);
   const [step, setStep] = useState('privacy');
   const [consent, setConsent] = useState(false);
   const [studentData, setStudentData] = useState({
@@ -19,19 +18,14 @@ export default function BulletproofStudentRegistration({ onComplete }) {
 
   const firstNameRef = useRef(null);
 
-  // Ensure client-side mounting
+  // Focus management - only focus when we're on the registration step
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Focus management
-  useEffect(() => {
-    if (mounted && step === 'registration' && firstNameRef.current) {
+    if (step === 'registration' && firstNameRef.current) {
       setTimeout(() => {
         firstNameRef.current?.focus();
       }, 100);
     }
-  }, [step, mounted]);
+  }, [step]);
 
   // School search function
   const searchSchools = async (query) => {
@@ -44,7 +38,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
     try {
       const response = await fetch(`/api/schools/search?q=${encodeURIComponent(query)}`);
       const data = await response.json();
-      setSchoolResults(data.schools || []);
+      setSchoolResults(data.results || []);
     } catch (error) {
       console.error('School search error:', error);
       setSchoolResults([]);
@@ -65,7 +59,10 @@ export default function BulletproofStudentRegistration({ onComplete }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...studentData,
+          student_name: studentData.name,
+          student_surname: studentData.surname,
+          school_id: studentData.school_id,
+          grade: studentData.grade,
           consent_given: true,
           consent_timestamp: new Date().toISOString(),
           consent_version: 'v1.0'
@@ -111,20 +108,6 @@ export default function BulletproofStudentRegistration({ onComplete }) {
       grade: studentData.grade
     });
   };
-
-  // Show loading until mounted (prevents hydration mismatch)
-  if (!mounted) {
-    return (
-      <div className="max-w-2xl mx-auto p-8">
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading registration form...</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   // Privacy Notice Step
   if (step === 'privacy') {

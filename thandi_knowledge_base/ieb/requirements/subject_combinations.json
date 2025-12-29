@@ -1,0 +1,222 @@
+{
+  "$schema": "https://schemas.thandi.ai/kb/ieb/subject_combinations.schema.json",
+  "kb_id": "ieb-subject-combinations-v1",
+  "exam_board": "IEB",
+  "version": "1.1.0-2026",
+  "created_at": "2025-12-27",
+  "verification": {
+    "status": "verified",
+    "reviewer": "IEB/Curriculum Guides",
+    "reviewed_at": "2025-12-27",
+    "source_verification": {
+      "ieb_checked": true,
+      "pathway_guides_verified": true,
+      "last_source_check": "2025-12-27",
+      "sources": [
+        "IEB Pathway Recommendations",
+        "University Admission Requirements Cross-Reference",
+        "IEB Subject Guidelines"
+      ]
+    }
+  },
+  "rag": {
+    "chunk_size": 1000,
+    "chunk_overlap": 150,
+    "curriculum_match_boost": 1.5
+  },
+  "recommended_combinations": {
+    "STEM_Pathway": {
+      "core": [
+        "Mathematics",
+        "Physical Sciences", 
+        "English HL"
+      ],
+      "recommended": [
+        "Life Sciences",
+        "Further Studies Mathematics",
+        "Information Technology"
+      ],
+      "careers": [
+        "Engineering",
+        "Medicine", 
+        "Computer Science",
+        "Actuarial Science"
+      ],
+      "aps_strategy": "Core subjects + Further Studies Mathematics as 8th subject for maximum APS boost",
+      "university_advantages": [
+        "Enhanced preparation for technical degrees",
+        "Competitive edge for limited enrollment programs",
+        "Strong mathematical foundation for STEM careers"
+      ],
+      "subject_notes": {
+        "Mathematics": "Essential for all STEM pathways - cannot substitute with Math Lit",
+        "Physical Sciences": "Required for Engineering, recommended for Medicine",
+        "Life Sciences": "Essential for Medicine, Veterinary Science, health sciences",
+        "Further Studies Mathematics": "Provides significant APS boost and university preparation"
+      },
+      "notes_2026": "Expanded Grade 10 access via online providers like CambriLearn"
+    },
+    "Commerce_Pathway": {
+      "core": [
+        "Mathematics",
+        "Accounting",
+        "English HL"
+      ],
+      "recommended": [
+        "Business Studies",
+        "Economics", 
+        "Further Studies Mathematics"
+      ],
+      "careers": [
+        "BCom",
+        "Finance",
+        "Chartered Accountancy",
+        "Management"
+      ],
+      "aps_strategy": "Strong performance in Mathematics + Accounting, with Economics or Business Studies as strategic 8th subject",
+      "university_advantages": [
+        "Strong preparation for BCom programs",
+        "Enhanced analytical and quantitative skills",
+        "Competitive advantage for CA articles placement"
+      ],
+      "subject_notes": {
+        "Mathematics": "Essential for top commerce programs - Math Lit limits options",
+        "Accounting": "Compulsory for Chartered Accountancy pathway",
+        "Business Studies": "Practical business knowledge and case study analysis",
+        "Economics": "Analytical thinking and economic theory foundation"
+      }
+    },
+    "Humanities_Pathway": {
+      "core": [
+        "English HL",
+        "History",
+        "Geography"
+      ],
+      "recommended": [
+        "Further Studies English",
+        "Additional Language",
+        "Visual Arts"
+      ],
+      "careers": [
+        "Law",
+        "Journalism",
+        "Teaching",
+        "Social Sciences"
+      ],
+      "aps_strategy": "Excellence in English HL + Further Studies English for enhanced writing and analysis skills",
+      "university_advantages": [
+        "Enhanced critical analysis and writing skills",
+        "Strong preparation for essay-based assessments",
+        "Multilingual competency for global opportunities"
+      ],
+      "subject_notes": {
+        "English HL": "Foundation for all humanities careers - strong performance essential",
+        "History": "Critical for Law programs - develops analytical thinking",
+        "Geography": "Provides global perspective and research skills",
+        "Further Studies English": "Advanced preparation for university-level analysis"
+      }
+    }
+  },
+  "ieb_specific_advantages": {
+    "8th_subject_strategy": {
+      "aps_boost": "Additional subjects can add 3-7 APS points",
+      "strategic_selection": "Choose 8th subject in area of strength to maximize performance",
+      "further_studies_priority": "Further Studies Mathematics/English provide highest value"
+    },
+    "flexibility_benefits": [
+      "Can adapt subject combinations based on school offerings",
+      "Opportunity to explore interests beyond minimum requirements", 
+      "Enhanced university preparation through broader knowledge base",
+      "Competitive advantage through additional qualifications"
+    ],
+    "vs_caps_comparison": {
+      "caps_limitation": "Fixed 7 subjects with no flexibility for additional subjects",
+      "ieb_advantage": "8th/9th subjects provide APS boost and enhanced preparation",
+      "university_impact": "IEB students can achieve higher APS scores for competitive programs"
+    }
+  },
+  "pathway_decision_framework": {
+    "grade_9_considerations": [
+      "Assess academic strengths and interests through performance patterns",
+      "Research target university programs and their specific requirements",
+      "Consider long-term career goals and pathway alignment",
+      "Evaluate school resources and subject availability"
+    ],
+    "grade_10_optimization": [
+      "Confirm pathway alignment based on Grade 10 performance",
+      "Plan for 8th subject selection based on strength areas",
+      "Assess eligibility for Further Studies programs (70%+ requirement)",
+      "Adjust combinations if needed before Grade 11 lock-in"
+    ],
+    "performance_monitoring": [
+      "Track performance in core subjects to ensure pathway viability",
+      "Identify areas needing additional support or tutoring",
+      "Consider pathway adjustments if performance patterns change",
+      "Plan university applications based on projected APS scores"
+    ]
+  },
+  "common_combinations_analysis": {
+    "high_achiever_combinations": [
+      {
+        "pathway": "STEM Excellence",
+        "subjects": "Mathematics + Physical Sciences + Life Sciences + English HL + Further Studies Mathematics + Information Technology + Geography",
+        "aps_potential": "42-45 points",
+        "target_programs": "Medicine, Engineering, Computer Science"
+      },
+      {
+        "pathway": "Commerce Leadership", 
+        "subjects": "Mathematics + Accounting + Business Studies + Economics + English HL + Further Studies Mathematics + Geography",
+        "aps_potential": "40-43 points",
+        "target_programs": "BCom, CA pathway, Finance"
+      },
+      {
+        "pathway": "Humanities Scholar",
+        "subjects": "English HL + History + Geography + Further Studies English + Additional Language + Visual Arts + Mathematics",
+        "aps_potential": "38-41 points", 
+        "target_programs": "Law, Journalism, International Relations"
+      }
+    ],
+    "balanced_combinations": [
+      {
+        "pathway": "STEM Foundation",
+        "subjects": "Mathematics + Physical Sciences + Life Sciences + English HL + Geography + Business Studies + Accounting",
+        "aps_potential": "35-38 points",
+        "flexibility": "Keeps both STEM and Commerce options open"
+      }
+    ]
+  },
+  "financial_considerations": {
+    "additional_subject_costs": [
+      "8th subject: Typically R5K-15K additional per year",
+      "Further Studies programs: Premium of R10K-20K per year", 
+      "Textbooks and resources: R2K-5K per additional subject"
+    ],
+    "roi_analysis": [
+      "APS boost can secure admission to competitive programs",
+      "Enhanced university preparation may reduce bridging program needs",
+      "Broader knowledge base provides long-term career advantages"
+    ]
+  },
+  "query_triggers": [
+    "IEB subject combinations",
+    "IEB pathway planning", 
+    "IEB STEM subjects",
+    "IEB commerce subjects",
+    "IEB humanities subjects",
+    "IEB 8th subject strategy",
+    "IEB Further Studies combinations",
+    "IEB vs CAPS subject flexibility"
+  ],
+  "related_gates": [
+    "ieb-subject-requirements",
+    "ieb-advanced-programme", 
+    "ieb-school-flexibility",
+    "aps-calculation",
+    "university-pathway-planning"
+  ],
+  "source_links": [
+    "https://www.ieb.co.za/programmes/nsc",
+    "https://www.ieb.co.za/subject-guidelines",
+    "https://www.isasa.org/curriculum-guidance"
+  ]
+}

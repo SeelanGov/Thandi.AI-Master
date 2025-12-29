@@ -24,12 +24,15 @@ function BulletproofLoading() {
   );
 }
 
-// Main page - bulletproof implementation
-export default function AssessmentPage() {
+// Main page - bulletproof implementation with URL fallback
+export default async function AssessmentPage({ searchParams }) {
+  // ✅ FIXED: Await searchParams as required by Next.js 15
+  const params = await searchParams;
+  
   return (
     <main className="min-h-screen bg-gray-50">
       <Suspense fallback={<BulletproofLoading />}>
-        <AssessmentForm />
+        <AssessmentForm initialGrade={params?.grade} initialStep={params?.step} />
       </Suspense>
     </main>
   );
