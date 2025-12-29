@@ -112,30 +112,30 @@ export default function BulletproofStudentRegistration({ onComplete }) {
   // Privacy Notice Step
   if (step === 'privacy') {
     return (
-      <div className="max-w-2xl mx-auto p-8">
-        <div className="bg-white rounded-lg shadow-md p-8">
+      <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
           <div className="text-center mb-6">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
               Welcome to THANDI Career Assessment
             </h1>
-            <p className="text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               Let's help you discover your career path
             </p>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-            <h2 className="font-semibold text-blue-900 mb-3">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 sm:p-6 mb-6">
+            <h2 className="font-semibold text-blue-900 mb-3 text-sm sm:text-base">
               How we use your information:
             </h2>
-            <ul className="space-y-2 text-blue-800">
+            <ul className="space-y-2 text-blue-800 text-sm sm:text-base">
               <li>• Personalize your career recommendations</li>
               <li>• Help your school support student career development</li>
               <li>• Improve our guidance for South African students</li>
             </ul>
           </div>
 
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-            <div className="grid md:grid-cols-2 gap-4 text-sm">
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">We collect:</h3>
                 <p className="text-gray-700">Your name, surname, and school only</p>
@@ -161,7 +161,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                 type="checkbox"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
-                className="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                className="mt-1 h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                 required
               />
               <span className="text-sm text-gray-700">
@@ -170,17 +170,17 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               </span>
             </label>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+            <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3 pt-4">
               <button
                 onClick={() => setStep('registration')}
                 disabled={!consent}
-                className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="flex-1 bg-blue-600 text-white px-6 py-4 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
               >
                 Continue with Registration
               </button>
               <button
                 onClick={() => setStep('anonymous')}
-                className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300"
+                className="flex-1 bg-gray-200 text-gray-800 px-6 py-4 rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
               >
                 Continue Anonymously
               </button>
@@ -194,19 +194,19 @@ export default function BulletproofStudentRegistration({ onComplete }) {
   // Registration Form Step
   if (step === 'registration') {
     return (
-      <div className="max-w-2xl mx-auto p-8">
-        <div className="bg-white rounded-lg shadow-md p-8">
+      <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
               Student Registration
             </h2>
-            <p className="text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               Help us personalize your career guidance
             </p>
           </div>
 
           <form onSubmit={handleRegistrationSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   First Name *
@@ -216,7 +216,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                   ref={firstNameRef}
                   value={studentData.name}
                   onChange={(e) => setStudentData({...studentData, name: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base min-h-[48px] touch-manipulation"
                   placeholder="Enter your first name"
                   required
                 />
@@ -229,7 +229,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                   type="text"
                   value={studentData.surname}
                   onChange={(e) => setStudentData({...studentData, surname: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base min-h-[48px] touch-manipulation"
                   placeholder="Enter your last name"
                   required
                 />
@@ -248,13 +248,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                   searchSchools(e.target.value);
                 }}
                 placeholder="Start typing your school name..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base min-h-[48px] touch-manipulation"
                 autoComplete="off"
                 required
               />
               
               {schoolResults.length > 0 && (
-                <div className="mt-2 border border-gray-200 rounded-md max-h-48 overflow-y-auto">
+                <div className="mt-2 border border-gray-200 rounded-md max-h-48 overflow-y-auto bg-white shadow-lg z-10 relative">
                   {schoolResults.map((school) => (
                     <button
                       key={school.school_id}
@@ -268,10 +268,10 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                         setSchoolSearch(school.name);
                         setSchoolResults([]);
                       }}
-                      className="w-full text-left px-3 py-2 hover:bg-gray-50 border-b border-gray-100 last:border-b-0"
+                      className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 min-h-[48px] touch-manipulation"
                     >
-                      <div className="font-medium">{school.name}</div>
-                      <div className="text-sm text-gray-500">{school.province}</div>
+                      <div className="font-medium text-sm sm:text-base">{school.name}</div>
+                      <div className="text-xs sm:text-sm text-gray-500">{school.province}</div>
                     </button>
                   ))}
                 </div>
@@ -285,7 +285,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               <select
                 value={studentData.grade}
                 onChange={(e) => setStudentData({...studentData, grade: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base min-h-[48px] touch-manipulation"
                 required
               >
                 <option value="">Select your grade</option>
@@ -295,18 +295,18 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               </select>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+            <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3 pt-4">
               <button
                 type="button"
                 onClick={() => setStep('privacy')}
-                className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300"
+                className="flex-1 bg-gray-200 text-gray-800 px-6 py-4 rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
               >
                 Back
               </button>
               <button
                 type="submit"
                 disabled={!studentData.name || !studentData.surname || !studentData.school_id || !studentData.grade || loading}
-                className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="flex-1 bg-blue-600 text-white px-6 py-4 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
               >
                 {loading ? 'Starting...' : 'Start Assessment'}
               </button>
@@ -320,22 +320,22 @@ export default function BulletproofStudentRegistration({ onComplete }) {
   // Anonymous Confirmation Step
   if (step === 'anonymous') {
     return (
-      <div className="max-w-2xl mx-auto p-8">
-        <div className="bg-white rounded-lg shadow-md p-8">
+      <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
               Anonymous Assessment
             </h2>
-            <p className="text-gray-600">
+            <p className="text-sm sm:text-base text-gray-600">
               You'll get full career guidance without storing personal data
             </p>
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-            <h3 className="font-semibold text-blue-900 mb-3">
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 sm:p-6 mb-6">
+            <h3 className="font-semibold text-blue-900 mb-3 text-sm sm:text-base">
               What you'll get:
             </h3>
-            <ul className="space-y-2 text-blue-800">
+            <ul className="space-y-2 text-blue-800 text-sm sm:text-base">
               <li>• Complete career assessment</li>
               <li>• Personalized career recommendations</li>
               <li>• University program suggestions</li>
@@ -350,7 +350,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
             <select
               value={studentData.grade}
               onChange={(e) => setStudentData({...studentData, grade: e.target.value})}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-6"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-6 text-base min-h-[48px] touch-manipulation"
               required
             >
               <option value="">Select your grade</option>
@@ -360,17 +360,17 @@ export default function BulletproofStudentRegistration({ onComplete }) {
             </select>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
             <button
               onClick={() => setStep('privacy')}
-              className="flex-1 bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300"
+              className="flex-1 bg-gray-200 text-gray-800 px-6 py-4 rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
             >
               Back
             </button>
             <button
               onClick={handleAnonymousSubmit}
               disabled={!studentData.grade}
-              className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+              className="flex-1 bg-blue-600 text-white px-6 py-4 rounded-md hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
             >
               Start Anonymous Assessment
             </button>
