@@ -28,14 +28,12 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://thandi.ai'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Thandi.ai - From School to Success',
     description: 'AI-powered career guidance for South African students. Free assessment in just 5 minutes.',
-    url: 'https://thandi.ai',
     siteName: 'Thandi.ai',
     images: [
       {

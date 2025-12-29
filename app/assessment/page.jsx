@@ -6,19 +6,16 @@ import AssessmentForm from './components/AssessmentForm';
 export const metadata = {
   title: 'THANDI Career Assessment - Discover Your Future',
   description: 'Complete your personalized career assessment with THANDI and discover the perfect career path for your South African education journey.',
-  version: '2.0.1', // Force rebuild
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-  },
-  themeColor: '#114E4E',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: 'THANDI Assessment'
-  }
+  version: '2.0.1' // Force rebuild
+};
+
+// Viewport configuration (separate export as required by Next.js 15)
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: '#114E4E'
 };
 
 // Bulletproof loading component
