@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-12-30T11:44:54.524Z",
+  "timestamp": "2025-12-30T16:30:31.194Z",
   "domain": "https://www.thandi.online",
   "summary": {
     "totalPages": 8,
@@ -207,7 +207,7 @@
       },
       "score": 21,
       "success": true,
-      "body": "{\"status\":\"ok\",\"timestamp\":\"2025-12-30T11:44:53.547Z\",\"environment\":{\"hasGroqKey\":true,\"hasOpenAIKey\":true,\"hasSupabaseUrl\":true,\"hasSupabaseAnonKey\":true,\"hasSupabaseServiceKey\":true,\"nodeEnv\":\"production\"},\"allKeysPresent\":true}"
+      "body": "{\"status\":\"ok\",\"timestamp\":\"2025-12-30T16:30:30.096Z\",\"environment\":{\"hasGroqKey\":true,\"hasOpenAIKey\":true,\"hasSupabaseUrl\":true,\"hasSupabaseAnonKey\":true,\"hasSupabaseServiceKey\":true,\"nodeEnv\":\"production\"},\"allKeysPresent\":true}"
     }
   ],
   "uiFixesStatus": "deployed_and_verified"

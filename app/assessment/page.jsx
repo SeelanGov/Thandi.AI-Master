@@ -6,7 +6,7 @@ import AssessmentPageClient from './components/AssessmentPageClient';
 export const metadata = {
   title: 'Thandi Career Assessment - Discover Your Future',
   description: 'Complete your personalized career assessment with Thandi and discover the perfect career path for your South African education journey.',
-  version: '2.0.1' // Force rebuild
+  version: '2.0.2' // Force rebuild
 };
 
 // Viewport configuration (separate export as required by Next.js 15)
@@ -33,7 +33,7 @@ function BulletproofLoading() {
   );
 }
 
-// Main page - bulletproof implementation with URL fallback
+// Main page - bulletproof implementation
 export default async function AssessmentPage({ searchParams }) {
   // ✅ FIXED: Await searchParams as required by Next.js 15
   const params = await searchParams;

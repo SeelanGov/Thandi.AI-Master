@@ -1,6 +1,6 @@
 {
   "name": "thandi-rag-system",
-  "version": "0.1.5",
+  "version": "0.1.7-registration-fix",
   "description": "Thandi AI Career Guidance Platform - RAG System",
   "scripts": {
     "dev": "next dev",
