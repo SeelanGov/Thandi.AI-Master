@@ -1,0 +1,7 @@
+{
+  "timestamp": "2025-12-30T16:23:17.223Z",
+  "trigger": "EMERGENCY_STUDENT_TESTING",
+  "version": "0.1.5-emergency",
+  "force_rebuild": true,
+  "cache_bust": 1767111797223
+}
