@@ -29,6 +29,7 @@ export default function AssessmentPage() {
     );
   }
   
+  // CRITICAL: Always show registration form first - never show grade selector
   return (
     <main className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
       <BulletproofStudentRegistration onComplete={handleRegistrationComplete} />
