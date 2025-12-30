@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-12-30T20:36:34.666Z",
+  "reason": "Force complete rebuild - fix server-side rendering mismatch",
+  "version": "0.2.0-rebuild",
+  "changes": [
+    "Cleared all build caches",
+    "Updated package.json version",
+    "Minimal vercel.json configuration",
+    "Ultra-minimal next.config.js",
+    "Force fresh build ID generation"
+  ]
+}
