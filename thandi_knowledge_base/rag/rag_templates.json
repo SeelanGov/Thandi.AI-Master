@@ -82,6 +82,16 @@
         "Bursary and scholarship guidance",
         "Value-for-money assessments"
       ]
+    },
+    "funding_recommendations": {
+      "template": "## 💰 Your Funding Strategy\n\n**Top Bursary Matches:**\n{{top_bursary_matches}}\n\n**Application Timeline:**\n{{application_deadlines}}\n\n**Total Potential Funding:**\n{{funding_potential}}\n\n**Next Steps:**\n{{action_items}}\n\n**Apply Now:** {{application_links}}\n\n> Funding Guide: {{kb_id}} • Updated: {{last_updated}}",
+      "use_cases": [
+        "Personalized bursary recommendations",
+        "Financial aid application guidance",
+        "Deadline management",
+        "Funding strategy optimization"
+      ],
+      "example_output": "## 💰 Your Funding Strategy\n\n**Top Bursary Matches:**\n1. **NSFAS** (95% match) - Full coverage, no work commitment\n2. **MTN Foundation** (85% match) - STEM focus, R80K+ value\n3. **Vodacom Bursary** (80% match) - Tech career pathway\n\n**Application Timeline:**\n- **January 17, 2025**: MERSETA deadline\n- **August 31, 2025**: Vodacom deadline\n- **January 31, 2026**: NSFAS deadline\n\n**Total Potential Funding:** R80K-R120K per year\n\n**Next Steps:**\n- Apply to NSFAS immediately (primary funding)\n- Prepare STEM portfolio for MTN/Vodacom\n- Gather financial documentation\n\n**Apply Now:** [NSFAS](nsfas.org.za) | [MTN](mtn.co.za/foundation) | [Vodacom](vodacom.co.za/careers)"
     }
   },
   "response_formatting": {

@@ -65,9 +65,99 @@
       "deadlines": "April 30, 2025",
       "application": "saica.co.za bursaries section",
       "work_commitment": "Complete CA(SA) qualification and articles"
+    },
+    {
+      "name": "MTN Foundation Bursary",
+      "eligibility": "SA citizens; STEM fields; min 65% average; financial need; Grade 12 or first-year uni",
+      "amounts": "R80,000+ per year covering tuition, books, accommodation",
+      "deadlines": "June – August 2025 for 2026 intake",
+      "application": "mtn.co.za/foundation/bursaries; online application with academic records",
+      "work_commitment": "Vacation work opportunities (not mandatory)",
+      "target_fields": ["Engineering", "Computer Science", "Information Technology", "Data Science"]
+    },
+    {
+      "name": "Vodacom Bursary Programme",
+      "eligibility": "SA citizens; full-time undergrad in STEM; min 70% in Grade 12 subjects for new students, 65%+ for current uni; financial need",
+      "amounts": "Full funding including tuition, accommodation, meals, books, laptop",
+      "deadlines": "August 31, 2025 for 2026",
+      "application": "vodacom.co.za/careers/bursary-programme; online application",
+      "work_commitment": "Vacation work and potential employment opportunities",
+      "target_fields": ["Engineering", "Computer Science", "Information Technology", "Data Science", "Mathematics"]
+    },
+    {
+      "name": "MERSETA TVET Stipends",
+      "eligibility": "Unemployed SA citizens; for learnerships/apprenticeships in manufacturing/engineering; min Grade 10 or N1 for technical; TVET/employer partnered",
+      "amounts": "R5,000–R10,000 monthly stipend during program; up to R25,000 for completion",
+      "deadlines": "Ongoing windows; DGYR26 applications by January 17, 2025 for 2026 funding",
+      "application": "merseta.org.za/learnerships; employer-partnered applications",
+      "work_commitment": "Complete learnership/apprenticeship program",
+      "target_fields": ["Manufacturing", "Engineering", "Technical Trades", "Automotive"]
+    },
+    {
+      "name": "Absa Fellowship Bursary",
+      "eligibility": "SA citizens; first-year undergrads; min 65% average; leadership potential; commerce/humanities/STEM",
+      "amounts": "Full tuition, accommodation, books, mentorship; R100,000+ value",
+      "deadlines": "September 1–10, 2025 for 2026",
+      "application": "absa.africa/fellowship; online application with leadership portfolio",
+      "work_commitment": "Mentorship program participation",
+      "target_fields": ["Commerce", "Humanities", "STEM", "Leadership Development"]
+    },
+    {
+      "name": "Standard Bank Bursary",
+      "eligibility": "SA citizens; financial need; min 65% average; commerce/engineering/sciences",
+      "amounts": "Full tuition, accommodation, books, stipend; R80,000–R120,000 per year",
+      "deadlines": "May 1–September 30, 2025 for 2026",
+      "application": "standardbank.co.za/careers/bursaries; comprehensive application process",
+      "work_commitment": "Vacation work and graduate program opportunities",
+      "target_fields": ["Commerce", "Engineering", "Sciences", "Banking", "Finance"]
+    },
+    {
+      "name": "Generation Google Bursary",
+      "eligibility": "SA women in computer science/IT; min 65% average; financial need; undergrad/postgrad",
+      "amounts": "R100,000+ covering tuition, books, conferences",
+      "deadlines": "August 14, 2025 for 2026",
+      "application": "buildyourfuture.withgoogle.com/scholarships/generation-google-scholarship",
+      "work_commitment": "Google mentorship and networking opportunities",
+      "target_fields": ["Computer Science", "Information Technology", "Software Engineering", "Data Science"]
+    },
+    {
+      "name": "Nedbank Bursary",
+      "eligibility": "SA citizens; financial need; min 65% average; commerce/engineering/IT",
+      "amounts": "Full tuition, accommodation, books, stipend; R80,000+ per year",
+      "deadlines": "July 1–August 31, 2025 for 2026",
+      "application": "nedbank.co.za/careers/bursaries; online application with financial documentation",
+      "work_commitment": "Vacation work and graduate program opportunities",
+      "target_fields": ["Commerce", "Engineering", "Information Technology", "Banking"]
+    },
+    {
+      "name": "Discovery Foundation Bursary",
+      "eligibility": "SA citizens; health sciences/medicine; min 60% average; rural/underserved focus; postgrad preferred but undergrad possible",
+      "amounts": "R100,000–R250,000 per year for tuition, research, travel",
+      "deadlines": "August 31, 2025 for 2026",
+      "application": "discovery.co.za/foundation/awards; research proposal required",
+      "work_commitment": "Research collaboration and rural health service",
+      "target_fields": ["Medicine", "Health Sciences", "Public Health", "Medical Research"]
+    },
+    {
+      "name": "PwC Bursary",
+      "eligibility": "SA citizens; CA(SA) path; min 4 distinctions in Matric; BCom/BAcc studies",
+      "amounts": "Full tuition, books, accommodation; R80,000–R120,000 per year",
+      "deadlines": "July 1–August 31, 2025 for 2026",
+      "application": "pwc.co.za/careers/bursaries; academic excellence focus",
+      "work_commitment": "Articles and potential employment at PwC",
+      "target_fields": ["Accounting", "Auditing", "Tax", "Business Advisory"]
+    },
+    {
+      "name": "KPMG Bursary",
+      "eligibility": "SA citizens; CA(SA) path; min 4 distinctions in Matric including LO; 70% Accounting, 65% overall",
+      "amounts": "Full tuition, books, accommodation; R100,000+ per year",
+      "deadlines": "October 30, 2025 for 2026",
+      "application": "kpmg.co.za/careers/bursaries; academic excellence and leadership focus",
+      "work_commitment": "Articles and potential employment at KPMG",
+      "target_fields": ["Accounting", "Auditing", "Tax", "Advisory Services"]
     }
   ],
-  "notes": "For special needs: Extra allowances in NSFAS/ISFAP. Track deadlines annually.",
+  "notes": "For special needs: Extra allowances in NSFAS/ISFAP. Track deadlines annually. TVET Coverage: NSFAS (full), MERSETA (stipends), Funza Lushaka (teacher training). Private Institution Coverage: Allan Gray, SAICA, Absa cover accredited private institutions.",
   "rag": {
     "chunk_size": 1000,
     "chunk_overlap": 200,

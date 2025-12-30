@@ -191,6 +191,92 @@
           "requirements": ["Teaching commitment"]
         }
       ]
+    },
+    "tvet_focused": {
+      "profile": {
+        "qualification_type": "TVET/NC(V)",
+        "household_income": "≤ R500,000",
+        "subjects": ["Technical subjects", "Mathematics", "Engineering Studies"],
+        "aps_range": "18-30",
+        "career_interest": ["Technical trades", "Engineering", "Manufacturing"]
+      },
+      "recommended_bursaries": [
+        {
+          "bursary": "NSFAS",
+          "match_score": 95,
+          "reasons": ["Full TVET coverage", "Same eligibility as university", "All expenses covered"],
+          "requirements": ["Household income ≤ R350,000", "TVET registration"]
+        },
+        {
+          "bursary": "MERSETA TVET Stipends",
+          "match_score": 90,
+          "reasons": ["TVET-specific", "Monthly stipend", "Employer partnerships"],
+          "requirements": ["Unemployed", "Manufacturing/engineering focus", "Employer partnership"]
+        },
+        {
+          "bursary": "Sasol Bursary Programme",
+          "match_score": 70,
+          "reasons": ["STEM focus", "If TVET leads to university", "Career development"],
+          "requirements": ["Strong performance", "University progression pathway"]
+        }
+      ]
+    },
+    "private_college_bound": {
+      "profile": {
+        "institution_type": "Private college/university",
+        "household_income": "≤ R700,000",
+        "subjects": "Any",
+        "aps_range": "25-42",
+        "career_interest": ["Business", "Creative", "Technology"]
+      },
+      "recommended_bursaries": [
+        {
+          "bursary": "Allan Gray Orbis Foundation",
+          "match_score": 90,
+          "reasons": ["Covers accredited private institutions", "No work commitment", "Entrepreneurship focus"],
+          "requirements": ["Top performance", "Leadership potential", "Accredited institution"]
+        },
+        {
+          "bursary": "Absa Fellowship Bursary",
+          "match_score": 85,
+          "reasons": ["Covers private institutions", "Leadership development", "Mentorship"],
+          "requirements": ["First-year undergrad", "Leadership potential", "65% average"]
+        },
+        {
+          "bursary": "SAICA Bursary Programme",
+          "match_score": 80,
+          "reasons": ["Covers private BCom/BAcc programs", "Professional qualification", "Career support"],
+          "requirements": ["CA(SA) pathway", "Accounting focus", "Strong academic performance"]
+        }
+      ]
+    },
+    "4ir_tech_enthusiast": {
+      "profile": {
+        "subjects": ["Mathematics", "Information Technology", "Physical Sciences", "Computer Applications Technology"],
+        "aps_range": "30-42",
+        "career_interest": ["Software Engineering", "Data Science", "AI/ML", "Cybersecurity", "Cloud Computing"],
+        "gender": "Any (special focus on women)"
+      },
+      "recommended_bursaries": [
+        {
+          "bursary": "Generation Google Bursary",
+          "match_score": 95,
+          "reasons": ["4IR tech focus", "Industry connections", "Conference attendance", "Women in tech priority"],
+          "requirements": ["Computer Science/IT studies", "65% average", "Women preferred"]
+        },
+        {
+          "bursary": "MTN Foundation Bursary",
+          "match_score": 90,
+          "reasons": ["STEM/tech focus", "Industry exposure", "4IR career alignment"],
+          "requirements": ["STEM fields", "65% average", "Financial need"]
+        },
+        {
+          "bursary": "Vodacom Bursary Programme",
+          "match_score": 85,
+          "reasons": ["Tech industry focus", "Full funding", "Career placement"],
+          "requirements": ["STEM fields", "70% Grade 12 average", "Financial need"]
+        }
+      ]
     }
   },
   "matching_algorithm": {
