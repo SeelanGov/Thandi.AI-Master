@@ -1,0 +1,102 @@
+{
+  "timestamp": "2025-12-30T11:41:58.487Z",
+  "summary": {
+    "total": 7,
+    "successful": 1,
+    "failed": 6,
+    "vercelWorking": false,
+    "customDomainWorking": true
+  },
+  "results": [
+    {
+      "url": "https://thandi-ai-master.vercel.app",
+      "testName": "Main Vercel Domain",
+      "statusCode": 404,
+      "size": 107,
+      "uiChecks": {
+        "Thandi Branding": false,
+        "Teal Colors": false,
+        "Responsive Design": false,
+        "Loading States": false,
+        "Error Handling": false
+      },
+      "success": false
+    },
+    {
+      "url": "https://thandi-ai-master.vercel.app/assessment",
+      "testName": "Assessment Page (UI Fixes)",
+      "statusCode": 404,
+      "size": 107,
+      "uiChecks": {
+        "Thandi Branding": false,
+        "Teal Colors": false,
+        "Responsive Design": false,
+        "Loading States": false,
+        "Error Handling": false
+      },
+      "success": false
+    },
+    {
+      "url": "https://thandi-ai-master.vercel.app/admin",
+      "testName": "Admin Page (Branding Fixes)",
+      "statusCode": 404,
+      "size": 107,
+      "uiChecks": {
+        "Thandi Branding": false,
+        "Teal Colors": false,
+        "Responsive Design": false,
+        "Loading States": false,
+        "Error Handling": false
+      },
+      "success": false
+    },
+    {
+      "url": "https://thandi-ai-master.vercel.app/school/claim",
+      "testName": "School Claim (Admin Panel)",
+      "statusCode": 404,
+      "size": 107,
+      "uiChecks": {
+        "Thandi Branding": false,
+        "Teal Colors": false,
+        "Responsive Design": false,
+        "Loading States": false,
+        "Error Handling": false
+      },
+      "success": false
+    },
+    {
+      "url": "https://thandi-ai-master.vercel.app/api/health",
+      "testName": "Health Check API",
+      "statusCode": 404,
+      "size": 107,
+      "uiChecks": {
+        "Thandi Branding": false,
+        "Teal Colors": false,
+        "Responsive Design": false,
+        "Loading States": false,
+        "Error Handling": false
+      },
+      "success": false
+    },
+    {
+      "url": "https://thandi.ai",
+      "testName": "Custom Domain (if connected)",
+      "statusCode": 200,
+      "size": 605904,
+      "uiChecks": {
+        "Thandi Branding": false,
+        "Teal Colors": false,
+        "Responsive Design": true,
+        "Loading States": false,
+        "Error Handling": true
+      },
+      "success": true
+    },
+    {
+      "url": "https://www.thandi.ai",
+      "testName": "WWW Custom Domain (if connected)",
+      "error": "getaddrinfo ENOTFOUND www.thandi.ai",
+      "success": false
+    }
+  ]
+}
