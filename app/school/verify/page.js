@@ -7,7 +7,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 function LoadingSpinner() {
   return (
     <div className="min-h-screen bg-thandi-cream flex items-center justify-center py-8">
-      <div className="max-w-md w-full px-4">
+      <div className="max-w-md w-full px-4 sm:px-6">
         <div className="bg-white rounded-xl shadow-thandi border border-thandi-brown/10">
           <div className="p-8 text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-thandi-teal mx-auto mb-4"></div>
@@ -98,7 +98,7 @@ function VerifyContent() {
                   </svg>
                 </div>
                 <h2 className="text-xl font-semibold font-heading text-thandi-teal mb-2">
-                  School Successfully Claimed!
+                  Thandi School Successfully Claimed!
                 </h2>
                 <p className="text-thandi-brown font-body mb-6">
                   {message}
@@ -106,7 +106,7 @@ function VerifyContent() {
 
                 {school && (
                   <div className="bg-thandi-gradient-light p-4 rounded-lg mb-6 text-left text-white">
-                    <h3 className="font-semibold font-heading mb-2">School Details:</h3>
+                    <h3 className="font-semibold font-heading mb-2">Thandi School Details:</h3>
                     <div className="text-sm font-body opacity-90">
                       <div><strong>Name:</strong> {school.name}</div>
                       <div><strong>ID:</strong> {school.school_id}</div>
@@ -118,7 +118,7 @@ function VerifyContent() {
 
                 <button 
                   onClick={handleContinue} 
-                  className="w-full px-6 py-3 bg-thandi-gold text-thandi-teal rounded-lg hover:bg-thandi-gold/90 transition-all duration-200 font-body font-semibold hover:scale-105"
+                  className="w-full px-6 py-3 bg-thandi-gold text-thandi-teal rounded-lg hover:bg-thandi-gold/90 transition-all duration-200 font-body font-semibold hover:scale-105 focus:ring-2 focus:ring-thandi-gold focus:ring-offset-2"
                 >
                   Continue to Dashboard
                 </button>
@@ -142,7 +142,7 @@ function VerifyContent() {
                 <div className="space-y-3">
                   <button 
                     onClick={() => router.push('/school/claim')}
-                    className="w-full px-4 py-3 bg-thandi-teal text-white rounded-lg hover:bg-thandi-teal-mid transition-colors font-body font-medium"
+                    className="w-full px-4 py-3 bg-thandi-teal text-white rounded-lg hover:bg-thandi-teal-mid transition-colors font-body font-medium hover:scale-105 focus:ring-2 focus:ring-thandi-teal focus:ring-offset-2"
                   >
                     Try Claiming Again
                   </button>

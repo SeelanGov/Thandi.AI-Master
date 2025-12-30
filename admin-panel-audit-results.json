@@ -1,0 +1,40 @@
+{
+  "app/admin/page.js": [
+    {
+      "type": "Branding",
+      "category": "Thandi Branding",
+      "issue": "Found incorrect \"THANDI\" or \"thandi\" - should be \"Thandi\""
+    }
+  ],
+  "app/school/claim/page.js": [
+    {
+      "type": "Branding",
+      "category": "Thandi Branding",
+      "issue": "Found incorrect \"THANDI\" or \"thandi\" - should be \"Thandi\""
+    },
+    {
+      "type": "UI",
+      "category": "Button Consistency",
+      "issue": "Found 2 buttons not using Thandi design system"
+    }
+  ],
+  "app/school/verify/page.js": [
+    {
+      "type": "Branding",
+      "category": "Thandi Branding",
+      "issue": "Found incorrect \"THANDI\" or \"thandi\" - should be \"Thandi\""
+    },
+    {
+      "type": "UI",
+      "category": "Button Consistency",
+      "issue": "Found 2 buttons not using Thandi design system"
+    }
+  ],
+  "app/school/dashboard/simple-page.js": [
+    {
+      "type": "Branding",
+      "category": "Thandi Branding",
+      "issue": "Found incorrect \"THANDI\" or \"thandi\" - should be \"Thandi\""
+    }
+  ]
+}

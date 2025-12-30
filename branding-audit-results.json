@@ -1,0 +1,432 @@
+{
+  "components/BulletproofStudentRegistration.jsx": [
+    {
+      "type": "All caps THANDI should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 119
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 75
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 75
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 119
+    }
+  ],
+  "app/assessment/page.jsx": [
+    {
+      "type": "All caps THANDI should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 7
+    },
+    {
+      "type": "All caps THANDI should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 7
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 7
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 7
+    }
+  ],
+  "app/assessment/components/AssessmentForm.jsx": [
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 19
+    }
+  ],
+  "app/assessment/components/GradeSelector.jsx": [],
+  "app/layout.js": [],
+  "app/globals.css": [
+    {
+      "type": "All caps THANDI should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 5
+    },
+    {
+      "type": "All caps THANDI should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 5
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 5
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "THANDI",
+      "expected": "Thandi",
+      "line": 5
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    },
+    {
+      "type": "Lowercase thandi should be Thandi",
+      "found": "thandi",
+      "expected": "Thandi",
+      "line": 15
+    }
+  ]
+}

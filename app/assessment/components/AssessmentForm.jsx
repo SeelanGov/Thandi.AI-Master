@@ -16,7 +16,7 @@ import BulletproofStudentRegistration from '../../../components/BulletproofStude
 import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
 import { trackAssessmentComplete, trackJourneyComplete } from '../../../lib/analytics/track-events';
 
-const STORAGE_KEY = 'thandi_assessment_data';
+const STORAGE_KEY = 'Thandi_assessment_data';
 
 // ✅ CRITICAL FIX: Extract actual marks from marksData structure for APS calculation
 function extractActualMarks(marksData) {
@@ -882,7 +882,7 @@ export default function AssessmentForm({ initialGrade, initialStep }) {
   if (currentStep === 0.5) {
     console.log('Rendering BulletproofStudentRegistration - currentStep:', currentStep, 'grade:', grade);
     return (
-      <div className="assessment-container animate-fade-in">
+      <div className="assessment-container px-4 sm:px-6 lg:px-8 animate-fade-in">
         <BulletproofStudentRegistration onComplete={handleStudentRegistration} />
       </div>
     );

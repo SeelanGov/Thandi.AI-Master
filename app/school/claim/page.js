@@ -131,10 +131,10 @@ export default function SchoolClaimPage() {
               </svg>
             </div>
             <h1 className="text-4xl font-bold font-heading text-thandi-teal mb-4">
-              School Administration Portal
+              Thandi School Administration Portal
             </h1>
             <p className="text-xl text-thandi-brown font-body max-w-2xl mx-auto">
-              Claim your school's access to the THANDI AI dashboard and start supporting your students' career journeys
+              Claim your school's access to the Thandi AI dashboard and start supporting your students' career journeys
             </p>
           </div>
 
@@ -155,9 +155,14 @@ export default function SchoolClaimPage() {
                 <button 
                   onClick={handleSearch}
                   disabled={loading || searchQuery.length < 2}
-                  className="px-6 py-3 bg-thandi-teal text-white rounded-lg hover:bg-thandi-teal-mid disabled:opacity-50 transition-all duration-200 font-body font-medium"
+                  className="px-6 py-3 bg-thandi-teal text-white rounded-lg hover:bg-thandi-teal-mid disabled:opacity-50 transition-all duration-200 font-body font-medium hover:scale-105 focus:ring-2 focus:ring-thandi-teal focus:ring-offset-2"
                 >
-                  {loading ? 'Searching...' : 'Search'}
+                  {loading ? (
+                  <div className="flex items-center space-x-2">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    <span>Searching...</span>
+                  </div>
+                ) : 'Search'}
                 </button>
               </div>
               <p className="text-sm text-thandi-brown/70 mt-2 font-body">
@@ -196,7 +201,7 @@ export default function SchoolClaimPage() {
           {selectedSchool && (
             <div className="bg-white rounded-xl shadow-thandi border border-thandi-brown/10 mb-8">
               <div className="p-8">
-                <h3 className="text-xl font-semibold font-heading text-thandi-teal mb-6">Claim School Access</h3>
+                <h3 className="text-xl font-semibold font-heading text-thandi-teal mb-6">Claim Thandi School Access</h3>
                 
                 <div className="bg-thandi-gradient-light p-6 rounded-lg mb-6 text-white">
                   <div className="font-semibold font-heading text-lg">{selectedSchool.name}</div>
@@ -247,7 +252,12 @@ export default function SchoolClaimPage() {
                     disabled={loading || !claimForm.principal_email}
                     className="w-full px-6 py-4 bg-thandi-gold text-thandi-teal rounded-lg hover:bg-thandi-gold/90 disabled:opacity-50 transition-all duration-200 font-body font-semibold text-lg hover:scale-105"
                   >
-                    {loading ? 'Sending Magic Link...' : 'Claim School Access'}
+                    {loading ? (
+                    <div className="flex items-center justify-center space-x-2">
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-thandi-teal"></div>
+                      <span>Sending Magic Link...</span>
+                    </div>
+                  ) : 'Claim Thandi School Access'}
                   </button>
                 </form>
               </div>

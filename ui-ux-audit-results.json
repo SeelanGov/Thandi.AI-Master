@@ -1,0 +1,24 @@
+{
+  "components/BulletproofStudentRegistration.jsx": [],
+  "app/assessment/components/AssessmentForm.jsx": [],
+  "app/assessment/components/GradeSelector.jsx": [
+    {
+      "type": "Functionality",
+      "category": "Form Validation",
+      "issue": "Missing real-time validation"
+    }
+  ],
+  "app/assessment/page.jsx": [
+    {
+      "type": "Functionality",
+      "category": "Error Handling",
+      "issue": "Missing error handling"
+    },
+    {
+      "type": "Functionality",
+      "category": "Data Persistence",
+      "issue": "Missing data persistence"
+    }
+  ],
+  "app/globals.css": []
+}

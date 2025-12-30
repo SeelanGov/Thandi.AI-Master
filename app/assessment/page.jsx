@@ -1,11 +1,11 @@
 // BULLETPROOF Assessment Page - GUARANTEED TO WORK
 import { Suspense } from 'react';
-import AssessmentForm from './components/AssessmentForm';
+import AssessmentPageClient from './components/AssessmentPageClient';
 
 // Metadata
 export const metadata = {
-  title: 'THANDI Career Assessment - Discover Your Future',
-  description: 'Complete your personalized career assessment with THANDI and discover the perfect career path for your South African education journey.',
+  title: 'Thandi Career Assessment - Discover Your Future',
+  description: 'Complete your personalized career assessment with Thandi and discover the perfect career path for your South African education journey.',
   version: '2.0.1' // Force rebuild
 };
 
@@ -24,7 +24,7 @@ function BulletproofLoading() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full mx-4">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-700 mx-auto mb-4"></div>
           <h2 className="text-xl font-semibold text-gray-900 mb-2">Loading Assessment</h2>
           <p className="text-gray-600">Preparing your career assessment...</p>
         </div>
@@ -39,9 +39,12 @@ export default async function AssessmentPage({ searchParams }) {
   const params = await searchParams;
   
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
       <Suspense fallback={<BulletproofLoading />}>
-        <AssessmentForm initialGrade={params?.grade} initialStep={params?.step} />
+        <AssessmentPageClient 
+          initialGrade={params?.grade} 
+          initialStep={params?.step}
+        />
       </Suspense>
     </main>
   );

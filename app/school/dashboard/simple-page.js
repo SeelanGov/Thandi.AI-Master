@@ -53,7 +53,7 @@ function DashboardContent() {
     return (
       <div className="min-h-screen bg-thandi-cream flex items-center justify-center">
         <div className="bg-white p-8 rounded-xl shadow-thandi max-w-md border border-thandi-brown/10">
-          <h2 className="text-xl font-bold font-heading text-thandi-teal mb-4">Unable to load dashboard</h2>
+          <h2 className="text-xl font-bold font-heading text-thandi-teal mb-4">Unable to load Thandi dashboard</h2>
           <p className="text-thandi-brown font-body mb-6">{error.message}</p>
           <button 
             onClick={() => window.location.reload()}
@@ -77,7 +77,7 @@ function DashboardContent() {
                 <span className="text-white font-bold text-xl font-heading">T</span>
               </div>
               <div>
-                <h1 className="text-3xl font-bold font-heading text-thandi-teal">School Dashboard</h1>
+                <h1 className="text-3xl font-bold font-heading text-thandi-teal">Thandi School Dashboard</h1>
                 <p className="text-thandi-brown font-body">{schoolInfo?.name || 'Loading school...'}</p>
               </div>
             </div>
@@ -161,7 +161,7 @@ function DashboardContent() {
             <p>✅ Test mode authentication successful</p>
             <p>✅ Database connection working</p>
             <p>✅ API endpoints responding</p>
-            <p>✅ THANDI branding applied</p>
+            <p>✅ Thandi branding applied</p>
             <p className="mt-3 font-medium font-heading">School Info:</p>
             <div className="text-xs bg-white p-3 rounded-lg mt-2 border border-thandi-brown/10">
               <p><strong>Name:</strong> {schoolInfo?.name}</p>
