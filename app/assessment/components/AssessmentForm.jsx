@@ -95,11 +95,12 @@ const mockCareers = [
 export default function AssessmentForm({ initialGrade, initialStep }) {
   // ✅ CRITICAL FIX: Initialize state based on URL parameters to prevent race condition
   const [currentStep, setCurrentStep] = useState(() => {
-    // If URL has grade and step=registration, go directly to registration
-    if (initialGrade && initialStep === 'registration') {
-      return 0.5;
+    // Default: start with registration (students must register first)
+    // Only skip to grade selection if coming from specific URL
+    if (initialStep === 'grade-selection') {
+      return 0;
     }
-    return 0; // Default: start with grade selection
+    return 0.5; // Default: start with registration
   });
   const [grade, setGrade] = useState(() => {
     return initialGrade ? parseInt(initialGrade) : null;
