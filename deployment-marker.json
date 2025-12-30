@@ -1,9 +1,0 @@
-{
-  "timestamp": "2025-12-30T11:46:30.588Z",
-  "version": "2.0.2-ui-fixes",
-  "commit": "latest",
-  "ui_fixes_applied": true,
-  "admin_panel_fixes_applied": true,
-  "branding_fixes_applied": true,
-  "force_deployment": true
-}
