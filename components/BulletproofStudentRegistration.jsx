@@ -52,6 +52,22 @@ export default function BulletproofStudentRegistration({ onComplete }) {
     e.preventDefault();
     setLoading(true);
 
+    // Debug logging
+    console.log('Registration attempt:', {
+      name: studentData.name,
+      surname: studentData.surname,
+      school_id: studentData.school_id,
+      school_name: studentData.school_name,
+      grade: studentData.grade
+    });
+
+    // Validate school selection
+    if (!studentData.school_id) {
+      alert('Please select a school from the dropdown list.');
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch('/api/student/register', {
         method: 'POST',
@@ -80,7 +96,8 @@ export default function BulletproofStudentRegistration({ onComplete }) {
           name: studentData.name
         });
       } else {
-        alert('Registration failed. Please try again.');
+        console.error('Registration failed:', data.error);
+        alert(`Registration failed: ${data.error}`);
       }
     } catch (error) {
       console.error('Registration error:', error);
@@ -236,7 +253,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               </div>
             </div>
 
-            <div>
+            <div className="relative">
               <label className="assessment-label">
                 School *
               </label>
@@ -254,12 +271,15 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               />
               
               {schoolResults.length > 0 && (
-                <div className="mt-2 border border-gray-200 rounded-md max-h-48 overflow-y-auto bg-white shadow-lg z-10 relative">
+                <div className="mt-2 border border-gray-200 rounded-md max-h-48 overflow-y-auto bg-white shadow-lg z-50 absolute w-full">
                   {schoolResults.map((school) => (
                     <button
                       key={school.school_id}
                       type="button"
-                      onClick={() => {
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        console.log('School selected:', school.name, school.school_id);
+                        // Use mousedown instead of click for better reliability
                         setStudentData({
                           ...studentData,
                           school_id: school.school_id,
@@ -268,10 +288,26 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                         setSchoolSearch(school.name);
                         setSchoolResults([]);
                       }}
-                      className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 min-h-[48px] touch-manipulation"
+                      onTouchStart={(e) => {
+                        e.preventDefault();
+                        console.log('School selected (touch):', school.name, school.school_id);
+                        // Handle touch events for mobile
+                        setStudentData({
+                          ...studentData,
+                          school_id: school.school_id,
+                          school_name: school.name
+                        });
+                        setSchoolSearch(school.name);
+                        setSchoolResults([]);
+                      }}
+                      className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 min-h-[48px] cursor-pointer select-none"
+                      style={{ 
+                        WebkitTapHighlightColor: 'transparent',
+                        touchAction: 'manipulation'
+                      }}
                     >
-                      <div className="font-medium text-sm sm:text-base">{school.name}</div>
-                      <div className="text-xs sm:text-sm text-gray-500">{school.province}</div>
+                      <div className="font-medium text-sm sm:text-base pointer-events-none">{school.name}</div>
+                      <div className="text-xs sm:text-sm text-gray-500 pointer-events-none">{school.province}</div>
                     </button>
                   ))}
                 </div>
