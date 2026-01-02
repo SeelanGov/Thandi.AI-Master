@@ -112,13 +112,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
   // Privacy Notice Step
   if (step === 'privacy') {
     return (
-      <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-        <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
+      <div className="assessment-container">
+        <div className="assessment-card animate-fade-in">
           <div className="text-center mb-6">
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+            <h1 className="assessment-title">
               Welcome to Thandi Career Assessment
             </h1>
-            <p className="text-sm sm:text-base text-gray-600">
+            <p className="assessment-description">
               Let's help you discover your career path
             </p>
           </div>
@@ -174,19 +174,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               <button
                 onClick={() => setStep('registration')}
                 disabled={!consent}
-                className="flex-1 text-white px-6 py-4 rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
-                style={{ 
-                  backgroundColor: 'var(--thandi-teal)',
-                  ':hover': { backgroundColor: 'var(--thandi-teal-mid)' }
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--thandi-teal-mid)'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--thandi-teal)'}
+                className="flex-1 btn-assessment-primary disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
                 Continue with Registration
               </button>
               <button
                 onClick={() => setStep('anonymous')}
-                className="flex-1 bg-gray-200 text-gray-800 px-6 py-4 rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
+                className="flex-1 btn-assessment-secondary"
               >
                 Continue Anonymously
               </button>
@@ -200,13 +194,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
   // Registration Form Step
   if (step === 'registration') {
     return (
-      <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-        <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
+      <div className="assessment-container">
+        <div className="assessment-card animate-slide-up">
           <div className="text-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="assessment-title">
               Thandi Student Registration
             </h2>
-            <p className="text-sm sm:text-base text-gray-600">
+            <p className="assessment-description">
               Help us personalize your career guidance
             </p>
           </div>
@@ -214,7 +208,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
           <form onSubmit={handleRegistrationSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="assessment-label">
                   First Name *
                 </label>
                 <input
@@ -222,20 +216,20 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                   ref={firstNameRef}
                   value={studentData.name}
                   onChange={(e) => setStudentData({...studentData, name: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-base min-h-[48px] touch-manipulation"
+                  className="form-input-assessment"
                   placeholder="Enter your first name"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="assessment-label">
                   Last Name *
                 </label>
                 <input
                   type="text"
                   value={studentData.surname}
                   onChange={(e) => setStudentData({...studentData, surname: e.target.value})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-base min-h-[48px] touch-manipulation"
+                  className="form-input-assessment"
                   placeholder="Enter your last name"
                   required
                 />
@@ -243,7 +237,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="assessment-label">
                 School *
               </label>
               <input
@@ -254,7 +248,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                   searchSchools(e.target.value);
                 }}
                 placeholder="Start typing your school name..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-base min-h-[48px] touch-manipulation"
+                className="form-input-assessment"
                 autoComplete="off"
                 required
               />
@@ -285,13 +279,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="assessment-label">
                 Grade *
               </label>
               <select
                 value={studentData.grade}
                 onChange={(e) => setStudentData({...studentData, grade: e.target.value})}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-base min-h-[48px] touch-manipulation bg-white"
+                className="form-input-assessment form-select-assessment bg-white"
                 required
               >
                 <option value="">Select your grade</option>
@@ -305,14 +299,14 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               <button
                 type="button"
                 onClick={() => setStep('privacy')}
-                className="flex-1 bg-gray-200 text-gray-800 px-6 py-4 rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
+                className="flex-1 btn-assessment-secondary"
               >
                 Back
               </button>
               <button
                 type="submit"
                 disabled={!studentData.name || !studentData.surname || !studentData.school_id || !studentData.grade || loading}
-                className="flex-1 bg-teal-700 text-white px-6 py-4 rounded-md hover:bg-teal-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
+                className="flex-1 btn-assessment-primary disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
                 {loading ? 'Starting...' : 'Start Assessment'}
               </button>
@@ -326,13 +320,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
   // Anonymous Confirmation Step
   if (step === 'anonymous') {
     return (
-      <div className="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-        <div className="bg-white rounded-lg shadow-md p-6 sm:p-8">
+      <div className="assessment-container">
+        <div className="assessment-card animate-slide-up">
           <div className="text-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="assessment-title">
               Anonymous Assessment
             </h2>
-            <p className="text-sm sm:text-base text-gray-600">
+            <p className="assessment-description">
               You'll get full career guidance without storing personal data
             </p>
           </div>
@@ -350,13 +344,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="assessment-label">
               Grade (for appropriate recommendations) *
             </label>
             <select
               value={studentData.grade}
               onChange={(e) => setStudentData({...studentData, grade: e.target.value})}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 mb-6 text-base min-h-[48px] touch-manipulation"
+              className="form-input-assessment form-select-assessment bg-white mb-6"
               required
             >
               <option value="">Select your grade</option>
@@ -369,14 +363,14 @@ export default function BulletproofStudentRegistration({ onComplete }) {
           <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
             <button
               onClick={() => setStep('privacy')}
-              className="flex-1 bg-gray-200 text-gray-800 px-6 py-4 rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
+              className="flex-1 btn-assessment-secondary"
             >
               Back
             </button>
             <button
               onClick={handleAnonymousSubmit}
               disabled={!studentData.grade}
-              className="flex-1 bg-teal-700 text-white px-6 py-4 rounded-md hover:bg-teal-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200 font-medium text-base min-h-[48px] touch-manipulation"
+              className="flex-1 btn-assessment-primary disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
               Start Anonymous Assessment
             </button>
