@@ -177,7 +177,7 @@ export default function AssessmentForm({ initialGrade, initialStep }) {
     
     // Skip localStorage loading if coming from registration redirect
     if (initialGrade && (initialStep === 'grade_selector' || initialStep === 'registration')) {
-      console.log('Skipping localStorage - using URL parameters');
+      console.log('Skipping localStorage - using URL parameters for registered/anonymous user');
       return;
     }
     
