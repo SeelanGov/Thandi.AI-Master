@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import AssessmentForm from './AssessmentForm';
 
-export default function AssessmentPageClient({ initialGrade, initialStep }) {
+export default function AssessmentPageClient({ grade, isRegistered, isAnonymous }) {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [assessmentData, setAssessmentData] = useState(null);
@@ -68,8 +68,8 @@ export default function AssessmentPageClient({ initialGrade, initialStep }) {
   
   return (
     <AssessmentForm 
-      initialGrade={initialGrade} 
-      initialStep={initialStep}
+      initialGrade={grade} 
+      initialStep={isRegistered ? 'grade_selector' : (isAnonymous ? 'grade_selector' : 'registration')}
       savedData={assessmentData}
       onError={handleError}
     />

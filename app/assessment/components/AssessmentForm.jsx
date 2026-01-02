@@ -95,17 +95,26 @@ const mockCareers = [
 export default function AssessmentForm({ initialGrade, initialStep }) {
   // ✅ CRITICAL FIX: Initialize state based on URL parameters to prevent race condition
   const [currentStep, setCurrentStep] = useState(() => {
-    // Default: start with registration (students must register first)
-    // Only skip to grade selection if coming from specific URL
-    if (initialStep === 'grade-selection') {
-      return 0;
+    // If user is registered or anonymous, skip registration
+    if (initialStep === 'grade_selector' || initialStep === 'grade-selection') {
+      return 1; // Go directly to first assessment step
     }
     return 0.5; // Default: start with registration
   });
   const [grade, setGrade] = useState(() => {
     return initialGrade ? parseInt(initialGrade) : null;
   });
-  const [studentInfo, setStudentInfo] = useState(null); // New: Store student registration info
+  const [studentInfo, setStudentInfo] = useState(() => {
+    // If coming from registration, create mock student info to bypass registration step
+    if (initialStep === 'grade_selector') {
+      return {
+        type: 'registered',
+        grade: initialGrade,
+        name: 'Student' // Will be populated from token if needed
+      };
+    }
+    return null;
+  });
   const [showPreliminaryReport, setShowPreliminaryReport] = useState(false);
   const [showDeepDive, setShowDeepDive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -166,8 +175,8 @@ export default function AssessmentForm({ initialGrade, initialStep }) {
     console.log('URL Parameters processed in state initialization:', { initialGrade, initialStep });
     console.log('Current state:', { currentStep, grade });
     
-    // Skip localStorage loading if coming from URL parameters
-    if (initialGrade && initialStep === 'registration') {
+    // Skip localStorage loading if coming from registration redirect
+    if (initialGrade && (initialStep === 'grade_selector' || initialStep === 'registration')) {
       console.log('Skipping localStorage - using URL parameters');
       return;
     }
