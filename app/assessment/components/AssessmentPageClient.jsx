@@ -66,6 +66,12 @@ export default function AssessmentPageClient({ grade, isRegistered, isAnonymous 
     );
   }
   
+  console.log('AssessmentPageClient props:', { grade, isRegistered, isAnonymous });
+  console.log('Passing to AssessmentForm:', {
+    initialGrade: grade,
+    initialStep: isRegistered ? 'grade_selector' : (isAnonymous ? 'grade_selector' : 'registration')
+  });
+  
   return (
     <AssessmentForm 
       initialGrade={grade} 

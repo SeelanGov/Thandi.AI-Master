@@ -93,12 +93,17 @@ const mockCareers = [
 ];
 
 export default function AssessmentForm({ initialGrade, initialStep }) {
+  console.log('AssessmentForm received props:', { initialGrade, initialStep });
+  
   // ✅ CRITICAL FIX: Initialize state based on URL parameters to prevent race condition
   const [currentStep, setCurrentStep] = useState(() => {
+    console.log('Initializing currentStep with:', { initialStep });
     // If user is registered or anonymous, skip registration
     if (initialStep === 'grade_selector' || initialStep === 'grade-selection') {
+      console.log('Setting currentStep to 1 (assessment) for registered/anonymous user');
       return 1; // Go directly to first assessment step
     }
+    console.log('Setting currentStep to 0.5 (registration) - default');
     return 0.5; // Default: start with registration
   });
   const [grade, setGrade] = useState(() => {
