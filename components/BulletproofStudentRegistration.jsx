@@ -52,8 +52,9 @@ export default function BulletproofStudentRegistration({ onComplete }) {
     e.preventDefault();
     setLoading(true);
 
-    // Debug logging
-    console.log('Registration attempt:', {
+    // Enhanced debug logging
+    console.log('🚀 Registration attempt started');
+    console.log('📋 Student data:', {
       name: studentData.name,
       surname: studentData.surname,
       school_id: studentData.school_id,
@@ -61,12 +62,15 @@ export default function BulletproofStudentRegistration({ onComplete }) {
       grade: studentData.grade
     });
 
-    // Validate school selection
+    // Validate school selection with better error message
     if (!studentData.school_id) {
-      alert('Please select a school from the dropdown list.');
+      console.log('❌ School validation failed - no school_id');
+      alert('Please select a school from the dropdown list. Start typing your school name and click on it when it appears.');
       setLoading(false);
       return;
     }
+
+    console.log('✅ School validation passed, proceeding with registration...');
 
     try {
       const response = await fetch('/api/student/register', {
@@ -271,43 +275,41 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               />
               
               {schoolResults.length > 0 && (
-                <div className="mt-2 border border-gray-200 rounded-md max-h-48 overflow-y-auto bg-white shadow-lg z-50 absolute w-full">
+                <div className="mt-2 border border-gray-200 rounded-md max-h-48 overflow-y-auto bg-white shadow-lg absolute w-full" style={{ zIndex: 9999 }}>
                   {schoolResults.map((school) => (
                     <button
                       key={school.school_id}
                       type="button"
-                      onMouseDown={(e) => {
+                      onClick={(e) => {
                         e.preventDefault();
-                        console.log('School selected:', school.name, school.school_id);
-                        // Use mousedown instead of click for better reliability
-                        setStudentData({
+                        e.stopPropagation();
+                        console.log('🎯 School selected:', school.name, school.school_id);
+                        
+                        // Update state with selected school
+                        const updatedData = {
                           ...studentData,
                           school_id: school.school_id,
                           school_name: school.name
-                        });
+                        };
+                        
+                        console.log('📝 Updating student data:', updatedData);
+                        setStudentData(updatedData);
                         setSchoolSearch(school.name);
-                        setSchoolResults([]);
+                        
+                        // Clear results after a short delay to ensure state update
+                        setTimeout(() => {
+                          setSchoolResults([]);
+                          console.log('✅ School selection complete');
+                        }, 100);
                       }}
-                      onTouchStart={(e) => {
-                        e.preventDefault();
-                        console.log('School selected (touch):', school.name, school.school_id);
-                        // Handle touch events for mobile
-                        setStudentData({
-                          ...studentData,
-                          school_id: school.school_id,
-                          school_name: school.name
-                        });
-                        setSchoolSearch(school.name);
-                        setSchoolResults([]);
-                      }}
-                      className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 min-h-[48px] cursor-pointer select-none"
+                      className="w-full text-left px-4 py-3 hover:bg-gray-50 active:bg-gray-100 border-b border-gray-100 last:border-b-0 min-h-[48px] cursor-pointer transition-colors duration-150"
                       style={{ 
-                        WebkitTapHighlightColor: 'transparent',
+                        WebkitTapHighlightColor: 'rgba(0,0,0,0.1)',
                         touchAction: 'manipulation'
                       }}
                     >
-                      <div className="font-medium text-sm sm:text-base pointer-events-none">{school.name}</div>
-                      <div className="text-xs sm:text-sm text-gray-500 pointer-events-none">{school.province}</div>
+                      <div className="font-medium text-sm sm:text-base">{school.name}</div>
+                      <div className="text-xs sm:text-sm text-gray-500">{school.province}</div>
                     </button>
                   ))}
                 </div>
