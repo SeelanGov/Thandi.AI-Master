@@ -291,15 +291,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               <select
                 value={studentData.grade}
                 onChange={(e) => setStudentData({...studentData, grade: e.target.value})}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-base min-h-[48px] touch-manipulation"
-                style={{
-                  fontFamily: 'Poppins, system-ui, sans-serif',
-                  fontSize: '16px',
-                  fontWeight: '400',
-                  textRendering: 'optimizeLegibility',
-                  WebkitFontSmoothing: 'antialiased',
-                  MozOsxFontSmoothing: 'grayscale'
-                }}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-base min-h-[48px] touch-manipulation bg-white"
                 required
               >
                 <option value="">Select your grade</option>
