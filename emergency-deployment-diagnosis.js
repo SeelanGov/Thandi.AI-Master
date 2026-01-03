@@ -1,282 +1,294 @@
 #!/usr/bin/env node
 
-/**
- * EMERGENCY DEPLOYMENT DIAGNOSIS
- * Find out exactly why Vercel isn't deploying our UI fixes
- */
-
 const { execSync } = require('child_process');
 const fs = require('fs');
-const https = require('https');
 
-function executeCommand(command, description) {
+async function emergencyDeploymentDiagnosis() {
+  console.log('🚨 EMERGENCY DEPLOYMENT DIAGNOSIS');
+  console.log('=================================\n');
+  
+  console.log('📊 SITUATION ANALYSIS');
+  console.log('=====================');
+  console.log('❌ Deployment failed despite all preflight checks passing');
+  console.log('⏰ Monday launch at risk');
+  console.log('🎯 Need to identify root cause and fix immediately');
+  console.log('');
+  
+  let issues = [];
+  
+  // Step 1: Check GitHub Status
+  console.log('1️⃣ GITHUB REPOSITORY STATUS');
+  console.log('============================');
+  
   try {
-    console.log(`\n📋 ${description}`);
-    const result = execSync(command, { encoding: 'utf8' });
-    console.log(`✅ ${description}: Success`);
-    return result.trim();
+    const gitStatus = execSync('git status', { encoding: 'utf8' });
+    console.log('Git Status:');
+    console.log(gitStatus);
+    
+    const lastCommit = execSync('git log --oneline -1', { encoding: 'utf8' });
+    console.log(`Last Commit: ${lastCommit.trim()}`);
+    
+    const remoteBranch = execSync('git ls-remote origin main', { encoding: 'utf8' });
+    console.log(`Remote Main: ${remoteBranch.trim()}`);
+    
+    // Check if local and remote are in sync
+    const localCommit = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
+    const remoteCommit = remoteBranch.split('\t')[0];
+    
+    if (localCommit === remoteCommit) {
+      console.log('✅ Local and remote are in sync');
+    } else {
+      console.log('❌ Local and remote are out of sync');
+      issues.push('Git sync issue');
+    }
+    
   } catch (error) {
-    console.log(`❌ ${description}: ${error.message}`);
-    return null;
+    console.log(`❌ Git check failed: ${error.message}`);
+    issues.push('Git status check failed');
   }
-}
-
-function checkLocalFiles() {
-  console.log('🔍 CHECKING LOCAL FILES FOR UI FIXES');
-  console.log('====================================');
+  
+  // Step 2: Verify Critical Files
+  console.log('\n2️⃣ CRITICAL FILES VERIFICATION');
+  console.log('==============================');
   
   const criticalFiles = [
-    'app/assessment/components/GradeSelector.jsx',
-    'app/assessment/components/AssessmentForm.jsx',
-    'app/admin/page.js',
-    'components/BulletproofStudentRegistration.jsx'
+    { path: 'vercel.json', description: 'Vercel configuration' },
+    { path: 'package.json', description: 'Package configuration' },
+    { path: 'next.config.js', description: 'Next.js configuration' },
+    { path: 'components/BulletproofStudentRegistration.jsx', description: 'Registration component' },
+    { path: 'app/assessment/page.jsx', description: 'Assessment page' }
   ];
   
-  let localFixesPresent = 0;
-  
-  criticalFiles.forEach(file => {
-    if (fs.existsSync(file)) {
-      const content = fs.readFileSync(file, 'utf8');
+  criticalFiles.forEach(({ path, description }) => {
+    if (fs.existsSync(path)) {
+      console.log(`✅ ${description}: ${path}`);
       
-      const checks = {
-        'Thandi Branding': content.includes('Thandi') && !content.includes('THANDI'),
-        'Teal Colors': content.includes('thandi-teal') || content.includes('teal-'),
-        'Loading States': content.includes('animate-spin') || content.includes('Loading'),
-        'Error Handling': content.includes('setError') || content.includes('error'),
-        'Responsive': content.includes('px-4 sm:px-6') || content.includes('sm:')
-      };
+      // Check file content for critical patterns
+      const content = fs.readFileSync(path, 'utf8');
       
-      const fixCount = Object.values(checks).filter(Boolean).length;
-      console.log(`\n📄 ${file}:`);
-      console.log(`   ✅ File exists: Yes`);
-      console.log(`   🎨 UI Fixes: ${fixCount}/5`);
-      
-      Object.entries(checks).forEach(([check, passed]) => {
-        console.log(`   ${passed ? '✅' : '❌'} ${check}`);
-      });
-      
-      if (fixCount >= 3) localFixesPresent++;
-    } else {
-      console.log(`❌ ${file}: File not found`);
-    }
-  });
-  
-  console.log(`\n📊 Local Status: ${localFixesPresent}/${criticalFiles.length} files have UI fixes`);
-  return localFixesPresent >= 3;
-}
-
-function checkGitStatus() {
-  console.log('\n🔍 CHECKING GIT STATUS');
-  console.log('======================');
-  
-  const gitStatus = executeCommand('git status --porcelain', 'Git working directory status');
-  const lastCommit = executeCommand('git log -1 --oneline', 'Last commit');
-  const commitHash = executeCommand('git rev-parse HEAD', 'Current commit hash');
-  const remoteStatus = executeCommand('git status -uno', 'Remote sync status');
-  
-  console.log(`\n📊 Git Information:`);
-  console.log(`   Last Commit: ${lastCommit}`);
-  console.log(`   Commit Hash: ${commitHash}`);
-  console.log(`   Working Dir: ${gitStatus ? 'Has changes' : 'Clean'}`);
-  
-  return {
-    isClean: !gitStatus,
-    lastCommit,
-    commitHash
-  };
-}
-
-async function testLiveVsLocal() {
-  console.log('\n🔍 COMPARING LIVE VS LOCAL');
-  console.log('==========================');
-  
-  // Test live site
-  const liveResult = await new Promise((resolve) => {
-    const req = https.get('https://www.thandi.online/assessment', (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        resolve({ success: true, body: data, headers: res.headers });
-      });
-    });
-    req.on('error', () => resolve({ success: false }));
-    req.setTimeout(5000, () => {
-      req.destroy();
-      resolve({ success: false });
-    });
-  });
-  
-  if (liveResult.success) {
-    console.log('📡 Live Site Analysis:');
-    console.log(`   Size: ${liveResult.body.length} bytes`);
-    console.log(`   Cache: ${liveResult.headers['x-vercel-cache'] || 'Unknown'}`);
-    console.log(`   CDN ID: ${liveResult.headers['x-vercel-id'] || 'Unknown'}`);
-    
-    const liveChecks = {
-      'Thandi Branding': liveResult.body.includes('Thandi') && !liveResult.body.includes('THANDI'),
-      'Teal Colors': liveResult.body.includes('thandi-teal'),
-      'New Components': liveResult.body.includes('AssessmentPageClient') || liveResult.body.includes('GradeSelector'),
-      'Loading States': liveResult.body.includes('animate-spin'),
-      'Error Handling': liveResult.body.includes('setError')
-    };
-    
-    const liveFixCount = Object.values(liveChecks).filter(Boolean).length;
-    console.log(`   🎨 Live UI Fixes: ${liveFixCount}/5`);
-    
-    Object.entries(liveChecks).forEach(([check, passed]) => {
-      console.log(`   ${passed ? '✅' : '❌'} ${check}`);
-    });
-    
-    return liveFixCount;
-  } else {
-    console.log('❌ Could not fetch live site');
-    return 0;
-  }
-}
-
-function createEmergencyFix() {
-  console.log('\n🚨 CREATING EMERGENCY DEPLOYMENT FIX');
-  console.log('====================================');
-  
-  // Create a deployment trigger with timestamp
-  const emergencyTrigger = {
-    timestamp: new Date().toISOString(),
-    trigger: 'EMERGENCY_STUDENT_TESTING',
-    version: '0.1.5-emergency',
-    force_rebuild: true,
-    cache_bust: Date.now()
-  };
-  
-  fs.writeFileSync('emergency-deploy.json', JSON.stringify(emergencyTrigger, null, 2));
-  console.log('✅ Created emergency deployment trigger');
-  
-  // Update package.json version
-  try {
-    const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-    packageJson.version = '0.1.5';
-    fs.writeFileSync('package.json', JSON.stringify(packageJson, null, 2));
-    console.log('✅ Updated package version to 0.1.5');
-  } catch (error) {
-    console.log('⚠️ Could not update package version');
-  }
-  
-  // Create a simple cache-busting change
-  const cacheBust = `/* Cache bust: ${Date.now()} */\n`;
-  try {
-    const cssContent = fs.readFileSync('app/globals.css', 'utf8');
-    if (!cssContent.includes('Cache bust:')) {
-      fs.writeFileSync('app/globals.css', cacheBust + cssContent);
-      console.log('✅ Added cache-busting comment to CSS');
-    }
-  } catch (error) {
-    console.log('⚠️ Could not add cache bust to CSS');
-  }
-}
-
-async function emergencyDeploy() {
-  console.log('\n🚀 EXECUTING EMERGENCY DEPLOYMENT');
-  console.log('==================================');
-  
-  // Stage all changes
-  executeCommand('git add .', 'Staging all files');
-  
-  // Commit with emergency flag
-  executeCommand('git commit -m "EMERGENCY: Force deployment for student testing - v0.1.5"', 'Emergency commit');
-  
-  // Force push
-  executeCommand('git push origin main --force', 'Force push to trigger deployment');
-  
-  console.log('\n⏳ Waiting 30 seconds for deployment to start...');
-  await new Promise(resolve => setTimeout(resolve, 30000));
-  
-  // Test if deployment worked
-  const testResult = await testLiveVsLocal();
-  
-  if (testResult >= 3) {
-    console.log('\n🎉 EMERGENCY DEPLOYMENT SUCCESS!');
-    console.log('✅ UI fixes are now live');
-    console.log('🌐 Ready for student testing');
-    return true;
-  } else {
-    console.log('\n⚠️ EMERGENCY DEPLOYMENT PARTIAL');
-    console.log('🔄 May need more time to propagate');
-    return false;
-  }
-}
-
-async function main() {
-  console.log('🚨 EMERGENCY DEPLOYMENT DIAGNOSIS');
-  console.log('==================================');
-  console.log(`📅 Started: ${new Date().toISOString()}`);
-  console.log('🎯 Goal: Get UI fixes live for student testing');
-  
-  try {
-    // Step 1: Check local files
-    const localFixesOk = checkLocalFiles();
-    
-    // Step 2: Check git status
-    const gitStatus = checkGitStatus();
-    
-    // Step 3: Compare live vs local
-    const liveFixCount = await testLiveVsLocal();
-    
-    console.log('\n📊 DIAGNOSIS SUMMARY');
-    console.log('===================');
-    console.log(`✅ Local Fixes Present: ${localFixesOk ? 'Yes' : 'No'}`);
-    console.log(`✅ Git Status: ${gitStatus.isClean ? 'Clean' : 'Has changes'}`);
-    console.log(`📊 Live Fix Count: ${liveFixCount}/5`);
-    
-    if (localFixesOk && liveFixCount < 3) {
-      console.log('\n🚨 PROBLEM IDENTIFIED: Local fixes not deployed to live site');
-      console.log('💡 Solution: Emergency deployment with cache busting');
-      
-      createEmergencyFix();
-      const success = await emergencyDeploy();
-      
-      if (success) {
-        console.log('\n🎉 EMERGENCY FIX COMPLETE!');
-        console.log('✅ Site is ready for student testing');
-        console.log('🌐 https://www.thandi.online/assessment');
-      } else {
-        console.log('\n⚠️ EMERGENCY FIX PARTIAL');
-        console.log('🔄 Check again in 5 minutes');
-        console.log('💡 Or try manual Vercel dashboard deployment');
+      if (path === 'vercel.json') {
+        try {
+          const config = JSON.parse(content);
+          console.log(`   Build Command: ${config.buildCommand}`);
+          console.log(`   Install Command: ${config.installCommand}`);
+          console.log(`   Framework: ${config.framework}`);
+          
+          if (config.buildCommand !== 'npm run build') {
+            console.log('   ❌ Wrong build command');
+            issues.push('Incorrect vercel.json build command');
+          }
+          if (config.installCommand !== 'npm install --legacy-peer-deps') {
+            console.log('   ❌ Wrong install command');
+            issues.push('Incorrect vercel.json install command');
+          }
+        } catch (e) {
+          console.log('   ❌ Invalid JSON');
+          issues.push('Invalid vercel.json format');
+        }
       }
       
-      return success;
-    } else if (liveFixCount >= 3) {
-      console.log('\n✅ SITE IS ACTUALLY READY!');
-      console.log('🎉 UI fixes are live - you can start student testing');
-      return true;
+      if (path === 'package.json') {
+        try {
+          const pkg = JSON.parse(content);
+          console.log(`   Build Script: ${pkg.scripts.build}`);
+          if (pkg.scripts.build !== 'next build') {
+            console.log('   ❌ Wrong build script');
+            issues.push('Incorrect package.json build script');
+          }
+        } catch (e) {
+          console.log('   ❌ Invalid JSON');
+          issues.push('Invalid package.json format');
+        }
+      }
+      
     } else {
-      console.log('\n❌ LOCAL FIXES MISSING');
-      console.log('🔧 Need to re-apply UI fixes locally first');
-      return false;
+      console.log(`❌ ${description}: MISSING - ${path}`);
+      issues.push(`Missing file: ${path}`);
+    }
+  });
+  
+  // Step 3: Check Vercel CLI Status
+  console.log('\n3️⃣ VERCEL CLI DIAGNOSIS');
+  console.log('========================');
+  
+  try {
+    console.log('🔍 Checking Vercel authentication...');
+    const whoami = execSync('vercel whoami', { encoding: 'utf8' });
+    console.log(`✅ Logged in as: ${whoami.trim()}`);
+    
+    console.log('\n🔍 Getting latest deployments...');
+    const deployments = execSync('vercel ls --limit=5', { encoding: 'utf8' });
+    console.log('Recent deployments:');
+    console.log(deployments);
+    
+    console.log('\n🔍 Getting project info...');
+    const projectInfo = execSync('vercel project ls', { encoding: 'utf8' });
+    console.log('Projects:');
+    console.log(projectInfo);
+    
+  } catch (error) {
+    console.log(`❌ Vercel CLI error: ${error.message}`);
+    issues.push('Vercel CLI authentication or access issue');
+  }
+  
+  // Step 4: Test Local Build
+  console.log('\n4️⃣ LOCAL BUILD VERIFICATION');
+  console.log('============================');
+  
+  try {
+    console.log('🔨 Testing local build...');
+    const buildOutput = execSync('npm run build', { 
+      encoding: 'utf8',
+      stdio: 'pipe'
+    });
+    
+    if (buildOutput.includes('✓ Compiled successfully')) {
+      console.log('✅ Local build successful');
+    } else {
+      console.log('❌ Local build has issues');
+      console.log(buildOutput);
+      issues.push('Local build issues');
     }
     
   } catch (error) {
-    console.log('\n❌ EMERGENCY DIAGNOSIS FAILED');
-    console.log(`Error: ${error.message}`);
-    return false;
+    console.log(`❌ Local build failed: ${error.message}`);
+    issues.push('Local build failed');
   }
+  
+  // Step 5: Check Environment Variables
+  console.log('\n5️⃣ ENVIRONMENT VARIABLES CHECK');
+  console.log('==============================');
+  
+  if (fs.existsSync('.env.local')) {
+    console.log('✅ .env.local exists');
+    const envContent = fs.readFileSync('.env.local', 'utf8');
+    
+    const requiredVars = [
+      'NEXT_PUBLIC_SUPABASE_URL',
+      'SUPABASE_SERVICE_ROLE_KEY',
+      'JWT_SECRET'
+    ];
+    
+    requiredVars.forEach(varName => {
+      if (envContent.includes(varName)) {
+        console.log(`✅ ${varName} present`);
+      } else {
+        console.log(`❌ ${varName} missing`);
+        issues.push(`Missing environment variable: ${varName}`);
+      }
+    });
+  } else {
+    console.log('❌ .env.local missing');
+    issues.push('Missing .env.local file');
+  }
+  
+  // Step 6: Check for Common Deployment Blockers
+  console.log('\n6️⃣ DEPLOYMENT BLOCKER ANALYSIS');
+  console.log('===============================');
+  
+  // Check for large files
+  try {
+    const largeFiles = execSync('find . -name "*.js" -o -name "*.jsx" -o -name "*.ts" -o -name "*.tsx" | xargs ls -la | awk \'$5 > 1000000\' || true', { 
+      encoding: 'utf8' 
+    });
+    
+    if (largeFiles.trim()) {
+      console.log('⚠️  Large files detected:');
+      console.log(largeFiles);
+    } else {
+      console.log('✅ No unusually large files');
+    }
+  } catch (error) {
+    console.log('Could not check file sizes');
+  }
+  
+  // Check node_modules
+  if (fs.existsSync('node_modules')) {
+    console.log('✅ node_modules exists');
+  } else {
+    console.log('❌ node_modules missing');
+    issues.push('node_modules missing');
+  }
+  
+  // Check package-lock.json
+  if (fs.existsSync('package-lock.json')) {
+    console.log('✅ package-lock.json exists');
+  } else {
+    console.log('❌ package-lock.json missing');
+    issues.push('package-lock.json missing');
+  }
+  
+  // Step 7: Manual Vercel Deployment Test
+  console.log('\n7️⃣ MANUAL DEPLOYMENT TEST');
+  console.log('=========================');
+  
+  try {
+    console.log('🚀 Attempting manual Vercel deployment...');
+    console.log('This will show us the exact error...');
+    
+    // This will show us what's actually failing
+    const deployResult = execSync('vercel --prod --yes', { 
+      encoding: 'utf8',
+      stdio: 'pipe',
+      timeout: 120000 // 2 minute timeout
+    });
+    
+    console.log('✅ Manual deployment successful!');
+    console.log(deployResult);
+    
+  } catch (error) {
+    console.log('❌ Manual deployment failed');
+    console.log('Error output:');
+    console.log(error.stdout || error.message);
+    console.log('Error details:');
+    console.log(error.stderr || 'No stderr');
+    
+    // This is the critical information we need
+    issues.push(`Deployment error: ${error.message}`);
+  }
+  
+  // Final Analysis
+  console.log('\n📊 EMERGENCY DIAGNOSIS RESULTS');
+  console.log('==============================');
+  
+  if (issues.length === 0) {
+    console.log('🎉 NO CRITICAL ISSUES FOUND');
+    console.log('The deployment should be working. Check Vercel dashboard for status.');
+  } else {
+    console.log(`🚨 ${issues.length} CRITICAL ISSUE(S) IDENTIFIED`);
+    console.log('');
+    console.log('🔧 BLOCKING ISSUES:');
+    issues.forEach((issue, index) => {
+      console.log(`${index + 1}. ${issue}`);
+    });
+  }
+  
+  console.log('\n🎯 IMMEDIATE ACTION PLAN');
+  console.log('=======================');
+  
+  if (issues.length > 0) {
+    console.log('1. Fix the issues listed above');
+    console.log('2. Test local build again');
+    console.log('3. Commit and push fixes');
+    console.log('4. Monitor Vercel deployment');
+  } else {
+    console.log('1. Check Vercel dashboard for deployment status');
+    console.log('2. Look for specific error messages in build logs');
+    console.log('3. Verify environment variables in Vercel settings');
+    console.log('4. Check if deployment is actually successful but taking time');
+  }
+  
+  console.log('\n📞 NEXT STEPS FOR MONDAY LAUNCH');
+  console.log('===============================');
+  console.log('1. Resolve deployment issues immediately');
+  console.log('2. Test live site thoroughly once deployed');
+  console.log('3. Have backup plan ready if needed');
+  console.log('4. Monitor system closely during launch');
+  
+  return issues.length === 0;
 }
 
-// Run emergency diagnosis
-main().then(success => {
-  console.log(`\n📅 Completed: ${new Date().toISOString()}`);
-  console.log(`🎯 Result: ${success ? 'READY FOR STUDENT TESTING' : 'NEEDS MANUAL INTERVENTION'}`);
-  
-  if (success) {
-    console.log('\n🚀 NEXT STEPS:');
-    console.log('1. Test the assessment flow yourself');
-    console.log('2. Start student testing');
-    console.log('3. Monitor for any issues');
-  } else {
-    console.log('\n🔧 MANUAL STEPS NEEDED:');
-    console.log('1. Check Vercel dashboard for deployment status');
-    console.log('2. Try manual redeploy from Vercel UI');
-    console.log('3. Clear CDN cache if available');
-  }
-}).catch(error => {
-  console.error('❌ Critical error:', error.message);
+emergencyDeploymentDiagnosis().catch(error => {
+  console.error('Emergency diagnosis failed:', error);
+  process.exit(1);
 });
