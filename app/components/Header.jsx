@@ -9,7 +9,7 @@ export default function Header() {
   const navigation = [
     { label: 'Home', href: '/', isActive: true },
     { label: 'Assessment', href: '/assessment', isActive: false },
-    { label: 'Admin', href: '/admin', isActive: false },
+    { label: 'School Login', href: '/admin', isActive: false },
   ];
 
   return (

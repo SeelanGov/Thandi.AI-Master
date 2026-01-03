@@ -35,15 +35,28 @@ export default function HeroSection() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-5xl sm:text-7xl font-bold font-heading text-thandi-cream mb-6 leading-tight">
+          <h1 className="text-5xl sm:text-7xl font-bold font-heading text-thandi-cream mb-4 leading-tight">
             From School to{' '}
             <span className="text-thandi-gold">Success</span>
           </h1>
 
+          {/* Subtitle */}
+          <h2 className="text-2xl sm:text-3xl font-semibold font-heading text-thandi-gold mb-6">
+            AI Career Guidance for Grade 10-12 South African Students
+          </h2>
+
           {/* Value Proposition */}
-          <p className="text-xl sm:text-2xl text-thandi-cream/90 mb-10 leading-relaxed font-body">
+          <p className="text-xl sm:text-2xl text-thandi-cream/90 mb-6 leading-relaxed font-body">
             Discover your ideal career path in just 6 quick steps. Get AI-powered recommendations backed by South African labor market data.
           </p>
+
+          {/* Built in SA Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-thandi-gold/20 backdrop-blur-sm border border-thandi-gold/30 mb-10">
+            <svg className="w-4 h-4 text-thandi-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+            </svg>
+            <span className="text-sm text-thandi-gold font-medium font-body">Built in South Africa for South African Schools</span>
+          </div>
 
           {/* Primary CTA */}
           <Link
