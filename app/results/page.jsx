@@ -8,8 +8,20 @@ import { trackEnhancedRecommendations, trackPDFDownload, trackEnhancementFeature
 export default function ResultsPage() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isAnonymous, setIsAnonymous] = useState(false);
+  const [justRegistered, setJustRegistered] = useState(false);
 
   useEffect(() => {
+    // Check if user just registered
+    const urlParams = new URLSearchParams(window.location.search);
+    const registeredParam = urlParams.get('registered');
+    
+    if (registeredParam === 'true') {
+      setJustRegistered(true);
+      // Clean up URL
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+    
     const saved = localStorage.getItem('thandi_results');
     
     if (!saved) {
@@ -31,7 +43,24 @@ export default function ResultsPage() {
       }
       
       setResults(parsed);
+      
+      // Check if user is anonymous
+      const sessionToken = localStorage.getItem('thandi_session_token');
+      const studentToken = localStorage.getItem('Thandi_student_token');
+      
+      if (sessionToken && !studentToken) {
+        try {
+          const sessionData = JSON.parse(atob(sessionToken));
+          if (sessionData.anonymous) {
+            setIsAnonymous(true);
+          }
+        } catch (e) {
+          console.error('Error parsing session token:', e);
+        }
+      }
+      
       console.log('📊 Results loaded:', parsed);
+      console.log('👤 User type:', isAnonymous ? 'Anonymous' : 'Registered');
       console.log('✅ Footer verified:', responseText.includes('⚠️ **Verify before you decide'));
       console.log('🚪 Gate data:', parsed.gate);
       
@@ -56,6 +85,17 @@ export default function ResultsPage() {
     localStorage.removeItem('thandi_assessment_data');
     localStorage.removeItem('thandi_results');
     window.location.href = '/assessment';
+  };
+
+  const handleRegisterNow = () => {
+    // Store current results for after registration
+    localStorage.setItem('thandi_results_backup', localStorage.getItem('thandi_results'));
+    
+    // Clear session token to force registration
+    localStorage.removeItem('thandi_session_token');
+    
+    // Redirect to assessment with registration flag
+    window.location.href = '/assessment?register=true';
   };
 
   const downloadPDF = () => {
@@ -300,6 +340,19 @@ export default function ResultsPage() {
           </div>
         </div>
 
+        {/* Registration Success Message */}
+        {justRegistered && (
+          <div className="registration-success">
+            <div className="registration-success-content">
+              <div className="registration-success-icon">🎉</div>
+              <div className="registration-success-text">
+                <h3>Welcome to Thandi! Registration Complete</h3>
+                <p>Your career results are now saved to your account. You'll get access to your student dashboard soon!</p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* CRITICAL: Top warning banner */}
         <div className="warning-banner">
           <p className="warning-title">⚠️ READ THIS FIRST</p>
@@ -307,6 +360,24 @@ export default function ResultsPage() {
             The advice below is AI-generated. You MUST verify it with real people before making any decision.
           </p>
         </div>
+
+        {/* Anonymous User Registration CTA */}
+        {isAnonymous && (
+          <div className="registration-cta">
+            <div className="registration-cta-content">
+              <div className="registration-cta-icon">
+                🎯
+              </div>
+              <div className="registration-cta-text">
+                <h3>Want to save your results and get a student dashboard?</h3>
+                <p>Register now to access your personalized career plan, track your progress, and get updates on bursaries and applications.</p>
+              </div>
+              <button onClick={handleRegisterNow} className="registration-cta-button">
+                Register Now - Get Your Dashboard
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Gate Warning Section */}
         {results.gate && results.gate.metadata && (
@@ -497,6 +568,109 @@ export default function ResultsPage() {
           font-size: 14px;
         }
 
+        .registration-cta {
+          margin: 24px 0;
+          padding: 24px;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+
+        .registration-cta-content {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          color: white;
+        }
+
+        .registration-cta-icon {
+          font-size: 32px;
+          flex-shrink: 0;
+        }
+
+        .registration-cta-text {
+          flex: 1;
+        }
+
+        .registration-cta-text h3 {
+          margin: 0 0 8px 0;
+          font-size: 20px;
+          font-weight: 600;
+          color: white;
+        }
+
+        .registration-cta-text p {
+          margin: 0;
+          font-size: 16px;
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.5;
+        }
+
+        .registration-cta-button {
+          padding: 12px 24px;
+          background: white;
+          color: #059669;
+          border: none;
+          border-radius: 8px;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s;
+          white-space: nowrap;
+        }
+
+        .registration-cta-button:hover {
+          background: #f9fafb;
+          transform: translateY(-1px);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-success {
+          margin: 24px 0;
+          padding: 20px;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+          animation: slideIn 0.5s ease-out;
+        }
+
+        .registration-success-content {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          color: white;
+        }
+
+        .registration-success-icon {
+          font-size: 28px;
+          flex-shrink: 0;
+        }
+
+        .registration-success-text h3 {
+          margin: 0 0 6px 0;
+          font-size: 18px;
+          font-weight: 600;
+          color: white;
+        }
+
+        .registration-success-text p {
+          margin: 0;
+          font-size: 15px;
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.4;
+        }
+
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         .mock-notice {
           margin-top: 32px;
           padding: 16px;
@@ -608,6 +782,39 @@ export default function ResultsPage() {
 
           .response-text {
             font-size: 15px;
+          }
+
+          .registration-cta-content {
+            flex-direction: column;
+            text-align: center;
+            gap: 16px;
+          }
+
+          .registration-cta-text h3 {
+            font-size: 18px;
+          }
+
+          .registration-cta-text p {
+            font-size: 15px;
+          }
+
+          .registration-cta-button {
+            width: 100%;
+            padding: 14px 20px;
+          }
+
+          .registration-success-content {
+            flex-direction: column;
+            text-align: center;
+            gap: 12px;
+          }
+
+          .registration-success-text h3 {
+            font-size: 16px;
+          }
+
+          .registration-success-text p {
+            font-size: 14px;
           }
         }
       `}</style>
