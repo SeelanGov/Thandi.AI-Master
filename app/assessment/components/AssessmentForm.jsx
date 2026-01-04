@@ -13,7 +13,7 @@ import DeepDiveQuestions from './DeepDiveQuestions';
 import CurriculumProfile from './CurriculumProfile';
 import BulletproofStudentRegistration from '../../../components/BulletproofStudentRegistration';
 
-import { getAcademicContext } from '../../../lib/academic/emergency-calendar.js';
+const { calendarUtils } = require('../../../lib/academic/pure-commonjs-calendar.js');
 import { trackAssessmentComplete, trackJourneyComplete } from '../../../lib/analytics/track-events';
 
 const STORAGE_KEY = 'Thandi_assessment_data';
@@ -457,14 +457,32 @@ export default function AssessmentForm({ initialGrade, initialStep }) {
     
     const API_URL = '/api/rag/query';
     
-    // Get current date context
+    // Get current date context and academic calendar
     const currentDate = new Date();
     const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
     const currentYear = currentDate.getFullYear();
     
+    // Get academic context using new calendar system
+    const studentContext = calendarUtils.getStudentContext(enhancedData.grade || 10, enhancedData.marks);
+    
     // Build enhanced query with 2-year planning focus
-    let query = `I am a Grade ${enhancedData.grade || 10} student in South Africa following the ${enhancedData.curriculumProfile?.framework || 'CAPS'} curriculum. Today is ${currentMonth} ${currentYear}. I have 2 years left before Grade 12 finals.
+    let query = `I am a Grade ${enhancedData.grade || 10} student in South Africa following the ${enhancedData.curriculumProfile?.framework || 'CAPS'} curriculum. Today is ${currentMonth} ${currentYear}. `;
+    
+    // Add grade-specific context using academic calendar
+    if (enhancedData.grade === 12) {
+      // Use academic context for accurate Grade 12 timing
+      if (academicContext.isPostFinals) {
+        query += `I have completed my Grade 12 final exams (finished November 2025). I am waiting for results (expected December 20, 2025) and need to focus on 2026 university applications and registration. `;
+      } else if (academicContext.isFinalsActive) {
+        query += `I am currently writing my Grade 12 final exams. `;
+      } else {
+        query += academicContext.timelineMessage + ' ';
+      }
+    } else {
+      query += `I have ${enhancedData.grade === 11 ? '1 year' : '2 years'} left before Grade 12 finals. `;
+    }
 
+    query += `
     ASSESSMENT DATA:
     Subjects I enjoy: ${(enhancedData.enjoyedSubjects || []).join(', ')}.
     Interests: ${(enhancedData.interests || []).join(', ')}.`;
@@ -686,17 +704,27 @@ export default function AssessmentForm({ initialGrade, initialStep }) {
     
     const API_URL = '/api/rag/query';
     
-    // Get current date context
+    // Get current date context and academic calendar
     const currentDate = new Date();
     const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
     const currentYear = currentDate.getFullYear();
     
+    // Get academic context using new calendar system
+    const studentContext = calendarUtils.getStudentContext(formData.grade || 10, formData.marks);
+    
     // Build context-rich query
     let query = `I am a Grade ${formData.grade || 10} student in South Africa following the ${formData.curriculumProfile?.framework || 'CAPS'} curriculum. Today is ${currentMonth} ${currentYear}. `;
     
-    // Add grade-specific context
+    // Add grade-specific context using academic calendar
     if (formData.grade === 12) {
-      query += `I am writing my final exams in about 1 month (late November/early December ${currentYear}). `;
+      // Use academic context for accurate Grade 12 timing
+      if (academicContext.isPostFinals) {
+        query += `I have completed my Grade 12 final exams (finished November 2025). I am waiting for results (expected December 20, 2025) and need to focus on 2026 university applications and registration. `;
+      } else if (academicContext.isFinalsActive) {
+        query += `I am currently writing my Grade 12 final exams. `;
+      } else {
+        query += academicContext.timelineMessage + ' ';
+      }
     } else if (formData.grade === 11) {
       query += `I have 1 full year left before Grade 12 finals. `;
     } else if (formData.grade === 10) {
@@ -735,7 +763,14 @@ export default function AssessmentForm({ initialGrade, initialStep }) {
         });
         
         if (formData.grade === 12) {
-          query += `I need: 1) What marks I need in my FINAL EXAMS (writing in ~1 month), 2) Bursaries with deadlines in the next 3-6 months, 3) Application deadlines I must meet NOW, 4) Realistic backup options if my marks don't improve. Be specific about MY current marks and what's achievable in the next month.`;
+          // Use academic context for accurate Grade 12 advice
+          if (academicContext.isPostFinals) {
+            query += `I need: 1) University application guidance for 2026 (most deadlines in January), 2) NSFAS funding applications and deadlines, 3) Backup options if my results aren't sufficient, 4) Residence and accommodation applications. Focus on post-matric planning since finals are complete.`;
+          } else if (academicContext.isFinalsActive) {
+            query += `I need: 1) Exam stress management and study techniques, 2) What to focus on in remaining exams, 3) Post-exam planning for university applications, 4) Backup options to consider.`;
+          } else {
+            query += `I need: 1) What marks I need in my FINAL EXAMS, 2) Bursaries with upcoming deadlines, 3) Application deadlines I must meet, 4) Realistic backup options if my marks don't improve. Be specific about MY current marks and what's achievable.`;
+          }
         } else if (formData.grade === 11) {
           query += `I need: 1) What marks to target by end of Grade 12, 2) Bursaries to apply for in ${currentYear + 1}, 3) Year-by-year improvement plan (Grade 11→12), 4) Subject choices to reconsider. Be specific about MY current marks.`;
         } else {
@@ -756,7 +791,14 @@ export default function AssessmentForm({ initialGrade, initialStep }) {
         });
         
         if (formData.grade === 12) {
-          query += `I need: 1) What marks I need in my FINAL EXAMS (writing in ~1 month), 2) Bursaries with deadlines in the next 3-6 months, 3) Application deadlines I must meet NOW, 4) Realistic backup options. Focus on my current performance levels.`;
+          // Use academic context for accurate Grade 12 advice
+          if (academicContext.isPostFinals) {
+            query += `I need: 1) University application guidance for 2026 (most deadlines in January), 2) NSFAS funding applications and deadlines, 3) Backup options if my results aren't sufficient, 4) Residence and accommodation applications. Focus on post-matric planning since finals are complete.`;
+          } else if (academicContext.isFinalsActive) {
+            query += `I need: 1) Exam stress management and study techniques, 2) What to focus on in remaining exams, 3) Post-exam planning for university applications, 4) Backup options to consider.`;
+          } else {
+            query += `I need: 1) What marks I need in my FINAL EXAMS, 2) Bursaries with upcoming deadlines, 3) Application deadlines I must meet, 4) Realistic backup options if my marks don't improve. Focus on my current performance levels.`;
+          }
         } else if (formData.grade === 11) {
           query += `I need: 1) What marks to target by end of Grade 12, 2) Bursaries to apply for in ${currentYear + 1}, 3) Year-by-year improvement plan (Grade 11→12), 4) Subject choices to reconsider. Focus on my current performance levels.`;
         } else {

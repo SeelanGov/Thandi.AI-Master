@@ -118,20 +118,6 @@ export default function ResultsPage() {
       return false;
     };
 
-    // Helper function to add text with proper line spacing
-    const addText = (text, fontSize = 11, isBold = false, indent = 0) => {
-      pdf.setFontSize(fontSize);
-      pdf.setTextColor(0, 0, 0);
-      
-      const lines = pdf.splitTextToSize(text, maxWidth - indent);
-      lines.forEach((line) => {
-        checkPageBreak(8);
-        pdf.text(line, margin + indent, yPosition);
-        yPosition += fontSize * 0.5;
-      });
-      yPosition += 3; // Extra spacing after paragraph
-    };
-
     // 1. Add header/logo
     pdf.setFontSize(20);
     pdf.setTextColor(0, 0, 0);
@@ -515,8 +501,214 @@ export default function ResultsPage() {
         }
 
         .response-text {
-          white-space: pre-wrap;
           font-size: 16px;
+        }
+
+        /* Enhanced Content Formatting */
+        .formatted-content {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .content-section {
+          margin-bottom: 32px;
+          padding: 24px;
+          background: #fafafa;
+          border-radius: 12px;
+          border-left: 4px solid #10b981;
+        }
+
+        .section-header {
+          margin-bottom: 20px;
+        }
+
+        .main-header {
+          font-size: 24px;
+          font-weight: 700;
+          color: #1f2937;
+          margin: 0 0 16px 0;
+          padding-bottom: 8px;
+          border-bottom: 2px solid #e5e7eb;
+        }
+
+        .sub-header {
+          font-size: 20px;
+          font-weight: 600;
+          color: #374151;
+          margin: 0 0 12px 0;
+        }
+
+        .subsection {
+          margin: 20px 0;
+          padding: 16px;
+          background: white;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+        }
+
+        .program-card {
+          margin: 20px 0;
+          padding: 20px;
+          background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+          border-radius: 12px;
+          border: 2px solid #0ea5e9;
+          box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
+        }
+
+        .program-title {
+          font-size: 18px;
+          font-weight: 600;
+          color: #0c4a6e;
+          margin: 0 0 12px 0;
+        }
+
+        .key-value {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 0;
+          border-bottom: 1px solid #f3f4f6;
+        }
+
+        .key-value:last-child {
+          border-bottom: none;
+        }
+
+        .key {
+          font-weight: 500;
+          color: #6b7280;
+          flex: 1;
+        }
+
+        .value {
+          font-weight: 600;
+          color: #1f2937;
+          text-align: right;
+          flex: 1;
+        }
+
+        .score-item {
+          background: #f0fdf4;
+          padding: 12px;
+          border-radius: 8px;
+          border-left: 4px solid #10b981;
+          margin: 8px 0;
+        }
+
+        .score-item .key {
+          color: #065f46;
+        }
+
+        .score-item .value {
+          color: #059669;
+          font-weight: 700;
+        }
+
+        .deadline-item {
+          background: #fef3c7;
+          padding: 12px;
+          border-radius: 8px;
+          border-left: 4px solid #f59e0b;
+          margin: 8px 0;
+        }
+
+        .deadline-item .key {
+          color: #92400e;
+        }
+
+        .deadline-item .value {
+          color: #d97706;
+          font-weight: 700;
+        }
+
+        .chance-item {
+          background: #ecfdf5;
+          padding: 12px;
+          border-radius: 8px;
+          border-left: 4px solid #10b981;
+          margin: 8px 0;
+        }
+
+        .chance-item .key {
+          color: #065f46;
+        }
+
+        .chance-item .value {
+          color: #059669;
+          font-weight: 700;
+        }
+
+        .bullet-item {
+          display: flex;
+          align-items: flex-start;
+          margin: 8px 0;
+          padding: 8px 0;
+        }
+
+        .bullet {
+          color: #10b981;
+          font-weight: bold;
+          margin-right: 12px;
+          font-size: 18px;
+          line-height: 1.2;
+        }
+
+        .bullet-item .content {
+          flex: 1;
+          line-height: 1.6;
+        }
+
+        .paragraph {
+          margin: 12px 0;
+          line-height: 1.7;
+          font-size: 16px;
+        }
+
+        .highlight {
+          background: #fef3c7;
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #92400e;
+        }
+
+        .status-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          font-size: 14px;
+          margin: 0 4px;
+        }
+
+        .status-icon.success {
+          background: #dcfce7;
+          color: #166534;
+        }
+
+        .status-icon.warning {
+          background: #fef3c7;
+          color: #92400e;
+        }
+
+        .status-icon.critical {
+          background: #fecaca;
+          color: #991b1b;
+        }
+
+        .status-icon.info {
+          background: #dbeafe;
+          color: #1e40af;
+        }
+
+        .metric {
+          background: #f3f4f6;
+          padding: 2px 8px;
+          border-radius: 6px;
+          font-weight: 600;
+          color: #374151;
+          font-family: 'SF Mono', Monaco, monospace;
         }
 
         .warning-banner {
@@ -825,16 +1017,123 @@ export default function ResultsPage() {
 function formatResponse(text) {
   if (!text) return '';
   
-  // Format markdown-style text to HTML
-  let formatted = text
-    // Bold: **text** -> <strong>text</strong>
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    // Numbered lists: "1. " -> keep as-is (CSS handles spacing)
-    // Line breaks: \n -> <br>
-    .replace(/\n/g, '<br>')
-    // Paragraphs: double line breaks -> paragraph breaks
-    .replace(/(<br>){2,}/g, '</p><p>');
+  // Clean up the text first
+  let cleaned = text
+    // Remove duplicate verification warnings and separators
+    .replace(/---+\s*⚠️[^-]*---+/g, '')
+    .replace(/⚠️ \*\*Verify before you decide[^⚠️]*⚠️[^⚠️]*$/g, '')
+    .replace(/---+/g, '')
+    .trim();
   
-  // Wrap in paragraph tags
-  return `<p>${formatted}</p>`;
+  // Split into sections for better processing
+  const sections = cleaned.split(/(?=^##?\s)/gm).filter(section => section.trim());
+  
+  let formatted = '';
+  
+  sections.forEach(section => {
+    const lines = section.split('\n').filter(line => line.trim());
+    let sectionHtml = '';
+    
+    lines.forEach((line, index) => {
+      line = line.trim();
+      if (!line) return;
+      
+      // Main headers (# or ##)
+      if (line.match(/^##?\s+(.+)/)) {
+        const headerText = line.replace(/^##?\s+/, '');
+        sectionHtml += `<div class="section-header">
+          <h2 class="main-header">${headerText}</h2>
+        </div>`;
+        return;
+      }
+      
+      // Sub headers (###)
+      if (line.match(/^###\s+(.+)/)) {
+        const headerText = line.replace(/^###\s+/, '');
+        
+        // Special styling for numbered programs/bursaries
+        if (headerText.match(/^\d+\./)) {
+          sectionHtml += `<div class="program-card">
+            <h3 class="program-title">${headerText}</h3>
+          `;
+        } else {
+          sectionHtml += `<div class="subsection">
+            <h3 class="sub-header">${headerText}</h3>
+          `;
+        }
+        return;
+      }
+      
+      // Key-value pairs (APS scores, deadlines, etc.)
+      const kvMatch = line.match(/^(.+?):\s*(.+)$/);
+      if (kvMatch && !line.includes('http')) {
+        const key = kvMatch[1].replace(/\*\*/g, '');
+        const value = kvMatch[2].replace(/\*\*/g, '');
+        
+        // Special styling for important metrics
+        let className = 'key-value';
+        if (key.toLowerCase().includes('aps') || key.toLowerCase().includes('score')) {
+          className += ' score-item';
+        } else if (key.toLowerCase().includes('deadline')) {
+          className += ' deadline-item';
+        } else if (key.toLowerCase().includes('chance') || key.toLowerCase().includes('eligibility')) {
+          className += ' chance-item';
+        }
+        
+        sectionHtml += `<div class="${className}">
+          <span class="key">${key}:</span>
+          <span class="value">${formatValue(value)}</span>
+        </div>`;
+        return;
+      }
+      
+      // Bullet points
+      if (line.match(/^[-*]\s+(.+)/)) {
+        const content = line.replace(/^[-*]\s+/, '').replace(/\*\*/g, '');
+        sectionHtml += `<div class="bullet-item">
+          <span class="bullet">•</span>
+          <span class="content">${content}</span>
+        </div>`;
+        return;
+      }
+      
+      // Regular paragraphs
+      if (line.length > 0) {
+        const formattedLine = line
+          .replace(/\*\*(.*?)\*\*/g, '<strong class="highlight">$1</strong>')
+          .replace(/✅/g, '<span class="status-icon success">✅</span>')
+          .replace(/⚠️/g, '<span class="status-icon warning">⚠️</span>')
+          .replace(/🚨/g, '<span class="status-icon critical">🚨</span>')
+          .replace(/ℹ️/g, '<span class="status-icon info">ℹ️</span>');
+        
+        sectionHtml += `<div class="paragraph">${formattedLine}</div>`;
+      }
+    });
+    
+    // Close any open program cards
+    if (sectionHtml.includes('program-card') && !sectionHtml.includes('</div>')) {
+      sectionHtml += '</div>';
+    }
+    
+    formatted += `<div class="content-section">${sectionHtml}</div>`;
+  });
+  
+  return `<div class="formatted-content">${formatted}</div>`;
+}
+
+function formatValue(value) {
+  // Add special formatting for different types of values
+  if (value.includes('✅') || value.includes('⚠️') || value.includes('🚨')) {
+    return value
+      .replace(/✅/g, '<span class="status-icon success">✅</span>')
+      .replace(/⚠️/g, '<span class="status-icon warning">⚠️</span>')
+      .replace(/🚨/g, '<span class="status-icon critical">🚨</span>');
+  }
+  
+  // Highlight percentages and scores
+  if (value.match(/\d+%/) || value.match(/\d+-\d+/)) {
+    return `<span class="metric">${value}</span>`;
+  }
+  
+  return value;
 }

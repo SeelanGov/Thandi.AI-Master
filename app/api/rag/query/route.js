@@ -1,7 +1,7 @@
 // RAG endpoint with Upstash cache integration and specific program recommendations
 import { NextResponse } from 'next/server';
 import { getCachedResponse, setCachedResponse } from '@/lib/cache/rag-cache.js';
-import { getAcademicContext, getContextualAdvice } from '@/lib/academic/emergency-calendar.js';
+const { calendarUtils } = require('@/lib/academic/pure-commonjs-calendar.js');
 import { generateSpecificRecommendations, formatRecommendationsForLLM } from '@/lib/matching/program-matcher.js';
 
 // Helper function to extract career interests from query
@@ -49,15 +49,18 @@ function extractMarksFromQuery(queryText) {
   return marks;
 }
 
-// Generate enhanced career guidance with specific program recommendations
+// Generate enhanced career guidance with academic calendar context
 function generateCareerGuidance(query, grade, curriculum, studentProfile = null) {
   const gradeLevel = grade || 'grade10';
   const curriculumType = curriculum || 'caps';
   
-  // Get academic calendar context
+  // Get comprehensive academic calendar context
   const gradeNumber = parseInt(gradeLevel.replace('grade', '')) || 10;
-  const academicContext = getAcademicContext(new Date(), gradeNumber);
-  const contextualAdvice = getContextualAdvice(academicContext);
+  const studentContext = calendarUtils.getStudentContext(gradeNumber, studentProfile?.marks);
+  const contextualQuery = calendarUtils.buildRAGQuery(gradeNumber, studentProfile?.marks);
+  
+  // Log context for debugging (dev lead practice: always log important context)
+  console.log(`[CALENDAR CONTEXT] Grade: ${gradeNumber}, Context: ${studentContext.context}, Academic Year: ${studentContext.currentAcademicYear}, Term: ${studentContext.currentTerm}`);
   
   // Generate specific program recommendations if student profile available
   let specificRecommendations = null;
@@ -95,18 +98,19 @@ function generateCareerGuidance(query, grade, curriculum, studentProfile = null)
   
   // Use specific recommendations if available
   if (specificRecommendations && specificRecommendations.success) {
-    careerResponse = generateEnhancedResponse(query, gradeNumber, curriculumType, academicContext, contextualAdvice, specificRecommendations);
+    careerResponse = generateEnhancedResponse(query, gradeNumber, curriculumType, studentContext, specificRecommendations);
   } else if (isGrade12 && (hasArchitectureInterest || hasEngineeringInterest || hasLawInterest)) {
-    // Personalized Grade 12 response with specific career analysis
+    // Personalized Grade 12 response with academic calendar context
     careerResponse = `# Your Career Guidance Results - Grade 12 Final Year
 
 ## Based on Your Assessment
 **Grade Level**: GRADE 12 (Final Year)
 **Curriculum**: ${String(curriculumType).toUpperCase()}
-**Academic Timeline**: ${academicContext.timelineMessage}
-**Current Phase**: ${academicContext.currentPhase.replace('-', ' ').toUpperCase()}
+**Academic Year**: ${studentContext.currentAcademicYear}
+**Current Term**: ${studentContext.currentTerm || 'Between Terms'}
+**Student Status**: ${studentContext.context.toUpperCase()} - ${studentContext.description}
 **Career Interests**: Architecture, Civil Engineering, Law
-**Status**: ${isFirstGeneration ? 'First-generation university student' : 'University-bound student'}
+**Available Marks**: ${studentContext.hasMarks ? 'Yes (Grade 11 marks)' : 'No marks available yet'}
 
 ## URGENT: Your Career Feasibility Analysis
 
@@ -130,16 +134,16 @@ function generateCareerGuidance(query, grade, curriculum, studentProfile = null)
 
 ## IMMEDIATE ACTION PLAN
 
-### Current Focus: ${contextualAdvice.focus.replace('-', ' ').toUpperCase()}
+## Current Academic Context
 
-### Priority Actions:
-${contextualAdvice.priorities.map(priority => `- **${priority}**`).join('\n')}
+### Academic Calendar Status
+- **Academic Year**: ${studentContext.currentAcademicYear}
+- **Current Term**: ${studentContext.currentTerm || 'Between Academic Years'}
+- **Student Type**: ${studentContext.context.charAt(0).toUpperCase() + studentContext.context.slice(1)} Student
+- **Guidance Focus**: ${studentContext.guidanceFocus.join(', ')}
 
-### Urgent Deadlines:
-${contextualAdvice.urgentDeadlines.length > 0 
-  ? contextualAdvice.urgentDeadlines.map(deadline => `- **${deadline}**`).join('\n')
-  : '- No immediate deadlines (check university websites for 2026 applications)'
-}
+### Priority Actions Based on Your Grade:
+${studentContext.guidanceFocus.map(focus => `- **${focus}**`).join('\n')}
 
 ### Subject Performance Strategy:
 - **Priority 1**: EGD - Maintain excellence (aim 90%+)
@@ -176,14 +180,16 @@ ${contextualAdvice.urgentDeadlines.length > 0
 
 ⚠️ **URGENT VERIFICATION REQUIRED**: This timeline is critical. Contact your school counselor IMMEDIATELY to verify application deadlines and discuss backup options. Some universities may still accept late applications.`
   } else if (isGrade12) {
-    // General Grade 12 response
+    // General Grade 12 response with calendar context
     careerResponse = `# Your Career Guidance Results - Grade 12
 
 ## Based on Your Assessment  
-**Grade Level**: GRADE 12
+**Grade Level**: GRADE 12 (Final Year)
 **Curriculum**: ${String(curriculumType).toUpperCase()}
-**Academic Timeline**: ${academicContext.timelineMessage}
-**Current Phase**: ${academicContext.currentPhase.replace('-', ' ').toUpperCase()}
+**Academic Year**: ${studentContext.currentAcademicYear}
+**Current Term**: ${studentContext.currentTerm || 'Between Terms'}
+**Student Status**: ${studentContext.context.toUpperCase()} - ${studentContext.description}
+**Available Marks**: ${studentContext.hasMarks ? 'Yes (Grade 11 marks available)' : 'No marks available yet'}
 **Query**: ${query}
 
 ## Recommended Career Paths Based on Your Profile
@@ -205,29 +211,40 @@ ${contextualAdvice.urgentDeadlines.length > 0
 
 ## Next Steps for Grade 12 Students
 
-### Current Focus: ${contextualAdvice.focus.replace('-', ' ').toUpperCase()}
+### Current Focus: ${studentContext.context.replace('-', ' ').toUpperCase()} STUDENT PRIORITIES
 
 ### Priority Actions:
-${contextualAdvice.priorities.map(priority => `- **${priority}**`).join('\n')}
+${studentContext.guidanceFocus.map(focus => `- **${focus}**`).join('\n')}
 
 ### Important Deadlines:
-${contextualAdvice.urgentDeadlines.length > 0 
-  ? contextualAdvice.urgentDeadlines.map(deadline => `- ${deadline}`).join('\n')
-  : '- Check university websites for 2026 application deadlines\n- NSFAS applications typically open in January'
-}
+- Check university websites for 2026 application deadlines
+- NSFAS applications typically open in January
+- NSC exam preparation timeline
+- University application deadlines (usually July-September)
 
 ---
 
 ⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.`
   } else {
-    // Default response for other grades
+    // Default response with calendar context for all grades
     careerResponse = `# Your Career Guidance Results
 
 ## Based on Your Assessment
 **Grade Level**: ${String(gradeLevel).toUpperCase()}
 **Curriculum**: ${String(curriculumType).toUpperCase()}
-**Academic Timeline**: ${academicContext.timelineMessage}
+**Academic Year**: ${studentContext.currentAcademicYear}
+**Current Term**: ${studentContext.currentTerm || 'Between Terms'}
+**Student Status**: ${studentContext.context.toUpperCase()} - ${studentContext.description}
+**Available Marks**: ${studentContext.hasMarks ? 'Yes (Previous year marks available)' : 'No marks available yet'}
 **Query**: ${query}
+
+## Academic Context & Guidance Focus
+
+### Your Current Academic Journey
+You are a **${studentContext.context} student** in the South African education system. Based on your grade level and academic progression:
+
+### Priority Focus Areas:
+${studentContext.guidanceFocus.map(focus => `- **${focus}**`).join('\n')}
 
 ## Recommended Career Paths
 
@@ -293,8 +310,8 @@ ${contextualAdvice.urgentDeadlines.length > 0
   };
 }
 
-// Generate enhanced response with specific program recommendations
-function generateEnhancedResponse(query, grade, curriculum, academicContext, contextualAdvice, recommendations) {
+// Generate enhanced response with specific program recommendations and calendar context
+function generateEnhancedResponse(query, grade, curriculum, studentContext, recommendations) {
   const { apsData, timeline, programs, bursaries } = recommendations;
   
   let response = `# Your Specific Career Guidance Results
@@ -302,8 +319,10 @@ function generateEnhancedResponse(query, grade, curriculum, academicContext, con
 ## Based on Your Assessment
 **Grade Level**: GRADE ${grade}
 **Curriculum**: ${String(curriculum).toUpperCase()}
-**Academic Timeline**: ${academicContext.timelineMessage}
-**Current Phase**: ${timeline.phase.replace('-', ' ').toUpperCase()}
+**Academic Year**: ${studentContext.currentAcademicYear}
+**Current Term**: ${studentContext.currentTerm || 'Between Terms'}
+**Student Status**: ${studentContext.context.toUpperCase()} - ${studentContext.description}
+**Available Marks**: ${studentContext.hasMarks ? 'Yes (Previous year marks available)' : 'No marks available yet'}
 
 ## Your Academic Performance Analysis
 **Current APS Score**: ${apsData.current} points
