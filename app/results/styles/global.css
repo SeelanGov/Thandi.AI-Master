@@ -1,0 +1,90 @@
+/* Global Results Page Styles */
+
+/* Import design system and card styles */
+@import './design-system.css';
+@import './cards.css';
+
+/* Additional global styles for results page */
+.results-page {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 40px 20px;
+}
+
+.results-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure all card components have access to design system variables */
+.card-base {
+  /* This class is defined in cards.css but ensure it's available */
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+/* Fallback content styling */
+.fallback-notice {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.fallback-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #92400e;
+  margin: 0 0 8px 0;
+}
+
+.fallback-subtitle {
+  font-size: 14px;
+  color: #92400e;
+  margin: 0 0 16px 0;
+}
+
+.parsing-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* Card layout container styling */
+.card-layout-container {
+  margin-top: 0;
+}
+
+.layout-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.layout-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.layout-subtitle {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.9;
+}

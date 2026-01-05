@@ -3,13 +3,21 @@
 import { useEffect, useState } from 'react';
 import jsPDF from 'jspdf';
 import ThandiChat from './components/ThandiChat';
+import ResultsCardLayout from './components/ResultsCardLayout';
+import { ResultsParser } from './services/resultsParser';
+import { ProfessionalPDFGenerator } from './services/ProfessionalPDFGenerator';
+import { formatResponse, getFormattedContentStyles } from './utils/formatResponse';
 import { trackEnhancedRecommendations, trackPDFDownload, trackEnhancementFeature } from '@/lib/analytics/track-events';
+import './styles/global.css';
 
 export default function ResultsPage() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [justRegistered, setJustRegistered] = useState(false);
+  const [parsedResults, setParsedResults] = useState(null);
+  const [parsingError, setParsingError] = useState(false);
+  const [downloadingPDF, setDownloadingPDF] = useState(false);
 
   useEffect(() => {
     // Check if user just registered
@@ -81,6 +89,28 @@ export default function ResultsPage() {
     }
   }, []);
 
+  // Parse results for card layout when results are loaded
+  useEffect(() => {
+    if (results) {
+      try {
+        const studentGrade = results.grade || results.metadata?.grade || '12';
+        const rawResponse = results.fullResponse || results.response;
+        
+        console.log('🔄 Parsing results for card layout, Grade:', studentGrade);
+        
+        const parsed = ResultsParser.parseResults(rawResponse, studentGrade);
+        setParsedResults(parsed);
+        setParsingError(false);
+        
+        console.log('✅ Results parsed successfully:', parsed);
+      } catch (error) {
+        console.error('❌ Failed to parse results for card layout:', error);
+        setParsingError(true);
+        // Fall back to original text rendering
+      }
+    }
+  }, [results]);
+
   const startNewAssessment = () => {
     localStorage.removeItem('thandi_assessment_data');
     localStorage.removeItem('thandi_results');
@@ -98,7 +128,52 @@ export default function ResultsPage() {
     window.location.href = '/assessment?register=true';
   };
 
-  const downloadPDF = () => {
+  const downloadPDF = async () => {
+    if (!results) return;
+
+    try {
+      setDownloadingPDF(true);
+      
+      // Try professional PDF generation first
+      if (parsedResults) {
+        console.log('📄 Generating professional PDF with parsed results');
+        
+        const studentData = {
+          name: results.metadata?.studentName || 'Student',
+          grade: parsedResults.headerData?.gradeLevel || results.grade || '12',
+          school: results.metadata?.school || 'Not specified'
+        };
+        
+        const generator = new ProfessionalPDFGenerator(parsedResults, studentData);
+        const pdf = generator.generateProfessionalReport();
+        
+        // Professional filename
+        const studentName = studentData.name.replace(/\s+/g, '-');
+        const timestamp = new Date().toISOString().split('T')[0];
+        const filename = `Thandi-Career-Report-${studentName}-Grade${studentData.grade}-${timestamp}.pdf`;
+        
+        pdf.save(filename);
+        
+        // Track professional PDF download
+        trackPDFDownload(studentData.grade, true, 'professional');
+        console.log('✅ Professional PDF generated successfully');
+        
+      } else {
+        // Fallback to basic PDF if parsing failed
+        console.log('📄 Generating basic PDF (fallback)');
+        generateBasicPDF();
+      }
+      
+    } catch (error) {
+      console.error('❌ Professional PDF generation failed:', error);
+      // Fallback to basic PDF
+      generateBasicPDF();
+    } finally {
+      setDownloadingPDF(false);
+    }
+  };
+
+  const generateBasicPDF = () => {
     if (!results) return;
 
     const pdf = new jsPDF();
@@ -287,9 +362,9 @@ export default function ResultsPage() {
     const timestamp = new Date().toISOString().split('T')[0];
     pdf.save(`thandi-career-guidance-${timestamp}.pdf`);
     
-    // Track PDF download with enhancement status
+    // Track basic PDF download
     const hasEnhancedContent = results.response?.includes('University') && results.response?.includes('APS');
-    trackPDFDownload(results.grade, hasEnhancedContent);
+    trackPDFDownload(results.grade, hasEnhancedContent, 'basic');
   };
 
   if (loading) {
@@ -317,8 +392,8 @@ export default function ResultsPage() {
         <div className="results-header">
           <h1>Your Career Matches</h1>
           <div className="header-actions">
-            <button onClick={downloadPDF} className="btn-primary">
-              📄 Download PDF
+            <button onClick={downloadPDF} className="btn-primary" disabled={downloadingPDF}>
+              {downloadingPDF ? '📄 Generating...' : '📄 Download PDF'}
             </button>
             <button onClick={startNewAssessment} className="btn-secondary">
               Start New Assessment
@@ -387,13 +462,36 @@ export default function ResultsPage() {
         )}
 
         <div className="results-content">
-          {/* Render response with markdown-style formatting */}
-          <div 
-            className="response-text"
-            dangerouslySetInnerHTML={{ 
-              __html: formatResponse(results.fullResponse || results.response) 
-            }}
-          />
+          {parsingError ? (
+            // Fallback to original text rendering on parsing errors
+            <div className="fallback-notice">
+              <p className="fallback-title">📝 Text Format</p>
+              <p className="fallback-subtitle">Displaying results in text format</p>
+              <div 
+                className="response-text formatted-content"
+                dangerouslySetInnerHTML={{ 
+                  __html: formatResponse(results.fullResponse || results.response) 
+                }}
+              />
+              <style dangerouslySetInnerHTML={{ __html: getFormattedContentStyles() }} />
+            </div>
+          ) : parsedResults ? (
+            // New card-based layout
+            <div className="card-layout-container">
+              <div className="layout-header">
+                <h2 className="layout-title">Your Personalized Career Guidance</h2>
+                <p className="layout-subtitle">
+                  Grade {parsedResults.gradeContext?.grade} • {parsedResults.gradeContext?.phase}
+                </p>
+              </div>
+              <ResultsCardLayout parsedResults={parsedResults} />
+            </div>
+          ) : (
+            // Loading state for parsing
+            <div className="parsing-loading">
+              <p>Processing your results...</p>
+            </div>
+          )}
         </div>
 
         {/* CRITICAL: Bottom footer backup */}
@@ -475,8 +573,13 @@ export default function ResultsPage() {
           transition: all 0.2s;
         }
 
-        .btn-primary:hover {
+        .btn-primary:hover:not(:disabled) {
           background: #059669;
+        }
+
+        .btn-primary:disabled {
+          background: #9ca3af;
+          cursor: not-allowed;
         }
 
         .btn-secondary {
@@ -498,6 +601,62 @@ export default function ResultsPage() {
         .results-content {
           line-height: 1.8;
           color: #374151;
+        }
+
+        /* New Card Layout Styles */
+        .card-layout-container {
+          margin-top: 0;
+        }
+
+        .layout-header {
+          text-align: center;
+          margin-bottom: 32px;
+          padding: 24px;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          border-radius: 12px;
+          color: white;
+        }
+
+        .layout-title {
+          font-size: 28px;
+          font-weight: 700;
+          margin: 0 0 8px 0;
+        }
+
+        .layout-subtitle {
+          font-size: 16px;
+          margin: 0;
+          opacity: 0.9;
+        }
+
+        .fallback-notice {
+          background: #fef3c7;
+          border: 2px solid #f59e0b;
+          border-radius: 12px;
+          padding: 20px;
+          margin-bottom: 24px;
+        }
+
+        .fallback-title {
+          font-size: 18px;
+          font-weight: 600;
+          color: #92400e;
+          margin: 0 0 8px 0;
+        }
+
+        .fallback-subtitle {
+          font-size: 14px;
+          color: #92400e;
+          margin: 0 0 16px 0;
+        }
+
+        .parsing-loading {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 200px;
+          color: #6b7280;
+          font-size: 16px;
         }
 
         .response-text {
@@ -1012,128 +1171,4 @@ export default function ResultsPage() {
       `}</style>
     </div>
   );
-}
-
-function formatResponse(text) {
-  if (!text) return '';
-  
-  // Clean up the text first
-  let cleaned = text
-    // Remove duplicate verification warnings and separators
-    .replace(/---+\s*⚠️[^-]*---+/g, '')
-    .replace(/⚠️ \*\*Verify before you decide[^⚠️]*⚠️[^⚠️]*$/g, '')
-    .replace(/---+/g, '')
-    .trim();
-  
-  // Split into sections for better processing
-  const sections = cleaned.split(/(?=^##?\s)/gm).filter(section => section.trim());
-  
-  let formatted = '';
-  
-  sections.forEach(section => {
-    const lines = section.split('\n').filter(line => line.trim());
-    let sectionHtml = '';
-    
-    lines.forEach((line, index) => {
-      line = line.trim();
-      if (!line) return;
-      
-      // Main headers (# or ##)
-      if (line.match(/^##?\s+(.+)/)) {
-        const headerText = line.replace(/^##?\s+/, '');
-        sectionHtml += `<div class="section-header">
-          <h2 class="main-header">${headerText}</h2>
-        </div>`;
-        return;
-      }
-      
-      // Sub headers (###)
-      if (line.match(/^###\s+(.+)/)) {
-        const headerText = line.replace(/^###\s+/, '');
-        
-        // Special styling for numbered programs/bursaries
-        if (headerText.match(/^\d+\./)) {
-          sectionHtml += `<div class="program-card">
-            <h3 class="program-title">${headerText}</h3>
-          `;
-        } else {
-          sectionHtml += `<div class="subsection">
-            <h3 class="sub-header">${headerText}</h3>
-          `;
-        }
-        return;
-      }
-      
-      // Key-value pairs (APS scores, deadlines, etc.)
-      const kvMatch = line.match(/^(.+?):\s*(.+)$/);
-      if (kvMatch && !line.includes('http')) {
-        const key = kvMatch[1].replace(/\*\*/g, '');
-        const value = kvMatch[2].replace(/\*\*/g, '');
-        
-        // Special styling for important metrics
-        let className = 'key-value';
-        if (key.toLowerCase().includes('aps') || key.toLowerCase().includes('score')) {
-          className += ' score-item';
-        } else if (key.toLowerCase().includes('deadline')) {
-          className += ' deadline-item';
-        } else if (key.toLowerCase().includes('chance') || key.toLowerCase().includes('eligibility')) {
-          className += ' chance-item';
-        }
-        
-        sectionHtml += `<div class="${className}">
-          <span class="key">${key}:</span>
-          <span class="value">${formatValue(value)}</span>
-        </div>`;
-        return;
-      }
-      
-      // Bullet points
-      if (line.match(/^[-*]\s+(.+)/)) {
-        const content = line.replace(/^[-*]\s+/, '').replace(/\*\*/g, '');
-        sectionHtml += `<div class="bullet-item">
-          <span class="bullet">•</span>
-          <span class="content">${content}</span>
-        </div>`;
-        return;
-      }
-      
-      // Regular paragraphs
-      if (line.length > 0) {
-        const formattedLine = line
-          .replace(/\*\*(.*?)\*\*/g, '<strong class="highlight">$1</strong>')
-          .replace(/✅/g, '<span class="status-icon success">✅</span>')
-          .replace(/⚠️/g, '<span class="status-icon warning">⚠️</span>')
-          .replace(/🚨/g, '<span class="status-icon critical">🚨</span>')
-          .replace(/ℹ️/g, '<span class="status-icon info">ℹ️</span>');
-        
-        sectionHtml += `<div class="paragraph">${formattedLine}</div>`;
-      }
-    });
-    
-    // Close any open program cards
-    if (sectionHtml.includes('program-card') && !sectionHtml.includes('</div>')) {
-      sectionHtml += '</div>';
-    }
-    
-    formatted += `<div class="content-section">${sectionHtml}</div>`;
-  });
-  
-  return `<div class="formatted-content">${formatted}</div>`;
-}
-
-function formatValue(value) {
-  // Add special formatting for different types of values
-  if (value.includes('✅') || value.includes('⚠️') || value.includes('🚨')) {
-    return value
-      .replace(/✅/g, '<span class="status-icon success">✅</span>')
-      .replace(/⚠️/g, '<span class="status-icon warning">⚠️</span>')
-      .replace(/🚨/g, '<span class="status-icon critical">🚨</span>');
-  }
-  
-  // Highlight percentages and scores
-  if (value.match(/\d+%/) || value.match(/\d+-\d+/)) {
-    return `<span class="metric">${value}</span>`;
-  }
-  
-  return value;
 }

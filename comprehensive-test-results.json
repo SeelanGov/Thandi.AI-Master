@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-01-05T08:34:10.192Z",
+  "tests": {
+    "build": {
+      "status": "PASS",
+      "details": "Clean build successful",
+      "warnings": false
+    },
+    "fileIntegrity": {
+      "status": "FAIL",
+      "details": {
+        "Results Page": {
+          "exists": true,
+          "size": 33591,
+          "hasContent": true
+        },
+        "PDF Generator": {
+          "exists": true,
+          "size": 26735,
+          "hasContent": true
+        },
+        "Results Parser": {
+          "exists": true,
+          "size": 0,
+          "hasContent": false
+        },
+        "Card Layout": {
+          "exists": true,
+          "size": 3746,
+          "hasContent": true
+        },
+        "Global Styles": {
+          "exists": true,
+          "size": 1775,
+          "hasContent": true
+        }
+      }
+    },
+    "imports": {
+      "status": "PASS",
+      "details": "Import/export validation"
+    },
+    "css": {
+      "status": "PASS",
+      "details": "CSS syntax and structure validation"
+    },
+    "server": {
+      "status": "PASS",
+      "details": "Development server started successfully"
+    },
+    "functionality": {
+      "status": "PASS",
+      "details": "Server ready for manual testing"
+    }
+  },
+  "overall": "FAIL",
+  "readyForProduction": false,
+  "issues": [
+    "Results Parser file too small or empty"
+  ]
+}

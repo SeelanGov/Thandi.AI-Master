@@ -1,0 +1,174 @@
+/* Results Card Layout Styles */
+
+.cardLayout {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.cardLayoutLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.sectionHeader {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.programsSection,
+.bursariesSection,
+.actionSection,
+.alternativesSection {
+  margin-bottom: 40px;
+}
+
+.programsGrid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+.bursariesGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+/* Enhanced visual hierarchy */
+.programsSection {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid #0ea5e9;
+}
+
+.bursariesSection {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid #10b981;
+}
+
+.actionSection {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid #f59e0b;
+}
+
+.alternativesSection {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid #6b7280;
+}
+
+/* Grade-specific styling */
+.cardLayout[data-grade="10"] .sectionTitle {
+  color: #059669; /* Green for exploration */
+}
+
+.cardLayout[data-grade="11"] .sectionTitle {
+  color: #0ea5e9; /* Blue for planning */
+}
+
+.cardLayout[data-grade="12"] .sectionTitle {
+  color: #dc2626; /* Red for urgency */
+}
+
+/* Responsive grid layouts */
+@media (min-width: 768px) {
+  .programsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+  
+  .bursariesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .programsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bursariesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .programsSection,
+  .bursariesSection,
+  .actionSection,
+  .alternativesSection {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+  }
+
+  .sectionSubtitle {
+    font-size: 14px;
+  }
+
+  .programsGrid,
+  .bursariesGrid {
+    gap: 16px;
+  }
+}
+
+/* Accessibility improvements */
+.sectionHeader {
+  scroll-margin-top: 100px; /* For anchor links */
+}
+
+.cardLayout:focus-within .sectionHeader {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Print styles */
+@media print {
+  .cardLayout {
+    background: white;
+  }
+
+  .programsSection,
+  .bursariesSection,
+  .actionSection,
+  .alternativesSection {
+    background: white;
+    border: 1px solid #000;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .sectionTitle {
+    color: #000 !important;
+  }
+}
