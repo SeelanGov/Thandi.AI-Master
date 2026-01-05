@@ -36,51 +36,113 @@ export class ProfessionalPDFGenerator {
   }
 
   addCoverPage() {
-    // Professional header band
-    this.pdf.setFillColor(...this.colors.primary);
-    this.pdf.rect(0, 0, 210, 80, 'F');
+    // Enhanced professional cover with modern design
     
-    // Thandi branding
+    // Primary header band with gradient effect
+    this.pdf.setFillColor(...this.colors.primary);
+    this.pdf.rect(0, 0, 210, 120, 'F');
+    
+    // Accent stripe for visual interest
+    this.pdf.setFillColor(...this.colors.accent);
+    this.pdf.rect(0, 110, 210, 10, 'F');
+    
+    // Thandi branding - enhanced with better typography
     this.pdf.setTextColor(...this.colors.white);
     this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(32);
-    this.pdf.text('THANDI.AI', 20, 35);
+    this.pdf.setFontSize(42);
+    this.pdf.text('THANDI.AI', 25, 45);
     
+    // Subtitle with improved spacing
     this.pdf.setFontSize(16);
-    this.pdf.text('Career Guidance Report', 20, 50);
+    this.pdf.setTextColor(255, 255, 255);
+    this.pdf.text('Intelligent Career Guidance Platform', 25, 65);
     
-    // Main title
+    // Professional tagline
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(255, 255, 255, 0.8);
+    this.pdf.text('Personalized • Data-Driven • Future-Ready', 25, 80);
+    
+    // Decorative elements
+    this.pdf.setDrawColor(...this.colors.accent);
+    this.pdf.setLineWidth(4);
+    this.pdf.line(25, 90, 140, 90);
+    
+    // Add geometric accent
+    this.pdf.setFillColor(...this.colors.accent);
+    this.pdf.circle(170, 60, 15, 'F');
+    this.pdf.setFillColor(...this.colors.white);
+    this.pdf.circle(170, 60, 10, 'F');
+    
+    // Main title with enhanced typography and spacing
     this.pdf.setTextColor(...this.colors.black);
     this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(36);
-    this.pdf.text('Your Career Path', 20, 120);
-    this.pdf.text('Guidance Report', 20, 140);
+    this.pdf.setFontSize(28);
+    this.pdf.text('Your Personalized', 25, 150);
+    this.pdf.setFontSize(32);
+    this.pdf.setTextColor(...this.colors.primary);
+    this.pdf.text('Career Path Report', 25, 170);
     
-    // Student information box
-    this.pdf.setFillColor(248, 250, 252);
-    this.pdf.rect(20, 160, 170, 60, 'F');
-    this.pdf.setDrawColor(...this.colors.primary);
+    // Enhanced student information card with modern design
+    this.pdf.setFillColor(...this.colors.white);
+    this.pdf.rect(25, 190, 160, 80, 'F');
+    
+    // Card shadow effect
+    this.pdf.setFillColor(0, 0, 0, 0.05);
+    this.pdf.rect(27, 192, 160, 80, 'F');
+    this.pdf.setFillColor(...this.colors.white);
+    this.pdf.rect(25, 190, 160, 80, 'F');
+    
+    // Card border with accent color
+    this.pdf.setDrawColor(...this.colors.accent);
     this.pdf.setLineWidth(2);
-    this.pdf.rect(20, 160, 170, 60);
+    this.pdf.rect(25, 190, 160, 80);
     
-    this.pdf.setFont(this.fonts.body, 'normal');
+    // Card header
+    this.pdf.setFillColor(...this.colors.primary);
+    this.pdf.rect(25, 190, 160, 25, 'F');
+    
+    this.pdf.setFont(this.fonts.heading, 'bold');
     this.pdf.setFontSize(14);
+    this.pdf.setTextColor(...this.colors.white);
+    this.pdf.text('STUDENT PROFILE', 35, 206);
+    
+    // Student details with improved layout
+    this.pdf.setFont(this.fonts.body, 'normal');
+    this.pdf.setFontSize(11);
     this.pdf.setTextColor(...this.colors.black);
     
     const studentName = this.studentData?.name || 'Student';
-    const grade = this.parsedResults?.headerData?.gradeLevel || 'Unknown';
+    const gradeLevel = this.parsedResults?.headerData?.gradeLevel || 'Unknown';
     const date = new Date().toLocaleDateString('en-ZA', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
     });
     
-    this.pdf.text(`Prepared for: ${studentName}`, 30, 180);
-    this.pdf.text(`Grade: ${grade}`, 30, 195);
-    this.pdf.text(`Report Date: ${date}`, 30, 210);
+    // Left column
+    this.pdf.setFont(this.fonts.body, 'bold');
+    this.pdf.setTextColor(...this.colors.primary);
+    this.pdf.text('Student Name:', 35, 230);
+    this.pdf.text('Grade Level:', 35, 245);
+    this.pdf.text('Report Date:', 35, 260);
     
-    // Add disclaimer box
-    this.addDisclaimerBox();
+    // Right column - values
+    this.pdf.setFont(this.fonts.body, 'normal');
+    this.pdf.setTextColor(...this.colors.black);
+    this.pdf.text(studentName, 85, 230);
+    this.pdf.text(`Grade ${gradeLevel}`, 85, 245);
+    this.pdf.text(date, 85, 260);
+    
+    // Academic year in right section
+    this.pdf.setFont(this.fonts.body, 'bold');
+    this.pdf.setTextColor(...this.colors.primary);
+    this.pdf.text('Academic Year:', 125, 230);
+    this.pdf.setFont(this.fonts.body, 'normal');
+    this.pdf.setTextColor(...this.colors.black);
+    this.pdf.text(new Date().getFullYear().toString(), 125, 245);
+    
+    // Add enhanced disclaimer box
+    this.addEnhancedDisclaimerBox();
   }
 
   addExecutiveSummary() {
@@ -89,58 +151,83 @@ export class ProfessionalPDFGenerator {
     
     const gradeContext = this.getGradeSpecificContext();
     
-    // Grade-specific summary header
-    this.pdf.setFillColor(...this.colors.accent, 0.1);
-    this.pdf.rect(20, 60, 170, 25, 'F');
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(16);
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.text(`Grade ${this.parsedResults.headerData?.gradeLevel} Student Profile`, 25, 75);
+    // Enhanced grade-specific summary header with modern design
+    this.pdf.setFillColor(...this.colors.primary);
+    this.pdf.rect(20, 50, 170, 35, 'F');
     
-    // Key metrics in professional boxes
-    let yPos = 95;
-    this.addMetricBox('Grade Level', this.parsedResults.headerData?.gradeLevel || 'Unknown', 20, yPos);
+    // Accent stripe
+    this.pdf.setFillColor(...this.colors.accent);
+    this.pdf.rect(20, 80, 170, 5, 'F');
+    
+    this.pdf.setFont(this.fonts.heading, 'bold');
+    this.pdf.setFontSize(18);
+    this.pdf.setTextColor(...this.colors.white);
+    this.pdf.text(`Grade ${this.parsedResults.headerData?.gradeLevel} Student Profile`, 30, 65);
+    
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(255, 255, 255, 0.9);
+    this.pdf.text(gradeContext.phase || 'Academic Planning Phase', 30, 75);
+    
+    // Enhanced key metrics with professional card design
+    let yPos = 100;
+    const cardWidth = 50;
+    const cardHeight = 40;
+    const cardSpacing = 60;
+    
+    // Metric cards with enhanced styling
+    this.addEnhancedMetricCard('Grade Level', this.parsedResults.headerData?.gradeLevel || 'Unknown', 20, yPos, cardWidth, cardHeight);
     
     if (this.parsedResults.headerData?.hasMarks) {
-      this.addMetricBox('APS Score', this.parsedResults.headerData?.apsScore || 'TBD', 80, yPos);
+      this.addEnhancedMetricCard('APS Score', this.parsedResults.headerData?.apsScore || 'TBD', 20 + cardSpacing, yPos, cardWidth, cardHeight);
     } else {
-      this.addMetricBox('Status', 'Foundation Year', 80, yPos);
+      this.addEnhancedMetricCard('Status', 'Foundation', 20 + cardSpacing, yPos, cardWidth, cardHeight);
     }
     
-    this.addMetricBox('University Ready', 
-      this.parsedResults.headerData?.universityEligible ? 'Yes' : 'Planning', 140, yPos);
+    this.addEnhancedMetricCard('University Ready', 
+      this.parsedResults.headerData?.universityEligible ? 'Yes' : 'Planning', 20 + (cardSpacing * 2), yPos, cardWidth, cardHeight);
     
-    // Grade-specific summary text
-    yPos += 50;
+    // Grade-specific summary with improved typography
+    yPos += 60;
+    this.pdf.setFillColor(248, 250, 252);
+    this.pdf.rect(20, yPos, 170, 5, 'F');
+    
+    yPos += 15;
     this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(11);
+    this.pdf.setFontSize(12);
     this.pdf.setTextColor(...this.colors.black);
+    this.pdf.setLineHeightFactor(1.6);
     
     const summaryText = this.generateGradeSpecificSummary();
     const lines = this.pdf.splitTextToSize(summaryText, 170);
     this.pdf.text(lines, 20, yPos);
     
-    // Key highlights
-    yPos += lines.length * 5 + 20;
-    this.addSectionDivider('Key Highlights', yPos);
-    yPos += 15;
+    // Enhanced key highlights section
+    yPos += lines.length * 7 + 25;
+    this.addEnhancedSectionDivider('Key Highlights', yPos);
+    yPos += 20;
     
     const highlights = this.generateKeyHighlights();
     highlights.forEach((highlight, index) => {
+      // Enhanced highlight design
+      this.pdf.setFillColor(...this.colors.accent);
+      this.pdf.circle(28, yPos + 5, 6, 'F');
+      
       this.pdf.setFillColor(...this.colors.primary);
-      this.pdf.circle(25, yPos + 3, 3, 'F');
+      this.pdf.circle(28, yPos + 5, 4, 'F');
+      
       this.pdf.setTextColor(...this.colors.white);
       this.pdf.setFont(this.fonts.body, 'bold');
-      this.pdf.setFontSize(8);
-      this.pdf.text((index + 1).toString(), 23.5, yPos + 4.5);
+      this.pdf.setFontSize(10);
+      this.pdf.text((index + 1).toString(), 26, yPos + 7);
       
       this.pdf.setTextColor(...this.colors.black);
       this.pdf.setFont(this.fonts.body, 'normal');
       this.pdf.setFontSize(11);
-      const highlightLines = this.pdf.splitTextToSize(highlight, 160);
-      this.pdf.text(highlightLines, 35, yPos + 5);
+      this.pdf.setLineHeightFactor(1.5);
+      const highlightLines = this.pdf.splitTextToSize(highlight, 150);
+      this.pdf.text(highlightLines, 40, yPos + 7);
       
-      yPos += highlightLines.length * 5 + 8;
+      yPos += highlightLines.length * 6 + 12;
     });
   }
 
@@ -288,61 +375,64 @@ export class ProfessionalPDFGenerator {
   }
 
   addProgramCard(program, yPos) {
-    const cardHeight = 50;
+    const cardHeight = 65; // Increased height for better spacing
     
-    // Card background with feasibility color
+    // Enhanced card with shadow and modern design
+    this.pdf.setFillColor(0, 0, 0, 0.05);
+    this.pdf.rect(22, yPos + 2, 170, cardHeight, 'F');
+    
+    // Card background with feasibility color accent
     const bgColor = this.getFeasibilityColor(program.feasibility);
-    this.pdf.setFillColor(...bgColor, 0.1);
+    this.pdf.setFillColor(...this.colors.white);
     this.pdf.rect(20, yPos, 170, cardHeight, 'F');
     
-    // Feasibility badge
+    // Left accent border
     this.pdf.setFillColor(...bgColor);
-    this.pdf.rect(20, yPos, 35, 10, 'F');
+    this.pdf.rect(20, yPos, 5, cardHeight, 'F');
+    
+    // Header section
+    this.pdf.setFillColor(248, 250, 252);
+    this.pdf.rect(25, yPos, 165, 20, 'F');
+    
+    // Feasibility badge with enhanced styling
+    this.pdf.setFillColor(...bgColor);
+    this.pdf.rect(160, yPos + 5, 25, 10, 'F');
     this.pdf.setTextColor(...this.colors.white);
     this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(9);
-    this.pdf.text((program.feasibility || 'TBD').toUpperCase(), 22, yPos + 7);
+    this.pdf.setFontSize(8);
+    this.pdf.text((program.feasibility || 'TBD').toUpperCase(), 162, yPos + 11);
     
-    // Program title
-    this.pdf.setTextColor(...this.colors.black);
+    // Program title with enhanced typography
+    this.pdf.setTextColor(...this.colors.primary);
     this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(13);
-    this.pdf.text(program.program || 'Program Name', 20, yPos + 20);
+    this.pdf.setFontSize(14);
+    this.pdf.text(program.program || 'Program Name', 30, yPos + 15);
     
-    // University
+    // University with improved styling
     this.pdf.setFont(this.fonts.body, 'normal');
     this.pdf.setFontSize(11);
     this.pdf.setTextColor(...this.colors.secondary);
-    this.pdf.text(program.university || 'University', 20, yPos + 30);
+    this.pdf.text(program.university || 'University', 30, yPos + 30);
     
-    // Key metrics
-    this.pdf.setFontSize(10);
-    this.pdf.setTextColor(...this.colors.black);
+    // Enhanced metrics section with better layout
+    const metricsY = yPos + 45;
     
-    // APS Required
-    this.pdf.text('APS Required:', 20, yPos + 40);
-    this.pdf.setFont(this.fonts.mono, 'bold');
-    this.pdf.text((program.apsRequired || 'TBD').toString(), 55, yPos + 40);
+    // APS Required box
+    this.addMetricPill('APS Required', (program.apsRequired || 'TBD').toString(), 30, metricsY, this.colors.primary);
     
-    // Admission Chance
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.text('Admission Chance:', 90, yPos + 40);
-    this.pdf.setFont(this.fonts.mono, 'bold');
-    this.pdf.text(`${program.admissionChance || 'TBD'}%`, 135, yPos + 40);
+    // Admission Chance box
+    this.addMetricPill('Admission', `${program.admissionChance || 'TBD'}%`, 90, metricsY, this.colors.accent);
     
-    // Deadline
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.text('Deadline:', 155, yPos + 40);
-    this.pdf.setFont(this.fonts.mono, 'bold');
+    // Deadline box
     const deadline = program.applicationDeadline || 'TBD';
-    this.pdf.text(deadline.length > 10 ? deadline.substring(0, 10) : deadline, 155, yPos + 47);
+    this.addMetricPill('Deadline', deadline.length > 8 ? deadline.substring(0, 8) : deadline, 150, metricsY, this.colors.secondary);
     
-    // Progress bar for admission chance
+    // Enhanced progress bar for admission chance
     if (program.admissionChance) {
-      this.addProgressBar(program.admissionChance, 100, 20, yPos + 45, 60);
+      this.addEnhancedProgressBar(program.admissionChance, 100, 30, yPos + 55, 130);
     }
     
-    return yPos + cardHeight + 10;
+    return yPos + cardHeight + 15;
   }
 
   addFinancialAidSection() {
@@ -371,44 +461,59 @@ export class ProfessionalPDFGenerator {
   }
 
   addBursaryCard(bursary, yPos) {
-    const cardHeight = 45;
+    const cardHeight = 55; // Increased height for better spacing
+    
+    // Enhanced card with modern design
+    this.pdf.setFillColor(0, 0, 0, 0.03);
+    this.pdf.rect(22, yPos + 2, 170, cardHeight, 'F');
     
     // Urgency color coding
     const urgencyColor = this.getUrgencyColor(bursary.urgency);
     
-    // Card with left border
-    this.pdf.setFillColor(250, 250, 250);
+    // Main card background
+    this.pdf.setFillColor(...this.colors.white);
     this.pdf.rect(20, yPos, 170, cardHeight, 'F');
-    this.pdf.setFillColor(...urgencyColor);
-    this.pdf.rect(20, yPos, 4, cardHeight, 'F');
     
-    // Urgency badge
+    // Left accent border with urgency color
     this.pdf.setFillColor(...urgencyColor);
-    this.pdf.rect(165, yPos + 5, 20, 10, 'F');
+    this.pdf.rect(20, yPos, 6, cardHeight, 'F');
+    
+    // Header section with gradient
+    this.pdf.setFillColor(250, 250, 250);
+    this.pdf.rect(26, yPos, 164, 18, 'F');
+    
+    // Enhanced urgency badge
+    this.pdf.setFillColor(...urgencyColor);
+    this.pdf.roundedRect(160, yPos + 4, 25, 10, 5, 5, 'F');
     this.pdf.setTextColor(...this.colors.white);
     this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(8);
-    this.pdf.text(bursary.urgency || 'INFO', 167, yPos + 11);
+    this.pdf.setFontSize(7);
+    this.pdf.text(bursary.urgency || 'INFO', 162, yPos + 10);
     
-    // Bursary name
-    this.pdf.setTextColor(...this.colors.black);
+    // Bursary name with enhanced typography
+    this.pdf.setTextColor(...this.colors.primary);
     this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(12);
-    this.pdf.text(bursary.name || 'Financial Aid Opportunity', 27, yPos + 15);
+    this.pdf.setFontSize(13);
+    this.pdf.text(bursary.name || 'Financial Aid Opportunity', 30, yPos + 14);
     
-    // Amount and details
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(10);
-    this.pdf.text(`Amount: ${bursary.amount || 'Varies'}`, 27, yPos + 25);
-    this.pdf.text(`Match: ${bursary.eligibilityMatch || 'TBD'}%`, 27, yPos + 33);
-    this.pdf.text(`Deadline: ${bursary.deadline || 'TBD'}`, 100, yPos + 25);
+    // Enhanced details section
+    const detailsY = yPos + 30;
     
-    // Match progress bar
+    // Amount pill
+    this.addMetricPill('Amount', bursary.amount || 'Varies', 30, detailsY, this.colors.accent);
+    
+    // Match percentage pill
+    this.addMetricPill('Match', `${bursary.eligibilityMatch || 'TBD'}%`, 85, detailsY, this.colors.success);
+    
+    // Deadline pill
+    this.addMetricPill('Deadline', bursary.deadline || 'TBD', 140, detailsY, urgencyColor);
+    
+    // Enhanced match progress bar
     if (bursary.eligibilityMatch) {
-      this.addProgressBar(bursary.eligibilityMatch, 100, 100, yPos + 30, 50);
+      this.addEnhancedProgressBar(bursary.eligibilityMatch, 100, 30, yPos + 45, 120);
     }
     
-    return yPos + cardHeight + 8;
+    return yPos + cardHeight + 12;
   }
 
   addActionPlan() {
@@ -556,19 +661,66 @@ export class ProfessionalPDFGenerator {
   }
 
   addPageHeader(title) {
-    // Header background
+    // Enhanced header with modern gradient design
     this.pdf.setFillColor(...this.colors.primary);
-    this.pdf.rect(0, 0, 210, 35, 'F');
+    this.pdf.rect(0, 0, 210, 40, 'F');
     
-    // Title
+    // Accent gradient stripe
+    this.pdf.setFillColor(...this.colors.accent);
+    this.pdf.rect(0, 35, 210, 5, 'F');
+    
+    // Decorative elements
+    this.pdf.setFillColor(...this.colors.accent, 0.3);
+    this.pdf.circle(25, 20, 8, 'F');
+    this.pdf.setFillColor(...this.colors.white, 0.2);
+    this.pdf.circle(25, 20, 5, 'F');
+    
+    // Title with enhanced typography
     this.pdf.setTextColor(...this.colors.white);
     this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(18);
-    this.pdf.text(title, 20, 22);
+    this.pdf.setFontSize(20);
+    this.pdf.text(title, 45, 25);
     
-    // Page number
+    // Page number with modern styling
+    const pageNum = this.pdf.internal.getCurrentPageInfo().pageNumber;
+    this.pdf.setFillColor(...this.colors.white, 0.2);
+    this.pdf.roundedRect(160, 15, 25, 10, 5, 5, 'F');
+    
+    this.pdf.setFont(this.fonts.body, 'bold');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(...this.colors.white);
+    this.pdf.text(`Page ${pageNum}`, 172, 22, { align: 'center' });
+  }
+
+  addEnhancedDisclaimerBox() {
+    // Enhanced professional disclaimer with modern design
+    this.pdf.setFillColor(255, 248, 220); // Warm background
+    this.pdf.rect(25, 275, 160, 15, 'F');
+    
+    // Accent border
+    this.pdf.setDrawColor(...this.colors.warning);
+    this.pdf.setLineWidth(2);
+    this.pdf.rect(25, 275, 160, 15);
+    
+    // Warning icon area
+    this.pdf.setFillColor(...this.colors.warning);
+    this.pdf.rect(25, 275, 20, 15, 'F');
+    
+    // Warning icon
+    this.pdf.setTextColor(...this.colors.white);
+    this.pdf.setFont(this.fonts.heading, 'bold');
     this.pdf.setFontSize(12);
-    this.pdf.text(`Page ${this.pdf.internal.getCurrentPageInfo().pageNumber}`, 170, 22);
+    this.pdf.text('⚠', 32, 285);
+    
+    // Disclaimer text
+    this.pdf.setTextColor(...this.colors.black);
+    this.pdf.setFont(this.fonts.body, 'bold');
+    this.pdf.setFontSize(9);
+    this.pdf.text('IMPORTANT: AI-Generated Guidance - Verify with Qualified Counselors', 50, 280);
+    
+    this.pdf.setFont(this.fonts.body, 'normal');
+    this.pdf.setFontSize(8);
+    this.pdf.text('Always confirm recommendations with official sources before making decisions', 50, 287);
   }
 
   addDisclaimerBox() {
@@ -616,52 +768,126 @@ export class ProfessionalPDFGenerator {
     this.pdf.text(valueText, x + 3, y + 22);
   }
 
-  addMetricCard(title, value, x, y, width = 50, height = 35) {
-    // Enhanced metric card with better styling
+  addEnhancedMetricCard(title, value, x, y, width = 50, height = 40) {
+    // Modern metric card with gradient effect and shadow
+    
+    // Shadow effect
+    this.pdf.setFillColor(0, 0, 0, 0.1);
+    this.pdf.rect(x + 2, y + 2, width, height, 'F');
+    
+    // Main card background
     this.pdf.setFillColor(...this.colors.white);
     this.pdf.rect(x, y, width, height, 'F');
     
-    // Gradient effect simulation
-    this.pdf.setFillColor(248, 250, 252);
+    // Header section with gradient effect
+    this.pdf.setFillColor(...this.colors.primary);
     this.pdf.rect(x, y, width, height / 3, 'F');
+    
+    // Accent line
+    this.pdf.setFillColor(...this.colors.accent);
+    this.pdf.rect(x, y + (height / 3) - 2, width, 2, 'F');
     
     // Border
     this.pdf.setDrawColor(...this.colors.primary);
-    this.pdf.setLineWidth(1.5);
+    this.pdf.setLineWidth(1);
     this.pdf.rect(x, y, width, height);
     
     // Title
-    this.pdf.setFont(this.fonts.body, 'normal');
+    this.pdf.setFont(this.fonts.body, 'bold');
     this.pdf.setFontSize(8);
-    this.pdf.setTextColor(...this.colors.secondary);
-    this.pdf.text(title, x + 4, y + 12);
+    this.pdf.setTextColor(...this.colors.white);
+    this.pdf.text(title, x + 4, y + 10);
     
-    // Value
+    // Value with enhanced typography
     this.pdf.setFont(this.fonts.heading, 'bold');
     this.pdf.setFontSize(16);
     this.pdf.setTextColor(...this.colors.primary);
     const valueText = value?.toString() || 'TBD';
-    this.pdf.text(valueText, x + 4, y + 26);
+    this.pdf.text(valueText, x + 4, y + 28);
   }
 
-  addProgressBar(value, max, x, y, width) {
+  addEnhancedSectionDivider(title, y) {
+    // Modern section divider with enhanced styling
+    
+    // Background accent
+    this.pdf.setFillColor(...this.colors.accent, 0.1);
+    this.pdf.rect(20, y - 5, 170, 15, 'F');
+    
+    // Main divider line
+    this.pdf.setDrawColor(...this.colors.primary);
+    this.pdf.setLineWidth(2);
+    this.pdf.line(20, y + 2, 190, y + 2);
+    
+    // Accent line
+    this.pdf.setDrawColor(...this.colors.accent);
+    this.pdf.setLineWidth(1);
+    this.pdf.line(20, y + 4, 190, y + 4);
+    
+    // Title with enhanced styling
+    this.pdf.setFillColor(...this.colors.white);
+    this.pdf.rect(85, y - 3, 40, 12, 'F');
+    
+    this.pdf.setFont(this.fonts.heading, 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(...this.colors.primary);
+    this.pdf.text(title, 105, y + 4, { align: 'center' });
+    
+    return y + 15;
+  }
+
+  addMetricPill(label, value, x, y, color) {
+    // Modern pill-shaped metric display
+    const pillWidth = 45;
+    const pillHeight = 12;
+    
+    // Pill background
+    this.pdf.setFillColor(...color, 0.1);
+    this.pdf.roundedRect(x, y, pillWidth, pillHeight, 6, 6, 'F');
+    
+    // Pill border
+    this.pdf.setDrawColor(...color);
+    this.pdf.setLineWidth(1);
+    this.pdf.roundedRect(x, y, pillWidth, pillHeight, 6, 6);
+    
+    // Label
+    this.pdf.setFont(this.fonts.body, 'normal');
+    this.pdf.setFontSize(7);
+    this.pdf.setTextColor(...color);
+    this.pdf.text(label, x + 2, y + 5);
+    
+    // Value
+    this.pdf.setFont(this.fonts.body, 'bold');
+    this.pdf.setFontSize(8);
+    this.pdf.setTextColor(...this.colors.black);
+    this.pdf.text(value, x + 2, y + 10);
+  }
+
+  addEnhancedProgressBar(value, max, x, y, width) {
     const percentage = Math.min((value / max) * 100, 100);
     const fillWidth = (width * percentage) / 100;
+    const barHeight = 6;
     
-    // Background
+    // Background with rounded corners
     this.pdf.setFillColor(240, 240, 240);
-    this.pdf.rect(x, y, width, 4, 'F');
+    this.pdf.roundedRect(x, y, width, barHeight, 3, 3, 'F');
     
-    // Fill color based on percentage
+    // Fill color based on percentage with gradient effect
     const color = percentage >= 70 ? this.colors.success : 
                   percentage >= 40 ? this.colors.accent : this.colors.warning;
-    this.pdf.setFillColor(...color);
-    this.pdf.rect(x, y, fillWidth, 4, 'F');
     
-    // Border
-    this.pdf.setDrawColor(200, 200, 200);
+    this.pdf.setFillColor(...color);
+    this.pdf.roundedRect(x, y, fillWidth, barHeight, 3, 3, 'F');
+    
+    // Subtle border
+    this.pdf.setDrawColor(220, 220, 220);
     this.pdf.setLineWidth(0.5);
-    this.pdf.rect(x, y, width, 4);
+    this.pdf.roundedRect(x, y, width, barHeight, 3, 3);
+    
+    // Percentage label
+    this.pdf.setFont(this.fonts.body, 'bold');
+    this.pdf.setFontSize(8);
+    this.pdf.setTextColor(...this.colors.black);
+    this.pdf.text(`${Math.round(percentage)}%`, x + width + 5, y + 4);
   }
 
   addSectionDivider(title, y) {
@@ -692,25 +918,47 @@ export class ProfessionalPDFGenerator {
       // Skip footer on cover page
       if (i === 1) continue;
       
-      // Footer
+      // Enhanced footer design
+      this.pdf.setDrawColor(...this.colors.primary);
+      this.pdf.setLineWidth(1);
+      this.pdf.line(20, 275, 190, 275);
+      
+      // Accent line
+      this.pdf.setDrawColor(...this.colors.accent);
+      this.pdf.setLineWidth(0.5);
+      this.pdf.line(20, 277, 190, 277);
+      
+      // Footer content with enhanced styling
+      this.pdf.setFont(this.fonts.body, 'bold');
+      this.pdf.setFontSize(9);
+      this.pdf.setTextColor(...this.colors.primary);
+      
+      // Left footer - Enhanced Thandi branding
+      this.pdf.text('Generated by THANDI.AI', 20, 285);
+      this.pdf.setFont(this.fonts.body, 'normal');
+      this.pdf.setFontSize(8);
+      this.pdf.setTextColor(...this.colors.secondary);
+      this.pdf.text('Intelligent Career Guidance', 20, 290);
+      
+      // Center footer - Date with better formatting
+      const date = new Date().toLocaleDateString('en-ZA', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      });
       this.pdf.setFont(this.fonts.body, 'normal');
       this.pdf.setFontSize(9);
-      this.pdf.setTextColor(...this.colors.secondary);
-      
-      // Left footer - Thandi branding
-      this.pdf.text('Generated by Thandi.AI', 20, 285);
-      
-      // Center footer - Date
-      const date = new Date().toLocaleDateString();
+      this.pdf.setTextColor(...this.colors.black);
       this.pdf.text(date, 105, 285, { align: 'center' });
       
-      // Right footer - Page number
-      this.pdf.text(`${i} of ${pageCount}`, 190, 285, { align: 'right' });
+      // Right footer - Enhanced page number
+      this.pdf.setFillColor(...this.colors.primary, 0.1);
+      this.pdf.roundedRect(175, 280, 15, 8, 4, 4, 'F');
       
-      // Footer line
-      this.pdf.setDrawColor(...this.colors.primary);
-      this.pdf.setLineWidth(0.5);
-      this.pdf.line(20, 280, 190, 280);
+      this.pdf.setFont(this.fonts.body, 'bold');
+      this.pdf.setFontSize(9);
+      this.pdf.setTextColor(...this.colors.primary);
+      this.pdf.text(`${i}/${pageCount}`, 182, 285, { align: 'center' });
     }
   }
 

@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-01-05T10:55:46.556Z",
+  "productionUrl": "https://thandi.online",
+  "systems": {
+    "health": {
+      "status": "FAIL",
+      "statusCode": 307
+    },
+    "llm": {
+      "status": "FAIL",
+      "statusCode": 307
+    },
+    "cache": {
+      "status": "FAIL",
+      "statusCode": 307
+    },
+    "rag": {
+      "status": "FAIL",
+      "statusCode": 307
+    },
+    "schools": {
+      "status": "FAIL",
+      "statusCode": 307
+    }
+  },
+  "dataIntegrity": {},
+  "overall": "FAIL",
+  "issues": [
+    "Health API returns 307",
+    "LLM API returns 307"
+  ],
+  "warnings": []
+}

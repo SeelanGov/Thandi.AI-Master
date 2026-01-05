@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-01-05T10:48:11.398Z",
+  "productionUrl": "https://thandi-ai-master-6xytol6g7-thandiai-projects.vercel.app",
+  "tests": {
+    "homepage": {
+      "status": "FAIL",
+      "statusCode": 401,
+      "error": "HTTP 401"
+    },
+    "assessment": {
+      "status": "FAIL",
+      "statusCode": 401
+    },
+    "results": {
+      "status": "FAIL",
+      "statusCode": 401
+    },
+    "apiHealth": {
+      "status": "FAIL",
+      "statusCode": 401
+    },
+    "staticAssets": {
+      "status": "PASS",
+      "favicon": 401,
+      "robots": 401
+    },
+    "performance": {
+      "status": "PASS",
+      "responseTime": 48,
+      "contentSize": 14332,
+      "grade": "Excellent"
+    },
+    "security": {
+      "status": "WARNING",
+      "score": 2,
+      "total": 5,
+      "grade": "Needs Improvement"
+    }
+  },
+  "overall": "FAIL",
+  "issues": [
+    "Homepage returns 401",
+    "Assessment page returns 401",
+    "Results page returns 401",
+    "Health API returns 401"
+  ],
+  "recommendations": [
+    "Consider adding more security headers"
+  ]
+}
