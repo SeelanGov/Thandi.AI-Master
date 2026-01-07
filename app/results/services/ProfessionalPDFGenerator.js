@@ -962,6 +962,27 @@ export class ProfessionalPDFGenerator {
     }
   }
 
+  addMetricCard(title, value, x, y, width = 50, height = 35) {
+    // Simple metric card for compatibility
+    this.pdf.setFillColor(248, 250, 252);
+    this.pdf.rect(x, y, width, height, 'F');
+    
+    this.pdf.setDrawColor(...this.colors.primary);
+    this.pdf.setLineWidth(1);
+    this.pdf.rect(x, y, width, height);
+    
+    this.pdf.setFont(this.fonts.body, 'normal');
+    this.pdf.setFontSize(9);
+    this.pdf.setTextColor(...this.colors.secondary);
+    this.pdf.text(title, x + 3, y + 12);
+    
+    this.pdf.setFont(this.fonts.heading, 'bold');
+    this.pdf.setFontSize(14);
+    this.pdf.setTextColor(...this.colors.primary);
+    const valueText = value?.toString() || 'TBD';
+    this.pdf.text(valueText, x + 3, y + 25);
+  }
+
   getFeasibilityColor(feasibility) {
     switch (feasibility?.toLowerCase()) {
       case 'high': return this.colors.success;
