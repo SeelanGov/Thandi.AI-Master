@@ -1,11 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 import ThandiChat from './components/ThandiChat';
 import ResultsCardLayout from './components/ResultsCardLayout';
 import { ResultsParser } from './services/resultsParser';
-import { ProfessionalPDFGenerator } from './services/ProfessionalPDFGenerator';
 import { formatResponse, getFormattedContentStyles } from './utils/formatResponse';
 import { trackEnhancedRecommendations, trackPDFDownload, trackEnhancementFeature } from '@/lib/analytics/track-events';
 import './styles/global.css';
@@ -134,237 +133,49 @@ export default function ResultsPage() {
     try {
       setDownloadingPDF(true);
       
-      // Try professional PDF generation first
-      if (parsedResults) {
-        console.log('📄 Generating professional PDF with parsed results');
-        
-        const studentData = {
-          name: results.metadata?.studentName || 'Student',
-          grade: parsedResults.headerData?.gradeLevel || results.grade || '12',
-          school: results.metadata?.school || 'Not specified'
-        };
-        
-        const generator = new ProfessionalPDFGenerator(parsedResults, studentData);
-        const pdf = generator.generateProfessionalReport();
-        
-        // Professional filename
-        const studentName = studentData.name.replace(/\s+/g, '-');
-        const timestamp = new Date().toISOString().split('T')[0];
-        const filename = `Thandi-Career-Report-${studentName}-Grade${studentData.grade}-${timestamp}.pdf`;
-        
-        pdf.save(filename);
-        
-        // Track professional PDF download
-        trackPDFDownload(studentData.grade, true, 'professional');
-        console.log('✅ Professional PDF generated successfully');
-        
-      } else {
-        // Fallback to basic PDF if parsing failed
-        console.log('📄 Generating basic PDF (fallback)');
-        generateBasicPDF();
-      }
+      // Generate professional PDF using existing ProfessionalPDFGenerator
+      console.log('📄 Generating professional PDF');
+      
+      // Import the professional PDF generator
+      const { ProfessionalPDFGenerator } = await import('./services/ProfessionalPDFGenerator.js');
+      
+      // Prepare data for PDF generation
+      const studentData = {
+        name: results.metadata?.studentName || 'Student',
+        grade: parsedResults?.headerData?.gradeLevel || results.grade || '12',
+        school: results.metadata?.school || 'Not specified'
+      };
+      
+      // Create PDF generator instance
+      const pdfGenerator = new ProfessionalPDFGenerator(
+        parsedResults,     // Parsed results for structured data
+        studentData,       // Student information
+        results           // Full results data
+      );
+      
+      // Generate the professional PDF
+      const pdf = pdfGenerator.generateProfessionalReport();
+      
+      // Create filename
+      const studentName = studentData.name.replace(/\s+/g, '-');
+      const timestamp = new Date().toISOString().split('T')[0];
+      const filename = `Thandi-Career-Report-${studentName}-Grade${studentData.grade}-${timestamp}.pdf`;
+      
+      // Download the PDF
+      pdf.save(filename);
+      
+      // Track PDF download
+      const hasEnhancedContent = results.response?.includes('University') && results.response?.includes('APS');
+      trackPDFDownload(results.grade, hasEnhancedContent, 'professional');
+      
+      console.log('✅ Professional PDF generated and downloaded successfully');
       
     } catch (error) {
-      console.error('❌ Professional PDF generation failed:', error);
-      // Fallback to basic PDF
-      generateBasicPDF();
+      console.error('❌ PDF generation failed:', error);
+      alert('PDF generation failed. Please try again.');
     } finally {
       setDownloadingPDF(false);
     }
-  };
-
-  const generateBasicPDF = () => {
-    if (!results) return;
-
-    const pdf = new jsPDF();
-    const pageWidth = pdf.internal.pageSize.width;
-    const pageHeight = pdf.internal.pageSize.height;
-    const margin = 20;
-    const maxWidth = pageWidth - (margin * 2);
-    let yPosition = 30;
-
-    // Helper function to check if we need a new page
-    const checkPageBreak = (requiredSpace) => {
-      if (yPosition + requiredSpace > pageHeight - 30) {
-        pdf.addPage();
-        yPosition = 30;
-        return true;
-      }
-      return false;
-    };
-
-    // 1. Add header/logo
-    pdf.setFontSize(20);
-    pdf.setTextColor(0, 0, 0);
-    pdf.text('THANDI.AI Career Guidance', margin, yPosition);
-    yPosition += 15;
-
-    // 2. Add top warning (RED, PROMINENT)
-    checkPageBreak(40);
-    pdf.setFillColor(255, 234, 167); // Yellow background
-    pdf.rect(margin - 5, yPosition - 5, maxWidth + 10, 35, 'F');
-    
-    pdf.setFontSize(14);
-    pdf.setTextColor(231, 76, 60); // Red
-    pdf.text('⚠️ READ THIS FIRST:', margin, yPosition);
-    yPosition += 10;
-    
-    pdf.setFontSize(11);
-    pdf.setTextColor(0, 0, 0);
-    const warning = "This is AI-generated advice. You MUST verify it with real people before making any decision.";
-    const warningLines = pdf.splitTextToSize(warning, maxWidth);
-    pdf.text(warningLines, margin, yPosition);
-    yPosition += (warningLines.length * 6) + 15;
-
-    // 3. Add full response content with proper formatting
-    checkPageBreak(20);
-    
-    const content = results.fullResponse || results.response || '';
-    
-    // Clean and parse content
-    const cleanContent = content
-      .replace(/<[^>]*>/g, '') // Remove HTML tags
-      .replace(/⚠️[^:]*:/g, '') // Remove warning headers (we have them separately)
-      .replace(/---+/g, ''); // Remove separator lines
-    
-    // Split into lines and process each one
-    const lines = cleanContent.split('\n');
-    
-    lines.forEach((line) => {
-      line = line.trim();
-      if (!line) {
-        yPosition += 3; // Empty line = small space
-        return;
-      }
-
-      // Check if it's a heading (starts with ###, ##, or #)
-      if (line.startsWith('###')) {
-        checkPageBreak(15);
-        yPosition += 5;
-        pdf.setFontSize(12);
-        pdf.setFont(undefined, 'bold');
-        const headingText = line.replace(/^###\s*/, '');
-        const headingLines = pdf.splitTextToSize(headingText, maxWidth);
-        pdf.text(headingLines, margin, yPosition);
-        yPosition += headingLines.length * 7 + 5;
-        pdf.setFont(undefined, 'normal');
-        return;
-      }
-
-      // Check if it's a numbered list item (starts with "1.", "2.", etc.)
-      const numberedMatch = line.match(/^(\d+)\.\s*(.+)/);
-      if (numberedMatch) {
-        checkPageBreak(10);
-        pdf.setFontSize(11);
-        pdf.setTextColor(0, 0, 0);
-        pdf.setFont(undefined, 'bold');
-        pdf.text(`${numberedMatch[1]}.`, margin, yPosition);
-        pdf.setFont(undefined, 'normal');
-        
-        const itemText = numberedMatch[2].replace(/\*\*/g, ''); // Remove markdown bold
-        const itemLines = pdf.splitTextToSize(itemText, maxWidth - 15);
-        itemLines.forEach((itemLine, idx) => {
-          if (idx > 0) checkPageBreak(7);
-          pdf.text(itemLine, margin + 15, yPosition);
-          yPosition += 6;
-        });
-        yPosition += 2;
-        return;
-      }
-
-      // Check if it's a bullet point (starts with "- " or "* ")
-      if (line.startsWith('- ') || line.startsWith('* ')) {
-        checkPageBreak(10);
-        pdf.setFontSize(11);
-        pdf.setTextColor(0, 0, 0);
-        pdf.text('•', margin + 5, yPosition);
-        
-        const bulletText = line.substring(2).replace(/\*\*/g, ''); // Remove markdown bold
-        const bulletLines = pdf.splitTextToSize(bulletText, maxWidth - 15);
-        bulletLines.forEach((bulletLine, idx) => {
-          if (idx > 0) checkPageBreak(7);
-          pdf.text(bulletLine, margin + 15, yPosition);
-          yPosition += 6;
-        });
-        yPosition += 2;
-        return;
-      }
-
-      // Check if it's bold text (wrapped in **)
-      const boldMatch = line.match(/^\*\*(.+)\*\*$/);
-      if (boldMatch) {
-        checkPageBreak(10);
-        pdf.setFontSize(11);
-        pdf.setFont(undefined, 'bold');
-        const boldLines = pdf.splitTextToSize(boldMatch[1], maxWidth);
-        pdf.text(boldLines, margin, yPosition);
-        yPosition += boldLines.length * 6 + 3;
-        pdf.setFont(undefined, 'normal');
-        return;
-      }
-
-      // Regular paragraph text
-      checkPageBreak(10);
-      pdf.setFontSize(11);
-      pdf.setTextColor(0, 0, 0);
-      pdf.setFont(undefined, 'normal');
-      const cleanLine = line.replace(/\*\*/g, ''); // Remove any remaining markdown
-      const paraLines = pdf.splitTextToSize(cleanLine, maxWidth);
-      pdf.text(paraLines, margin, yPosition);
-      yPosition += paraLines.length * 6 + 3;
-    });
-
-    // 4. Add bottom verification footer
-    yPosition += 10;
-    checkPageBreak(50);
-    
-    pdf.setFillColor(255, 243, 205); // Light yellow
-    pdf.rect(margin - 5, yPosition - 5, maxWidth + 10, 45, 'F');
-    
-    pdf.setFontSize(14);
-    pdf.setTextColor(231, 76, 60); // Red
-    pdf.setFont(undefined, 'bold');
-    pdf.text('⚠️ VERIFY THIS INFORMATION BEFORE DECIDING', margin, yPosition);
-    yPosition += 10;
-    
-    pdf.setFontSize(11);
-    pdf.setTextColor(0, 0, 0);
-    pdf.setFont(undefined, 'normal');
-    pdf.text('1. Speak with your school counselor', margin, yPosition);
-    yPosition += 7;
-    pdf.text('2. Call the institution directly', margin, yPosition);
-    yPosition += 7;
-    pdf.text('3. Check official websites', margin, yPosition);
-    yPosition += 10;
-    
-    pdf.setFontSize(10);
-    pdf.setTextColor(100, 100, 100);
-    const footerNote = "Thandi's data may be outdated. Always confirm with real people.";
-    const footerLines = pdf.splitTextToSize(footerNote, maxWidth);
-    pdf.text(footerLines, margin, yPosition);
-
-    // 5. Add page numbers
-    const pageCount = pdf.internal.getNumberOfPages();
-    pdf.setFont(undefined, 'normal');
-    for (let i = 1; i <= pageCount; i++) {
-      pdf.setPage(i);
-      pdf.setFontSize(10);
-      pdf.setTextColor(150, 150, 150);
-      pdf.text(
-        `Page ${i} of ${pageCount}`,
-        pageWidth / 2,
-        pageHeight - 10,
-        { align: 'center' }
-      );
-    }
-
-    // 6. Save PDF
-    const timestamp = new Date().toISOString().split('T')[0];
-    pdf.save(`thandi-career-guidance-${timestamp}.pdf`);
-    
-    // Track basic PDF download
-    const hasEnhancedContent = results.response?.includes('University') && results.response?.includes('APS');
-    trackPDFDownload(results.grade, hasEnhancedContent, 'basic');
   };
 
   if (loading) {

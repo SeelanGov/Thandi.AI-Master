@@ -1,0 +1,109 @@
+{
+  "buildVerification": true,
+  "apiIntegration": false,
+  "performance": true,
+  "overallSuccess": false,
+  "timestamp": "2026-01-07T16:34:01.867Z",
+  "apiTestResults": [
+    {
+      "scenario": "Grade 12 Engineering Student with Complete Profile",
+      "success": false,
+      "responseTime": 612,
+      "validationScore": 80,
+      "validationStatus": "needs_enhancement",
+      "issues": [
+        "Missing required element: bursary",
+        "Missing verification warning footer"
+      ],
+      "hasCAGValidation": true,
+      "responseLength": 975
+    },
+    {
+      "scenario": "Grade 11 Student Exploring Multiple Careers",
+      "success": false,
+      "responseTime": 257,
+      "validationScore": 80,
+      "validationStatus": "needs_enhancement",
+      "issues": [
+        "Missing required element: medicine",
+        "Missing required element: computer science",
+        "Missing verification warning footer"
+      ],
+      "hasCAGValidation": true,
+      "responseLength": 1187
+    },
+    {
+      "scenario": "Grade 10 Foundation Student",
+      "success": false,
+      "responseTime": 529,
+      "validationScore": 80,
+      "validationStatus": "needs_enhancement",
+      "issues": [
+        "Missing required element: subject selection",
+        "Missing required element: career exploration",
+        "Missing verification warning footer"
+      ],
+      "hasCAGValidation": true,
+      "responseLength": 765
+    },
+    {
+      "scenario": "High-Performance Student with Specific Goals",
+      "success": false,
+      "responseTime": 274,
+      "validationScore": 80,
+      "validationStatus": "needs_enhancement",
+      "issues": [
+        "Validation score too low: 80% < 85%",
+        "Missing required element: actuarial science",
+        "Missing required element: UCT",
+        "Missing required element: bursary",
+        "Missing verification warning footer"
+      ],
+      "hasCAGValidation": true,
+      "responseLength": 773
+    }
+  ],
+  "performanceResults": {
+    "success": true,
+    "avgTotalTime": 308,
+    "avgValidationTime": 109,
+    "performanceGrade": "A",
+    "results": [
+      {
+        "iteration": 1,
+        "totalTime": 314,
+        "validationTime": 92.28077603611811,
+        "responseSize": 975,
+        "success": true
+      },
+      {
+        "iteration": 2,
+        "totalTime": 331,
+        "validationTime": 128.9459400812051,
+        "responseSize": 975,
+        "success": true
+      },
+      {
+        "iteration": 3,
+        "totalTime": 274,
+        "validationTime": 86.07922715269663,
+        "responseSize": 975,
+        "success": true
+      },
+      {
+        "iteration": 4,
+        "totalTime": 296,
+        "validationTime": 132.75270446381774,
+        "responseSize": 975,
+        "success": true
+      },
+      {
+        "iteration": 5,
+        "totalTime": 324,
+        "validationTime": 106.07820237631623,
+        "responseSize": 975,
+        "success": true
+      }
+    ]
+  }
+}

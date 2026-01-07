@@ -1,0 +1,25 @@
+{
+  "cagActivationPoints": [
+    "RAG endpoint: CAG recommendation engine",
+    "RAG endpoint: CAG output formatting",
+    "RAG endpoint: CAG program matching system",
+    "CAG activated when student profile available",
+    "G10-12 endpoint: Requirements engine integration",
+    "G10-12 endpoint: Career and subject processing",
+    "ThandiChat: Uses RAG endpoint with CAG",
+    "Assessment form: Uses CAG-enabled RAG endpoint",
+    "Results page: ThandiChat provides CAG access"
+  ],
+  "cagVsBaseLLM": [
+    "Base LLM: 2 specific indicators (expected to be lower)"
+  ],
+  "integrationGaps": [
+    "Missing: CAG reference",
+    "Missing: CAG acronym usage"
+  ],
+  "cagEffectiveness": [
+    "With Student Profile (CAG should activate): Strong CAG response (6 indicators)",
+    "With Student Profile (CAG should activate): Comprehensive response (3418 chars)"
+  ],
+  "issues": []
+}

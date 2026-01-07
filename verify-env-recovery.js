@@ -69,8 +69,14 @@ const expectedVars = [
     description: 'Groq API key'
   },
   {
+    name: 'KIMI_API_KEY',
+    pattern: /^sk-[A-Za-z0-9_-]+$/,
+    critical: false,
+    description: 'KIMI (Moonshot AI) API key'
+  },
+  {
     name: 'LLM_PROVIDER',
-    pattern: /^(anthropic|openai|groq)$/,
+    pattern: /^(anthropic|openai|groq|kimi)$/,
     critical: true,
     description: 'Primary LLM provider'
   }
@@ -115,7 +121,7 @@ expectedVars.forEach(varDef => {
       if (varDef.critical) criticalConfigured++;
       
       // Count LLM providers
-      if (['ANTHROPIC_API_KEY', 'OPENAI_API_KEY', 'GROQ_API_KEY'].includes(varDef.name)) {
+      if (['ANTHROPIC_API_KEY', 'OPENAI_API_KEY', 'GROQ_API_KEY', 'KIMI_API_KEY'].includes(varDef.name)) {
         llmProviderCount++;
       }
     }
@@ -172,7 +178,7 @@ if (criticalConfigured < criticalCount) {
 
 if (llmProviderCount === 0) {
   console.log('\n🤖 LLM PROVIDER NEEDED:');
-  console.log('   • Add at least one: ANTHROPIC_API_KEY, OPENAI_API_KEY, or GROQ_API_KEY');
+  console.log('   • Add at least one: ANTHROPIC_API_KEY, OPENAI_API_KEY, GROQ_API_KEY, or KIMI_API_KEY');
   console.log('   • Set LLM_PROVIDER to match your chosen provider');
 }
 

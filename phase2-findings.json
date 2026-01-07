@@ -1,0 +1,32 @@
+{
+  "promptEngineering": [
+    "Grade-specific prompts implemented",
+    "Student marks integrated in prompt construction",
+    "Academic calendar context added to prompts",
+    "CAG generates specific program recommendations"
+  ],
+  "contextAwareness": [
+    "High-performing Grade 12 STEM student: Grade-specific guidance provided",
+    "High-performing Grade 12 STEM student: Academic performance utilized",
+    "High-performing Grade 12 STEM student: Career interests addressed",
+    "Average Grade 11 student exploring options: Grade-specific guidance provided",
+    "Average Grade 11 student exploring options: Academic performance utilized",
+    "Average Grade 11 student exploring options: Career interests addressed",
+    "Grade 10 student with financial constraints: Grade-specific guidance provided",
+    "Grade 10 student with financial constraints: Financial/location constraints addressed"
+  ],
+  "personalization": [],
+  "ragRetrieval": [
+    "University information successfully retrieved",
+    "Program-specific information retrieved",
+    "Admission requirements retrieved from knowledge base"
+  ],
+  "recommendationQuality": [
+    "Specific program recommendations generated",
+    "Financial aid recommendations provided",
+    "Safety verification warning included"
+  ],
+  "issues": [
+    "Recommendations lack actionable guidance"
+  ]
+}

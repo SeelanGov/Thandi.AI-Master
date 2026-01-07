@@ -1,0 +1,153 @@
+{
+  "phase4": {
+    "scenarioResults": [
+      {
+        "scenario": "High-Performing Grade 12 STEM Student",
+        "success": true,
+        "responseTime": 1154,
+        "validationScore": 86,
+        "details": [
+          {
+            "check": "Grade-specific content",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "APS calculation/reference",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "University eligibility addressed",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "Specific program recommendations",
+            "status": "❌",
+            "passed": false
+          },
+          {
+            "check": "Financial aid recommendations",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "Actionable next steps",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "Safety verification warning",
+            "status": "✅",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "scenario": "Average Grade 11 Student Exploring Options",
+        "success": true,
+        "responseTime": 254,
+        "validationScore": 100,
+        "details": [
+          {
+            "check": "Grade-specific content",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "APS calculation/reference",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "University eligibility addressed",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "Financial aid recommendations",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "Safety verification warning",
+            "status": "✅",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "scenario": "Grade 10 Foundation Student",
+        "success": true,
+        "responseTime": 136,
+        "validationScore": 100,
+        "details": [
+          {
+            "check": "Grade-specific content",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "Safety verification warning",
+            "status": "✅",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "scenario": "Struggling Grade 12 Student",
+        "success": true,
+        "responseTime": 147,
+        "validationScore": 75,
+        "details": [
+          {
+            "check": "Grade-specific content",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "APS calculation/reference",
+            "status": "✅",
+            "passed": true
+          },
+          {
+            "check": "Alternative pathway options",
+            "status": "❌",
+            "passed": false
+          },
+          {
+            "check": "Safety verification warning",
+            "status": "✅",
+            "passed": true
+          }
+        ]
+      }
+    ],
+    "recommendationQuality": [
+      "High-Performing Grade 12 STEM Student: Excellent (86%)",
+      "Average Grade 11 Student Exploring Options: Excellent (100%)",
+      "Grade 10 Foundation Student: Excellent (100%)",
+      "Struggling Grade 12 Student: Good (75%)"
+    ],
+    "systemPerformance": [
+      "High-Performing Grade 12 STEM Student: 1154ms response time",
+      "Average Grade 11 Student Exploring Options: 254ms response time",
+      "Grade 10 Foundation Student: 136ms response time",
+      "Struggling Grade 12 Student: 147ms response time"
+    ],
+    "dataAccuracy": [
+      "APS calculation: Accurate",
+      "Edge case handled: Very low marks",
+      "Edge case handled: No clear career interest",
+      "Edge case handled: Multiple constraints"
+    ],
+    "issues": []
+  },
+  "overallScores": {
+    "systemReliability": 100,
+    "avgValidationScore": 90.25,
+    "overallScore": 95.125
+  },
+  "timestamp": "2026-01-07T15:51:03.276Z"
+}

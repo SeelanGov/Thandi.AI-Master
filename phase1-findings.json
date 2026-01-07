@@ -1,0 +1,26 @@
+{
+  "dataCollectionPoints": [
+    "enjoyedSubjects - Student subject preferences",
+    "interests - Career interest areas",
+    "marksData - Academic performance (exact marks or ranges)",
+    "constraints - Financial/location/family constraints",
+    "openQuestions - Motivation and career concerns",
+    "curriculumProfile - CAPS framework and current subjects"
+  ],
+  "transformationPoints": [
+    "extractActualMarks: Convert marks data to APS calculation format",
+    "extractCareerInterests: Extract career interests from query text",
+    "extractMarksFromQuery: Extract marks from query text"
+  ],
+  "apiEndpoints": [
+    "RAG endpoint accepts profile with marks data",
+    "Grade parameter properly processed",
+    "CAG (Career Assessment Generator) integrated",
+    "Requirements engine (Supabase function) integrated",
+    "Subject and career data processed"
+  ],
+  "dataIntegrity": [
+    "Marks extraction function exists"
+  ],
+  "issues": []
+}

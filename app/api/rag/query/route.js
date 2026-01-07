@@ -1,8 +1,9 @@
-// RAG endpoint with Upstash cache integration and specific program recommendations
+// RAG endpoint with CAG validation layer and job market intelligence
 import { NextResponse } from 'next/server';
 import { getCachedResponse, setCachedResponse } from '@/lib/cache/rag-cache.js';
 const { calendarUtils } = require('@/lib/academic/pure-commonjs-calendar.js');
 import { generateSpecificRecommendations, formatRecommendationsForLLM } from '@/lib/matching/program-matcher.js';
+import { CAGValidationService } from '@/lib/cag/validation-service.js';
 
 // Helper function to extract career interests from query
 function extractCareerInterests(queryText) {
@@ -433,7 +434,7 @@ export async function POST(request) {
   
   try {
     const body = await request.json();
-    const { query, grade, curriculum, profile, curriculumProfile } = body;
+    const { query, grade, curriculum, profile, curriculumProfile, options } = body;
     
     // CRITICAL FIX: Grade parameter takes absolute priority over query text parsing
     const gradeParam = grade || profile?.grade || curriculumProfile?.grade;
@@ -505,6 +506,9 @@ export async function POST(request) {
         marks: marksData,
         constraints: profile?.constraints || {},
         careerInterests: extractCareerInterests(query),
+        interests: profile?.interests || curriculumProfile?.interests || [],
+        enjoyedSubjects: profile?.enjoyedSubjects || curriculumProfile?.enjoyedSubjects || [],
+        grade: gradeParam,
         ...profile
       };
       
@@ -599,12 +603,13 @@ export async function POST(request) {
       console.log(`[CACHE BYPASS] Assessment submission detected - generating fresh response`);
     }
     
-
-    
     // Generate proper career guidance response with verification footer
     const careerGuidance = generateCareerGuidance(query, parsedGrade, curriculum, enhancedStudentProfile);
     
-    const response = {
+    // ENHANCED: CAG VALIDATION LAYER
+    console.log(`[CAG VALIDATION] Starting validation for ${parsedGrade} student`);
+    
+    let finalResponse = {
       success: true,
       query,
       grade: parsedGrade,
@@ -624,17 +629,99 @@ export async function POST(request) {
       },
       timestamp: new Date().toISOString()
     };
+
+    // Apply CAG validation if we have student profile or this is an assessment submission
+    if (enhancedStudentProfile || options?.forceCAG || options?.preliminaryReport) {
+      try {
+        console.log(`[CAG VALIDATION] Applying validation layer`);
+        
+        const cagValidator = new CAGValidationService();
+        const validationResult = await cagValidator.validateCareerGuidance(
+          finalResponse,
+          enhancedStudentProfile,
+          options
+        );
+
+        // Use enhanced/corrected response based on validation
+        if (validationResult.status === 'approved' || validationResult.status === 'needs_enhancement') {
+          finalResponse = {
+            ...finalResponse,
+            ...validationResult.enhancedResponse,
+            validation: {
+              status: validationResult.status,
+              score: validationResult.overallScore,
+              confidence: validationResult.validationResults?.averageConfidence || 85,
+              validatedBy: 'CAG',
+              validationId: validationResult.validationId
+            }
+          };
+          
+          console.log(`[CAG VALIDATION] ✅ Approved with score: ${validationResult.overallScore}%`);
+        } else if (validationResult.status === 'requires_correction') {
+          finalResponse = {
+            ...finalResponse,
+            ...validationResult.enhancedResponse,
+            validation: {
+              status: validationResult.status,
+              score: validationResult.overallScore,
+              issues: validationResult.recommendations?.slice(0, 3) || [],
+              validatedBy: 'CAG',
+              validationId: validationResult.validationId
+            }
+          };
+          
+          console.log(`[CAG VALIDATION] ⚠️ Corrected with score: ${validationResult.overallScore}%`);
+        } else {
+          // Use fallback response for rejected validation
+          finalResponse = {
+            ...finalResponse,
+            ...validationResult.fallbackResponse,
+            validation: {
+              status: 'fallback',
+              score: 0,
+              reason: 'Validation failed, using safe fallback',
+              validatedBy: 'CAG',
+              validationId: validationResult.validationId
+            }
+          };
+          
+          console.log(`[CAG VALIDATION] ❌ Rejected - using fallback response`);
+        }
+
+        // Add validation performance metrics
+        finalResponse.performance.validationTime = validationResult.processingTime;
+        finalResponse.performance.totalTime = Date.now() - startTime;
+
+      } catch (validationError) {
+        console.error('[CAG VALIDATION] Validation failed, using original response:', validationError);
+        
+        // Add validation error info but continue with original response
+        finalResponse.validation = {
+          status: 'error',
+          error: validationError.message,
+          validatedBy: 'CAG'
+        };
+      }
+    } else {
+      console.log(`[CAG VALIDATION] Skipped - no student profile available`);
+      
+      finalResponse.validation = {
+        status: 'skipped',
+        reason: 'No student profile for validation',
+        validatedBy: 'CAG'
+      };
+    }
     
     // Cache the response asynchronously (but only if not assessment submission)
     if (!shouldBypassCache) {
-      setCachedResponse(cacheProfile, query, response).catch(err => {
+      setCachedResponse(cacheProfile, query, finalResponse).catch(err => {
         console.error('Cache set error:', err.message);
       });
     } else {
       console.log(`[CACHE SKIP] Not caching assessment submission response`);
     }
     
-    return NextResponse.json(response);
+    return NextResponse.json(finalResponse);
     
   } catch (error) {
     console.error('RAG Query Error:', error);

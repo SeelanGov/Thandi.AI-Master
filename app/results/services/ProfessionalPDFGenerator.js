@@ -1,519 +1,946 @@
-import jsPDF from 'jspdf';
+import { jsPDF } from 'jspdf';
 
 export class ProfessionalPDFGenerator {
-  constructor(parsedResults, studentData) {
-    this.pdf = new jsPDF('p', 'mm', 'a4');
+  constructor(parsedResults, studentData, fullResultsData = null) {
+    this.pdf = new jsPDF({
+      orientation: 'portrait',
+      unit: 'mm',
+      format: 'a4',
+      putOnlyUsedFonts: true,
+      floatPrecision: 16
+    });
+    
     this.parsedResults = parsedResults;
     this.studentData = studentData;
+    this.fullResultsData = fullResultsData; // Complete results data from results page
+    
+    // Simplified, reliable colors (RGB 0-255)
     this.colors = {
       primary: [17, 78, 78],      // Thandi teal #114E4E
-      secondary: [107, 114, 128], // Gray
+      secondary: [107, 114, 128], // Gray  
       accent: [223, 163, 58],     // Thandi gold #DFA33A
       warning: [239, 68, 68],     // Red
       success: [16, 185, 129],    // Green
-      background: [249, 250, 251],
+      lightGray: [248, 250, 252],
       white: [255, 255, 255],
       black: [0, 0, 0]
     };
+    
+    // Use only reliable fonts
     this.fonts = {
       heading: 'helvetica',
-      body: 'helvetica',
-      mono: 'courier'
+      body: 'helvetica'
     };
-    this.pageNumber = 1;
+    
+    this.pageMargin = 20;
+    this.pageWidth = 210;
+    this.pageHeight = 297;
+    this.contentWidth = this.pageWidth - (this.pageMargin * 2);
   }
 
   generateProfessionalReport() {
-    this.addCoverPage();
-    this.addExecutiveSummary();
-    this.addAcademicOverview();
-    this.addProgramRecommendations();
-    this.addFinancialAidSection();
-    this.addActionPlan();
-    this.addVerificationSection();
-    this.addFootersAndHeaders();
-    return this.pdf;
+    try {
+      this.addProfessionalCoverPage();
+      this.addAcademicStatusOverview(); // Mirror HeaderCard
+      this.addRecommendedPrograms();    // Mirror ProgramCard section
+      this.addFinancialAidSection();    // Mirror BursaryCard section
+      this.addActionPlanSection();      // Mirror ActionCard
+      this.addAlternativeOptions();     // Mirror AlternativeOptionsCard
+      this.addFooter();
+      return this.pdf;
+    } catch (error) {
+      console.error('PDF generation error:', error);
+      return this.generateFallbackPDF();
+    }
   }
 
-  addCoverPage() {
-    // Enhanced professional cover with modern design
+  addProfessionalCoverPage() {
+    // Clean, professional header
+    this.pdf.setFillColor(17, 78, 78); // Thandi teal
+    this.pdf.rect(0, 0, this.pageWidth, 80, 'F');
     
-    // Primary header band with gradient effect
-    this.pdf.setFillColor(...this.colors.primary);
-    this.pdf.rect(0, 0, 210, 120, 'F');
+    // Add Thandi logo (circular gradient with "T")
+    this.addThandiLogo(this.pageMargin, 25);
     
-    // Accent stripe for visual interest
-    this.pdf.setFillColor(...this.colors.accent);
-    this.pdf.rect(0, 110, 210, 10, 'F');
-    
-    // Thandi branding - enhanced with better typography
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(42);
-    this.pdf.text('THANDI.AI', 25, 45);
-    
-    // Subtitle with improved spacing
-    this.pdf.setFontSize(16);
+    // Company branding next to logo
     this.pdf.setTextColor(255, 255, 255);
-    this.pdf.text('Intelligent Career Guidance Platform', 25, 65);
-    
-    // Professional tagline
-    this.pdf.setFontSize(12);
-    this.pdf.setTextColor(255, 255, 255, 0.8);
-    this.pdf.text('Personalized • Data-Driven • Future-Ready', 25, 80);
-    
-    // Decorative elements
-    this.pdf.setDrawColor(...this.colors.accent);
-    this.pdf.setLineWidth(4);
-    this.pdf.line(25, 90, 140, 90);
-    
-    // Add geometric accent
-    this.pdf.setFillColor(...this.colors.accent);
-    this.pdf.circle(170, 60, 15, 'F');
-    this.pdf.setFillColor(...this.colors.white);
-    this.pdf.circle(170, 60, 10, 'F');
-    
-    // Main title with enhanced typography and spacing
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(28);
-    this.pdf.text('Your Personalized', 25, 150);
+    this.pdf.setFont('helvetica', 'bold');
     this.pdf.setFontSize(32);
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.text('Career Path Report', 25, 170);
-    
-    // Enhanced student information card with modern design
-    this.pdf.setFillColor(...this.colors.white);
-    this.pdf.rect(25, 190, 160, 80, 'F');
-    
-    // Card shadow effect
-    this.pdf.setFillColor(0, 0, 0, 0.05);
-    this.pdf.rect(27, 192, 160, 80, 'F');
-    this.pdf.setFillColor(...this.colors.white);
-    this.pdf.rect(25, 190, 160, 80, 'F');
-    
-    // Card border with accent color
-    this.pdf.setDrawColor(...this.colors.accent);
-    this.pdf.setLineWidth(2);
-    this.pdf.rect(25, 190, 160, 80);
-    
-    // Card header
-    this.pdf.setFillColor(...this.colors.primary);
-    this.pdf.rect(25, 190, 160, 25, 'F');
-    
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(14);
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.text('STUDENT PROFILE', 35, 206);
-    
-    // Student details with improved layout
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(11);
-    this.pdf.setTextColor(...this.colors.black);
-    
-    const studentName = this.studentData?.name || 'Student';
-    const gradeLevel = this.parsedResults?.headerData?.gradeLevel || 'Unknown';
-    const date = new Date().toLocaleDateString('en-ZA', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-    
-    // Left column
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.text('Student Name:', 35, 230);
-    this.pdf.text('Grade Level:', 35, 245);
-    this.pdf.text('Report Date:', 35, 260);
-    
-    // Right column - values
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.text(studentName, 85, 230);
-    this.pdf.text(`Grade ${gradeLevel}`, 85, 245);
-    this.pdf.text(date, 85, 260);
-    
-    // Academic year in right section
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.text('Academic Year:', 125, 230);
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.text(new Date().getFullYear().toString(), 125, 245);
-    
-    // Add enhanced disclaimer box
-    this.addEnhancedDisclaimerBox();
-  }
-
-  addExecutiveSummary() {
-    this.pdf.addPage();
-    this.addPageHeader('Executive Summary');
-    
-    const gradeContext = this.getGradeSpecificContext();
-    
-    // Enhanced grade-specific summary header with modern design
-    this.pdf.setFillColor(...this.colors.primary);
-    this.pdf.rect(20, 50, 170, 35, 'F');
-    
-    // Accent stripe
-    this.pdf.setFillColor(...this.colors.accent);
-    this.pdf.rect(20, 80, 170, 5, 'F');
-    
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(18);
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.text(`Grade ${this.parsedResults.headerData?.gradeLevel} Student Profile`, 30, 65);
+    this.pdf.text('Thandi.ai', this.pageMargin + 25, 35);
     
     this.pdf.setFontSize(12);
-    this.pdf.setTextColor(255, 255, 255, 0.9);
-    this.pdf.text(gradeContext.phase || 'Academic Planning Phase', 30, 75);
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.text('From School to Success', this.pageMargin + 25, 45);
     
-    // Enhanced key metrics with professional card design
-    let yPos = 100;
-    const cardWidth = 50;
-    const cardHeight = 40;
-    const cardSpacing = 60;
+    // Accent line
+    this.pdf.setFillColor(223, 163, 58); // Gold accent
+    this.pdf.rect(0, 75, this.pageWidth, 5, 'F');
     
-    // Metric cards with enhanced styling
-    this.addEnhancedMetricCard('Grade Level', this.parsedResults.headerData?.gradeLevel || 'Unknown', 20, yPos, cardWidth, cardHeight);
+    // Main title section
+    this.pdf.setTextColor(0, 0, 0);
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(28);
+    this.pdf.text('Career Assessment Report', this.pageMargin, 110);
     
-    if (this.parsedResults.headerData?.hasMarks) {
-      this.addEnhancedMetricCard('APS Score', this.parsedResults.headerData?.apsScore || 'TBD', 20 + cardSpacing, yPos, cardWidth, cardHeight);
-    } else {
-      this.addEnhancedMetricCard('Status', 'Foundation', 20 + cardSpacing, yPos, cardWidth, cardHeight);
-    }
+    // Student information box
+    const boxY = 130;
+    const boxHeight = 60;
     
-    this.addEnhancedMetricCard('University Ready', 
-      this.parsedResults.headerData?.universityEligible ? 'Yes' : 'Planning', 20 + (cardSpacing * 2), yPos, cardWidth, cardHeight);
-    
-    // Grade-specific summary with improved typography
-    yPos += 60;
+    // Box background
     this.pdf.setFillColor(248, 250, 252);
-    this.pdf.rect(20, yPos, 170, 5, 'F');
+    this.pdf.rect(this.pageMargin, boxY, this.contentWidth, boxHeight, 'F');
     
-    yPos += 15;
-    this.pdf.setFont(this.fonts.body, 'normal');
+    // Box border
+    this.pdf.setDrawColor(17, 78, 78);
+    this.pdf.setLineWidth(1);
+    this.pdf.rect(this.pageMargin, boxY, this.contentWidth, boxHeight);
+    
+    // Student details
+    this.pdf.setTextColor(0, 0, 0);
+    this.pdf.setFont('helvetica', 'bold');
     this.pdf.setFontSize(12);
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.setLineHeightFactor(1.6);
+    this.pdf.text('Student Information', this.pageMargin + 10, boxY + 15);
     
-    const summaryText = this.generateGradeSpecificSummary();
-    const lines = this.pdf.splitTextToSize(summaryText, 170);
-    this.pdf.text(lines, 20, yPos);
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(11);
     
-    // Enhanced key highlights section
-    yPos += lines.length * 7 + 25;
-    this.addEnhancedSectionDivider('Key Highlights', yPos);
-    yPos += 20;
+    const studentName = this.studentData?.name || 'Student Assessment';
+    const gradeLevel = this.parsedResults?.headerData?.gradeLevel || 'Grade 12';
+    const reportDate = new Date().toLocaleDateString('en-ZA');
     
-    const highlights = this.generateKeyHighlights();
-    highlights.forEach((highlight, index) => {
-      // Enhanced highlight design
-      this.pdf.setFillColor(...this.colors.accent);
-      this.pdf.circle(28, yPos + 5, 6, 'F');
-      
-      this.pdf.setFillColor(...this.colors.primary);
-      this.pdf.circle(28, yPos + 5, 4, 'F');
-      
-      this.pdf.setTextColor(...this.colors.white);
-      this.pdf.setFont(this.fonts.body, 'bold');
-      this.pdf.setFontSize(10);
-      this.pdf.text((index + 1).toString(), 26, yPos + 7);
-      
-      this.pdf.setTextColor(...this.colors.black);
-      this.pdf.setFont(this.fonts.body, 'normal');
-      this.pdf.setFontSize(11);
-      this.pdf.setLineHeightFactor(1.5);
-      const highlightLines = this.pdf.splitTextToSize(highlight, 150);
-      this.pdf.text(highlightLines, 40, yPos + 7);
-      
-      yPos += highlightLines.length * 6 + 12;
-    });
+    this.pdf.text(`Name: ${studentName}`, this.pageMargin + 10, boxY + 30);
+    this.pdf.text(`Grade: ${gradeLevel}`, this.pageMargin + 10, boxY + 42);
+    this.pdf.text(`Report Date: ${reportDate}`, this.pageMargin + 10, boxY + 54);
+    
+    // Professional disclaimer
+    const disclaimerY = 220;
+    this.pdf.setFillColor(255, 243, 205); // Light yellow
+    this.pdf.rect(this.pageMargin, disclaimerY, this.contentWidth, 40, 'F');
+    
+    this.pdf.setDrawColor(239, 68, 68); // Warning red
+    this.pdf.setLineWidth(2);
+    this.pdf.rect(this.pageMargin, disclaimerY, this.contentWidth, 40);
+    
+    this.pdf.setTextColor(0, 0, 0);
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(10);
+    this.pdf.text('IMPORTANT DISCLAIMER', this.pageMargin + 5, disclaimerY + 12);
+    
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(9);
+    const disclaimerText = 'This report contains AI-generated career guidance. All recommendations must be verified with qualified counselors and official sources before making educational decisions.';
+    
+    // Split text to fit in box
+    const lines = this.pdf.splitTextToSize(disclaimerText, this.contentWidth - 10);
+    this.pdf.text(lines, this.pageMargin + 5, disclaimerY + 25);
   }
 
-  generateGradeSpecificSummary() {
-    const grade = this.parsedResults.headerData?.gradeLevel;
-    const hasMarks = this.parsedResults.headerData?.hasMarks;
-    
-    switch (grade) {
-      case 10:
-        return `As a Grade 10 student, you are in your foundation year of the Senior Phase. This report focuses on career exploration and subject confirmation rather than specific university applications. You have time to explore different career paths and ensure your current subjects align with your interests and abilities. The recommendations below are exploratory in nature, designed to help you understand various career options available to you.`;
-        
-      case 11:
-        return `As a Grade 11 student, you are in the strategic planning phase of your education. ${hasMarks ? 'Using your Grade 10 performance data, this report provides targeted guidance for university research and mark improvement strategies.' : ''} You have two years to prepare for your final NSC examinations and university applications. The recommendations focus on university program research, targeted academic improvement, and bursary preparation.`;
-        
-      case 12:
-        return `As a Grade 12 student, you are in your final and most critical year. ${hasMarks ? 'Based on your Grade 11 performance, this report provides specific guidance for university applications and NSC preparation.' : ''} The recommendations are focused on immediate actions: university application deadlines, intensive NSC preparation, and backup planning. Time is critical, and the guidance below is designed to help you achieve your best possible outcomes.`;
-        
-      default:
-        return `This career guidance report provides personalized recommendations based on your academic performance and interests.`;
-    }
-  }
-
-  generateKeyHighlights() {
-    const highlights = [];
-    const programs = this.parsedResults.programs || [];
-    const bursaries = this.parsedResults.bursaries || [];
-    
-    if (programs.length > 0) {
-      highlights.push(`${programs.length} university programs identified that match your profile and interests`);
-    }
-    
-    if (bursaries.length > 0) {
-      highlights.push(`${bursaries.length} financial aid opportunities available for your consideration`);
-    }
-    
-    const grade = this.parsedResults.headerData?.gradeLevel;
-    const gradeContext = this.getGradeSpecificContext();
-    
-    if (gradeContext.timeHorizon) {
-      highlights.push(`${gradeContext.timeHorizon} - ${gradeContext.focus}`);
-    }
-    
-    if (this.parsedResults.actionPlan?.actionItems?.length > 0) {
-      highlights.push(`${this.parsedResults.actionPlan.actionItems.length} specific action items to guide your next steps`);
-    }
-    
-    return highlights;
-  }
-
-  getGradeSpecificContext() {
-    const grade = this.parsedResults.headerData?.gradeLevel;
-    
-    const contexts = {
-      10: {
-        phase: 'Foundation Year',
-        focus: 'Career Exploration & Subject Confirmation',
-        timeHorizon: '3 years to matric',
-        marksContext: 'Building academic foundation'
-      },
-      11: {
-        phase: 'Strategic Planning Year', 
-        focus: 'University Research & Mark Improvement',
-        timeHorizon: '2 years to matric',
-        marksContext: 'Grade 10 marks available for planning'
-      },
-      12: {
-        phase: 'Critical Decision Year',
-        focus: 'Applications & NSC Preparation', 
-        timeHorizon: '1 year to matric',
-        marksContext: 'Grade 11 marks guide final decisions'
-      }
-    };
-    
-    return contexts[grade] || {};
-  }
-
-  addAcademicOverview() {
+  addAcademicStatusOverview() {
+    // Mirror HeaderCard component exactly
     this.pdf.addPage();
-    this.addPageHeader('Academic Overview');
+    this.addPageHeader('Your Academic Status');
     
     let yPos = 60;
     
-    // Academic status section
-    this.pdf.setFillColor(...this.colors.primary, 0.1);
-    this.pdf.rect(20, yPos, 170, 30, 'F');
+    const headerData = this.parsedResults?.headerData || {};
+    const gradeLevel = headerData.gradeLevel || 12;
+    const hasMarks = headerData.hasMarks || false;
+    const apsScore = headerData.apsScore;
+    const projectedRange = headerData.projectedApsRange;
+    const universityEligible = headerData.universityEligible;
+    const studentStatus = headerData.studentStatus || `Grade ${gradeLevel} Student`;
     
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(14);
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.text('Current Academic Status', 25, yPos + 15);
+    // Student status banner - exactly like HeaderCard
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(16);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text(studentStatus, this.pageMargin, yPos);
     
-    yPos += 40;
+    yPos += 25;
     
-    // Grade-specific academic information
-    const headerData = this.parsedResults.headerData || {};
+    // Academic metrics grid - mirror HeaderCard layout
+    const metricsY = yPos;
     
-    if (headerData.hasMarks && headerData.apsScore) {
-      // APS Score visualization
-      this.addMetricCard('APS Score', headerData.apsScore, 20, yPos, 50, 35);
-      this.addMetricCard('Projected Range', `${headerData.projectedApsRange?.min || 'TBD'}-${headerData.projectedApsRange?.max || 'TBD'}`, 80, yPos, 50, 35);
-      this.addMetricCard('University Eligible', headerData.universityEligible ? 'Yes' : 'Planning', 140, yPos, 50, 35);
+    // Grade Level
+    this.addMetricBox('Current Grade', `Grade ${gradeLevel}`, this.pageMargin, metricsY, 45, 35);
+    
+    // APS Score
+    const apsDisplay = hasMarks && apsScore ? apsScore.toString() : 'Pending';
+    this.addMetricBox('APS Score', apsDisplay, this.pageMargin + 50, metricsY, 45, 35);
+    
+    // Projected Range
+    if (projectedRange && hasMarks) {
+      this.addMetricBox('Projected Range', `${projectedRange.min}-${projectedRange.max}`, this.pageMargin + 100, metricsY, 45, 35);
     } else {
-      // Foundation year status
-      this.addMetricCard('Grade Level', headerData.gradeLevel, 20, yPos, 50, 35);
-      this.addMetricCard('Phase', 'Foundation', 80, yPos, 50, 35);
-      this.addMetricCard('Focus', 'Exploration', 140, yPos, 50, 35);
+      this.addMetricBox('Status', gradeLevel === 10 ? 'Foundation' : 'Planning', this.pageMargin + 100, metricsY, 45, 35);
     }
+    
+    // University Eligibility
+    const eligibilityText = universityEligible ? 'Eligible' : 'Building';
+    this.addMetricBox('University Ready', eligibilityText, this.pageMargin + 150, metricsY, 40, 35);
     
     yPos += 50;
     
-    // Academic timeline
-    this.addSectionDivider('Academic Timeline', yPos);
+    // Grade-specific guidance - mirror HeaderCard content
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Your Current Focus', this.pageMargin, yPos);
+    
     yPos += 15;
     
-    const timeline = this.parsedResults.actionPlan?.timeline || 'Academic planning in progress';
-    this.pdf.setFont(this.fonts.body, 'normal');
+    const currentFocus = this.getGradeSpecificFocus(gradeLevel);
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(0, 0, 0);
+    
+    const focusLines = this.pdf.splitTextToSize(currentFocus, this.contentWidth);
+    this.pdf.text(focusLines, this.pageMargin, yPos);
+    
+    yPos += focusLines.length * 6 + 15;
+    
+    // Timeline - mirror HeaderCard timeline
+    this.pdf.setFont('helvetica', 'bold');
     this.pdf.setFontSize(12);
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.text(timeline, 20, yPos);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Your Timeline', this.pageMargin, yPos);
+    
+    yPos += 15;
+    
+    const timeline = this.getGradeSpecificTimeline(gradeLevel);
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(0, 0, 0);
+    
+    const timelineLines = this.pdf.splitTextToSize(timeline, this.contentWidth);
+    this.pdf.text(timelineLines, this.pageMargin, yPos);
   }
 
-  addProgramRecommendations() {
+  addRecommendedPrograms() {
+    // Mirror ProgramCard section exactly
     this.pdf.addPage();
-    this.addPageHeader('University Program Recommendations');
+    
+    const gradeLevel = this.parsedResults?.headerData?.gradeLevel || 12;
+    const sectionTitle = gradeLevel === 10 ? 'Career Exploration Options' : 'Recommended Programs';
+    const sectionSubtitle = gradeLevel === 10 
+      ? 'Explore these fields to understand your options'
+      : `Based on your Grade ${gradeLevel - 1} performance and interests`;
+    
+    this.addPageHeader(sectionTitle);
     
     let yPos = 60;
-    const programs = this.parsedResults.programs || [];
+    
+    // Section subtitle
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(107, 114, 128);
+    const subtitleLines = this.pdf.splitTextToSize(sectionSubtitle, this.contentWidth);
+    this.pdf.text(subtitleLines, this.pageMargin, yPos);
+    
+    yPos += subtitleLines.length * 6 + 20;
+    
+    const programs = this.parsedResults?.programs || [];
     
     if (programs.length === 0) {
-      this.pdf.setFont(this.fonts.body, 'normal');
-      this.pdf.setFontSize(12);
-      this.pdf.text('Program recommendations will be available based on your academic performance.', 20, yPos);
+      this.pdf.setFont('helvetica', 'normal');
+      this.pdf.setFontSize(11);
+      this.pdf.setTextColor(0, 0, 0);
+      this.pdf.text('Program recommendations will be available based on your academic performance and interests.', this.pageMargin, yPos);
       return;
     }
     
-    programs.forEach((program, index) => {
-      if (yPos > 240) {
+    // Program cards - mirror ProgramCard component layout
+    programs.slice(0, 6).forEach((program, index) => {
+      if (yPos > 220) {
         this.pdf.addPage();
-        this.addPageHeader('University Program Recommendations (continued)');
+        this.addPageHeader(`${sectionTitle} (continued)`);
         yPos = 60;
       }
       
-      yPos = this.addProgramCard(program, yPos);
+      yPos = this.addProgramCardMirrored(program, yPos, gradeLevel);
     });
   }
 
-  addProgramCard(program, yPos) {
-    const cardHeight = 65; // Increased height for better spacing
+  addProgramCardMirrored(program, yPos, gradeLevel) {
+    // Mirror ProgramCard component exactly
+    const cardHeight = 55;
     
-    // Enhanced card with shadow and modern design
-    this.pdf.setFillColor(0, 0, 0, 0.05);
-    this.pdf.rect(22, yPos + 2, 170, cardHeight, 'F');
+    // Card background
+    this.pdf.setFillColor(255, 255, 255);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight, 'F');
     
-    // Card background with feasibility color accent
-    const bgColor = this.getFeasibilityColor(program.feasibility);
-    this.pdf.setFillColor(...this.colors.white);
-    this.pdf.rect(20, yPos, 170, cardHeight, 'F');
+    // Card border
+    this.pdf.setDrawColor(17, 78, 78);
+    this.pdf.setLineWidth(1);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight);
     
-    // Left accent border
-    this.pdf.setFillColor(...bgColor);
-    this.pdf.rect(20, yPos, 5, cardHeight, 'F');
+    // Left accent bar - color based on feasibility
+    const feasibility = program.feasibility || 'Medium';
+    let accentColor = [223, 163, 58]; // Default gold
+    if (feasibility === 'High') accentColor = [16, 185, 129]; // Green
+    if (feasibility === 'Low') accentColor = [239, 68, 68]; // Red
+    if (feasibility === 'Exploratory') accentColor = [59, 130, 246]; // Blue
     
-    // Header section
-    this.pdf.setFillColor(248, 250, 252);
-    this.pdf.rect(25, yPos, 165, 20, 'F');
+    this.pdf.setFillColor(...accentColor);
+    this.pdf.rect(this.pageMargin, yPos, 4, cardHeight, 'F');
     
-    // Feasibility badge with enhanced styling
-    this.pdf.setFillColor(...bgColor);
-    this.pdf.rect(160, yPos + 5, 25, 10, 'F');
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(8);
-    this.pdf.text((program.feasibility || 'TBD').toUpperCase(), 162, yPos + 11);
+    // Program title
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(17, 78, 78);
+    const programTitle = program.program || 'Program Name';
+    this.pdf.text(programTitle, this.pageMargin + 10, yPos + 15);
     
-    // Program title with enhanced typography
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(14);
-    this.pdf.text(program.program || 'Program Name', 30, yPos + 15);
+    // University
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(107, 114, 128);
+    this.pdf.text(program.university || 'University', this.pageMargin + 10, yPos + 27);
     
-    // University with improved styling
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(11);
-    this.pdf.setTextColor(...this.colors.secondary);
-    this.pdf.text(program.university || 'University', 30, yPos + 30);
+    // Program details - mirror ProgramCard layout
+    this.pdf.setTextColor(0, 0, 0);
+    this.pdf.setFontSize(9);
     
-    // Enhanced metrics section with better layout
-    const metricsY = yPos + 45;
+    // Row 1: APS and Feasibility
+    this.pdf.text(`APS Required: ${program.apsRequired || 'TBD'}`, this.pageMargin + 10, yPos + 38);
+    this.pdf.text(`Feasibility: ${feasibility}`, this.pageMargin + 80, yPos + 38);
     
-    // APS Required box
-    this.addMetricPill('APS Required', (program.apsRequired || 'TBD').toString(), 30, metricsY, this.colors.primary);
-    
-    // Admission Chance box
-    this.addMetricPill('Admission', `${program.admissionChance || 'TBD'}%`, 90, metricsY, this.colors.accent);
-    
-    // Deadline box
-    const deadline = program.applicationDeadline || 'TBD';
-    this.addMetricPill('Deadline', deadline.length > 8 ? deadline.substring(0, 8) : deadline, 150, metricsY, this.colors.secondary);
-    
-    // Enhanced progress bar for admission chance
+    // Row 2: Admission chance and deadline
     if (program.admissionChance) {
-      this.addEnhancedProgressBar(program.admissionChance, 100, 30, yPos + 55, 130);
+      this.pdf.text(`Admission Chance: ${program.admissionChance}%`, this.pageMargin + 10, yPos + 48);
     }
+    this.pdf.text(`Deadline: ${program.applicationDeadline || 'TBD'}`, this.pageMargin + 100, yPos + 48);
     
-    return yPos + cardHeight + 15;
+    return yPos + cardHeight + 12;
   }
 
   addFinancialAidSection() {
+    // Mirror BursaryCard section exactly
     this.pdf.addPage();
+    
+    const gradeLevel = this.parsedResults?.headerData?.gradeLevel || 12;
+    let sectionSubtitle;
+    
+    if (gradeLevel === 10) {
+      sectionSubtitle = 'Learn about funding options for your future studies';
+    } else if (gradeLevel === 11) {
+      sectionSubtitle = 'Start preparing these applications for next year';
+    } else {
+      sectionSubtitle = 'Critical deadlines approaching - apply now';
+    }
+    
     this.addPageHeader('Financial Aid Opportunities');
     
     let yPos = 60;
-    const bursaries = this.parsedResults.bursaries || [];
+    
+    // Section subtitle
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(107, 114, 128);
+    const subtitleLines = this.pdf.splitTextToSize(sectionSubtitle, this.contentWidth);
+    this.pdf.text(subtitleLines, this.pageMargin, yPos);
+    
+    yPos += subtitleLines.length * 6 + 20;
+    
+    const bursaries = this.parsedResults?.bursaries || [];
     
     if (bursaries.length === 0) {
-      this.pdf.setFont(this.fonts.body, 'normal');
-      this.pdf.setFontSize(12);
-      this.pdf.text('Financial aid opportunities will be identified based on your profile and needs.', 20, yPos);
+      this.pdf.setFont('helvetica', 'normal');
+      this.pdf.setFontSize(11);
+      this.pdf.setTextColor(0, 0, 0);
+      this.pdf.text('Bursary recommendations will be provided based on your academic performance and program choices.', this.pageMargin, yPos);
       return;
     }
     
-    bursaries.forEach((bursary, index) => {
-      if (yPos > 230) {
+    // Bursary cards - mirror BursaryCard component layout
+    bursaries.slice(0, 5).forEach((bursary, index) => {
+      if (yPos > 200) {
         this.pdf.addPage();
         this.addPageHeader('Financial Aid Opportunities (continued)');
         yPos = 60;
       }
       
-      yPos = this.addBursaryCard(bursary, yPos);
+      yPos = this.addBursaryCardMirrored(bursary, yPos, gradeLevel);
     });
   }
 
-  addBursaryCard(bursary, yPos) {
-    const cardHeight = 55; // Increased height for better spacing
+  addBursaryCardMirrored(bursary, yPos, gradeLevel) {
+    // Mirror BursaryCard component exactly
+    const cardHeight = 60;
     
-    // Enhanced card with modern design
-    this.pdf.setFillColor(0, 0, 0, 0.03);
-    this.pdf.rect(22, yPos + 2, 170, cardHeight, 'F');
+    // Card background with urgency color
+    let bgColor = [255, 255, 255];
+    let borderColor = [17, 78, 78];
     
-    // Urgency color coding
-    const urgencyColor = this.getUrgencyColor(bursary.urgency);
+    const urgency = bursary.urgency || 'INFO';
+    if (urgency === 'CRITICAL') {
+      bgColor = [254, 242, 242];
+      borderColor = [239, 68, 68];
+    } else if (urgency === 'HIGH') {
+      bgColor = [255, 251, 235];
+      borderColor = [245, 158, 11];
+    } else if (urgency === 'INFO') {
+      bgColor = [239, 246, 255];
+      borderColor = [59, 130, 246];
+    }
     
-    // Main card background
-    this.pdf.setFillColor(...this.colors.white);
-    this.pdf.rect(20, yPos, 170, cardHeight, 'F');
+    this.pdf.setFillColor(...bgColor);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight, 'F');
     
-    // Left accent border with urgency color
-    this.pdf.setFillColor(...urgencyColor);
-    this.pdf.rect(20, yPos, 6, cardHeight, 'F');
+    // Card border
+    this.pdf.setDrawColor(...borderColor);
+    this.pdf.setLineWidth(2);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight);
     
-    // Header section with gradient
-    this.pdf.setFillColor(250, 250, 250);
-    this.pdf.rect(26, yPos, 164, 18, 'F');
+    // Urgency indicator bar
+    this.pdf.setFillColor(...borderColor);
+    this.pdf.rect(this.pageMargin, yPos, 6, cardHeight, 'F');
     
-    // Enhanced urgency badge
-    this.pdf.setFillColor(...urgencyColor);
-    this.pdf.roundedRect(160, yPos + 4, 25, 10, 5, 5, 'F');
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(7);
-    this.pdf.text(bursary.urgency || 'INFO', 162, yPos + 10);
+    // Bursary name
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(...borderColor);
+    this.pdf.text(bursary.name || 'Financial Aid Opportunity', this.pageMargin + 12, yPos + 15);
     
-    // Bursary name with enhanced typography
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(13);
-    this.pdf.text(bursary.name || 'Financial Aid Opportunity', 30, yPos + 14);
+    // Amount and eligibility match
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(0, 0, 0);
+    this.pdf.text(`Amount: ${bursary.amount || 'Variable'}`, this.pageMargin + 12, yPos + 28);
+    this.pdf.text(`Eligibility Match: ${bursary.eligibilityMatch || 'TBD'}%`, this.pageMargin + 100, yPos + 28);
     
-    // Enhanced details section
-    const detailsY = yPos + 30;
+    // Deadline and urgency
+    this.pdf.text(`Deadline: ${bursary.deadline || 'TBD'}`, this.pageMargin + 12, yPos + 40);
+    this.pdf.text(`Priority: ${urgency}`, this.pageMargin + 100, yPos + 40);
     
-    // Amount pill
-    this.addMetricPill('Amount', bursary.amount || 'Varies', 30, detailsY, this.colors.accent);
-    
-    // Match percentage pill
-    this.addMetricPill('Match', `${bursary.eligibilityMatch || 'TBD'}%`, 85, detailsY, this.colors.success);
-    
-    // Deadline pill
-    this.addMetricPill('Deadline', bursary.deadline || 'TBD', 140, detailsY, urgencyColor);
-    
-    // Enhanced match progress bar
-    if (bursary.eligibilityMatch) {
-      this.addEnhancedProgressBar(bursary.eligibilityMatch, 100, 30, yPos + 45, 120);
+    // Qualification reasons (if available)
+    if (bursary.qualificationReasons && bursary.qualificationReasons.length > 0) {
+      this.pdf.setFontSize(9);
+      this.pdf.setTextColor(107, 114, 128);
+      const reasons = bursary.qualificationReasons.slice(0, 2).join(', ');
+      const reasonsLines = this.pdf.splitTextToSize(`Qualifications: ${reasons}`, this.contentWidth - 20);
+      this.pdf.text(reasonsLines, this.pageMargin + 12, yPos + 52);
     }
     
     return yPos + cardHeight + 12;
+  }
+
+  addActionPlanSection() {
+    // Mirror ActionCard component exactly
+    this.pdf.addPage();
+    this.addPageHeader('Your Action Plan');
+    
+    let yPos = 60;
+    
+    const actionPlan = this.parsedResults?.actionPlan || {};
+    const gradeLevel = this.parsedResults?.headerData?.gradeLevel || 12;
+    
+    // Timeline - mirror ActionCard timeline
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(14);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Your Timeline', this.pageMargin, yPos);
+    
+    yPos += 15;
+    
+    const timeline = actionPlan.timeline || this.getGradeSpecificTimeline(gradeLevel);
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(0, 0, 0);
+    
+    const timelineLines = this.pdf.splitTextToSize(timeline, this.contentWidth);
+    this.pdf.text(timelineLines, this.pageMargin, yPos);
+    
+    yPos += timelineLines.length * 6 + 20;
+    
+    // Action items - mirror ActionCard layout
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(14);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Next Steps', this.pageMargin, yPos);
+    
+    yPos += 20;
+    
+    const actionItems = actionPlan.actionItems || this.getDefaultActionItems(gradeLevel);
+    
+    actionItems.slice(0, 8).forEach((action, index) => {
+      if (yPos > 250) {
+        this.pdf.addPage();
+        this.addPageHeader('Your Action Plan (continued)');
+        yPos = 60;
+      }
+      
+      // Number circle - mirror ActionCard styling
+      this.pdf.setFillColor(17, 78, 78);
+      this.pdf.circle(this.pageMargin + 5, yPos + 3, 3, 'F');
+      
+      this.pdf.setTextColor(255, 255, 255);
+      this.pdf.setFont('helvetica', 'bold');
+      this.pdf.setFontSize(8);
+      this.pdf.text((index + 1).toString(), this.pageMargin + 3.5, yPos + 4.5);
+      
+      // Action text
+      this.pdf.setTextColor(0, 0, 0);
+      this.pdf.setFont('helvetica', 'normal');
+      this.pdf.setFontSize(10);
+      
+      const actionLines = this.pdf.splitTextToSize(action, this.contentWidth - 20);
+      this.pdf.text(actionLines, this.pageMargin + 15, yPos + 5);
+      
+      yPos += actionLines.length * 5 + 10;
+    });
+    
+    // Grade-specific guidance - mirror ActionCard guidance
+    if (actionPlan.gradeSpecificGuidance && actionPlan.gradeSpecificGuidance.length > 0) {
+      yPos += 10;
+      
+      this.pdf.setFont('helvetica', 'bold');
+      this.pdf.setFontSize(12);
+      this.pdf.setTextColor(17, 78, 78);
+      this.pdf.text(`Grade ${gradeLevel} Focus Areas`, this.pageMargin, yPos);
+      
+      yPos += 15;
+      
+      actionPlan.gradeSpecificGuidance.slice(0, 3).forEach((guidance, index) => {
+        this.pdf.setFont('helvetica', 'normal');
+        this.pdf.setFontSize(10);
+        this.pdf.setTextColor(0, 0, 0);
+        
+        const guidanceLines = this.pdf.splitTextToSize(`• ${guidance}`, this.contentWidth);
+        this.pdf.text(guidanceLines, this.pageMargin, yPos);
+        yPos += guidanceLines.length * 5 + 5;
+      });
+    }
+  }
+
+  addAlternativeOptions() {
+    // Mirror AlternativeOptionsCard component exactly
+    const alternatives = this.parsedResults?.alternativeOptions || [];
+    
+    if (alternatives.length === 0) {
+      return; // Skip if no alternatives
+    }
+    
+    this.pdf.addPage();
+    this.addPageHeader('Alternative Options');
+    
+    let yPos = 60;
+    
+    // Section description
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(107, 114, 128);
+    this.pdf.text('Consider these alternative paths if your primary options don\'t work out', this.pageMargin, yPos);
+    
+    yPos += 25;
+    
+    // Alternative option cards
+    alternatives.slice(0, 4).forEach((option, index) => {
+      if (yPos > 230) {
+        this.pdf.addPage();
+        this.addPageHeader('Alternative Options (continued)');
+        yPos = 60;
+      }
+      
+      yPos = this.addAlternativeOptionCard(option, yPos);
+    });
+  }
+
+  addAlternativeOptionCard(option, yPos) {
+    const cardHeight = 40;
+    
+    // Card background
+    this.pdf.setFillColor(248, 250, 252);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight, 'F');
+    
+    // Card border
+    this.pdf.setDrawColor(107, 114, 128);
+    this.pdf.setLineWidth(1);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight);
+    
+    // Left accent bar
+    this.pdf.setFillColor(59, 130, 246); // Blue for alternatives
+    this.pdf.rect(this.pageMargin, yPos, 4, cardHeight, 'F');
+    
+    // Option title
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text(option.title || 'Alternative Option', this.pageMargin + 10, yPos + 12);
+    
+    // Option type
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(9);
+    this.pdf.setTextColor(107, 114, 128);
+    this.pdf.text(option.type || 'Alternative Path', this.pageMargin + 10, yPos + 22);
+    
+    // Option description
+    this.pdf.setTextColor(0, 0, 0);
+    const description = option.description || 'Consider this as a backup option';
+    const descLines = this.pdf.splitTextToSize(description, this.contentWidth - 20);
+    this.pdf.text(descLines.slice(0, 2), this.pageMargin + 10, yPos + 32); // Limit to 2 lines
+    
+    return yPos + cardHeight + 10;
+  }
+
+  addProgramCard(program, yPos) {
+    const cardHeight = 45;
+    
+    // Card background
+    this.pdf.setFillColor(255, 255, 255);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight, 'F');
+    
+    // Card border
+    this.pdf.setDrawColor(17, 78, 78);
+    this.pdf.setLineWidth(1);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight);
+    
+    // Left accent bar
+    this.pdf.setFillColor(223, 163, 58); // Gold
+    this.pdf.rect(this.pageMargin, yPos, 4, cardHeight, 'F');
+    
+    // Program title
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text(program.program || 'Program Name', this.pageMargin + 10, yPos + 12);
+    
+    // University
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(107, 114, 128);
+    this.pdf.text(program.university || 'University', this.pageMargin + 10, yPos + 22);
+    
+    // Requirements and feasibility
+    this.pdf.setTextColor(0, 0, 0);
+    this.pdf.text(`APS Required: ${program.apsRequired || 'TBD'}`, this.pageMargin + 10, yPos + 32);
+    this.pdf.text(`Feasibility: ${program.feasibility || 'Medium'}`, this.pageMargin + 80, yPos + 32);
+    this.pdf.text(`Deadline: ${program.applicationDeadline || 'TBD'}`, this.pageMargin + 130, yPos + 32);
+    
+    return yPos + cardHeight + 10;
+  }
+
+  addThandiLogo(x, y) {
+    // Create circular gradient logo similar to landing page
+    const radius = 8;
+    
+    // Outer ring (gold)
+    this.pdf.setFillColor(223, 163, 58); // Thandi gold
+    this.pdf.circle(x + radius, y, radius + 1, 'F');
+    
+    // Inner circle (teal gradient effect)
+    this.pdf.setFillColor(17, 78, 78); // Thandi teal
+    this.pdf.circle(x + radius, y, radius, 'F');
+    
+    // Letter "T" in white
+    this.pdf.setTextColor(255, 255, 255);
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(14);
+    this.pdf.text('T', x + radius - 2.5, y + 3);
+  }
+
+  addAssessmentDetails() {
+    this.pdf.addPage();
+    this.addPageHeader('Assessment Details');
+    
+    let yPos = 60;
+    
+    // Assessment overview section
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(14);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Complete Assessment Overview', this.pageMargin, yPos);
+    
+    yPos += 20;
+    
+    // Student profile box
+    const profileHeight = 80;
+    this.pdf.setFillColor(248, 250, 252);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, profileHeight, 'F');
+    this.pdf.setDrawColor(17, 78, 78);
+    this.pdf.setLineWidth(1);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, profileHeight);
+    
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Student Profile', this.pageMargin + 10, yPos + 15);
+    
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(0, 0, 0);
+    
+    const studentName = this.studentData?.name || 'Student Assessment';
+    const gradeLevel = this.parsedResults?.headerData?.gradeLevel || 'Grade 12';
+    const school = this.studentData?.school || 'School not specified';
+    const assessmentDate = new Date().toLocaleDateString('en-ZA');
+    
+    this.pdf.text(`Full Name: ${studentName}`, this.pageMargin + 10, yPos + 30);
+    this.pdf.text(`Current Grade: ${gradeLevel}`, this.pageMargin + 10, yPos + 42);
+    this.pdf.text(`School: ${school}`, this.pageMargin + 10, yPos + 54);
+    this.pdf.text(`Assessment Date: ${assessmentDate}`, this.pageMargin + 10, yPos + 66);
+    
+    yPos += profileHeight + 20;
+    
+    // Academic performance section
+    if (this.parsedResults?.headerData?.hasMarks) {
+      this.pdf.setFont('helvetica', 'bold');
+      this.pdf.setFontSize(12);
+      this.pdf.setTextColor(17, 78, 78);
+      this.pdf.text('Academic Performance', this.pageMargin, yPos);
+      
+      yPos += 15;
+      
+      const apsScore = this.parsedResults.headerData.apsScore || 'TBD';
+      const projectedRange = this.parsedResults.headerData.projectedApsRange;
+      
+      this.addCleanMetricBox('Current APS', apsScore.toString(), this.pageMargin, yPos, 60, 25);
+      if (projectedRange) {
+        this.addCleanMetricBox('Projected Range', `${projectedRange.min}-${projectedRange.max}`, this.pageMargin + 70, yPos, 60, 25);
+      }
+      this.addCleanMetricBox('University Ready', this.parsedResults.headerData.universityEligible ? 'Yes' : 'Not Yet', this.pageMargin + 140, yPos, 50, 25);
+      
+      yPos += 40;
+    }
+    
+    // Assessment methodology
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Assessment Methodology', this.pageMargin, yPos);
+    
+    yPos += 15;
+    
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(0, 0, 0);
+    
+    const methodologyText = `This comprehensive career assessment analyzed your academic performance, subject preferences, and career interests using AI-powered matching algorithms. The recommendations are based on current university requirements, industry trends, and your individual profile.`;
+    
+    const methodologyLines = this.pdf.splitTextToSize(methodologyText, this.contentWidth);
+    this.pdf.text(methodologyLines, this.pageMargin, yPos);
+  }
+
+  addBursaryInformation() {
+    this.pdf.addPage();
+    this.addPageHeader('Financial Aid & Bursaries');
+    
+    let yPos = 60;
+    
+    const bursaries = this.parsedResults?.bursaries || [];
+    
+    if (bursaries.length === 0) {
+      this.pdf.setFont('helvetica', 'normal');
+      this.pdf.setFontSize(11);
+      this.pdf.text('Bursary recommendations will be provided based on your academic performance and program choices.', this.pageMargin, yPos);
+      
+      // Add general bursary information
+      yPos += 30;
+      this.pdf.setFont('helvetica', 'bold');
+      this.pdf.setFontSize(14);
+      this.pdf.setTextColor(17, 78, 78);
+      this.pdf.text('Important Financial Aid Information', this.pageMargin, yPos);
+      
+      yPos += 20;
+      this.addGeneralBursaryInfo(yPos);
+      return;
+    }
+    
+    // Bursary cards
+    bursaries.slice(0, 4).forEach((bursary, index) => {
+      if (yPos > 220) {
+        this.pdf.addPage();
+        this.addPageHeader('Financial Aid & Bursaries (continued)');
+        yPos = 60;
+      }
+      
+      yPos = this.addBursaryCard(bursary, yPos);
+    });
+    
+    // Add general financial aid guidance
+    if (yPos < 200) {
+      yPos += 20;
+      this.addGeneralBursaryInfo(yPos);
+    }
+  }
+
+  addBursaryCard(bursary, yPos) {
+    const cardHeight = 55;
+    
+    // Card background with urgency color
+    let bgColor = [255, 255, 255];
+    let borderColor = [17, 78, 78];
+    
+    if (bursary.urgency === 'CRITICAL') {
+      bgColor = [254, 242, 242];
+      borderColor = [239, 68, 68];
+    } else if (bursary.urgency === 'HIGH') {
+      bgColor = [255, 251, 235];
+      borderColor = [245, 158, 11];
+    }
+    
+    this.pdf.setFillColor(...bgColor);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight, 'F');
+    
+    // Card border
+    this.pdf.setDrawColor(...borderColor);
+    this.pdf.setLineWidth(2);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, cardHeight);
+    
+    // Urgency indicator
+    this.pdf.setFillColor(...borderColor);
+    this.pdf.rect(this.pageMargin, yPos, 6, cardHeight, 'F');
+    
+    // Bursary name
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(...borderColor);
+    this.pdf.text(bursary.name || 'Bursary Opportunity', this.pageMargin + 12, yPos + 15);
+    
+    // Amount and match
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(0, 0, 0);
+    this.pdf.text(`Amount: ${bursary.amount || 'Variable'}`, this.pageMargin + 12, yPos + 28);
+    this.pdf.text(`Match: ${bursary.eligibilityMatch || 'TBD'}%`, this.pageMargin + 90, yPos + 28);
+    this.pdf.text(`Deadline: ${bursary.deadline || 'TBD'}`, this.pageMargin + 12, yPos + 40);
+    this.pdf.text(`Priority: ${bursary.urgency || 'MEDIUM'}`, this.pageMargin + 90, yPos + 40);
+    
+    return yPos + cardHeight + 12;
+  }
+
+  addGeneralBursaryInfo(yPos) {
+    const bursaryTips = [
+      'Apply for NSFAS (National Student Financial Aid Scheme) as early as possible',
+      'Research university-specific bursaries and merit awards',
+      'Consider corporate bursaries in your field of interest',
+      'Maintain good academic performance to qualify for merit-based funding',
+      'Prepare all required documentation well before deadlines'
+    ];
+    
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Financial Aid Tips:', this.pageMargin, yPos);
+    
+    yPos += 15;
+    
+    bursaryTips.forEach((tip, index) => {
+      // Number circle
+      this.pdf.setFillColor(223, 163, 58); // Gold
+      this.pdf.circle(this.pageMargin + 5, yPos + 3, 3, 'F');
+      
+      this.pdf.setTextColor(255, 255, 255);
+      this.pdf.setFont('helvetica', 'bold');
+      this.pdf.setFontSize(8);
+      this.pdf.text((index + 1).toString(), this.pageMargin + 3.5, yPos + 4.5);
+      
+      // Tip text
+      this.pdf.setTextColor(0, 0, 0);
+      this.pdf.setFont('helvetica', 'normal');
+      this.pdf.setFontSize(10);
+      
+      const tipLines = this.pdf.splitTextToSize(tip, this.contentWidth - 20);
+      this.pdf.text(tipLines, this.pageMargin + 15, yPos + 5);
+      
+      yPos += tipLines.length * 5 + 8;
+    });
+  }
+
+  addParentSchoolSummary() {
+    this.pdf.addPage();
+    this.addPageHeader('Summary for Parents & Schools');
+    
+    let yPos = 60;
+    
+    // Executive summary for parents
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(16);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Executive Summary', this.pageMargin, yPos);
+    
+    yPos += 20;
+    
+    // Key findings box
+    const summaryHeight = 70;
+    this.pdf.setFillColor(240, 253, 244); // Light green
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, summaryHeight, 'F');
+    this.pdf.setDrawColor(16, 185, 129);
+    this.pdf.setLineWidth(2);
+    this.pdf.rect(this.pageMargin, yPos, this.contentWidth, summaryHeight);
+    
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(12);
+    this.pdf.setTextColor(16, 185, 129);
+    this.pdf.text('Key Findings for Parents', this.pageMargin + 10, yPos + 15);
+    
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(0, 0, 0);
+    
+    const gradeLevel = this.parsedResults?.headerData?.gradeLevel || 12;
+    const hasMarks = this.parsedResults?.headerData?.hasMarks || false;
+    const programCount = this.parsedResults?.programs?.length || 0;
+    
+    const parentSummary = this.generateParentSummary(gradeLevel, hasMarks, programCount);
+    const summaryLines = this.pdf.splitTextToSize(parentSummary, this.contentWidth - 20);
+    this.pdf.text(summaryLines, this.pageMargin + 10, yPos + 30);
+    
+    yPos += summaryHeight + 20;
+    
+    // Recommended actions for parents
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(14);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Recommended Actions for Parents', this.pageMargin, yPos);
+    
+    yPos += 15;
+    
+    const parentActions = [
+      'Schedule a meeting with your child\'s school counselor to discuss these recommendations',
+      'Research the suggested universities and programs together with your child',
+      'Begin financial planning for tertiary education costs and application fees',
+      'Support your child in maintaining or improving their academic performance',
+      'Attend university open days and career guidance sessions as a family'
+    ];
+    
+    parentActions.forEach((action, index) => {
+      this.pdf.setFont('helvetica', 'normal');
+      this.pdf.setFontSize(10);
+      this.pdf.setTextColor(0, 0, 0);
+      
+      const actionLines = this.pdf.splitTextToSize(`${index + 1}. ${action}`, this.contentWidth);
+      this.pdf.text(actionLines, this.pageMargin, yPos);
+      yPos += actionLines.length * 5 + 5;
+    });
+    
+    yPos += 10;
+    
+    // School information section
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(14);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Information for Schools', this.pageMargin, yPos);
+    
+    yPos += 15;
+    
+    const schoolInfo = `This AI-generated assessment provides preliminary career guidance based on the student's current academic profile and interests. Schools should use this as a starting point for more detailed career counseling sessions. The recommendations should be verified with current university requirements and discussed with qualified career guidance counselors.`;
+    
+    const schoolLines = this.pdf.splitTextToSize(schoolInfo, this.contentWidth);
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.setTextColor(0, 0, 0);
+    this.pdf.text(schoolLines, this.pageMargin, yPos);
+  }
+
+  generateParentSummary(grade, hasMarks, programCount) {
+    if (grade === 10) {
+      return `Your child is in Grade 10, the foundation year for career planning. This assessment has identified ${programCount} potential career paths based on their interests and current academic trajectory. Focus on subject selection and academic improvement to keep all options open.`;
+    } else if (grade === 11) {
+      return `Your child is in Grade 11, the strategic planning year. This assessment shows ${programCount} suitable programs based on their academic performance and interests. ${hasMarks ? 'Their current APS score indicates good progress toward university admission.' : 'Continue monitoring academic performance as university applications approach.'}`;
+    } else {
+      return `Your child is in Grade 12, the critical decision year. This assessment identifies ${programCount} viable programs for university application. ${hasMarks ? 'Their APS score has been calculated to guide application choices.' : 'Final marks will determine university eligibility.'} Immediate action is required for applications and financial aid.`;
+    }
   }
 
   addActionPlan() {
@@ -522,482 +949,213 @@ export class ProfessionalPDFGenerator {
     
     let yPos = 60;
     
-    // Timeline header
-    this.pdf.setFillColor(...this.colors.accent, 0.2);
-    this.pdf.rect(20, yPos, 170, 25, 'F');
-    this.pdf.setFont(this.fonts.heading, 'bold');
+    // Timeline
+    this.pdf.setFont('helvetica', 'bold');
     this.pdf.setFontSize(14);
-    this.pdf.setTextColor(...this.colors.primary);
-    const timeline = this.parsedResults.actionPlan?.timeline || 'Academic planning timeline';
-    this.pdf.text(timeline, 25, yPos + 16);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text('Next Steps Timeline', this.pageMargin, yPos);
     
-    yPos += 35;
+    yPos += 20;
     
-    // Action items
-    const actionItems = this.parsedResults.actionPlan?.actionItems || [];
+    const actionItems = this.parsedResults?.actionPlan?.actionItems || this.getDefaultActionItems();
     
-    if (actionItems.length === 0) {
-      this.pdf.setFont(this.fonts.body, 'normal');
-      this.pdf.setFontSize(12);
-      this.pdf.text('Action items will be provided based on your grade level and academic goals.', 20, yPos);
-      return;
-    }
-    
-    actionItems.forEach((action, index) => {
-      if (yPos > 250) {
-        this.pdf.addPage();
-        this.addPageHeader('Your Action Plan (continued)');
-        yPos = 60;
-      }
-      
+    actionItems.slice(0, 6).forEach((action, index) => {
       // Number circle
-      this.pdf.setFillColor(...this.colors.primary);
-      this.pdf.circle(27, yPos + 5, 5, 'F');
-      this.pdf.setTextColor(...this.colors.white);
-      this.pdf.setFont(this.fonts.body, 'bold');
-      this.pdf.setFontSize(11);
-      this.pdf.text((index + 1).toString(), 25, yPos + 7);
+      this.pdf.setFillColor(17, 78, 78);
+      this.pdf.circle(this.pageMargin + 5, yPos + 3, 3, 'F');
+      
+      this.pdf.setTextColor(255, 255, 255);
+      this.pdf.setFont('helvetica', 'bold');
+      this.pdf.setFontSize(8);
+      this.pdf.text((index + 1).toString(), this.pageMargin + 3.5, yPos + 4.5);
       
       // Action text
-      this.pdf.setTextColor(...this.colors.black);
-      this.pdf.setFont(this.fonts.body, 'normal');
-      this.pdf.setFontSize(11);
-      const actionLines = this.pdf.splitTextToSize(action, 150);
-      this.pdf.text(actionLines, 37, yPos + 7);
-      
-      yPos += actionLines.length * 6 + 12;
-    });
-    
-    // Grade-specific guidance
-    yPos += 10;
-    const gradeGuidance = this.parsedResults.actionPlan?.gradeSpecificGuidance || [];
-    
-    if (gradeGuidance.length > 0) {
-      this.addSectionDivider('Grade-Specific Guidance', yPos);
-      yPos += 15;
-      
-      gradeGuidance.forEach((guidance) => {
-        if (yPos > 250) {
-          this.pdf.addPage();
-          this.addPageHeader('Your Action Plan (continued)');
-          yPos = 60;
-        }
-        
-        this.pdf.setFillColor(...this.colors.accent);
-        this.pdf.rect(20, yPos, 8, 8, 'F');
-        this.pdf.setTextColor(...this.colors.white);
-        this.pdf.setFont(this.fonts.body, 'bold');
-        this.pdf.setFontSize(8);
-        this.pdf.text('G', 22, yPos + 5);
-        
-        this.pdf.setTextColor(...this.colors.black);
-        this.pdf.setFont(this.fonts.body, 'normal');
-        this.pdf.setFontSize(10);
-        const guidanceLines = this.pdf.splitTextToSize(guidance, 155);
-        this.pdf.text(guidanceLines, 32, yPos + 6);
-        
-        yPos += guidanceLines.length * 5 + 10;
-      });
-    }
-  }
-
-  addVerificationSection() {
-    this.pdf.addPage();
-    this.addPageHeader('Verification & Next Steps');
-    
-    let yPos = 60;
-    
-    // Critical verification notice
-    this.pdf.setFillColor(255, 243, 205);
-    this.pdf.rect(20, yPos, 170, 80, 'F');
-    this.pdf.setDrawColor(...this.colors.warning);
-    this.pdf.setLineWidth(3);
-    this.pdf.rect(20, yPos, 170, 80);
-    
-    this.pdf.setTextColor(...this.colors.warning);
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(16);
-    this.pdf.text('⚠️ CRITICAL: VERIFY BEFORE DECIDING', 25, yPos + 15);
-    
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(11);
-    
-    const verificationSteps = [
-      'Speak with your school counselor about these recommendations',
-      'Contact universities directly to confirm program requirements',
-      'Verify bursary eligibility and application deadlines',
-      'Check official institution websites for current information',
-      'Consult with parents/guardians about financial planning'
-    ];
-    
-    let stepYPos = yPos + 30;
-    verificationSteps.forEach((step, index) => {
-      this.pdf.setFillColor(...this.colors.warning);
-      this.pdf.circle(27, stepYPos, 3, 'F');
-      this.pdf.setTextColor(...this.colors.white);
-      this.pdf.setFont(this.fonts.body, 'bold');
-      this.pdf.setFontSize(9);
-      this.pdf.text((index + 1).toString(), 25.5, stepYPos + 1);
-      
-      this.pdf.setTextColor(...this.colors.black);
-      this.pdf.setFont(this.fonts.body, 'normal');
+      this.pdf.setTextColor(0, 0, 0);
+      this.pdf.setFont('helvetica', 'normal');
       this.pdf.setFontSize(10);
-      const stepLines = this.pdf.splitTextToSize(step, 150);
-      this.pdf.text(stepLines, 35, stepYPos + 1);
       
-      stepYPos += stepLines.length * 5 + 3;
+      const actionLines = this.pdf.splitTextToSize(action, this.contentWidth - 20);
+      this.pdf.text(actionLines, this.pageMargin + 15, yPos + 5);
+      
+      yPos += actionLines.length * 5 + 8;
     });
-    
-    yPos += 90;
-    
-    // Important disclaimer
-    this.pdf.setFont(this.fonts.body, 'italic');
-    this.pdf.setFontSize(10);
-    this.pdf.setTextColor(...this.colors.secondary);
-    const disclaimer = 'This report contains AI-generated guidance. Information may be outdated or incomplete. Always verify with official sources and qualified counselors before making educational or career decisions.';
-    const disclaimerLines = this.pdf.splitTextToSize(disclaimer, 170);
-    this.pdf.text(disclaimerLines, 20, yPos);
   }
 
-  addPageHeader(title) {
-    // Enhanced header with modern gradient design
-    this.pdf.setFillColor(...this.colors.primary);
-    this.pdf.rect(0, 0, 210, 40, 'F');
-    
-    // Accent gradient stripe
-    this.pdf.setFillColor(...this.colors.accent);
-    this.pdf.rect(0, 35, 210, 5, 'F');
-    
-    // Decorative elements
-    this.pdf.setFillColor(...this.colors.accent, 0.3);
-    this.pdf.circle(25, 20, 8, 'F');
-    this.pdf.setFillColor(...this.colors.white, 0.2);
-    this.pdf.circle(25, 20, 5, 'F');
-    
-    // Title with enhanced typography
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(20);
-    this.pdf.text(title, 45, 25);
-    
-    // Page number with modern styling
-    const pageNum = this.pdf.internal.getCurrentPageInfo().pageNumber;
-    this.pdf.setFillColor(...this.colors.white, 0.2);
-    this.pdf.roundedRect(160, 15, 25, 10, 5, 5, 'F');
-    
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(10);
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.text(`Page ${pageNum}`, 172, 22, { align: 'center' });
-  }
-
-  addEnhancedDisclaimerBox() {
-    // Enhanced professional disclaimer with modern design
-    this.pdf.setFillColor(255, 248, 220); // Warm background
-    this.pdf.rect(25, 275, 160, 15, 'F');
-    
-    // Accent border
-    this.pdf.setDrawColor(...this.colors.warning);
-    this.pdf.setLineWidth(2);
-    this.pdf.rect(25, 275, 160, 15);
-    
-    // Warning icon area
-    this.pdf.setFillColor(...this.colors.warning);
-    this.pdf.rect(25, 275, 20, 15, 'F');
-    
-    // Warning icon
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(12);
-    this.pdf.text('⚠', 32, 285);
-    
-    // Disclaimer text
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(9);
-    this.pdf.text('IMPORTANT: AI-Generated Guidance - Verify with Qualified Counselors', 50, 280);
-    
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(8);
-    this.pdf.text('Always confirm recommendations with official sources before making decisions', 50, 287);
-  }
-
-  addDisclaimerBox() {
-    // Professional disclaimer at bottom of cover
-    this.pdf.setFillColor(255, 243, 205);
-    this.pdf.rect(20, 240, 170, 40, 'F');
-    this.pdf.setDrawColor(...this.colors.warning);
-    this.pdf.setLineWidth(2);
-    this.pdf.rect(20, 240, 170, 40);
-    
-    this.pdf.setTextColor(...this.colors.warning);
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(12);
-    this.pdf.text('⚠️ IMPORTANT DISCLAIMER', 25, 252);
-    
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(10);
-    const disclaimerText = 'This report contains AI-generated career guidance. All recommendations must be verified with qualified counselors, institutions, and official sources before making educational or career decisions.';
-    const lines = this.pdf.splitTextToSize(disclaimerText, 160);
-    this.pdf.text(lines, 25, 265);
-  }
-
-  addMetricBox(title, value, x, y, width = 50, height = 30) {
-    // Card background
+  addCleanMetricBox(title, value, x, y, width, height) {
+    // Box background
     this.pdf.setFillColor(248, 250, 252);
     this.pdf.rect(x, y, width, height, 'F');
     
-    // Border
-    this.pdf.setDrawColor(...this.colors.primary);
-    this.pdf.setLineWidth(1);
+    // Box border
+    this.pdf.setDrawColor(17, 78, 78);
+    this.pdf.setLineWidth(0.5);
     this.pdf.rect(x, y, width, height);
     
     // Title
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(9);
-    this.pdf.setTextColor(...this.colors.secondary);
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(8);
+    this.pdf.setTextColor(107, 114, 128);
     this.pdf.text(title, x + 3, y + 10);
     
     // Value
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(14);
-    this.pdf.setTextColor(...this.colors.primary);
-    const valueText = value?.toString() || 'TBD';
-    this.pdf.text(valueText, x + 3, y + 22);
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text(value.toString(), x + 3, y + 20);
   }
 
-  addEnhancedMetricCard(title, value, x, y, width = 50, height = 40) {
-    // Modern metric card with gradient effect and shadow
-    
-    // Shadow effect
-    this.pdf.setFillColor(0, 0, 0, 0.1);
-    this.pdf.rect(x + 2, y + 2, width, height, 'F');
-    
-    // Main card background
-    this.pdf.setFillColor(...this.colors.white);
-    this.pdf.rect(x, y, width, height, 'F');
-    
-    // Header section with gradient effect
-    this.pdf.setFillColor(...this.colors.primary);
-    this.pdf.rect(x, y, width, height / 3, 'F');
-    
-    // Accent line
-    this.pdf.setFillColor(...this.colors.accent);
-    this.pdf.rect(x, y + (height / 3) - 2, width, 2, 'F');
-    
-    // Border
-    this.pdf.setDrawColor(...this.colors.primary);
-    this.pdf.setLineWidth(1);
-    this.pdf.rect(x, y, width, height);
+  addPageHeader(title) {
+    // Header background
+    this.pdf.setFillColor(17, 78, 78);
+    this.pdf.rect(0, 0, this.pageWidth, 30, 'F');
     
     // Title
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(8);
-    this.pdf.setTextColor(...this.colors.white);
-    this.pdf.text(title, x + 4, y + 10);
-    
-    // Value with enhanced typography
-    this.pdf.setFont(this.fonts.heading, 'bold');
+    this.pdf.setTextColor(255, 255, 255);
+    this.pdf.setFont('helvetica', 'bold');
     this.pdf.setFontSize(16);
-    this.pdf.setTextColor(...this.colors.primary);
-    const valueText = value?.toString() || 'TBD';
-    this.pdf.text(valueText, x + 4, y + 28);
+    this.pdf.text(title, this.pageMargin, 20);
+    
+    // Page number
+    const pageNum = this.pdf.internal.getCurrentPageInfo().pageNumber;
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(10);
+    this.pdf.text(`Page ${pageNum}`, this.pageWidth - 30, 20);
   }
 
-  addEnhancedSectionDivider(title, y) {
-    // Modern section divider with enhanced styling
-    
-    // Background accent
-    this.pdf.setFillColor(...this.colors.accent, 0.1);
-    this.pdf.rect(20, y - 5, 170, 15, 'F');
-    
-    // Main divider line
-    this.pdf.setDrawColor(...this.colors.primary);
-    this.pdf.setLineWidth(2);
-    this.pdf.line(20, y + 2, 190, y + 2);
-    
-    // Accent line
-    this.pdf.setDrawColor(...this.colors.accent);
-    this.pdf.setLineWidth(1);
-    this.pdf.line(20, y + 4, 190, y + 4);
-    
-    // Title with enhanced styling
-    this.pdf.setFillColor(...this.colors.white);
-    this.pdf.rect(85, y - 3, 40, 12, 'F');
-    
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(12);
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.text(title, 105, y + 4, { align: 'center' });
-    
-    return y + 15;
-  }
-
-  addMetricPill(label, value, x, y, color) {
-    // Modern pill-shaped metric display
-    const pillWidth = 45;
-    const pillHeight = 12;
-    
-    // Pill background
-    this.pdf.setFillColor(...color, 0.1);
-    this.pdf.roundedRect(x, y, pillWidth, pillHeight, 6, 6, 'F');
-    
-    // Pill border
-    this.pdf.setDrawColor(...color);
-    this.pdf.setLineWidth(1);
-    this.pdf.roundedRect(x, y, pillWidth, pillHeight, 6, 6);
-    
-    // Label
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(7);
-    this.pdf.setTextColor(...color);
-    this.pdf.text(label, x + 2, y + 5);
-    
-    // Value
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(8);
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.text(value, x + 2, y + 10);
-  }
-
-  addEnhancedProgressBar(value, max, x, y, width) {
-    const percentage = Math.min((value / max) * 100, 100);
-    const fillWidth = (width * percentage) / 100;
-    const barHeight = 6;
-    
-    // Background with rounded corners
-    this.pdf.setFillColor(240, 240, 240);
-    this.pdf.roundedRect(x, y, width, barHeight, 3, 3, 'F');
-    
-    // Fill color based on percentage with gradient effect
-    const color = percentage >= 70 ? this.colors.success : 
-                  percentage >= 40 ? this.colors.accent : this.colors.warning;
-    
-    this.pdf.setFillColor(...color);
-    this.pdf.roundedRect(x, y, fillWidth, barHeight, 3, 3, 'F');
-    
-    // Subtle border
-    this.pdf.setDrawColor(220, 220, 220);
-    this.pdf.setLineWidth(0.5);
-    this.pdf.roundedRect(x, y, width, barHeight, 3, 3);
-    
-    // Percentage label
-    this.pdf.setFont(this.fonts.body, 'bold');
-    this.pdf.setFontSize(8);
-    this.pdf.setTextColor(...this.colors.black);
-    this.pdf.text(`${Math.round(percentage)}%`, x + width + 5, y + 4);
-  }
-
-  addSectionDivider(title, y) {
-    // Professional section divider
-    this.pdf.setDrawColor(...this.colors.primary);
-    this.pdf.setLineWidth(1);
-    this.pdf.line(20, y, 190, y);
-    
-    // Title background
-    this.pdf.setFillColor(...this.colors.white);
-    this.pdf.rect(85, y - 5, 40, 10, 'F');
-    
-    // Title text
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(11);
-    this.pdf.setTextColor(...this.colors.primary);
-    this.pdf.text(title, 105, y + 2, { align: 'center' });
-    
-    return y + 15;
-  }
-
-  addFootersAndHeaders() {
+  addFooter() {
     const pageCount = this.pdf.internal.getNumberOfPages();
     
     for (let i = 1; i <= pageCount; i++) {
       this.pdf.setPage(i);
       
-      // Skip footer on cover page
-      if (i === 1) continue;
-      
-      // Enhanced footer design
-      this.pdf.setDrawColor(...this.colors.primary);
-      this.pdf.setLineWidth(1);
-      this.pdf.line(20, 275, 190, 275);
-      
-      // Accent line
-      this.pdf.setDrawColor(...this.colors.accent);
+      // Footer line
+      this.pdf.setDrawColor(17, 78, 78);
       this.pdf.setLineWidth(0.5);
-      this.pdf.line(20, 277, 190, 277);
+      this.pdf.line(this.pageMargin, this.pageHeight - 20, this.pageWidth - this.pageMargin, this.pageHeight - 20);
       
-      // Footer content with enhanced styling
-      this.pdf.setFont(this.fonts.body, 'bold');
-      this.pdf.setFontSize(9);
-      this.pdf.setTextColor(...this.colors.primary);
-      
-      // Left footer - Enhanced Thandi branding
-      this.pdf.text('Generated by THANDI.AI', 20, 285);
-      this.pdf.setFont(this.fonts.body, 'normal');
+      // Footer text
+      this.pdf.setFont('helvetica', 'normal');
       this.pdf.setFontSize(8);
-      this.pdf.setTextColor(...this.colors.secondary);
-      this.pdf.text('Intelligent Career Guidance', 20, 290);
+      this.pdf.setTextColor(107, 114, 128);
+      this.pdf.text('Generated by THANDI.AI - Intelligent Career Guidance', this.pageMargin, this.pageHeight - 12);
       
-      // Center footer - Date with better formatting
-      const date = new Date().toLocaleDateString('en-ZA', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
-      this.pdf.setFont(this.fonts.body, 'normal');
-      this.pdf.setFontSize(9);
-      this.pdf.setTextColor(...this.colors.black);
-      this.pdf.text(date, 105, 285, { align: 'center' });
-      
-      // Right footer - Enhanced page number
-      this.pdf.setFillColor(...this.colors.primary, 0.1);
-      this.pdf.roundedRect(175, 280, 15, 8, 4, 4, 'F');
-      
-      this.pdf.setFont(this.fonts.body, 'bold');
-      this.pdf.setFontSize(9);
-      this.pdf.setTextColor(...this.colors.primary);
-      this.pdf.text(`${i}/${pageCount}`, 182, 285, { align: 'center' });
+      const date = new Date().toLocaleDateString('en-ZA');
+      this.pdf.text(date, this.pageWidth - 40, this.pageHeight - 12);
     }
   }
 
-  addMetricCard(title, value, x, y, width = 50, height = 35) {
-    // Simple metric card for compatibility
+  addThandiLogo(x, y) {
+    // Create circular gradient logo similar to landing page
+    const radius = 8;
+    
+    // Outer ring (gold)
+    this.pdf.setFillColor(223, 163, 58); // Thandi gold
+    this.pdf.circle(x + radius, y, radius + 1, 'F');
+    
+    // Inner circle (teal gradient effect)
+    this.pdf.setFillColor(17, 78, 78); // Thandi teal
+    this.pdf.circle(x + radius, y, radius, 'F');
+    
+    // Letter "T" in white
+    this.pdf.setTextColor(255, 255, 255);
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(14);
+    this.pdf.text('T', x + radius - 2.5, y + 3);
+  }
+
+  // Helper methods for grade-specific content (mirror ResultsParser logic)
+  
+  getGradeSpecificFocus(grade) {
+    const focusMap = {
+      10: 'Building strong academic foundations and exploring career options without pressure to decide',
+      11: 'Strategic planning and targeted improvement for university preparation',
+      12: 'Final year execution: applications, NSC prep, and critical decision making'
+    };
+    return focusMap[grade] || 'Academic and career development';
+  }
+
+  getGradeSpecificTimeline(grade) {
+    const timelineMap = {
+      10: '3 years to matric - Foundation building phase',
+      11: '2 years to matric - Strategic planning phase', 
+      12: '1 year to matric - Critical execution phase'
+    };
+    return timelineMap[grade] || 'Academic timeline';
+  }
+
+  getDefaultActionItems(grade) {
+    const actionMap = {
+      10: [
+        'Focus on understanding your chosen subjects thoroughly',
+        'Explore different career options without pressure to decide',
+        'Build strong study habits and time management skills',
+        'Consider subject adjustments if needed (limited window available)',
+        'Start learning about university requirements for fields of interest',
+        'Maintain good academic performance across all subjects'
+      ],
+      11: [
+        'Research university programs and admission requirements',
+        'Focus on improving weak subjects from Grade 10',
+        'Start preparing bursary and scholarship applications',
+        'Plan your Grade 12 strategy and subject choices',
+        'Attend university open days and career guidance sessions',
+        'Build a strong academic record for university applications'
+      ],
+      12: [
+        'Submit university applications before deadlines',
+        'Focus intensively on NSC examination preparation',
+        'Finalize all bursary and financial aid applications',
+        'Prepare backup plans for different outcome scenarios',
+        'Complete all required documentation for applications',
+        'Maintain academic performance through final exams'
+      ]
+    };
+    return actionMap[grade] || [
+      'Research university programs that match your interests and academic performance',
+      'Apply for financial aid and bursary opportunities early',
+      'Focus on improving performance in key subjects',
+      'Attend university open days and career guidance sessions',
+      'Prepare all required documentation for applications',
+      'Create backup plans including alternative career paths'
+    ];
+  }
+
+  // Update the metric box method to match HeaderCard styling
+  addMetricBox(title, value, x, y, width, height) {
+    // Box background
     this.pdf.setFillColor(248, 250, 252);
     this.pdf.rect(x, y, width, height, 'F');
     
-    this.pdf.setDrawColor(...this.colors.primary);
-    this.pdf.setLineWidth(1);
+    // Box border
+    this.pdf.setDrawColor(17, 78, 78);
+    this.pdf.setLineWidth(0.5);
     this.pdf.rect(x, y, width, height);
     
-    this.pdf.setFont(this.fonts.body, 'normal');
-    this.pdf.setFontSize(9);
-    this.pdf.setTextColor(...this.colors.secondary);
-    this.pdf.text(title, x + 3, y + 12);
+    // Title
+    this.pdf.setFont('helvetica', 'normal');
+    this.pdf.setFontSize(8);
+    this.pdf.setTextColor(107, 114, 128);
+    this.pdf.text(title, x + 3, y + 10);
     
-    this.pdf.setFont(this.fonts.heading, 'bold');
-    this.pdf.setFontSize(14);
-    this.pdf.setTextColor(...this.colors.primary);
-    const valueText = value?.toString() || 'TBD';
-    this.pdf.text(valueText, x + 3, y + 25);
+    // Value
+    this.pdf.setFont('helvetica', 'bold');
+    this.pdf.setFontSize(11);
+    this.pdf.setTextColor(17, 78, 78);
+    this.pdf.text(value.toString(), x + 3, y + 22);
   }
 
-  getFeasibilityColor(feasibility) {
-    switch (feasibility?.toLowerCase()) {
-      case 'high': return this.colors.success;
-      case 'medium': return this.colors.accent;
-      case 'low': return this.colors.warning;
-      default: return this.colors.secondary;
-    }
+  generateFallbackPDF() {
+    const fallbackPdf = new jsPDF();
+    fallbackPdf.setFont('helvetica', 'normal');
+    fallbackPdf.setFontSize(12);
+    fallbackPdf.text('THANDI.AI Career Assessment Report', 20, 30);
+    fallbackPdf.text('Report generation encountered technical difficulties.', 20, 50);
+    fallbackPdf.text('Please contact support for assistance.', 20, 70);
+    return fallbackPdf;
   }
 
-  getUrgencyColor(urgency) {
-    switch (urgency?.toUpperCase()) {
-      case 'CRITICAL': return this.colors.warning;
-      case 'HIGH': return this.colors.accent;
-      case 'INFO': return this.colors.primary;
-      default: return this.colors.secondary;
-    }
+  // Compatibility method for existing code
+  addMetricCard(title, value, x, y, width = 50, height = 35) {
+    this.addCleanMetricBox(title, value, x, y, width, height);
   }
 }

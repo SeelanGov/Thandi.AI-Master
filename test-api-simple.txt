@@ -1,0 +1,27 @@
+THANDI.AI Career Assessment Results
+Session ID: test-session-simple
+Generated: 2026-01-07T11:35:32.486Z
+
+This is a test PDF response. The API endpoint is working correctly.
+
+## Your Academic Status
+Grade 12 Student - Final Year Critical Decisions
+
+## Recommended Programs
+1. Bachelor of Commerce (Accounting) - University of Cape Town
+2. Bachelor of Science (Computer Science) - University of the Witwatersrand  
+3. Bachelor of Engineering (Civil) - University of Pretoria
+
+## Financial Aid Opportunities
+1. NSFAS - Full tuition + allowances (CRITICAL DEADLINE: 31 Jan 2026)
+2. UCT Merit Bursary - R50,000 per year
+3. Sasol Engineering Bursary - Full tuition + R80,000 allowances
+
+## Action Plan
+1. Complete university applications by September 30, 2026
+2. Apply for NSFAS funding by January 31, 2026
+3. Focus on improving Mathematics and Physical Sciences marks
+4. Research backup career options including TVET programs
+
+⚠️ VERIFY THIS INFORMATION BEFORE DECIDING
+This is AI-generated advice. Always confirm with real people.
