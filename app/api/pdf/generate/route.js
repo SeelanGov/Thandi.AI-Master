@@ -1,0 +1,131 @@
+/**
+ * PDF Generation API Route
+ * Generates PDF using jsPDF with exact same layout as results page
+ */
+
+import { NextResponse } from 'next/server';
+
+export async function POST(request) {
+  try {
+    console.log('📄 PDF generation API called');
+    
+    const body = await request.json();
+    const { results, sessionId } = body;
+    
+    if (!results) {
+      return NextResponse.json(
+        { error: 'Results data is required' },
+        { status: 400 }
+      );
+    }
+
+    console.log('🔄 Processing results for PDF generation...');
+    
+    // Parse the results using the same parser as the results page
+    const studentGrade = results.grade || results.metadata?.grade || '12';
+    const rawResponse = results.fullResponse || results.response;
+    
+    if (!rawResponse) {
+      return NextResponse.json(
+        { error: 'No response data found in results' },
+        { status: 400 }
+      );
+    }
+    
+    // Import services with proper error handling
+    let ResultsParser, ProfessionalPDFGenerator;
+    
+    try {
+      const resultsParserModule = await import('../../../results/services/resultsParser.js');
+      ResultsParser = resultsParserModule.default || resultsParserModule.ResultsParser;
+      
+      const pdfGeneratorModule = await import('../../../results/services/ProfessionalPDFGenerator.js');
+      ProfessionalPDFGenerator = pdfGeneratorModule.default || pdfGeneratorModule.ProfessionalPDFGenerator;
+      
+      console.log('✅ Modules imported successfully');
+      
+    } catch (importError) {
+      console.error('❌ Module import failed:', importError);
+      return NextResponse.json(
+        { 
+          error: 'Module import failed',
+          details: importError.message,
+          timestamp: new Date().toISOString()
+        },
+        { status: 500 }
+      );
+    }
+    
+    // Validate imports
+    if (!ResultsParser || typeof ResultsParser.parseResults !== 'function') {
+      console.error('❌ ResultsParser not properly imported');
+      return NextResponse.json(
+        { 
+          error: 'ResultsParser import failed',
+          details: 'ResultsParser.parseResults is not a function',
+          timestamp: new Date().toISOString()
+        },
+        { status: 500 }
+      );
+    }
+    
+    if (!ProfessionalPDFGenerator) {
+      console.error('❌ ProfessionalPDFGenerator not properly imported');
+      return NextResponse.json(
+        { 
+          error: 'ProfessionalPDFGenerator import failed',
+          details: 'ProfessionalPDFGenerator is not available',
+          timestamp: new Date().toISOString()
+        },
+        { status: 500 }
+      );
+    }
+    
+    // Parse results into structured format (same as results page)
+    const parsedResults = ResultsParser.parseResults(rawResponse, studentGrade);
+    console.log('✅ Results parsed for PDF generation');
+    
+    // Generate PDF using jsPDF
+    const pdfGenerator = new ProfessionalPDFGenerator();
+    const pdfDoc = pdfGenerator.generatePDF(parsedResults);
+    
+    // Generate PDF blob
+    const pdfBlob = pdfGenerator.generateBlob();
+    const pdfBuffer = Buffer.from(await pdfBlob.arrayBuffer());
+    
+    console.log(`✅ PDF generated successfully (${pdfBuffer.length} bytes)`);
+    
+    // Return PDF as response
+    return new NextResponse(pdfBuffer, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `attachment; filename="career-guidance-grade-${studentGrade}.pdf"`,
+        'Content-Length': pdfBuffer.length.toString(),
+      },
+    });
+    
+  } catch (error) {
+    console.error('❌ PDF generation failed:', error);
+    
+    return NextResponse.json(
+      { 
+        error: 'PDF generation failed',
+        details: error.message,
+        timestamp: new Date().toISOString()
+      },
+      { status: 500 }
+    );
+  }
+}
+
+// Handle GET requests (for testing)
+export async function GET() {
+  return NextResponse.json({
+    message: 'PDF Generation API',
+    status: 'active',
+    method: 'POST',
+    endpoint: '/api/pdf/generate',
+    timestamp: new Date().toISOString()
+  });
+}

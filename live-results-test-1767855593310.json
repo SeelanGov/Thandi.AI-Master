@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-01-08T06:59:51.817Z",
+  "url": "https://thandi.online",
+  "tests": {
+    "pageAccess": {
+      "success": false,
+      "accessible": false,
+      "statusCode": 307
+    },
+    "apiEndpoints": {
+      "/api/results": {
+        "statusCode": 307,
+        "accessible": true,
+        "hasData": true
+      },
+      "/api/assessment/results": {
+        "statusCode": 307,
+        "accessible": true,
+        "hasData": true
+      },
+      "/api/generate-results": {
+        "statusCode": 307,
+        "accessible": true,
+        "hasData": true
+      }
+    },
+    "assessmentFlow": {
+      "success": false,
+      "step": "assessment_access"
+    },
+    "resultsGeneration": {
+      "Grade 12 STEM": {
+        "statusCode": 307,
+        "success": false,
+        "hasContent": false,
+        "responseSize": 80
+      },
+      "Grade 11 Commerce": {
+        "statusCode": 307,
+        "success": false,
+        "hasContent": false,
+        "responseSize": 80
+      },
+      "Grade 10 General": {
+        "statusCode": 307,
+        "success": false,
+        "hasContent": false,
+        "responseSize": 80
+      }
+    },
+    "environment": {
+      "success": false,
+      "statusCode": 307
+    }
+  }
+}

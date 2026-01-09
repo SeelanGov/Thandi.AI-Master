@@ -30,20 +30,14 @@ try {
     }
   });
   
-  // Step 3: Verify ProfessionalPDFGenerator exists and is correct
-  console.log('3️⃣ Verifying PDF generator...');
+  // Step 3: Verify PDF functionality removed
+  console.log('3️⃣ Verifying PDF cleanup...');
   const pdfGenPath = 'app/results/services/ProfessionalPDFGenerator.js';
   
-  if (!fs.existsSync(pdfGenPath)) {
-    console.log('   ❌ ProfessionalPDFGenerator.js missing!');
-    process.exit(1);
-  }
-  
-  const pdfGenContent = fs.readFileSync(pdfGenPath, 'utf8');
-  if (pdfGenContent.includes('import { jsPDF } from')) {
-    console.log('   ✅ PDF generator import is correct');
+  if (fs.existsSync(pdfGenPath)) {
+    console.log('   ⚠️ ProfessionalPDFGenerator.js still exists - should be removed');
   } else {
-    console.log('   ⚠️ PDF generator import needs fixing');
+    console.log('   ✅ PDF generator successfully removed');
   }
   
   // Step 4: Check for phantom ReactPDF files

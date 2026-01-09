@@ -1,0 +1,29 @@
+{
+  "resultsData": {
+    "grade": "12",
+    "fullResponse": "\n**🎯 Your Career Assessment Results**\n\nBased on your Grade 12 profile and interests, here are your personalized recommendations:\n\n**📊 Academic Status**\n- APS Score: 35\n- University Eligible: Yes\n- Current Performance: Strong\n\n**🎓 Recommended University Programs**\n\n1. **Computer Science at University of Cape Town**\n   - APS Required: 35\n   - Admission Chance: 85%\n   - Application Deadline: August 31, 2024\n   - Feasibility: High\n\n2. **Engineering at University of the Witwatersrand**\n   - APS Required: 38\n   - Admission Chance: 70%\n   - Application Deadline: September 30, 2024\n   - Feasibility: Medium\n\n3. **Business Science at University of Stellenbosch**\n   - APS Required: 32\n   - Admission Chance: 90%\n   - Application Deadline: August 15, 2024\n   - Feasibility: High\n\n**💰 Financial Aid Opportunities**\n\n1. **NSFAS Financial Aid**\n   - Provider: NSFAS\n   - Amount: Full tuition + allowances\n   - Eligibility Match: 85%\n   - Application Deadline: August 2024\n   - Requirements: Household income under R350,000, South African citizen, Academic merit\n\n2. **Sasol Engineering Bursary**\n   - Provider: Sasol\n   - Amount: R150,000 per year\n   - Eligibility Match: 75%\n   - Application Deadline: July 31, 2024\n   - Requirements: Engineering studies, Academic excellence, Financial need\n\n**📋 Your Action Plan**\n\n1. Submit university applications before deadlines\n2. Focus intensively on NSC examination preparation\n3. Finalize all bursary and financial aid applications\n4. Prepare backup plans for different outcome scenarios\n5. Attend university information sessions\n6. Maintain academic performance through final exams\n\n**🔄 Alternative Pathways**\n\n1. **TVET College Programs**\n   - Type: TVET/College\n   - Description: Technical and vocational education options\n   - Grade Relevance: Important backup options if primary plans don't work out\n\n2. **Gap Year Opportunities**\n   - Type: Gap Year\n   - Description: Work experience and skill development\n   - Grade Relevance: Consider for personal growth and clarity\n\n⚠️ **Verify before you decide** - The advice above is AI-generated. You MUST verify it with real people before making any decision.\n      ",
+    "metadata": {
+      "grade": "12",
+      "enjoyedSubjects": [
+        "Mathematics",
+        "Physical Sciences",
+        "Information Technology"
+      ],
+      "interests": [
+        "Technology",
+        "Problem Solving",
+        "Innovation"
+      ],
+      "curriculumProfile": "Mathematics and Sciences"
+    }
+  },
+  "studentData": {
+    "name": "Test",
+    "surname": "Student",
+    "grade": "12"
+  },
+  "options": {
+    "source": "local-test",
+    "timestamp": "2026-01-08T14:46:37.251Z"
+  }
+}

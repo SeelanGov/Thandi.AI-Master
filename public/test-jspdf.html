@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsPDF Implementation Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9fafb;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+        }
+        .test-button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+            transition: all 0.2s;
+        }
+        .test-button:hover {
+            background: #059669;
+        }
+        .test-button:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .status.success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        .status.error {
+            background: #fecaca;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+        .status.info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+        }
+        .instructions {
+            background: #fffbeb;
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .code {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 jsPDF Implementation Test</h1>
+            <p>Test the systematic jsPDF PDF generation system</p>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Testing Instructions</h3>
+            <p><strong>Before testing:</strong> Make sure your Next.js development server is running:</p>
+            <div class="code">npm run dev</div>
+            <p>Then test the PDF generation functionality below.</p>
+        </div>
+
+        <div class="test-section">
+            <h3>🔧 API Endpoint Test</h3>
+            <p>Test the PDF generation API endpoint directly:</p>
+            <button class="test-button" onclick="testAPIEndpoint()">Test API Endpoint</button>
+            <div id="api-status"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>📄 PDF Generation Test</h3>
+            <p>Generate a PDF using sample data:</p>
+            <button class="test-button" onclick="generateTestPDF()">Generate Test PDF</button>
+            <div id="pdf-status"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>🔍 Results Page Integration Test</h3>
+            <p>Test PDF generation from the actual results page:</p>
+            <button class="test-button" onclick="testResultsPageIntegration()">Test Results Page</button>
+            <div id="results-status"></div>
+        </div>
+
+        <div class="test-section">
+            <h3>📊 Test Results</h3>
+            <div id="test-results">
+                <p>Click the test buttons above to see results here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test API endpoint
+        async function testAPIEndpoint() {
+            const statusDiv = document.getElementById('api-status');
+            statusDiv.innerHTML = '<div class="status info">Testing API endpoint...</div>';
+            
+            try {
+                const response = await fetch('/api/pdf/generate', {
+                    method: 'GET'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    statusDiv.innerHTML = '<div class="status success">✅ API endpoint is active and responding</div>';
+                    console.log('API Response:', data);
+                } else {
+                    statusDiv.innerHTML = '<div class="status error">❌ API endpoint returned error: ' + response.status + '</div>';
+                }
+            } catch (error) {
+                statusDiv.innerHTML = '<div class="status error">❌ API endpoint test failed: ' + error.message + '</div>';
+            }
+        }
+
+        // Generate test PDF
+        async function generateTestPDF() {
+            const statusDiv = document.getElementById('pdf-status');
+            const button = event.target;
+            
+            button.disabled = true;
+            button.textContent = 'Generating PDF...';
+            statusDiv.innerHTML = '<div class="status info">Generating PDF with sample data...</div>';
+            
+            try {
+                // Sample results data
+                const sampleResults = {
+                    grade: '12',
+                    fullResponse: `**Your Career Guidance Report - Grade 12**
+                    
+**Academic Status:**
+Your current APS score is 35, which makes you eligible for university admission.
+
+**Recommended Programs:**
+1. **Bachelor of Engineering** at University of Cape Town
+   - APS Required: 35
+   - Admission Chance: 75%
+   - Application Deadline: August 2024
+
+2. **Bachelor of Science in Computer Science** at University of the Witwatersrand
+   - APS Required: 32
+   - Admission Chance: 85%
+   - Application Deadline: September 2024
+
+**Financial Aid Opportunities:**
+
+**NSFAS Financial Aid**
+- Amount: Full tuition + allowances
+- Eligibility Match: 80%
+- Deadline: August 2024
+
+**Action Plan:**
+1. Submit university applications before deadlines
+2. Focus on NSC examination preparation
+3. Apply for NSFAS and other bursaries
+
+⚠️ **Verify before you decide**: Always confirm this information with real people.`,
+                    metadata: {
+                        grade: '12',
+                        enjoyedSubjects: ['Mathematics', 'Physical Sciences'],
+                        interests: ['Technology', 'Engineering']
+                    }
+                };
+
+                const response = await fetch('/api/pdf/generate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        results: sampleResults,
+                        sessionId: Date.now().toString()
+                    }),
+                });
+
+                if (response.ok) {
+                    const pdfBlob = await response.blob();
+                    
+                    // Create download link
+                    const url = window.URL.createObjectURL(pdfBlob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'test-career-guidance-report.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    window.URL.revokeObjectURL(url);
+                    
+                    statusDiv.innerHTML = '<div class="status success">✅ PDF generated and downloaded successfully!</div>';
+                } else {
+                    const errorData = await response.json();
+                    statusDiv.innerHTML = '<div class="status error">❌ PDF generation failed: ' + errorData.error + '</div>';
+                }
+            } catch (error) {
+                statusDiv.innerHTML = '<div class="status error">❌ PDF generation failed: ' + error.message + '</div>';
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Generate Test PDF';
+            }
+        }
+
+        // Test results page integration
+        function testResultsPageIntegration() {
+            const statusDiv = document.getElementById('results-status');
+            statusDiv.innerHTML = '<div class="status info">Opening results page for integration test...</div>';
+            
+            // Open results page in new tab
+            window.open('/results', '_blank');
+            
+            statusDiv.innerHTML = '<div class="status success">✅ Results page opened. Test PDF download button there.</div>';
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('jsPDF Implementation Test Page Loaded');
+        });
+    </script>
+</body>
+</html>

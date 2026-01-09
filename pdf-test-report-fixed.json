@@ -1,0 +1,387 @@
+{
+  "timestamp": "2026-01-08T12:44:39.633Z",
+  "summary": {
+    "totalTests": 75,
+    "passed": 75,
+    "failed": 0,
+    "passRate": 100
+  },
+  "results": [
+    {
+      "message": "Testing file structure...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "File exists: app/results/page.jsx",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "File exists: app/test-pdf/page.jsx",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "File exists: app/results/services/ProfessionalPDFGenerator.js",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "File exists: app/results/services/resultsParser.js",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "File exists: app/results/services/gradeSpecificValidator.js",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "File exists: package.json",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "jsPDF dependency found: ^3.0.4",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Testing module imports...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "jsPDF import successful",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "jsPDF constructor and methods available",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Testing basic jsPDF functionality...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "PDF save method available",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "PDF internal properties accessible",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Basic jsPDF functionality test passed",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Testing ResultsParser (ES6 modules)...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser contains: export class ResultsParser",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser contains: static parseResults",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser contains: extractHeaderData",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser contains: extractPrograms",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser contains: extractBursaries",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser contains: extractActionPlan",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser contains: import { GradeSpecificValidator }",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser file size adequate: 8316 bytes",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ResultsParser structure verification passed",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Testing ProfessionalPDFGenerator (ES6 modules)...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: export class ProfessionalPDFGenerator",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: constructor",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: generateProfessionalReport",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: addProfessionalCoverPage",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: addAcademicStatusOverview",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: addRecommendedPrograms",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: addFinancialAidSection",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: addActionPlanSection",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator contains: import { jsPDF } from 'jspdf'",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator file size adequate: 44098 bytes",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "ProfessionalPDFGenerator structure verification passed",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Testing integration between components...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: const downloadPDF = async () =>...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: setDownloadingPDF(true)...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: console.log('📄 Starting PDF generation process......",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: const { ResultsParser } = await import('./services...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: const { ProfessionalPDFGenerator } = await import(...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: finalParsedResults = ResultsParser.parseResults...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: new ProfessionalPDFGenerator...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: pdfGenerator.generateProfessionalReport()...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: pdf.save(filename)...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Results page contains: alert('PDF generated successfully!...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Test PDF page exists",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Test PDF page has required test functions",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Integration test passed",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Testing error handling...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling includes: try {",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling includes: catch (error) {",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling includes: console.error('❌ PDF generation failed:', error)",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling includes: if (error.message.includes('import'))",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling includes: if (error.message.includes('parse'))",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling includes: if (error.message.includes('save'))",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling includes: alert(errorMessage)",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling includes: setDownloadingPDF(false)",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Error handling test passed",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Testing with mock data...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Mock data structure is valid",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Mock data contains: Career Assessment Results",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Mock data contains: University",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Mock data contains: APS Required",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Mock data contains: Financial Aid",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Mock data contains: NSFAS",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Mock data contains: ⚠️ **Verify before you decide**",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Mock data test passed",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Testing dependencies...",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "node_modules directory exists",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "jsPDF package installed",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "package-lock.json exists",
+      "success": true,
+      "timestamp": "14:44:39"
+    },
+    {
+      "message": "Dependencies test passed",
+      "success": true,
+      "timestamp": "14:44:39"
+    }
+  ],
+  "deploymentReady": true
+}

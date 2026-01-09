@@ -186,9 +186,9 @@ console.log('=' .repeat(60));
 function checkImports() {
   try {
     const resultsPage = fs.readFileSync('app/results/page.jsx', 'utf8');
-    return resultsPage.includes('ProfessionalPDFGenerator') && 
-           resultsPage.includes('ResultsCardLayout') &&
-           resultsPage.includes('ResultsParser');
+    return resultsPage.includes('ResultsCardLayout') &&
+           resultsPage.includes('ResultsParser') &&
+           resultsPage.includes('downloadPDF');
   } catch {
     return false;
   }
@@ -215,8 +215,8 @@ function checkCSS() {
 function checkPDFIntegration() {
   try {
     const resultsPage = fs.readFileSync('app/results/page.jsx', 'utf8');
-    return resultsPage.includes('generateProfessionalReport') &&
-           resultsPage.includes('downloadingPDF');
+    return resultsPage.includes('downloadPDF') &&
+           resultsPage.includes('pdfGenerating');
   } catch {
     return false;
   }

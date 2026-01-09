@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { jsPDF } from 'jspdf';
+
 import ThandiChat from './components/ThandiChat';
 import ResultsCardLayout from './components/ResultsCardLayout';
 import { ResultsParser } from './services/resultsParser';
 import { formatResponse, getFormattedContentStyles } from './utils/formatResponse';
-import { trackEnhancedRecommendations, trackPDFDownload, trackEnhancementFeature } from '@/lib/analytics/track-events';
+import { trackEnhancedRecommendations, trackEnhancementFeature } from '@/lib/analytics/track-events';
 import './styles/global.css';
 
 export default function ResultsPage() {
@@ -16,7 +16,7 @@ export default function ResultsPage() {
   const [justRegistered, setJustRegistered] = useState(false);
   const [parsedResults, setParsedResults] = useState(null);
   const [parsingError, setParsingError] = useState(false);
-  const [downloadingPDF, setDownloadingPDF] = useState(false);
+  const [pdfGenerating, setPdfGenerating] = useState(false);
 
   useEffect(() => {
     // Check if user just registered
@@ -128,55 +128,60 @@ export default function ResultsPage() {
   };
 
   const downloadPDF = async () => {
-    if (!results) return;
+    if (!results) {
+      alert('No results available for PDF generation');
+      return;
+    }
 
+    setPdfGenerating(true);
+    
     try {
-      setDownloadingPDF(true);
+      console.log('🔄 Starting PDF download...');
       
-      // Generate professional PDF using existing ProfessionalPDFGenerator
-      console.log('📄 Generating professional PDF');
+      const response = await fetch('/api/pdf/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          results: results,
+          sessionId: Date.now().toString()
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'PDF generation failed');
+      }
+
+      // Get PDF blob
+      const pdfBlob = await response.blob();
       
-      // Import the professional PDF generator
-      const { ProfessionalPDFGenerator } = await import('./services/ProfessionalPDFGenerator.js');
+      // Create download link
+      const url = window.URL.createObjectURL(pdfBlob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `career-guidance-grade-${results.grade || '12'}.pdf`;
       
-      // Prepare data for PDF generation
-      const studentData = {
-        name: results.metadata?.studentName || 'Student',
-        grade: parsedResults?.headerData?.gradeLevel || results.grade || '12',
-        school: results.metadata?.school || 'Not specified'
-      };
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
       
-      // Create PDF generator instance
-      const pdfGenerator = new ProfessionalPDFGenerator(
-        parsedResults,     // Parsed results for structured data
-        studentData,       // Student information
-        results           // Full results data
-      );
+      // Clean up
+      window.URL.revokeObjectURL(url);
       
-      // Generate the professional PDF
-      const pdf = pdfGenerator.generateProfessionalReport();
-      
-      // Create filename
-      const studentName = studentData.name.replace(/\s+/g, '-');
-      const timestamp = new Date().toISOString().split('T')[0];
-      const filename = `Thandi-Career-Report-${studentName}-Grade${studentData.grade}-${timestamp}.pdf`;
-      
-      // Download the PDF
-      pdf.save(filename);
-      
-      // Track PDF download
-      const hasEnhancedContent = results.response?.includes('University') && results.response?.includes('APS');
-      trackPDFDownload(results.grade, hasEnhancedContent, 'professional');
-      
-      console.log('✅ Professional PDF generated and downloaded successfully');
+      console.log('✅ PDF downloaded successfully');
       
     } catch (error) {
-      console.error('❌ PDF generation failed:', error);
-      alert('PDF generation failed. Please try again.');
+      console.error('❌ PDF download failed:', error);
+      alert(`PDF download failed: ${error.message}`);
     } finally {
-      setDownloadingPDF(false);
+      setPdfGenerating(false);
     }
   };
+
+  // PDF functionality removed for systematic approach - will be re-implemented as separate feature
 
   if (loading) {
     return (
@@ -203,8 +208,12 @@ export default function ResultsPage() {
         <div className="results-header">
           <h1>Your Career Matches</h1>
           <div className="header-actions">
-            <button onClick={downloadPDF} className="btn-primary" disabled={downloadingPDF}>
-              {downloadingPDF ? '📄 Generating...' : '📄 Download PDF'}
+            <button 
+              onClick={downloadPDF} 
+              className="btn-primary"
+              disabled={pdfGenerating}
+            >
+              {pdfGenerating ? 'Generating PDF...' : 'Download PDF'}
             </button>
             <button onClick={startNewAssessment} className="btn-secondary">
               Start New Assessment
