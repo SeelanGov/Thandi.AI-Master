@@ -1,0 +1,156 @@
+import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
+
+export async function POST(request) {
+  try {
+    const body = await request.json();
+    const { 
+      school_name, 
+      school_code, 
+      contact_email,
+      requested_by_name 
+    } = body;
+
+    // Validate required fields
+    if (!school_name || !requested_by_name) {
+      return NextResponse.json(
+        { success: false, error: 'School name and requester name are required' },
+        { status: 400 }
+      );
+    }
+
+    // Validate email format if provided
+    if (contact_email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact_email)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
+
+    // Check if school already exists by name (fuzzy match)
+    const { data: existingSchools, error: searchError } = await supabase
+      .from('school_master')
+      .select('school_id, name')
+      .ilike('name', `%${school_name}%`)
+      .limit(5);
+
+    if (searchError) {
+      console.error('School search error:', searchError);
+    }
+
+    // If we find similar schools, include them in the response
+    const similarSchools = existingSchools || [];
+
+    // Check if this exact request already exists
+    const { data: existingRequest, error: requestError } = await supabase
+      .from('school_addition_requests')
+      .select('id, status')
+      .ilike('school_name', school_name)
+      .eq('status', 'pending')
+      .single();
+
+    if (existingRequest) {
+      return NextResponse.json({
+        success: false,
+        error: 'A request for this school is already pending review',
+        similar_schools: similarSchools
+      });
+    }
+
+    // Create the school addition request
+    const { data: request, error: insertError } = await supabase
+      .from('school_addition_requests')
+      .insert({
+        school_name: school_name.trim(),
+        school_code: school_code ? school_code.trim().toUpperCase() : null,
+        contact_email: contact_email ? contact_email.trim().toLowerCase() : null,
+        requested_by_name: requested_by_name.trim(),
+        status: 'pending',
+        request_metadata: {
+          timestamp: new Date().toISOString(),
+          user_agent: request.headers.get('user-agent'),
+          ip_address: request.headers.get('x-forwarded-for') || 'unknown',
+          similar_schools_found: similarSchools.length
+        }
+      })
+      .select()
+      .single();
+
+    if (insertError) {
+      console.error('School addition request error:', insertError);
+      return NextResponse.json(
+        { success: false, error: 'Failed to submit request' },
+        { status: 500 }
+      );
+    }
+
+    // Log successful request for admin review
+    console.log(`📝 School addition request: ${school_name} (${school_code || 'no code'}) by ${requested_by_name} - ID: ${request.id}`);
+
+    return NextResponse.json({
+      success: true,
+      request_id: request.id,
+      message: 'School addition request submitted successfully',
+      similar_schools: similarSchools,
+      estimated_review_time: '1-2 business days'
+    });
+
+  } catch (error) {
+    console.error('School addition request error:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}
+
+// GET endpoint to check request status
+export async function GET(request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const requestId = searchParams.get('id');
+
+    if (!requestId) {
+      return NextResponse.json(
+        { success: false, error: 'Request ID is required' },
+        { status: 400 }
+      );
+    }
+
+    const { data: requestData, error } = await supabase
+      .from('school_addition_requests')
+      .select('id, school_name, school_code, status, created_at')
+      .eq('id', requestId)
+      .single();
+
+    if (error || !requestData) {
+      return NextResponse.json(
+        { success: false, error: 'Request not found' },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      request: {
+        id: requestData.id,
+        school_name: requestData.school_name,
+        school_code: requestData.school_code,
+        status: requestData.status,
+        submitted_at: requestData.created_at
+      }
+    });
+
+  } catch (error) {
+    console.error('Request status check error:', error);
+    return NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}

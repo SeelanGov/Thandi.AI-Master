@@ -13,6 +13,12 @@ export default function SchoolClaimPage() {
     contact_phone: ''
   });
   const [claimStatus, setClaimStatus] = useState(null);
+  const [showLoginForm, setShowLoginForm] = useState(false);
+  const [loginForm, setLoginForm] = useState({
+    email: '',
+    school_id: ''
+  });
+  const [loginStatus, setLoginStatus] = useState(null);
 
   // Search schools
   const handleSearch = async () => {
@@ -38,6 +44,48 @@ export default function SchoolClaimPage() {
     setSelectedSchool(school);
     setSearchResults([]);
     setSearchQuery(school.name);
+  };
+
+  // Handle login submission
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setLoginStatus(null);
+
+    try {
+      const response = await fetch('/api/schools/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: loginForm.email,
+          school_id: loginForm.school_id || undefined
+        })
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setLoginStatus({
+          type: 'success',
+          message: data.message,
+          magic_link: data.magic_link // For development only
+        });
+      } else {
+        setLoginStatus({
+          type: 'error',
+          message: data.error
+        });
+      }
+    } catch (error) {
+      setLoginStatus({
+        type: 'error',
+        message: 'Failed to send login link. Please try again.'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Handle claim submission
@@ -138,8 +186,54 @@ export default function SchoolClaimPage() {
             </p>
           </div>
 
+          {/* Login Options */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex-1 bg-white rounded-xl shadow-thandi border border-thandi-brown/10 p-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-thandi-teal rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold font-heading text-thandi-teal mb-2">Already Registered?</h3>
+                <p className="text-sm text-thandi-brown font-body mb-4">
+                  If your school has already claimed access, log in with your credentials
+                </p>
+                <button 
+                  onClick={() => setShowLoginForm(true)}
+                  className="w-full px-4 py-2 bg-thandi-teal text-white rounded-lg hover:bg-thandi-teal-mid transition-all duration-200 font-body font-medium"
+                >
+                  School Login
+                </button>
+              </div>
+            </div>
+            
+            <div className="flex-1 bg-white rounded-xl shadow-thandi border border-thandi-brown/10 p-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-thandi-gold rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-thandi-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H3m2 0h4M9 7h6m-6 4h6m-6 4h6" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold font-heading text-thandi-teal mb-2">First Time Here?</h3>
+                <p className="text-sm text-thandi-brown font-body mb-4">
+                  Claim your school's access to the Thandi dashboard
+                </p>
+                <button 
+                  onClick={() => {
+                    // Scroll to search section
+                    document.getElementById('school-search-section').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="w-full px-4 py-2 bg-thandi-gold text-thandi-teal rounded-lg hover:bg-thandi-gold/90 transition-all duration-200 font-body font-medium"
+                >
+                  Claim School Access
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Search Section */}
-          <div className="bg-white rounded-xl shadow-thandi border border-thandi-brown/10 mb-8">
+          <div id="school-search-section" className="bg-white rounded-xl shadow-thandi border border-thandi-brown/10 mb-8">
             <div className="p-8">
               <label className="block text-lg font-semibold font-heading text-thandi-teal mb-4">
                 Find Your School
@@ -296,6 +390,136 @@ export default function SchoolClaimPage() {
                       >
                         {claimStatus.magic_link}
                       </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Login Modal */}
+          {showLoginForm && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+              <div className="bg-white rounded-xl shadow-thandi max-w-md w-full border border-thandi-brown/10">
+                <div className="p-8">
+                  <div className="flex justify-between items-center mb-6">
+                    <h3 className="text-xl font-semibold font-heading text-thandi-teal">School Login</h3>
+                    <button
+                      onClick={() => {
+                        setShowLoginForm(false);
+                        setLoginStatus(null);
+                        setLoginForm({ email: '', school_id: '' });
+                      }}
+                      className="text-thandi-brown hover:text-thandi-teal transition-colors"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  {!loginStatus && (
+                    <form onSubmit={handleLogin} className="space-y-6">
+                      <div>
+                        <label className="block text-sm font-semibold font-heading text-thandi-teal mb-2">
+                          Principal Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={loginForm.email}
+                          onChange={(e) => setLoginForm({
+                            ...loginForm,
+                            email: e.target.value
+                          })}
+                          placeholder="principal@school.gov.za"
+                          className="w-full px-4 py-3 border-2 border-thandi-brown/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-thandi-teal focus:border-transparent font-body text-thandi-brown"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-semibold font-heading text-thandi-teal mb-2">
+                          School ID (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          value={loginForm.school_id}
+                          onChange={(e) => setLoginForm({
+                            ...loginForm,
+                            school_id: e.target.value
+                          })}
+                          placeholder="e.g., ZAF-P-500215340"
+                          className="w-full px-4 py-3 border-2 border-thandi-brown/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-thandi-teal focus:border-transparent font-body text-thandi-brown"
+                        />
+                        <p className="text-xs text-thandi-brown/70 mt-1 font-body">
+                          Helps us find your school faster
+                        </p>
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={loading || !loginForm.email}
+                        className="w-full px-6 py-3 bg-thandi-teal text-white rounded-lg hover:bg-thandi-teal-mid disabled:opacity-50 transition-all duration-200 font-body font-semibold"
+                      >
+                        {loading ? (
+                          <div className="flex items-center justify-center space-x-2">
+                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                            <span>Sending Login Link...</span>
+                          </div>
+                        ) : 'Send Login Link'}
+                      </button>
+
+                      <p className="text-xs text-thandi-brown/70 text-center font-body">
+                        We'll send a secure login link to your email address
+                      </p>
+                    </form>
+                  )}
+
+                  {/* Login Status */}
+                  {loginStatus && (
+                    <div className={`p-4 rounded-lg ${
+                      loginStatus.type === 'success' 
+                        ? 'bg-green-50 border-2 border-green-200' 
+                        : 'bg-red-50 border-2 border-red-200'
+                    }`}>
+                      <div className={`font-semibold font-heading mb-2 ${
+                        loginStatus.type === 'success' ? 'text-green-800' : 'text-red-800'
+                      }`}>
+                        {loginStatus.type === 'success' ? '✅ Login Link Sent!' : '❌ Login Failed'}
+                      </div>
+                      <div className={`font-body text-sm ${
+                        loginStatus.type === 'success' ? 'text-green-700' : 'text-red-700'
+                      }`}>
+                        {loginStatus.message}
+                      </div>
+                      
+                      {/* Development only - show magic link */}
+                      {loginStatus.magic_link && (
+                        <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                          <div className="text-xs font-semibold font-heading text-yellow-800 mb-1">
+                            Development Mode - Magic Link:
+                          </div>
+                          <a 
+                            href={loginStatus.magic_link}
+                            className="text-thandi-teal hover:underline font-body text-xs break-all"
+                          >
+                            {loginStatus.magic_link}
+                          </a>
+                        </div>
+                      )}
+
+                      {loginStatus.type === 'success' && (
+                        <button
+                          onClick={() => {
+                            setShowLoginForm(false);
+                            setLoginStatus(null);
+                            setLoginForm({ email: '', school_id: '' });
+                          }}
+                          className="mt-3 w-full px-4 py-2 bg-thandi-teal text-white rounded-lg hover:bg-thandi-teal-mid transition-all duration-200 font-body font-medium text-sm"
+                        >
+                          Close
+                        </button>
+                      )}
                     </div>
                   )}
                 </div>
