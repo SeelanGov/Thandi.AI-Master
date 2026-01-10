@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Results Test</title>
+</head>
+<body>
+    <h1>Testing Results Page</h1>
+    <p>This will set mock data and redirect to test the results page.</p>
+    
+    <script>
+        console.log('Setting up test data...');
+        
+        // Simple mock results
+        const mockResults = {
+            grade: '12',
+            response: 'Mock career guidance response. ⚠️ **Verify before you decide** - This is AI-generated advice.',
+            fullResponse: 'Mock career guidance response. ⚠️ **Verify before you decide** - This is AI-generated advice.',
+            metadata: {
+                grade: '12',
+                studentName: 'Test Student',
+                school: 'Test School'
+            }
+        };
+        
+        localStorage.setItem('thandi_results', JSON.stringify(mockResults));
+        console.log('Mock data set, redirecting...');
+        
+        setTimeout(() => {
+            window.location.href = '/results';
+        }, 1000);
+    </script>
+</body>
+</html>

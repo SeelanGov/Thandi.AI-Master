@@ -1,9 +1,8 @@
-// RAG endpoint with CAG validation layer and job market intelligence
+// RAG endpoint with Upstash cache integration and specific program recommendations
 import { NextResponse } from 'next/server';
 import { getCachedResponse, setCachedResponse } from '@/lib/cache/rag-cache.js';
 const { calendarUtils } = require('@/lib/academic/pure-commonjs-calendar.js');
 import { generateSpecificRecommendations, formatRecommendationsForLLM } from '@/lib/matching/program-matcher.js';
-import { CAGValidationService } from '@/lib/cag/validation-service.js';
 
 // Helper function to extract career interests from query
 function extractCareerInterests(queryText) {
@@ -434,7 +433,7 @@ export async function POST(request) {
   
   try {
     const body = await request.json();
-    const { query, grade, curriculum, profile, curriculumProfile, options } = body;
+    const { query, grade, curriculum, profile, curriculumProfile } = body;
     
     // CRITICAL FIX: Grade parameter takes absolute priority over query text parsing
     const gradeParam = grade || profile?.grade || curriculumProfile?.grade;
@@ -506,9 +505,6 @@ export async function POST(request) {
         marks: marksData,
         constraints: profile?.constraints || {},
         careerInterests: extractCareerInterests(query),
-        interests: profile?.interests || curriculumProfile?.interests || [],
-        enjoyedSubjects: profile?.enjoyedSubjects || curriculumProfile?.enjoyedSubjects || [],
-        grade: gradeParam,
         ...profile
       };
       
@@ -603,13 +599,52 @@ export async function POST(request) {
       console.log(`[CACHE BYPASS] Assessment submission detected - generating fresh response`);
     }
     
+
+    
     // Generate proper career guidance response with verification footer
     const careerGuidance = generateCareerGuidance(query, parsedGrade, curriculum, enhancedStudentProfile);
     
-    // ENHANCED: CAG VALIDATION LAYER
-    console.log(`[CAG VALIDATION] Starting validation for ${parsedGrade} student`);
+    // PERMANENT SOLUTION: Add structured data parsing to API response
+    let parsedData = null;
+    let parsingErrors = [];
     
-    let finalResponse = {
+    try {
+      console.log('🔄 API: Adding structured data parsing to response');
+      
+      // Import ResultsData class
+      const { ResultsData } = await import('@/lib/results-data.js');
+      
+      // Create ResultsData instance and parse
+      const resultsData = new ResultsData(
+        careerGuidance.fullResponse, 
+        parsedGrade, 
+        {
+          curriculum: curriculum || 'caps',
+          provider: 'generated',
+          timestamp: new Date().toISOString()
+        }
+      );
+      
+      // Parse the data
+      parsedData = await resultsData.parse();
+      
+      // Get validation status
+      const validationStatus = resultsData.getValidationStatus();
+      
+      console.log('✅ API: Structured data parsed successfully');
+      console.log('📊 API: Validation status:', validationStatus);
+      
+      // Add any warnings to parsing errors for client awareness
+      if (resultsData.warnings.length > 0) {
+        parsingErrors = resultsData.warnings;
+      }
+      
+    } catch (error) {
+      console.error('❌ API: Structured data parsing failed:', error);
+      parsingErrors.push(`Content parsing failed: ${error.message}`);
+    }
+    
+    const response = {
       success: true,
       query,
       grade: parsedGrade,
@@ -617,11 +652,21 @@ export async function POST(request) {
       response: careerGuidance.response,
       fullResponse: careerGuidance.fullResponse,
       results: careerGuidance.results,
+      
+      // NEW: Add structured data to response
+      parsedData: parsedData,
+      parsingStatus: {
+        success: parsedData !== null,
+        errors: parsingErrors,
+        timestamp: new Date().toISOString()
+      },
+      
       metadata: {
         grade: parsedGrade,
         curriculum: curriculum || 'caps',
         provider: 'generated',
-        hasVerificationFooter: true
+        hasVerificationFooter: true,
+        hasStructuredData: parsedData !== null
       },
       performance: {
         totalTime: Date.now() - startTime,
@@ -629,99 +674,17 @@ export async function POST(request) {
       },
       timestamp: new Date().toISOString()
     };
-
-    // Apply CAG validation if we have student profile or this is an assessment submission
-    if (enhancedStudentProfile || options?.forceCAG || options?.preliminaryReport) {
-      try {
-        console.log(`[CAG VALIDATION] Applying validation layer`);
-        
-        const cagValidator = new CAGValidationService();
-        const validationResult = await cagValidator.validateCareerGuidance(
-          finalResponse,
-          enhancedStudentProfile,
-          options
-        );
-
-        // Use enhanced/corrected response based on validation
-        if (validationResult.status === 'approved' || validationResult.status === 'needs_enhancement') {
-          finalResponse = {
-            ...finalResponse,
-            ...validationResult.enhancedResponse,
-            validation: {
-              status: validationResult.status,
-              score: validationResult.overallScore,
-              confidence: validationResult.validationResults?.averageConfidence || 85,
-              validatedBy: 'CAG',
-              validationId: validationResult.validationId
-            }
-          };
-          
-          console.log(`[CAG VALIDATION] ✅ Approved with score: ${validationResult.overallScore}%`);
-        } else if (validationResult.status === 'requires_correction') {
-          finalResponse = {
-            ...finalResponse,
-            ...validationResult.enhancedResponse,
-            validation: {
-              status: validationResult.status,
-              score: validationResult.overallScore,
-              issues: validationResult.recommendations?.slice(0, 3) || [],
-              validatedBy: 'CAG',
-              validationId: validationResult.validationId
-            }
-          };
-          
-          console.log(`[CAG VALIDATION] ⚠️ Corrected with score: ${validationResult.overallScore}%`);
-        } else {
-          // Use fallback response for rejected validation
-          finalResponse = {
-            ...finalResponse,
-            ...validationResult.fallbackResponse,
-            validation: {
-              status: 'fallback',
-              score: 0,
-              reason: 'Validation failed, using safe fallback',
-              validatedBy: 'CAG',
-              validationId: validationResult.validationId
-            }
-          };
-          
-          console.log(`[CAG VALIDATION] ❌ Rejected - using fallback response`);
-        }
-
-        // Add validation performance metrics
-        finalResponse.performance.validationTime = validationResult.processingTime;
-        finalResponse.performance.totalTime = Date.now() - startTime;
-
-      } catch (validationError) {
-        console.error('[CAG VALIDATION] Validation failed, using original response:', validationError);
-        
-        // Add validation error info but continue with original response
-        finalResponse.validation = {
-          status: 'error',
-          error: validationError.message,
-          validatedBy: 'CAG'
-        };
-      }
-    } else {
-      console.log(`[CAG VALIDATION] Skipped - no student profile available`);
-      
-      finalResponse.validation = {
-        status: 'skipped',
-        reason: 'No student profile for validation',
-        validatedBy: 'CAG'
-      };
-    }
     
     // Cache the response asynchronously (but only if not assessment submission)
     if (!shouldBypassCache) {
-      setCachedResponse(cacheProfile, query, finalResponse).catch(err => {
+      setCachedResponse(cacheProfile, query, response).catch(err => {
         console.error('Cache set error:', err.message);
       });
     } else {
       console.log(`[CACHE SKIP] Not caching assessment submission response`);
     }
     
-    return NextResponse.json(finalResponse);
+    return NextResponse.json(response);
     
   } catch (error) {
     console.error('RAG Query Error:', error);

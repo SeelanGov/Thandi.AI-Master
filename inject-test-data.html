@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inject Test Data - Thandi Results</title>
+    <style>
+        body { font-family: system-ui; padding: 20px; max-width: 600px; margin: 0 auto; }
+        button { padding: 12px 24px; background: #10b981; color: white; border: none; border-radius: 6px; cursor: pointer; margin: 10px 0; }
+        button:hover { background: #059669; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Thandi Results Test</h1>
+    
+    <div class="info status">
+        <strong>Purpose:</strong> Inject test data into localStorage and verify Thandi branding is working
+    </div>
+    
+    <button onclick="injectTestData()">📝 Inject Test Data</button>
+    <button onclick="openResults()">🔗 Open Results Page</button>
+    <button onclick="clearData()">🗑️ Clear Data</button>
+    
+    <div id="status"></div>
+    
+    <h3>What to Look For:</h3>
+    <ul>
+        <li>✅ <strong>Thandi Colors:</strong> Teal headers, gold accents</li>
+        <li>✅ <strong>Visual Cards:</strong> Program recommendations as styled cards</li>
+        <li>✅ <strong>Icons:</strong> 🎯 for APS, 🏫 for universities, ⏰ for deadlines</li>
+        <li>✅ <strong>Enhanced PDF:</strong> Download should have Thandi branding</li>
+    </ul>
+
+    <script>
+        function injectTestData() {
+            const testData = {
+                fullResponse: `## Career Recommendations for Grade 12
+
+### 1. Bachelor of Engineering (Mechanical)
+**University**: University of Cape Town
+**APS Required**: 35
+**Admission Chance**: ✅ High
+**Application Deadline**: 30 September 2026
+
+- Strong foundation in Mathematics and Physical Sciences
+- Excellent career prospects in manufacturing
+- High earning potential after graduation
+
+### 2. Bachelor of Commerce (Accounting)
+**University**: University of the Witwatersrand  
+**APS Required**: 32
+**Admission Chance**: ⚠️ Moderate
+**Application Deadline**: 31 August 2026
+
+- Requires strong Mathematical Literacy
+- Professional qualification opportunities
+- Stable career path with growth potential
+
+## Financial Aid Opportunities
+
+### NSFAS Funding
+**Eligibility**: Household income below R350,000
+**Coverage**: Full tuition and accommodation
+**Application Deadline**: 31 January 2026
+
+- Apply early for best chances
+- Required documents: ID, proof of income
+- Covers living allowances
+
+⚠️ **Verify before you decide**: All information must be confirmed with institutions and official sources before making decisions.`,
+                metadata: { grade: '12' }
+            };
+            
+            localStorage.setItem('thandi_results', JSON.stringify(testData));
+            
+            document.getElementById('status').innerHTML = 
+                '<div class="success status">✅ Test data injected successfully!</div>';
+        }
+        
+        function openResults() {
+            window.open('http://localhost:3000/results', '_blank');
+        }
+        
+        function clearData() {
+            localStorage.removeItem('thandi_results');
+            document.getElementById('status').innerHTML = 
+                '<div class="info status">🗑️ Data cleared</div>';
+        }
+    </script>
+</body>
+</html>

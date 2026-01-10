@@ -1,22 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
+import jsPDF from 'jspdf';
 import ThandiChat from './components/ThandiChat';
-import ResultsCardLayout from './components/ResultsCardLayout';
-import { ResultsParser } from './services/resultsParser';
-import { formatResponse, getFormattedContentStyles } from './utils/formatResponse';
-import { trackEnhancedRecommendations, trackEnhancementFeature } from '@/lib/analytics/track-events';
-import './styles/global.css';
+import { trackEnhancedRecommendations, trackPDFDownload, trackEnhancementFeature } from '@/lib/analytics/track-events';
+import { ThandiResultsFormatter } from '@/lib/thandi-results-formatter';
+import './styles/thandi-results.css';
 
 export default function ResultsPage() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [justRegistered, setJustRegistered] = useState(false);
-  const [parsedResults, setParsedResults] = useState(null);
-  const [parsingError, setParsingError] = useState(false);
-  const [pdfGenerating, setPdfGenerating] = useState(false);
 
   useEffect(() => {
     // Check if user just registered
@@ -88,28 +83,6 @@ export default function ResultsPage() {
     }
   }, []);
 
-  // Parse results for card layout when results are loaded
-  useEffect(() => {
-    if (results) {
-      try {
-        const studentGrade = results.grade || results.metadata?.grade || '12';
-        const rawResponse = results.fullResponse || results.response;
-        
-        console.log('🔄 Parsing results for card layout, Grade:', studentGrade);
-        
-        const parsed = ResultsParser.parseResults(rawResponse, studentGrade);
-        setParsedResults(parsed);
-        setParsingError(false);
-        
-        console.log('✅ Results parsed successfully:', parsed);
-      } catch (error) {
-        console.error('❌ Failed to parse results for card layout:', error);
-        setParsingError(true);
-        // Fall back to original text rendering
-      }
-    }
-  }, [results]);
-
   const startNewAssessment = () => {
     localStorage.removeItem('thandi_assessment_data');
     localStorage.removeItem('thandi_results');
@@ -128,60 +101,111 @@ export default function ResultsPage() {
   };
 
   const downloadPDF = async () => {
-    if (!results) {
-      alert('No results available for PDF generation');
-      return;
-    }
+    if (!results) return;
 
-    setPdfGenerating(true);
-    
     try {
-      console.log('🔄 Starting PDF download...');
+      // Show loading state
+      console.log('🔄 Generating professional PDF...');
       
-      const response = await fetch('/api/pdf/generate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          results: results,
-          sessionId: Date.now().toString()
-        }),
+      // Create professional PDF with Thandi branding
+      const { ThandiPDFGenerator } = await import('@/lib/thandi-pdf-generator');
+      const generator = new ThandiPDFGenerator(results, {
+        name: 'Student', // Can be enhanced with actual student data
+        grade: results.metadata?.grade || '12'
       });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'PDF generation failed');
-      }
-
-      // Get PDF blob
-      const pdfBlob = await response.blob();
       
-      // Create download link
-      const url = window.URL.createObjectURL(pdfBlob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `career-guidance-grade-${results.grade || '12'}.pdf`;
+      const pdf = await generator.generateProfessionalReport();
       
-      // Trigger download
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Professional filename
+      const timestamp = new Date().toISOString().split('T')[0];
+      const filename = `Thandi-Career-Report-${timestamp}.pdf`;
       
-      // Clean up
-      window.URL.revokeObjectURL(url);
+      pdf.save(filename);
       
-      console.log('✅ PDF downloaded successfully');
+      // Track enhanced PDF download
+      trackPDFDownload(results.metadata?.grade || '12', true, 'professional');
+      
+      console.log('✅ Professional PDF generated successfully');
       
     } catch (error) {
-      console.error('❌ PDF download failed:', error);
-      alert(`PDF download failed: ${error.message}`);
-    } finally {
-      setPdfGenerating(false);
+      console.error('❌ Professional PDF generation failed:', error);
+      
+      // Fallback to basic PDF generation
+      console.log('🔄 Falling back to basic PDF...');
+      generateBasicPDF();
     }
   };
 
-  // PDF functionality removed for systematic approach - will be re-implemented as separate feature
+  // Keep existing basic PDF as fallback
+  const generateBasicPDF = () => {
+    const pdf = new jsPDF();
+    const pageWidth = pdf.internal.pageSize.width;
+    const pageHeight = pdf.internal.pageSize.height;
+    const margin = 20;
+    const maxWidth = pageWidth - (margin * 2);
+    let yPosition = 30;
+
+    // Thandi brand colors (RGB values for PDF)
+    const thandiColors = {
+      primary: [17, 78, 78],        // Thandi teal
+      gold: [223, 163, 58],         // Thandi gold
+      cream: [243, 230, 201],       // Background
+      brown: [92, 59, 32],          // Text accent
+      white: [255, 255, 255],
+      black: [0, 0, 0],
+      gray: [107, 114, 128]
+    };
+
+    // Add basic Thandi header
+    pdf.setFillColor(...thandiColors.primary);
+    pdf.rect(0, 0, pageWidth, 30, 'F');
+    
+    pdf.setTextColor(...thandiColors.white);
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(16);
+    pdf.text('THANDI.AI', margin, 20);
+    
+    pdf.setFontSize(10);
+    pdf.text('Career Guidance Report', margin, 25);
+    
+    yPosition = 50;
+    
+    // Basic content
+    pdf.setTextColor(...thandiColors.black);
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(18);
+    pdf.text('Your Career Guidance Report', margin, yPosition);
+    yPosition += 20;
+    
+    // Add basic content
+    const content = results.fullResponse || results.response || '';
+    const lines = content.split('\n');
+    
+    pdf.setFont('helvetica', 'normal');
+    pdf.setFontSize(10);
+    
+    lines.forEach((line) => {
+      if (yPosition > pageHeight - 30) {
+        pdf.addPage();
+        yPosition = 30;
+      }
+      
+      const cleanLine = line.replace(/\*\*/g, '').replace(/<[^>]*>/g, '');
+      if (cleanLine.trim()) {
+        const textLines = pdf.splitTextToSize(cleanLine, maxWidth);
+        pdf.text(textLines, margin, yPosition);
+        yPosition += textLines.length * 6 + 3;
+      }
+    });
+    
+    // Save basic PDF
+    const timestamp = new Date().toISOString().split('T')[0];
+    pdf.save(`thandi-career-guidance-${timestamp}.pdf`);
+    
+    // Track basic PDF download
+    const hasEnhancedContent = results.response?.includes('University') && results.response?.includes('APS');
+    trackPDFDownload(results.grade, hasEnhancedContent, 'basic');
+  };
 
   if (loading) {
     return (
@@ -193,7 +217,7 @@ export default function ResultsPage() {
         fontSize: '18px',
         color: '#6b7280'
       }}>
-        Loading your results...
+        🔍 TESTING: Enhanced formatting code is present - Loading your results...
       </div>
     );
   }
@@ -208,12 +232,8 @@ export default function ResultsPage() {
         <div className="results-header">
           <h1>Your Career Matches</h1>
           <div className="header-actions">
-            <button 
-              onClick={downloadPDF} 
-              className="btn-primary"
-              disabled={pdfGenerating}
-            >
-              {pdfGenerating ? 'Generating PDF...' : 'Download PDF'}
+            <button onClick={downloadPDF} className="btn-primary">
+              📄 Download PDF
             </button>
             <button onClick={startNewAssessment} className="btn-secondary">
               Start New Assessment
@@ -282,36 +302,13 @@ export default function ResultsPage() {
         )}
 
         <div className="results-content">
-          {parsingError ? (
-            // Fallback to original text rendering on parsing errors
-            <div className="fallback-notice">
-              <p className="fallback-title">📝 Text Format</p>
-              <p className="fallback-subtitle">Displaying results in text format</p>
-              <div 
-                className="response-text formatted-content"
-                dangerouslySetInnerHTML={{ 
-                  __html: formatResponse(results.fullResponse || results.response) 
-                }}
-              />
-              <style dangerouslySetInnerHTML={{ __html: getFormattedContentStyles() }} />
-            </div>
-          ) : parsedResults ? (
-            // New card-based layout
-            <div className="card-layout-container">
-              <div className="layout-header">
-                <h2 className="layout-title">Your Personalized Career Guidance</h2>
-                <p className="layout-subtitle">
-                  Grade {parsedResults.gradeContext?.grade} • {parsedResults.gradeContext?.phase}
-                </p>
-              </div>
-              <ResultsCardLayout parsedResults={parsedResults} />
-            </div>
-          ) : (
-            // Loading state for parsing
-            <div className="parsing-loading">
-              <p>Processing your results...</p>
-            </div>
-          )}
+          {/* Render response with markdown-style formatting */}
+          <div 
+            className="response-text"
+            dangerouslySetInnerHTML={{ 
+              __html: formatResponse(results.fullResponse || results.response) 
+            }}
+          />
         </div>
 
         {/* CRITICAL: Bottom footer backup */}
@@ -393,13 +390,8 @@ export default function ResultsPage() {
           transition: all 0.2s;
         }
 
-        .btn-primary:hover:not(:disabled) {
+        .btn-primary:hover {
           background: #059669;
-        }
-
-        .btn-primary:disabled {
-          background: #9ca3af;
-          cursor: not-allowed;
         }
 
         .btn-secondary {
@@ -423,77 +415,28 @@ export default function ResultsPage() {
           color: #374151;
         }
 
-        /* New Card Layout Styles */
-        .card-layout-container {
-          margin-top: 0;
-        }
-
-        .layout-header {
-          text-align: center;
-          margin-bottom: 32px;
-          padding: 24px;
-          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-          border-radius: 12px;
-          color: white;
-        }
-
-        .layout-title {
-          font-size: 28px;
-          font-weight: 700;
-          margin: 0 0 8px 0;
-        }
-
-        .layout-subtitle {
-          font-size: 16px;
-          margin: 0;
-          opacity: 0.9;
-        }
-
-        .fallback-notice {
-          background: #fef3c7;
-          border: 2px solid #f59e0b;
-          border-radius: 12px;
-          padding: 20px;
-          margin-bottom: 24px;
-        }
-
-        .fallback-title {
-          font-size: 18px;
-          font-weight: 600;
-          color: #92400e;
-          margin: 0 0 8px 0;
-        }
-
-        .fallback-subtitle {
-          font-size: 14px;
-          color: #92400e;
-          margin: 0 0 16px 0;
-        }
-
-        .parsing-loading {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          min-height: 200px;
-          color: #6b7280;
-          font-size: 16px;
-        }
-
         .response-text {
           font-size: 16px;
         }
 
-        /* Enhanced Content Formatting */
-        .formatted-content {
+        /* Enhanced Content Formatting - Student-Friendly Design */
+        .formatted-content.student-friendly {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        .content-section {
+        .content-section.enhanced {
           margin-bottom: 32px;
           padding: 24px;
           background: #fafafa;
           border-radius: 12px;
           border-left: 4px solid #10b981;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          transition: all 0.2s ease;
+        }
+
+        .content-section.enhanced:hover {
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          transform: translateY(-1px);
         }
 
         .section-header {
@@ -507,6 +450,14 @@ export default function ResultsPage() {
           margin: 0 0 16px 0;
           padding-bottom: 8px;
           border-bottom: 2px solid #e5e7eb;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .header-icon {
+          font-size: 28px;
+          color: #10b981;
         }
 
         .sub-header {
@@ -514,84 +465,135 @@ export default function ResultsPage() {
           font-weight: 600;
           color: #374151;
           margin: 0 0 12px 0;
+          display: flex;
+          align-items: center;
+          gap: 8px;
         }
 
-        .subsection {
+        .section-icon {
+          font-size: 18px;
+          color: #10b981;
+        }
+
+        .subsection.enhanced {
           margin: 20px 0;
           padding: 16px;
           background: white;
           border-radius: 8px;
           border: 1px solid #e5e7eb;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
-        .program-card {
+        .program-card.enhanced {
           margin: 20px 0;
-          padding: 20px;
+          padding: 0;
           background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
           border-radius: 12px;
           border: 2px solid #0ea5e9;
-          box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
+          box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+          overflow: hidden;
+        }
+
+        .program-header {
+          background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+          color: white;
+          padding: 16px 20px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .program-number {
+          background: rgba(255, 255, 255, 0.2);
+          color: white;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 16px;
         }
 
         .program-title {
           font-size: 18px;
           font-weight: 600;
-          color: #0c4a6e;
-          margin: 0 0 12px 0;
+          margin: 0;
+          flex: 1;
         }
 
-        .key-value {
+        .program-content {
+          padding: 20px;
+        }
+
+        .key-value.enhanced {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 8px 0;
-          border-bottom: 1px solid #f3f4f6;
+          padding: 12px 16px;
+          margin: 8px 0;
+          background: white;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          transition: all 0.2s ease;
         }
 
-        .key-value:last-child {
-          border-bottom: none;
+        .key-value.enhanced:hover {
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          transform: translateY(-1px);
+        }
+
+        .key-section {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex: 1;
+        }
+
+        .key-icon {
+          font-size: 18px;
+          color: #10b981;
         }
 
         .key {
           font-weight: 500;
           color: #6b7280;
-          flex: 1;
+        }
+
+        .value-section {
+          text-align: right;
         }
 
         .value {
           font-weight: 600;
           color: #1f2937;
-          text-align: right;
-          flex: 1;
+          font-size: 16px;
         }
 
         .score-item {
-          background: #f0fdf4;
-          padding: 12px;
-          border-radius: 8px;
-          border-left: 4px solid #10b981;
-          margin: 8px 0;
+          background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+          border-color: #10b981;
         }
 
-        .score-item .key {
-          color: #065f46;
+        .score-item .key-icon {
+          color: #059669;
         }
 
         .score-item .value {
           color: #059669;
           font-weight: 700;
+          font-size: 18px;
         }
 
         .deadline-item {
-          background: #fef3c7;
-          padding: 12px;
-          border-radius: 8px;
-          border-left: 4px solid #f59e0b;
-          margin: 8px 0;
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+          border-color: #f59e0b;
         }
 
-        .deadline-item .key {
-          color: #92400e;
+        .deadline-item .key-icon {
+          color: #d97706;
         }
 
         .deadline-item .value {
@@ -600,15 +602,12 @@ export default function ResultsPage() {
         }
 
         .chance-item {
-          background: #ecfdf5;
-          padding: 12px;
-          border-radius: 8px;
-          border-left: 4px solid #10b981;
-          margin: 8px 0;
+          background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+          border-color: #10b981;
         }
 
-        .chance-item .key {
-          color: #065f46;
+        .chance-item .key-icon {
+          color: #059669;
         }
 
         .chance-item .value {
@@ -616,11 +615,49 @@ export default function ResultsPage() {
           font-weight: 700;
         }
 
+        .university-item {
+          background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+          border-color: #3b82f6;
+        }
+
+        .university-item .key-icon {
+          color: #2563eb;
+        }
+
+        .university-item .value {
+          color: #2563eb;
+          font-weight: 600;
+        }
+
+        .subject-item {
+          background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+          border-color: #a855f7;
+        }
+
+        .subject-item .key-icon {
+          color: #9333ea;
+        }
+
+        .subject-item .value {
+          color: #9333ea;
+          font-weight: 600;
+        }
+
         .bullet-item {
           display: flex;
           align-items: flex-start;
-          margin: 8px 0;
-          padding: 8px 0;
+          margin: 12px 0;
+          padding: 12px 16px;
+          background: white;
+          border-radius: 8px;
+          border-left: 4px solid #10b981;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          transition: all 0.2s ease;
+        }
+
+        .bullet-item:hover {
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          transform: translateX(2px);
         }
 
         .bullet {
@@ -629,25 +666,76 @@ export default function ResultsPage() {
           margin-right: 12px;
           font-size: 18px;
           line-height: 1.2;
+          min-width: 20px;
+        }
+
+        .deadline-bullet {
+          border-left-color: #f59e0b;
+        }
+
+        .deadline-bullet .bullet {
+          color: #f59e0b;
+        }
+
+        .requirement-bullet {
+          border-left-color: #3b82f6;
+        }
+
+        .requirement-bullet .bullet {
+          color: #3b82f6;
+        }
+
+        .funding-bullet {
+          border-left-color: #10b981;
+        }
+
+        .funding-bullet .bullet {
+          color: #10b981;
         }
 
         .bullet-item .content {
           flex: 1;
           line-height: 1.6;
+          font-size: 15px;
         }
 
-        .paragraph {
+        .paragraph.enhanced {
           margin: 12px 0;
           line-height: 1.7;
           font-size: 16px;
+          padding: 12px 0;
         }
 
         .highlight {
-          background: #fef3c7;
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
           padding: 2px 6px;
           border-radius: 4px;
           font-weight: 600;
           color: #92400e;
+        }
+
+        .grade-highlight {
+          background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #1e40af;
+        }
+
+        .aps-highlight {
+          background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 700;
+          color: #166534;
+        }
+
+        .percentage-highlight {
+          background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 700;
+          color: #166534;
         }
 
         .status-icon {
@@ -688,6 +776,36 @@ export default function ResultsPage() {
           font-weight: 600;
           color: #374151;
           font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        .metric.range {
+          background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+          color: #0c4a6e;
+          font-weight: 700;
+        }
+
+        .university-highlight {
+          background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #1e40af;
+        }
+
+        .deadline-highlight {
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #d97706;
+        }
+
+        .subject-highlight {
+          background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #9333ea;
         }
 
         .warning-banner {
@@ -992,3 +1110,48 @@ export default function ResultsPage() {
     </div>
   );
 }
+
+function formatResponse(text) {
+  if (!text) return '';
+  
+  try {
+    // PERMANENT SOLUTION: Use ResultsData class for structured parsing
+    console.log('🔄 Results Page: Using ResultsData for content formatting');
+    
+    // Extract grade from results metadata or localStorage
+    const savedResults = localStorage.getItem('thandi_results');
+    let grade = '12'; // default
+    
+    if (savedResults) {
+      try {
+        const parsed = JSON.parse(savedResults);
+        grade = parsed.metadata?.grade || parsed.grade || '12';
+      } catch (e) {
+        console.warn('Could not parse saved results for grade');
+      }
+    }
+    
+    // Use ThandiResultsFormatter with enhanced structured data
+    const formatter = new ThandiResultsFormatter();
+    const formattedContent = formatter.formatResponse(text);
+    
+    console.log('✅ Results Page: Content formatted successfully with Thandi branding');
+    
+    return formattedContent;
+    
+  } catch (error) {
+    console.error('❌ Results Page: Thandi formatter error:', error);
+    
+    // Enhanced fallback with better error handling
+    console.log('🔄 Results Page: Using fallback formatting');
+    
+    return text
+      .replace(/\n/g, '<br/>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/###\s+(.+)/g, '<h3 style="color: #114E4E; margin: 1.5rem 0 0.5rem 0;">$1</h3>')
+      .replace(/##\s+(.+)/g, '<h2 style="color: #114E4E; margin: 2rem 0 1rem 0;">$1</h2>')
+      .replace(/[-•]\s+(.+)/g, '<div style="margin: 0.5rem 0; padding-left: 1rem;">• $1</div>');
+  }
+}
+
+
