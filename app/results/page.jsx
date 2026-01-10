@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import jsPDF from 'jspdf';
 import ThandiChat from './components/ThandiChat';
 import { trackEnhancedRecommendations, trackPDFDownload, trackEnhancementFeature } from '@/lib/analytics/track-events';
+import { ThandiResultsFormatter } from '@/lib/thandi-results-formatter';
+import './styles/thandi-results.css';
 
 export default function ResultsPage() {
   const [results, setResults] = useState(null);
@@ -98,9 +100,44 @@ export default function ResultsPage() {
     window.location.href = '/assessment?register=true';
   };
 
-  const downloadPDF = () => {
+  const downloadPDF = async () => {
     if (!results) return;
 
+    try {
+      // Show loading state
+      console.log('🔄 Generating professional PDF...');
+      
+      // Create professional PDF with Thandi branding
+      const { ThandiPDFGenerator } = await import('@/lib/thandi-pdf-generator');
+      const generator = new ThandiPDFGenerator(results, {
+        name: 'Student', // Can be enhanced with actual student data
+        grade: results.metadata?.grade || '12'
+      });
+      
+      const pdf = await generator.generateProfessionalReport();
+      
+      // Professional filename
+      const timestamp = new Date().toISOString().split('T')[0];
+      const filename = `Thandi-Career-Report-${timestamp}.pdf`;
+      
+      pdf.save(filename);
+      
+      // Track enhanced PDF download
+      trackPDFDownload(results.metadata?.grade || '12', true, 'professional');
+      
+      console.log('✅ Professional PDF generated successfully');
+      
+    } catch (error) {
+      console.error('❌ Professional PDF generation failed:', error);
+      
+      // Fallback to basic PDF generation
+      console.log('🔄 Falling back to basic PDF...');
+      generateBasicPDF();
+    }
+  };
+
+  // Keep existing basic PDF as fallback
+  const generateBasicPDF = () => {
     const pdf = new jsPDF();
     const pageWidth = pdf.internal.pageSize.width;
     const pageHeight = pdf.internal.pageSize.height;
@@ -108,188 +145,66 @@ export default function ResultsPage() {
     const maxWidth = pageWidth - (margin * 2);
     let yPosition = 30;
 
-    // Helper function to check if we need a new page
-    const checkPageBreak = (requiredSpace) => {
-      if (yPosition + requiredSpace > pageHeight - 30) {
-        pdf.addPage();
-        yPosition = 30;
-        return true;
-      }
-      return false;
+    // Thandi brand colors (RGB values for PDF)
+    const thandiColors = {
+      primary: [17, 78, 78],        // Thandi teal
+      gold: [223, 163, 58],         // Thandi gold
+      cream: [243, 230, 201],       // Background
+      brown: [92, 59, 32],          // Text accent
+      white: [255, 255, 255],
+      black: [0, 0, 0],
+      gray: [107, 114, 128]
     };
 
-    // 1. Add header/logo
-    pdf.setFontSize(20);
-    pdf.setTextColor(0, 0, 0);
-    pdf.text('THANDI.AI Career Guidance', margin, yPosition);
-    yPosition += 15;
-
-    // 2. Add top warning (RED, PROMINENT)
-    checkPageBreak(40);
-    pdf.setFillColor(255, 234, 167); // Yellow background
-    pdf.rect(margin - 5, yPosition - 5, maxWidth + 10, 35, 'F');
+    // Add basic Thandi header
+    pdf.setFillColor(...thandiColors.primary);
+    pdf.rect(0, 0, pageWidth, 30, 'F');
     
-    pdf.setFontSize(14);
-    pdf.setTextColor(231, 76, 60); // Red
-    pdf.text('⚠️ READ THIS FIRST:', margin, yPosition);
-    yPosition += 10;
-    
-    pdf.setFontSize(11);
-    pdf.setTextColor(0, 0, 0);
-    const warning = "This is AI-generated advice. You MUST verify it with real people before making any decision.";
-    const warningLines = pdf.splitTextToSize(warning, maxWidth);
-    pdf.text(warningLines, margin, yPosition);
-    yPosition += (warningLines.length * 6) + 15;
-
-    // 3. Add full response content with proper formatting
-    checkPageBreak(20);
-    
-    const content = results.fullResponse || results.response || '';
-    
-    // Clean and parse content
-    const cleanContent = content
-      .replace(/<[^>]*>/g, '') // Remove HTML tags
-      .replace(/⚠️[^:]*:/g, '') // Remove warning headers (we have them separately)
-      .replace(/---+/g, ''); // Remove separator lines
-    
-    // Split into lines and process each one
-    const lines = cleanContent.split('\n');
-    
-    lines.forEach((line) => {
-      line = line.trim();
-      if (!line) {
-        yPosition += 3; // Empty line = small space
-        return;
-      }
-
-      // Check if it's a heading (starts with ###, ##, or #)
-      if (line.startsWith('###')) {
-        checkPageBreak(15);
-        yPosition += 5;
-        pdf.setFontSize(12);
-        pdf.setFont(undefined, 'bold');
-        const headingText = line.replace(/^###\s*/, '');
-        const headingLines = pdf.splitTextToSize(headingText, maxWidth);
-        pdf.text(headingLines, margin, yPosition);
-        yPosition += headingLines.length * 7 + 5;
-        pdf.setFont(undefined, 'normal');
-        return;
-      }
-
-      // Check if it's a numbered list item (starts with "1.", "2.", etc.)
-      const numberedMatch = line.match(/^(\d+)\.\s*(.+)/);
-      if (numberedMatch) {
-        checkPageBreak(10);
-        pdf.setFontSize(11);
-        pdf.setTextColor(0, 0, 0);
-        pdf.setFont(undefined, 'bold');
-        pdf.text(`${numberedMatch[1]}.`, margin, yPosition);
-        pdf.setFont(undefined, 'normal');
-        
-        const itemText = numberedMatch[2].replace(/\*\*/g, ''); // Remove markdown bold
-        const itemLines = pdf.splitTextToSize(itemText, maxWidth - 15);
-        itemLines.forEach((itemLine, idx) => {
-          if (idx > 0) checkPageBreak(7);
-          pdf.text(itemLine, margin + 15, yPosition);
-          yPosition += 6;
-        });
-        yPosition += 2;
-        return;
-      }
-
-      // Check if it's a bullet point (starts with "- " or "* ")
-      if (line.startsWith('- ') || line.startsWith('* ')) {
-        checkPageBreak(10);
-        pdf.setFontSize(11);
-        pdf.setTextColor(0, 0, 0);
-        pdf.text('•', margin + 5, yPosition);
-        
-        const bulletText = line.substring(2).replace(/\*\*/g, ''); // Remove markdown bold
-        const bulletLines = pdf.splitTextToSize(bulletText, maxWidth - 15);
-        bulletLines.forEach((bulletLine, idx) => {
-          if (idx > 0) checkPageBreak(7);
-          pdf.text(bulletLine, margin + 15, yPosition);
-          yPosition += 6;
-        });
-        yPosition += 2;
-        return;
-      }
-
-      // Check if it's bold text (wrapped in **)
-      const boldMatch = line.match(/^\*\*(.+)\*\*$/);
-      if (boldMatch) {
-        checkPageBreak(10);
-        pdf.setFontSize(11);
-        pdf.setFont(undefined, 'bold');
-        const boldLines = pdf.splitTextToSize(boldMatch[1], maxWidth);
-        pdf.text(boldLines, margin, yPosition);
-        yPosition += boldLines.length * 6 + 3;
-        pdf.setFont(undefined, 'normal');
-        return;
-      }
-
-      // Regular paragraph text
-      checkPageBreak(10);
-      pdf.setFontSize(11);
-      pdf.setTextColor(0, 0, 0);
-      pdf.setFont(undefined, 'normal');
-      const cleanLine = line.replace(/\*\*/g, ''); // Remove any remaining markdown
-      const paraLines = pdf.splitTextToSize(cleanLine, maxWidth);
-      pdf.text(paraLines, margin, yPosition);
-      yPosition += paraLines.length * 6 + 3;
-    });
-
-    // 4. Add bottom verification footer
-    yPosition += 10;
-    checkPageBreak(50);
-    
-    pdf.setFillColor(255, 243, 205); // Light yellow
-    pdf.rect(margin - 5, yPosition - 5, maxWidth + 10, 45, 'F');
-    
-    pdf.setFontSize(14);
-    pdf.setTextColor(231, 76, 60); // Red
-    pdf.setFont(undefined, 'bold');
-    pdf.text('⚠️ VERIFY THIS INFORMATION BEFORE DECIDING', margin, yPosition);
-    yPosition += 10;
-    
-    pdf.setFontSize(11);
-    pdf.setTextColor(0, 0, 0);
-    pdf.setFont(undefined, 'normal');
-    pdf.text('1. Speak with your school counselor', margin, yPosition);
-    yPosition += 7;
-    pdf.text('2. Call the institution directly', margin, yPosition);
-    yPosition += 7;
-    pdf.text('3. Check official websites', margin, yPosition);
-    yPosition += 10;
+    pdf.setTextColor(...thandiColors.white);
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(16);
+    pdf.text('THANDI.AI', margin, 20);
     
     pdf.setFontSize(10);
-    pdf.setTextColor(100, 100, 100);
-    const footerNote = "Thandi's data may be outdated. Always confirm with real people.";
-    const footerLines = pdf.splitTextToSize(footerNote, maxWidth);
-    pdf.text(footerLines, margin, yPosition);
-
-    // 5. Add page numbers
-    const pageCount = pdf.internal.getNumberOfPages();
-    pdf.setFont(undefined, 'normal');
-    for (let i = 1; i <= pageCount; i++) {
-      pdf.setPage(i);
-      pdf.setFontSize(10);
-      pdf.setTextColor(150, 150, 150);
-      pdf.text(
-        `Page ${i} of ${pageCount}`,
-        pageWidth / 2,
-        pageHeight - 10,
-        { align: 'center' }
-      );
-    }
-
-    // 6. Save PDF
+    pdf.text('Career Guidance Report', margin, 25);
+    
+    yPosition = 50;
+    
+    // Basic content
+    pdf.setTextColor(...thandiColors.black);
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(18);
+    pdf.text('Your Career Guidance Report', margin, yPosition);
+    yPosition += 20;
+    
+    // Add basic content
+    const content = results.fullResponse || results.response || '';
+    const lines = content.split('\n');
+    
+    pdf.setFont('helvetica', 'normal');
+    pdf.setFontSize(10);
+    
+    lines.forEach((line) => {
+      if (yPosition > pageHeight - 30) {
+        pdf.addPage();
+        yPosition = 30;
+      }
+      
+      const cleanLine = line.replace(/\*\*/g, '').replace(/<[^>]*>/g, '');
+      if (cleanLine.trim()) {
+        const textLines = pdf.splitTextToSize(cleanLine, maxWidth);
+        pdf.text(textLines, margin, yPosition);
+        yPosition += textLines.length * 6 + 3;
+      }
+    });
+    
+    // Save basic PDF
     const timestamp = new Date().toISOString().split('T')[0];
     pdf.save(`thandi-career-guidance-${timestamp}.pdf`);
     
-    // Track PDF download with enhancement status
+    // Track basic PDF download
     const hasEnhancedContent = results.response?.includes('University') && results.response?.includes('APS');
-    trackPDFDownload(results.grade, hasEnhancedContent);
+    trackPDFDownload(results.grade, hasEnhancedContent, 'basic');
   };
 
   if (loading) {
@@ -302,7 +217,7 @@ export default function ResultsPage() {
         fontSize: '18px',
         color: '#6b7280'
       }}>
-        Loading your results...
+        🔍 TESTING: Enhanced formatting code is present - Loading your results...
       </div>
     );
   }
@@ -504,17 +419,24 @@ export default function ResultsPage() {
           font-size: 16px;
         }
 
-        /* Enhanced Content Formatting */
-        .formatted-content {
+        /* Enhanced Content Formatting - Student-Friendly Design */
+        .formatted-content.student-friendly {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
-        .content-section {
+        .content-section.enhanced {
           margin-bottom: 32px;
           padding: 24px;
           background: #fafafa;
           border-radius: 12px;
           border-left: 4px solid #10b981;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          transition: all 0.2s ease;
+        }
+
+        .content-section.enhanced:hover {
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          transform: translateY(-1px);
         }
 
         .section-header {
@@ -528,6 +450,14 @@ export default function ResultsPage() {
           margin: 0 0 16px 0;
           padding-bottom: 8px;
           border-bottom: 2px solid #e5e7eb;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .header-icon {
+          font-size: 28px;
+          color: #10b981;
         }
 
         .sub-header {
@@ -535,84 +465,135 @@ export default function ResultsPage() {
           font-weight: 600;
           color: #374151;
           margin: 0 0 12px 0;
+          display: flex;
+          align-items: center;
+          gap: 8px;
         }
 
-        .subsection {
+        .section-icon {
+          font-size: 18px;
+          color: #10b981;
+        }
+
+        .subsection.enhanced {
           margin: 20px 0;
           padding: 16px;
           background: white;
           border-radius: 8px;
           border: 1px solid #e5e7eb;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
-        .program-card {
+        .program-card.enhanced {
           margin: 20px 0;
-          padding: 20px;
+          padding: 0;
           background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
           border-radius: 12px;
           border: 2px solid #0ea5e9;
-          box-shadow: 0 2px 8px rgba(14, 165, 233, 0.1);
+          box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+          overflow: hidden;
+        }
+
+        .program-header {
+          background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+          color: white;
+          padding: 16px 20px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .program-number {
+          background: rgba(255, 255, 255, 0.2);
+          color: white;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 16px;
         }
 
         .program-title {
           font-size: 18px;
           font-weight: 600;
-          color: #0c4a6e;
-          margin: 0 0 12px 0;
+          margin: 0;
+          flex: 1;
         }
 
-        .key-value {
+        .program-content {
+          padding: 20px;
+        }
+
+        .key-value.enhanced {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 8px 0;
-          border-bottom: 1px solid #f3f4f6;
+          padding: 12px 16px;
+          margin: 8px 0;
+          background: white;
+          border-radius: 8px;
+          border: 1px solid #e5e7eb;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          transition: all 0.2s ease;
         }
 
-        .key-value:last-child {
-          border-bottom: none;
+        .key-value.enhanced:hover {
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          transform: translateY(-1px);
+        }
+
+        .key-section {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex: 1;
+        }
+
+        .key-icon {
+          font-size: 18px;
+          color: #10b981;
         }
 
         .key {
           font-weight: 500;
           color: #6b7280;
-          flex: 1;
+        }
+
+        .value-section {
+          text-align: right;
         }
 
         .value {
           font-weight: 600;
           color: #1f2937;
-          text-align: right;
-          flex: 1;
+          font-size: 16px;
         }
 
         .score-item {
-          background: #f0fdf4;
-          padding: 12px;
-          border-radius: 8px;
-          border-left: 4px solid #10b981;
-          margin: 8px 0;
+          background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+          border-color: #10b981;
         }
 
-        .score-item .key {
-          color: #065f46;
+        .score-item .key-icon {
+          color: #059669;
         }
 
         .score-item .value {
           color: #059669;
           font-weight: 700;
+          font-size: 18px;
         }
 
         .deadline-item {
-          background: #fef3c7;
-          padding: 12px;
-          border-radius: 8px;
-          border-left: 4px solid #f59e0b;
-          margin: 8px 0;
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+          border-color: #f59e0b;
         }
 
-        .deadline-item .key {
-          color: #92400e;
+        .deadline-item .key-icon {
+          color: #d97706;
         }
 
         .deadline-item .value {
@@ -621,15 +602,12 @@ export default function ResultsPage() {
         }
 
         .chance-item {
-          background: #ecfdf5;
-          padding: 12px;
-          border-radius: 8px;
-          border-left: 4px solid #10b981;
-          margin: 8px 0;
+          background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+          border-color: #10b981;
         }
 
-        .chance-item .key {
-          color: #065f46;
+        .chance-item .key-icon {
+          color: #059669;
         }
 
         .chance-item .value {
@@ -637,11 +615,49 @@ export default function ResultsPage() {
           font-weight: 700;
         }
 
+        .university-item {
+          background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+          border-color: #3b82f6;
+        }
+
+        .university-item .key-icon {
+          color: #2563eb;
+        }
+
+        .university-item .value {
+          color: #2563eb;
+          font-weight: 600;
+        }
+
+        .subject-item {
+          background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+          border-color: #a855f7;
+        }
+
+        .subject-item .key-icon {
+          color: #9333ea;
+        }
+
+        .subject-item .value {
+          color: #9333ea;
+          font-weight: 600;
+        }
+
         .bullet-item {
           display: flex;
           align-items: flex-start;
-          margin: 8px 0;
-          padding: 8px 0;
+          margin: 12px 0;
+          padding: 12px 16px;
+          background: white;
+          border-radius: 8px;
+          border-left: 4px solid #10b981;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          transition: all 0.2s ease;
+        }
+
+        .bullet-item:hover {
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          transform: translateX(2px);
         }
 
         .bullet {
@@ -650,25 +666,76 @@ export default function ResultsPage() {
           margin-right: 12px;
           font-size: 18px;
           line-height: 1.2;
+          min-width: 20px;
+        }
+
+        .deadline-bullet {
+          border-left-color: #f59e0b;
+        }
+
+        .deadline-bullet .bullet {
+          color: #f59e0b;
+        }
+
+        .requirement-bullet {
+          border-left-color: #3b82f6;
+        }
+
+        .requirement-bullet .bullet {
+          color: #3b82f6;
+        }
+
+        .funding-bullet {
+          border-left-color: #10b981;
+        }
+
+        .funding-bullet .bullet {
+          color: #10b981;
         }
 
         .bullet-item .content {
           flex: 1;
           line-height: 1.6;
+          font-size: 15px;
         }
 
-        .paragraph {
+        .paragraph.enhanced {
           margin: 12px 0;
           line-height: 1.7;
           font-size: 16px;
+          padding: 12px 0;
         }
 
         .highlight {
-          background: #fef3c7;
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
           padding: 2px 6px;
           border-radius: 4px;
           font-weight: 600;
           color: #92400e;
+        }
+
+        .grade-highlight {
+          background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #1e40af;
+        }
+
+        .aps-highlight {
+          background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 700;
+          color: #166534;
+        }
+
+        .percentage-highlight {
+          background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 700;
+          color: #166534;
         }
 
         .status-icon {
@@ -709,6 +776,36 @@ export default function ResultsPage() {
           font-weight: 600;
           color: #374151;
           font-family: 'SF Mono', Monaco, monospace;
+        }
+
+        .metric.range {
+          background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+          color: #0c4a6e;
+          font-weight: 700;
+        }
+
+        .university-highlight {
+          background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #1e40af;
+        }
+
+        .deadline-highlight {
+          background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #d97706;
+        }
+
+        .subject-highlight {
+          background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #9333ea;
         }
 
         .warning-banner {
@@ -1017,123 +1114,44 @@ export default function ResultsPage() {
 function formatResponse(text) {
   if (!text) return '';
   
-  // Clean up the text first
-  let cleaned = text
-    // Remove duplicate verification warnings and separators
-    .replace(/---+\s*⚠️[^-]*---+/g, '')
-    .replace(/⚠️ \*\*Verify before you decide[^⚠️]*⚠️[^⚠️]*$/g, '')
-    .replace(/---+/g, '')
-    .trim();
-  
-  // Split into sections for better processing
-  const sections = cleaned.split(/(?=^##?\s)/gm).filter(section => section.trim());
-  
-  let formatted = '';
-  
-  sections.forEach(section => {
-    const lines = section.split('\n').filter(line => line.trim());
-    let sectionHtml = '';
+  try {
+    // PERMANENT SOLUTION: Use ResultsData class for structured parsing
+    console.log('🔄 Results Page: Using ResultsData for content formatting');
     
-    lines.forEach((line, index) => {
-      line = line.trim();
-      if (!line) return;
-      
-      // Main headers (# or ##)
-      if (line.match(/^##?\s+(.+)/)) {
-        const headerText = line.replace(/^##?\s+/, '');
-        sectionHtml += `<div class="section-header">
-          <h2 class="main-header">${headerText}</h2>
-        </div>`;
-        return;
-      }
-      
-      // Sub headers (###)
-      if (line.match(/^###\s+(.+)/)) {
-        const headerText = line.replace(/^###\s+/, '');
-        
-        // Special styling for numbered programs/bursaries
-        if (headerText.match(/^\d+\./)) {
-          sectionHtml += `<div class="program-card">
-            <h3 class="program-title">${headerText}</h3>
-          `;
-        } else {
-          sectionHtml += `<div class="subsection">
-            <h3 class="sub-header">${headerText}</h3>
-          `;
-        }
-        return;
-      }
-      
-      // Key-value pairs (APS scores, deadlines, etc.)
-      const kvMatch = line.match(/^(.+?):\s*(.+)$/);
-      if (kvMatch && !line.includes('http')) {
-        const key = kvMatch[1].replace(/\*\*/g, '');
-        const value = kvMatch[2].replace(/\*\*/g, '');
-        
-        // Special styling for important metrics
-        let className = 'key-value';
-        if (key.toLowerCase().includes('aps') || key.toLowerCase().includes('score')) {
-          className += ' score-item';
-        } else if (key.toLowerCase().includes('deadline')) {
-          className += ' deadline-item';
-        } else if (key.toLowerCase().includes('chance') || key.toLowerCase().includes('eligibility')) {
-          className += ' chance-item';
-        }
-        
-        sectionHtml += `<div class="${className}">
-          <span class="key">${key}:</span>
-          <span class="value">${formatValue(value)}</span>
-        </div>`;
-        return;
-      }
-      
-      // Bullet points
-      if (line.match(/^[-*]\s+(.+)/)) {
-        const content = line.replace(/^[-*]\s+/, '').replace(/\*\*/g, '');
-        sectionHtml += `<div class="bullet-item">
-          <span class="bullet">•</span>
-          <span class="content">${content}</span>
-        </div>`;
-        return;
-      }
-      
-      // Regular paragraphs
-      if (line.length > 0) {
-        const formattedLine = line
-          .replace(/\*\*(.*?)\*\*/g, '<strong class="highlight">$1</strong>')
-          .replace(/✅/g, '<span class="status-icon success">✅</span>')
-          .replace(/⚠️/g, '<span class="status-icon warning">⚠️</span>')
-          .replace(/🚨/g, '<span class="status-icon critical">🚨</span>')
-          .replace(/ℹ️/g, '<span class="status-icon info">ℹ️</span>');
-        
-        sectionHtml += `<div class="paragraph">${formattedLine}</div>`;
-      }
-    });
+    // Extract grade from results metadata or localStorage
+    const savedResults = localStorage.getItem('thandi_results');
+    let grade = '12'; // default
     
-    // Close any open program cards
-    if (sectionHtml.includes('program-card') && !sectionHtml.includes('</div>')) {
-      sectionHtml += '</div>';
+    if (savedResults) {
+      try {
+        const parsed = JSON.parse(savedResults);
+        grade = parsed.metadata?.grade || parsed.grade || '12';
+      } catch (e) {
+        console.warn('Could not parse saved results for grade');
+      }
     }
     
-    formatted += `<div class="content-section">${sectionHtml}</div>`;
-  });
-  
-  return `<div class="formatted-content">${formatted}</div>`;
+    // Use ThandiResultsFormatter with enhanced structured data
+    const formatter = new ThandiResultsFormatter();
+    const formattedContent = formatter.formatResponse(text);
+    
+    console.log('✅ Results Page: Content formatted successfully with Thandi branding');
+    
+    return formattedContent;
+    
+  } catch (error) {
+    console.error('❌ Results Page: Thandi formatter error:', error);
+    
+    // Enhanced fallback with better error handling
+    console.log('🔄 Results Page: Using fallback formatting');
+    
+    return text
+      .replace(/\n/g, '<br/>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/###\s+(.+)/g, '<h3 style="color: #114E4E; margin: 1.5rem 0 0.5rem 0;">$1</h3>')
+      .replace(/##\s+(.+)/g, '<h2 style="color: #114E4E; margin: 2rem 0 1rem 0;">$1</h2>')
+      .replace(/[-•]\s+(.+)/g, '<div style="margin: 0.5rem 0; padding-left: 1rem;">• $1</div>');
+  }
 }
 
-function formatValue(value) {
-  // Add special formatting for different types of values
-  if (value.includes('✅') || value.includes('⚠️') || value.includes('🚨')) {
-    return value
-      .replace(/✅/g, '<span class="status-icon success">✅</span>')
-      .replace(/⚠️/g, '<span class="status-icon warning">⚠️</span>')
-      .replace(/🚨/g, '<span class="status-icon critical">🚨</span>');
-  }
-  
-  // Highlight percentages and scores
-  if (value.match(/\d+%/) || value.match(/\d+-\d+/)) {
-    return `<span class="metric">${value}</span>`;
-  }
-  
-  return value;
-}
+

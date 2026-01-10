@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Results Test - Thandi.AI</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f9fafb;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .test-button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .test-button:hover {
+            background: #059669;
+        }
+        .status {
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-weight: 500;
+        }
+        .status.success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #10b981;
+        }
+        .status.info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Enhanced Results Formatting Test</h1>
+            <p>Test the improved student-friendly results presentation</p>
+        </div>
+
+        <div class="status info">
+            <strong>📋 Test Instructions:</strong><br>
+            1. Click "Load Sample Results" to populate localStorage with test data<br>
+            2. Click "View Enhanced Results" to see the improved formatting<br>
+            3. Compare with the original formatting
+        </div>
+
+        <div style="text-align: center;">
+            <button class="test-button" onclick="loadSampleResults()">
+                📊 Load Sample Results
+            </button>
+            <button class="test-button" onclick="viewResults()">
+                👀 View Enhanced Results
+            </button>
+            <button class="test-button" onclick="clearResults()">
+                🗑️ Clear Results
+            </button>
+        </div>
+
+        <div id="status-message"></div>
+
+        <div style="margin-top: 32px; padding: 20px; background: #f3f4f6; border-radius: 8px;">
+            <h3>🎨 Enhanced Features:</h3>
+            <ul style="line-height: 1.6;">
+                <li><strong>Visual Cards:</strong> Programs and bursaries in distinct visual cards</li>
+                <li><strong>Icon Categories:</strong> 🎯 APS scores, ⏰ deadlines, 🏫 universities, 📚 subjects</li>
+                <li><strong>Color Coding:</strong> Green for scores, orange for deadlines, blue for universities</li>
+                <li><strong>Hover Effects:</strong> Interactive cards with smooth transitions</li>
+                <li><strong>Better Hierarchy:</strong> Clear visual separation of information</li>
+                <li><strong>Student Context:</strong> Grade-specific guidance and terminology</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 24px; padding: 16px; background: #fef3c7; border-radius: 8px; border: 1px solid #f59e0b;">
+            <strong>⚠️ Note:</strong> This test demonstrates the enhanced formatting with sample data. 
+            The actual results page will use real assessment data and maintain all existing functionality 
+            including PDF generation, registration CTAs, and verification warnings.
+        </div>
+    </div>
+
+    <script>
+        function loadSampleResults() {
+            const sampleResults = {
+                fullResponse: `# Your Career Guidance Results
+
+## University Program Recommendations
+
+### 1. Bachelor of Engineering (Mechanical) - University of Cape Town
+
+**APS Required**: 42
+**Your Projected APS**: 38-44
+**Admission Chance**: 75%
+**Application Deadline**: 30 September 2026
+**Duration**: 4 years
+**Subject Requirements**: Mathematics, Physical Sciences, English
+
+- Strong match for your interests in problem-solving
+- Excellent career prospects in automotive industry
+- High starting salaries (R450,000 - R600,000)
+- Apply early for best chances
+
+### 2. Bachelor of Science (Computer Science) - University of the Witwatersrand
+
+**APS Required**: 40
+**Your Projected APS**: 38-44
+**Admission Chance**: 85%
+**Application Deadline**: 31 August 2026
+**Duration**: 3 years
+**Subject Requirements**: Mathematics, Physical Sciences
+
+- Perfect match for your technology interests
+- Growing field with excellent job security
+- Starting salaries: R350,000 - R500,000
+- Many bursary opportunities available
+
+## Financial Aid Opportunities
+
+### NSFAS Bursary
+**Amount**: Full tuition + living allowance
+**Eligibility Match**: 95%
+**Deadline**: 31 January 2026 🚨
+**Qualification Reasons**:
+- Household income below R350,000
+- South African citizen
+- Grade 12 student
+
+### Sasol Engineering Bursary
+**Amount**: R80,000 per year
+**Eligibility Match**: 80%
+**Deadline**: 31 March 2026 ⚠️
+**Qualification Reasons**:
+- Strong Mathematics and Physical Sciences marks
+- Interest in engineering field
+- Commitment to work for Sasol after graduation
+
+## Your Action Plan
+
+**Timeline**: Grade 12 - Critical decision year (1 year to matric)
+
+1. **Submit university applications by 31 August 2026** ⏰
+2. **Apply for NSFAS by 31 January 2026** 🚨
+3. **Focus on improving Mathematics marks** 📚
+4. **Research backup options** 📋
+5. **Prepare for NSC examinations** ✅
+
+**Grade 12 Focus Areas**:
+- Application deadlines are critical
+- NSC preparation is your top priority
+- Final decisions must be made soon
+- Backup planning is essential
+
+⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with real people before making decisions.`,
+                metadata: {
+                    grade: '12',
+                    curriculum: 'IEB',
+                    hasVerificationFooter: true
+                }
+            };
+
+            localStorage.setItem('thandi_results', JSON.stringify(sampleResults));
+            
+            document.getElementById('status-message').innerHTML = `
+                <div class="status success">
+                    ✅ <strong>Sample results loaded!</strong><br>
+                    Data stored in localStorage. Click "View Enhanced Results" to see the improved formatting.
+                </div>
+            `;
+        }
+
+        function viewResults() {
+            window.open('/results', '_blank');
+        }
+
+        function clearResults() {
+            localStorage.removeItem('thandi_results');
+            localStorage.removeItem('thandi_assessment_data');
+            localStorage.removeItem('thandi_session_token');
+            
+            document.getElementById('status-message').innerHTML = `
+                <div class="status info">
+                    🗑️ <strong>Results cleared!</strong><br>
+                    localStorage has been cleared. The results page will now show the loading state.
+                </div>
+            `;
+        }
+
+        // Check current status on load
+        window.onload = function() {
+            const hasResults = localStorage.getItem('thandi_results');
+            if (hasResults) {
+                document.getElementById('status-message').innerHTML = `
+                    <div class="status success">
+                        ✅ <strong>Results data found!</strong><br>
+                        Click "View Enhanced Results" to see the current formatting.
+                    </div>
+                `;
+            } else {
+                document.getElementById('status-message').innerHTML = `
+                    <div class="status info">
+                        📝 <strong>No results data found.</strong><br>
+                        Click "Load Sample Results" to populate test data.
+                    </div>
+                `;
+            }
+        };
+    </script>
+</body>
+</html>

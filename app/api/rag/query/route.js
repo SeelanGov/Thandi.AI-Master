@@ -604,6 +604,46 @@ export async function POST(request) {
     // Generate proper career guidance response with verification footer
     const careerGuidance = generateCareerGuidance(query, parsedGrade, curriculum, enhancedStudentProfile);
     
+    // PERMANENT SOLUTION: Add structured data parsing to API response
+    let parsedData = null;
+    let parsingErrors = [];
+    
+    try {
+      console.log('🔄 API: Adding structured data parsing to response');
+      
+      // Import ResultsData class
+      const { ResultsData } = await import('@/lib/results-data.js');
+      
+      // Create ResultsData instance and parse
+      const resultsData = new ResultsData(
+        careerGuidance.fullResponse, 
+        parsedGrade, 
+        {
+          curriculum: curriculum || 'caps',
+          provider: 'generated',
+          timestamp: new Date().toISOString()
+        }
+      );
+      
+      // Parse the data
+      parsedData = await resultsData.parse();
+      
+      // Get validation status
+      const validationStatus = resultsData.getValidationStatus();
+      
+      console.log('✅ API: Structured data parsed successfully');
+      console.log('📊 API: Validation status:', validationStatus);
+      
+      // Add any warnings to parsing errors for client awareness
+      if (resultsData.warnings.length > 0) {
+        parsingErrors = resultsData.warnings;
+      }
+      
+    } catch (error) {
+      console.error('❌ API: Structured data parsing failed:', error);
+      parsingErrors.push(`Content parsing failed: ${error.message}`);
+    }
+    
     const response = {
       success: true,
       query,
@@ -612,11 +652,21 @@ export async function POST(request) {
       response: careerGuidance.response,
       fullResponse: careerGuidance.fullResponse,
       results: careerGuidance.results,
+      
+      // NEW: Add structured data to response
+      parsedData: parsedData,
+      parsingStatus: {
+        success: parsedData !== null,
+        errors: parsingErrors,
+        timestamp: new Date().toISOString()
+      },
+      
       metadata: {
         grade: parsedGrade,
         curriculum: curriculum || 'caps',
         provider: 'generated',
-        hasVerificationFooter: true
+        hasVerificationFooter: true,
+        hasStructuredData: parsedData !== null
       },
       performance: {
         totalTime: Date.now() - startTime,

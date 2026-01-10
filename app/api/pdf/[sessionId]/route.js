@@ -12,7 +12,7 @@ import { NextResponse } from 'next/server';
  */
 export async function GET(request, { params }) {
   try {
-    const { sessionId } = params;
+    const { sessionId } = await params;
     
     console.log('📄 PDF requested for session:', sessionId);
 

@@ -1,0 +1,413 @@
+/* Thandi Results Page Styling System */
+/* Integrates with existing Thandi design system */
+
+.thandi-results-content {
+  font-family: var(--font-nunito), system-ui, sans-serif;
+  color: var(--assessment-text-primary);
+  line-height: 1.6;
+}
+
+/* Section Headers with Thandi Branding */
+.thandi-section-header {
+  margin: 2rem 0 1.5rem 0;
+}
+
+.thandi-header-card {
+  background: linear-gradient(135deg, var(--thandi-teal) 0%, var(--thandi-teal-mid) 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-thandi-lg);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.thandi-header-icon {
+  font-size: 2rem;
+  color: var(--thandi-gold);
+}
+
+.thandi-main-header {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+/* Content Sections */
+.thandi-content-section {
+  margin-bottom: 2rem;
+}
+
+/* Program Cards with Thandi Styling */
+.thandi-program-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-thandi);
+  border: 1px solid var(--assessment-border);
+  margin: 1.5rem 0;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.thandi-program-card:hover {
+  box-shadow: var(--shadow-thandi-lg);
+  transform: translateY(-2px);
+}
+
+.thandi-program-header {
+  background: linear-gradient(135deg, var(--thandi-gold) 0%, #c8922e 100%);
+  color: var(--thandi-teal);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.thandi-program-number {
+  background: rgba(17, 78, 78, 0.2);
+  color: var(--thandi-teal);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.thandi-program-title {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+}
+
+.thandi-program-content {
+  padding: 1.5rem;
+}
+
+/* Subsection Cards */
+.thandi-subsection-card {
+  background: var(--thandi-cream);
+  border: 1px solid rgba(17, 78, 78, 0.1);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin: 1rem 0;
+}
+
+.thandi-sub-header {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--thandi-teal);
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.thandi-section-icon {
+  font-size: 1.125rem;
+  color: var(--thandi-gold);
+}
+
+/* Key-Value Pairs with Thandi Visual Indicators */
+.thandi-key-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--assessment-border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.thandi-key-value:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.thandi-key-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.thandi-key-icon {
+  font-size: 1.125rem;
+  color: var(--thandi-teal);
+}
+
+.thandi-key {
+  font-weight: 500;
+  color: var(--assessment-text-secondary);
+}
+
+.thandi-value-section {
+  text-align: right;
+}
+
+.thandi-value {
+  font-weight: 600;
+  color: var(--assessment-text-primary);
+  font-size: 1rem;
+}
+
+/* Specialized Key-Value Styling */
+.thandi-score-item {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: var(--thandi-teal-light);
+}
+
+.thandi-score-item .thandi-key-icon {
+  color: var(--thandi-teal-light);
+}
+
+.thandi-score-item .thandi-value {
+  color: var(--thandi-teal-light);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.thandi-deadline-item {
+  background: linear-gradient(135deg, var(--thandi-cream) 0%, #f4e6c7 100%);
+  border-color: var(--thandi-gold);
+}
+
+.thandi-deadline-item .thandi-key-icon {
+  color: var(--thandi-gold);
+}
+
+.thandi-deadline-item .thandi-value {
+  color: var(--thandi-brown);
+  font-weight: 700;
+}
+
+.thandi-chance-item {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-color: var(--thandi-teal-light);
+}
+
+.thandi-university-item {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border-color: #3b82f6;
+}
+
+.thandi-subject-item {
+  background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+  border-color: #a855f7;
+}
+
+/* Enhanced Bullet Points */
+.thandi-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.75rem 0;
+  padding: 0.75rem 1rem;
+  background: white;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--thandi-teal-light);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.thandi-bullet-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateX(2px);
+}
+
+.thandi-bullet {
+  color: var(--thandi-teal-light);
+  font-weight: bold;
+  margin-right: 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  min-width: 1.25rem;
+}
+
+.thandi-bullet-content {
+  flex: 1;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+/* Specialized Bullet Styling */
+.thandi-deadline-bullet {
+  border-left-color: var(--thandi-gold);
+}
+
+.thandi-deadline-bullet .thandi-bullet {
+  color: var(--thandi-gold);
+}
+
+.thandi-requirement-bullet {
+  border-left-color: #3b82f6;
+}
+
+.thandi-requirement-bullet .thandi-bullet {
+  color: #3b82f6;
+}
+
+.thandi-funding-bullet {
+  border-left-color: var(--thandi-teal-light);
+}
+
+/* Enhanced Paragraphs */
+.thandi-paragraph {
+  margin: 0.75rem 0;
+  line-height: 1.7;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+}
+
+/* Text Highlighting with Thandi Colors */
+.thandi-highlight {
+  background: linear-gradient(135deg, var(--thandi-cream) 0%, #f4e6c7 100%);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  color: var(--thandi-brown);
+}
+
+.thandi-grade-highlight {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.thandi-aps-highlight {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  color: var(--thandi-teal);
+}
+
+.thandi-percentage-highlight {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  color: var(--thandi-teal);
+}
+
+.thandi-university-highlight {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  color: #1e40af;
+}
+
+.thandi-deadline-highlight {
+  background: linear-gradient(135deg, var(--thandi-cream) 0%, #f4e6c7 100%);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  color: var(--thandi-brown);
+}
+
+/* Status Icons */
+.thandi-status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  margin: 0 0.25rem;
+}
+
+.thandi-status-icon.thandi-success {
+  background: #dcfce7;
+  color: var(--thandi-teal);
+}
+
+.thandi-status-icon.thandi-warning {
+  background: var(--thandi-cream);
+  color: var(--thandi-gold);
+}
+
+.thandi-status-icon.thandi-critical {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.thandi-status-icon.thandi-info {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .thandi-header-card {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .thandi-main-header {
+    font-size: 1.25rem;
+  }
+  
+  .thandi-program-header {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .thandi-program-content {
+    padding: 1rem;
+  }
+  
+  .thandi-key-value {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .thandi-value-section {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .thandi-bullet-item {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Print Styles for PDF Generation */
+@media print {
+  .thandi-results-content {
+    color: black;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .thandi-header-card,
+  .thandi-program-header {
+    background: #f5f5f5 !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+  }
+  
+  .thandi-key-value,
+  .thandi-bullet-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
