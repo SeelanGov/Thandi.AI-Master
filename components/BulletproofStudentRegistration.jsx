@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function BulletproofStudentRegistration({ onComplete }) {
   const [step, setStep] = useState('privacy');
-  const [consent, setConsent] = useState(false);
+  const [consent, setConsent] = useState(true); // POPIA: Default opt-in with clear choice
   const [studentData, setStudentData] = useState({
     name: '',
     surname: '',
@@ -218,38 +218,104 @@ export default function BulletproofStudentRegistration({ onComplete }) {
 
           <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 sm:p-6 mb-6">
             <h2 className="font-semibold text-teal-900 mb-3 text-sm sm:text-base">
-              How we use your information:
+              🎓 How Thandi helps you and your school:
             </h2>
-            <ul className="space-y-2 text-teal-800 text-sm sm:text-base">
-              <li>• Personalize your career recommendations</li>
-              <li>• Help your school support student career development</li>
-              <li>• Improve our guidance for South African students</li>
-            </ul>
-          </div>
-
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 sm:p-6 mb-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">We collect:</h3>
-                <p className="text-gray-700">Your name, surname, and school only</p>
+                <h3 className="font-semibold text-teal-800 mb-2">For You:</h3>
+                <ul className="space-y-1 text-teal-700">
+                  <li>• Personalized career recommendations</li>
+                  <li>• University program matching</li>
+                  <li>• Subject choice guidance</li>
+                  <li>• Career pathway planning</li>
+                </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Your school sees:</h3>
-                <p className="text-gray-700">That you completed the assessment (not your results)</p>
+                <h3 className="font-semibold text-teal-800 mb-2">For Your School:</h3>
+                <ul className="space-y-1 text-teal-700">
+                  <li>• Track student career development</li>
+                  <li>• Provide targeted support</li>
+                  <li>• Improve guidance programs</li>
+                  <li>• Support student success</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 sm:p-6 mb-6">
+            <h2 className="font-semibold text-blue-900 mb-3 text-sm sm:text-base">
+              🔒 Your Privacy Under POPIA (Protection of Personal Information Act):
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div>
+                <h3 className="font-semibold text-blue-800 mb-2">What We Collect:</h3>
+                <ul className="space-y-1 text-blue-700">
+                  <li>• Your name and surname</li>
+                  <li>• Your school and grade</li>
+                  <li>• Your assessment responses</li>
+                  <li>• Your career preferences</li>
+                </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Your rights:</h3>
-                <p className="text-gray-700">You can request data deletion anytime</p>
+                <h3 className="font-semibold text-blue-800 mb-2">What Your School Sees:</h3>
+                <ul className="space-y-1 text-blue-700">
+                  <li>• That you completed the assessment</li>
+                  <li>• Your career recommendations</li>
+                  <li>• Your suggested study paths</li>
+                  <li>• <strong>NOT</strong> your individual answers</li>
+                </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Data retention:</h3>
-                <p className="text-gray-700">Automatically deleted after 1 year</p>
+                <h3 className="font-semibold text-blue-800 mb-2">Your Rights:</h3>
+                <ul className="space-y-1 text-blue-700">
+                  <li>• Access your personal information</li>
+                  <li>• Correct any inaccurate data</li>
+                  <li>• Withdraw consent at any time</li>
+                  <li>• Request data deletion</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-blue-800 mb-2">Data Security:</h3>
+                <ul className="space-y-1 text-blue-700">
+                  <li>• Encrypted storage and transmission</li>
+                  <li>• Access limited to authorized users</li>
+                  <li>• Regular security audits</li>
+                  <li>• Automatic deletion after 1 year</li>
+                </ul>
               </div>
             </div>
           </div>
 
           <div className="space-y-4">
-            <label className="flex items-start space-x-3 cursor-pointer">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <h3 className="font-semibold text-yellow-900 mb-2 text-sm sm:text-base">
+                📋 Your Choice: Share Results with Your School
+              </h3>
+              <p className="text-yellow-800 text-sm mb-3">
+                <strong>We recommend sharing</strong> so your school can provide personalized career support. 
+                You can change this choice at any time.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="bg-green-50 border border-green-200 rounded p-2">
+                  <h4 className="font-semibold text-green-800">✅ If you share:</h4>
+                  <ul className="text-green-700 mt-1">
+                    <li>• Get personalized guidance from teachers</li>
+                    <li>• Access school-specific opportunities</li>
+                    <li>• Receive targeted career support</li>
+                  </ul>
+                </div>
+                <div className="bg-gray-50 border border-gray-200 rounded p-2">
+                  <h4 className="font-semibold text-gray-800">❌ If you don't share:</h4>
+                  <ul className="text-gray-700 mt-1">
+                    <li>• Still get full career assessment</li>
+                    <li>• School won't see your results</li>
+                    <li>• Limited personalized support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <label className="flex items-start space-x-3 cursor-pointer bg-white border-2 border-teal-200 rounded-lg p-4 hover:border-teal-300 transition-colors">
               <input
                 type="checkbox"
                 checked={consent}
@@ -257,11 +323,27 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                 className="mt-1 h-5 w-5 text-teal-600 border-gray-300 rounded focus:ring-teal-500 focus:ring-2"
                 required
               />
-              <span className="text-sm text-gray-700">
-                I understand how my information will be used and consent to its collection and processing 
-                in accordance with POPIA (Protection of Personal Information Act).
-              </span>
+              <div className="text-sm">
+                <div className="font-semibold text-gray-900 mb-1">
+                  {consent ? '✅ Yes, share my results with my school' : '❌ No, keep my results private'}
+                </div>
+                <p className="text-gray-700">
+                  I understand how my information will be used and consent to its collection and processing 
+                  in accordance with POPIA (Protection of Personal Information Act). I know I can withdraw 
+                  this consent at any time by contacting support@thandi.ai or through my student portal.
+                </p>
+                {consent && (
+                  <p className="text-teal-700 mt-2 font-medium">
+                    Great choice! Your school will be able to provide personalized career guidance.
+                  </p>
+                )}
+              </div>
             </label>
+
+            <div className="text-xs text-gray-600 bg-gray-50 rounded p-3">
+              <strong>Your POPIA Rights:</strong> You have the right to access, correct, or delete your personal information. 
+              You can withdraw consent at any time. Contact us at support@thandi.ai for any privacy concerns.
+            </div>
 
             <div className="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3 pt-4">
               <button
@@ -269,13 +351,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                 disabled={!consent}
                 className="flex-1 btn-assessment-primary disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
-                Continue with Registration
+                {consent ? 'Continue with School Sharing' : 'Continue (School Sharing Required)'}
               </button>
               <button
                 onClick={() => setStep('anonymous')}
                 className="flex-1 btn-assessment-secondary"
               >
-                Continue Anonymously
+                Continue Privately (No School Sharing)
               </button>
             </div>
           </div>

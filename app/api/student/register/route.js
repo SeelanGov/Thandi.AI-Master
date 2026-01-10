@@ -20,6 +20,21 @@ export async function POST(request) {
       consent_version 
     } = body;
 
+    // POPIA Enhancement: Extract consent metadata
+    const clientIP = request.headers.get('x-forwarded-for') || 
+                     request.headers.get('x-real-ip') || 
+                     request.ip || 
+                     'unknown';
+    const userAgent = request.headers.get('user-agent') || 'unknown';
+    const consentMetadata = {
+      ip_address: clientIP,
+      user_agent: userAgent,
+      consent_method: 'web_form_registration',
+      consent_context: 'initial_registration',
+      consent_timestamp: consent_timestamp || new Date().toISOString(),
+      consent_version: consent_version || 'v2.0_popia_compliant'
+    };
+
     // Validate required fields
     if (!student_name || !student_surname || !school_id || !grade) {
       return NextResponse.json(
@@ -66,15 +81,16 @@ export async function POST(request) {
       );
     }
 
-    // PHASE 0: Use new student-school association function
+    // PHASE 0: Use new student-school association function with enhanced consent
     const { data: associationResult, error: associationError } = await supabase
       .rpc('create_student_school_association', {
         p_student_name: student_name.trim(),
         p_student_surname: student_surname.trim(),
         p_school_id: school_id,
         p_grade: parseInt(grade),
-        p_consent_given: true,
-        p_consent_method: 'web_form_registration'
+        p_consent_given: consent_given,
+        p_consent_method: 'web_form_registration',
+        p_consent_metadata: consentMetadata
       });
 
     if (associationError || !associationResult.success) {
@@ -97,9 +113,10 @@ export async function POST(request) {
         school_id: school_id, // Now properly linked
         grade: parseInt(grade),
         student_profile_id: studentId, // Link to student profile
-        consent_given: true,
-        consent_timestamp: consent_timestamp || new Date().toISOString(),
-        consent_version: consent_version || 'v1.0',
+        consent_given: consent_given,
+        consent_timestamp: consentMetadata.consent_timestamp,
+        consent_version: consentMetadata.consent_version,
+        consent_metadata: consentMetadata, // POPIA: Enhanced consent tracking
         assessment_data: {
           // Phase 0: Enhanced school integration metadata
           school_master_id: school.school_id,
@@ -122,8 +139,11 @@ export async function POST(request) {
           
           // POPIA compliance tracking
           data_source: 'student_self_registration',
-          consent_method: 'web_form_checkbox',
-          consent_recorded_at: new Date().toISOString()
+          consent_method: consentMetadata.consent_method,
+          consent_recorded_at: consentMetadata.consent_timestamp,
+          consent_ip_address: consentMetadata.ip_address,
+          consent_user_agent: consentMetadata.user_agent,
+          popia_compliant: true
         }
       })
       .select()
