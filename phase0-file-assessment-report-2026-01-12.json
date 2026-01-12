@@ -1,0 +1,317 @@
+{
+  "timestamp": "2026-01-12T11:10:07.625Z",
+  "branches": {
+    "origin/backup-2026-01-10-phase0-task6-rls-implementation": {
+      "exists": true
+    },
+    "origin/backup-2026-01-10-student-school-integration": {
+      "exists": true
+    },
+    "origin/backup-2026-01-10-task4-popia-consent": {
+      "exists": true
+    },
+    "origin/backup-jan-4-2026-complete-work": {
+      "exists": true
+    },
+    "origin/backup-pre-landing-page-changes-jan-3-2026": {
+      "exists": true
+    },
+    "origin/main": {
+      "exists": true
+    }
+  },
+  "files": {
+    "main": [
+      "components\\BulletproofStudentRegistration.jsx",
+      "components\\school\\AtRiskList.js",
+      "components\\school\\DashboardLayout.js",
+      "components\\school\\StatsCard.js",
+      "components\\school\\StudentTable.js",
+      "components\\StudentRegistration.jsx",
+      "components\\ui\\Button.js",
+      "components\\ui\\Card.js",
+      "components\\ui\\Progress.js",
+      "app\\api\\cache\\health\\route.js",
+      "app\\api\\g10-12\\route.js",
+      "app\\api\\health\\route.js",
+      "app\\api\\pdf\\generate\\route.js",
+      "app\\api\\pdf\\[sessionId]\\route.js",
+      "app\\api\\rag\\query\\route-backup.js",
+      "app\\api\\rag\\query\\route-real-db.js",
+      "app\\api\\rag\\query\\route-simple.js",
+      "app\\api\\rag\\query\\route-with-cag.js",
+      "app\\api\\rag\\query\\route.js",
+      "app\\api\\rag\\README.md",
+      "app\\api\\school\\dashboard\\stats\\route.js",
+      "app\\api\\school\\login\\route.js",
+      "app\\api\\school\\students\\at-risk\\route.js",
+      "app\\api\\school\\students\\route.js",
+      "app\\api\\schools\\claim\\route.js",
+      "app\\api\\schools\\login\\route.js",
+      "app\\api\\schools\\request-addition\\route.js",
+      "app\\api\\schools\\search\\route.js",
+      "app\\api\\schools\\validate-code\\route.js",
+      "app\\api\\student\\register\\route.js",
+      "app\\admin\\page.js",
+      "app\\api\\cache\\health\\route.js",
+      "app\\api\\g10-12\\route.js",
+      "app\\api\\health\\route.js",
+      "app\\api\\pdf\\generate\\route.js",
+      "app\\api\\pdf\\[sessionId]\\route.js",
+      "app\\api\\rag\\query\\route-backup.js",
+      "app\\api\\rag\\query\\route-real-db.js",
+      "app\\api\\rag\\query\\route-simple.js",
+      "app\\api\\rag\\query\\route-with-cag.js",
+      "app\\api\\rag\\query\\route.js",
+      "app\\api\\rag\\README.md",
+      "app\\api\\school\\dashboard\\stats\\route.js",
+      "app\\api\\school\\login\\route.js",
+      "app\\api\\school\\students\\at-risk\\route.js",
+      "app\\api\\school\\students\\route.js",
+      "app\\api\\schools\\claim\\route.js",
+      "app\\api\\schools\\login\\route.js",
+      "app\\api\\schools\\request-addition\\route.js",
+      "app\\api\\schools\\search\\route.js",
+      "app\\api\\schools\\validate-code\\route.js",
+      "app\\api\\student\\register\\route.js",
+      "app\\assessment\\components\\AssessmentForm.jsx",
+      "app\\assessment\\components\\AssessmentPageClient.jsx",
+      "app\\assessment\\components\\ConsentCheckbox.jsx",
+      "app\\assessment\\components\\Constraints.jsx",
+      "app\\assessment\\components\\CurriculumProfile.jsx",
+      "app\\assessment\\components\\DeepDiveQuestions.jsx",
+      "app\\assessment\\components\\GradeSelector.jsx",
+      "app\\assessment\\components\\InterestAreas.jsx",
+      "app\\assessment\\components\\MarksCollection.jsx",
+      "app\\assessment\\components\\OpenQuestions.jsx",
+      "app\\assessment\\components\\PreliminaryReport.jsx",
+      "app\\assessment\\components\\ProgressBar.jsx",
+      "app\\assessment\\components\\SubjectMarksSelection.jsx",
+      "app\\assessment\\components\\SubjectSelection.jsx",
+      "app\\assessment\\grade\\[grade]\\page.jsx",
+      "app\\assessment\\page.jsx",
+      "app\\components\\Footer.jsx",
+      "app\\components\\Header.jsx",
+      "app\\components\\HeroSection.jsx",
+      "app\\layout.js",
+      "app\\legal\\components\\PrintButton.jsx",
+      "app\\legal\\[slug]\\page.jsx",
+      "app\\page.js",
+      "app\\results\\components\\cards\\ActionCard.jsx",
+      "app\\results\\components\\cards\\AlternativeOptionsCard.jsx",
+      "app\\results\\components\\cards\\BursaryCard.jsx",
+      "app\\results\\components\\cards\\HeaderCard.jsx",
+      "app\\results\\components\\cards\\ProgramCard.jsx",
+      "app\\results\\components\\ResultsCardLayout.jsx",
+      "app\\results\\components\\ThandiChat.jsx",
+      "app\\results\\components\\ui\\CircularProgress.jsx",
+      "app\\results\\components\\ui\\ProgressBar.jsx",
+      "app\\results\\page.jsx",
+      "app\\results\\services\\gradeSpecificValidator.js",
+      "app\\results\\services\\ProfessionalPDFGenerator.js",
+      "app\\results\\services\\resultsParser.js",
+      "app\\results\\test\\page.jsx",
+      "app\\results\\test\\sampleResponses.js",
+      "app\\results\\test\\testRunner.js",
+      "app\\results\\utils\\formatResponse.js",
+      "app\\school\\claim\\page.js",
+      "app\\school\\dashboard\\page.js",
+      "app\\school\\dashboard\\simple-page.js",
+      "app\\school\\verify\\page.js",
+      "app\\test\\page.jsx",
+      "app\\test-react\\page.jsx",
+      "app\\unauthorized\\page.js",
+      "supabase\\migrations\\20251221_add_school_dashboard.sql",
+      "supabase\\migrations\\20251224_add_school_auth_master.sql",
+      "supabase\\migrations\\20251224_add_school_magic_links.sql",
+      "supabase\\migrations\\20251226_add_student_assessments.sql",
+      "supabase\\migrations\\20260110_phase0_student_school_integration.sql",
+      "supabase\\migrations\\20260110_phase0_task6_rls_implementation.sql",
+      "__tests__\\phase0\\registration-form.test.js",
+      "__tests__\\phase0\\school-search.property.test.js",
+      "__tests__\\phase0\\task6-rls-property-tests.test.js",
+      "lib\\academic\\comprehensive-calendar.js",
+      "lib\\academic\\pure-commonjs-calendar.js",
+      "lib\\academic\\simple-calendar.js",
+      "lib\\academic\\working-calendar.js",
+      "lib\\analytics\\track-events.js",
+      "lib\\at-risk-algorithm.js",
+      "lib\\auth-helpers.js",
+      "lib\\cache\\rag-cache.js",
+      "lib\\cag\\bursary-validation-engine.js",
+      "lib\\cag\\cag-layer.js",
+      "lib\\cag\\decision-maker.js",
+      "lib\\cag\\job-market-intelligence.js",
+      "lib\\cag\\llm-verifier.js",
+      "lib\\cag\\README.md",
+      "lib\\cag\\rule-based-checker.js",
+      "lib\\cag\\source-grounding-validator.js",
+      "lib\\cag\\types.js",
+      "lib\\cag\\validation-service.js",
+      "lib\\compliance\\consent-gate.js",
+      "lib\\compliance\\popia-audit.js",
+      "lib\\compliance\\popia-sanitiser.js",
+      "lib\\correction\\post-correct.js",
+      "lib\\curriculum\\query-gates-simple.js",
+      "lib\\curriculum\\query-gates.js",
+      "lib\\gates\\all-gates.js",
+      "lib\\gates\\aps-gate.js",
+      "lib\\gates\\budget-gate.js",
+      "lib\\gates\\deadline-gate.js",
+      "lib\\gates\\index.js",
+      "lib\\gates\\integration.js",
+      "lib\\gates\\math-gate.js",
+      "lib\\gates\\science-gate.js",
+      "lib\\llm\\guarded-client.js",
+      "lib\\llm\\llm-adapter.js",
+      "lib\\matching\\program-matcher.js",
+      "lib\\monitoring\\track-gates.js",
+      "lib\\rag\\bias-detector.js",
+      "lib\\rag\\bias-monitoring-dashboard.js",
+      "lib\\rag\\career-matcher.js",
+      "lib\\rag\\feature-flag-config.js",
+      "lib\\rag\\intent-extraction.js",
+      "lib\\rag\\misconception-detection.js",
+      "lib\\rag\\report-generator.js",
+      "lib\\rag\\search.js",
+      "lib\\results-data.js",
+      "lib\\school-config.js",
+      "lib\\student\\QueryContextStructurer.js",
+      "lib\\student\\StudentProfileBuilder.js",
+      "lib\\supabase.js",
+      "lib\\thandi-pdf-generator.js",
+      "lib\\thandi-results-formatter.js",
+      "lib\\utils.js"
+    ],
+    "task4": [
+      "app\\api\\consent\\manage\\route.js",
+      "app\\student\\consent\\page.js",
+      "comprehensive-phase0-verification.js",
+      "lib\\compliance\\consent-gate.js",
+      "lib\\compliance\\popia-audit.js",
+      "lib\\compliance\\popia-sanitiser.js",
+      "lib\\middleware\\consent-verification.js",
+      "phase0-bulletproof-deployment-automation.js",
+      "phase0-comprehensive-file-assessment.js",
+      "phase0-deployment-readiness-check.js",
+      "phase0-deployment-verification.js",
+      "scripts\\setup-popia-audit-tables.sql",
+      "scripts\\test-cag-with-consent.js",
+      "scripts\\test-popia-sanitiser.js",
+      "supabase\\migrations\\20260110_phase0_student_school_integration.sql",
+      "supabase\\migrations\\20260110_phase0_task6_rls_implementation.sql",
+      "supabase\\migrations\\20260110_popia_consent_management.sql",
+      "test-phase0-database-integration.js",
+      "test-phase0-functions-only.js",
+      "test-task4-popia-consent-management.js",
+      "test-task5-retroactive-association.js",
+      "test-task6-complete-rls-integration.js",
+      "test-task6-rls-security-verification.js",
+      "__tests__\\phase0\\registration-form.test.js",
+      "__tests__\\phase0\\school-search.property.test.js",
+      "__tests__\\phase0\\task6-rls-property-tests.test.js"
+    ],
+    "task56": [
+      "app\\admin\\bulk-association\\page.js",
+      "app\\api\\admin\\bulk-association\\route.js",
+      "app\\api\\consent\\manage\\route.js",
+      "app\\api\\student\\retroactive-association\\route.js",
+      "app\\student\\consent\\page.js",
+      "comprehensive-phase0-verification.js",
+      "lib\\compliance\\consent-gate.js",
+      "lib\\compliance\\popia-audit.js",
+      "lib\\compliance\\popia-sanitiser.js",
+      "lib\\middleware\\consent-verification.js",
+      "phase0-bulletproof-deployment-automation.js",
+      "phase0-comprehensive-file-assessment.js",
+      "phase0-deployment-readiness-check.js",
+      "phase0-deployment-verification.js",
+      "scripts\\retroactive-data-migration.js",
+      "scripts\\setup-popia-audit-tables.sql",
+      "scripts\\test-cag-with-consent.js",
+      "scripts\\test-popia-sanitiser.js",
+      "supabase\\migrations\\20260110_phase0_student_school_integration.sql",
+      "supabase\\migrations\\20260110_phase0_task6_rls_implementation.sql",
+      "supabase\\migrations\\20260110_popia_consent_management.sql",
+      "test-phase0-database-integration.js",
+      "test-phase0-functions-only.js",
+      "test-task4-popia-consent-management.js",
+      "test-task5-retroactive-association.js",
+      "test-task6-complete-rls-integration.js",
+      "test-task6-rls-security-verification.js",
+      "__tests__\\phase0\\registration-form.test.js",
+      "__tests__\\phase0\\school-search.property.test.js",
+      "__tests__\\phase0\\task6-rls-property-tests.test.js"
+    ],
+    "missing": [
+      {
+        "task": "task4",
+        "file": "app/api/consent/manage/route.js"
+      },
+      {
+        "task": "task4",
+        "file": "app/student/consent/page.js"
+      },
+      {
+        "task": "task4",
+        "file": "lib/middleware/consent-verification.js"
+      },
+      {
+        "task": "task4",
+        "file": "supabase/migrations/20260110_popia_consent_management.sql"
+      },
+      {
+        "task": "task5",
+        "file": "app/student/school-selection/page.js"
+      },
+      {
+        "task": "task5",
+        "file": "app/api/student/retroactive-association/route.js"
+      },
+      {
+        "task": "task5",
+        "file": "app/admin/bulk-association/page.js"
+      },
+      {
+        "task": "task5",
+        "file": "app/api/admin/bulk-association/route.js"
+      },
+      {
+        "task": "task5",
+        "file": "scripts/retroactive-data-migration.js"
+      },
+      {
+        "task": "routes",
+        "file": "app/register/page.js"
+      }
+    ],
+    "conflicts": []
+  },
+  "tests": {
+    "status": "failing",
+    "failures": []
+  },
+  "build": {
+    "status": "success",
+    "errors": []
+  },
+  "migrations": {
+    "present": [
+      "supabase/migrations/20260110_phase0_student_school_integration.sql",
+      "supabase/migrations/20260110_phase0_task6_rls_implementation.sql"
+    ],
+    "missing": [
+      "supabase/migrations/20260110_popia_consent_management.sql"
+    ]
+  },
+  "readiness": {
+    "score": 67,
+    "blockers": [
+      "Test failures"
+    ],
+    "warnings": [
+      "Missing migration: supabase/migrations/20260110_popia_consent_management.sql",
+      "24 uncommitted files"
+    ]
+  }
+}
