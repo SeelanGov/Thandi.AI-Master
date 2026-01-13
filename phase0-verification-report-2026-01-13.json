@@ -1,0 +1,103 @@
+{
+  "startTime": "2026-01-13T11:54:31.946Z",
+  "tasks": {
+    "1": {
+      "success": false,
+      "error": "HTTP 404"
+    },
+    "2": {
+      "success": false
+    },
+    "3": {
+      "success": true,
+      "details": {
+        "ragTest": {
+          "success": true,
+          "error": null
+        },
+        "assessmentStructureTest": {
+          "success": true,
+          "error": null
+        }
+      }
+    },
+    "4": {
+      "success": false,
+      "details": {
+        "consentAPITest": {
+          "success": false,
+          "error": null
+        },
+        "consentMiddlewareTest": {
+          "success": true,
+          "error": null
+        },
+        "popiaComplianceTest": {
+          "success": true,
+          "error": null
+        }
+      }
+    },
+    "5": {
+      "success": false,
+      "details": {
+        "schoolSelectionTest": {
+          "success": true,
+          "error": null
+        },
+        "retroactiveAPITest": {
+          "success": false,
+          "error": null
+        },
+        "bulkToolsTest": {
+          "success": true,
+          "error": null
+        }
+      }
+    },
+    "6": {
+      "success": false,
+      "details": {
+        "rlsPoliciesTest": {
+          "success": false,
+          "error": null
+        },
+        "dataIsolationTest": {
+          "success": true,
+          "error": null
+        },
+        "securityFunctionsTest": {
+          "success": true,
+          "error": null
+        }
+      }
+    }
+  },
+  "security": {
+    "rlsActive": false,
+    "dataIsolation": true,
+    "securityFunctions": true
+  },
+  "legal": {
+    "consentRecording": false,
+    "consentVerification": true,
+    "popiaCompliance": true
+  },
+  "business": {
+    "registrationFlow": false,
+    "schoolConnection": false,
+    "revenueModel": true
+  },
+  "performance": {
+    "responseTime": true,
+    "buildOptimization": true
+  },
+  "overall": {
+    "success": false,
+    "score": 63,
+    "tasksDeployed": "1/6",
+    "testsPassedRatio": "12/19"
+  },
+  "endTime": "2026-01-13T11:54:37.936Z",
+  "duration": "6 seconds"
+}
