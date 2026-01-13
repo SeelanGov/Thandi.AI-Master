@@ -2,6 +2,16 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import jwt from 'jsonwebtoken';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -22,68 +32,41 @@ export async function POST(request) {
 
     // Validate required fields
     if (!student_name || !student_surname || !school_id || !grade) {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     // Validate consent (POPIA requirement)
     if (!consent_given) {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Consent is required for registration' },
         { status: 400 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     // Validate grade
     if (![10, 11, 12].includes(parseInt(grade))) {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Invalid grade. Must be 10, 11, or 12' },
         { status: 400 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     // Verify school exists and is secondary
@@ -94,46 +77,28 @@ export async function POST(request) {
       .single();
 
     if (schoolError || !school) {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Invalid school selection' },
         { status: 400 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     // Ensure it's not a primary school
     if (school.type.toLowerCase().includes('primary')) {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Primary schools are not supported' },
         { status: 400 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     // PHASE 0: Use new student-school association function
@@ -149,24 +114,15 @@ export async function POST(request) {
 
     if (associationError || !associationResult.success) {
       console.error('Student-school association error:', associationError || associationResult.error);
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: associationResult?.error || 'Registration failed' },
         { status: 500 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     const studentId = associationResult.student_id;
@@ -215,24 +171,15 @@ export async function POST(request) {
 
     if (assessmentError) {
       console.error('Assessment record creation error:', assessmentError);
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Registration failed' },
         { status: 500 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     // Create JWT token for assessment flow
@@ -254,21 +201,7 @@ export async function POST(request) {
     console.log(`✅ Phase 0 Registration: ${student_name} ${student_surname} from ${school.name} (Grade ${grade})`);
     console.log(`📊 Student Profile ID: ${studentId}, Assessment ID: ${assessmentRecord.id}`);
 
-    
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       student_id: assessmentRecord.id,
       student_profile_id: studentId,
@@ -286,27 +219,24 @@ export async function POST(request) {
         dashboard_ready: true
       }
     });
-
-  } catch (error) {
-    console.error('Phase 0 registration error:', error);
     
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
     response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
     response.headers.set('Pragma', 'no-cache');
     response.headers.set('Expires', '0');
     response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+    return response;
+
+  } catch (error) {
+    console.error('Phase 0 registration error:', error);
+    const response = NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    return response;
   }
 }
 
@@ -317,48 +247,30 @@ export async function GET(request) {
     const token = searchParams.get('token');
 
     if (!token) {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Token required' },
         { status: 400 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     // Verify JWT token
     const decoded = jwt.verify(token, process.env.JWT_SECRET || 'fallback-secret-key');
     
     if (decoded.type !== 'registered') {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Invalid token type' },
         { status: 400 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     // Get student record
@@ -369,41 +281,18 @@ export async function GET(request) {
       .single();
 
     if (error || !student) {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Student not found' },
         { status: 404 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
-    
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       student: {
         id: student.id,
@@ -414,47 +303,35 @@ export async function GET(request) {
         registered_at: student.created_at
       }
     });
+    
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    return response;
 
   } catch (error) {
     if (error.name === 'JsonWebTokenError') {
-      
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
+      const response = NextResponse.json(
         { success: false, error: 'Invalid token' },
         { status: 401 }
       );
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+      return response;
     }
 
     console.error('Token verification error:', error);
-    
-    // Cache busting headers - 2026-01-13T16:14:20.771Z
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
-    
-    
-    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    const response = NextResponse.json(
+      { success: false, error: 'Internal server error' },
+      { status: 500 }
+    );
     response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
     response.headers.set('Pragma', 'no-cache');
     response.headers.set('Expires', '0');
     response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    
-    return NextResponse.json(
-      { success: false, error: 'Internal server error' },
-      { status: 500 }
-    );
+    return response;
   }
 }

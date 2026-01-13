@@ -2,6 +2,16 @@ import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -30,7 +40,7 @@ export async function POST(request) {
 
     // Validate required fields
     if (!email) {
-      return NextResponse.json({
+      return addCacheHeaders(NextResponse.json({
         error: 'Email address is required'
       }, { status: 400 });
     }
@@ -51,20 +61,20 @@ export async function POST(request) {
 
     if (schoolError) {
       console.error('Database error:', schoolError);
-      return NextResponse.json({
+      return addCacheHeaders(NextResponse.json({
         error: 'Database error occurred'
       }, { status: 500 });
     }
 
     if (!schools || schools.length === 0) {
-      return NextResponse.json({
+      return addCacheHeaders(NextResponse.json({
         error: 'No claimed school found for this email address'
       }, { status: 404 });
     }
 
     // If multiple schools found and no school_id specified, return error
     if (schools.length > 1 && !school_id) {
-      return NextResponse.json({
+      return addCacheHeaders(NextResponse.json({
         error: 'Multiple schools found for this email. Please specify your school ID.',
         schools: schools.map(s => ({
           school_id: s.school_id,
@@ -95,7 +105,7 @@ export async function POST(request) {
 
     if (tokenError) {
       console.error('Error storing magic link:', tokenError);
-      return NextResponse.json({
+      return addCacheHeaders(NextResponse.json({
         error: 'Failed to generate login link'
       }, { status: 500 });
     }
@@ -112,7 +122,7 @@ export async function POST(request) {
     // In production, send email here
     // await sendMagicLinkEmail(email, magicLink, school.name);
 
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       success: true,
       message: `Login link sent to ${email}`,
       school: {
@@ -127,14 +137,14 @@ export async function POST(request) {
 
   } catch (error) {
     console.error('School login API error:', error);
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       error: 'Internal server error'
     }, { status: 500 });
   }
 }
 
 export async function GET() {
-  return NextResponse.json({ 
+  return addCacheHeaders(NextResponse.json({ 
     message: 'School login endpoint is running',
     status: 'ok',
     timestamp: new Date().toISOString(),

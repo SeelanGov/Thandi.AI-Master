@@ -1,6 +1,16 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -19,7 +29,7 @@ export async function POST(request) {
 
     // Validate required fields
     if (!student_id || !school_id) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Student ID and School ID are required' },
         { status: 400 }
       );
@@ -33,7 +43,7 @@ export async function POST(request) {
       .single();
 
     if (studentError || !student) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Student not found' },
         { status: 404 }
       );
@@ -47,7 +57,7 @@ export async function POST(request) {
       .single();
 
     if (schoolError || !school) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'School not found' },
         { status: 404 }
       );
@@ -79,7 +89,7 @@ export async function POST(request) {
 
       if (updateError) {
         console.error('Association update error:', updateError);
-        return NextResponse.json(
+        return addCacheHeaders(NextResponse.json(
           { success: false, error: 'Failed to update association' },
           { status: 500 }
         );
@@ -103,7 +113,7 @@ export async function POST(request) {
 
       console.log(`✅ Retroactive association updated: ${student.student_name} ${student.student_surname} → ${school.name}`);
 
-      return NextResponse.json({
+      return addCacheHeaders(NextResponse.json({
         success: true,
         association_id: updatedAssociation.id,
         action: 'updated',
@@ -141,7 +151,7 @@ export async function POST(request) {
 
     if (createError) {
       console.error('Retroactive association creation error:', createError);
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to create retroactive association' },
         { status: 500 }
       );
@@ -187,7 +197,7 @@ export async function POST(request) {
 
     console.log(`✅ Retroactive association created: ${student.student_name} ${student.student_surname} → ${school.name}`);
 
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       success: true,
       association_id: newAssociation.id,
       action: 'created',
@@ -207,7 +217,7 @@ export async function POST(request) {
 
   } catch (error) {
     console.error('Retroactive association error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );
@@ -221,7 +231,7 @@ export async function GET(request) {
     const school_id = searchParams.get('school_id');
 
     if (!student_id && !school_id) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Either student_id or school_id is required' },
         { status: 400 }
       );
@@ -247,13 +257,13 @@ export async function GET(request) {
 
     if (error) {
       console.error('Retroactive association retrieval error:', error);
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to retrieve associations' },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       success: true,
       associations: data || [],
       count: data?.length || 0
@@ -261,7 +271,7 @@ export async function GET(request) {
 
   } catch (error) {
     console.error('Retroactive association retrieval error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );
@@ -276,7 +286,7 @@ export async function DELETE(request) {
     const school_id = searchParams.get('school_id');
 
     if (!association_id && (!student_id || !school_id)) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Association ID or (student_id + school_id) required' },
         { status: 400 }
       );
@@ -294,7 +304,7 @@ export async function DELETE(request) {
 
     if (error) {
       console.error('Association deletion error:', error);
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to delete association' },
         { status: 500 }
       );
@@ -302,7 +312,7 @@ export async function DELETE(request) {
 
     console.log(`🗑️ Retroactive association deleted: ${data?.length || 0} records`);
 
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       success: true,
       deleted_count: data?.length || 0,
       message: 'Association deleted successfully'
@@ -310,7 +320,7 @@ export async function DELETE(request) {
 
   } catch (error) {
     console.error('Association deletion error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );

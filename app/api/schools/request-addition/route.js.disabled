@@ -1,6 +1,16 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -18,7 +28,7 @@ export async function POST(request) {
 
     // Validate required fields
     if (!school_name || !requested_by_name) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'School name and requester name are required' },
         { status: 400 }
       );
@@ -26,7 +36,7 @@ export async function POST(request) {
 
     // Validate email format if provided
     if (contact_email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact_email)) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Invalid email format' },
         { status: 400 }
       );
@@ -55,7 +65,7 @@ export async function POST(request) {
       .single();
 
     if (existingRequest) {
-      return NextResponse.json({
+      return addCacheHeaders(NextResponse.json({
         success: false,
         error: 'A request for this school is already pending review',
         similar_schools: similarSchools
@@ -83,7 +93,7 @@ export async function POST(request) {
 
     if (insertError) {
       console.error('School addition request error:', insertError);
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to submit request' },
         { status: 500 }
       );
@@ -92,7 +102,7 @@ export async function POST(request) {
     // Log successful request for admin review
     console.log(`📝 School addition request: ${school_name} (${school_code || 'no code'}) by ${requested_by_name} - ID: ${request.id}`);
 
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       success: true,
       request_id: request.id,
       message: 'School addition request submitted successfully',
@@ -102,7 +112,7 @@ export async function POST(request) {
 
   } catch (error) {
     console.error('School addition request error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );
@@ -116,7 +126,7 @@ export async function GET(request) {
     const requestId = searchParams.get('id');
 
     if (!requestId) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Request ID is required' },
         { status: 400 }
       );
@@ -129,13 +139,13 @@ export async function GET(request) {
       .single();
 
     if (error || !requestData) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Request not found' },
         { status: 404 }
       );
     }
 
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       success: true,
       request: {
         id: requestData.id,
@@ -148,7 +158,7 @@ export async function GET(request) {
 
   } catch (error) {
     console.error('Request status check error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );

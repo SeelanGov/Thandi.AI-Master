@@ -3,6 +3,16 @@
 
 import { NextResponse } from 'next/server';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
+
 /**
  * GET /api/pdf/:sessionId
  * Generate PDF for assessment results
@@ -42,10 +52,10 @@ To implement:
 
   } catch (error) {
     console.error('❌ PDF generation error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { error: 'Failed to generate PDF: ' + error.message },
       { status: 500 }
-    );
+    ));
   }
 }
 
@@ -54,12 +64,12 @@ To implement:
  * CORS handler
  */
 export async function OPTIONS() {
-  return NextResponse.json({}, {
+  return addCacheHeaders(NextResponse.json({}, {
     status: 200,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type'
     }
-  });
+  }));
 }

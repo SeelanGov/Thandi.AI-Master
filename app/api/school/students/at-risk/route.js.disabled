@@ -1,13 +1,23 @@
 import { getSupabase } from '@/lib/supabase.js';
 import { NextResponse } from 'next/server';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
+
 export async function GET(request) {
   try {
     const supabase = getSupabase();
     const schoolId = request.headers.get('x-school-id');
     
     if (!schoolId) {
-      return NextResponse.json({ error: 'School ID required' }, { status: 400 });
+      return addCacheHeaders(NextResponse.json({ error: 'School ID required' }, { status: 400 }));
     }
 
     // Get at-risk students for this school
@@ -29,7 +39,7 @@ export async function GET(request) {
 
     if (error) {
       console.error('At-risk students query error:', error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return addCacheHeaders(NextResponse.json({ error: error.message }, { status: 500 }));
     }
 
     // Transform data to flatten assessment info
@@ -43,10 +53,10 @@ export async function GET(request) {
       at_risk_reasons: student.assessments[0]?.at_risk_reasons || []
     }));
 
-    return NextResponse.json(transformedStudents);
+    return addCacheHeaders(NextResponse.json(transformedStudents));
 
   } catch (error) {
     console.error('At-risk students API error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return addCacheHeaders(NextResponse.json({ error: 'Internal server error' }, { status: 500 }));
   }
 }

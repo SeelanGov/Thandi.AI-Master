@@ -1,0 +1,189 @@
+{
+  "timestamp": "2026-01-13T16:29:32.905Z",
+  "summary": {
+    "totalFiles": 18,
+    "fixedFiles": 14,
+    "errorCount": 16
+  },
+  "details": [
+    {
+      "file": "app\\api\\cache\\health\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\consent\\manage\\route.js",
+      "needsFix": true,
+      "fixed": false,
+      "syntaxOK": false,
+      "issues": [
+        "Uses undefined response variable"
+      ]
+    },
+    {
+      "file": "app\\api\\g10-12\\route.js",
+      "needsFix": false,
+      "fixed": false,
+      "syntaxOK": true,
+      "issues": []
+    },
+    {
+      "file": "app\\api\\health\\route.js",
+      "needsFix": false,
+      "fixed": false,
+      "syntaxOK": true,
+      "issues": [
+        "Missing proper error handling"
+      ]
+    },
+    {
+      "file": "app\\api\\pdf\\generate\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\pdf\\[sessionId]\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\rag\\query\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\school\\dashboard\\stats\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\school\\login\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function",
+        "Missing proper error handling"
+      ]
+    },
+    {
+      "file": "app\\api\\school\\students\\at-risk\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\school\\students\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\schools\\claim\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\schools\\login\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\schools\\request-addition\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\schools\\search\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\schools\\validate-code\\route.js",
+      "needsFix": true,
+      "fixed": false,
+      "syntaxOK": false,
+      "issues": [
+        "Uses undefined response variable"
+      ]
+    },
+    {
+      "file": "app\\api\\student\\register\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    },
+    {
+      "file": "app\\api\\student\\retroactive-association\\route.js",
+      "needsFix": true,
+      "fixed": true,
+      "syntaxOK": false,
+      "issues": [
+        "Missing addCacheHeaders function"
+      ]
+    }
+  ],
+  "errors": [
+    "app\\api\\cache\\health\\route.js: missing ) after argument list",
+    "app\\api\\consent\\manage\\route.js: Cannot find module 'C:\\Users\\SEELANGOV\\Desktop\\Thandi.ai\\node_modules\\next\\server' imported from C:\\Users\\SEELANGOV\\Desktop\\Thandi.ai\\app\\api\\consent\\manage\\route.js\nDid you mean to import \"next/server.js\"?",
+    "app\\api\\pdf\\generate\\route.js: missing ) after argument list",
+    "app\\api\\pdf\\[sessionId]\\route.js: missing ) after argument list",
+    "app\\api\\rag\\query\\route.js: missing ) after argument list",
+    "app\\api\\school\\dashboard\\stats\\route.js: missing ) after argument list",
+    "app\\api\\school\\login\\route.js: missing ) after argument list",
+    "app\\api\\school\\students\\at-risk\\route.js: missing ) after argument list",
+    "app\\api\\school\\students\\route.js: missing ) after argument list",
+    "app\\api\\schools\\claim\\route.js: missing ) after argument list",
+    "app\\api\\schools\\login\\route.js: missing ) after argument list",
+    "app\\api\\schools\\request-addition\\route.js: missing ) after argument list",
+    "app\\api\\schools\\search\\route.js: missing ) after argument list",
+    "app\\api\\schools\\validate-code\\route.js: Cannot find module 'C:\\Users\\SEELANGOV\\Desktop\\Thandi.ai\\node_modules\\next\\server' imported from C:\\Users\\SEELANGOV\\Desktop\\Thandi.ai\\app\\api\\schools\\validate-code\\route.js\nDid you mean to import \"next/server.js\"?",
+    "app\\api\\student\\register\\route.js: Cannot find module 'C:\\Users\\SEELANGOV\\Desktop\\Thandi.ai\\node_modules\\next\\server' imported from C:\\Users\\SEELANGOV\\Desktop\\Thandi.ai\\app\\api\\student\\register\\route.js\nDid you mean to import \"next/server.js\"?",
+    "app\\api\\student\\retroactive-association\\route.js: missing ) after argument list"
+  ]
+}

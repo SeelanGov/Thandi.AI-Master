@@ -1,6 +1,16 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -12,7 +22,7 @@ export async function GET(request) {
     const schoolId = searchParams.get('school_id');
     
     if (!schoolId) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'school_id parameter is required' },
         { status: 400 }
       );
@@ -26,7 +36,7 @@ export async function GET(request) {
       .single();
 
     if (schoolError || !school) {
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Invalid school ID' },
         { status: 404 }
       );
@@ -50,7 +60,7 @@ export async function GET(request) {
 
     if (studentsError) {
       console.error('Students query error:', studentsError);
-      return NextResponse.json(
+      return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to retrieve students' },
         { status: 500 }
       );
@@ -79,7 +89,7 @@ export async function GET(request) {
         (dashboardStudents.filter(s => s.consent_given).length / dashboardStudents.length * 100).toFixed(1) : 0
     };
 
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       success: true,
       school: {
         id: school.school_id,
@@ -93,7 +103,7 @@ export async function GET(request) {
 
   } catch (error) {
     console.error('School students API error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );
@@ -109,14 +119,14 @@ export async function POST(request) {
     // Placeholder for future school admin actions
     // e.g., marking students for follow-up, adding notes, etc.
     
-    return NextResponse.json({
+    return addCacheHeaders(NextResponse.json({
       success: false,
       error: 'School admin actions not yet implemented'
     }, { status: 501 });
 
   } catch (error) {
     console.error('School admin action error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );

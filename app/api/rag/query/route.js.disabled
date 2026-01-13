@@ -519,7 +519,7 @@ export async function POST(request) {
     
     // Quick validation
     if (!query) {
-      return NextResponse.json({ error: 'Query is required' }, { status: 400 });
+      return addCacheHeaders(NextResponse.json({ error: 'Query is required' }, { status: 400 }));
     }
     
     // CRITICAL FIX: Grade parameter takes ABSOLUTE PRIORITY
@@ -586,14 +586,14 @@ export async function POST(request) {
         const totalTime = Date.now() - startTime;
         console.log(`[CACHE HIT] Total response time: ${totalTime}ms`);
         
-        return NextResponse.json({
+        return addCacheHeaders(NextResponse.json({
           ...cachedResult,
           performance: {
             ...cachedResult.performance,
             totalTime,
             source: 'cache'
           }
-        });
+        }));
       }
     } else {
       console.log(`[CACHE BYPASS] Assessment submission detected - generating fresh response`);
@@ -613,6 +613,16 @@ export async function POST(request) {
       
       // Import ResultsData class
       const { ResultsData } = await import('@/lib/results-data.js');
+
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
       
       // Create ResultsData instance and parse
       const resultsData = new ResultsData(
@@ -684,25 +694,25 @@ export async function POST(request) {
       console.log(`[CACHE SKIP] Not caching assessment submission response`);
     }
     
-    return NextResponse.json(response);
+    return addCacheHeaders(NextResponse.json(response));
     
   } catch (error) {
     console.error('RAG Query Error:', error);
-    return NextResponse.json(
+    return addCacheHeaders(NextResponse.json(
       { 
         error: 'Internal server error',
         message: error.message,
         timestamp: new Date().toISOString()
       }, 
       { status: 500 }
-    );
+    ));
   }
 }
 
 export async function GET() {
-  return NextResponse.json({ 
+  return addCacheHeaders(NextResponse.json({ 
     message: 'RAG Query endpoint with cache is running',
     status: 'ok',
     timestamp: new Date().toISOString()
-  });
+  }));
 }

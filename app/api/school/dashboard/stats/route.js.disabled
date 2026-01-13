@@ -2,6 +2,16 @@ import { getSupabase } from '@/lib/supabase.js';
 import { Redis } from '@upstash/redis';
 import { NextResponse } from 'next/server';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
+
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL,
   token: process.env.UPSTASH_REDIS_REST_TOKEN
@@ -24,7 +34,7 @@ export async function GET(request) {
   }
   
   if (!schoolId) {
-    return NextResponse.json({ error: 'School ID required' }, { status: 400 });
+    return addCacheHeaders(NextResponse.json({ error: 'School ID required' }, { status: 400 }));
   }
   
   try {
@@ -53,7 +63,7 @@ export async function GET(request) {
     if (!token?.startsWith('test-dashboard-')) {
       const cacheKey = `dashboard:stats:${schoolId}`;
       const cached = await redis.get(cacheKey);
-      if (cached) return NextResponse.json(cached);
+      if (cached) return addCacheHeaders(NextResponse.json(cached));
     }
     
     // Try to fetch real stats from database
@@ -67,7 +77,7 @@ export async function GET(request) {
         if (!token?.startsWith('test-dashboard-')) {
           await redis.set(`dashboard:stats:${schoolId}`, data, { ex: 300 });
         }
-        return NextResponse.json(data);
+        return addCacheHeaders(NextResponse.json(data));
       }
     } catch (dbError) {
       console.log('Database function not available, using mock data:', dbError.message);
@@ -75,10 +85,10 @@ export async function GET(request) {
     
     // Return mock data if database function doesn't exist
     console.log(`📊 Returning mock stats for school: ${schoolName} (${schoolId})`);
-    return NextResponse.json(mockStats);
+    return addCacheHeaders(NextResponse.json(mockStats));
     
   } catch (error) {
     console.error('Stats API error:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return addCacheHeaders(NextResponse.json({ error: error.message }, { status: 500 }));
   }
 }

@@ -8,7 +8,7 @@ const nextConfig = {
   
   // Force fresh builds
   experimental: {
-    isrMemoryCacheSize: 0,
+    // Remove invalid option - isrMemoryCacheSize is not a valid Next.js option
   },
   
   // Disable caching in headers
