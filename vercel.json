@@ -3,5 +3,35 @@
   "buildCommand": "next build",
   "installCommand": "npm install",
   "outputDirectory": ".next",
-  "deploymentId": "2026-01-13T15:34:13.541Z"
+  "deploymentId": "2026-01-13T15:34:13.541Z",
+  "buildId": 1768320925333,
+  "cacheInvalidation": "2026-01-13T16:15:25.297Z",
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        },
+        {
+          "key": "Expires",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Cache-Bust",
+          "value": "2026-01-13T16:15:25.297Z"
+        }
+      ]
+    }
+  ]
 }

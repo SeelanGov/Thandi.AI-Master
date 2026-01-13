@@ -12,7 +12,21 @@ export async function GET(request) {
     const code = searchParams.get('code');
 
     if (!code) {
-      return NextResponse.json(
+      
+    // Cache busting headers - 2026-01-13T16:14:20.771Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
+    
+    
+    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    
+    return NextResponse.json(
         { success: false, error: 'School code is required' },
         { status: 400 }
       );
@@ -22,6 +36,20 @@ export async function GET(request) {
 
   } catch (error) {
     console.error('School code validation error:', error);
+    
+    // Cache busting headers - 2026-01-13T16:14:20.771Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
+    
+    
+    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
@@ -35,7 +63,21 @@ export async function POST(request) {
     const { code } = body;
 
     if (!code) {
-      return NextResponse.json(
+      
+    // Cache busting headers - 2026-01-13T16:14:20.771Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
+    
+    
+    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    
+    return NextResponse.json(
         { success: false, error: 'School code is required' },
         { status: 400 }
       );
@@ -45,6 +87,20 @@ export async function POST(request) {
 
   } catch (error) {
     console.error('School code validation error:', error);
+    
+    // Cache busting headers - 2026-01-13T16:14:20.771Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
+    
+    
+    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    
     return NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
@@ -56,6 +112,20 @@ export async function POST(request) {
 async function validateSchoolCode(code) {
   // Validate school code format (basic validation)
   if (code.length < 3) {
+    
+    // Cache busting headers - 2026-01-13T16:14:20.771Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
+    
+    
+    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    
     return NextResponse.json(
       { success: false, error: 'School code must be at least 3 characters' },
       { status: 400 }
@@ -70,6 +140,20 @@ async function validateSchoolCode(code) {
     .single();
 
   if (error || !school) {
+    
+    // Cache busting headers - 2026-01-13T16:14:20.771Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
+    
+    
+    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    
     return NextResponse.json({
       success: false,
       error: 'School code not found'
@@ -78,13 +162,41 @@ async function validateSchoolCode(code) {
 
   // Ensure it's not a primary school
   if (school.type && school.type.toLowerCase().includes('primary')) {
+    
+    // Cache busting headers - 2026-01-13T16:14:20.771Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
+    
+    
+    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    
     return NextResponse.json({
       success: false,
       error: 'Primary schools are not supported for career assessments'
     }, { status: 400 });
   }
 
-  return NextResponse.json({
+  
+    // Cache busting headers - 2026-01-13T16:14:20.771Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:14:20.771Z');
+    
+    
+    // Cache busting headers - 2026-01-13T16:15:25.297Z
+    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
+    
+    return NextResponse.json({
     success: true,
     school: {
       school_id: school.school_id,

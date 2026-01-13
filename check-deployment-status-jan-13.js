@@ -8,7 +8,7 @@
 
 const https = require('https');
 
-const BASE_URL = 'https://thandi-ai-master-mttqfzi2s-thandiai-projects.vercel.app';
+const BASE_URL = 'https://thandi-ai-master-eiz3vruvc-thandiai-projects.vercel.app';
 
 async function httpRequest(url, options = {}) {
   return new Promise((resolve, reject) => {

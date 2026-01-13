@@ -1,10 +1,38 @@
-// NUCLEAR DEPLOY: 2025-12-30T22:27:18.041Z
-// FORCE FRESH BUILD - NO CACHE
-// Deployment trigger: 2025-12-30T23:58:00.000Z
-// CRITICAL FIX: Force registration form display - never show grade selector
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true
-};
+  // Cache busting - 2026-01-13T16:15:25.297Z
+  generateBuildId: async () => {
+    return 'build-1768320925333'
+  },
+  
+  // Force fresh builds
+  experimental: {
+    isrMemoryCacheSize: 0,
+  },
+  
+  // Disable caching in headers
+  async headers() {
+    return [
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+          {
+            key: 'Pragma',
+            value: 'no-cache',
+          },
+          {
+            key: 'Expires',
+            value: '0',
+          },
+        ],
+      },
+    ]
+  },
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
