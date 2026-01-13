@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-01-13T09:22:51.790Z",
+  "productionUrl": "https://thandi-ai-master-mttqfzi2s-thandiai-projects.vercel.app",
+  "tests": {
+    "siteAvailability": {
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "258341",
+        "cache-control": "public, max-age=0, must-revalidate",
+        "content-disposition": "inline",
+        "content-length": "38739",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Tue, 13 Jan 2026 09:22:52 GMT",
+        "etag": "\"9da6be7e047b57cab9d6676269bdc053\"",
+        "server": "Vercel",
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+        "x-matched-path": "/",
+        "x-nextjs-prerender": "1",
+        "x-nextjs-stale-time": "300",
+        "x-robots-tag": "noindex",
+        "x-vercel-cache": "HIT",
+        "x-vercel-id": "cpt1::9dv7w-1768296172464-6e31496e1502"
+      },
+      "bodyLength": 38737,
+      "success": true
+    },
+    "phase0Registration": {
+      "status": 404,
+      "hasSchoolSearch": true,
+      "hasConsentForm": false,
+      "hasRegistrationForm": false,
+      "bodyLength": 11518
+    },
+    "apiEndpoints": {
+      "/api/schools/validate-code": {
+        "status": 405,
+        "exists": true,
+        "responseLength": 0
+      },
+      "/api/schools/request-addition": {
+        "status": 405,
+        "exists": true,
+        "responseLength": 0
+      },
+      "/api/student/register": {
+        "status": 400,
+        "exists": true,
+        "responseLength": 51
+      },
+      "/api/consent/manage": {
+        "status": 405,
+        "exists": true,
+        "responseLength": 0
+      }
+    },
+    "databaseConnectivity": {
+      "status": 200,
+      "working": true,
+      "responseLength": 5882
+    }
+  },
+  "summary": {
+    "deploymentStatus": "working",
+    "phase0Features": {
+      "registration": {
+        "deployed": false,
+        "hasSchoolSearch": true,
+        "hasConsentForm": false
+      }
+    },
+    "databaseStatus": "connected",
+    "gitStatus": "unknown",
+    "issues": []
+  }
+}
