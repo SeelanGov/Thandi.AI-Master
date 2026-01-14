@@ -1,0 +1,66 @@
+[
+  {
+    "name": "PDF Generation",
+    "path": "/api/pdf/generate",
+    "status": 200,
+    "success": true,
+    "responseLength": 136,
+    "hasContent": true
+  },
+  {
+    "name": "School Login",
+    "path": "/api/school/login",
+    "status": 200,
+    "success": true,
+    "responseLength": 99,
+    "hasContent": true
+  },
+  {
+    "name": "Schools Login",
+    "path": "/api/schools/login",
+    "status": 200,
+    "success": true,
+    "responseLength": 201,
+    "hasContent": true
+  },
+  {
+    "name": "School Claiming",
+    "path": "/api/schools/claim",
+    "status": 400,
+    "success": false,
+    "responseLength": 29,
+    "hasContent": true
+  },
+  {
+    "name": "School Addition Requests",
+    "path": "/api/schools/request-addition",
+    "status": 400,
+    "success": false,
+    "responseLength": 50,
+    "hasContent": true
+  },
+  {
+    "name": "Dashboard Stats",
+    "path": "/api/school/dashboard/stats",
+    "status": 400,
+    "success": true,
+    "responseLength": 30,
+    "hasContent": true
+  },
+  {
+    "name": "At-Risk Students",
+    "path": "/api/school/students/at-risk",
+    "status": 400,
+    "success": true,
+    "responseLength": 30,
+    "hasContent": true
+  },
+  {
+    "name": "Student Management",
+    "path": "/api/school/students",
+    "status": 400,
+    "success": true,
+    "responseLength": 59,
+    "hasContent": true
+  }
+]
