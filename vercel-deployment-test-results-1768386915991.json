@@ -1,0 +1,387 @@
+{
+  "timestamp": "2026-01-14T10:35:01.759Z",
+  "deployment": "https://www.thandi.online",
+  "tests": [
+    {
+      "category": "Infrastructure",
+      "name": "Health Check API",
+      "status": 200,
+      "passed": true,
+      "message": "Health check passed",
+      "details": {
+        "response": {
+          "status": "ok",
+          "timestamp": "2026-01-14T10:35:03.756Z",
+          "environment": {
+            "hasGroqKey": true,
+            "hasOpenAIKey": true,
+            "hasSupabaseUrl": true,
+            "hasSupabaseAnonKey": true,
+            "hasSupabaseServiceKey": true,
+            "nodeEnv": "production"
+          },
+          "allKeysPresent": true
+        }
+      }
+    },
+    {
+      "category": "Infrastructure",
+      "name": "Cache Health API",
+      "status": 200,
+      "passed": true,
+      "message": "Cache healthy",
+      "details": {
+        "response": {
+          "status": "ok",
+          "cache": {
+            "ping": {
+              "status": "up",
+              "latency": 233,
+              "result": "PONG"
+            },
+            "stats": {
+              "status": "connected",
+              "keys": "unknown",
+              "provider": "upstash",
+              "connected": true
+            },
+            "environment": {
+              "hasRedisUrl": true,
+              "hasRedisToken": true,
+              "redisUrlFormat": "configured",
+              "provider": "upstash"
+            }
+          },
+          "performance": {
+            "totalTime": 735,
+            "timestamp": "2026-01-14T10:35:05.124Z"
+          }
+        }
+      }
+    },
+    {
+      "category": "Infrastructure",
+      "name": "Static Assets Loading",
+      "status": 200,
+      "passed": true,
+      "message": "Homepage loads",
+      "details": {
+        "contentLength": 38733
+      }
+    },
+    {
+      "category": "Restored APIs",
+      "name": "PDF Generation API",
+      "status": 200,
+      "passed": true,
+      "message": "PDF API operational",
+      "details": {
+        "response": {
+          "message": "PDF Generation API",
+          "status": "active",
+          "method": "POST",
+          "endpoint": "/api/pdf/generate",
+          "timestamp": "2026-01-14T10:35:06.097Z"
+        }
+      }
+    },
+    {
+      "category": "Restored APIs",
+      "name": "School Login API",
+      "status": 200,
+      "passed": true,
+      "message": "School login operational",
+      "details": {
+        "response": {
+          "message": "School login endpoint is running",
+          "status": "ok",
+          "timestamp": "2026-01-14T10:35:06.463Z",
+          "description": "POST to this endpoint with email and optional school_id to receive a magic login link"
+        }
+      }
+    },
+    {
+      "category": "Restored APIs",
+      "name": "School Claiming API",
+      "status": 404,
+      "passed": true,
+      "message": "School claiming API responding",
+      "details": {
+        "response": {
+          "error": "School not found"
+        }
+      }
+    },
+    {
+      "category": "Restored APIs",
+      "name": "Dashboard Stats API",
+      "status": 400,
+      "passed": true,
+      "message": "Dashboard stats API responding",
+      "details": {
+        "response": {
+          "error": "School ID required"
+        }
+      }
+    },
+    {
+      "category": "Restored APIs",
+      "name": "At-Risk Students API",
+      "status": 400,
+      "passed": true,
+      "message": "At-risk students API responding",
+      "details": {
+        "response": {
+          "error": "School ID required"
+        }
+      }
+    },
+    {
+      "category": "Restored APIs",
+      "name": "Student Management API",
+      "status": 400,
+      "passed": true,
+      "message": "Student management API responding",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "school_id parameter is required"
+        }
+      }
+    },
+    {
+      "category": "Core APIs",
+      "name": "RAG Query API",
+      "status": 200,
+      "passed": true,
+      "message": "RAG responding (7199 chars)",
+      "details": {
+        "responseLength": 7199
+      }
+    },
+    {
+      "category": "Core APIs",
+      "name": "School Search API",
+      "status": 200,
+      "passed": true,
+      "message": "School search operational",
+      "details": {
+        "response": {
+          "query": "high",
+          "total": 5,
+          "results": [
+            {
+              "school_id": "ZAF-200100021",
+              "name": "ALEXANDER ROAD HIGH SCHOOL",
+              "province": "Eastern Cape",
+              "type": "PUBLIC School (SECONDARY SCHOOL)",
+              "status": "unclaimed",
+              "claim_url": "undefined/school/claim/ZAF-200100021"
+            },
+            {
+              "school_id": "ZAF-200100024",
+              "name": "ALEXANDRIA HIGH SCHOOL",
+              "province": "Eastern Cape",
+              "type": "PUBLIC School (COMBINED SCHOOL)",
+              "status": "unclaimed",
+              "claim_url": "undefined/school/claim/ZAF-200100024"
+            },
+            {
+              "school_id": "ZAF-200100030",
+              "name": "SIPHO CAMAGU HIGH SCHOOL",
+              "province": "Eastern Cape",
+              "type": "PUBLIC School (SECONDARY SCHOOL)",
+              "status": "unclaimed",
+              "claim_url": "undefined/school/claim/ZAF-200100030"
+            },
+            {
+              "school_id": "ZAF-200100033",
+              "name": "ANDREW RABIE HIGH SCHOOL",
+              "province": "Eastern Cape",
+              "type": "PUBLIC School (SECONDARY SCHOOL)",
+              "status": "unclaimed",
+              "claim_url": "undefined/school/claim/ZAF-200100033"
+            },
+            {
+              "school_id": "ZAF-200100051",
+              "name": "NEWTOWN HIGH SCHOOL",
+              "province": "Eastern Cape",
+              "type": "PUBLIC School (SECONDARY SCHOOL)",
+              "status": "unclaimed",
+              "claim_url": "undefined/school/claim/ZAF-200100051"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "category": "Core APIs",
+      "name": "Student Registration API",
+      "status": 400,
+      "passed": true,
+      "message": "Registration API responding",
+      "details": {
+        "response": {
+          "success": false,
+          "error": "Missing required fields"
+        }
+      }
+    },
+    {
+      "category": "Core APIs",
+      "name": "Grade Assessment API",
+      "status": 200,
+      "passed": true,
+      "message": "Assessment API responding",
+      "details": {
+        "response": {
+          "success": true,
+          "requirements": [],
+          "query": "Direct API call",
+          "profile": {
+            "grade": null,
+            "subjects": [
+              "Mathematics",
+              "Physical Sciences"
+            ],
+            "careers": [],
+            "institution": null
+          },
+          "processingTime": 148
+        }
+      }
+    },
+    {
+      "category": "User Flows",
+      "name": "Homepage Loads",
+      "status": 200,
+      "passed": true,
+      "message": "Homepage loads correctly",
+      "details": {
+        "contentLength": 38733
+      }
+    },
+    {
+      "category": "User Flows",
+      "name": "Registration Page Loads",
+      "status": 200,
+      "passed": true,
+      "message": "Registration page loads",
+      "details": {
+        "contentLength": 13155
+      }
+    },
+    {
+      "category": "User Flows",
+      "name": "Assessment Page Loads",
+      "status": 200,
+      "passed": true,
+      "message": "Assessment page loads",
+      "details": {
+        "contentLength": 13313
+      }
+    },
+    {
+      "category": "User Flows",
+      "name": "Results Page Loads",
+      "status": 200,
+      "passed": true,
+      "message": "Results page loads",
+      "details": {
+        "contentLength": 12027
+      }
+    },
+    {
+      "category": "User Flows",
+      "name": "School Claim Page Loads",
+      "status": 200,
+      "passed": true,
+      "message": "School claim page loads",
+      "details": {
+        "contentLength": 16358
+      }
+    },
+    {
+      "category": "Security",
+      "name": "Cache Headers Present",
+      "status": 200,
+      "passed": true,
+      "message": "Cache headers present",
+      "details": {
+        "cacheControl": "no-cache, no-store, must-revalidate"
+      }
+    },
+    {
+      "category": "Security",
+      "name": "CORS Configuration",
+      "status": 204,
+      "passed": true,
+      "message": "CORS configured",
+      "details": {
+        "headers": {
+          "allow": "GET, HEAD, OPTIONS",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "date": "Wed, 14 Jan 2026 10:35:15 GMT",
+          "expires": "0",
+          "pragma": "no-cache",
+          "server": "Vercel",
+          "strict-transport-security": "max-age=63072000",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-cache-bust": "2026-01-13T16:15:25.297Z",
+          "x-matched-path": "/api/health",
+          "x-vercel-cache": "MISS",
+          "x-vercel-id": "cpt1::iad1::98sdx-1768386914912-f780ab29a5aa"
+        }
+      }
+    },
+    {
+      "category": "Security",
+      "name": "HTTPS Enforced",
+      "status": 200,
+      "passed": true,
+      "message": "HTTPS enforced",
+      "details": {
+        "url": "https://www.thandi.online"
+      }
+    },
+    {
+      "category": "Performance",
+      "name": "API Response Time",
+      "status": 200,
+      "passed": true,
+      "message": "Response time: 583ms",
+      "details": {
+        "duration": 583,
+        "threshold": 2000
+      }
+    },
+    {
+      "category": "Performance",
+      "name": "RAG Response Time",
+      "status": 200,
+      "passed": true,
+      "message": "RAG response: 285ms",
+      "details": {
+        "duration": 285,
+        "threshold": 10000
+      }
+    },
+    {
+      "category": "Performance",
+      "name": "Homepage Load Time",
+      "status": 200,
+      "passed": true,
+      "message": "Page load: 44ms",
+      "details": {
+        "duration": 44,
+        "threshold": 3000
+      }
+    }
+  ],
+  "summary": {
+    "total": 24,
+    "passed": 24,
+    "failed": 0,
+    "warnings": 0
+  }
+}
