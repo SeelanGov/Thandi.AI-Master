@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "echo 'Running test suite...' && npm run test:stack",
     "test:stack": "node scripts/test-thandi-stack.js",
     "test:rag": "node scripts/test-rag-query.js",
     "test:suite": "node scripts/test-rag-suite.js",
@@ -15,7 +16,14 @@
     "mock:server": "node scripts/mock-integration-test.js",
     "db:migrate": "node scripts/migrate-database.js",
     "db:seed": "node scripts/seed-knowledge-base.js",
-    "embeddings:generate": "node scripts/generate-embeddings.js"
+    "embeddings:generate": "node scripts/generate-embeddings.js",
+    "bulletproof:install": "node .kiro/tools/install-git-hooks.js install",
+    "bulletproof:validate": "node .kiro/tools/quick-validation.js",
+    "bulletproof:syntax": "node .kiro/tools/syntax-validator.js --all",
+    "bulletproof:schema": "node .kiro/tools/schema-validator.js",
+    "bulletproof:deploy": "node .kiro/tools/bulletproof-deploy.js",
+    "bulletproof:status": "node .kiro/tools/install-git-hooks.js status",
+    "postinstall": "node .kiro/tools/install-git-hooks.js install"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",

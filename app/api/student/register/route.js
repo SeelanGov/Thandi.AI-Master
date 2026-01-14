@@ -36,11 +36,7 @@ export async function POST(request) {
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     // Validate consent (POPIA requirement)
@@ -49,11 +45,7 @@ export async function POST(request) {
         { success: false, error: 'Consent is required for registration' },
         { status: 400 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     // Validate grade
@@ -62,11 +54,7 @@ export async function POST(request) {
         { success: false, error: 'Invalid grade. Must be 10, 11, or 12' },
         { status: 400 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     // Verify school exists and is secondary
@@ -81,11 +69,7 @@ export async function POST(request) {
         { success: false, error: 'Invalid school selection' },
         { status: 400 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     // Ensure it's not a primary school
@@ -94,11 +78,7 @@ export async function POST(request) {
         { success: false, error: 'Primary schools are not supported' },
         { status: 400 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     // PHASE 0: Use new student-school association function
@@ -118,11 +98,7 @@ export async function POST(request) {
         { success: false, error: associationResult?.error || 'Registration failed' },
         { status: 500 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     const studentId = associationResult.student_id;
@@ -175,11 +151,7 @@ export async function POST(request) {
         { success: false, error: 'Registration failed' },
         { status: 500 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     // Create JWT token for assessment flow
@@ -220,11 +192,7 @@ export async function POST(request) {
       }
     });
     
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    return response;
+    return addCacheHeaders(response);
 
   } catch (error) {
     console.error('Phase 0 registration error:', error);
@@ -232,11 +200,7 @@ export async function POST(request) {
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    return response;
+    return addCacheHeaders(response);
   }
 }
 
@@ -251,11 +215,7 @@ export async function GET(request) {
         { success: false, error: 'Token required' },
         { status: 400 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     // Verify JWT token
@@ -266,11 +226,7 @@ export async function GET(request) {
         { success: false, error: 'Invalid token type' },
         { status: 400 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     // Get student record
@@ -285,11 +241,7 @@ export async function GET(request) {
         { success: false, error: 'Student not found' },
         { status: 404 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     const response = NextResponse.json({
@@ -304,11 +256,7 @@ export async function GET(request) {
       }
     });
     
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    return response;
+    return addCacheHeaders(response);
 
   } catch (error) {
     if (error.name === 'JsonWebTokenError') {
@@ -316,11 +264,7 @@ export async function GET(request) {
         { success: false, error: 'Invalid token' },
         { status: 401 }
       );
-      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      response.headers.set('Pragma', 'no-cache');
-      response.headers.set('Expires', '0');
-      response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-      return response;
+      return addCacheHeaders(response);
     }
 
     console.error('Token verification error:', error);
@@ -328,10 +272,6 @@ export async function GET(request) {
       { success: false, error: 'Internal server error' },
       { status: 500 }
     );
-    response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-    response.headers.set('Pragma', 'no-cache');
-    response.headers.set('Expires', '0');
-    response.headers.set('X-Cache-Bust', '2026-01-13T16:15:25.297Z');
-    return response;
+    return addCacheHeaders(response);
   }
 }

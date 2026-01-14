@@ -7,15 +7,15 @@ dotenv.config({ path: '.env.local' });
 
 import fs from 'fs';
 import path from 'path';
-import { generateQueryEmbedding } from '../lib/rag/embeddings.js';
+import { generateQueryEmbedding } from '../lib/rag/embeddings.mjs';
 import { semanticSearch } from '../lib/rag/search.js';
 import { 
   extractStudentProfile, 
   assembleContext, 
   reRankChunks,
   deduplicateChunks 
-} from '../lib/rag/retrieval.js';
-import { generateResponse } from '../lib/rag/generation.js';
+} from '../lib/rag/retrieval.mjs';
+import { generateResponse } from '../lib/rag/generation.mjs';
 
 // ANSI color codes for terminal output
 const colors = {

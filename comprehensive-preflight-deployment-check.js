@@ -153,8 +153,8 @@ async function comprehensivePreflightCheck() {
     console.log('📡 Checking critical API routes...');
     const criticalRoutes = [
       'app/api/student/register/route.js',
-      'app/api/schools/search/route.js',
-      'app/api/rag/query/route.js'
+      'app/api/schools/validate-code/route.js',
+      'app/api/consent/manage/route.js'
     ];
     
     let routesValid = true;
