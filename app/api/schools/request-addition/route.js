@@ -31,7 +31,7 @@ export async function POST(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'School name and requester name are required' },
         { status: 400 }
-      );
+      ));
     }
 
     // Validate email format if provided
@@ -39,7 +39,7 @@ export async function POST(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Invalid email format' },
         { status: 400 }
-      );
+      ));
     }
 
     // Check if school already exists by name (fuzzy match)
@@ -69,7 +69,7 @@ export async function POST(request) {
         success: false,
         error: 'A request for this school is already pending review',
         similar_schools: similarSchools
-      });
+      }));
     }
 
     // Create the school addition request
@@ -96,7 +96,7 @@ export async function POST(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to submit request' },
         { status: 500 }
-      );
+      ));
     }
 
     // Log successful request for admin review
@@ -108,14 +108,14 @@ export async function POST(request) {
       message: 'School addition request submitted successfully',
       similar_schools: similarSchools,
       estimated_review_time: '1-2 business days'
-    });
+    }));
 
   } catch (error) {
     console.error('School addition request error:', error);
     return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
-    );
+    ));
   }
 }
 
@@ -129,7 +129,7 @@ export async function GET(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Request ID is required' },
         { status: 400 }
-      );
+      ));
     }
 
     const { data: requestData, error } = await supabase
@@ -142,7 +142,7 @@ export async function GET(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Request not found' },
         { status: 404 }
-      );
+      ));
     }
 
     return addCacheHeaders(NextResponse.json({
@@ -154,13 +154,13 @@ export async function GET(request) {
         status: requestData.status,
         submitted_at: requestData.created_at
       }
-    });
+    }));
 
   } catch (error) {
     console.error('Request status check error:', error);
     return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
-    );
+    ));
   }
 }

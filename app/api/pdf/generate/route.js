@@ -5,6 +5,15 @@
 
 import { NextResponse } from 'next/server';
 
+// Add cache busting headers to response
+function addCacheHeaders(response) {
+  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  response.headers.set('Pragma', 'no-cache');
+  response.headers.set('Expires', '0');
+  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
+  return response;
+}
+
 export async function POST(request) {
   try {
     console.log('📄 PDF generation API called');
@@ -74,21 +83,11 @@ export async function POST(request) {
       return addCacheHeaders(NextResponse.json(
         { 
           error: 'ProfessionalPDFGenerator import failed',
-
-// Add cache busting headers to response
-function addCacheHeaders(response) {
-  response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-  response.headers.set('Pragma', 'no-cache');
-  response.headers.set('Expires', '0');
-  response.headers.set('X-Cache-Bust', '2026-01-13T16:30:00.000Z');
-  return response;
-}
-
           details: 'ProfessionalPDFGenerator is not available',
           timestamp: new Date().toISOString()
         },
         { status: 500 }
-      );
+      ));
     }
     
     // Parse results into structured format (same as results page)

@@ -25,7 +25,7 @@ export async function GET(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'school_id parameter is required' },
         { status: 400 }
-      );
+      ));
     }
 
     // Verify school exists
@@ -39,7 +39,7 @@ export async function GET(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Invalid school ID' },
         { status: 404 }
-      );
+      ));
     }
 
     // Get students for this school
@@ -63,7 +63,7 @@ export async function GET(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to retrieve students' },
         { status: 500 }
-      );
+      ));
     }
 
     // Format student data for school dashboard
@@ -99,14 +99,14 @@ export async function GET(request) {
       },
       summary,
       students: dashboardStudents
-    });
+    }));
 
   } catch (error) {
     console.error('School students API error:', error);
     return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
-    );
+    ));
   }
 }
 
@@ -122,13 +122,13 @@ export async function POST(request) {
     return addCacheHeaders(NextResponse.json({
       success: false,
       error: 'School admin actions not yet implemented'
-    }, { status: 501 });
+    }, { status: 501 }));
 
   } catch (error) {
     console.error('School admin action error:', error);
     return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
-    );
+    ));
   }
 }

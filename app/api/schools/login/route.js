@@ -42,7 +42,7 @@ export async function POST(request) {
     if (!email) {
       return addCacheHeaders(NextResponse.json({
         error: 'Email address is required'
-      }, { status: 400 });
+      }, { status: 400 }));
     }
 
     // Find school by email and optionally school_id
@@ -63,13 +63,13 @@ export async function POST(request) {
       console.error('Database error:', schoolError);
       return addCacheHeaders(NextResponse.json({
         error: 'Database error occurred'
-      }, { status: 500 });
+      }, { status: 500 }));
     }
 
     if (!schools || schools.length === 0) {
       return addCacheHeaders(NextResponse.json({
         error: 'No claimed school found for this email address'
-      }, { status: 404 });
+      }, { status: 404 }));
     }
 
     // If multiple schools found and no school_id specified, return error
@@ -81,7 +81,7 @@ export async function POST(request) {
           name: s.name,
           province: s.province
         }))
-      }, { status: 400 });
+      }, { status: 400 }));
     }
 
     const school = schools[0];
@@ -107,7 +107,7 @@ export async function POST(request) {
       console.error('Error storing magic link:', tokenError);
       return addCacheHeaders(NextResponse.json({
         error: 'Failed to generate login link'
-      }, { status: 500 });
+      }, { status: 500 }));
     }
 
     // Update last login attempt
@@ -133,13 +133,13 @@ export async function POST(request) {
       // For development only - remove in production
       magic_link: magicLink,
       expires_in: '24 hours'
-    });
+    }));
 
   } catch (error) {
     console.error('School login API error:', error);
     return addCacheHeaders(NextResponse.json({
       error: 'Internal server error'
-    }, { status: 500 });
+    }, { status: 500 }));
   }
 }
 
@@ -149,5 +149,5 @@ export async function GET() {
     status: 'ok',
     timestamp: new Date().toISOString(),
     description: 'POST to this endpoint with email and optional school_id to receive a magic login link'
-  });
+  }));
 }

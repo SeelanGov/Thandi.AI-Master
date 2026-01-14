@@ -1,0 +1,17 @@
+{
+  "total": 8,
+  "restored": 8,
+  "skipped": 0,
+  "failed": 0,
+  "totalFixes": 0,
+  "restoredFiles": [
+    "app/api/schools/login/route.js",
+    "app/api/schools/claim/route.js",
+    "app/api/schools/request-addition/route.js",
+    "app/api/school/dashboard/stats/route.js",
+    "app/api/school/students/at-risk/route.js",
+    "app/api/school/students/route.js",
+    "app/api/student/retroactive-association/route.js",
+    "app/api/assess/route.js"
+  ]
+}

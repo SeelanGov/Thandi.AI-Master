@@ -81,7 +81,7 @@ export async function POST(request) {
     if (!school_id || !principal_email) {
       return addCacheHeaders(NextResponse.json({
         error: 'School ID and principal email are required'
-      }, { status: 400 });
+      }, { status: 400 }));
     }
 
     // Check if school exists and is unclaimed
@@ -94,13 +94,13 @@ export async function POST(request) {
     if (schoolError || !school) {
       return addCacheHeaders(NextResponse.json({
         error: 'School not found'
-      }, { status: 404 });
+      }, { status: 404 }));
     }
 
     if (school.status !== 'unclaimed') {
       return addCacheHeaders(NextResponse.json({
         error: 'School has already been claimed'
-      }, { status: 409 });
+      }, { status: 409 }));
     }
 
     // Validate email domain
@@ -108,7 +108,7 @@ export async function POST(request) {
     if (!isValidEmail) {
       return addCacheHeaders(NextResponse.json({
         error: 'Invalid email domain for school type. Public schools must use government email addresses.'
-      }, { status: 400 });
+      }, { status: 400 }));
     }
 
     // Generate magic link token
@@ -131,7 +131,7 @@ export async function POST(request) {
       console.error('Error updating school:', updateError);
       return addCacheHeaders(NextResponse.json({
         error: 'Failed to process claim'
-      }, { status: 500 });
+      }, { status: 500 }));
     }
 
     // Store magic link token (in production, send via email)
@@ -159,13 +159,13 @@ export async function POST(request) {
       // For development only - remove in production
       magic_link: magicLink,
       expires_in: '24 hours'
-    });
+    }));
 
   } catch (error) {
     console.error('School claim API error:', error);
     return addCacheHeaders(NextResponse.json({
       error: 'Internal server error'
-    }, { status: 500 });
+    }, { status: 500 }));
   }
 }
 
@@ -178,7 +178,7 @@ export async function GET(request) {
     if (!token) {
       return addCacheHeaders(NextResponse.json({
         error: 'Token is required'
-      }, { status: 400 });
+      }, { status: 400 }));
     }
 
     // Verify token
@@ -209,7 +209,7 @@ export async function GET(request) {
     } catch (tokenError) {
       return addCacheHeaders(NextResponse.json({
         error: 'Invalid or expired token'
-      }, { status: 401 });
+      }, { status: 401 }));
     }
 
     // Check if token exists in database and hasn't been used
@@ -223,14 +223,14 @@ export async function GET(request) {
     if (linkError || !magicLink) {
       return addCacheHeaders(NextResponse.json({
         error: 'Token not found or already used'
-      }, { status: 401 });
+      }, { status: 401 }));
     }
 
     // Check if token has expired
     if (new Date() > new Date(magicLink.expires_at)) {
       return addCacheHeaders(NextResponse.json({
         error: 'Token has expired'
-      }, { status: 401 });
+      }, { status: 401 }));
     }
 
     // Mark token as used and complete school claim
@@ -252,7 +252,7 @@ export async function GET(request) {
       console.error('Error completing claim:', { useTokenError, claimError });
       return addCacheHeaders(NextResponse.json({
         error: 'Failed to complete claim'
-      }, { status: 500 });
+      }, { status: 500 }));
     }
 
     // Get school details for response
@@ -273,12 +273,12 @@ export async function GET(request) {
         status: school.status
       },
       redirect_url: `/school/dashboard?school_id=${school.school_id}`
-    });
+    }));
 
   } catch (error) {
     console.error('Magic link verification error:', error);
     return addCacheHeaders(NextResponse.json({
       error: 'Internal server error'
-    }, { status: 500 });
+    }, { status: 500 }));
   }
 }

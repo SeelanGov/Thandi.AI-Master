@@ -32,7 +32,7 @@ export async function POST(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Student ID and School ID are required' },
         { status: 400 }
-      );
+      ));
     }
 
     // Verify student exists
@@ -46,7 +46,7 @@ export async function POST(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Student not found' },
         { status: 404 }
-      );
+      ));
     }
 
     // Verify school exists
@@ -60,7 +60,7 @@ export async function POST(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'School not found' },
         { status: 404 }
-      );
+      ));
     }
 
     // Check if association already exists
@@ -92,7 +92,7 @@ export async function POST(request) {
         return addCacheHeaders(NextResponse.json(
           { success: false, error: 'Failed to update association' },
           { status: 500 }
-        );
+        ));
       }
 
       // Update student assessment record with school association
@@ -129,7 +129,7 @@ export async function POST(request) {
           type: school.type,
           province: school.province
         }
-      });
+      }));
     }
 
     // Create new retroactive association
@@ -154,7 +154,7 @@ export async function POST(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to create retroactive association' },
         { status: 500 }
-      );
+      ));
     }
 
     // Update student assessment record with school association
@@ -213,14 +213,14 @@ export async function POST(request) {
         type: school.type,
         province: school.province
       }
-    });
+    }));
 
   } catch (error) {
     console.error('Retroactive association error:', error);
     return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
-    );
+    ));
   }
 }
 
@@ -234,7 +234,7 @@ export async function GET(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Either student_id or school_id is required' },
         { status: 400 }
-      );
+      ));
     }
 
     let query = supabase
@@ -260,21 +260,21 @@ export async function GET(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to retrieve associations' },
         { status: 500 }
-      );
+      ));
     }
 
     return addCacheHeaders(NextResponse.json({
       success: true,
       associations: data || [],
       count: data?.length || 0
-    });
+    }));
 
   } catch (error) {
     console.error('Retroactive association retrieval error:', error);
     return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
-    );
+    ));
   }
 }
 
@@ -289,7 +289,7 @@ export async function DELETE(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Association ID or (student_id + school_id) required' },
         { status: 400 }
-      );
+      ));
     }
 
     let query = supabase.from('school_students');
@@ -307,7 +307,7 @@ export async function DELETE(request) {
       return addCacheHeaders(NextResponse.json(
         { success: false, error: 'Failed to delete association' },
         { status: 500 }
-      );
+      ));
     }
 
     console.log(`🗑️ Retroactive association deleted: ${data?.length || 0} records`);
@@ -316,13 +316,13 @@ export async function DELETE(request) {
       success: true,
       deleted_count: data?.length || 0,
       message: 'Association deleted successfully'
-    });
+    }));
 
   } catch (error) {
     console.error('Association deletion error:', error);
     return addCacheHeaders(NextResponse.json(
       { success: false, error: 'Internal server error' },
       { status: 500 }
-    );
+    ));
   }
 }
