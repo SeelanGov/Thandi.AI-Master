@@ -23,6 +23,7 @@ export default function BulletproofStudentRegistration({ onComplete }) {
     school_code: '',
     contact_email: ''
   });
+  const [schoolError, setSchoolError] = useState(false);
 
   const firstNameRef = useRef(null);
 
@@ -137,14 +138,18 @@ export default function BulletproofStudentRegistration({ onComplete }) {
     // Validate school selection with better error message
     if (!studentData.school_id) {
       console.log('❌ School validation failed - no school_id');
-      alert('Please select a school from the dropdown list. Start typing your school name and click on it when it appears.');
+      console.error('REGISTRATION BLOCKED: No school selected');
+      setSchoolError(true);
+      alert('⚠️ IMPORTANT: Please select your school from the dropdown list.\n\n1. Type your school name\n2. Wait for results to appear\n3. CLICK on your school in the list\n4. You should see a green checkmark\n\nIf you can\'t find your school, click "Request to add your school"');
       setLoading(false);
       return;
     }
 
+    setSchoolError(false);
     console.log('✅ School validation passed, proceeding with registration...');
 
     try {
+      console.log('📡 Sending registration request to API...');
       const response = await fetch('/api/student/register', {
         method: 'POST',
         headers: {
@@ -161,10 +166,22 @@ export default function BulletproofStudentRegistration({ onComplete }) {
         }),
       });
 
+      console.log('📡 API response status:', response.status);
       const data = await response.json();
+      console.log('📡 API response data:', data);
       
       if (data.success) {
+        console.log('✅ Registration successful, storing token and calling onComplete');
         localStorage.setItem('Thandi_student_token', data.token);
+        
+        // CRITICAL: Call onComplete to trigger navigation
+        console.log('🎯 Calling onComplete with:', {
+          type: 'registered',
+          student_id: data.student_id,
+          grade: studentData.grade,
+          name: studentData.name
+        });
+        
         onComplete({
           type: 'registered',
           student_id: data.student_id,
@@ -172,12 +189,16 @@ export default function BulletproofStudentRegistration({ onComplete }) {
           name: studentData.name
         });
       } else {
-        console.error('Registration failed:', data.error);
-        alert(`Registration failed: ${data.error}`);
+        console.error('❌ Registration failed:', data.error);
+        alert(`Registration failed: ${data.error}\n\nPlease try again or contact support if the problem persists.`);
       }
     } catch (error) {
-      console.error('Registration error:', error);
-      alert('Registration failed. Please try again.');
+      console.error('❌ Registration error:', error);
+      console.error('Error details:', {
+        message: error.message,
+        stack: error.stack
+      });
+      alert('Registration failed due to a network error. Please check your internet connection and try again.');
     } finally {
       setLoading(false);
     }
@@ -380,14 +401,31 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                     onChange={(e) => {
                       setSchoolSearch(e.target.value);
                       searchSchools(e.target.value);
+                      setSchoolError(false); // Clear error when user types
                     }}
                     placeholder="Start typing your school name..."
-                    className="form-input-assessment"
+                    className={`form-input-assessment ${schoolError ? 'border-red-500 border-2 bg-red-50' : ''}`}
                     autoComplete="off"
                   />
                   
+                  {schoolError && !studentData.school_id && (
+                    <div className="mt-2 p-3 bg-red-50 border-2 border-red-500 rounded-md animate-pulse">
+                      <p className="text-sm font-semibold text-red-800 mb-1">
+                        ⚠️ School Not Selected
+                      </p>
+                      <p className="text-xs text-red-700">
+                        You must CLICK on your school from the dropdown list below. Just typing is not enough!
+                      </p>
+                    </div>
+                  )}
+                  
                   {schoolResults.length > 0 && (
-                    <div className="mt-2 border border-gray-200 rounded-md max-h-48 overflow-y-auto bg-white shadow-lg absolute w-full" style={{ zIndex: 9999 }}>
+                    <div className="mt-2 border-2 border-teal-500 rounded-md max-h-48 overflow-y-auto bg-white shadow-lg absolute w-full" style={{ zIndex: 9999 }}>
+                      <div className="bg-teal-50 border-b-2 border-teal-500 px-4 py-2 sticky top-0">
+                        <p className="text-xs font-semibold text-teal-800">
+                          👇 CLICK on your school below to select it
+                        </p>
+                      </div>
                       {schoolResults.map((school) => (
                         <button
                           key={school.school_id}
@@ -405,12 +443,13 @@ export default function BulletproofStudentRegistration({ onComplete }) {
                             
                             setStudentData(updatedData);
                             setSchoolSearch(school.name);
+                            setSchoolError(false); // Clear error when school is selected
                             
                             setTimeout(() => {
                               setSchoolResults([]);
                             }, 100);
                           }}
-                          className="w-full text-left px-4 py-3 hover:bg-gray-50 active:bg-gray-100 border-b border-gray-100 last:border-b-0 min-h-[48px] cursor-pointer transition-colors duration-150"
+                          className="w-full text-left px-4 py-3 hover:bg-teal-50 active:bg-teal-100 border-b border-gray-100 last:border-b-0 min-h-[48px] cursor-pointer transition-colors duration-150"
                         >
                           <div className="font-medium text-sm sm:text-base">{school.name}</div>
                           <div className="text-xs sm:text-sm text-gray-500">{school.province}</div>
@@ -566,11 +605,26 @@ export default function BulletproofStudentRegistration({ onComplete }) {
               <button
                 type="submit"
                 disabled={!studentData.name || !studentData.surname || !studentData.school_id || !studentData.grade || loading}
-                className="flex-1 btn-assessment-primary disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className={`flex-1 btn-assessment-primary disabled:bg-gray-300 disabled:cursor-not-allowed ${
+                  !studentData.school_id && studentData.name && studentData.surname && studentData.grade
+                    ? 'animate-pulse bg-gray-400'
+                    : ''
+                }`}
               >
-                {loading ? 'Starting...' : 'Start Assessment'}
+                {loading ? 'Starting...' : !studentData.school_id ? '⚠️ Select School First' : 'Start Assessment'}
               </button>
             </div>
+            
+            {!studentData.school_id && studentData.name && studentData.surname && studentData.grade && (
+              <div className="mt-4 p-4 bg-yellow-50 border-2 border-yellow-400 rounded-md">
+                <p className="text-sm font-semibold text-yellow-900 mb-2">
+                  ⚠️ Almost there! One more step:
+                </p>
+                <p className="text-sm text-yellow-800">
+                  Please select your school from the dropdown list above. Type your school name and CLICK on it when it appears.
+                </p>
+              </div>
+            )}
           </form>
 
           {/* School Addition Request Modal */}
