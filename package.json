@@ -22,8 +22,7 @@
     "bulletproof:syntax": "node .kiro/tools/syntax-validator.js --all",
     "bulletproof:schema": "node .kiro/tools/schema-validator.js",
     "bulletproof:deploy": "node .kiro/tools/bulletproof-deploy.js",
-    "bulletproof:status": "node .kiro/tools/install-git-hooks.js status",
-    "postinstall": "node .kiro/tools/install-git-hooks.js install || true"
+    "bulletproof:status": "node .kiro/tools/install-git-hooks.js status"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
