@@ -533,12 +533,8 @@ export default function SchoolClaimPage() {
               <h3 className="font-semibold font-heading text-thandi-teal mb-2">Need Help?</h3>
               <p className="text-thandi-brown font-body">
                 Contact our support team at{' '}
-                <a href="mailto:support@thandi.ai" className="text-thandi-teal hover:underline font-semibold">
-                  support@thandi.ai
-                </a>
-                {' '}or call us at{' '}
-                <a href="tel:+27123456789" className="text-thandi-teal hover:underline font-semibold">
-                  +27 12 345 6789
+                <a href="mailto:hello@thandi.online" className="text-thandi-teal hover:underline font-semibold">
+                  hello@thandi.online
                 </a>
               </p>
             </div>
