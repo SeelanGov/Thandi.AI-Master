@@ -155,11 +155,11 @@ export default function Footer() {
             </div>
           </div>
           
-          {/* Business Dashboard Access */}
+          {/* Admin Dashboard Access */}
           <div className="mt-8 pt-6 border-t border-thandi-cream/20">
             <div className="flex justify-center">
               <Link
-                href="/business-dashboard"
+                href="/admin/login"
                 className="inline-flex items-center px-4 py-2 bg-thandi-teal-mid/20 hover:bg-thandi-teal-mid/30 border border-thandi-gold/30 rounded-lg text-thandi-gold hover:text-thandi-cream transition-all duration-200 text-sm font-medium font-body"
               >
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
