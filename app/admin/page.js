@@ -1,30 +1,56 @@
 'use client';
 
+/**
+ * Admin Dashboard Page
+ * /admin
+ * Protected route - requires authentication
+ * Created: January 20, 2026
+ */
+
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import DashboardOverview from '@/components/admin/DashboardOverview';
 
-export default function AdminPage() {
+export default function AdminDashboardPage() {
   const router = useRouter();
-  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Redirect to school claim page
-    setIsRedirecting(true);
-    const timer = setTimeout(() => {
-      router.replace('/school/claim');
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, [router]);
+    checkAuth();
+  }, []);
 
-  return (
-    <div className="min-h-screen bg-thandi-cream flex items-center justify-center px-4 sm:px-6">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-thandi-teal mx-auto mb-4"></div>
-        <p className="text-thandi-brown font-body">
-        {isRedirecting ? 'Redirecting to Thandi school portal...' : 'Loading...'}
-      </p>
+  const checkAuth = async () => {
+    try {
+      const response = await fetch('/api/admin/auth/verify');
+      const data = await response.json();
+
+      if (data.success) {
+        setAuthenticated(true);
+        setLoading(false);
+      } else {
+        router.push('/admin/login');
+      }
+    } catch (error) {
+      console.error('Auth check failed:', error);
+      router.push('/admin/login');
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+          <p className="mt-4 text-gray-600">Loading dashboard...</p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  if (!authenticated) {
+    return null; // Will redirect to login
+  }
+
+  return <DashboardOverview />;
 }

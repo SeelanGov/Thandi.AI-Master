@@ -1,0 +1,56 @@
+{
+  "timestamp": "2026-01-19T12:25:15.480Z",
+  "vercelCLI": {
+    "installed": true,
+    "version": "50.1.6"
+  },
+  "deploymentStatus": {
+    "error": "Command failed: vercel ls --json\nVercel CLI 50.1.6\nError: unknown or unexpected option: --json\n",
+    "productionError": "Command failed: vercel inspect --json\nVercel CLI 50.1.6\nError: `vercel inspect <url>` expects exactly one argument\n\n  ▲ vercel inspect url|deploymentId [options]\n\n  Show information about a deployment.                                          \n\n  Options:\n\n       --json            Output the deployment information as JSON                   \n  -l,  --logs            Prints the build logs instead of the deployment summary     \n       --timeout <TIME>  Time to wait for deployment completion [3m]                 \n       --wait            Blocks until deployment completes                           \n\n\n  Global Options:\n\n       --cwd <DIR>            Sets the current working directory for a single   \n                              run of a command                                  \n  -d,  --debug                Debug mode (default off)                          \n  -Q,  --global-config <DIR>  Path to the global `.vercel` directory            \n  -h,  --help                 Output usage information                          \n  -A,  --local-config <FILE>  Path to the local `vercel.json` file              \n       --no-color             No color mode (default off)                       \n  -S,  --scope                Set a custom scope                                \n  -t,  --token <TOKEN>        Login token                                       \n  -v,  --version              Output the version number                         \n\n\n  Examples:\n\n  - Get information about a deployment by its unique URL\n\n    $ vercel inspect my-deployment-ji2fjij2.vercel.app\n\n  - Get information about the deployment an alias points to\n\n    $ vercel inspect my-deployment.vercel.app\n\n  - Get information about a deployment by piping in the URL\n\n    $ echo my-deployment.vercel.app | vercel inspect\n\n  - Wait up to 90 seconds for deployment to complete\n\n    $ vercel inspect my-deployment.vercel.app --wait --timeout 90s\n\n  - Get deployment build logs\n\n    $ vercel inspect my-deployment.vercel.app --logs\n\n  - Get deployment information as JSON\n\n    $ vercel inspect my-deployment.vercel.app --json\n\n"
+  },
+  "endToEndTests": {
+    "registration": {
+      "success": false,
+      "status": 404
+    },
+    "results": {
+      "success": false,
+      "status": 404
+    }
+  },
+  "apiTests": {
+    "endpoints": [
+      {
+        "path": "/api/health",
+        "status": 404,
+        "success": false,
+        "responseTime": 1768825584473
+      },
+      {
+        "path": "/api/schools/search?query=test",
+        "status": 404,
+        "success": false,
+        "responseTime": 1768825584523
+      },
+      {
+        "path": "/api/rag/query",
+        "status": 404,
+        "success": false,
+        "responseTime": 1768825584564
+      }
+    ]
+  },
+  "buildVerification": {
+    "success": true,
+    "time": "55.4",
+    "tests": "passed"
+  },
+  "summary": {
+    "allPassed": false,
+    "buildPassed": true,
+    "testsPassed": true,
+    "apisPassed": false,
+    "e2ePassed": false,
+    "timestamp": "2026-01-19T12:26:24.657Z"
+  }
+}

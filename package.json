@@ -22,7 +22,19 @@
     "bulletproof:syntax": "node .kiro/tools/syntax-validator.js --all",
     "bulletproof:schema": "node .kiro/tools/schema-validator.js",
     "bulletproof:deploy": "node .kiro/tools/bulletproof-deploy.js",
-    "bulletproof:status": "node .kiro/tools/install-git-hooks.js status"
+    "bulletproof:status": "node .kiro/tools/install-git-hooks.js status",
+    "admin:seed": "node scripts/seed-admin-user.js",
+    "admin:verify": "node scripts/verify-admin-dashboard-schema.js",
+    "admin:test:errors": "node scripts/test-error-tracking-system.js",
+    "admin:test:performance": "node scripts/test-performance-tracking-system.js",
+    "admin:test:activity": "node scripts/test-activity-tracking-system.js",
+    "admin:test:health": "node scripts/test-health-monitoring-system.js",
+    "admin:test:alerts": "node scripts/test-alert-system.js",
+    "admin:test:day8": "node scripts/test-day8-dashboard-pages.js",
+    "admin:test:auth": "node scripts/test-admin-authentication.js",
+    "admin:test:apikey": "node scripts/test-api-key-authentication.js",
+    "admin:test:unit": "jest __tests__/admin --coverage",
+    "admin:test:integration": "jest __tests__/admin/integration --verbose"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
@@ -30,6 +42,8 @@
     "@supabase/supabase-js": "^2.80.0",
     "@upstash/redis": "^1.35.8",
     "@vercel/analytics": "^1.6.1",
+    "bcryptjs": "^2.4.3",
+    "cookie": "^1.1.1",
     "dotenv": "^17.2.3",
     "groq-sdk": "^0.3.3",
     "jsonwebtoken": "^9.0.3",
@@ -47,12 +61,17 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.6",
+    "@babel/preset-env": "^7.28.6",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.23",
+    "babel-jest": "^30.2.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
+    "jest": "^30.2.0",
     "postcss": "^8.5.6",
     "typescript": "^5.3.3"
   },

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Redis } from '@upstash/redis';
+import { trackPerformance } from './lib/admin/performance-middleware';
 
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL,
@@ -16,6 +17,7 @@ const TEST_SCHOOL_DATA = {
 };
 
 export async function middleware(request) {
+  const startTime = Date.now();
   const { pathname, searchParams } = request.nextUrl;
   
   // Only protect specific school routes, exclude claim page
@@ -69,6 +71,28 @@ export async function middleware(request) {
   } catch (error) {
     console.error('Middleware error:', error);
     return NextResponse.redirect(new URL('/unauthorized', request.url));
+  } finally {
+    // Track performance for all requests (async, don't block response)
+    const responseTime = Date.now() - startTime;
+    const url = new URL(request.url);
+    
+    // Only track API routes and protected paths
+    if (pathname.startsWith('/api/') || isProtectedPath) {
+      trackPerformance({
+        endpoint: pathname,
+        method: request.method,
+        response_time: responseTime,
+        status_code: 200, // Middleware doesn't have access to final status
+        metadata: {
+          is_protected: isProtectedPath,
+          has_token: !!token,
+          timestamp: new Date().toISOString()
+        }
+      }).catch(err => {
+        // Silent fail - don't block requests for performance tracking errors
+        console.error('Performance tracking failed:', err.message);
+      });
+    }
   }
 }
 

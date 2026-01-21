@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-01-19T12:58:14.716Z",
+  "totalTests": 8,
+  "passed": 5,
+  "failed": 3,
+  "tests": [
+    {
+      "name": "Student Registration API",
+      "status": "FAIL",
+      "timestamp": "2026-01-19T12:58:16.297Z",
+      "statusCode": 400,
+      "responseTime": 1553,
+      "error": "Unexpected status code: 400",
+      "response": {
+        "success": false,
+        "error": "Missing required fields"
+      }
+    },
+    {
+      "name": "Retroactive Association API",
+      "status": "PASS",
+      "timestamp": "2026-01-19T12:58:16.906Z",
+      "statusCode": 400,
+      "responseTime": 607,
+      "note": "Validation error expected for test data"
+    },
+    {
+      "name": "School Search API",
+      "status": "FAIL",
+      "timestamp": "2026-01-19T12:58:17.245Z",
+      "statusCode": 400,
+      "responseTime": 313,
+      "error": "Unexpected status code: 400"
+    },
+    {
+      "name": "School Login API",
+      "status": "FAIL",
+      "timestamp": "2026-01-19T12:58:18.673Z",
+      "statusCode": 404,
+      "responseTime": 1427,
+      "error": "Unexpected status code: 404"
+    },
+    {
+      "name": "School Claim API",
+      "status": "PASS",
+      "timestamp": "2026-01-19T12:58:19.364Z",
+      "statusCode": 400,
+      "responseTime": 688,
+      "note": "API responding correctly"
+    },
+    {
+      "name": "RAG Query API",
+      "status": "PASS",
+      "timestamp": "2026-01-19T12:58:19.719Z",
+      "statusCode": 200,
+      "responseTime": 353,
+      "hasResponse": "# Your Career Guidance Results\n\n## Based on Your Assessment\n**Grade Level**: GRADE10\n**Curriculum**: CAPS\n**Academic Year**: 2026\n**Current Term**: 1\n**Student Status**: NEW - New Grade 10 student, first year of Senior Phase\n**Available Marks**: No marks available yet\n**Query**: What careers are available for someone interested in engineering?\n\n## Academic Context & Guidance Focus\n\n### Your Current Academic Journey\nYou are a **new student** in the South African education system. Based on your grade level and academic progression:\n\n### Priority Focus Areas:\n- **Career exploration**\n- **Subject selection confirmation**\n\n## Recommended Career Paths\n\n### 1. Technology & Engineering\n- **Software Development**: High demand field with excellent growth prospects\n- **Data Science**: Emerging field combining mathematics and technology\n- **Engineering**: Various specializations available (Civil, Mechanical, Electrical)\n\n### 2. Healthcare & Sciences\n- **Medical Sciences**: Rewarding career helping others\n- **Biomedical Engineering**: Combines technology with healthcare\n- **Research Sciences**: Opportunities in various scientific fields\n\n### 3. Business & Finance\n- **Business Management**: Leadership opportunities across industries\n- **Financial Services**: Banking, investment, and financial planning\n- **Entrepreneurship**: Start your own business ventures\n\n## Next Steps for GRADE10 Students\n\n1. **Subject Selection**: Choose subjects that align with your career interests\n2. **University Research**: Investigate admission requirements for your chosen field\n3. **Work Experience**: Seek internships or job shadowing opportunities\n4. **Skills Development**: Build relevant skills through courses and projects\n\n## Important Considerations\n\n- **Academic Requirements**: Each career path has specific subject requirements\n- **Market Demand**: Research job availability in your chosen field\n- **Personal Interests**: Ensure your career choice aligns with your passions\n- **Financial Planning**: Consider the cost of education and potential earnings\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.\n\n---\n\n⚠️ **Verify before you decide**: This is AI-generated advice. Always confirm with school counselors, career advisors, and professionals in your field of interest before making important decisions about your future.",
+      "responseLength": 2495,
+      "error": null
+    },
+    {
+      "name": "PDF Generation API",
+      "status": "PASS",
+      "timestamp": "2026-01-19T12:58:20.352Z",
+      "statusCode": 400,
+      "responseTime": 629,
+      "note": "API responding (PDF generation deferred per user)"
+    },
+    {
+      "name": "Consent Management API",
+      "status": "PASS",
+      "timestamp": "2026-01-19T12:58:20.971Z",
+      "statusCode": 400,
+      "responseTime": 618,
+      "note": "API responding correctly"
+    }
+  ]
+}
