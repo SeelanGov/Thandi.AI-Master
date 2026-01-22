@@ -87,3 +87,4 @@ Thumbs.db
 # Specific large files that exceed GitHub limits
 node_modules/@next/swc-win32-x64-msvc/
 .next/cache/webpack/
+.env*.local

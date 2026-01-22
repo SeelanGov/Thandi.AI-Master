@@ -52,6 +52,97 @@ export default function DashboardOverview() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Navigation Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <button
+            onClick={() => router.push('/admin/errors')}
+            className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow text-left"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              </div>
+              <svg className="w-5 h-5 text-thandi-brown/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-thandi-brown font-heading mb-1">
+              System Errors
+            </h3>
+            <p className="text-sm text-thandi-brown/70 font-body">
+              Monitor and resolve system errors
+            </p>
+          </button>
+
+          <button
+            onClick={() => router.push('/admin/performance')}
+            className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow text-left"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <svg className="w-5 h-5 text-thandi-brown/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-thandi-brown font-heading mb-1">
+              Performance
+            </h3>
+            <p className="text-sm text-thandi-brown/70 font-body">
+              Track API response times and performance
+            </p>
+          </button>
+
+          <button
+            onClick={() => router.push('/admin/activity')}
+            className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow text-left"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <svg className="w-5 h-5 text-thandi-brown/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-thandi-brown font-heading mb-1">
+              User Activity
+            </h3>
+            <p className="text-sm text-thandi-brown/70 font-body">
+              Track user actions and funnel metrics
+            </p>
+          </button>
+
+          <button
+            onClick={() => router.push('/admin/health')}
+            className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow text-left"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <svg className="w-5 h-5 text-thandi-brown/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-bold text-thandi-brown font-heading mb-1">
+              System Health
+            </h3>
+            <p className="text-sm text-thandi-brown/70 font-body">
+              Monitor system health and uptime
+            </p>
+          </button>
+        </div>
+
         <div className="bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-xl font-bold font-heading text-thandi-brown mb-4">
             Welcome to Thandi Admin
