@@ -3,6 +3,16 @@
   "buildCommand": "next build",
   "installCommand": "npm install",
   "outputDirectory": ".next",
+  "crons": [
+    {
+      "path": "/api/cron/health-check",
+      "schedule": "*/5 * * * *"
+    },
+    {
+      "path": "/api/cron/check-alerts",
+      "schedule": "*/5 * * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
